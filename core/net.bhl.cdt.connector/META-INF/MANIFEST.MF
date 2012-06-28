@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Connector
+Bundle-SymbolicName: net.bhl.cdt.connector;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: net.bhl.cdt.connector.Activator
+Require-Bundle: net.bhl.cdt.calculation;visibility:=reexport
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: net.bhl.cdt.connector,
+ net.bhl.cdt.connector.exception,
+ net.bhl.cdt.connector.io,
+ net.bhl.cdt.connector.io.strategyimpl,
+ net.bhl.cdt.connector.io.util
+Bundle-ClassPath: .

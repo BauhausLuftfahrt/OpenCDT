@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="units"
+    nsURI="http://bhl.net/cdt/utilities/units" nsPrefix="net.bhl.cdt">
+  <eClassifiers xsi:type="ecore:EDataType" name="Unit" instanceClassName="javax.units.Unit"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="Quantity">
+    <eLiterals name="LENGTH" literal="LENGTH"/>
+    <eLiterals name="WEIGHT" literal="WEIGHT"/>
+    <eLiterals name="MASS" literal="MASS"/>
+    <eLiterals name="ACCELERATION" literal="ACCELERATION"/>
+    <eLiterals name="COEFFICIENT" literal="COEFFICIENT"/>
+    <eLiterals name="TEMPERATURE" literal="TEMPERATURE"/>
+    <eLiterals name="VELOCITY" literal="VELOCITY"/>
+    <eLiterals name="DENSITY" literal="DENSITY"/>
+    <eLiterals name="SPECIFICFUELCONSUMPTION" literal="SPECIFICFUELCONSUMPTION"/>
+    <eLiterals name="AREA" literal="AREA"/>
+    <eLiterals name="ANGLE"/>
+    <eLiterals name="CURRENCY"/>
+    <eLiterals name="LABORCOST"/>
+    <eLiterals name="COUNT"/>
+    <eLiterals name="FUELCOST"/>
+  </eClassifiers>
+</ecore:EPackage>

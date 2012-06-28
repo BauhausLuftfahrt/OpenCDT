@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.eclipse.emf.emfstore.common.model:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:net.bhl.cdt="http://bhl.net/cdt/resources" xmlns:net.bhl.cdt.calculationrepository="http://bhl.net/cdt/calculationrepository/functions" xmlns:net.bhl.cdt.model="http://bhl.net/cdt/model" xmlns:net.bhl.cdt.model_1="http://bhl.net/cdt/model/qualification" xmlns:net.bhl.cdt.utilities="http://bhl.net/cdt/utilities/exchangemodel/" xmlns:net.bhl.cdt_1="http://bhl.net.cdt.tags" xmlns:org.eclipse.emf.emfstore.common.model="http://eclipse.org/emf/emfstore/common/model">
+  <modelElements xsi:type="net.bhl.cdt.model:Model" xmi:id="_2xDP0OaSEd-Ij964ZrlY1w">
+    <configurations xmi:id="_cFCOQOaUEd-Ij964ZrlY1w" name="Demo configuration">
+      <components xmi:id="_e34wYOaUEd-Ij964ZrlY1w" name="Aircaft">
+        <parameters xmi:id="_e34wYeaUEd-Ij964ZrlY1w" name="Speed of sound" quantity="VELOCITY"/>
+        <parameters xmi:id="_e5IGgOaUEd-Ij964ZrlY1w" name="Wing aspect ratio" quantity="COEFFICIENT">
+          <values xmi:id="_e5vxkOaUEd-Ij964ZrlY1w" name="Wing aspect ratio" unit="" value="9.0"/>
+        </parameters>
+        <parameters xmi:id="_e5vxkeaUEd-Ij964ZrlY1w" name="Altitude">
+          <values xmi:id="_e5vxkuaUEd-Ij964ZrlY1w" name="Altitude" unit="m" value="10668.0"/>
+        </parameters>
+        <parameters xmi:id="_e5vxk-aUEd-Ij964ZrlY1w" name="Zero lift coefficient" quantity="COEFFICIENT"/>
+        <parameters xmi:id="_e5vxlOaUEd-Ij964ZrlY1w" name="Drag coefficient" quantity="COEFFICIENT"/>
+        <parameters xmi:id="_e5vxleaUEd-Ij964ZrlY1w" name="Lift coefficient" quantity="COEFFICIENT"/>
+        <parameters xmi:id="_e5vxluaUEd-Ij964ZrlY1w" name="Oswald efficiency" quantity="COEFFICIENT">
+          <values xmi:id="_e5vxl-aUEd-Ij964ZrlY1w" name="Oswald efficiency" unit="" value="0.85"/>
+        </parameters>
+        <parameters xmi:id="_e5vxmOaUEd-Ij964ZrlY1w" name="k-factor" quantity="COEFFICIENT"/>
+        <parameters xmi:id="_e5vxmeaUEd-Ij964ZrlY1w" name="Mach number" quantity="COEFFICIENT">
+          <values xmi:id="_e5vxmuaUEd-Ij964ZrlY1w" name="Mach number" unit="" value="0.75"/>
+        </parameters>
+        <parameters xmi:id="_e5vxm-aUEd-Ij964ZrlY1w" name="Take-off mass (initial)" quantity="MASS">
+          <values xmi:id="_e5vxnOaUEd-Ij964ZrlY1w" name="Take-off mass (initial)" unit="kg" value="23000.0"/>
+        </parameters>
+        <parameters xmi:id="_e5vxneaUEd-Ij964ZrlY1w" name="Propulsion mass" quantity="MASS"/>
+        <parameters xmi:id="_e5vxnuaUEd-Ij964ZrlY1w" name="Wing mass" quantity="MASS"/>
+        <parameters xmi:id="_e5vxn-aUEd-Ij964ZrlY1w" name="Fuselage mass" quantity="MASS"/>
+        <parameters xmi:id="_e5vxoOaUEd-Ij964ZrlY1w" name="Vertical tail mass" quantity="MASS"/>
+        <parameters xmi:id="_e5vxoeaUEd-Ij964ZrlY1w" name="Horizontal tail mass" quantity="MASS"/>
+        <parameters xmi:id="_e5vxouaUEd-Ij964ZrlY1w" name="Landing gear mass" quantity="MASS"/>
+        <parameters xmi:id="_e5vxo-aUEd-Ij964ZrlY1w" name="Systems mass" quantity="MASS"/>
+        <parameters xmi:id="_e5vxpOaUEd-Ij964ZrlY1w" name="Operating empty mass" quantity="MASS"/>
+        <parameters xmi:id="_e5vxpeaUEd-Ij964ZrlY1w" name="Payload mass" quantity="MASS">
+          <values xmi:id="_e5vxpuaUEd-Ij964ZrlY1w" name="Payload mass" unit="kg" value="6250.0"/>
+        </parameters>
+        <parameters xmi:id="_e5vxp-aUEd-Ij964ZrlY1w" name="Calculated take-off mass" quantity="MASS"/>
+        <parameters xmi:id="_e5vxqOaUEd-Ij964ZrlY1w" name="Fuel burn" quantity="MASS"/>
+        <parameters xmi:id="_e5vxqeaUEd-Ij964ZrlY1w" name="Range">
+          <values xmi:id="_e5vxquaUEd-Ij964ZrlY1w" name="Range" unit="m" value="2000000.0"/>
+        </parameters>
+        <parameters xmi:id="_e5vxq-aUEd-Ij964ZrlY1w" name="Specific fuel consumption" quantity="SPECIFICFUELCONSUMPTION"/>
+        <parameters xmi:id="_e5vxrOaUEd-Ij964ZrlY1w" name="Wetted area fuselage" quantity="AREA">
+          <values xmi:id="_e5vxreaUEd-Ij964ZrlY1w" name="Wetted area fuselage" unit="m&#xb2;" value="200.0"/>
+        </parameters>
+        <parameters xmi:id="_e5vxruaUEd-Ij964ZrlY1w" name="Wing reference area" quantity="AREA">
+          <values xmi:id="_e5vxr-aUEd-Ij964ZrlY1w" name="Wing reference area" unit="m&#xb2;" value="50.0"/>
+        </parameters>
+        <parameters xmi:id="_e5vxsOaUEd-Ij964ZrlY1w" name="VT reference area" quantity="AREA"/>
+        <parameters xmi:id="_e5vxseaUEd-Ij964ZrlY1w" name="HT reference area" quantity="AREA"/>
+        <parameters xmi:id="_e5vxsuaUEd-Ij964ZrlY1w" name="Aircraft wetted area" quantity="AREA"/>
+        <parameters xmi:id="_e5vxs-aUEd-Ij964ZrlY1w" name="Temperature" quantity="TEMPERATURE"/>
+        <parameters xmi:id="_e5wYoOaUEd-Ij964ZrlY1w" name="Cruise speed" quantity="VELOCITY"/>
+        <parameters xmi:id="_e5wYoeaUEd-Ij964ZrlY1w" name="Air density"/>
+        <parameters xmi:id="_e5wYouaUEd-Ij964ZrlY1w" name="Gravitational constant" quantity="ACCELERATION">
+          <values xmi:id="_e5wYo-aUEd-Ij964ZrlY1w" name="Gravitational constant" unit="m/s&#xb2;" value="9.81"/>
+        </parameters>
+        <parameters xmi:id="_e5wYpOaUEd-Ij964ZrlY1w" name="MassFraction relative to mTO  for evaluation of CL (and CD(L/D) for cruise segment" quantity="COEFFICIENT">
+          <values xmi:id="_e5wYpeaUEd-Ij964ZrlY1w" name="MassFraction relative to mTO  for evaluation of CL (and CD(L/D) for cruise segment" unit="" value="0.95"/>
+        </parameters>
+        <parameters xmi:id="_YWuk8OaeEd-nwMAsWgL1Ig" name="Fuel Fraction" quantity="COEFFICIENT">
+          <values xmi:id="_bqgp4OaeEd-nwMAsWgL1Ig" unit="" source="" value="0.9"/>
+          <values xmi:id="_Pc_X1FGAEeCms7pY0WvIOQ" name="StartSet: Demo" unit="" source="" value="0.9"/>
+        </parameters>
+        <calculationSets xmi:id="_ndPf0OaYEd-nwMAsWgL1Ig" name="Demo">
+          <calculations xmi:id="_zJ-zwOaYEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.scilab.wettedareafunction">
+            <parameterMapping xmi:id="_4L840OaYEd-nwMAsWgL1Ig" inputParameters="_e5vxruaUEd-Ij964ZrlY1w _e5vxsOaUEd-Ij964ZrlY1w _e5vxseaUEd-Ij964ZrlY1w _e5vxrOaUEd-Ij964ZrlY1w" outputParameters="_e5vxsuaUEd-Ij964ZrlY1w"/>
+          </calculations>
+          <calculations xmi:id="_zJ-zweaYEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.scilab.refareahorizontaltailfunction">
+            <parameterMapping xmi:id="_6hfM0OaYEd-nwMAsWgL1Ig" inputParameters="_e5vxruaUEd-Ij964ZrlY1w" outputParameters="_e5vxseaUEd-Ij964ZrlY1w"/>
+          </calculations>
+          <calculations xmi:id="_zJ-zwuaYEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.scilab.refareaverticaltailfunction">
+            <parameterMapping xmi:id="_9GrGYOaYEd-nwMAsWgL1Ig" inputParameters="_e5vxruaUEd-Ij964ZrlY1w" outputParameters="_e5vxsOaUEd-Ij964ZrlY1w"/>
+          </calculations>
+          <calculations xmi:id="_E9XV0OaZEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.scilab.zeroliftdragcoefficientfunction">
+            <parameterMapping xmi:id="_JfGboOaZEd-nwMAsWgL1Ig" inputParameters="_e5vxsuaUEd-Ij964ZrlY1w _e5vxruaUEd-Ij964ZrlY1w" outputParameters="_e5vxk-aUEd-Ij964ZrlY1w"/>
+          </calculations>
+          <calculations xmi:id="_E9XV0eaZEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.scilab.kfactorfunction">
+            <parameterMapping xmi:id="_MmsesOaZEd-nwMAsWgL1Ig" inputParameters="_e5IGgOaUEd-Ij964ZrlY1w _e5vxluaUEd-Ij964ZrlY1w" outputParameters="_e5vxmOaUEd-Ij964ZrlY1w"/>
+          </calculations>
+          <calculations xmi:id="_6bDYMOaZEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.scilab.dragcoefficientfunction">
+            <parameterMapping xmi:id="_90xtEOaZEd-nwMAsWgL1Ig" inputParameters="_e5vxk-aUEd-Ij964ZrlY1w _e5vxmOaUEd-Ij964ZrlY1w _e5vxleaUEd-Ij964ZrlY1w" outputParameters="_e5vxlOaUEd-Ij964ZrlY1w"/>
+          </calculations>
+          <calculations xmi:id="__tp6QOaZEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.functions.sfcfunction">
+            <parameterMapping xmi:id="_B2f2EOaaEd-nwMAsWgL1Ig" inputParameters="_e5vxkeaUEd-Ij964ZrlY1w _e5vxmeaUEd-Ij964ZrlY1w" outputParameters="_e5vxq-aUEd-Ij964ZrlY1w"/>
+          </calculations>
+          <calculations xmi:id="_MFDUwOaaEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.scilab.masspropulsionfunction">
+            <parameterMapping xmi:id="_QkFE0OaaEd-nwMAsWgL1Ig" inputParameters="_e5vxm-aUEd-Ij964ZrlY1w" outputParameters="_e5vxneaUEd-Ij964ZrlY1w"/>
+          </calculations>
+          <calculations xmi:id="_MFDUweaaEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.scilab.masswingfunction">
+            <parameterMapping xmi:id="_TCUo4OaaEd-nwMAsWgL1Ig" inputParameters="_e5vxruaUEd-Ij964ZrlY1w" outputParameters="_e5vxnuaUEd-Ij964ZrlY1w"/>
+          </calculations>
+          <calculations xmi:id="_MFDUwuaaEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.scilab.massfuselagefunction">
+            <parameterMapping xmi:id="_U02WcOaaEd-nwMAsWgL1Ig" inputParameters="_e5vxrOaUEd-Ij964ZrlY1w" outputParameters="_e5vxn-aUEd-Ij964ZrlY1w"/>
+          </calculations>
+          <calculations xmi:id="_MFDUw-aaEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.scilab.massverticaltailfunction">
+            <parameterMapping xmi:id="_XbUpcOaaEd-nwMAsWgL1Ig" inputParameters="_e5vxsOaUEd-Ij964ZrlY1w" outputParameters="_e5vxoOaUEd-Ij964ZrlY1w"/>
+          </calculations>
+          <calculations xmi:id="_MFDUxOaaEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.scilab.masshorizontaltailfunction">
+            <parameterMapping xmi:id="_ZF1qgOaaEd-nwMAsWgL1Ig" inputParameters="_e5vxseaUEd-Ij964ZrlY1w" outputParameters="_e5vxoeaUEd-Ij964ZrlY1w"/>
+          </calculations>
+          <calculations xmi:id="_MFDUxeaaEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.scilab.masslandinggearfunction">
+            <parameterMapping xmi:id="_cRjYkOaaEd-nwMAsWgL1Ig" inputParameters="_e5vxm-aUEd-Ij964ZrlY1w" outputParameters="_e5vxouaUEd-Ij964ZrlY1w"/>
+          </calculations>
+          <calculations xmi:id="_MFDUxuaaEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.scilab.masssystemsfunction">
+            <parameterMapping xmi:id="_eKoaEOaaEd-nwMAsWgL1Ig" inputParameters="_e5vxm-aUEd-Ij964ZrlY1w" outputParameters="_e5vxo-aUEd-Ij964ZrlY1w"/>
+          </calculations>
+          <calculations xmi:id="_MFDUx-aaEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.scilab.massoperatingemptyfunction">
+            <parameterMapping xmi:id="_kSH8wOaaEd-nwMAsWgL1Ig" inputParameters="_e5vxneaUEd-Ij964ZrlY1w _e5vxn-aUEd-Ij964ZrlY1w _e5vxnuaUEd-Ij964ZrlY1w _e5vxoOaUEd-Ij964ZrlY1w _e5vxoeaUEd-Ij964ZrlY1w _e5vxouaUEd-Ij964ZrlY1w _e5vxo-aUEd-Ij964ZrlY1w" outputParameters="_e5vxpOaUEd-Ij964ZrlY1w"/>
+          </calculations>
+          <calculations xmi:id="_4JAnoOaaEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.scilab.fuelburnfunction">
+            <parameterMapping xmi:id="_haxYUOaeEd-nwMAsWgL1Ig" inputParameters="_e5vxqeaUEd-Ij964ZrlY1w _e5vxmeaUEd-Ij964ZrlY1w _e5vxkeaUEd-Ij964ZrlY1w _e5vxm-aUEd-Ij964ZrlY1w _YWuk8OaeEd-nwMAsWgL1Ig _e5vxruaUEd-Ij964ZrlY1w _e5vxk-aUEd-Ij964ZrlY1w _e5vxmOaUEd-Ij964ZrlY1w _e5vxq-aUEd-Ij964ZrlY1w" outputParameters="_e5vxqOaUEd-Ij964ZrlY1w"/>
+          </calculations>
+          <calculations xmi:id="_4JAnoeaaEd-nwMAsWgL1Ig" functionID="net.bhl.cdt.calculationrepository.scilab.masstakeofffunction">
+            <parameterMapping xmi:id="_XG3fkOaeEd-nwMAsWgL1Ig" inputParameters="_e5vxqOaUEd-Ij964ZrlY1w _e5vxpOaUEd-Ij964ZrlY1w _e5vxpeaUEd-Ij964ZrlY1w" outputParameters="_e5vxm-aUEd-Ij964ZrlY1w"/>
+          </calculations>
+        </calculationSets>
+      </components>
+    </configurations>
+    <qualifyingSpaces xsi:type="net.bhl.cdt.model_1:CalculationSpace" xmi:id="_Pc0_wFGAEeCms7pY0WvIOQ"/>
+  </modelElements>
+  <modelElements xsi:type="net.bhl.cdt:Resources" xmi:id="_2xG6MOaSEd-Ij964ZrlY1w">
+    <resources xmi:id="_YLDsAOaUEd-Ij964ZrlY1w" URI="file:/C:/Users/sven.ziemer/Desktop/Aircraftparameters.csv" name="Aircraftparameters.csv">
+      <structrualData xmi:id="_YLETEOaUEd-Ij964ZrlY1w" >
+        <modelElements xsi:type="net.bhl.cdt.utilities:CompositeElement" xmi:id="_YJ51cOaUEd-Ij964ZrlY1w" name="Aircaft">
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51ceaUEd-Ij964ZrlY1w" name="Speed of sound" unit="m/s" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51cuaUEd-Ij964ZrlY1w" name="Wing aspect ratio" unit="" value="9.0"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51c-aUEd-Ij964ZrlY1w" name="Altitude" unit="m" value="10668.0"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51dOaUEd-Ij964ZrlY1w" name="Zero lift coefficient" unit="" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51deaUEd-Ij964ZrlY1w" name="Drag coefficient" unit="" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51duaUEd-Ij964ZrlY1w" name="Lift coefficient" unit="" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51d-aUEd-Ij964ZrlY1w" name="Oswald efficiency" unit="" value="0.85"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51eOaUEd-Ij964ZrlY1w" name="k-factor" unit="" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51eeaUEd-Ij964ZrlY1w" name="Mach number" unit="" value="0.75"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51euaUEd-Ij964ZrlY1w" name="Take-off mass (initial)" unit="kg" value="23000.0"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51e-aUEd-Ij964ZrlY1w" name="Propulsion mass" unit="kg" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51fOaUEd-Ij964ZrlY1w" name="Wing mass" unit="kg" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51feaUEd-Ij964ZrlY1w" name="Fuselage mass" unit="kg" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51fuaUEd-Ij964ZrlY1w" name="Vertical tail mass" unit="kg" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51f-aUEd-Ij964ZrlY1w" name="Horizontal tail mass" unit="kg" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51gOaUEd-Ij964ZrlY1w" name="Landing gear mass" unit="kg" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51geaUEd-Ij964ZrlY1w" name="Systems mass" unit="kg" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51guaUEd-Ij964ZrlY1w" name="Operating empty mass" unit="kg" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ51g-aUEd-Ij964ZrlY1w" name="Payload mass" unit="kg" value="6250.0"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ6cgOaUEd-Ij964ZrlY1w" name="Calculated take-off mass" unit="kg" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ6cgeaUEd-Ij964ZrlY1w" name="Fuel burn" unit="kg" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ6cguaUEd-Ij964ZrlY1w" name="Range" unit="m" value="2000000.0"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ6cg-aUEd-Ij964ZrlY1w" name="Specific fuel consumption" unit="kg&#xb7;s/N" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ6chOaUEd-Ij964ZrlY1w" name="Wetted area fuselage" unit="m&#xb2;" value="200.0"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ6cheaUEd-Ij964ZrlY1w" name="Wing reference area" unit="m&#xb2;" value="50.0"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ6chuaUEd-Ij964ZrlY1w" name="VT reference area" unit="m&#xb2;" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ6ch-aUEd-Ij964ZrlY1w" name="HT reference area" unit="m&#xb2;" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ6ciOaUEd-Ij964ZrlY1w" name="Aircraft wetted area" unit="m&#xb2;" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ6cieaUEd-Ij964ZrlY1w" name="Temperature" unit="K" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ6ciuaUEd-Ij964ZrlY1w" name="Cruise speed" unit="m/s" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ6ci-aUEd-Ij964ZrlY1w" name="Air density" unit="kg/m&#xb2;" value="NaN"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ6cjOaUEd-Ij964ZrlY1w" name="Gravitational constant" unit="m/s&#xb2;" value="9.81"/>
+          <containments xsi:type="net.bhl.cdt.utilities:ExchangeValue" xmi:id="_YJ6cjeaUEd-Ij964ZrlY1w" name="MassFraction relative to mTO  for evaluation of CL (and CD(L/D) for cruise segment" unit="" value="0.95"/>
+        </modelElements>
+      </structrualData>
+    </resources>
+  </modelElements>
+  <modelElements xsi:type="net.bhl.cdt.calculationrepository:CalculationRepository" xmi:id="_2xIIUOaSEd-Ij964ZrlY1w">
+    <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" xmi:id="_ydTjMEveEeCaHLBlpo3xBg" functionID="net.bhl.cdt.calculationrepository.scilab.kfactorfunction" name="K Factor Function" synopsis="This function calculates the k factor" scriptText="function k = kFactor(AR, e)&#xD;&#xA;// Calculation of drag polar k-factor&#xD;&#xA;// Inputs:&#xD;&#xA;//           - AR = Aspect ratio [-]&#xD;&#xA;//           - e = Osswald factor [-]&#xD;&#xA;// Output:&#xD;&#xA;//           - k = Drag polar k-factor [-]&#xD;&#xA;&#xD;&#xA;k = 1/(%pi*AR*e);">
+      <inputDescriptors xmi:id="__DavIEveEeCaHLBlpo3xBg" quantity="COEFFICIENT" unit="" label="AR"/>
+      <inputDescriptors xmi:id="__OtZIEveEeCaHLBlpo3xBg" quantity="COEFFICIENT" unit="" label="e"/>
+      <outputDescriptors xmi:id="_GHLFwEvfEeCaHLBlpo3xBg" quantity="COEFFICIENT" unit="" label="k"/>
+    </functions>
+    <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" xmi:id="_MDeFEEvfEeCaHLBlpo3xBg" functionID="net.bhl.cdt.calculationrepository.scilab.dragcoefficientfunction" name="Drag Coefficient Function" synopsis="This function calculates the drag coefficient" scriptText="function CD = DragCoefficient(CD0,k,CL)&#xD;&#xA;// Calculation of drag coefficient&#xD;&#xA;// Inputs:&#xD;&#xA;//           - CD0 = Zero lift drag coefficient [-]&#xD;&#xA;//           - k = Drag polar k-factor [-]&#xD;&#xA;//           - CL = Lift coefficient [-]&#xD;&#xA;// Output:&#xD;&#xA;//           - CD = Drag coefficient [-]&#xD;&#xA;&#xD;&#xA;CD = CD0 + k*CL^2;">
+      <inputDescriptors xmi:id="_ZfwrEEvfEeCaHLBlpo3xBg" quantity="COEFFICIENT" unit="" label="CD0"/>
+      <inputDescriptors xmi:id="_ZqSgEEvfEeCaHLBlpo3xBg" quantity="COEFFICIENT" unit="" label="k"/>
+      <inputDescriptors xmi:id="_gNtJwEvfEeCaHLBlpo3xBg" quantity="COEFFICIENT" unit="" label="CL"/>
+      <outputDescriptors xmi:id="_nsxjYEvfEeCaHLBlpo3xBg" quantity="COEFFICIENT" unit="" label="CD"/>
+    </functions>
+    <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" xmi:id="_mkLowFFzEeC18MauDx-duw" functionID="net.bhl.cdt.calculationrepository.scilab.fuelburnfunction" name="Fuel Burn Function" synopsis="This Method calculates the fuel burn of an aircraft" scriptText="function m_Fuel = FuelBurn(R,Ma,Alt,m_TO,FF_ref,S_ref,CD0,k,SFC)&#xD;&#xA;// Calculation of fuel burn&#xD;&#xA;// Inputs:&#xD;&#xA;//           - R = Range [m]&#xD;&#xA;//           - Ma = Cruise Mach number [-]&#xD;&#xA;//           - Alt = Cruise altitude[m]&#xD;&#xA;//           - m_TO = Take-Off weight [kg]&#xD;&#xA;//           - FF_ref = Fuel fraction for aerodynamic design point [-]&#xD;&#xA;//           - S_ref = Reference area [m&#xb2;]&#xD;&#xA;//           - CD0 = Zero lift drag coefficient [-]&#xD;&#xA;//           - k = Drag polar k-factor [-]&#xD;&#xA;//           - SFC = Specific fuel consumption [kg/s/N]&#xD;&#xA;// Output:&#xD;&#xA;//           - CD0 = Zero lift drag coefficient [-]&#xD;&#xA;&#xD;&#xA;L = 0.0065; // Temperature lapse rate [K/m]&#xD;&#xA;if Alt &lt; 11000&#xD;&#xA;    T = 288.15 - L*Alt;&#xD;&#xA;else&#xD;&#xA;    T = 216.65;&#xD;&#xA;end;&#xD;&#xA;a = sqrt(1.4*287*T);&#xD;&#xA;rho = 1.225*(T/288.15)^(9.81/(L*287)-1);&#xD;&#xA;V_CR = Ma*a;&#xD;&#xA;CL = 2*m_TO*9.81*FF_ref/(rho*V_CR^2*S_ref);&#xD;&#xA;CD = CD0 + k*CL^2; //added to avoid call of drag coefficient&#xD;&#xA;//CD = DragCoefficient(CD0,k,CL);&#xD;&#xA;m_E = m_TO*exp(-R*SFC*9.81/(CL/CD*V_CR));&#xD;&#xA;m_Fuel = m_TO - m_E;">
+      <inputDescriptors xmi:id="_JNMEIFF0EeC18MauDx-duw" unit="m" label="R"/>
+      <inputDescriptors xmi:id="_JQPYIFF0EeC18MauDx-duw" quantity="COEFFICIENT" unit="" label="Ma"/>
+      <inputDescriptors xmi:id="_JThVoFF0EeC18MauDx-duw" unit="m" label="Alt"/>
+      <inputDescriptors xmi:id="_JXWFsFF0EeC18MauDx-duw" quantity="MASS" unit="kg" label="m_TO"/>
+      <inputDescriptors xmi:id="_JbY4MFF0EeC18MauDx-duw" quantity="COEFFICIENT" unit="" label="FF_ref"/>
+      <inputDescriptors xmi:id="_JfbqsFF0EeC18MauDx-duw" quantity="AREA" unit="m&#xb2;" label="S_ref"/>
+      <inputDescriptors xmi:id="_JjtGsFF0EeC18MauDx-duw" quantity="COEFFICIENT" unit="" label="CD0"/>
+      <inputDescriptors xmi:id="_JoNMMFF0EeC18MauDx-duw" quantity="COEFFICIENT" unit="" label="k"/>
+      <inputDescriptors xmi:id="_Js3CsFF0EeC18MauDx-duw" quantity="SPECIFICFUELCONSUMPTION" unit="kg/J" label="SFC"/>
+      <outputDescriptors xmi:id="_J4_aMFF0EeC18MauDx-duw" quantity="MASS" unit="kg" label="m_Fuel"/>
+    </functions>
+    <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" xmi:id="_V9fCoFF7EeC3tb20gxScPg" functionID="net.bhl.cdt.calculationrepository.scilab.massfuselagefunction" name="Mass Fuselage Function" synopsis="This method estimates the mass of the fuselage based on the wetted area of the fuselage." scriptText="function m_Fuselage = MassFuselage(S_wet_Fus)&#xD;&#xA;// Calculation of fuselage mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - S_wet_Fus = Fuselage wetted area [m&#xb2;]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_Fuselage = Fuselage mass [kg]&#xD;&#xA;&#xD;&#xA;m_Fuselage = 24*S_wet_Fus;">
+      <inputDescriptors xmi:id="_ftjOgFF7EeC3tb20gxScPg" quantity="AREA" unit="m&#xb2;" label="S_wet_Fus"/>
+      <outputDescriptors xmi:id="_f4EccFF7EeC3tb20gxScPg" quantity="MASS" unit="kg" label="m_Fuselage"/>
+    </functions>
+    <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" xmi:id="_YwQPwFF8EeCazZSqDrHHyA" functionID="net.bhl.cdt.calculationrepository.scilab.masshorizontaltailfunction" name="Mass Horizontal Tail Function" synopsis="This method estimates the mass of the horizontal tail based on its wetted area" scriptText="function m_HT = MassHorizontalTail(S_ref_HT)&#xD;&#xA;// Calculation of horizontal tail mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - S_ref_HT = Horizontal tail reference area [m&#xb2;]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_HT = Horizontal tail mass [kg]&#xD;&#xA;&#xD;&#xA;m_HT = 27*S_ref_HT;">
+      <inputDescriptors xmi:id="_dXaoIFF8EeCazZSqDrHHyA" quantity="AREA" unit="m&#xb2;" label="S_ref_HT"/>
+      <outputDescriptors xmi:id="_deNMoFF8EeCazZSqDrHHyA" quantity="MASS" unit="kg" label="m_HT"/>
+    </functions>
+    <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" xmi:id="_XMeTYFF9EeCdMLBamr1lzQ" functionID="net.bhl.cdt.calculationrepository.scilab.masslandinggearfunction" name="Mass Landing Gear Function" synopsis="This function estimates the mass of the landing gear based on the maximal take of mass of the aircraft" scriptText="function m_LG = MassLandingGear(m_TO)&#xD;&#xA;// Calculation of landing gear mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - m_TO = Take-Off weight [kg]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_LG = Landing gear mass [kg]&#xD;&#xA;&#xD;&#xA;m_LG = 0.04*m_TO;">
+      <inputDescriptors xmi:id="_d2CBUFF9EeCdMLBamr1lzQ" quantity="MASS" unit="kg" label="m_TO"/>
+      <outputDescriptors xmi:id="_d7g-QFF9EeCdMLBamr1lzQ" quantity="MASS" unit="kg" label="m_LG"/>
+    </functions>
+    <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" xmi:id="_n996oFF9EeCdMLBamr1lzQ" functionID="net.bhl.cdt.calculationrepository.scilab.massoperatingemptyfunction" name="Mass Operating Empty Function" synopsis="This function calculates the Operating Empty Mass of an aircraft based on the weight of the aircraft components propulsion, fuselage, hrizontal tail, vertical tail, landing gear and systems." scriptText="function m_OE = MassOperatingEmpty(m_Propulsion,m_Fuselage,m_Wing,m_VT,m_HT,m_LG,m_Sys)&#xD;&#xA;// Calculation of operating empty mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - m_Propulsion = Propulsion mass [kg]&#xD;&#xA;//           - m_Fuselage = Fuselage mass [kg]&#xD;&#xA;//           - m_Wing = Wing mass [kg]&#xD;&#xA;//           - m_VT = Vertical tail mass [kg]&#xD;&#xA;//           - m_HT = Horizontal tail mass [kg]&#xD;&#xA;//           - m_LG = Landing gear mass [kg]&#xD;&#xA;//           - m_Sys = System mass [kg]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_OE = Operating empty mass [kg]&#xD;&#xA;&#xD;&#xA;m_OE = m_Propulsion+m_Fuselage+m_Wing+m_VT+m_HT+m_LG+m_Sys;">
+      <inputDescriptors xmi:id="_xDU8oFF9EeCdMLBamr1lzQ" quantity="MASS" unit="kg" label="m_Propulsion"/>
+      <inputDescriptors xmi:id="_xF69oFF9EeCdMLBamr1lzQ" quantity="MASS" unit="kg" label="m_Fuselage"/>
+      <inputDescriptors xmi:id="_xJbkoFF9EeCdMLBamr1lzQ" quantity="MASS" unit="kg" label="m_Wing"/>
+      <inputDescriptors xmi:id="_xM3TIFF9EeCdMLBamr1lzQ" quantity="MASS" unit="kg" label="m_VT"/>
+      <inputDescriptors xmi:id="_xQcyoFF9EeCdMLBamr1lzQ" quantity="MASS" unit="kg" label="m_HT"/>
+      <inputDescriptors xmi:id="_xTzooFF9EeCdMLBamr1lzQ" quantity="MASS" unit="kg" label="m_LG"/>
+      <inputDescriptors xmi:id="_xW71IFF9EeCdMLBamr1lzQ" quantity="MASS" unit="kg" label="m_Sys"/>
+      <outputDescriptors xmi:id="_xo8LIFF9EeCdMLBamr1lzQ" quantity="MASS" unit="kg" label="m_OE"/>
+    </functions>
+    <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" xmi:id="_9mBLsFF-EeC8evB5k0LRHQ" functionID="net.bhl.cdt.calculationrepository.scilab.masspropulsionfunction" name="Mass Propulsion Function" synopsis="This function calculates the mass of the propulsion system based on the maximual take-off weight of the aircraft" scriptText="function m_Propulsion = MassPropulsion(m_TO)&#xD;&#xA;// Calculation of propulsion mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - m_TO = Take-Off weight [kg]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_Propulsion = Propulsion mass [kg]&#xD;&#xA;&#xD;&#xA;m_Propulsion = 0.08*m_TO;">
+      <inputDescriptors xmi:id="_KLEnsFF_EeC8evB5k0LRHQ" quantity="MASS" unit="kg" label="m_TO"/>
+      <outputDescriptors xmi:id="_KRfYwFF_EeC8evB5k0LRHQ" quantity="MASS" unit="kg" label="m_Propulsion"/>
+    </functions>
+    <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" xmi:id="_StX_8FF_EeC8evB5k0LRHQ" functionID="net.bhl.cdt.calculationrepository.scilab.masssystemsfunction" name="Mass Systems Function" synopsis="This function estimates the mass of the systems of an aircraft based on the maximal take-off mass of the aircraft." scriptText="function m_Sys = MassSystems(m_TO)&#xD;&#xA;// Calculation of system mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - m_TO = Take-Off weight [kg]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_Sys = System mass [kg]&#xD;&#xA;&#xD;&#xA;m_Sys = 0.17*m_TO;">
+      <inputDescriptors xmi:id="_X6PtcFF_EeC8evB5k0LRHQ" quantity="MASS" unit="kg" label="m_TO"/>
+      <outputDescriptors xmi:id="_X_qY8FF_EeC8evB5k0LRHQ" quantity="MASS" unit="kg" label="m_SYS"/>
+    </functions>
+    <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" xmi:id="_gNhyQFF_EeC8evB5k0LRHQ" functionID="net.bhl.cdt.calculationrepository.scilab.masstakeofffunction" name="Mass Takeoff Function" synopsis="This function calculates the maximal take-off mass based on the operational empty mass of the aircraft, the mass of the fuel and the mass of the payload." scriptText="function m_TO = MassTakeOffReal(m_Fuel,m_OE,m_Payload)&#xD;&#xA;// Calculation of take-off mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - m_Fuel = Fuel mass [kg]&#xD;&#xA;//           - m_OE = Operating empty mass [kg]&#xD;&#xA;//           - m_Payload = Payload mass [kg]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_TO = Take-Off mass [kg]&#xD;&#xA;&#xD;&#xA;m_TO = m_Fuel + m_OE + m_Payload;">
+      <inputDescriptors xmi:id="_pmH5UFF_EeC8evB5k0LRHQ" quantity="MASS" unit="kg" label="m_Fuel"/>
+      <inputDescriptors xmi:id="_ppn5QFF_EeC8evB5k0LRHQ" quantity="MASS" unit="kg" label="m_OE"/>
+      <inputDescriptors xmi:id="_ptg6wFF_EeC8evB5k0LRHQ" quantity="MASS" unit="kg" label="m_Payload"/>
+      <outputDescriptors xmi:id="_p6aHQFF_EeC8evB5k0LRHQ" quantity="MASS" unit="kg" label="m_TO"/>
+    </functions>
+    <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" xmi:id="_r6hIYFGAEeCtYehdgxn7hA" functionID="net.bhl.cdt.calculationrepository.scilab.massverticaltailfunction" name="Mass Vertical Tail Function" synopsis="This function calculates the mass of the vertical tail based on its aerodynamic reference area" scriptText="function m_VT = MassVerticalTail(S_ref_VT)&#xD;&#xA;// Calculation of vertical tail mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - S_ref_VT = Vertical tail reference area [m&#xb2;]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_VT = Vertical tail mass [kg]&#xD;&#xA;&#xD;&#xA;m_VT = 27*S_ref_VT;">
+      <inputDescriptors xmi:id="_ygxDoFGAEeCtYehdgxn7hA" quantity="AREA" unit="m&#xb2;" label="S_ref_VT"/>
+      <outputDescriptors xmi:id="_ymLvIFGAEeCtYehdgxn7hA" quantity="MASS" unit="kg" label="m_VT"/>
+    </functions>
+    <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" xmi:id="_-7RcgFGAEeCtYehdgxn7hA" functionID="net.bhl.cdt.calculationrepository.scilab.masswingfunction" name="Mass Wing Function" synopsis="Calculates the empty mass of the wing based on its aerodynamic reference area." scriptText="function m_Wing = MassWing(S_ref)&#xD;&#xA;// Calculation of wing mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - S_ref = Reference area [m&#xb2;]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_Wing = Wing mass [kg]&#xD;&#xA;&#xD;&#xA;m_Wing = 49*S_ref;">
+      <inputDescriptors xmi:id="_E_0_8FGBEeCtYehdgxn7hA" quantity="ACCELERATION" unit="m&#xb2;" label="S_ref"/>
+      <outputDescriptors xmi:id="_FGm9YFGBEeCtYehdgxn7hA" quantity="MASS" unit="kg" label="m_Wing"/>
+    </functions>
+    <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" xmi:id="_PQA2UFGBEeCtYehdgxn7hA" functionID="net.bhl.cdt.calculationrepository.scilab.refareahorizontaltailfunction" name="Reference Area Horizontal Tail Function" synopsis="Calculates the Aerodynamic reference area of the horizontal tail based on the overall aerodynamic reference area of the aircraft." scriptText="function S_ref_HT = RefAreaHorizontalTail(S_ref)&#xD;&#xA;// Calculation of horizontal tail reference area&#xD;&#xA;// Inputs:&#xD;&#xA;//           - S_ref = Reference area [m&#xb2;]&#xD;&#xA;// Output:&#xD;&#xA;//           - S_ref_HT = Horizontal tail reference area [m&#xb2;]&#xD;&#xA;&#xD;&#xA;S_ref_HT = 0.3*S_ref;">
+      <inputDescriptors xmi:id="_Uik8IFGBEeCtYehdgxn7hA" quantity="AREA" unit="m&#xb2;" label="S_ref"/>
+      <outputDescriptors xmi:id="_UpmxMFGBEeCtYehdgxn7hA" quantity="AREA" unit="m&#xb2;" label="S_ref_HT"/>
+    </functions>
+    <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" xmi:id="_qMQaUFGBEeCtYehdgxn7hA" functionID="net.bhl.cdt.calculationrepository.scilab.refareaverticaltailfunction" name="Reference Area Vertical Tail Function" synopsis="This function calculates the aerodynamic reference area of the vertical tail based on the aerodynamic reference area of the aircraft." scriptText="function S_ref_VT = RefAreaVerticalTail(S_ref)&#xD;&#xA;// Calculation of vertical tail reference area&#xD;&#xA;// Inputs:&#xD;&#xA;//           - S_ref = Reference area [m&#xb2;]&#xD;&#xA;// Output:&#xD;&#xA;//           - S_ref_VT = Vertical tail reference area [m&#xb2;]&#xD;&#xA;&#xD;&#xA;S_ref_VT = 0.3*S_ref;">
+      <inputDescriptors xmi:id="_vxhZsFGBEeCtYehdgxn7hA" quantity="AREA" unit="m&#xb2;" label="S_ref"/>
+      <outputDescriptors xmi:id="_v4xRMFGBEeCtYehdgxn7hA" quantity="AREA" unit="m&#xb2;" label="S_ref_VT"/>
+    </functions>
+    <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" xmi:id="_BZhLIFGCEeCtYehdgxn7hA" functionID="net.bhl.cdt.calculationrepository.scilab.wettedareafunction" name="Wetted Area Function" synopsis="This function calculates the wetted area of an aircraft baed on the aerodynamic reference areas of the wings and the wetted area of the fuselage" scriptText="function S_wet = WettedArea(S_ref,S_ref_VT,S_ref_HT,S_wet_Fus)&#xD;&#xA;// Calculation of aircraft wetted area&#xD;&#xA;// Inputs:&#xD;&#xA;//           - S_ref = Reference area [m&#xb2;]&#xD;&#xA;//           - S_ref_VT = Vertical tail reference area [m&#xb2;]&#xD;&#xA;//           - S_ref_HT = Horizontal tail reference area [m&#xb2;]&#xD;&#xA;//           - S_wet_Fus = Fuselage wetted area [m&#xb2;]&#xD;&#xA;// Output:&#xD;&#xA;//           - S_wet = Aircraft wetted area [m&#xb2;]&#xD;&#xA;&#xD;&#xA;S_wet = 2.1*(S_ref + S_ref_VT + S_ref_HT) + S_wet_Fus;">
+      <inputDescriptors xmi:id="_HdxzoFGCEeCtYehdgxn7hA" quantity="AREA" unit="m&#xb2;" label="S_ref"/>
+      <inputDescriptors xmi:id="_HgwPIFGCEeCtYehdgxn7hA" quantity="AREA" unit="m&#xb2;" label="S_ref_VT"/>
+      <inputDescriptors xmi:id="_Hj4boFGCEeCtYehdgxn7hA" quantity="AREA" unit="m&#xb2;" label="S_ref_HT"/>
+      <inputDescriptors xmi:id="_HnnsIFGCEeCtYehdgxn7hA" quantity="AREA" unit="m&#xb2;" label="S_wet_Fus"/>
+      <outputDescriptors xmi:id="_H1WmIFGCEeCtYehdgxn7hA" quantity="AREA" unit="m&#xb2;" label="S_wet"/>
+    </functions>
+    <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" xmi:id="_YOA2oFGCEeCtYehdgxn7hA" functionID="net.bhl.cdt.calculationrepository.scilab.zeroliftdragcoefficientfunction" name="Zero Lift Drag Coefficient Function" synopsis="This function calculates the zero lift drag coefficient baed on te wetted area and the aerodynamic reference area of the aircraft" scriptText="function CD0 = ZeroLiftDragCoefficient(S_wet, S_ref)&#xD;&#xA;// Calculation of zero lift drag coefficient&#xD;&#xA;// Inputs:&#xD;&#xA;//           - S_wet = Aircraft wetted area [m&#xb2;]&#xD;&#xA;//           - S_ref = Reference area [m&#xb2;]&#xD;&#xA;// Output:&#xD;&#xA;//           - CD0 = Zero lift drag coefficient [-]&#xD;&#xA;&#xD;&#xA;CD0 = (0.003*S_wet)/S_ref;">
+      <inputDescriptors xmi:id="_cJwTcFGCEeCtYehdgxn7hA" quantity="AREA" unit="m&#xb2;" label="S_wet"/>
+      <inputDescriptors xmi:id="_cLR9cFGCEeCtYehdgxn7hA" quantity="AREA" unit="m&#xb2;" label="S_ref"/>
+      <outputDescriptors xmi:id="_cT5t8FGCEeCtYehdgxn7hA" quantity="COEFFICIENT" unit="" label="CD0"/>
+    </functions>
+  </modelElements>
+  <modelElements xsi:type="net.bhl.cdt_1:Tags" xmi:id="_2xJ9gOaSEd-Ij964ZrlY1w"/>
+</org.eclipse.emf.emfstore.common.model:Project>

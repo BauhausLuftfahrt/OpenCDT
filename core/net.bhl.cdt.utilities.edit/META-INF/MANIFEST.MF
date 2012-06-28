@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: net.bhl.cdt.utilities.edit;singleton:=true
+Bundle-Version: 1.0.0
+Bundle-ClassPath: .
+Bundle-Activator: net.bhl.cdt.utilities.exchangemodel.provider.ExchangemodelEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: net.bhl.cdt.utilities.basecalculationmodel.provider,
+ net.bhl.cdt.utilities.datatypes.provider,
+ net.bhl.cdt.utilities.exchangemodel.provider,
+ net.bhl.cdt.utilities.ui,
+ net.bhl.cdt.utilities.units.provider
+Require-Bundle: net.bhl.cdt.utilities;visibility:=reexport
+Bundle-ActivationPolicy: lazy
