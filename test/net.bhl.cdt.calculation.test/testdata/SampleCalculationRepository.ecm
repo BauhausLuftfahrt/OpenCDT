@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="ASCII"?>
+<net.bhl.cdt.calculationrepository:CalculationRepository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:net.bhl.cdt.calculationrepository="http://bhl.net/cdt/calculationrepository/functions">
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.kfactorfunction" name="K Factor Function" synopsis="This function calculates the k factor" scriptText="function k = kFactor(AR, e)&#xD;&#xA;// Calculation of drag polar k-factor&#xD;&#xA;// Inputs:&#xD;&#xA;//           - AR = Aspect ratio [-]&#xD;&#xA;//           - e = Osswald factor [-]&#xD;&#xA;// Output:&#xD;&#xA;//           - k = Drag polar k-factor [-]&#xD;&#xA;&#xD;&#xA;k = 1/(%pi*AR*e);">
+    <inputDescriptors label="AR" quantity="COEFFICIENT" unit=""/>
+    <inputDescriptors label="e" quantity="COEFFICIENT" unit=""/>
+    <outputDescriptors label="k" quantity="COEFFICIENT" unit=""/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.dragcoefficientfunction" name="Drag Coefficient Function" synopsis="This function calculates the drag coefficient" scriptText="function CD = DragCoefficient(CD0,k,CL)&#xD;&#xA;// Calculation of drag coefficient&#xD;&#xA;// Inputs:&#xD;&#xA;//           - CD0 = Zero lift drag coefficient [-]&#xD;&#xA;//           - k = Drag polar k-factor [-]&#xD;&#xA;//           - CL = Lift coefficient [-]&#xD;&#xA;// Output:&#xD;&#xA;//           - CD = Drag coefficient [-]&#xD;&#xA;&#xD;&#xA;CD = CD0 + k*CL^2;">
+    <inputDescriptors label="CD0" quantity="COEFFICIENT" unit=""/>
+    <inputDescriptors label="k" quantity="COEFFICIENT" unit=""/>
+    <inputDescriptors label="CL" quantity="COEFFICIENT" unit=""/>
+    <outputDescriptors label="CD" quantity="COEFFICIENT" unit=""/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.fuelburnfunction" name="Fuel Burn Function" synopsis="This Method calculates the fuel burn of an aircraft" scriptText="function m_Fuel = FuelBurn(R,Ma,Alt,m_TO,FF_ref,S_ref,CD0,k,SFC)&#xD;&#xA;// Calculation of fuel burn&#xD;&#xA;// Inputs:&#xD;&#xA;//           - R = Range [m]&#xD;&#xA;//           - Ma = Cruise Mach number [-]&#xD;&#xA;//           - Alt = Cruise altitude[m]&#xD;&#xA;//           - m_TO = Take-Off weight [kg]&#xD;&#xA;//           - FF_ref = Fuel fraction for aerodynamic design point [-]&#xD;&#xA;//           - S_ref = Reference area [m&#xb2;]&#xD;&#xA;//           - CD0 = Zero lift drag coefficient [-]&#xD;&#xA;//           - k = Drag polar k-factor [-]&#xD;&#xA;//           - SFC = Specific fuel consumption [kg/s/N]&#xD;&#xA;// Output:&#xD;&#xA;//           - CD0 = Zero lift drag coefficient [-]&#xD;&#xA;&#xD;&#xA;L = 0.0065; // Temperature lapse rate [K/m]&#xD;&#xA;if Alt &lt; 11000 then ;&#xD;&#xA;    T = 288.15 - L*Alt;&#xD;&#xA;else;&#xD;&#xA;    T = 216.65;&#xD;&#xA;end;&#xD;&#xA;a = sqrt(1.4*287*T);&#xD;&#xA;rho = 1.225*(T/288.15)^(9.81/(L*287)-1);&#xD;&#xA;V_CR = Ma*a;&#xD;&#xA;CL = 2*m_TO*9.81*FF_ref/(rho*V_CR^2*S_ref);&#xD;&#xA;CD = CD0 + k*CL^2; //added to avoid call of drag coefficient&#xD;&#xA;//CD = DragCoefficient(CD0,k,CL);&#xD;&#xA;m_E = m_TO*exp(-R*SFC*9.81/(CL/CD*V_CR));&#xD;&#xA;m_Fuel = m_TO - m_E;">
+    <inputDescriptors label="R" unit="m"/>
+    <inputDescriptors label="Ma" quantity="COEFFICIENT" unit=""/>
+    <inputDescriptors label="Alt" unit="m"/>
+    <inputDescriptors label="m_TO" quantity="MASS" unit="kg"/>
+    <inputDescriptors label="FF_ref" quantity="COEFFICIENT" unit=""/>
+    <inputDescriptors label="S_ref" quantity="AREA" unit="m&#xb2;"/>
+    <inputDescriptors label="CD0" quantity="COEFFICIENT" unit=""/>
+    <inputDescriptors label="k" quantity="COEFFICIENT" unit=""/>
+    <inputDescriptors label="SFC" quantity="SPECIFICFUELCONSUMPTION" unit="kg/(N&#xb7;s)"/>
+    <outputDescriptors label="m_Fuel" quantity="MASS" unit="kg"/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.massfuselagefunction" name="Mass Fuselage Function" synopsis="This method estimates the mass of the fuselage based on the wetted area of the fuselage." scriptText="function m_Fuselage = MassFuselage(S_wet_Fus)&#xD;&#xA;// Calculation of fuselage mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - S_wet_Fus = Fuselage wetted area [m&#xb2;]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_Fuselage = Fuselage mass [kg]&#xD;&#xA;&#xD;&#xA;m_Fuselage = 24*S_wet_Fus;">
+    <inputDescriptors label="S_wet_Fus" quantity="AREA" unit="m&#xb2;"/>
+    <outputDescriptors label="m_Fuselage" quantity="MASS" unit="kg"/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.masshorizontaltailfunction" name="Mass Horizontal Tail Function" synopsis="This method estimates the mass of the horizontal tail based on its wetted area" scriptText="function m_HT = MassHorizontalTail(S_ref_HT)&#xD;&#xA;// Calculation of horizontal tail mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - S_ref_HT = Horizontal tail reference area [m&#xb2;]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_HT = Horizontal tail mass [kg]&#xD;&#xA;&#xD;&#xA;m_HT = 27*S_ref_HT;">
+    <inputDescriptors label="S_ref_HT" quantity="AREA" unit="m&#xb2;"/>
+    <outputDescriptors label="m_HT" quantity="MASS" unit="kg"/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.masslandinggearfunction" name="Mass Landing Gear Function" synopsis="This function estimates the mass of the landing gear based on the maximal take of mass of the aircraft" scriptText="function m_LG = MassLandingGear(m_TO)&#xD;&#xA;// Calculation of landing gear mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - m_TO = Take-Off weight [kg]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_LG = Landing gear mass [kg]&#xD;&#xA;&#xD;&#xA;m_LG = 0.04*m_TO;">
+    <inputDescriptors label="m_TO" quantity="MASS" unit="kg"/>
+    <outputDescriptors label="m_LG" quantity="MASS" unit="kg"/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.massoperatingemptyfunction" name="Mass Operating Empty Function" synopsis="This function calculates the Operating Empty Mass of an aircraft based on the weight of the aircraft components propulsion, fuselage, hrizontal tail, vertical tail, landing gear and systems." scriptText="function m_OE = MassOperatingEmpty(m_Propulsion,m_Fuselage,m_Wing,m_VT,m_HT,m_LG,m_Sys)&#xD;&#xA;// Calculation of operating empty mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - m_Propulsion = Propulsion mass [kg]&#xD;&#xA;//           - m_Fuselage = Fuselage mass [kg]&#xD;&#xA;//           - m_Wing = Wing mass [kg]&#xD;&#xA;//           - m_VT = Vertical tail mass [kg]&#xD;&#xA;//           - m_HT = Horizontal tail mass [kg]&#xD;&#xA;//           - m_LG = Landing gear mass [kg]&#xD;&#xA;//           - m_Sys = System mass [kg]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_OE = Operating empty mass [kg]&#xD;&#xA;&#xD;&#xA;m_OE = m_Propulsion+m_Fuselage+m_Wing+m_VT+m_HT+m_LG+m_Sys;">
+    <inputDescriptors label="m_Propulsion" quantity="MASS" unit="kg"/>
+    <inputDescriptors label="m_Fuselage" quantity="MASS" unit="kg"/>
+    <inputDescriptors label="m_Wing" quantity="MASS" unit="kg"/>
+    <inputDescriptors label="m_VT" quantity="MASS" unit="kg"/>
+    <inputDescriptors label="m_HT" quantity="MASS" unit="kg"/>
+    <inputDescriptors label="m_LG" quantity="MASS" unit="kg"/>
+    <inputDescriptors label="m_Sys" quantity="MASS" unit="kg"/>
+    <outputDescriptors label="m_OE" quantity="MASS" unit="kg"/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.masspropulsionfunction" name="Mass Propulsion Function" synopsis="This function calculates the mass of the propulsion system based on the maximual take-off weight of the aircraft" scriptText="function m_Propulsion = MassPropulsion(m_TO)&#xD;&#xA;// Calculation of propulsion mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - m_TO = Take-Off weight [kg]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_Propulsion = Propulsion mass [kg]&#xD;&#xA;&#xD;&#xA;m_Propulsion = 0.08*m_TO;">
+    <inputDescriptors label="m_TO" quantity="MASS" unit="kg"/>
+    <outputDescriptors label="m_Propulsion" quantity="MASS" unit="kg"/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.masssystemsfunction" name="Mass Systems Function" synopsis="This function estimates the mass of the systems of an aircraft based on the maximal take-off mass of the aircraft." scriptText="function m_Sys = MassSystems(m_TO)&#xD;&#xA;// Calculation of system mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - m_TO = Take-Off weight [kg]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_Sys = System mass [kg]&#xD;&#xA;&#xD;&#xA;m_Sys = 0.17*m_TO;">
+    <inputDescriptors label="m_TO" quantity="MASS" unit="kg"/>
+    <outputDescriptors label="m_SYS" quantity="MASS" unit="kg"/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.masstakeofffunction" name="Mass Takeoff Function" synopsis="This function calculates the maximal take-off mass based on the operational empty mass of the aircraft, the mass of the fuel and the mass of the payload." scriptText="function m_TO = MassTakeOffReal(m_Fuel,m_OE,m_Payload)&#xD;&#xA;// Calculation of take-off mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - m_Fuel = Fuel mass [kg]&#xD;&#xA;//           - m_OE = Operating empty mass [kg]&#xD;&#xA;//           - m_Payload = Payload mass [kg]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_TO = Take-Off mass [kg]&#xD;&#xA;&#xD;&#xA;m_TO = m_Fuel + m_OE + m_Payload;">
+    <inputDescriptors label="m_Fuel" quantity="MASS" unit="kg"/>
+    <inputDescriptors label="m_OE" quantity="MASS" unit="kg"/>
+    <inputDescriptors label="m_Payload" quantity="MASS" unit="kg"/>
+    <outputDescriptors label="m_TO" quantity="MASS" unit="kg"/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.massverticaltailfunction" name="Mass Vertical Tail Function" synopsis="This function calculates the mass of the vertical tail based on its aerodynamic reference area" scriptText="function m_VT = MassVerticalTail(S_ref_VT)&#xD;&#xA;// Calculation of vertical tail mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - S_ref_VT = Vertical tail reference area [m&#xb2;]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_VT = Vertical tail mass [kg]&#xD;&#xA;&#xD;&#xA;m_VT = 27*S_ref_VT;">
+    <inputDescriptors label="S_ref_VT" quantity="AREA" unit="m&#xb2;"/>
+    <outputDescriptors label="m_VT" quantity="MASS" unit="kg"/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.masswingfunction" name="Mass Wing Function" synopsis="Calculates the empty mass of the wing based on its aerodynamic reference area." scriptText="function m_Wing = MassWing(S_ref)&#xD;&#xA;// Calculation of wing mass&#xD;&#xA;// Inputs:&#xD;&#xA;//           - S_ref = Reference area [m&#xb2;]&#xD;&#xA;// Output:&#xD;&#xA;//           - m_Wing = Wing mass [kg]&#xD;&#xA;&#xD;&#xA;m_Wing = 49*S_ref;">
+    <inputDescriptors label="S_ref" quantity="AREA" unit="m&#xb2;"/>
+    <outputDescriptors label="m_Wing" quantity="MASS" unit="kg"/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.refareahorizontaltailfunction" name="Reference Area Horizontal Tail Function" synopsis="Calculates the Aerodynamic reference area of the horizontal tail based on the overall aerodynamic reference area of the aircraft." scriptText="function S_ref_HT = RefAreaHorizontalTail(S_ref)&#xD;&#xA;// Calculation of horizontal tail reference area&#xD;&#xA;// Inputs:&#xD;&#xA;//           - S_ref = Reference area [m&#xb2;]&#xD;&#xA;// Output:&#xD;&#xA;//           - S_ref_HT = Horizontal tail reference area [m&#xb2;]&#xD;&#xA;&#xD;&#xA;S_ref_HT = 0.3*S_ref;">
+    <inputDescriptors label="S_ref" quantity="AREA" unit="m&#xb2;"/>
+    <outputDescriptors label="S_ref_HT" quantity="AREA" unit="m&#xb2;"/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.refareaverticaltailfunction" name="Reference Area Vertical Tail Function" synopsis="This function calculates the aerodynamic reference area of the vertical tail based on the aerodynamic reference area of the aircraft." scriptText="function S_ref_VT = RefAreaVerticalTail(S_ref)&#xD;&#xA;// Calculation of vertical tail reference area&#xD;&#xA;// Inputs:&#xD;&#xA;//           - S_ref = Reference area [m&#xb2;]&#xD;&#xA;// Output:&#xD;&#xA;//           - S_ref_VT = Vertical tail reference area [m&#xb2;]&#xD;&#xA;&#xD;&#xA;S_ref_VT = 0.3*S_ref;">
+    <inputDescriptors label="S_ref" quantity="AREA" unit="m&#xb2;"/>
+    <outputDescriptors label="S_ref_VT" quantity="AREA" unit="m&#xb2;"/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.wettedareafunction" name="Wetted Area Function" synopsis="This function calculates the wetted area of an aircraft baed on the aerodynamic reference areas of the wings and the wetted area of the fuselage" scriptText="function S_wet = WettedArea(S_ref,S_ref_VT,S_ref_HT,S_wet_Fus)&#xD;&#xA;// Calculation of aircraft wetted area&#xD;&#xA;// Inputs:&#xD;&#xA;//           - S_ref = Reference area [m&#xb2;]&#xD;&#xA;//           - S_ref_VT = Vertical tail reference area [m&#xb2;]&#xD;&#xA;//           - S_ref_HT = Horizontal tail reference area [m&#xb2;]&#xD;&#xA;//           - S_wet_Fus = Fuselage wetted area [m&#xb2;]&#xD;&#xA;// Output:&#xD;&#xA;//           - S_wet = Aircraft wetted area [m&#xb2;]&#xD;&#xA;&#xD;&#xA;S_wet = 2.1*(S_ref + S_ref_VT + S_ref_HT) + S_wet_Fus;">
+    <inputDescriptors label="S_ref" quantity="AREA" unit="m&#xb2;"/>
+    <inputDescriptors label="S_ref_VT" quantity="AREA" unit="m&#xb2;"/>
+    <inputDescriptors label="S_ref_HT" quantity="AREA" unit="m&#xb2;"/>
+    <inputDescriptors label="S_wet_Fus" quantity="AREA" unit="m&#xb2;"/>
+    <outputDescriptors label="S_wet" quantity="AREA" unit="m&#xb2;"/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.zeroliftdragcoefficientfunction" name="Zero Lift Drag Coefficient Function" synopsis="This function calculates the zero lift drag coefficient baed on te wetted area and the aerodynamic reference area of the aircraft" scriptText="function CD0 = ZeroLiftDragCoefficient(S_wet, S_ref)&#xD;&#xA;// Calculation of zero lift drag coefficient&#xD;&#xA;// Inputs:&#xD;&#xA;//           - S_wet = Aircraft wetted area [m&#xb2;]&#xD;&#xA;//           - S_ref = Reference area [m&#xb2;]&#xD;&#xA;// Output:&#xD;&#xA;//           - CD0 = Zero lift drag coefficient [-]&#xD;&#xA;&#xD;&#xA;CD0 = (0.003*S_wet)/S_ref;">
+    <inputDescriptors label="S_wet" quantity="AREA" unit="m&#xb2;"/>
+    <inputDescriptors label="S_ref" quantity="AREA" unit="m&#xb2;"/>
+    <outputDescriptors label="CD0" quantity="COEFFICIENT" unit=""/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.scilab.liftcoefficient" name="Lift Coefficient" synopsis="Calculates the Lift Coefficient" scriptText="function CL = LiftCoefficient(M_to, FF_ref, S_ref, Alt, Ma)&#xD;&#xA;// Calculation of drag coefficient&#xD;&#xA;// Inputs:&#xD;&#xA;//           - M_to&#x9;= Takeoff mass&#xD;&#xA;//           - FF_ref&#x9;= Fuel Fraction?&#xD;&#xA;//           - S_ref&#x9;= Reference Area&#xD;&#xA;//&#x9;     - ALT&#x9;= Altitude&#xD;&#xA;//&#x9;     - Ma&#x9;= Mach no&#xD;&#xA;// Output:&#xD;&#xA;//           - CL&#x9;= Lift Coefficient [-]&#xD;&#xA;&#xD;&#xA;g = 9.8 ;&#xD;&#xA;&#xD;&#xA;if Alt >= 11000 then;&#xD;&#xA;T = 216.15;&#xD;&#xA;else;&#xD;&#xA;T = 218.15;&#xD;&#xA;end;&#xD;&#xA;&#xD;&#xA;rho = 1.225*(T/288.15)^(-1*(g/(6.5*10^(-3)*287)));&#xD;&#xA;a = sqrt(1.4*287*T);&#xD;&#xA;v_cr = Ma * a;&#xD;&#xA;&#xD;&#xA;CL = (2*M_to*g*FF_ref)/(rho*(v_cr^2)*S_ref);">
+    <inputDescriptors label="M_TO" quantity="MASS" unit="kg"/>
+    <inputDescriptors label="FF_ref" quantity="COEFFICIENT" unit=""/>
+    <inputDescriptors label="S_ref" quantity="AREA" unit="m&#xb2;"/>
+    <inputDescriptors label="Alt" unit="m"/>
+    <inputDescriptors label="Ma" quantity="COEFFICIENT" unit=""/>
+    <outputDescriptors label="CL" quantity="COEFFICIENT" unit=""/>
+  </functions>
+  <functions xsi:type="net.bhl.cdt.calculationrepository:ScilabFunction" functionID="net.bhl.cdt.calculationrepository.sfc" name="SFC" synopsis="Interpolates the SFC" scriptText="function [SFC]=sfc(h_in, M_in)&#xD;&#xA;h = 0:1524:12192; M = (.7:.1:.9); S = [%nan       ,  1.77E-05    ,1.74E-05    ,1.72E-05    ,1.71E-05    ,1.70E-05    ,1.70E-05    ,1.70E-05    ,1.71E-05; %nan       ,  %nan       ,  1.85E-05    ,1.83E-05    ,1.81E-05    ,1.79E-05    ,1.79E-05    ,1.79E-05    ,1.79E-05; %nan       ,  %nan       ,  1.96E-05    ,1.93E-05    ,1.90E-05    ,1.88E-05    ,1.87E-05    ,1.86E-05    ,1.87E-05]; SFC = linear_interpn(M_in,h_in,M,h,S);&#xD;&#xA;">
+    <inputDescriptors label="Alt" unit="m"/>
+    <inputDescriptors label="Ma" quantity="COEFFICIENT" unit=""/>
+    <outputDescriptors label="sfc" quantity="SPECIFICFUELCONSUMPTION" unit="kg/(N&#xb7;s)"/>
+  </functions>
+</net.bhl.cdt.calculationrepository:CalculationRepository>

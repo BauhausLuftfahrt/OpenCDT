@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test
+Bundle-SymbolicName: net.bhl.cdt.test;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: net.bhl.cdt.test.Activator
+Require-Bundle: org.junit4;visibility:=reexport,
+ net.bhl.cdt.utilities;visibility:=reexport
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: net.bhl.cdt.test
+Bundle-ClassPath: .
