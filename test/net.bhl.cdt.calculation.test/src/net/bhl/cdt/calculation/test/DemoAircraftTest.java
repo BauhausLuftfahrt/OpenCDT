@@ -1,8 +1,3 @@
-/*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
- * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
- * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
- ******************************************************************************/
 package net.bhl.cdt.calculation.test;
 
 import java.util.HashMap;
@@ -19,6 +14,10 @@ import net.bhl.cdt.utilities.commands.CDTCommand;
 import net.bhl.cdt.utilities.datatypes.MeasuredValue;
 import net.bhl.cdt.utilities.util.UtilitiesHelper;
 
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.preferences.ConfigurationScope;
+import org.eclipse.core.runtime.preferences.IExportedPreferences;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
@@ -29,11 +28,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Test;
+import org.osgi.service.prefs.Preferences;
 
 /**
  * Tests the DemoAircraft. Utilizes the DemoAircraftModelCommand. Wenn dieser
- * Test nicht mehr lï¿½uft, liegt es eventuell daran, dass die String-Namen der
- * initialParameters im DemoAircraftModelCommand geï¿½ndert wurden.
+ * Test nicht mehr läuft, liegt es eventuell daran, dass die String-Namen der
+ * initialParameters im DemoAircraftModelCommand geändert wurden.
  * 
  * @author stephan.leutenmayr
  * 
@@ -41,11 +41,25 @@ import org.junit.Test;
 public class DemoAircraftTest extends WorkspaceTest {
 	private static final String TESTMODEL_PATH = "testdata/";
 	public static String TESTPLUGIN_ID = "net.bhl.cdt.calculation.test";
+	private static String SCIEXEC = "C:\\Program Files\\scilab-5.3.3\\bin\\Scilex.exe";
 
 	private Model model;
 
 	@Test
 	public void testDemoAircraft() {
+
+		Preferences preferences = ConfigurationScope.INSTANCE
+				.getNode("net.bhl.cdt.ui");
+		preferences.put("SCIEXEC", SCIEXEC);
+
+		try {
+			preferences.flush();
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
+
+		System.out.println(Platform.getPreferencesService().getString(
+				"net.bhl.cdt.ui", "SCIEXEC", "", null));
 
 		new CDTCommand() {
 			@Override
