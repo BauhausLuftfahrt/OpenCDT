@@ -1,7 +1,7 @@
 /*******************************************************************************
  * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
- *  materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
- *  and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
+ * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
+ * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
 package net.bhl.cdt.architecturetools;
 
@@ -27,10 +27,7 @@ public class Activator extends AbstractUIPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext
-	 * )
+	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext )
 	 */
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
@@ -39,10 +36,7 @@ public class Activator extends AbstractUIPlugin {
 
 	/*
 	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext
-	 * )
+	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext )
 	 */
 	public void stop(BundleContext context) throws Exception {
 		plugin = null;
