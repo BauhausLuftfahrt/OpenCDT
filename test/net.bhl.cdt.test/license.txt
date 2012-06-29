@@ -4,4 +4,3 @@ Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This progra
 Version 0.8
 
 This plug-in contains the class WorkspaceTest which was derived from a class originally developed by Max Kögel under the EPL in the Unicase project (www.unicase.org).
-This class was modified by Stephan Leutenmayr

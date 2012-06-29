@@ -26,7 +26,6 @@ import org.junit.Before;
  * Abstract Superclass for Workspace Tests. Provides Setup and Tear-down.
  * 
  * @author Max Kögel
- * @author Stephan Leutenmayr
  */
 public abstract class WorkspaceTest {
 	private Project project;
