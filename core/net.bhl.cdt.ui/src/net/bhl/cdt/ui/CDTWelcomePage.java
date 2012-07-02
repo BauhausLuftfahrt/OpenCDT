@@ -1,11 +1,10 @@
 /*******************************************************************************
  * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
- *  materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
- *  and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
+ * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
+ * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
 package net.bhl.cdt.ui;
 
-import net.bhl.cdt.ui.command.ImportTestProjectCommand;
 import net.bhl.cdt.ui.command.NewProjectCommand;
 
 import org.eclipse.swt.SWT;
@@ -32,13 +31,11 @@ public class CDTWelcomePage extends IntroPart implements IIntroPart {
 
 		Composite buttonContainer = new Composite(outerContainer, SWT.NONE);
 		buttonContainer.setLayout(new GridLayout(2, true));
-		buttonContainer.setLayoutData(new GridData(GridData.CENTER,
-				GridData.CENTER, true, true));
+		buttonContainer.setLayoutData(new GridData(GridData.CENTER, GridData.CENTER, true, true));
 
 		Button newProjectButton = new Button(buttonContainer, SWT.CENTER);
 		newProjectButton.setText("New Project");
-		newProjectButton.setLayoutData(new GridData(GridData.CENTER,
-				GridData.CENTER, true, true));
+		newProjectButton.setLayoutData(new GridData(GridData.CENTER, GridData.CENTER, true, true));
 		newProjectButton.computeSize(SWT.DEFAULT, SWT.DEFAULT);
 		newProjectButton.addSelectionListener(new SelectionListener() {
 
@@ -54,26 +51,6 @@ public class CDTWelcomePage extends IntroPart implements IIntroPart {
 			}
 		});
 
-		Button importProjectButton = new Button(buttonContainer, SWT.CENTER);
-		importProjectButton.setText("Import Test Project");
-		importProjectButton.setLayoutData(new GridData(GridData.CENTER,
-				GridData.CENTER, true, true));
-		importProjectButton.computeSize(SWT.DEFAULT, SWT.DEFAULT);
-		importProjectButton.addSelectionListener(new SelectionListener() {
-
-			@Override
-			public void widgetSelected(SelectionEvent event) {
-				dispose();
-
-				new ImportTestProjectCommand().run();
-
-			}
-
-			@Override
-			public void widgetDefaultSelected(SelectionEvent e) {
-				// do nothing
-			}
-		});
 	}
 
 	@Override
@@ -91,8 +68,7 @@ public class CDTWelcomePage extends IntroPart implements IIntroPart {
 	@Override
 	public void dispose() {
 		super.dispose();
-		this.getIntroSite().getWorkbenchWindow().getWorkbench()
-				.getIntroManager().closeIntro(this);
+		this.getIntroSite().getWorkbenchWindow().getWorkbench().getIntroManager().closeIntro(this);
 	}
 
 }
