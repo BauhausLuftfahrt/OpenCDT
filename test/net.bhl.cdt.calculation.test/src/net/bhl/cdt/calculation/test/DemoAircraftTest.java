@@ -31,9 +31,8 @@ import org.junit.Test;
 import org.osgi.service.prefs.Preferences;
 
 /**
- * Tests the DemoAircraft. Utilizes the DemoAircraftModelCommand. Wenn dieser
- * Test nicht mehr läuft, liegt es eventuell daran, dass die String-Namen der
- * initialParameters im DemoAircraftModelCommand geändert wurden.
+ * Tests the DemoAircraft. Utilizes the DemoAircraftModelCommand. This unit test
+ * strongly depends on the naming of the aicraft model parameters.
  * 
  * @author stephan.leutenmayr
  * 
@@ -113,6 +112,8 @@ public class DemoAircraftTest extends WorkspaceTest {
 		// Execute calculation
 		new CalculationCommand(model.getConfigurations().get(0)
 				.getCalculationSets().get(0).getGraphs().get(0)).run();
+		
+		// Assert m_to = 
 
 	}
 
