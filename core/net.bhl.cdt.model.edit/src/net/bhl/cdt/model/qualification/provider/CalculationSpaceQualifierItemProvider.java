@@ -23,13 +23,14 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 /**
  * This is the item provider adapter for a {@link net.bhl.cdt.model.qualification.CalculationSpaceQualifier} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class CalculationSpaceQualifierItemProvider extends QualifierItemProvider implements IEditingDomainItemProvider,
 	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public CalculationSpaceQualifierItemProvider(AdapterFactory adapterFactory) {
@@ -37,8 +38,8 @@ public class CalculationSpaceQualifierItemProvider extends QualifierItemProvider
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -51,8 +52,8 @@ public class CalculationSpaceQualifierItemProvider extends QualifierItemProvider
 	}
 
 	/**
-	 * This returns CalculationSpaceQualifier.gif.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns CalculationSpaceQualifier.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -61,15 +62,14 @@ public class CalculationSpaceQualifierItemProvider extends QualifierItemProvider
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CalculationSpaceQualifier)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CalculationSpaceQualifier_type") : //$NON-NLS-1$
+		String label = ((CalculationSpaceQualifier) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_CalculationSpaceQualifier_type") : //$NON-NLS-1$
 			getString("_UI_CalculationSpaceQualifier_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -87,9 +87,9 @@ public class CalculationSpaceQualifierItemProvider extends QualifierItemProvider
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

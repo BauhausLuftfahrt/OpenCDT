@@ -37,17 +37,17 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 public class CalculationItemProviderAdapterFactory extends CalculationAdapterFactory implements
 	ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
-	 * This keeps track of the root adapter factory that delegates to this adapter factory.
-	 * <!-- begin-user-doc --> <!--
+	 * This keeps track of the root adapter factory that delegates to this adapter factory. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ComposedAdapterFactory parentAdapterFactory;
 
 	/**
-	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
-	 * <!-- begin-user-doc --> <!--
+	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
@@ -61,8 +61,8 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
-	 * This constructs an instance.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public CalculationItemProviderAdapterFactory() {
@@ -76,14 +76,15 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	/**
 	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.calculation.CalculationSet} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CalculationSetItemProvider calculationSetItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.CalculationSet}.
-	 * <!-- begin-user-doc --> <!--
+	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.CalculationSet}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -98,14 +99,15 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	/**
 	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.calculation.Calculation} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CalculationItemProvider calculationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.Calculation}.
-	 * <!-- begin-user-doc --> <!--
+	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.Calculation}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -118,16 +120,17 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.calculation.ParameterMapping} instances.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.calculation.ParameterMapping}
+	 * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ParameterMappingItemProvider parameterMappingItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.ParameterMapping}.
-	 * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.ParameterMapping}. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -140,16 +143,17 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.calculation.CalculationGraph} instances.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.calculation.CalculationGraph}
+	 * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CalculationGraphItemProvider calculationGraphItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.CalculationGraph}.
-	 * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.CalculationGraph}. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -170,9 +174,9 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	protected NodeItemProvider nodeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.Node}.
-	 * <!-- begin-user-doc --> <!--
+	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.Node}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -193,9 +197,9 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	protected ConditionItemProvider conditionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.Condition}.
-	 * <!-- begin-user-doc --> <!--
+	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.Condition}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -210,14 +214,15 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	/**
 	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.calculation.IterationNode} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected IterationNodeItemProvider iterationNodeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.IterationNode}.
-	 * <!-- begin-user-doc --> <!--
+	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.IterationNode}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -232,14 +237,15 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	/**
 	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.calculation.ConditionalNode} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ConditionalNodeItemProvider conditionalNodeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.ConditionalNode}.
-	 * <!-- begin-user-doc --> <!--
+	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.ConditionalNode}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -260,9 +266,9 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	protected StartSetItemProvider startSetItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.StartSet}.
-	 * <!-- begin-user-doc --> <!--
+	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.StartSet}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -275,38 +281,40 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances.
-	 * <!-- begin-user-doc -->
+	 * This keeps track of the one adapter used for all {@link java.util.Map.Entry} instances. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ParameterDescriptorToMappableComponentInterfaceMapItemProvider parameterDescriptorToMappableComponentInterfaceMapItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link java.util.Map.Entry}.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This creates an adapter for a {@link java.util.Map.Entry}. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Adapter createParameterDescriptorToMappableComponentInterfaceMapAdapter() {
 		if (parameterDescriptorToMappableComponentInterfaceMapItemProvider == null) {
-			parameterDescriptorToMappableComponentInterfaceMapItemProvider = new ParameterDescriptorToMappableComponentInterfaceMapItemProvider(this);
+			parameterDescriptorToMappableComponentInterfaceMapItemProvider = new ParameterDescriptorToMappableComponentInterfaceMapItemProvider(
+				this);
 		}
 
 		return parameterDescriptorToMappableComponentInterfaceMapItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.calculation.CalculationSetNode} instances.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.calculation.CalculationSetNode}
+	 * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CalculationSetNodeItemProvider calculationSetNodeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.CalculationSetNode}.
-	 * <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link net.bhl.cdt.model.calculation.CalculationSetNode}. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -319,8 +327,8 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	}
 
 	/**
-	 * This returns the root adapter factory that contains this factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the root adapter factory that contains this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ComposeableAdapterFactory getRootAdapterFactory() {
@@ -328,8 +336,8 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	}
 
 	/**
-	 * This sets the composed adapter factory that contains this factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
@@ -338,6 +346,7 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -346,9 +355,9 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	}
 
 	/**
-	 * This implementation substitutes the factory itself as the key for the adapter.
-	 * <!-- begin-user-doc --> <!--
+	 * This implementation substitutes the factory itself as the key for the adapter. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -358,13 +367,14 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -373,8 +383,8 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	}
 
 	/**
-	 * This adds a listener.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void addListener(INotifyChangedListener notifyChangedListener) {
@@ -382,8 +392,8 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	}
 
 	/**
-	 * This removes a listener.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
@@ -391,9 +401,9 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	}
 
 	/**
-	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
-	 * <!-- begin-user-doc --> <!--
+	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void fireNotifyChanged(Notification notification) {
@@ -405,22 +415,33 @@ public class CalculationItemProviderAdapterFactory extends CalculationAdapterFac
 	}
 
 	/**
-	 * This disposes all of the item providers created by this factory. 
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void dispose() {
-		if (calculationSetItemProvider != null) calculationSetItemProvider.dispose();
-		if (calculationItemProvider != null) calculationItemProvider.dispose();
-		if (parameterMappingItemProvider != null) parameterMappingItemProvider.dispose();
-		if (calculationGraphItemProvider != null) calculationGraphItemProvider.dispose();
-		if (nodeItemProvider != null) nodeItemProvider.dispose();
-		if (conditionItemProvider != null) conditionItemProvider.dispose();
-		if (iterationNodeItemProvider != null) iterationNodeItemProvider.dispose();
-		if (conditionalNodeItemProvider != null) conditionalNodeItemProvider.dispose();
-		if (startSetItemProvider != null) startSetItemProvider.dispose();
-		if (parameterDescriptorToMappableComponentInterfaceMapItemProvider != null) parameterDescriptorToMappableComponentInterfaceMapItemProvider.dispose();
-		if (calculationSetNodeItemProvider != null) calculationSetNodeItemProvider.dispose();
+		if (calculationSetItemProvider != null)
+			calculationSetItemProvider.dispose();
+		if (calculationItemProvider != null)
+			calculationItemProvider.dispose();
+		if (parameterMappingItemProvider != null)
+			parameterMappingItemProvider.dispose();
+		if (calculationGraphItemProvider != null)
+			calculationGraphItemProvider.dispose();
+		if (nodeItemProvider != null)
+			nodeItemProvider.dispose();
+		if (conditionItemProvider != null)
+			conditionItemProvider.dispose();
+		if (iterationNodeItemProvider != null)
+			iterationNodeItemProvider.dispose();
+		if (conditionalNodeItemProvider != null)
+			conditionalNodeItemProvider.dispose();
+		if (startSetItemProvider != null)
+			startSetItemProvider.dispose();
+		if (parameterDescriptorToMappableComponentInterfaceMapItemProvider != null)
+			parameterDescriptorToMappableComponentInterfaceMapItemProvider.dispose();
+		if (calculationSetNodeItemProvider != null)
+			calculationSetNodeItemProvider.dispose();
 	}
 
 }

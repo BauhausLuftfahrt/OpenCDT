@@ -26,16 +26,16 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link net.bhl.cdt.model.Model} object.
- * <!-- begin-user-doc --> <!--
+ * This is the item provider adapter for a {@link net.bhl.cdt.model.Model} object. <!-- begin-user-doc --> <!--
  * end-user-doc -->
+ * 
  * @generated
  */
 public class ModelItemProvider extends ElementItemProvider implements IEditingDomainItemProvider,
 	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ModelItemProvider(AdapterFactory adapterFactory) {
@@ -43,8 +43,8 @@ public class ModelItemProvider extends ElementItemProvider implements IEditingDo
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -59,9 +59,9 @@ public class ModelItemProvider extends ElementItemProvider implements IEditingDo
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc --> <!--
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -76,6 +76,7 @@ public class ModelItemProvider extends ElementItemProvider implements IEditingDo
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -87,8 +88,8 @@ public class ModelItemProvider extends ElementItemProvider implements IEditingDo
 	}
 
 	/**
-	 * This returns Model.gif.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns Model.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -97,15 +98,14 @@ public class ModelItemProvider extends ElementItemProvider implements IEditingDo
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Model)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Model_type") : //$NON-NLS-1$
+		String label = ((Model) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_Model_type") : //$NON-NLS-1$
 			getString("_UI_Model_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -121,38 +121,32 @@ public class ModelItemProvider extends ElementItemProvider implements IEditingDo
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Model.class)) {
-			case ModelPackage.MODEL__CONFIGURATIONS:
-			case ModelPackage.MODEL__QUALIFYING_SPACES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case ModelPackage.MODEL__CONFIGURATIONS:
+		case ModelPackage.MODEL__QUALIFYING_SPACES:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.MODEL__CONFIGURATIONS,
-				 ModelFactory.eINSTANCE.createConfiguration()));
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.MODEL__CONFIGURATIONS,
+			ModelFactory.eINSTANCE.createConfiguration()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.MODEL__QUALIFYING_SPACES,
-				 QualificationFactory.eINSTANCE.createCalculationSpace()));
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.MODEL__QUALIFYING_SPACES,
+			QualificationFactory.eINSTANCE.createCalculationSpace()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.MODEL__QUALIFYING_SPACES,
-				 QualificationFactory.eINSTANCE.createBehaviouralSpace()));
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.MODEL__QUALIFYING_SPACES,
+			QualificationFactory.eINSTANCE.createBehaviouralSpace()));
 	}
 
 }

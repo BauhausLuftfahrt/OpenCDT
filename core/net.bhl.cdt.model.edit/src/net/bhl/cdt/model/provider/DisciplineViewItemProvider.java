@@ -26,16 +26,16 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link net.bhl.cdt.model.DisciplineView} object.
- * <!-- begin-user-doc --> <!--
+ * This is the item provider adapter for a {@link net.bhl.cdt.model.DisciplineView} object. <!-- begin-user-doc --> <!--
  * end-user-doc -->
+ * 
  * @generated
  */
 public class DisciplineViewItemProvider extends ViewItemProvider implements IEditingDomainItemProvider,
 	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DisciplineViewItemProvider(AdapterFactory adapterFactory) {
@@ -43,8 +43,8 @@ public class DisciplineViewItemProvider extends ViewItemProvider implements IEdi
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -58,32 +58,26 @@ public class DisciplineViewItemProvider extends ViewItemProvider implements IEdi
 	}
 
 	/**
-	 * This adds a property descriptor for the Interface Types feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds a property descriptor for the Interface Types feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addInterfaceTypesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DisciplineView_interfaceTypes_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_DisciplineView_interfaceTypes_feature", "_UI_DisciplineView_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 ModelPackage.Literals.DISCIPLINE_VIEW__INTERFACE_TYPES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors
+			.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_DisciplineView_interfaceTypes_feature"), //$NON-NLS-1$
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_DisciplineView_interfaceTypes_feature", "_UI_DisciplineView_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				ModelPackage.Literals.DISCIPLINE_VIEW__INTERFACE_TYPES, true, false, true, null, null, null));
 	}
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc --> <!--
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -99,6 +93,7 @@ public class DisciplineViewItemProvider extends ViewItemProvider implements IEdi
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -110,8 +105,8 @@ public class DisciplineViewItemProvider extends ViewItemProvider implements IEdi
 	}
 
 	/**
-	 * This returns DisciplineView.gif.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns DisciplineView.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -120,15 +115,14 @@ public class DisciplineViewItemProvider extends ViewItemProvider implements IEdi
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DisciplineView)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_DisciplineView_type") : //$NON-NLS-1$
+		String label = ((DisciplineView) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_DisciplineView_type") : //$NON-NLS-1$
 			getString("_UI_DisciplineView_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -144,49 +138,39 @@ public class DisciplineViewItemProvider extends ViewItemProvider implements IEdi
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DisciplineView.class)) {
-			case ModelPackage.DISCIPLINE_VIEW__SUBVIEWS:
-			case ModelPackage.DISCIPLINE_VIEW__ELEMENTS:
-			case ModelPackage.DISCIPLINE_VIEW__VIEW_LINKS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case ModelPackage.DISCIPLINE_VIEW__SUBVIEWS:
+		case ModelPackage.DISCIPLINE_VIEW__ELEMENTS:
+		case ModelPackage.DISCIPLINE_VIEW__VIEW_LINKS:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.DISCIPLINE_VIEW__SUBVIEWS,
-				 ModelFactory.eINSTANCE.createDisciplineView()));
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.DISCIPLINE_VIEW__SUBVIEWS,
+			ModelFactory.eINSTANCE.createDisciplineView()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.DISCIPLINE_VIEW__ELEMENTS,
-				 ModelFactory.eINSTANCE.createComponent()));
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.DISCIPLINE_VIEW__ELEMENTS,
+			ModelFactory.eINSTANCE.createComponent()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.DISCIPLINE_VIEW__ELEMENTS,
-				 ModelFactory.eINSTANCE.createConfiguration()));
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.DISCIPLINE_VIEW__ELEMENTS,
+			ModelFactory.eINSTANCE.createConfiguration()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.DISCIPLINE_VIEW__ELEMENTS,
-				 ModelFactory.eINSTANCE.createParameter()));
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.DISCIPLINE_VIEW__ELEMENTS,
+			ModelFactory.eINSTANCE.createParameter()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.DISCIPLINE_VIEW__VIEW_LINKS,
-				 ModelFactory.eINSTANCE.createViewLink()));
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.DISCIPLINE_VIEW__VIEW_LINKS,
+			ModelFactory.eINSTANCE.createViewLink()));
 	}
 
 }

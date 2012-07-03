@@ -31,8 +31,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 public class CalculationSpaceItemProvider extends QualifyingSpaceItemProvider implements IEditingDomainItemProvider,
 	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public CalculationSpaceItemProvider(AdapterFactory adapterFactory) {
@@ -40,8 +40,8 @@ public class CalculationSpaceItemProvider extends QualifyingSpaceItemProvider im
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -55,29 +55,23 @@ public class CalculationSpaceItemProvider extends QualifyingSpaceItemProvider im
 	}
 
 	/**
-	 * This adds a property descriptor for the Space Qualifier feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds a property descriptor for the Space Qualifier feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addSpaceQualifierPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_CalculationSpace_spaceQualifier_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_CalculationSpace_spaceQualifier_feature", "_UI_CalculationSpace_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 QualificationPackage.Literals.CALCULATION_SPACE__SPACE_QUALIFIER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors
+			.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_CalculationSpace_spaceQualifier_feature"), //$NON-NLS-1$
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_CalculationSpace_spaceQualifier_feature", "_UI_CalculationSpace_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				QualificationPackage.Literals.CALCULATION_SPACE__SPACE_QUALIFIER, true, false, true, null, null, null));
 	}
 
 	/**
-	 * This returns CalculationSpace.gif.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns CalculationSpace.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -86,15 +80,14 @@ public class CalculationSpaceItemProvider extends QualifyingSpaceItemProvider im
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CalculationSpace)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CalculationSpace_type") : //$NON-NLS-1$
+		String label = ((CalculationSpace) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_CalculationSpace_type") : //$NON-NLS-1$
 			getString("_UI_CalculationSpace_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -112,9 +105,9 @@ public class CalculationSpaceItemProvider extends QualifyingSpaceItemProvider im
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

@@ -23,16 +23,16 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
- * This is the item provider adapter for a {@link net.bhl.cdt.model.ViewLink} object.
- * <!-- begin-user-doc --> <!--
+ * This is the item provider adapter for a {@link net.bhl.cdt.model.ViewLink} object. <!-- begin-user-doc --> <!--
  * end-user-doc -->
+ * 
  * @generated
  */
 public class ViewLinkItemProvider extends ElementItemProvider implements IEditingDomainItemProvider,
 	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ViewLinkItemProvider(AdapterFactory adapterFactory) {
@@ -40,8 +40,8 @@ public class ViewLinkItemProvider extends ElementItemProvider implements IEditin
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -56,50 +56,34 @@ public class ViewLinkItemProvider extends ElementItemProvider implements IEditin
 	}
 
 	/**
-	 * This adds a property descriptor for the Virtual Parent feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds a property descriptor for the Virtual Parent feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addVirtualParentPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ViewLink_virtualParent_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_ViewLink_virtualParent_feature", "_UI_ViewLink_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 ModelPackage.Literals.VIEW_LINK__VIRTUAL_PARENT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_ViewLink_virtualParent_feature"), //$NON-NLS-1$
+			getString("_UI_PropertyDescriptor_description", "_UI_ViewLink_virtualParent_feature", "_UI_ViewLink_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			ModelPackage.Literals.VIEW_LINK__VIRTUAL_PARENT, true, false, true, null, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Virtual Child feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds a property descriptor for the Virtual Child feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addVirtualChildPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ViewLink_virtualChild_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_ViewLink_virtualChild_feature", "_UI_ViewLink_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 ModelPackage.Literals.VIEW_LINK__VIRTUAL_CHILD,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors.add(createItemPropertyDescriptor(
+			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
+			getString("_UI_ViewLink_virtualChild_feature"), //$NON-NLS-1$
+			getString("_UI_PropertyDescriptor_description", "_UI_ViewLink_virtualChild_feature", "_UI_ViewLink_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+			ModelPackage.Literals.VIEW_LINK__VIRTUAL_CHILD, true, false, true, null, null, null));
 	}
 
 	/**
-	 * This returns ViewLink.gif.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns ViewLink.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -108,15 +92,14 @@ public class ViewLinkItemProvider extends ElementItemProvider implements IEditin
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ViewLink)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_ViewLink_type") : //$NON-NLS-1$
+		String label = ((ViewLink) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_ViewLink_type") : //$NON-NLS-1$
 			getString("_UI_ViewLink_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -134,9 +117,9 @@ public class ViewLinkItemProvider extends ElementItemProvider implements IEditin
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

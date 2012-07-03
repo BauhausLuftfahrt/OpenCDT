@@ -31,8 +31,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 public class BehaviouralSpaceItemProvider extends QualifyingSpaceItemProvider implements IEditingDomainItemProvider,
 	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BehaviouralSpaceItemProvider(AdapterFactory adapterFactory) {
@@ -40,8 +40,8 @@ public class BehaviouralSpaceItemProvider extends QualifyingSpaceItemProvider im
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -61,24 +61,20 @@ public class BehaviouralSpaceItemProvider extends QualifyingSpaceItemProvider im
 	 * @generated
 	 */
 	protected void addBehaviouralQualifierPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_BehaviouralSpace_behaviouralQualifier_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_BehaviouralSpace_behaviouralQualifier_feature", "_UI_BehaviouralSpace_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 QualificationPackage.Literals.BEHAVIOURAL_SPACE__BEHAVIOURAL_QUALIFIER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors
+			.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_BehaviouralSpace_behaviouralQualifier_feature"), //$NON-NLS-1$
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_BehaviouralSpace_behaviouralQualifier_feature", "_UI_BehaviouralSpace_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				QualificationPackage.Literals.BEHAVIOURAL_SPACE__BEHAVIOURAL_QUALIFIER, true, false, true, null, null,
+				null));
 	}
 
 	/**
-	 * This returns BehaviouralSpace.gif.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns BehaviouralSpace.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -87,15 +83,14 @@ public class BehaviouralSpaceItemProvider extends QualifyingSpaceItemProvider im
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((BehaviouralSpace)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_BehaviouralSpace_type") : //$NON-NLS-1$
+		String label = ((BehaviouralSpace) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_BehaviouralSpace_type") : //$NON-NLS-1$
 			getString("_UI_BehaviouralSpace_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -113,9 +108,9 @@ public class BehaviouralSpaceItemProvider extends QualifyingSpaceItemProvider im
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

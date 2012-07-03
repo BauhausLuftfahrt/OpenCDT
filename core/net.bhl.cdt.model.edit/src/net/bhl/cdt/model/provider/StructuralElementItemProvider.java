@@ -21,16 +21,16 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
- * This is the item provider adapter for a {@link net.bhl.cdt.model.StructuralElement} object.
- * <!-- begin-user-doc -->
+ * This is the item provider adapter for a {@link net.bhl.cdt.model.StructuralElement} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class StructuralElementItemProvider extends ElementItemProvider implements IEditingDomainItemProvider,
 	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public StructuralElementItemProvider(AdapterFactory adapterFactory) {
@@ -38,8 +38,8 @@ public class StructuralElementItemProvider extends ElementItemProvider implement
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -52,8 +52,8 @@ public class StructuralElementItemProvider extends ElementItemProvider implement
 	}
 
 	/**
-	 * This returns StructuralElement.gif.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns StructuralElement.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -62,15 +62,14 @@ public class StructuralElementItemProvider extends ElementItemProvider implement
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((StructuralElement)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_StructuralElement_type") : //$NON-NLS-1$
+		String label = ((StructuralElement) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_StructuralElement_type") : //$NON-NLS-1$
 			getString("_UI_StructuralElement_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -88,9 +87,9 @@ public class StructuralElementItemProvider extends ElementItemProvider implement
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

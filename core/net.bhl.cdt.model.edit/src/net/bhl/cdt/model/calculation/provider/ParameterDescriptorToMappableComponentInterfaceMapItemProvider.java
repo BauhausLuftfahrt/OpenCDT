@@ -35,8 +35,8 @@ public class ParameterDescriptorToMappableComponentInterfaceMapItemProvider exte
 	IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
 	IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ParameterDescriptorToMappableComponentInterfaceMapItemProvider(AdapterFactory adapterFactory) {
@@ -44,8 +44,8 @@ public class ParameterDescriptorToMappableComponentInterfaceMapItemProvider exte
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -60,45 +60,37 @@ public class ParameterDescriptorToMappableComponentInterfaceMapItemProvider exte
 	}
 
 	/**
-	 * This adds a property descriptor for the Key feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds a property descriptor for the Key feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addKeyPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ParameterDescriptorToMappableComponentInterfaceMap_key_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterDescriptorToMappableComponentInterfaceMap_key_feature", "_UI_ParameterDescriptorToMappableComponentInterfaceMap_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 CalculationPackage.Literals.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__KEY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors
+			.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_ParameterDescriptorToMappableComponentInterfaceMap_key_feature"), //$NON-NLS-1$
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_ParameterDescriptorToMappableComponentInterfaceMap_key_feature", "_UI_ParameterDescriptorToMappableComponentInterfaceMap_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				CalculationPackage.Literals.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__KEY, true, false,
+				true, null, null, null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds a property descriptor for the Value feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ParameterDescriptorToMappableComponentInterfaceMap_value_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_ParameterDescriptorToMappableComponentInterfaceMap_value_feature", "_UI_ParameterDescriptorToMappableComponentInterfaceMap_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 CalculationPackage.Literals.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__VALUE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors
+			.add(createItemPropertyDescriptor(
+				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_ParameterDescriptorToMappableComponentInterfaceMap_value_feature"), //$NON-NLS-1$
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_ParameterDescriptorToMappableComponentInterfaceMap_value_feature", "_UI_ParameterDescriptorToMappableComponentInterfaceMap_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				CalculationPackage.Literals.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__VALUE, true,
+				false, true, null, null, null));
 	}
 
 	/**
@@ -109,17 +101,18 @@ public class ParameterDescriptorToMappableComponentInterfaceMapItemProvider exte
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ParameterDescriptorToMappableComponentInterfaceMap")); //$NON-NLS-1$
+		return overlayImage(object,
+			getResourceLocator().getImage("full/obj16/ParameterDescriptorToMappableComponentInterfaceMap")); //$NON-NLS-1$
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		Map.Entry<?, ?> parameterDescriptorToMappableComponentInterfaceMap = (Map.Entry<?, ?>)object;
+		Map.Entry<?, ?> parameterDescriptorToMappableComponentInterfaceMap = (Map.Entry<?, ?>) object;
 		return "" + parameterDescriptorToMappableComponentInterfaceMap.getKey() + " -> " + parameterDescriptorToMappableComponentInterfaceMap.getValue(); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -137,9 +130,9 @@ public class ParameterDescriptorToMappableComponentInterfaceMapItemProvider exte
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -148,8 +141,8 @@ public class ParameterDescriptorToMappableComponentInterfaceMapItemProvider exte
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

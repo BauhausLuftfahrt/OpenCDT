@@ -27,16 +27,16 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link net.bhl.cdt.model.Component} object.
- * <!-- begin-user-doc --> <!--
+ * This is the item provider adapter for a {@link net.bhl.cdt.model.Component} object. <!-- begin-user-doc --> <!--
  * end-user-doc -->
+ * 
  * @generated
  */
 public class ComponentItemProvider extends StructuralElementItemProvider implements IEditingDomainItemProvider,
 	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ComponentItemProvider(AdapterFactory adapterFactory) {
@@ -44,8 +44,8 @@ public class ComponentItemProvider extends StructuralElementItemProvider impleme
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -65,27 +65,21 @@ public class ComponentItemProvider extends StructuralElementItemProvider impleme
 	 * @generated
 	 */
 	protected void addConnectedComponentsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Component_connectedComponents_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Component_connectedComponents_feature", "_UI_Component_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 ModelPackage.Literals.COMPONENT__CONNECTED_COMPONENTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
+		itemPropertyDescriptors
+			.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+				getResourceLocator(),
+				getString("_UI_Component_connectedComponents_feature"), //$NON-NLS-1$
+				getString(
+					"_UI_PropertyDescriptor_description", "_UI_Component_connectedComponents_feature", "_UI_Component_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				ModelPackage.Literals.COMPONENT__CONNECTED_COMPONENTS, true, false, true, null, null, null));
 	}
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc --> <!--
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -102,6 +96,7 @@ public class ComponentItemProvider extends StructuralElementItemProvider impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -113,8 +108,8 @@ public class ComponentItemProvider extends StructuralElementItemProvider impleme
 	}
 
 	/**
-	 * This returns Component.gif.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns Component.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -123,15 +118,14 @@ public class ComponentItemProvider extends StructuralElementItemProvider impleme
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Component)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Component_type") : //$NON-NLS-1$
+		String label = ((Component) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_Component_type") : //$NON-NLS-1$
 			getString("_UI_Component_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -147,51 +141,43 @@ public class ComponentItemProvider extends StructuralElementItemProvider impleme
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Component.class)) {
-			case ModelPackage.COMPONENT__SUB_COMPONENTS:
-			case ModelPackage.COMPONENT__PARAMETERS:
-			case ModelPackage.COMPONENT__CALCULATION_SETS:
-			case ModelPackage.COMPONENT__INTERFACES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case ModelPackage.COMPONENT__SUB_COMPONENTS:
+		case ModelPackage.COMPONENT__PARAMETERS:
+		case ModelPackage.COMPONENT__CALCULATION_SETS:
+		case ModelPackage.COMPONENT__INTERFACES:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPONENT__SUB_COMPONENTS,
-				 ModelFactory.eINSTANCE.createComponent()));
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.COMPONENT__SUB_COMPONENTS,
+			ModelFactory.eINSTANCE.createComponent()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPONENT__PARAMETERS,
-				 ModelFactory.eINSTANCE.createParameter()));
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.COMPONENT__PARAMETERS,
+			ModelFactory.eINSTANCE.createParameter()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPONENT__CALCULATION_SETS,
-				 CalculationFactory.eINSTANCE.createCalculationSet()));
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.COMPONENT__CALCULATION_SETS,
+			CalculationFactory.eINSTANCE.createCalculationSet()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPONENT__INTERFACES,
-				 ModelFactory.eINSTANCE.createParameter()));
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.COMPONENT__INTERFACES,
+			ModelFactory.eINSTANCE.createParameter()));
 	}
 
 	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -199,14 +185,12 @@ public class ComponentItemProvider extends StructuralElementItemProvider impleme
 		Object childFeature = feature;
 		Object childObject = child;
 
-		boolean qualify =
-			childFeature == ModelPackage.Literals.COMPONENT__PARAMETERS ||
-			childFeature == ModelPackage.Literals.COMPONENT__INTERFACES;
+		boolean qualify = childFeature == ModelPackage.Literals.COMPONENT__PARAMETERS
+			|| childFeature == ModelPackage.Literals.COMPONENT__INTERFACES;
 
 		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2", //$NON-NLS-1$
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+			return getString("_UI_CreateChild_text2", //$NON-NLS-1$
+				new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
 		}
 		return super.getCreateChildText(owner, feature, child, selection);
 	}
