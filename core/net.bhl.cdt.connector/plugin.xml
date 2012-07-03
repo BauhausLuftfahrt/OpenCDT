@@ -45,12 +45,6 @@
    <extension
          point="net.bhl.cdt.connector.importstrategy">
       <importstrategy
-            class="net.bhl.cdt.connector.io.strategyimpl.ExcelImportStrategy">
-      </importstrategy>
-   </extension>
-   <extension
-         point="net.bhl.cdt.connector.importstrategy">
-      <importstrategy
             class="net.bhl.cdt.connector.io.strategyimpl.APDFileAsCSVImport">
       </importstrategy>
    </extension>
