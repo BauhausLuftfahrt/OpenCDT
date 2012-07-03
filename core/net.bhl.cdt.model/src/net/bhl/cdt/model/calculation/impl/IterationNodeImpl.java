@@ -18,17 +18,17 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link net.bhl.cdt.model.calculation.impl.IterationNodeImpl#getMaxIteration <em>Max Iteration</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.impl.IterationNodeImpl#getMaxIteration <em>Max Iteration</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class IterationNodeImpl extends ControlNodeImpl implements IterationNode {
 	/**
-	 * The default value of the '{@link #getMaxIteration() <em>Max Iteration</em>}' attribute. <!-- begin-user-doc -->
+	 * The default value of the '{@link #getMaxIteration() <em>Max Iteration</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getMaxIteration()
 	 * @generated
 	 * @ordered
@@ -36,9 +36,9 @@ public class IterationNodeImpl extends ControlNodeImpl implements IterationNode 
 	protected static final int MAX_ITERATION_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getMaxIteration() <em>Max Iteration</em>}' attribute. <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getMaxIteration() <em>Max Iteration</em>}' attribute.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getMaxIteration()
 	 * @generated
 	 * @ordered
@@ -47,7 +47,6 @@ public class IterationNodeImpl extends ControlNodeImpl implements IterationNode 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected IterationNodeImpl() {
@@ -56,7 +55,6 @@ public class IterationNodeImpl extends ControlNodeImpl implements IterationNode 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -66,7 +64,6 @@ public class IterationNodeImpl extends ControlNodeImpl implements IterationNode 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public int getMaxIteration() {
@@ -75,84 +72,76 @@ public class IterationNodeImpl extends ControlNodeImpl implements IterationNode 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setMaxIteration(int newMaxIteration) {
 		int oldMaxIteration = maxIteration;
 		maxIteration = newMaxIteration;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CalculationPackage.ITERATION_NODE__MAX_ITERATION,
-				oldMaxIteration, maxIteration));
+			eNotify(new ENotificationImpl(this, Notification.SET, CalculationPackage.ITERATION_NODE__MAX_ITERATION, oldMaxIteration, maxIteration));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CalculationPackage.ITERATION_NODE__MAX_ITERATION:
-			return getMaxIteration();
+			case CalculationPackage.ITERATION_NODE__MAX_ITERATION:
+				return getMaxIteration();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CalculationPackage.ITERATION_NODE__MAX_ITERATION:
-			setMaxIteration((Integer) newValue);
-			return;
+			case CalculationPackage.ITERATION_NODE__MAX_ITERATION:
+				setMaxIteration((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CalculationPackage.ITERATION_NODE__MAX_ITERATION:
-			setMaxIteration(MAX_ITERATION_EDEFAULT);
-			return;
+			case CalculationPackage.ITERATION_NODE__MAX_ITERATION:
+				setMaxIteration(MAX_ITERATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CalculationPackage.ITERATION_NODE__MAX_ITERATION:
-			return maxIteration != MAX_ITERATION_EDEFAULT;
+			case CalculationPackage.ITERATION_NODE__MAX_ITERATION:
+				return maxIteration != MAX_ITERATION_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (maxIteration: "); //$NON-NLS-1$

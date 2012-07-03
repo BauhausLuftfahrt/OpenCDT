@@ -8,27 +8,28 @@ package net.bhl.cdt.model.qualification;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Process</b></em>'. <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link net.bhl.cdt.model.qualification.Process#getInitState <em>Init State</em>}</li>
- * <li>{@link net.bhl.cdt.model.qualification.Process#getFinState <em>Fin State</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.qualification.Process#getInitState <em>Init State</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.qualification.Process#getFinState <em>Fin State</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see net.bhl.cdt.model.qualification.QualificationPackage#getProcess()
  * @model abstract="true"
  * @generated
  */
 public interface Process extends BehaviouralQualifier {
 	/**
-	 * Returns the value of the '<em><b>Init State</b></em>' reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Init State</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Init State</em>' reference isn't clear, there really should be more of a description
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Init State</em>' reference.
 	 * @see #setInitState(State)
 	 * @see net.bhl.cdt.model.qualification.QualificationPackage#getProcess_InitState()
@@ -38,9 +39,8 @@ public interface Process extends BehaviouralQualifier {
 	State getInitState();
 
 	/**
-	 * Sets the value of the '{@link net.bhl.cdt.model.qualification.Process#getInitState <em>Init State</em>}'
-	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Sets the value of the '{@link net.bhl.cdt.model.qualification.Process#getInitState <em>Init State</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Init State</em>' reference.
 	 * @see #getInitState()
 	 * @generated
@@ -48,13 +48,13 @@ public interface Process extends BehaviouralQualifier {
 	void setInitState(State value);
 
 	/**
-	 * Returns the value of the '<em><b>Fin State</b></em>' reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Fin State</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Fin State</em>' reference isn't clear, there really should be more of a description
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Fin State</em>' reference.
 	 * @see #setFinState(State)
 	 * @see net.bhl.cdt.model.qualification.QualificationPackage#getProcess_FinState()
@@ -66,7 +66,6 @@ public interface Process extends BehaviouralQualifier {
 	/**
 	 * Sets the value of the '{@link net.bhl.cdt.model.qualification.Process#getFinState <em>Fin State</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @param value the new value of the '<em>Fin State</em>' reference.
 	 * @see #getFinState()
 	 * @generated

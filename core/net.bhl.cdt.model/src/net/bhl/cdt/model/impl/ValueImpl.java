@@ -28,14 +28,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link net.bhl.cdt.model.impl.ValueImpl#getUnit <em>Unit</em>}</li>
- * <li>{@link net.bhl.cdt.model.impl.ValueImpl#getDescription <em>Description</em>}</li>
- * <li>{@link net.bhl.cdt.model.impl.ValueImpl#getSource <em>Source</em>}</li>
- * <li>{@link net.bhl.cdt.model.impl.ValueImpl#getValue <em>Value</em>}</li>
- * <li>{@link net.bhl.cdt.model.impl.ValueImpl#getDatatypes <em>Datatypes</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.impl.ValueImpl#getUnit <em>Unit</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.impl.ValueImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.impl.ValueImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.impl.ValueImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.impl.ValueImpl#getDatatypes <em>Datatypes</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ValueImpl extends ElementImpl implements Value {
@@ -60,9 +60,9 @@ public class ValueImpl extends ElementImpl implements Value {
 	protected Unit unit = UNIT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -70,9 +70,9 @@ public class ValueImpl extends ElementImpl implements Value {
 	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getDescription()
 	 * @generated
 	 * @ordered
@@ -80,9 +80,9 @@ public class ValueImpl extends ElementImpl implements Value {
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getSource() <em>Source</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getSource() <em>Source</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getSource()
 	 * @generated
 	 * @ordered
@@ -90,9 +90,9 @@ public class ValueImpl extends ElementImpl implements Value {
 	protected static final String SOURCE_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSource() <em>Source</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getSource() <em>Source</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getSource()
 	 * @generated
 	 * @ordered
@@ -100,9 +100,9 @@ public class ValueImpl extends ElementImpl implements Value {
 	protected String source = SOURCE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -131,7 +131,6 @@ public class ValueImpl extends ElementImpl implements Value {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ValueImpl() {
@@ -140,7 +139,6 @@ public class ValueImpl extends ElementImpl implements Value {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -150,7 +148,6 @@ public class ValueImpl extends ElementImpl implements Value {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Unit getUnit() {
@@ -159,7 +156,6 @@ public class ValueImpl extends ElementImpl implements Value {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setUnit(Unit newUnit) {
@@ -171,7 +167,6 @@ public class ValueImpl extends ElementImpl implements Value {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getDescription() {
@@ -180,20 +175,17 @@ public class ValueImpl extends ElementImpl implements Value {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setDescription(String newDescription) {
 		String oldDescription = description;
 		description = newDescription;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.VALUE__DESCRIPTION, oldDescription,
-				description));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.VALUE__DESCRIPTION, oldDescription, description));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getSource() {
@@ -202,7 +194,6 @@ public class ValueImpl extends ElementImpl implements Value {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setSource(String newSource) {
@@ -214,7 +205,6 @@ public class ValueImpl extends ElementImpl implements Value {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public double getValue() {
@@ -223,7 +213,6 @@ public class ValueImpl extends ElementImpl implements Value {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setValue(double newValue) {
@@ -235,140 +224,131 @@ public class ValueImpl extends ElementImpl implements Value {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<DataType> getDatatypes() {
 		if (datatypes == null) {
-			datatypes = new EObjectContainmentEList.Resolving<DataType>(DataType.class, this,
-				ModelPackage.VALUE__DATATYPES);
+			datatypes = new EObjectContainmentEList.Resolving<DataType>(DataType.class, this, ModelPackage.VALUE__DATATYPES);
 		}
 		return datatypes;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ModelPackage.VALUE__DATATYPES:
-			return ((InternalEList<?>) getDatatypes()).basicRemove(otherEnd, msgs);
+			case ModelPackage.VALUE__DATATYPES:
+				return ((InternalEList<?>)getDatatypes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ModelPackage.VALUE__UNIT:
-			return getUnit();
-		case ModelPackage.VALUE__DESCRIPTION:
-			return getDescription();
-		case ModelPackage.VALUE__SOURCE:
-			return getSource();
-		case ModelPackage.VALUE__VALUE:
-			return getValue();
-		case ModelPackage.VALUE__DATATYPES:
-			return getDatatypes();
+			case ModelPackage.VALUE__UNIT:
+				return getUnit();
+			case ModelPackage.VALUE__DESCRIPTION:
+				return getDescription();
+			case ModelPackage.VALUE__SOURCE:
+				return getSource();
+			case ModelPackage.VALUE__VALUE:
+				return getValue();
+			case ModelPackage.VALUE__DATATYPES:
+				return getDatatypes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ModelPackage.VALUE__UNIT:
-			setUnit((Unit) newValue);
-			return;
-		case ModelPackage.VALUE__DESCRIPTION:
-			setDescription((String) newValue);
-			return;
-		case ModelPackage.VALUE__SOURCE:
-			setSource((String) newValue);
-			return;
-		case ModelPackage.VALUE__VALUE:
-			setValue((Double) newValue);
-			return;
-		case ModelPackage.VALUE__DATATYPES:
-			getDatatypes().clear();
-			getDatatypes().addAll((Collection<? extends DataType>) newValue);
-			return;
+			case ModelPackage.VALUE__UNIT:
+				setUnit((Unit)newValue);
+				return;
+			case ModelPackage.VALUE__DESCRIPTION:
+				setDescription((String)newValue);
+				return;
+			case ModelPackage.VALUE__SOURCE:
+				setSource((String)newValue);
+				return;
+			case ModelPackage.VALUE__VALUE:
+				setValue((Double)newValue);
+				return;
+			case ModelPackage.VALUE__DATATYPES:
+				getDatatypes().clear();
+				getDatatypes().addAll((Collection<? extends DataType>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ModelPackage.VALUE__UNIT:
-			setUnit(UNIT_EDEFAULT);
-			return;
-		case ModelPackage.VALUE__DESCRIPTION:
-			setDescription(DESCRIPTION_EDEFAULT);
-			return;
-		case ModelPackage.VALUE__SOURCE:
-			setSource(SOURCE_EDEFAULT);
-			return;
-		case ModelPackage.VALUE__VALUE:
-			setValue(VALUE_EDEFAULT);
-			return;
-		case ModelPackage.VALUE__DATATYPES:
-			getDatatypes().clear();
-			return;
+			case ModelPackage.VALUE__UNIT:
+				setUnit(UNIT_EDEFAULT);
+				return;
+			case ModelPackage.VALUE__DESCRIPTION:
+				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case ModelPackage.VALUE__SOURCE:
+				setSource(SOURCE_EDEFAULT);
+				return;
+			case ModelPackage.VALUE__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
+			case ModelPackage.VALUE__DATATYPES:
+				getDatatypes().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ModelPackage.VALUE__UNIT:
-			return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT.equals(unit);
-		case ModelPackage.VALUE__DESCRIPTION:
-			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-		case ModelPackage.VALUE__SOURCE:
-			return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
-		case ModelPackage.VALUE__VALUE:
-			return value != VALUE_EDEFAULT;
-		case ModelPackage.VALUE__DATATYPES:
-			return datatypes != null && !datatypes.isEmpty();
+			case ModelPackage.VALUE__UNIT:
+				return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT.equals(unit);
+			case ModelPackage.VALUE__DESCRIPTION:
+				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case ModelPackage.VALUE__SOURCE:
+				return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
+			case ModelPackage.VALUE__VALUE:
+				return value != VALUE_EDEFAULT;
+			case ModelPackage.VALUE__DATATYPES:
+				return datatypes != null && !datatypes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (unit: "); //$NON-NLS-1$

@@ -13,27 +13,28 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Start Set</b></em>'. <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link net.bhl.cdt.model.calculation.StartSet#getValues <em>Values</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.StartSet#getValues <em>Values</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see net.bhl.cdt.model.calculation.CalculationPackage#getStartSet()
  * @model
  * @generated
  */
 public interface StartSet extends Element {
 	/**
-	 * Returns the value of the '<em><b>Values</b></em>' reference list. The list contents are of type
-	 * {@link net.bhl.cdt.model.Value}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Values</b></em>' reference list.
+	 * The list contents are of type {@link net.bhl.cdt.model.Value}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Values</em>' reference list isn't clear, there really should be more of a description
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Values</em>' reference list.
 	 * @see net.bhl.cdt.model.calculation.CalculationPackage#getStartSet_Values()
 	 * @model

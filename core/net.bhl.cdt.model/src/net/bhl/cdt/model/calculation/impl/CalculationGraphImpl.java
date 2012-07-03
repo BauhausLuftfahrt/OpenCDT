@@ -42,19 +42,19 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link net.bhl.cdt.model.calculation.impl.CalculationGraphImpl#getNodes <em>Nodes</em>}</li>
- * <li>{@link net.bhl.cdt.model.calculation.impl.CalculationGraphImpl#getFirstNode <em>First Node</em>}</li>
- * <li>{@link net.bhl.cdt.model.calculation.impl.CalculationGraphImpl#getStartSet <em>Start Set</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.impl.CalculationGraphImpl#getNodes <em>Nodes</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.impl.CalculationGraphImpl#getFirstNode <em>First Node</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.impl.CalculationGraphImpl#getStartSet <em>Start Set</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class CalculationGraphImpl extends ElementImpl implements CalculationGraph {
 	/**
-	 * The cached value of the '{@link #getNodes() <em>Nodes</em>}' containment reference list. <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getNodes() <em>Nodes</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getNodes()
 	 * @generated
 	 * @ordered
@@ -62,9 +62,9 @@ public class CalculationGraphImpl extends ElementImpl implements CalculationGrap
 	protected EList<AbstractNode> nodes;
 
 	/**
-	 * The cached value of the '{@link #getFirstNode() <em>First Node</em>}' reference. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getFirstNode() <em>First Node</em>}' reference.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getFirstNode()
 	 * @generated
 	 * @ordered
@@ -72,9 +72,9 @@ public class CalculationGraphImpl extends ElementImpl implements CalculationGrap
 	protected AbstractNode firstNode;
 
 	/**
-	 * The cached value of the '{@link #getStartSet() <em>Start Set</em>}' containment reference. <!-- begin-user-doc
+	 * The cached value of the '{@link #getStartSet() <em>Start Set</em>}' containment reference.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getStartSet()
 	 * @generated
 	 * @ordered
@@ -83,7 +83,6 @@ public class CalculationGraphImpl extends ElementImpl implements CalculationGrap
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected CalculationGraphImpl() {
@@ -92,7 +91,6 @@ public class CalculationGraphImpl extends ElementImpl implements CalculationGrap
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -102,30 +100,26 @@ public class CalculationGraphImpl extends ElementImpl implements CalculationGrap
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<AbstractNode> getNodes() {
 		if (nodes == null) {
-			nodes = new EObjectContainmentEList.Resolving<AbstractNode>(AbstractNode.class, this,
-				CalculationPackage.CALCULATION_GRAPH__NODES);
+			nodes = new EObjectContainmentEList.Resolving<AbstractNode>(AbstractNode.class, this, CalculationPackage.CALCULATION_GRAPH__NODES);
 		}
 		return nodes;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public AbstractNode getFirstNode() {
 		if (firstNode != null && firstNode.eIsProxy()) {
-			InternalEObject oldFirstNode = (InternalEObject) firstNode;
-			firstNode = (AbstractNode) eResolveProxy(oldFirstNode);
+			InternalEObject oldFirstNode = (InternalEObject)firstNode;
+			firstNode = (AbstractNode)eResolveProxy(oldFirstNode);
 			if (firstNode != oldFirstNode) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-						CalculationPackage.CALCULATION_GRAPH__FIRST_NODE, oldFirstNode, firstNode));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CalculationPackage.CALCULATION_GRAPH__FIRST_NODE, oldFirstNode, firstNode));
 			}
 		}
 		return firstNode;
@@ -133,7 +127,6 @@ public class CalculationGraphImpl extends ElementImpl implements CalculationGrap
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public AbstractNode basicGetFirstNode() {
@@ -142,39 +135,32 @@ public class CalculationGraphImpl extends ElementImpl implements CalculationGrap
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setFirstNode(AbstractNode newFirstNode) {
 		AbstractNode oldFirstNode = firstNode;
 		firstNode = newFirstNode;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CalculationPackage.CALCULATION_GRAPH__FIRST_NODE,
-				oldFirstNode, firstNode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CalculationPackage.CALCULATION_GRAPH__FIRST_NODE, oldFirstNode, firstNode));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public StartSet getStartSet() {
 		if (startSet != null && startSet.eIsProxy()) {
-			InternalEObject oldStartSet = (InternalEObject) startSet;
-			startSet = (StartSet) eResolveProxy(oldStartSet);
+			InternalEObject oldStartSet = (InternalEObject)startSet;
+			startSet = (StartSet)eResolveProxy(oldStartSet);
 			if (startSet != oldStartSet) {
-				InternalEObject newStartSet = (InternalEObject) startSet;
-				NotificationChain msgs = oldStartSet.eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-					- CalculationPackage.CALCULATION_GRAPH__START_SET, null, null);
+				InternalEObject newStartSet = (InternalEObject)startSet;
+				NotificationChain msgs = oldStartSet.eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CalculationPackage.CALCULATION_GRAPH__START_SET, null, null);
 				if (newStartSet.eInternalContainer() == null) {
-					msgs = newStartSet.eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-						- CalculationPackage.CALCULATION_GRAPH__START_SET, null, msgs);
+					msgs = newStartSet.eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CalculationPackage.CALCULATION_GRAPH__START_SET, null, msgs);
 				}
-				if (msgs != null)
-					msgs.dispatch();
+				if (msgs != null) msgs.dispatch();
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-						CalculationPackage.CALCULATION_GRAPH__START_SET, oldStartSet, startSet));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CalculationPackage.CALCULATION_GRAPH__START_SET, oldStartSet, startSet));
 			}
 		}
 		return startSet;
@@ -182,7 +168,6 @@ public class CalculationGraphImpl extends ElementImpl implements CalculationGrap
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public StartSet basicGetStartSet() {
@@ -191,141 +176,125 @@ public class CalculationGraphImpl extends ElementImpl implements CalculationGrap
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public NotificationChain basicSetStartSet(StartSet newStartSet, NotificationChain msgs) {
 		StartSet oldStartSet = startSet;
 		startSet = newStartSet;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
-				CalculationPackage.CALCULATION_GRAPH__START_SET, oldStartSet, newStartSet);
-			if (msgs == null)
-				msgs = notification;
-			else
-				msgs.add(notification);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CalculationPackage.CALCULATION_GRAPH__START_SET, oldStartSet, newStartSet);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setStartSet(StartSet newStartSet) {
 		if (newStartSet != startSet) {
 			NotificationChain msgs = null;
 			if (startSet != null)
-				msgs = ((InternalEObject) startSet).eInverseRemove(this, EOPPOSITE_FEATURE_BASE
-					- CalculationPackage.CALCULATION_GRAPH__START_SET, null, msgs);
+				msgs = ((InternalEObject)startSet).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CalculationPackage.CALCULATION_GRAPH__START_SET, null, msgs);
 			if (newStartSet != null)
-				msgs = ((InternalEObject) newStartSet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE
-					- CalculationPackage.CALCULATION_GRAPH__START_SET, null, msgs);
+				msgs = ((InternalEObject)newStartSet).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CalculationPackage.CALCULATION_GRAPH__START_SET, null, msgs);
 			msgs = basicSetStartSet(newStartSet, msgs);
-			if (msgs != null)
-				msgs.dispatch();
-		} else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CalculationPackage.CALCULATION_GRAPH__START_SET,
-				newStartSet, newStartSet));
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CalculationPackage.CALCULATION_GRAPH__START_SET, newStartSet, newStartSet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case CalculationPackage.CALCULATION_GRAPH__NODES:
-			return ((InternalEList<?>) getNodes()).basicRemove(otherEnd, msgs);
-		case CalculationPackage.CALCULATION_GRAPH__START_SET:
-			return basicSetStartSet(null, msgs);
+			case CalculationPackage.CALCULATION_GRAPH__NODES:
+				return ((InternalEList<?>)getNodes()).basicRemove(otherEnd, msgs);
+			case CalculationPackage.CALCULATION_GRAPH__START_SET:
+				return basicSetStartSet(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CalculationPackage.CALCULATION_GRAPH__NODES:
-			return getNodes();
-		case CalculationPackage.CALCULATION_GRAPH__FIRST_NODE:
-			if (resolve)
-				return getFirstNode();
-			return basicGetFirstNode();
-		case CalculationPackage.CALCULATION_GRAPH__START_SET:
-			if (resolve)
-				return getStartSet();
-			return basicGetStartSet();
+			case CalculationPackage.CALCULATION_GRAPH__NODES:
+				return getNodes();
+			case CalculationPackage.CALCULATION_GRAPH__FIRST_NODE:
+				if (resolve) return getFirstNode();
+				return basicGetFirstNode();
+			case CalculationPackage.CALCULATION_GRAPH__START_SET:
+				if (resolve) return getStartSet();
+				return basicGetStartSet();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CalculationPackage.CALCULATION_GRAPH__NODES:
-			getNodes().clear();
-			getNodes().addAll((Collection<? extends AbstractNode>) newValue);
-			return;
-		case CalculationPackage.CALCULATION_GRAPH__FIRST_NODE:
-			setFirstNode((AbstractNode) newValue);
-			return;
-		case CalculationPackage.CALCULATION_GRAPH__START_SET:
-			setStartSet((StartSet) newValue);
-			return;
+			case CalculationPackage.CALCULATION_GRAPH__NODES:
+				getNodes().clear();
+				getNodes().addAll((Collection<? extends AbstractNode>)newValue);
+				return;
+			case CalculationPackage.CALCULATION_GRAPH__FIRST_NODE:
+				setFirstNode((AbstractNode)newValue);
+				return;
+			case CalculationPackage.CALCULATION_GRAPH__START_SET:
+				setStartSet((StartSet)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CalculationPackage.CALCULATION_GRAPH__NODES:
-			getNodes().clear();
-			return;
-		case CalculationPackage.CALCULATION_GRAPH__FIRST_NODE:
-			setFirstNode((AbstractNode) null);
-			return;
-		case CalculationPackage.CALCULATION_GRAPH__START_SET:
-			setStartSet((StartSet) null);
-			return;
+			case CalculationPackage.CALCULATION_GRAPH__NODES:
+				getNodes().clear();
+				return;
+			case CalculationPackage.CALCULATION_GRAPH__FIRST_NODE:
+				setFirstNode((AbstractNode)null);
+				return;
+			case CalculationPackage.CALCULATION_GRAPH__START_SET:
+				setStartSet((StartSet)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CalculationPackage.CALCULATION_GRAPH__NODES:
-			return nodes != null && !nodes.isEmpty();
-		case CalculationPackage.CALCULATION_GRAPH__FIRST_NODE:
-			return firstNode != null;
-		case CalculationPackage.CALCULATION_GRAPH__START_SET:
-			return startSet != null;
+			case CalculationPackage.CALCULATION_GRAPH__NODES:
+				return nodes != null && !nodes.isEmpty();
+			case CalculationPackage.CALCULATION_GRAPH__FIRST_NODE:
+				return firstNode != null;
+			case CalculationPackage.CALCULATION_GRAPH__START_SET:
+				return startSet != null;
 		}
 		return super.eIsSet(featureID);
 	}

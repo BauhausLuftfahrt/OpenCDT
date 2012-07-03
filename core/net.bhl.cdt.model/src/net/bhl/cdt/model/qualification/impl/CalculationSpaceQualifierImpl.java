@@ -16,13 +16,12 @@ import org.eclipse.emf.ecore.EClass;
  * end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class CalculationSpaceQualifierImpl extends QualifierImpl implements CalculationSpaceQualifier {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected CalculationSpaceQualifierImpl() {
@@ -31,7 +30,6 @@ public class CalculationSpaceQualifierImpl extends QualifierImpl implements Calc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

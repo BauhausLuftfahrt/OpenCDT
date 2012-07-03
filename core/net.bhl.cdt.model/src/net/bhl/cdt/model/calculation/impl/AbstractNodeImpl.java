@@ -16,13 +16,12 @@ import org.eclipse.emf.ecore.EClass;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Abstract Node</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class AbstractNodeImpl extends ElementImpl implements AbstractNode {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected AbstractNodeImpl() {
@@ -31,7 +30,6 @@ public abstract class AbstractNodeImpl extends ElementImpl implements AbstractNo
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

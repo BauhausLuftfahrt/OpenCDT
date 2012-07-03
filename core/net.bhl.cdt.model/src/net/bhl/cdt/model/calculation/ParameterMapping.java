@@ -31,37 +31,35 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ParameterMapping extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Input Mappables</b></em>' map. The key is of type
-	 * {@link net.bhl.cdt.utilities.basecalculationmodel.ParameterDescriptor}, and the value is of type
-	 * {@link net.bhl.cdt.model.MappableComponentInterface}, <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Input Mappables</b></em>' map.
+	 * The key is of type {@link net.bhl.cdt.utilities.basecalculationmodel.ParameterDescriptor},
+	 * and the value is of type {@link net.bhl.cdt.model.MappableComponentInterface},
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Input Mappables</em>' map isn't clear, there really should be more of a description
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Input Mappables</em>' map.
 	 * @see net.bhl.cdt.model.calculation.CalculationPackage#getParameterMapping_InputMappables()
-	 * @model mapType=
-	 *        "net.bhl.cdt.model.calculation.ParameterDescriptorToMappableComponentInterfaceMap<net.bhl.cdt.utilities.basecalculationmodel.ParameterDescriptor, net.bhl.cdt.model.MappableComponentInterface>"
+	 * @model mapType="net.bhl.cdt.model.calculation.ParameterDescriptorToMappableComponentInterfaceMap<net.bhl.cdt.utilities.basecalculationmodel.ParameterDescriptor, net.bhl.cdt.model.MappableComponentInterface>"
 	 * @generated
 	 */
 	EMap<ParameterDescriptor, MappableComponentInterface> getInputMappables();
 
 	/**
-	 * Returns the value of the '<em><b>Output Mappables</b></em>' map. The key is of type
-	 * {@link net.bhl.cdt.utilities.basecalculationmodel.ParameterDescriptor}, and the value is of type
-	 * {@link net.bhl.cdt.model.MappableComponentInterface}, <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Output Mappables</b></em>' map.
+	 * The key is of type {@link net.bhl.cdt.utilities.basecalculationmodel.ParameterDescriptor},
+	 * and the value is of type {@link net.bhl.cdt.model.MappableComponentInterface},
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Output Mappables</em>' map isn't clear, there really should be more of a description
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Output Mappables</em>' map.
 	 * @see net.bhl.cdt.model.calculation.CalculationPackage#getParameterMapping_OutputMappables()
-	 * @model mapType=
-	 *        "net.bhl.cdt.model.calculation.ParameterDescriptorToMappableComponentInterfaceMap<net.bhl.cdt.utilities.basecalculationmodel.ParameterDescriptor, net.bhl.cdt.model.MappableComponentInterface>"
+	 * @model mapType="net.bhl.cdt.model.calculation.ParameterDescriptorToMappableComponentInterfaceMap<net.bhl.cdt.utilities.basecalculationmodel.ParameterDescriptor, net.bhl.cdt.model.MappableComponentInterface>"
 	 * @generated
 	 */
 	EMap<ParameterDescriptor, MappableComponentInterface> getOutputMappables();

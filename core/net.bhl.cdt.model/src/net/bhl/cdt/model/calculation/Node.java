@@ -8,27 +8,28 @@ package net.bhl.cdt.model.calculation;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Node</b></em>'. <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link net.bhl.cdt.model.calculation.Node#getNextNode <em>Next Node</em>}</li>
- * <li>{@link net.bhl.cdt.model.calculation.Node#getCalculation <em>Calculation</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.Node#getNextNode <em>Next Node</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.Node#getCalculation <em>Calculation</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see net.bhl.cdt.model.calculation.CalculationPackage#getNode()
  * @model
  * @generated
  */
 public interface Node extends AbstractNode {
 	/**
-	 * Returns the value of the '<em><b>Next Node</b></em>' reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Next Node</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Next Node</em>' reference isn't clear, there really should be more of a description
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Next Node</em>' reference.
 	 * @see #setNextNode(AbstractNode)
 	 * @see net.bhl.cdt.model.calculation.CalculationPackage#getNode_NextNode()
@@ -48,13 +49,13 @@ public interface Node extends AbstractNode {
 	void setNextNode(AbstractNode value);
 
 	/**
-	 * Returns the value of the '<em><b>Calculation</b></em>' reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Calculation</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Calculation</em>' reference isn't clear, there really should be more of a description
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Calculation</em>' reference.
 	 * @see #setCalculation(Calculation)
 	 * @see net.bhl.cdt.model.calculation.CalculationPackage#getNode_Calculation()
@@ -66,7 +67,6 @@ public interface Node extends AbstractNode {
 	/**
 	 * Sets the value of the '{@link net.bhl.cdt.model.calculation.Node#getCalculation <em>Calculation</em>}' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @param value the new value of the '<em>Calculation</em>' reference.
 	 * @see #getCalculation()
 	 * @generated

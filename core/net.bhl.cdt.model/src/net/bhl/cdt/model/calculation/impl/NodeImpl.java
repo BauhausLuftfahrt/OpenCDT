@@ -21,18 +21,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link net.bhl.cdt.model.calculation.impl.NodeImpl#getNextNode <em>Next Node</em>}</li>
- * <li>{@link net.bhl.cdt.model.calculation.impl.NodeImpl#getCalculation <em>Calculation</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.impl.NodeImpl#getNextNode <em>Next Node</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.impl.NodeImpl#getCalculation <em>Calculation</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class NodeImpl extends AbstractNodeImpl implements Node {
 	/**
-	 * The cached value of the '{@link #getNextNode() <em>Next Node</em>}' reference. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getNextNode() <em>Next Node</em>}' reference.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getNextNode()
 	 * @generated
 	 * @ordered
@@ -40,9 +40,9 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 	protected AbstractNode nextNode;
 
 	/**
-	 * The cached value of the '{@link #getCalculation() <em>Calculation</em>}' reference. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getCalculation() <em>Calculation</em>}' reference.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getCalculation()
 	 * @generated
 	 * @ordered
@@ -51,7 +51,6 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected NodeImpl() {
@@ -60,7 +59,6 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -70,17 +68,15 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public AbstractNode getNextNode() {
 		if (nextNode != null && nextNode.eIsProxy()) {
-			InternalEObject oldNextNode = (InternalEObject) nextNode;
-			nextNode = (AbstractNode) eResolveProxy(oldNextNode);
+			InternalEObject oldNextNode = (InternalEObject)nextNode;
+			nextNode = (AbstractNode)eResolveProxy(oldNextNode);
 			if (nextNode != oldNextNode) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CalculationPackage.NODE__NEXT_NODE,
-						oldNextNode, nextNode));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CalculationPackage.NODE__NEXT_NODE, oldNextNode, nextNode));
 			}
 		}
 		return nextNode;
@@ -88,7 +84,6 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public AbstractNode basicGetNextNode() {
@@ -97,30 +92,26 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setNextNode(AbstractNode newNextNode) {
 		AbstractNode oldNextNode = nextNode;
 		nextNode = newNextNode;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CalculationPackage.NODE__NEXT_NODE, oldNextNode,
-				nextNode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CalculationPackage.NODE__NEXT_NODE, oldNextNode, nextNode));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Calculation getCalculation() {
 		if (calculation != null && calculation.eIsProxy()) {
-			InternalEObject oldCalculation = (InternalEObject) calculation;
-			calculation = (Calculation) eResolveProxy(oldCalculation);
+			InternalEObject oldCalculation = (InternalEObject)calculation;
+			calculation = (Calculation)eResolveProxy(oldCalculation);
 			if (calculation != oldCalculation) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CalculationPackage.NODE__CALCULATION,
-						oldCalculation, calculation));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CalculationPackage.NODE__CALCULATION, oldCalculation, calculation));
 			}
 		}
 		return calculation;
@@ -128,7 +119,6 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Calculation basicGetCalculation() {
@@ -137,85 +127,77 @@ public class NodeImpl extends AbstractNodeImpl implements Node {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setCalculation(Calculation newCalculation) {
 		Calculation oldCalculation = calculation;
 		calculation = newCalculation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CalculationPackage.NODE__CALCULATION, oldCalculation,
-				calculation));
+			eNotify(new ENotificationImpl(this, Notification.SET, CalculationPackage.NODE__CALCULATION, oldCalculation, calculation));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CalculationPackage.NODE__NEXT_NODE:
-			if (resolve)
-				return getNextNode();
-			return basicGetNextNode();
-		case CalculationPackage.NODE__CALCULATION:
-			if (resolve)
-				return getCalculation();
-			return basicGetCalculation();
+			case CalculationPackage.NODE__NEXT_NODE:
+				if (resolve) return getNextNode();
+				return basicGetNextNode();
+			case CalculationPackage.NODE__CALCULATION:
+				if (resolve) return getCalculation();
+				return basicGetCalculation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CalculationPackage.NODE__NEXT_NODE:
-			setNextNode((AbstractNode) newValue);
-			return;
-		case CalculationPackage.NODE__CALCULATION:
-			setCalculation((Calculation) newValue);
-			return;
+			case CalculationPackage.NODE__NEXT_NODE:
+				setNextNode((AbstractNode)newValue);
+				return;
+			case CalculationPackage.NODE__CALCULATION:
+				setCalculation((Calculation)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CalculationPackage.NODE__NEXT_NODE:
-			setNextNode((AbstractNode) null);
-			return;
-		case CalculationPackage.NODE__CALCULATION:
-			setCalculation((Calculation) null);
-			return;
+			case CalculationPackage.NODE__NEXT_NODE:
+				setNextNode((AbstractNode)null);
+				return;
+			case CalculationPackage.NODE__CALCULATION:
+				setCalculation((Calculation)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CalculationPackage.NODE__NEXT_NODE:
-			return nextNode != null;
-		case CalculationPackage.NODE__CALCULATION:
-			return calculation != null;
+			case CalculationPackage.NODE__NEXT_NODE:
+				return nextNode != null;
+			case CalculationPackage.NODE__CALCULATION:
+				return calculation != null;
 		}
 		return super.eIsSet(featureID);
 	}
