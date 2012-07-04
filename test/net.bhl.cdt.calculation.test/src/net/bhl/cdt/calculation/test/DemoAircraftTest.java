@@ -1,5 +1,7 @@
 package net.bhl.cdt.calculation.test;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.HashMap;
 import java.util.Map.Entry;
 
@@ -9,6 +11,7 @@ import net.bhl.cdt.calculation.command.DetermineInitialValuesForCalculationSetCo
 import net.bhl.cdt.model.Model;
 import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.model.Parameter;
+import net.bhl.cdt.model.Value;
 import net.bhl.cdt.test.WorkspaceTest;
 import net.bhl.cdt.utilities.commands.CDTCommand;
 import net.bhl.cdt.utilities.datatypes.MeasuredValue;
@@ -47,6 +50,8 @@ public class DemoAircraftTest extends WorkspaceTest {
 	@Test
 	public void testDemoAircraft() {
 
+		final HashMap<String, Double> initialParameters = new HashMap<String, Double>();
+
 		Preferences preferences = ConfigurationScope.INSTANCE
 				.getNode("net.bhl.cdt.ui");
 		preferences.put("SCIEXEC", SCIEXEC);
@@ -82,8 +87,6 @@ public class DemoAircraftTest extends WorkspaceTest {
 		new CDTCommand() {
 			@Override
 			protected void doRun() {
-
-				HashMap<String, Double> initialParameters = new HashMap<String, Double>();
 				initialParameters.put("s_wet_fus", 200.0);
 				initialParameters.put("s_ref", 50.0);
 				initialParameters.put("aspect ratio", 9.0);
@@ -112,8 +115,17 @@ public class DemoAircraftTest extends WorkspaceTest {
 		// Execute calculation
 		new CalculationCommand(model.getConfigurations().get(0)
 				.getCalculationSets().get(0).getGraphs().get(0)).run();
+
+		// Assert m_to = 23336.217, 23334.859, 23334.859?
+		// TODO: Na welcher Wert nun?
+
+		// get last m_to value
+		EList<Value> values = UtilitiesHelper
+				.getChildrenByClassAndName(model.getConfigurations().get(0),
+						Parameter.class, "m_to").get(0).getValues();
+		Double m_to = ((MeasuredValue) values.get(values.size()-1).getDatatypes().get(0)).getValue();
 		
-		// Assert m_to = 
+		assertEquals(23334.859, m_to, Double.MIN_VALUE);
 
 	}
 
