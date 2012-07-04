@@ -49,9 +49,6 @@ Martin Glas, Sebastian Höcht, Michael Kagel, Stephan Leutenmayr, Sami Mkhazni, 
    <plugins>
       <plugin id="com.ibm.icu"/>
       <plugin id="net.bhl.cdt.architecturetools"/>
-      <plugin id="net.bhl.cdt.architecturetools.edit"/>
-      <plugin id="net.bhl.cdt.architecturetools.model"/>
-      <plugin id="net.bhl.cdt.architecturetools.model.edit"/>
       <plugin id="net.bhl.cdt.calculation"/>
       <plugin id="net.bhl.cdt.calculationrepository"/>
       <plugin id="net.bhl.cdt.calculationrepository.edit"/>

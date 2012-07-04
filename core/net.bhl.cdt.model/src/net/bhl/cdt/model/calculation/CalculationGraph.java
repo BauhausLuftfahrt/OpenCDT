@@ -16,30 +16,29 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Graph</b></em>'. <!-- end-user-doc -->
- *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link net.bhl.cdt.model.calculation.CalculationGraph#getNodes <em>Nodes</em>}</li>
- *   <li>{@link net.bhl.cdt.model.calculation.CalculationGraph#getFirstNode <em>First Node</em>}</li>
- *   <li>{@link net.bhl.cdt.model.calculation.CalculationGraph#getStartSet <em>Start Set</em>}</li>
+ * <li>{@link net.bhl.cdt.model.calculation.CalculationGraph#getNodes <em>Nodes</em>}</li>
+ * <li>{@link net.bhl.cdt.model.calculation.CalculationGraph#getFirstNode <em>First Node</em>}</li>
+ * <li>{@link net.bhl.cdt.model.calculation.CalculationGraph#getStartSet <em>Start Set</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see net.bhl.cdt.model.calculation.CalculationPackage#getCalculationGraph()
  * @model
  * @generated
  */
 public interface CalculationGraph extends Element {
 	/**
-	 * Returns the value of the '<em><b>Nodes</b></em>' containment reference list.
-	 * The list contents are of type {@link net.bhl.cdt.model.calculation.AbstractNode}.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Nodes</b></em>' containment reference list. The list contents are of type
+	 * {@link net.bhl.cdt.model.calculation.AbstractNode}. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Nodes</em>' containment reference list isn't clear, there really should be more of a
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Nodes</em>' containment reference list.
 	 * @see net.bhl.cdt.model.calculation.CalculationPackage#getCalculationGraph_Nodes()
 	 * @model containment="true" resolveProxies="true"
@@ -48,13 +47,13 @@ public interface CalculationGraph extends Element {
 	EList<AbstractNode> getNodes();
 
 	/**
-	 * Returns the value of the '<em><b>First Node</b></em>' reference.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>First Node</b></em>' reference. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>First Node</em>' reference isn't clear, there really should be more of a description
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>First Node</em>' reference.
 	 * @see #setFirstNode(AbstractNode)
 	 * @see net.bhl.cdt.model.calculation.CalculationPackage#getCalculationGraph_FirstNode()
@@ -64,8 +63,9 @@ public interface CalculationGraph extends Element {
 	AbstractNode getFirstNode();
 
 	/**
-	 * Sets the value of the '{@link net.bhl.cdt.model.calculation.CalculationGraph#getFirstNode <em>First Node</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link net.bhl.cdt.model.calculation.CalculationGraph#getFirstNode <em>First Node</em>}'
+	 * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>First Node</em>' reference.
 	 * @see #getFirstNode()
 	 * @generated
@@ -73,13 +73,13 @@ public interface CalculationGraph extends Element {
 	void setFirstNode(AbstractNode value);
 
 	/**
-	 * Returns the value of the '<em><b>Start Set</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Start Set</b></em>' containment reference. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Start Set</em>' containment reference isn't clear, there really should be more of a
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Start Set</em>' containment reference.
 	 * @see #setStartSet(StartSet)
 	 * @see net.bhl.cdt.model.calculation.CalculationPackage#getCalculationGraph_StartSet()
@@ -89,8 +89,9 @@ public interface CalculationGraph extends Element {
 	StartSet getStartSet();
 
 	/**
-	 * Sets the value of the '{@link net.bhl.cdt.model.calculation.CalculationGraph#getStartSet <em>Start Set</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Sets the value of the '{@link net.bhl.cdt.model.calculation.CalculationGraph#getStartSet <em>Start Set</em>}'
+	 * containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Start Set</em>' containment reference.
 	 * @see #getStartSet()
 	 * @generated

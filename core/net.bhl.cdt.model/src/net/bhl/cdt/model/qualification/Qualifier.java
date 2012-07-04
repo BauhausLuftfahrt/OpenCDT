@@ -12,28 +12,27 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Qualifier</b></em>'. <!-- end-user-doc -->
- *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link net.bhl.cdt.model.qualification.Qualifier#getQualifies <em>Qualifies</em>}</li>
+ * <li>{@link net.bhl.cdt.model.qualification.Qualifier#getQualifies <em>Qualifies</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see net.bhl.cdt.model.qualification.QualificationPackage#getQualifier()
  * @model abstract="true"
  * @generated
  */
 public interface Qualifier extends Element {
 	/**
-	 * Returns the value of the '<em><b>Qualifies</b></em>' reference list.
-	 * The list contents are of type {@link net.bhl.cdt.model.qualification.Qualifiable}.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Qualifies</b></em>' reference list. The list contents are of type
+	 * {@link net.bhl.cdt.model.qualification.Qualifiable}. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Qualifies</em>' reference list isn't clear, there really should be more of a
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Qualifies</em>' reference list.
 	 * @see net.bhl.cdt.model.qualification.QualificationPackage#getQualifier_Qualifies()
 	 * @model

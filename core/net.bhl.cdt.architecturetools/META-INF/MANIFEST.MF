@@ -4,7 +4,8 @@ Bundle-Name: Architecturetools
 Bundle-SymbolicName: net.bhl.cdt.architecturetools;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: net.bhl.cdt.architecturetools.Activator
-Require-Bundle: net.bhl.cdt.ui;visibility:=reexport
+Require-Bundle: net.bhl.cdt.ui;visibility:=reexport,
+ net.bhl.cdt.model;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 

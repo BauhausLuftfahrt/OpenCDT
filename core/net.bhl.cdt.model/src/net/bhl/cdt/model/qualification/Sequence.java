@@ -10,28 +10,27 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Sequence</b></em>'. <!-- end-user-doc -->
- *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link net.bhl.cdt.model.qualification.Sequence#getProcesses <em>Processes</em>}</li>
+ * <li>{@link net.bhl.cdt.model.qualification.Sequence#getProcesses <em>Processes</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see net.bhl.cdt.model.qualification.QualificationPackage#getSequence()
  * @model
  * @generated
  */
 public interface Sequence extends net.bhl.cdt.model.qualification.Process {
 	/**
-	 * Returns the value of the '<em><b>Processes</b></em>' containment reference list.
-	 * The list contents are of type {@link net.bhl.cdt.model.qualification.Process}.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Processes</b></em>' containment reference list. The list contents are of type
+	 * {@link net.bhl.cdt.model.qualification.Process}. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Processes</em>' containment reference list isn't clear, there really should be more of
 	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Processes</em>' containment reference list.
 	 * @see net.bhl.cdt.model.qualification.QualificationPackage#getSequence_Processes()
 	 * @model containment="true" resolveProxies="true"

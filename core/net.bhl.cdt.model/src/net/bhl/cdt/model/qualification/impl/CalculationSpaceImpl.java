@@ -41,6 +41,7 @@ public class CalculationSpaceImpl extends QualifyingSpaceImpl implements Calcula
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected CalculationSpaceImpl() {
@@ -49,6 +50,7 @@ public class CalculationSpaceImpl extends QualifyingSpaceImpl implements Calcula
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -58,67 +60,73 @@ public class CalculationSpaceImpl extends QualifyingSpaceImpl implements Calcula
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<CalculationSpaceQualifier> getSpaceQualifier() {
 		if (spaceQualifier == null) {
-			spaceQualifier = new EObjectResolvingEList<CalculationSpaceQualifier>(CalculationSpaceQualifier.class, this, QualificationPackage.CALCULATION_SPACE__SPACE_QUALIFIER);
+			spaceQualifier = new EObjectResolvingEList<CalculationSpaceQualifier>(CalculationSpaceQualifier.class,
+				this, QualificationPackage.CALCULATION_SPACE__SPACE_QUALIFIER);
 		}
 		return spaceQualifier;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QualificationPackage.CALCULATION_SPACE__SPACE_QUALIFIER:
-				return getSpaceQualifier();
+		case QualificationPackage.CALCULATION_SPACE__SPACE_QUALIFIER:
+			return getSpaceQualifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QualificationPackage.CALCULATION_SPACE__SPACE_QUALIFIER:
-				getSpaceQualifier().clear();
-				getSpaceQualifier().addAll((Collection<? extends CalculationSpaceQualifier>)newValue);
-				return;
+		case QualificationPackage.CALCULATION_SPACE__SPACE_QUALIFIER:
+			getSpaceQualifier().clear();
+			getSpaceQualifier().addAll((Collection<? extends CalculationSpaceQualifier>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QualificationPackage.CALCULATION_SPACE__SPACE_QUALIFIER:
-				getSpaceQualifier().clear();
-				return;
+		case QualificationPackage.CALCULATION_SPACE__SPACE_QUALIFIER:
+			getSpaceQualifier().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QualificationPackage.CALCULATION_SPACE__SPACE_QUALIFIER:
-				return spaceQualifier != null && !spaceQualifier.isEmpty();
+		case QualificationPackage.CALCULATION_SPACE__SPACE_QUALIFIER:
+			return spaceQualifier != null && !spaceQualifier.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

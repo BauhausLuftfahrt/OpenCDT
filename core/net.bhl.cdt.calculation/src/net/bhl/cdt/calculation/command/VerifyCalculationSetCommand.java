@@ -8,7 +8,6 @@ package net.bhl.cdt.calculation.command;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
-import net.bhl.cdt.architecturetools.exceptions.NoValueFoundException;
 import net.bhl.cdt.calculation.exception.MappingErrorException;
 import net.bhl.cdt.calculation.exception.UncompatibleQuantityInMappingException;
 import net.bhl.cdt.calculationrepository.CalculationRepositoryManager;
@@ -16,6 +15,7 @@ import net.bhl.cdt.calculationrepository.functions.Function;
 import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.MappableComponentInterface;
 import net.bhl.cdt.model.Parameter;
+import net.bhl.cdt.model.architecturetools.exceptions.NoValueFoundException;
 import net.bhl.cdt.model.calculation.Calculation;
 import net.bhl.cdt.model.calculation.CalculationSet;
 import net.bhl.cdt.model.calculation.ParameterMapping;

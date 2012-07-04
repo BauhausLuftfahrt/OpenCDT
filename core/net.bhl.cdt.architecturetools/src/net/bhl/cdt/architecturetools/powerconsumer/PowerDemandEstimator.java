@@ -11,13 +11,13 @@ import java.util.List;
 
 import net.bhl.cdt.architecturetools.ConfigurationInput;
 import net.bhl.cdt.architecturetools.comparator.TableComparator;
-import net.bhl.cdt.architecturetools.exceptions.NoValueFoundException;
-import net.bhl.cdt.architecturetools.model.architecturetools.ArchitecturetoolsFactory;
-import net.bhl.cdt.architecturetools.model.architecturetools.PowerConsumer;
-import net.bhl.cdt.architecturetools.model.architecturetools.PowerDemandView;
 import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.Value;
+import net.bhl.cdt.model.architecturetools.ArchitecturetoolsFactory;
+import net.bhl.cdt.model.architecturetools.PowerConsumer;
+import net.bhl.cdt.model.architecturetools.PowerDemandView;
+import net.bhl.cdt.model.architecturetools.exceptions.NoValueFoundException;
 import net.bhl.cdt.model.util.ComponentInterfaceUtil;
 import net.bhl.cdt.utilities.commands.CDTCommand;
 

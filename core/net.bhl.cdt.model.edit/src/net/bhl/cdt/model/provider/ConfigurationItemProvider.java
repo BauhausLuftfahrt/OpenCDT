@@ -12,6 +12,7 @@ import java.util.List;
 import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.model.ModelPackage;
+import net.bhl.cdt.model.architecturetools.ArchitecturetoolsFactory;
 import net.bhl.cdt.model.calculation.CalculationFactory;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -143,6 +144,9 @@ public class ConfigurationItemProvider extends StructuralElementItemProvider imp
 
 		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.CONFIGURATION__VIEWS,
 			ModelFactory.eINSTANCE.createDisciplineView()));
+
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.CONFIGURATION__VIEWS,
+			ArchitecturetoolsFactory.eINSTANCE.createPowerDemandView()));
 
 		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.CONFIGURATION__COMPONENTS,
 			ModelFactory.eINSTANCE.createComponent()));

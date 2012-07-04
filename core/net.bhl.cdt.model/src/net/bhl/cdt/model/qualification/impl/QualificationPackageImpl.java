@@ -7,6 +7,8 @@
 package net.bhl.cdt.model.qualification.impl;
 
 import net.bhl.cdt.model.ModelPackage;
+import net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage;
+import net.bhl.cdt.model.architecturetools.impl.ArchitecturetoolsPackageImpl;
 import net.bhl.cdt.model.calculation.CalculationPackage;
 import net.bhl.cdt.model.calculation.impl.CalculationPackageImpl;
 import net.bhl.cdt.model.impl.ModelPackageImpl;
@@ -33,71 +35,83 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class QualificationPackageImpl extends EPackageImpl implements QualificationPackage {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass qualifierEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass qualifyingSpaceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass qualifiableEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass calculationSpaceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass calculationSpaceQualifierEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass behaviouralSpaceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass behaviouralQualifierEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass processEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass stateEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass sequenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EClass transitionEClass = null;
@@ -121,6 +135,7 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
@@ -138,10 +153,13 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 	 * @generated
 	 */
 	public static QualificationPackage init() {
-		if (isInited) return (QualificationPackage)EPackage.Registry.INSTANCE.getEPackage(QualificationPackage.eNS_URI);
+		if (isInited)
+			return (QualificationPackage) EPackage.Registry.INSTANCE.getEPackage(QualificationPackage.eNS_URI);
 
 		// Obtain or create and register package
-		QualificationPackageImpl theQualificationPackage = (QualificationPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof QualificationPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new QualificationPackageImpl());
+		QualificationPackageImpl theQualificationPackage = (QualificationPackageImpl) (EPackage.Registry.INSTANCE
+			.get(eNS_URI) instanceof QualificationPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
+			: new QualificationPackageImpl());
 
 		isInited = true;
 
@@ -151,23 +169,31 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 		EcorePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		ModelPackageImpl theModelPackage = (ModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI) instanceof ModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI) : ModelPackage.eINSTANCE);
-		CalculationPackageImpl theCalculationPackage = (CalculationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CalculationPackage.eNS_URI) instanceof CalculationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CalculationPackage.eNS_URI) : CalculationPackage.eINSTANCE);
+		ModelPackageImpl theModelPackage = (ModelPackageImpl) (EPackage.Registry.INSTANCE
+			.getEPackage(ModelPackage.eNS_URI) instanceof ModelPackageImpl ? EPackage.Registry.INSTANCE
+			.getEPackage(ModelPackage.eNS_URI) : ModelPackage.eINSTANCE);
+		CalculationPackageImpl theCalculationPackage = (CalculationPackageImpl) (EPackage.Registry.INSTANCE
+			.getEPackage(CalculationPackage.eNS_URI) instanceof CalculationPackageImpl ? EPackage.Registry.INSTANCE
+			.getEPackage(CalculationPackage.eNS_URI) : CalculationPackage.eINSTANCE);
+		ArchitecturetoolsPackageImpl theArchitecturetoolsPackage = (ArchitecturetoolsPackageImpl) (EPackage.Registry.INSTANCE
+			.getEPackage(ArchitecturetoolsPackage.eNS_URI) instanceof ArchitecturetoolsPackageImpl ? EPackage.Registry.INSTANCE
+			.getEPackage(ArchitecturetoolsPackage.eNS_URI) : ArchitecturetoolsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theQualificationPackage.createPackageContents();
 		theModelPackage.createPackageContents();
 		theCalculationPackage.createPackageContents();
+		theArchitecturetoolsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theQualificationPackage.initializePackageContents();
 		theModelPackage.initializePackageContents();
 		theCalculationPackage.initializePackageContents();
+		theArchitecturetoolsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theQualificationPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(QualificationPackage.eNS_URI, theQualificationPackage);
 		return theQualificationPackage;
@@ -175,6 +201,7 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getQualifier() {
@@ -183,14 +210,16 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getQualifier_Qualifies() {
-		return (EReference)qualifierEClass.getEStructuralFeatures().get(0);
+		return (EReference) qualifierEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getQualifyingSpace() {
@@ -199,6 +228,7 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getQualifiable() {
@@ -207,6 +237,7 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getCalculationSpace() {
@@ -215,14 +246,16 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getCalculationSpace_SpaceQualifier() {
-		return (EReference)calculationSpaceEClass.getEStructuralFeatures().get(0);
+		return (EReference) calculationSpaceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getCalculationSpaceQualifier() {
@@ -231,6 +264,7 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getBehaviouralSpace() {
@@ -239,14 +273,16 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getBehaviouralSpace_BehaviouralQualifier() {
-		return (EReference)behaviouralSpaceEClass.getEStructuralFeatures().get(0);
+		return (EReference) behaviouralSpaceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getBehaviouralQualifier() {
@@ -255,6 +291,7 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getProcess() {
@@ -263,22 +300,25 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getProcess_InitState() {
-		return (EReference)processEClass.getEStructuralFeatures().get(0);
+		return (EReference) processEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getProcess_FinState() {
-		return (EReference)processEClass.getEStructuralFeatures().get(1);
+		return (EReference) processEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getState() {
@@ -287,6 +327,7 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getSequence() {
@@ -295,14 +336,16 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EReference getSequence_Processes() {
-		return (EReference)sequenceEClass.getEStructuralFeatures().get(0);
+		return (EReference) sequenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EClass getTransition() {
@@ -311,26 +354,29 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public QualificationFactory getQualificationFactory() {
-		return (QualificationFactory)getEFactoryInstance();
+		return (QualificationFactory) getEFactoryInstance();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates the meta-model objects for the package. This method is guarded to have no affect on any invocation but
+	 * its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) return;
+		if (isCreated)
+			return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -365,18 +411,20 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Complete the initialization of the package and its meta-model. This method is guarded to have no affect on any
+	 * invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) return;
+		if (isInitialized)
+			return;
 		isInitialized = true;
 
 		// Initialize package
@@ -385,7 +433,7 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		ModelPackage theModelPackage = (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
+		ModelPackage theModelPackage = (ModelPackage) EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -405,33 +453,66 @@ public class QualificationPackageImpl extends EPackageImpl implements Qualificat
 		transitionEClass.getESuperTypes().add(this.getProcess());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(qualifierEClass, Qualifier.class, "Qualifier", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getQualifier_Qualifies(), this.getQualifiable(), null, "qualifies", null, 0, -1, Qualifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(qualifierEClass, Qualifier.class,
+			"Qualifier", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+			getQualifier_Qualifies(),
+			this.getQualifiable(),
+			null,
+			"qualifies", null, 0, -1, Qualifier.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(qualifyingSpaceEClass, QualifyingSpace.class, "QualifyingSpace", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEClass(qualifyingSpaceEClass, QualifyingSpace.class,
+			"QualifyingSpace", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(qualifiableEClass, Qualifiable.class, "Qualifiable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEClass(qualifiableEClass, Qualifiable.class,
+			"Qualifiable", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(calculationSpaceEClass, CalculationSpace.class, "CalculationSpace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getCalculationSpace_SpaceQualifier(), this.getCalculationSpaceQualifier(), null, "spaceQualifier", null, 0, -1, CalculationSpace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(calculationSpaceEClass, CalculationSpace.class,
+			"CalculationSpace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+			getCalculationSpace_SpaceQualifier(),
+			this.getCalculationSpaceQualifier(),
+			null,
+			"spaceQualifier", null, 0, -1, CalculationSpace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(calculationSpaceQualifierEClass, CalculationSpaceQualifier.class, "CalculationSpaceQualifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEClass(calculationSpaceQualifierEClass, CalculationSpaceQualifier.class,
+			"CalculationSpaceQualifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(behaviouralSpaceEClass, BehaviouralSpace.class, "BehaviouralSpace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getBehaviouralSpace_BehaviouralQualifier(), this.getBehaviouralQualifier(), null, "behaviouralQualifier", null, 0, -1, BehaviouralSpace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(behaviouralSpaceEClass, BehaviouralSpace.class,
+			"BehaviouralSpace", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+			getBehaviouralSpace_BehaviouralQualifier(),
+			this.getBehaviouralQualifier(),
+			null,
+			"behaviouralQualifier", null, 0, -1, BehaviouralSpace.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(behaviouralQualifierEClass, BehaviouralQualifier.class, "BehaviouralQualifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEClass(behaviouralQualifierEClass, BehaviouralQualifier.class,
+			"BehaviouralQualifier", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
-		initEClass(processEClass, net.bhl.cdt.model.qualification.Process.class, "Process", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getProcess_InitState(), this.getState(), null, "initState", null, 0, 1, net.bhl.cdt.model.qualification.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getProcess_FinState(), this.getState(), null, "finState", null, 0, 1, net.bhl.cdt.model.qualification.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(processEClass, net.bhl.cdt.model.qualification.Process.class,
+			"Process", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(
+			getProcess_InitState(),
+			this.getState(),
+			null,
+			"initState", null, 0, 1, net.bhl.cdt.model.qualification.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+			getProcess_FinState(),
+			this.getState(),
+			null,
+			"finState", null, 0, 1, net.bhl.cdt.model.qualification.Process.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(sequenceEClass, Sequence.class, "Sequence", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getSequence_Processes(), this.getProcess(), null, "processes", null, 0, -1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(
+			getSequence_Processes(),
+			this.getProcess(),
+			null,
+			"processes", null, 0, -1, Sequence.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEClass(transitionEClass, Transition.class,
+			"Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 	}
 
 } // QualificationPackageImpl

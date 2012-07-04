@@ -21,35 +21,36 @@ import org.eclipse.emf.ecore.EReference;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * 
  * @see net.bhl.cdt.model.qualification.QualificationFactory
  * @model kind="package"
  * @generated
  */
 public interface QualificationPackage extends EPackage {
 	/**
-	 * The package name.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNAME = "qualification"; //$NON-NLS-1$
 
 	/**
-	 * The package namespace URI.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNS_URI = "http://bhl.net/cdt/model/qualification"; //$NON-NLS-1$
 
 	/**
-	 * The package namespace name.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNS_PREFIX = "net.bhl.cdt.model"; //$NON-NLS-1$
 
 	/**
-	 * The singleton instance of the package.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	QualificationPackage eINSTANCE = net.bhl.cdt.model.qualification.impl.QualificationPackageImpl.init();
@@ -57,6 +58,7 @@ public interface QualificationPackage extends EPackage {
 	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.qualification.impl.QualifierImpl <em>Qualifier</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.qualification.impl.QualifierImpl
 	 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getQualifier()
 	 * @generated
@@ -64,16 +66,16 @@ public interface QualificationPackage extends EPackage {
 	int QUALIFIER = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int QUALIFIER__NAME = ModelPackage.ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Qualifies</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Qualifies</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -89,8 +91,9 @@ public interface QualificationPackage extends EPackage {
 	int QUALIFIER_FEATURE_COUNT = ModelPackage.ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.qualification.impl.QualifyingSpaceImpl <em>Qualifying Space</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.qualification.impl.QualifyingSpaceImpl
+	 * <em>Qualifying Space</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.qualification.impl.QualifyingSpaceImpl
 	 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getQualifyingSpace()
 	 * @generated
@@ -98,17 +101,17 @@ public interface QualificationPackage extends EPackage {
 	int QUALIFYING_SPACE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int QUALIFYING_SPACE__NAME = ModelPackage.ELEMENT__NAME;
 
 	/**
-	 * The number of structural features of the '<em>Qualifying Space</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of structural features of the '<em>Qualifying Space</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -125,8 +128,8 @@ public interface QualificationPackage extends EPackage {
 	int QUALIFIABLE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -142,8 +145,9 @@ public interface QualificationPackage extends EPackage {
 	int QUALIFIABLE_FEATURE_COUNT = ModelPackage.ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.qualification.impl.CalculationSpaceImpl <em>Calculation Space</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.qualification.impl.CalculationSpaceImpl
+	 * <em>Calculation Space</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.qualification.impl.CalculationSpaceImpl
 	 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getCalculationSpace()
 	 * @generated
@@ -151,34 +155,35 @@ public interface QualificationPackage extends EPackage {
 	int CALCULATION_SPACE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CALCULATION_SPACE__NAME = QUALIFYING_SPACE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Space Qualifier</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Space Qualifier</b></em>' reference list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CALCULATION_SPACE__SPACE_QUALIFIER = QUALIFYING_SPACE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Calculation Space</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of structural features of the '<em>Calculation Space</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CALCULATION_SPACE_FEATURE_COUNT = QUALIFYING_SPACE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.qualification.impl.CalculationSpaceQualifierImpl <em>Calculation Space Qualifier</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.qualification.impl.CalculationSpaceQualifierImpl
+	 * <em>Calculation Space Qualifier</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.qualification.impl.CalculationSpaceQualifierImpl
 	 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getCalculationSpaceQualifier()
 	 * @generated
@@ -186,33 +191,34 @@ public interface QualificationPackage extends EPackage {
 	int CALCULATION_SPACE_QUALIFIER = 4;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CALCULATION_SPACE_QUALIFIER__NAME = QUALIFIER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Qualifies</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Qualifies</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CALCULATION_SPACE_QUALIFIER__QUALIFIES = QUALIFIER__QUALIFIES;
 
 	/**
-	 * The number of structural features of the '<em>Calculation Space Qualifier</em>' class.
-	 * <!-- begin-user-doc -->
+	 * The number of structural features of the '<em>Calculation Space Qualifier</em>' class. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CALCULATION_SPACE_QUALIFIER_FEATURE_COUNT = QUALIFIER_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.qualification.impl.BehaviouralSpaceImpl <em>Behavioural Space</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.qualification.impl.BehaviouralSpaceImpl
+	 * <em>Behavioural Space</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.qualification.impl.BehaviouralSpaceImpl
 	 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getBehaviouralSpace()
 	 * @generated
@@ -220,34 +226,35 @@ public interface QualificationPackage extends EPackage {
 	int BEHAVIOURAL_SPACE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int BEHAVIOURAL_SPACE__NAME = QUALIFYING_SPACE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Behavioural Qualifier</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Behavioural Qualifier</b></em>' reference list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int BEHAVIOURAL_SPACE__BEHAVIOURAL_QUALIFIER = QUALIFYING_SPACE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Behavioural Space</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of structural features of the '<em>Behavioural Space</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int BEHAVIOURAL_SPACE_FEATURE_COUNT = QUALIFYING_SPACE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.qualification.impl.BehaviouralQualifierImpl <em>Behavioural Qualifier</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.qualification.impl.BehaviouralQualifierImpl
+	 * <em>Behavioural Qualifier</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.qualification.impl.BehaviouralQualifierImpl
 	 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getBehaviouralQualifier()
 	 * @generated
@@ -255,25 +262,25 @@ public interface QualificationPackage extends EPackage {
 	int BEHAVIOURAL_QUALIFIER = 6;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int BEHAVIOURAL_QUALIFIER__NAME = QUALIFIER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Qualifies</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Qualifies</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int BEHAVIOURAL_QUALIFIER__QUALIFIES = QUALIFIER__QUALIFIES;
 
 	/**
-	 * The number of structural features of the '<em>Behavioural Qualifier</em>' class.
-	 * <!-- begin-user-doc --> <!--
+	 * The number of structural features of the '<em>Behavioural Qualifier</em>' class. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -282,6 +289,7 @@ public interface QualificationPackage extends EPackage {
 	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.qualification.impl.ProcessImpl <em>Process</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.qualification.impl.ProcessImpl
 	 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getProcess()
 	 * @generated
@@ -289,40 +297,40 @@ public interface QualificationPackage extends EPackage {
 	int PROCESS = 7;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int PROCESS__NAME = BEHAVIOURAL_QUALIFIER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Qualifies</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Qualifies</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int PROCESS__QUALIFIES = BEHAVIOURAL_QUALIFIER__QUALIFIES;
 
 	/**
-	 * The feature id for the '<em><b>Init State</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Init State</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int PROCESS__INIT_STATE = BEHAVIOURAL_QUALIFIER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Fin State</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Fin State</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int PROCESS__FIN_STATE = BEHAVIOURAL_QUALIFIER_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Process</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Process</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -339,24 +347,24 @@ public interface QualificationPackage extends EPackage {
 	int STATE = 8;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int STATE__NAME = BEHAVIOURAL_QUALIFIER__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Qualifies</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Qualifies</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int STATE__QUALIFIES = BEHAVIOURAL_QUALIFIER__QUALIFIES;
 
 	/**
-	 * The number of structural features of the '<em>State</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>State</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -365,6 +373,7 @@ public interface QualificationPackage extends EPackage {
 	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.qualification.impl.SequenceImpl <em>Sequence</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.qualification.impl.SequenceImpl
 	 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getSequence()
 	 * @generated
@@ -372,57 +381,58 @@ public interface QualificationPackage extends EPackage {
 	int SEQUENCE = 9;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SEQUENCE__NAME = PROCESS__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Qualifies</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Qualifies</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SEQUENCE__QUALIFIES = PROCESS__QUALIFIES;
 
 	/**
-	 * The feature id for the '<em><b>Init State</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Init State</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SEQUENCE__INIT_STATE = PROCESS__INIT_STATE;
 
 	/**
-	 * The feature id for the '<em><b>Fin State</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Fin State</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SEQUENCE__FIN_STATE = PROCESS__FIN_STATE;
 
 	/**
-	 * The feature id for the '<em><b>Processes</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!--
+	 * The feature id for the '<em><b>Processes</b></em>' containment reference list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SEQUENCE__PROCESSES = PROCESS_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Sequence</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Sequence</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SEQUENCE_FEATURE_COUNT = PROCESS_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.qualification.impl.TransitionImpl <em>Transition</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.qualification.impl.TransitionImpl <em>Transition</em>}'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.qualification.impl.TransitionImpl
 	 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getTransition()
 	 * @generated
@@ -430,32 +440,32 @@ public interface QualificationPackage extends EPackage {
 	int TRANSITION = 10;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int TRANSITION__NAME = PROCESS__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Qualifies</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Qualifies</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int TRANSITION__QUALIFIES = PROCESS__QUALIFIES;
 
 	/**
-	 * The feature id for the '<em><b>Init State</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Init State</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int TRANSITION__INIT_STATE = PROCESS__INIT_STATE;
 
 	/**
-	 * The feature id for the '<em><b>Fin State</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Fin State</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -481,8 +491,9 @@ public interface QualificationPackage extends EPackage {
 	EClass getQualifier();
 
 	/**
-	 * Returns the meta object for the reference list '{@link net.bhl.cdt.model.qualification.Qualifier#getQualifies <em>Qualifies</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference list '{@link net.bhl.cdt.model.qualification.Qualifier#getQualifies
+	 * <em>Qualifies</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the reference list '<em>Qualifies</em>'.
 	 * @see net.bhl.cdt.model.qualification.Qualifier#getQualifies()
 	 * @see #getQualifier()
@@ -491,8 +502,9 @@ public interface QualificationPackage extends EPackage {
 	EReference getQualifier_Qualifies();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.qualification.QualifyingSpace <em>Qualifying Space</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.qualification.QualifyingSpace
+	 * <em>Qualifying Space</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Qualifying Space</em>'.
 	 * @see net.bhl.cdt.model.qualification.QualifyingSpace
 	 * @generated
@@ -502,6 +514,7 @@ public interface QualificationPackage extends EPackage {
 	/**
 	 * Returns the meta object for class '{@link net.bhl.cdt.model.qualification.Qualifiable <em>Qualifiable</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Qualifiable</em>'.
 	 * @see net.bhl.cdt.model.qualification.Qualifiable
 	 * @generated
@@ -509,8 +522,9 @@ public interface QualificationPackage extends EPackage {
 	EClass getQualifiable();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.qualification.CalculationSpace <em>Calculation Space</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.qualification.CalculationSpace
+	 * <em>Calculation Space</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Calculation Space</em>'.
 	 * @see net.bhl.cdt.model.qualification.CalculationSpace
 	 * @generated
@@ -530,8 +544,9 @@ public interface QualificationPackage extends EPackage {
 	EReference getCalculationSpace_SpaceQualifier();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.qualification.CalculationSpaceQualifier <em>Calculation Space Qualifier</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.qualification.CalculationSpaceQualifier
+	 * <em>Calculation Space Qualifier</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Calculation Space Qualifier</em>'.
 	 * @see net.bhl.cdt.model.qualification.CalculationSpaceQualifier
 	 * @generated
@@ -539,8 +554,9 @@ public interface QualificationPackage extends EPackage {
 	EClass getCalculationSpaceQualifier();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.qualification.BehaviouralSpace <em>Behavioural Space</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.qualification.BehaviouralSpace
+	 * <em>Behavioural Space</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Behavioural Space</em>'.
 	 * @see net.bhl.cdt.model.qualification.BehaviouralSpace
 	 * @generated
@@ -548,8 +564,10 @@ public interface QualificationPackage extends EPackage {
 	EClass getBehaviouralSpace();
 
 	/**
-	 * Returns the meta object for the reference list '{@link net.bhl.cdt.model.qualification.BehaviouralSpace#getBehaviouralQualifier <em>Behavioural Qualifier</em>}'.
+	 * Returns the meta object for the reference list '
+	 * {@link net.bhl.cdt.model.qualification.BehaviouralSpace#getBehaviouralQualifier <em>Behavioural Qualifier</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the reference list '<em>Behavioural Qualifier</em>'.
 	 * @see net.bhl.cdt.model.qualification.BehaviouralSpace#getBehaviouralQualifier()
 	 * @see #getBehaviouralSpace()
@@ -558,8 +576,9 @@ public interface QualificationPackage extends EPackage {
 	EReference getBehaviouralSpace_BehaviouralQualifier();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.qualification.BehaviouralQualifier <em>Behavioural Qualifier</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.qualification.BehaviouralQualifier
+	 * <em>Behavioural Qualifier</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Behavioural Qualifier</em>'.
 	 * @see net.bhl.cdt.model.qualification.BehaviouralQualifier
 	 * @generated
@@ -577,8 +596,9 @@ public interface QualificationPackage extends EPackage {
 	EClass getProcess();
 
 	/**
-	 * Returns the meta object for the reference '{@link net.bhl.cdt.model.qualification.Process#getInitState <em>Init State</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '{@link net.bhl.cdt.model.qualification.Process#getInitState
+	 * <em>Init State</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the reference '<em>Init State</em>'.
 	 * @see net.bhl.cdt.model.qualification.Process#getInitState()
 	 * @see #getProcess()
@@ -587,8 +607,9 @@ public interface QualificationPackage extends EPackage {
 	EReference getProcess_InitState();
 
 	/**
-	 * Returns the meta object for the reference '{@link net.bhl.cdt.model.qualification.Process#getFinState <em>Fin State</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the meta object for the reference '{@link net.bhl.cdt.model.qualification.Process#getFinState
+	 * <em>Fin State</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the reference '<em>Fin State</em>'.
 	 * @see net.bhl.cdt.model.qualification.Process#getFinState()
 	 * @see #getProcess()
@@ -617,9 +638,10 @@ public interface QualificationPackage extends EPackage {
 	EClass getSequence();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.qualification.Sequence#getProcesses <em>Processes</em>}'.
-	 * <!-- begin-user-doc --> <!--
+	 * Returns the meta object for the containment reference list '
+	 * {@link net.bhl.cdt.model.qualification.Sequence#getProcesses <em>Processes</em>}'. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the meta object for the containment reference list '<em>Processes</em>'.
 	 * @see net.bhl.cdt.model.qualification.Sequence#getProcesses()
 	 * @see #getSequence()
@@ -638,8 +660,8 @@ public interface QualificationPackage extends EPackage {
 	EClass getTransition();
 
 	/**
-	 * Returns the factory that creates the instances of the model.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
@@ -654,12 +676,14 @@ public interface QualificationPackage extends EPackage {
 	 * <li>and each data type</li>
 	 * </ul>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.QualifierImpl <em>Qualifier</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.QualifierImpl
+		 * <em>Qualifier</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.qualification.impl.QualifierImpl
 		 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getQualifier()
 		 * @generated
@@ -667,16 +691,17 @@ public interface QualificationPackage extends EPackage {
 		EClass QUALIFIER = eINSTANCE.getQualifier();
 
 		/**
-		 * The meta object literal for the '<em><b>Qualifies</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
+		 * The meta object literal for the '<em><b>Qualifies</b></em>' reference list feature. <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference QUALIFIER__QUALIFIES = eINSTANCE.getQualifier_Qualifies();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.QualifyingSpaceImpl <em>Qualifying Space</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.QualifyingSpaceImpl
+		 * <em>Qualifying Space</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.qualification.impl.QualifyingSpaceImpl
 		 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getQualifyingSpace()
 		 * @generated
@@ -684,8 +709,9 @@ public interface QualificationPackage extends EPackage {
 		EClass QUALIFYING_SPACE = eINSTANCE.getQualifyingSpace();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.Qualifiable <em>Qualifiable</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.Qualifiable <em>Qualifiable</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.qualification.Qualifiable
 		 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getQualifiable()
 		 * @generated
@@ -693,8 +719,9 @@ public interface QualificationPackage extends EPackage {
 		EClass QUALIFIABLE = eINSTANCE.getQualifiable();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.CalculationSpaceImpl <em>Calculation Space</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.CalculationSpaceImpl
+		 * <em>Calculation Space</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.qualification.impl.CalculationSpaceImpl
 		 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getCalculationSpace()
 		 * @generated
@@ -702,16 +729,17 @@ public interface QualificationPackage extends EPackage {
 		EClass CALCULATION_SPACE = eINSTANCE.getCalculationSpace();
 
 		/**
-		 * The meta object literal for the '<em><b>Space Qualifier</b></em>' reference list feature.
-		 * <!-- begin-user-doc
+		 * The meta object literal for the '<em><b>Space Qualifier</b></em>' reference list feature. <!-- begin-user-doc
 		 * --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference CALCULATION_SPACE__SPACE_QUALIFIER = eINSTANCE.getCalculationSpace_SpaceQualifier();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.CalculationSpaceQualifierImpl <em>Calculation Space Qualifier</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.CalculationSpaceQualifierImpl
+		 * <em>Calculation Space Qualifier</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.qualification.impl.CalculationSpaceQualifierImpl
 		 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getCalculationSpaceQualifier()
 		 * @generated
@@ -719,8 +747,9 @@ public interface QualificationPackage extends EPackage {
 		EClass CALCULATION_SPACE_QUALIFIER = eINSTANCE.getCalculationSpaceQualifier();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.BehaviouralSpaceImpl <em>Behavioural Space</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.BehaviouralSpaceImpl
+		 * <em>Behavioural Space</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.qualification.impl.BehaviouralSpaceImpl
 		 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getBehaviouralSpace()
 		 * @generated
@@ -736,8 +765,9 @@ public interface QualificationPackage extends EPackage {
 		EReference BEHAVIOURAL_SPACE__BEHAVIOURAL_QUALIFIER = eINSTANCE.getBehaviouralSpace_BehaviouralQualifier();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.BehaviouralQualifierImpl <em>Behavioural Qualifier</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.BehaviouralQualifierImpl
+		 * <em>Behavioural Qualifier</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.qualification.impl.BehaviouralQualifierImpl
 		 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getBehaviouralQualifier()
 		 * @generated
@@ -745,8 +775,9 @@ public interface QualificationPackage extends EPackage {
 		EClass BEHAVIOURAL_QUALIFIER = eINSTANCE.getBehaviouralQualifier();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.ProcessImpl <em>Process</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.ProcessImpl <em>Process</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.qualification.impl.ProcessImpl
 		 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getProcess()
 		 * @generated
@@ -754,24 +785,25 @@ public interface QualificationPackage extends EPackage {
 		EClass PROCESS = eINSTANCE.getProcess();
 
 		/**
-		 * The meta object literal for the '<em><b>Init State</b></em>' reference feature.
-		 * <!-- begin-user-doc --> <!--
+		 * The meta object literal for the '<em><b>Init State</b></em>' reference feature. <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference PROCESS__INIT_STATE = eINSTANCE.getProcess_InitState();
 
 		/**
-		 * The meta object literal for the '<em><b>Fin State</b></em>' reference feature.
-		 * <!-- begin-user-doc --> <!--
+		 * The meta object literal for the '<em><b>Fin State</b></em>' reference feature. <!-- begin-user-doc --> <!--
 		 * end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference PROCESS__FIN_STATE = eINSTANCE.getProcess_FinState();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.StateImpl <em>State</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.StateImpl <em>State</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.qualification.impl.StateImpl
 		 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getState()
 		 * @generated
@@ -779,8 +811,9 @@ public interface QualificationPackage extends EPackage {
 		EClass STATE = eINSTANCE.getState();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.SequenceImpl <em>Sequence</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.SequenceImpl <em>Sequence</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.qualification.impl.SequenceImpl
 		 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getSequence()
 		 * @generated
@@ -796,8 +829,9 @@ public interface QualificationPackage extends EPackage {
 		EReference SEQUENCE__PROCESSES = eINSTANCE.getSequence_Processes();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.TransitionImpl <em>Transition</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.qualification.impl.TransitionImpl
+		 * <em>Transition</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.qualification.impl.TransitionImpl
 		 * @see net.bhl.cdt.model.qualification.impl.QualificationPackageImpl#getTransition()
 		 * @generated

@@ -26,19 +26,19 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link net.bhl.cdt.model.impl.ConfigurationImpl#getViews <em>Views</em>}</li>
- *   <li>{@link net.bhl.cdt.model.impl.ConfigurationImpl#getComponents <em>Components</em>}</li>
- *   <li>{@link net.bhl.cdt.model.impl.ConfigurationImpl#getCalculationSets <em>Calculation Sets</em>}</li>
+ * <li>{@link net.bhl.cdt.model.impl.ConfigurationImpl#getViews <em>Views</em>}</li>
+ * <li>{@link net.bhl.cdt.model.impl.ConfigurationImpl#getComponents <em>Components</em>}</li>
+ * <li>{@link net.bhl.cdt.model.impl.ConfigurationImpl#getCalculationSets <em>Calculation Sets</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ConfigurationImpl extends StructuralElementImpl implements Configuration {
 	/**
-	 * The cached value of the '{@link #getViews() <em>Views</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getViews() <em>Views</em>}' containment reference list. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #getViews()
 	 * @generated
 	 * @ordered
@@ -58,6 +58,7 @@ public class ConfigurationImpl extends StructuralElementImpl implements Configur
 	/**
 	 * The cached value of the '{@link #getCalculationSets() <em>Calculation Sets</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see #getCalculationSets()
 	 * @generated
 	 * @ordered
@@ -66,6 +67,7 @@ public class ConfigurationImpl extends StructuralElementImpl implements Configur
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ConfigurationImpl() {
@@ -74,6 +76,7 @@ public class ConfigurationImpl extends StructuralElementImpl implements Configur
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -83,28 +86,33 @@ public class ConfigurationImpl extends StructuralElementImpl implements Configur
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Component> getComponents() {
 		if (components == null) {
-			components = new EObjectContainmentEList.Resolving<Component>(Component.class, this, ModelPackage.CONFIGURATION__COMPONENTS);
+			components = new EObjectContainmentEList.Resolving<Component>(Component.class, this,
+				ModelPackage.CONFIGURATION__COMPONENTS);
 		}
 		return components;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<CalculationSet> getCalculationSets() {
 		if (calculationSets == null) {
-			calculationSets = new EObjectContainmentEList.Resolving<CalculationSet>(CalculationSet.class, this, ModelPackage.CONFIGURATION__CALCULATION_SETS);
+			calculationSets = new EObjectContainmentEList.Resolving<CalculationSet>(CalculationSet.class, this,
+				ModelPackage.CONFIGURATION__CALCULATION_SETS);
 		}
 		return calculationSets;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<View> getViews() {
@@ -116,95 +124,100 @@ public class ConfigurationImpl extends StructuralElementImpl implements Configur
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ModelPackage.CONFIGURATION__VIEWS:
-				return ((InternalEList<?>)getViews()).basicRemove(otherEnd, msgs);
-			case ModelPackage.CONFIGURATION__COMPONENTS:
-				return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
-			case ModelPackage.CONFIGURATION__CALCULATION_SETS:
-				return ((InternalEList<?>)getCalculationSets()).basicRemove(otherEnd, msgs);
+		case ModelPackage.CONFIGURATION__VIEWS:
+			return ((InternalEList<?>) getViews()).basicRemove(otherEnd, msgs);
+		case ModelPackage.CONFIGURATION__COMPONENTS:
+			return ((InternalEList<?>) getComponents()).basicRemove(otherEnd, msgs);
+		case ModelPackage.CONFIGURATION__CALCULATION_SETS:
+			return ((InternalEList<?>) getCalculationSets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelPackage.CONFIGURATION__VIEWS:
-				return getViews();
-			case ModelPackage.CONFIGURATION__COMPONENTS:
-				return getComponents();
-			case ModelPackage.CONFIGURATION__CALCULATION_SETS:
-				return getCalculationSets();
+		case ModelPackage.CONFIGURATION__VIEWS:
+			return getViews();
+		case ModelPackage.CONFIGURATION__COMPONENTS:
+			return getComponents();
+		case ModelPackage.CONFIGURATION__CALCULATION_SETS:
+			return getCalculationSets();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelPackage.CONFIGURATION__VIEWS:
-				getViews().clear();
-				getViews().addAll((Collection<? extends View>)newValue);
-				return;
-			case ModelPackage.CONFIGURATION__COMPONENTS:
-				getComponents().clear();
-				getComponents().addAll((Collection<? extends Component>)newValue);
-				return;
-			case ModelPackage.CONFIGURATION__CALCULATION_SETS:
-				getCalculationSets().clear();
-				getCalculationSets().addAll((Collection<? extends CalculationSet>)newValue);
-				return;
+		case ModelPackage.CONFIGURATION__VIEWS:
+			getViews().clear();
+			getViews().addAll((Collection<? extends View>) newValue);
+			return;
+		case ModelPackage.CONFIGURATION__COMPONENTS:
+			getComponents().clear();
+			getComponents().addAll((Collection<? extends Component>) newValue);
+			return;
+		case ModelPackage.CONFIGURATION__CALCULATION_SETS:
+			getCalculationSets().clear();
+			getCalculationSets().addAll((Collection<? extends CalculationSet>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelPackage.CONFIGURATION__VIEWS:
-				getViews().clear();
-				return;
-			case ModelPackage.CONFIGURATION__COMPONENTS:
-				getComponents().clear();
-				return;
-			case ModelPackage.CONFIGURATION__CALCULATION_SETS:
-				getCalculationSets().clear();
-				return;
+		case ModelPackage.CONFIGURATION__VIEWS:
+			getViews().clear();
+			return;
+		case ModelPackage.CONFIGURATION__COMPONENTS:
+			getComponents().clear();
+			return;
+		case ModelPackage.CONFIGURATION__CALCULATION_SETS:
+			getCalculationSets().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelPackage.CONFIGURATION__VIEWS:
-				return views != null && !views.isEmpty();
-			case ModelPackage.CONFIGURATION__COMPONENTS:
-				return components != null && !components.isEmpty();
-			case ModelPackage.CONFIGURATION__CALCULATION_SETS:
-				return calculationSets != null && !calculationSets.isEmpty();
+		case ModelPackage.CONFIGURATION__VIEWS:
+			return views != null && !views.isEmpty();
+		case ModelPackage.CONFIGURATION__COMPONENTS:
+			return components != null && !components.isEmpty();
+		case ModelPackage.CONFIGURATION__CALCULATION_SETS:
+			return calculationSets != null && !calculationSets.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EClass;
 public class ConditionalNodeImpl extends ControlNodeImpl implements ConditionalNode {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ConditionalNodeImpl() {
@@ -30,6 +31,7 @@ public class ConditionalNodeImpl extends ControlNodeImpl implements ConditionalN
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

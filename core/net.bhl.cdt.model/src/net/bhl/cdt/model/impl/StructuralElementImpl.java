@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EClass;
 public abstract class StructuralElementImpl extends ElementImpl implements StructuralElement {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected StructuralElementImpl() {
@@ -30,6 +31,7 @@ public abstract class StructuralElementImpl extends ElementImpl implements Struc
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

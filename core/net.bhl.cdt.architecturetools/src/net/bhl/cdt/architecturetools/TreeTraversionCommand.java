@@ -8,12 +8,12 @@ package net.bhl.cdt.architecturetools;
 import java.util.Iterator;
 import java.util.List;
 
-import net.bhl.cdt.architecturetools.exceptions.NoValueFoundException;
-import net.bhl.cdt.architecturetools.model.architecturetools.impl.PowerConsumerImpl;
 import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.MappableComponentInterface;
 import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.model.Value;
+import net.bhl.cdt.model.architecturetools.exceptions.NoValueFoundException;
+import net.bhl.cdt.model.architecturetools.impl.PowerConsumerImpl;
 import net.bhl.cdt.utilities.commands.CDTCommand;
 import net.bhl.cdt.utilities.datatypes.DatatypesFactory;
 import net.bhl.cdt.utilities.datatypes.MeasuredValue;

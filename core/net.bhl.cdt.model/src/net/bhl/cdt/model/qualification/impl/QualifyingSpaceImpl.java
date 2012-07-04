@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EClass;
 public abstract class QualifyingSpaceImpl extends ElementImpl implements QualifyingSpace {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected QualifyingSpaceImpl() {
@@ -31,6 +32,7 @@ public abstract class QualifyingSpaceImpl extends ElementImpl implements Qualify
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

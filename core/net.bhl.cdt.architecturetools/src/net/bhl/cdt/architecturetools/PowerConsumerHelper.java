@@ -7,14 +7,14 @@ package net.bhl.cdt.architecturetools;
 
 import javax.units.Unit;
 
-import net.bhl.cdt.architecturetools.model.architecturetools.ArchitecturetoolsFactory;
-import net.bhl.cdt.architecturetools.model.architecturetools.PowerConsumer;
 import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.Model;
 import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.model.Parameter;
 import net.bhl.cdt.model.Value;
+import net.bhl.cdt.model.architecturetools.ArchitecturetoolsFactory;
+import net.bhl.cdt.model.architecturetools.PowerConsumer;
 import net.bhl.cdt.utilities.units.Quantity;
 
 import org.eclipse.emf.ecore.EObject;

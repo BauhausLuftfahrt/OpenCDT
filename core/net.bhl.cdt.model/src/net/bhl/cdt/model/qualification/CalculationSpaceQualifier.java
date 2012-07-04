@@ -9,8 +9,7 @@ package net.bhl.cdt.model.qualification;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Calculation Space Qualifier</b></em>'. <!--
  * end-user-doc -->
- *
- *
+ * 
  * @see net.bhl.cdt.model.qualification.QualificationPackage#getCalculationSpaceQualifier()
  * @model
  * @generated

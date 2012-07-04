@@ -11,29 +11,28 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Parameter</b></em>'. <!-- end-user-doc -->
- *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link net.bhl.cdt.model.Parameter#getValues <em>Values</em>}</li>
- *   <li>{@link net.bhl.cdt.model.Parameter#getQuantity <em>Quantity</em>}</li>
+ * <li>{@link net.bhl.cdt.model.Parameter#getValues <em>Values</em>}</li>
+ * <li>{@link net.bhl.cdt.model.Parameter#getQuantity <em>Quantity</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see net.bhl.cdt.model.ModelPackage#getParameter()
  * @model
  * @generated
  */
 public interface Parameter extends StructuralElement, MappableComponentInterface {
 	/**
-	 * Returns the value of the '<em><b>Values</b></em>' containment reference list.
-	 * The list contents are of type {@link net.bhl.cdt.model.Value}.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Values</b></em>' containment reference list. The list contents are of type
+	 * {@link net.bhl.cdt.model.Value}. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Values</em>' containment reference list isn't clear, there really should be more of a
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Values</em>' containment reference list.
 	 * @see net.bhl.cdt.model.ModelPackage#getParameter_Values()
 	 * @model containment="true" resolveProxies="true"
@@ -42,14 +41,14 @@ public interface Parameter extends StructuralElement, MappableComponentInterface
 	EList<Value> getValues();
 
 	/**
-	 * Returns the value of the '<em><b>Quantity</b></em>' attribute.
-	 * The literals are from the enumeration {@link net.bhl.cdt.utilities.units.Quantity}.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Quantity</b></em>' attribute. The literals are from the enumeration
+	 * {@link net.bhl.cdt.utilities.units.Quantity}. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Quantity</em>' attribute isn't clear, there really should be more of a description
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Quantity</em>' attribute.
 	 * @see net.bhl.cdt.utilities.units.Quantity
 	 * @see #setQuantity(Quantity)

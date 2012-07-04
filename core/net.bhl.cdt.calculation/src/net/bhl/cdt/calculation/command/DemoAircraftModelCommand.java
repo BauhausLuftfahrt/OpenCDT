@@ -5,14 +5,6 @@
  ******************************************************************************/
 package net.bhl.cdt.calculation.command;
 
-import net.bhl.cdt.architecturetools.model.architecturetools.AltitudeInterface;
-import net.bhl.cdt.architecturetools.model.architecturetools.ArchitecturetoolsFactory;
-import net.bhl.cdt.architecturetools.model.architecturetools.CoefficientInterface;
-import net.bhl.cdt.architecturetools.model.architecturetools.Massive;
-import net.bhl.cdt.architecturetools.model.architecturetools.RangeInterface;
-import net.bhl.cdt.architecturetools.model.architecturetools.ReferenceAreaInterface;
-import net.bhl.cdt.architecturetools.model.architecturetools.SFCInterface;
-import net.bhl.cdt.architecturetools.model.architecturetools.WettedAreaInterface;
 import net.bhl.cdt.calculationrepository.CalculationRepositoryManager;
 import net.bhl.cdt.calculationrepository.functions.CalculationRepository;
 import net.bhl.cdt.calculationrepository.functions.Function;
@@ -22,6 +14,14 @@ import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.Model;
 import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.model.Parameter;
+import net.bhl.cdt.model.architecturetools.AltitudeInterface;
+import net.bhl.cdt.model.architecturetools.ArchitecturetoolsFactory;
+import net.bhl.cdt.model.architecturetools.CoefficientInterface;
+import net.bhl.cdt.model.architecturetools.Massive;
+import net.bhl.cdt.model.architecturetools.RangeInterface;
+import net.bhl.cdt.model.architecturetools.ReferenceAreaInterface;
+import net.bhl.cdt.model.architecturetools.SFCInterface;
+import net.bhl.cdt.model.architecturetools.WettedAreaInterface;
 import net.bhl.cdt.model.calculation.Calculation;
 import net.bhl.cdt.model.calculation.CalculationFactory;
 import net.bhl.cdt.model.calculation.CalculationGraph;

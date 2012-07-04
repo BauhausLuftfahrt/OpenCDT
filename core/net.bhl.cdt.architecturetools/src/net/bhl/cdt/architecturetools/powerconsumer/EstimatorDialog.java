@@ -9,11 +9,11 @@ import java.util.ArrayList;
 
 import javax.units.Unit;
 
-import net.bhl.cdt.architecturetools.model.architecturetools.PowerConsumer;
 import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.model.Value;
+import net.bhl.cdt.model.architecturetools.PowerConsumer;
 import net.bhl.cdt.utilities.commands.CDTCommand;
 
 import org.eclipse.jface.dialogs.Dialog;

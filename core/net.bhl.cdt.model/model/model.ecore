@@ -177,4 +177,48 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="calculationSet" eType="#//calculation/CalculationSet"/>
     </eClassifiers>
   </eSubpackages>
+  <eSubpackages name="architecturetools" nsURI="http://bhl.net/cdt/model/architecturetools"
+      nsPrefix="net.bhl.cdt.architecturetools">
+    <eClassifiers xsi:type="ecore:EClass" name="PowerConsumer" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getPowerConsumption" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="powerParameter" eType="#//Parameter"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PowerDemandView" eSuperTypes="#//View">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="referencedConfigurations"
+          upperBound="-1" eType="#//Configuration"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Massive" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getMass" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="massParameter" eType="#//Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CoefficientInterface" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getCoefficient" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="coefficientParameter"
+          eType="#//Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="WettedAreaInterface" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getWettedArea" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="wettedAreaParameter"
+          eType="#//Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReferenceAreaInterface" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getReferenceArea" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="referenceAreaParameter"
+          eType="#//Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AltitudeInterface" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getAltitude" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="altitudeParameter" eType="#//Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RangeInterface" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getRange" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rangeParameter" eType="#//Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SFCInterface" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getSFC" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SFCParameter" eType="#//Parameter"/>
+    </eClassifiers>
+  </eSubpackages>
 </ecore:EPackage>

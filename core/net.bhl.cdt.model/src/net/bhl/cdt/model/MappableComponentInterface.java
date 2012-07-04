@@ -11,8 +11,7 @@ import net.bhl.cdt.utilities.units.Quantity;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Mappable Component Interface</b></em>'. <!--
  * end-user-doc -->
- *
- *
+ * 
  * @see net.bhl.cdt.model.ModelPackage#getMappableComponentInterface()
  * @model interface="true" abstract="true"
  * @generated
@@ -20,6 +19,7 @@ import net.bhl.cdt.utilities.units.Quantity;
 public interface MappableComponentInterface extends ComponentInterface {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -27,6 +27,7 @@ public interface MappableComponentInterface extends ComponentInterface {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -34,6 +35,7 @@ public interface MappableComponentInterface extends ComponentInterface {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */
@@ -41,6 +43,7 @@ public interface MappableComponentInterface extends ComponentInterface {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */
@@ -48,6 +51,7 @@ public interface MappableComponentInterface extends ComponentInterface {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */
@@ -55,6 +59,7 @@ public interface MappableComponentInterface extends ComponentInterface {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @model
 	 * @generated
 	 */

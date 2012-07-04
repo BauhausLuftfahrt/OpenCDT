@@ -19,18 +19,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link net.bhl.cdt.model.qualification.impl.ProcessImpl#getInitState <em>Init State</em>}</li>
- *   <li>{@link net.bhl.cdt.model.qualification.impl.ProcessImpl#getFinState <em>Fin State</em>}</li>
+ * <li>{@link net.bhl.cdt.model.qualification.impl.ProcessImpl#getInitState <em>Init State</em>}</li>
+ * <li>{@link net.bhl.cdt.model.qualification.impl.ProcessImpl#getFinState <em>Fin State</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public abstract class ProcessImpl extends BehaviouralQualifierImpl implements net.bhl.cdt.model.qualification.Process {
 	/**
-	 * The cached value of the '{@link #getInitState() <em>Init State</em>}' reference.
-	 * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getInitState() <em>Init State</em>}' reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getInitState()
 	 * @generated
 	 * @ordered
@@ -38,9 +38,9 @@ public abstract class ProcessImpl extends BehaviouralQualifierImpl implements ne
 	protected State initState;
 
 	/**
-	 * The cached value of the '{@link #getFinState() <em>Fin State</em>}' reference.
-	 * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getFinState() <em>Fin State</em>}' reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getFinState()
 	 * @generated
 	 * @ordered
@@ -49,6 +49,7 @@ public abstract class ProcessImpl extends BehaviouralQualifierImpl implements ne
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ProcessImpl() {
@@ -57,6 +58,7 @@ public abstract class ProcessImpl extends BehaviouralQualifierImpl implements ne
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -66,15 +68,17 @@ public abstract class ProcessImpl extends BehaviouralQualifierImpl implements ne
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public State getInitState() {
 		if (initState != null && initState.eIsProxy()) {
-			InternalEObject oldInitState = (InternalEObject)initState;
-			initState = (State)eResolveProxy(oldInitState);
+			InternalEObject oldInitState = (InternalEObject) initState;
+			initState = (State) eResolveProxy(oldInitState);
 			if (initState != oldInitState) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QualificationPackage.PROCESS__INIT_STATE, oldInitState, initState));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QualificationPackage.PROCESS__INIT_STATE,
+						oldInitState, initState));
 			}
 		}
 		return initState;
@@ -82,6 +86,7 @@ public abstract class ProcessImpl extends BehaviouralQualifierImpl implements ne
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public State basicGetInitState() {
@@ -90,26 +95,30 @@ public abstract class ProcessImpl extends BehaviouralQualifierImpl implements ne
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setInitState(State newInitState) {
 		State oldInitState = initState;
 		initState = newInitState;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QualificationPackage.PROCESS__INIT_STATE, oldInitState, initState));
+			eNotify(new ENotificationImpl(this, Notification.SET, QualificationPackage.PROCESS__INIT_STATE,
+				oldInitState, initState));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public State getFinState() {
 		if (finState != null && finState.eIsProxy()) {
-			InternalEObject oldFinState = (InternalEObject)finState;
-			finState = (State)eResolveProxy(oldFinState);
+			InternalEObject oldFinState = (InternalEObject) finState;
+			finState = (State) eResolveProxy(oldFinState);
 			if (finState != oldFinState) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QualificationPackage.PROCESS__FIN_STATE, oldFinState, finState));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QualificationPackage.PROCESS__FIN_STATE,
+						oldFinState, finState));
 			}
 		}
 		return finState;
@@ -117,6 +126,7 @@ public abstract class ProcessImpl extends BehaviouralQualifierImpl implements ne
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public State basicGetFinState() {
@@ -125,77 +135,85 @@ public abstract class ProcessImpl extends BehaviouralQualifierImpl implements ne
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setFinState(State newFinState) {
 		State oldFinState = finState;
 		finState = newFinState;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QualificationPackage.PROCESS__FIN_STATE, oldFinState, finState));
+			eNotify(new ENotificationImpl(this, Notification.SET, QualificationPackage.PROCESS__FIN_STATE, oldFinState,
+				finState));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QualificationPackage.PROCESS__INIT_STATE:
-				if (resolve) return getInitState();
-				return basicGetInitState();
-			case QualificationPackage.PROCESS__FIN_STATE:
-				if (resolve) return getFinState();
-				return basicGetFinState();
+		case QualificationPackage.PROCESS__INIT_STATE:
+			if (resolve)
+				return getInitState();
+			return basicGetInitState();
+		case QualificationPackage.PROCESS__FIN_STATE:
+			if (resolve)
+				return getFinState();
+			return basicGetFinState();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QualificationPackage.PROCESS__INIT_STATE:
-				setInitState((State)newValue);
-				return;
-			case QualificationPackage.PROCESS__FIN_STATE:
-				setFinState((State)newValue);
-				return;
+		case QualificationPackage.PROCESS__INIT_STATE:
+			setInitState((State) newValue);
+			return;
+		case QualificationPackage.PROCESS__FIN_STATE:
+			setFinState((State) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QualificationPackage.PROCESS__INIT_STATE:
-				setInitState((State)null);
-				return;
-			case QualificationPackage.PROCESS__FIN_STATE:
-				setFinState((State)null);
-				return;
+		case QualificationPackage.PROCESS__INIT_STATE:
+			setInitState((State) null);
+			return;
+		case QualificationPackage.PROCESS__FIN_STATE:
+			setFinState((State) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QualificationPackage.PROCESS__INIT_STATE:
-				return initState != null;
-			case QualificationPackage.PROCESS__FIN_STATE:
-				return finState != null;
+		case QualificationPackage.PROCESS__INIT_STATE:
+			return initState != null;
+		case QualificationPackage.PROCESS__FIN_STATE:
+			return finState != null;
 		}
 		return super.eIsSet(featureID);
 	}

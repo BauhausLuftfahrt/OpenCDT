@@ -12,6 +12,7 @@ import java.util.List;
 import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.model.ModelPackage;
+import net.bhl.cdt.model.architecturetools.ArchitecturetoolsFactory;
 import net.bhl.cdt.model.calculation.CalculationFactory;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -172,6 +173,30 @@ public class ComponentItemProvider extends StructuralElementItemProvider impleme
 
 		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.COMPONENT__INTERFACES,
 			ModelFactory.eINSTANCE.createParameter()));
+
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.COMPONENT__INTERFACES,
+			ArchitecturetoolsFactory.eINSTANCE.createPowerConsumer()));
+
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.COMPONENT__INTERFACES,
+			ArchitecturetoolsFactory.eINSTANCE.createMassive()));
+
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.COMPONENT__INTERFACES,
+			ArchitecturetoolsFactory.eINSTANCE.createCoefficientInterface()));
+
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.COMPONENT__INTERFACES,
+			ArchitecturetoolsFactory.eINSTANCE.createWettedAreaInterface()));
+
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.COMPONENT__INTERFACES,
+			ArchitecturetoolsFactory.eINSTANCE.createReferenceAreaInterface()));
+
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.COMPONENT__INTERFACES,
+			ArchitecturetoolsFactory.eINSTANCE.createAltitudeInterface()));
+
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.COMPONENT__INTERFACES,
+			ArchitecturetoolsFactory.eINSTANCE.createRangeInterface()));
+
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.COMPONENT__INTERFACES,
+			ArchitecturetoolsFactory.eINSTANCE.createSFCInterface()));
 	}
 
 	/**

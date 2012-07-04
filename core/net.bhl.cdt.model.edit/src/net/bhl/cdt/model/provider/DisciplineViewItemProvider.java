@@ -12,6 +12,7 @@ import java.util.List;
 import net.bhl.cdt.model.DisciplineView;
 import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.model.ModelPackage;
+import net.bhl.cdt.model.architecturetools.ArchitecturetoolsFactory;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -159,6 +160,9 @@ public class DisciplineViewItemProvider extends ViewItemProvider implements IEdi
 
 		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.DISCIPLINE_VIEW__SUBVIEWS,
 			ModelFactory.eINSTANCE.createDisciplineView()));
+
+		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.DISCIPLINE_VIEW__SUBVIEWS,
+			ArchitecturetoolsFactory.eINSTANCE.createPowerDemandView()));
 
 		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.DISCIPLINE_VIEW__ELEMENTS,
 			ModelFactory.eINSTANCE.createComponent()));

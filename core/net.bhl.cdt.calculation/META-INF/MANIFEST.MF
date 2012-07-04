@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: net.bhl.cdt.calculation.Activator
 Require-Bundle: net.bhl.cdt.resources;visibility:=reexport,
  org.eclipse.emf.ecp.navigator;visibility:=reexport,
- net.bhl.cdt.architecturetools.model;bundle-version="1.0.0";visibility:=reexport
+ net.bhl.cdt.model;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: net.bhl.cdt.calculation,

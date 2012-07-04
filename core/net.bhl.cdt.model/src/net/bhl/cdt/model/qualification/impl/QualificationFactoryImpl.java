@@ -24,30 +24,31 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class QualificationFactoryImpl extends EFactoryImpl implements QualificationFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static QualificationFactory init() {
 		try {
-			QualificationFactory theQualificationFactory = (QualificationFactory)EPackage.Registry.INSTANCE.getEFactory("http://bhl.net/cdt/model/qualification"); //$NON-NLS-1$ 
+			QualificationFactory theQualificationFactory = (QualificationFactory) EPackage.Registry.INSTANCE
+				.getEFactory("http://bhl.net/cdt/model/qualification"); //$NON-NLS-1$ 
 			if (theQualificationFactory != null) {
 				return theQualificationFactory;
 			}
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new QualificationFactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public QualificationFactoryImpl() {
@@ -56,25 +57,34 @@ public class QualificationFactoryImpl extends EFactoryImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case QualificationPackage.CALCULATION_SPACE: return createCalculationSpace();
-			case QualificationPackage.CALCULATION_SPACE_QUALIFIER: return createCalculationSpaceQualifier();
-			case QualificationPackage.BEHAVIOURAL_SPACE: return createBehaviouralSpace();
-			case QualificationPackage.BEHAVIOURAL_QUALIFIER: return createBehaviouralQualifier();
-			case QualificationPackage.STATE: return createState();
-			case QualificationPackage.SEQUENCE: return createSequence();
-			case QualificationPackage.TRANSITION: return createTransition();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
+		case QualificationPackage.CALCULATION_SPACE:
+			return createCalculationSpace();
+		case QualificationPackage.CALCULATION_SPACE_QUALIFIER:
+			return createCalculationSpaceQualifier();
+		case QualificationPackage.BEHAVIOURAL_SPACE:
+			return createBehaviouralSpace();
+		case QualificationPackage.BEHAVIOURAL_QUALIFIER:
+			return createBehaviouralQualifier();
+		case QualificationPackage.STATE:
+			return createState();
+		case QualificationPackage.SEQUENCE:
+			return createSequence();
+		case QualificationPackage.TRANSITION:
+			return createTransition();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public CalculationSpace createCalculationSpace() {
@@ -84,6 +94,7 @@ public class QualificationFactoryImpl extends EFactoryImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public CalculationSpaceQualifier createCalculationSpaceQualifier() {
@@ -93,6 +104,7 @@ public class QualificationFactoryImpl extends EFactoryImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BehaviouralSpace createBehaviouralSpace() {
@@ -102,6 +114,7 @@ public class QualificationFactoryImpl extends EFactoryImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public BehaviouralQualifier createBehaviouralQualifier() {
@@ -111,6 +124,7 @@ public class QualificationFactoryImpl extends EFactoryImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public State createState() {
@@ -120,6 +134,7 @@ public class QualificationFactoryImpl extends EFactoryImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Sequence createSequence() {
@@ -129,6 +144,7 @@ public class QualificationFactoryImpl extends EFactoryImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public Transition createTransition() {
@@ -138,14 +154,16 @@ public class QualificationFactoryImpl extends EFactoryImpl implements Qualificat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public QualificationPackage getQualificationPackage() {
-		return (QualificationPackage)getEPackage();
+		return (QualificationPackage) getEPackage();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */

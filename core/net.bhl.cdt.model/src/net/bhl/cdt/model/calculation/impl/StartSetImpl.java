@@ -22,17 +22,17 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link net.bhl.cdt.model.calculation.impl.StartSetImpl#getValues <em>Values</em>}</li>
+ * <li>{@link net.bhl.cdt.model.calculation.impl.StartSetImpl#getValues <em>Values</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class StartSetImpl extends ElementImpl implements StartSet {
 	/**
-	 * The cached value of the '{@link #getValues() <em>Values</em>}' reference list.
-	 * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getValues() <em>Values</em>}' reference list. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getValues()
 	 * @generated
 	 * @ordered
@@ -41,6 +41,7 @@ public class StartSetImpl extends ElementImpl implements StartSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected StartSetImpl() {
@@ -49,6 +50,7 @@ public class StartSetImpl extends ElementImpl implements StartSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -58,6 +60,7 @@ public class StartSetImpl extends ElementImpl implements StartSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<Value> getValues() {
@@ -69,56 +72,60 @@ public class StartSetImpl extends ElementImpl implements StartSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CalculationPackage.START_SET__VALUES:
-				return getValues();
+		case CalculationPackage.START_SET__VALUES:
+			return getValues();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CalculationPackage.START_SET__VALUES:
-				getValues().clear();
-				getValues().addAll((Collection<? extends Value>)newValue);
-				return;
+		case CalculationPackage.START_SET__VALUES:
+			getValues().clear();
+			getValues().addAll((Collection<? extends Value>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CalculationPackage.START_SET__VALUES:
-				getValues().clear();
-				return;
+		case CalculationPackage.START_SET__VALUES:
+			getValues().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CalculationPackage.START_SET__VALUES:
-				return values != null && !values.isEmpty();
+		case CalculationPackage.START_SET__VALUES:
+			return values != null && !values.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

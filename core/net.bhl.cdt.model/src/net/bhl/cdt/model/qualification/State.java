@@ -8,8 +8,7 @@ package net.bhl.cdt.model.qualification;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>State</b></em>'. <!-- end-user-doc -->
- *
- *
+ * 
  * @see net.bhl.cdt.model.qualification.QualificationPackage#getState()
  * @model
  * @generated

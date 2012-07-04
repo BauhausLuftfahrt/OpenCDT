@@ -7,19 +7,19 @@ package net.bhl.cdt.calculation.command;
 
 import java.util.Map.Entry;
 
-import net.bhl.cdt.architecturetools.exceptions.UnsupportedInterfaceClass;
-import net.bhl.cdt.architecturetools.model.architecturetools.AltitudeInterface;
-import net.bhl.cdt.architecturetools.model.architecturetools.CoefficientInterface;
-import net.bhl.cdt.architecturetools.model.architecturetools.Massive;
-import net.bhl.cdt.architecturetools.model.architecturetools.PowerConsumer;
-import net.bhl.cdt.architecturetools.model.architecturetools.RangeInterface;
-import net.bhl.cdt.architecturetools.model.architecturetools.ReferenceAreaInterface;
-import net.bhl.cdt.architecturetools.model.architecturetools.SFCInterface;
-import net.bhl.cdt.architecturetools.model.architecturetools.WettedAreaInterface;
 import net.bhl.cdt.model.MappableComponentInterface;
 import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.model.Parameter;
 import net.bhl.cdt.model.Value;
+import net.bhl.cdt.model.architecturetools.AltitudeInterface;
+import net.bhl.cdt.model.architecturetools.CoefficientInterface;
+import net.bhl.cdt.model.architecturetools.Massive;
+import net.bhl.cdt.model.architecturetools.PowerConsumer;
+import net.bhl.cdt.model.architecturetools.RangeInterface;
+import net.bhl.cdt.model.architecturetools.ReferenceAreaInterface;
+import net.bhl.cdt.model.architecturetools.SFCInterface;
+import net.bhl.cdt.model.architecturetools.WettedAreaInterface;
+import net.bhl.cdt.model.architecturetools.exceptions.UnsupportedInterfaceClass;
 import net.bhl.cdt.model.calculation.AbstractNode;
 import net.bhl.cdt.model.calculation.Calculation;
 import net.bhl.cdt.model.calculation.CalculationGraph;

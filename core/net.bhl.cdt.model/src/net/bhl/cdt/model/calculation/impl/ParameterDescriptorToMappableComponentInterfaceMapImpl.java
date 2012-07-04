@@ -25,19 +25,21 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link net.bhl.cdt.model.calculation.impl.ParameterDescriptorToMappableComponentInterfaceMapImpl#getTypedKey <em>Key</em>}</li>
- *   <li>{@link net.bhl.cdt.model.calculation.impl.ParameterDescriptorToMappableComponentInterfaceMapImpl#getTypedValue <em>Value</em>}</li>
+ * <li>{@link net.bhl.cdt.model.calculation.impl.ParameterDescriptorToMappableComponentInterfaceMapImpl#getTypedKey <em>
+ * Key</em>}</li>
+ * <li>{@link net.bhl.cdt.model.calculation.impl.ParameterDescriptorToMappableComponentInterfaceMapImpl#getTypedValue
+ * <em>Value</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ParameterDescriptorToMappableComponentInterfaceMapImpl extends EObjectImpl implements
-	BasicEMap.Entry<ParameterDescriptor,MappableComponentInterface> {
+	BasicEMap.Entry<ParameterDescriptor, MappableComponentInterface> {
 	/**
-	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' reference.
-	 * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getTypedKey() <em>Key</em>}' reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getTypedKey()
 	 * @generated
 	 * @ordered
@@ -45,9 +47,9 @@ public class ParameterDescriptorToMappableComponentInterfaceMapImpl extends EObj
 	protected ParameterDescriptor key;
 
 	/**
-	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' reference.
-	 * <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getTypedValue() <em>Value</em>}' reference. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @see #getTypedValue()
 	 * @generated
 	 * @ordered
@@ -56,6 +58,7 @@ public class ParameterDescriptorToMappableComponentInterfaceMapImpl extends EObj
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ParameterDescriptorToMappableComponentInterfaceMapImpl() {
@@ -64,6 +67,7 @@ public class ParameterDescriptorToMappableComponentInterfaceMapImpl extends EObj
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -73,15 +77,17 @@ public class ParameterDescriptorToMappableComponentInterfaceMapImpl extends EObj
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ParameterDescriptor getTypedKey() {
 		if (key != null && key.eIsProxy()) {
-			InternalEObject oldKey = (InternalEObject)key;
-			key = (ParameterDescriptor)eResolveProxy(oldKey);
+			InternalEObject oldKey = (InternalEObject) key;
+			key = (ParameterDescriptor) eResolveProxy(oldKey);
 			if (key != oldKey) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__KEY, oldKey, key));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+						CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__KEY, oldKey, key));
 			}
 		}
 		return key;
@@ -89,6 +95,7 @@ public class ParameterDescriptorToMappableComponentInterfaceMapImpl extends EObj
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ParameterDescriptor basicGetTypedKey() {
@@ -97,26 +104,31 @@ public class ParameterDescriptorToMappableComponentInterfaceMapImpl extends EObj
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTypedKey(ParameterDescriptor newKey) {
 		ParameterDescriptor oldKey = key;
 		key = newKey;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__KEY, oldKey, key));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+				CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__KEY, oldKey, key));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public MappableComponentInterface getTypedValue() {
 		if (value != null && value.eIsProxy()) {
-			InternalEObject oldValue = (InternalEObject)value;
-			value = (MappableComponentInterface)eResolveProxy(oldValue);
+			InternalEObject oldValue = (InternalEObject) value;
+			value = (MappableComponentInterface) eResolveProxy(oldValue);
 			if (value != oldValue) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__VALUE, oldValue, value));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+						CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__VALUE, oldValue,
+						value));
 			}
 		}
 		return value;
@@ -124,6 +136,7 @@ public class ParameterDescriptorToMappableComponentInterfaceMapImpl extends EObj
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public MappableComponentInterface basicGetTypedValue() {
@@ -132,89 +145,99 @@ public class ParameterDescriptorToMappableComponentInterfaceMapImpl extends EObj
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setTypedValue(MappableComponentInterface newValue) {
 		MappableComponentInterface oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+				CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__VALUE, oldValue, value));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__KEY:
-				if (resolve) return getTypedKey();
-				return basicGetTypedKey();
-			case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__VALUE:
-				if (resolve) return getTypedValue();
-				return basicGetTypedValue();
+		case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__KEY:
+			if (resolve)
+				return getTypedKey();
+			return basicGetTypedKey();
+		case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__VALUE:
+			if (resolve)
+				return getTypedValue();
+			return basicGetTypedValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__KEY:
-				setTypedKey((ParameterDescriptor)newValue);
-				return;
-			case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__VALUE:
-				setTypedValue((MappableComponentInterface)newValue);
-				return;
+		case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__KEY:
+			setTypedKey((ParameterDescriptor) newValue);
+			return;
+		case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__VALUE:
+			setTypedValue((MappableComponentInterface) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__KEY:
-				setTypedKey((ParameterDescriptor)null);
-				return;
-			case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__VALUE:
-				setTypedValue((MappableComponentInterface)null);
-				return;
+		case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__KEY:
+			setTypedKey((ParameterDescriptor) null);
+			return;
+		case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__VALUE:
+			setTypedValue((MappableComponentInterface) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__KEY:
-				return key != null;
-			case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__VALUE:
-				return value != null;
+		case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__KEY:
+			return key != null;
+		case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__VALUE:
+			return value != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected int hash = -1;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public int getHash() {
@@ -227,6 +250,7 @@ public class ParameterDescriptorToMappableComponentInterfaceMapImpl extends EObj
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setHash(int hash) {
@@ -235,6 +259,7 @@ public class ParameterDescriptorToMappableComponentInterfaceMapImpl extends EObj
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public ParameterDescriptor getKey() {
@@ -243,6 +268,7 @@ public class ParameterDescriptorToMappableComponentInterfaceMapImpl extends EObj
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void setKey(ParameterDescriptor key) {
@@ -251,6 +277,7 @@ public class ParameterDescriptorToMappableComponentInterfaceMapImpl extends EObj
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public MappableComponentInterface getValue() {
@@ -259,6 +286,7 @@ public class ParameterDescriptorToMappableComponentInterfaceMapImpl extends EObj
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public MappableComponentInterface setValue(MappableComponentInterface value) {
@@ -269,12 +297,14 @@ public class ParameterDescriptorToMappableComponentInterfaceMapImpl extends EObj
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	public EMap<ParameterDescriptor, MappableComponentInterface> getEMap() {
 		EObject container = eContainer();
-		return container == null ? null : (EMap<ParameterDescriptor, MappableComponentInterface>)container.eGet(eContainmentFeature());
+		return container == null ? null : (EMap<ParameterDescriptor, MappableComponentInterface>) container
+			.eGet(eContainmentFeature());
 	}
 
 } // ParameterDescriptorToMappableComponentInterfaceMapImpl

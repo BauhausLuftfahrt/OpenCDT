@@ -8,23 +8,21 @@ package net.bhl.cdt.model.impl;
 
 import net.bhl.cdt.model.Element;
 import net.bhl.cdt.model.ModelPackage;
-
 import net.bhl.cdt.utilities.exchangemodel.impl.ExchangeElementImpl;
-import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Element</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class ElementImpl extends ExchangeElementImpl implements Element {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected ElementImpl() {
@@ -33,6 +31,7 @@ public class ElementImpl extends ExchangeElementImpl implements Element {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override

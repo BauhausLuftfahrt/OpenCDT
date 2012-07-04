@@ -42,6 +42,7 @@ public class BehaviouralSpaceImpl extends QualifyingSpaceImpl implements Behavio
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected BehaviouralSpaceImpl() {
@@ -50,6 +51,7 @@ public class BehaviouralSpaceImpl extends QualifyingSpaceImpl implements Behavio
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -59,67 +61,73 @@ public class BehaviouralSpaceImpl extends QualifyingSpaceImpl implements Behavio
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EList<BehaviouralQualifier> getBehaviouralQualifier() {
 		if (behaviouralQualifier == null) {
-			behaviouralQualifier = new EObjectResolvingEList<BehaviouralQualifier>(BehaviouralQualifier.class, this, QualificationPackage.BEHAVIOURAL_SPACE__BEHAVIOURAL_QUALIFIER);
+			behaviouralQualifier = new EObjectResolvingEList<BehaviouralQualifier>(BehaviouralQualifier.class, this,
+				QualificationPackage.BEHAVIOURAL_SPACE__BEHAVIOURAL_QUALIFIER);
 		}
 		return behaviouralQualifier;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QualificationPackage.BEHAVIOURAL_SPACE__BEHAVIOURAL_QUALIFIER:
-				return getBehaviouralQualifier();
+		case QualificationPackage.BEHAVIOURAL_SPACE__BEHAVIOURAL_QUALIFIER:
+			return getBehaviouralQualifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QualificationPackage.BEHAVIOURAL_SPACE__BEHAVIOURAL_QUALIFIER:
-				getBehaviouralQualifier().clear();
-				getBehaviouralQualifier().addAll((Collection<? extends BehaviouralQualifier>)newValue);
-				return;
+		case QualificationPackage.BEHAVIOURAL_SPACE__BEHAVIOURAL_QUALIFIER:
+			getBehaviouralQualifier().clear();
+			getBehaviouralQualifier().addAll((Collection<? extends BehaviouralQualifier>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QualificationPackage.BEHAVIOURAL_SPACE__BEHAVIOURAL_QUALIFIER:
-				getBehaviouralQualifier().clear();
-				return;
+		case QualificationPackage.BEHAVIOURAL_SPACE__BEHAVIOURAL_QUALIFIER:
+			getBehaviouralQualifier().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QualificationPackage.BEHAVIOURAL_SPACE__BEHAVIOURAL_QUALIFIER:
-				return behaviouralQualifier != null && !behaviouralQualifier.isEmpty();
+		case QualificationPackage.BEHAVIOURAL_SPACE__BEHAVIOURAL_QUALIFIER:
+			return behaviouralQualifier != null && !behaviouralQualifier.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

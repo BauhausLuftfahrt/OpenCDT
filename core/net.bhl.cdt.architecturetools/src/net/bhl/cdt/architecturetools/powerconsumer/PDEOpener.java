@@ -6,10 +6,10 @@
 package net.bhl.cdt.architecturetools.powerconsumer;
 
 import net.bhl.cdt.architecturetools.ConfigurationInput;
-import net.bhl.cdt.architecturetools.model.architecturetools.PowerDemandView;
 import net.bhl.cdt.calculation.handlers.AbstractCDTHandler;
 import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.View;
+import net.bhl.cdt.model.architecturetools.PowerDemandView;
 
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
