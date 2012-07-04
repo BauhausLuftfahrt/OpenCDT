@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="CDT" id="net.bhl.cdt.client.product" application="net.bhl.cdt.client.application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
+<product name="OpenCDT" id="net.bhl.cdt.client.product" application="net.bhl.cdt.client.application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/net.bhl.cdt.client/icons/48cdt.gif"/>
