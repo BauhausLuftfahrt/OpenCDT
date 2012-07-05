@@ -37,17 +37,17 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 public class ModelItemProviderAdapterFactory extends ModelAdapterFactory implements ComposeableAdapterFactory,
 	IChangeNotifier, IDisposable {
 	/**
-	 * This keeps track of the root adapter factory that delegates to this adapter factory. <!-- begin-user-doc --> <!--
+	 * This keeps track of the root adapter factory that delegates to this adapter factory.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ComposedAdapterFactory parentAdapterFactory;
 
 	/**
-	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}. <!-- begin-user-doc --> <!--
+	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
@@ -61,8 +61,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
-	 * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This constructs an instance.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ModelItemProviderAdapterFactory() {
@@ -82,8 +82,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	protected ComponentItemProvider componentItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.Component}. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This creates an adapter for a {@link net.bhl.cdt.model.Component}.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -96,16 +96,16 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.Value} instances. <!-- begin-user-doc
+	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.Value} instances.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ValueItemProvider valueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.Value}. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This creates an adapter for a {@link net.bhl.cdt.model.Value}.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -141,16 +141,16 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.Model} instances. <!-- begin-user-doc
+	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.Model} instances.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ModelItemProvider modelItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.Model}. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This creates an adapter for a {@link net.bhl.cdt.model.Model}.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -163,16 +163,16 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.Element} instances. <!-- begin-user-doc
+	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.Element} instances.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ElementItemProvider elementItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.Element}. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This creates an adapter for a {@link net.bhl.cdt.model.Element}.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -193,8 +193,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	protected ParameterItemProvider parameterItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.Parameter}. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This creates an adapter for a {@link net.bhl.cdt.model.Parameter}.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -207,53 +207,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.DisciplineView} instances. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected DisciplineViewItemProvider disciplineViewItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.DisciplineView}. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Adapter createDisciplineViewAdapter() {
-		if (disciplineViewItemProvider == null) {
-			disciplineViewItemProvider = new DisciplineViewItemProvider(this);
-		}
-
-		return disciplineViewItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.ViewLink} instances. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	protected ViewLinkItemProvider viewLinkItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.ViewLink}. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 */
-	@Override
-	public Adapter createViewLinkAdapter() {
-		if (viewLinkItemProvider == null) {
-			viewLinkItemProvider = new ViewLinkItemProvider(this);
-		}
-
-		return viewLinkItemProvider;
-	}
-
-	/**
-	 * This returns the root adapter factory that contains this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the root adapter factory that contains this factory.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ComposeableAdapterFactory getRootAdapterFactory() {
@@ -261,8 +216,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This sets the composed adapter factory that contains this factory.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
@@ -271,7 +226,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -280,9 +234,9 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This implementation substitutes the factory itself as the key for the adapter. <!-- begin-user-doc --> <!--
+	 * This implementation substitutes the factory itself as the key for the adapter.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -292,14 +246,13 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -308,8 +261,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds a listener.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void addListener(INotifyChangedListener notifyChangedListener) {
@@ -317,8 +270,8 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This removes a listener.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
@@ -326,9 +279,9 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}. <!-- begin-user-doc --> <!--
+	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void fireNotifyChanged(Notification notification) {
@@ -340,27 +293,17 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This disposes all of the item providers created by this factory. 
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void dispose() {
-		if (componentItemProvider != null)
-			componentItemProvider.dispose();
-		if (valueItemProvider != null)
-			valueItemProvider.dispose();
-		if (configurationItemProvider != null)
-			configurationItemProvider.dispose();
-		if (modelItemProvider != null)
-			modelItemProvider.dispose();
-		if (elementItemProvider != null)
-			elementItemProvider.dispose();
-		if (parameterItemProvider != null)
-			parameterItemProvider.dispose();
-		if (disciplineViewItemProvider != null)
-			disciplineViewItemProvider.dispose();
-		if (viewLinkItemProvider != null)
-			viewLinkItemProvider.dispose();
+		if (componentItemProvider != null) componentItemProvider.dispose();
+		if (valueItemProvider != null) valueItemProvider.dispose();
+		if (configurationItemProvider != null) configurationItemProvider.dispose();
+		if (modelItemProvider != null) modelItemProvider.dispose();
+		if (elementItemProvider != null) elementItemProvider.dispose();
+		if (parameterItemProvider != null) parameterItemProvider.dispose();
 	}
 
 }

@@ -35,8 +35,8 @@ public class AltitudeInterfaceItemProvider extends ComponentInterfaceItemProvide
 	IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
 	IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public AltitudeInterfaceItemProvider(AdapterFactory adapterFactory) {
@@ -44,8 +44,8 @@ public class AltitudeInterfaceItemProvider extends ComponentInterfaceItemProvide
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -59,25 +59,29 @@ public class AltitudeInterfaceItemProvider extends ComponentInterfaceItemProvide
 	}
 
 	/**
-	 * This adds a property descriptor for the Altitude Parameter feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds a property descriptor for the Altitude Parameter feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addAltitudeParameterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-			.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_AltitudeInterface_altitudeParameter_feature"), //$NON-NLS-1$
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_AltitudeInterface_altitudeParameter_feature", "_UI_AltitudeInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				ArchitecturetoolsPackage.Literals.ALTITUDE_INTERFACE__ALTITUDE_PARAMETER, true, false, true, null,
-				null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_AltitudeInterface_altitudeParameter_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_AltitudeInterface_altitudeParameter_feature", "_UI_AltitudeInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ArchitecturetoolsPackage.Literals.ALTITUDE_INTERFACE__ALTITUDE_PARAMETER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This returns AltitudeInterface.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns AltitudeInterface.gif.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -86,14 +90,15 @@ public class AltitudeInterfaceItemProvider extends ComponentInterfaceItemProvide
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((AltitudeInterface) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_AltitudeInterface_type") : //$NON-NLS-1$
+		String label = ((AltitudeInterface)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_AltitudeInterface_type") : //$NON-NLS-1$
 			getString("_UI_AltitudeInterface_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -111,9 +116,9 @@ public class AltitudeInterfaceItemProvider extends ComponentInterfaceItemProvide
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
-	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -122,8 +127,8 @@ public class AltitudeInterfaceItemProvider extends ComponentInterfaceItemProvide
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

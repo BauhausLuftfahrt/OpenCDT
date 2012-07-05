@@ -25,13 +25,13 @@ import net.bhl.cdt.model.Value;
  */
 public interface RangeInterface extends MappableComponentInterface {
 	/**
-	 * Returns the value of the '<em><b>Range Parameter</b></em>' reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Range Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Range Parameter</em>' reference isn't clear, there really should be more of a
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Range Parameter</em>' reference.
 	 * @see #setRangeParameter(Parameter)
 	 * @see net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage#getRangeInterface_RangeParameter()
@@ -41,9 +41,8 @@ public interface RangeInterface extends MappableComponentInterface {
 	Parameter getRangeParameter();
 
 	/**
-	 * Sets the value of the '{@link net.bhl.cdt.model.architecturetools.RangeInterface#getRangeParameter
-	 * <em>Range Parameter</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Sets the value of the '{@link net.bhl.cdt.model.architecturetools.RangeInterface#getRangeParameter <em>Range Parameter</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Range Parameter</em>' reference.
 	 * @see #getRangeParameter()
 	 * @generated
@@ -52,7 +51,6 @@ public interface RangeInterface extends MappableComponentInterface {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */

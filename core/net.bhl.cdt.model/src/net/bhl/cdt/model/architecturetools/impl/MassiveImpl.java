@@ -28,17 +28,17 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link net.bhl.cdt.model.architecturetools.impl.MassiveImpl#getMassParameter <em>Mass Parameter</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.architecturetools.impl.MassiveImpl#getMassParameter <em>Mass Parameter</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class MassiveImpl extends ComponentInterfaceImpl implements Massive {
 	/**
-	 * The cached value of the '{@link #getMassParameter() <em>Mass Parameter</em>}' reference. <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getMassParameter() <em>Mass Parameter</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getMassParameter()
 	 * @generated
 	 * @ordered
@@ -47,7 +47,6 @@ public class MassiveImpl extends ComponentInterfaceImpl implements Massive {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected MassiveImpl() {
@@ -56,7 +55,6 @@ public class MassiveImpl extends ComponentInterfaceImpl implements Massive {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -66,17 +64,15 @@ public class MassiveImpl extends ComponentInterfaceImpl implements Massive {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter getMassParameter() {
 		if (massParameter != null && massParameter.eIsProxy()) {
-			InternalEObject oldMassParameter = (InternalEObject) massParameter;
-			massParameter = (Parameter) eResolveProxy(oldMassParameter);
+			InternalEObject oldMassParameter = (InternalEObject)massParameter;
+			massParameter = (Parameter)eResolveProxy(oldMassParameter);
 			if (massParameter != oldMassParameter) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-						ArchitecturetoolsPackage.MASSIVE__MASS_PARAMETER, oldMassParameter, massParameter));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchitecturetoolsPackage.MASSIVE__MASS_PARAMETER, oldMassParameter, massParameter));
 			}
 		}
 		return massParameter;
@@ -84,7 +80,6 @@ public class MassiveImpl extends ComponentInterfaceImpl implements Massive {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter basicGetMassParameter() {
@@ -93,15 +88,13 @@ public class MassiveImpl extends ComponentInterfaceImpl implements Massive {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setMassParameter(Parameter newMassParameter) {
 		Parameter oldMassParameter = massParameter;
 		massParameter = newMassParameter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArchitecturetoolsPackage.MASSIVE__MASS_PARAMETER,
-				oldMassParameter, massParameter));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchitecturetoolsPackage.MASSIVE__MASS_PARAMETER, oldMassParameter, massParameter));
 	}
 
 	/**
@@ -204,60 +197,55 @@ public class MassiveImpl extends ComponentInterfaceImpl implements Massive {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.MASSIVE__MASS_PARAMETER:
-			if (resolve)
-				return getMassParameter();
-			return basicGetMassParameter();
+			case ArchitecturetoolsPackage.MASSIVE__MASS_PARAMETER:
+				if (resolve) return getMassParameter();
+				return basicGetMassParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.MASSIVE__MASS_PARAMETER:
-			setMassParameter((Parameter) newValue);
-			return;
+			case ArchitecturetoolsPackage.MASSIVE__MASS_PARAMETER:
+				setMassParameter((Parameter)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.MASSIVE__MASS_PARAMETER:
-			setMassParameter((Parameter) null);
-			return;
+			case ArchitecturetoolsPackage.MASSIVE__MASS_PARAMETER:
+				setMassParameter((Parameter)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.MASSIVE__MASS_PARAMETER:
-			return massParameter != null;
+			case ArchitecturetoolsPackage.MASSIVE__MASS_PARAMETER:
+				return massParameter != null;
 		}
 		return super.eIsSet(featureID);
 	}

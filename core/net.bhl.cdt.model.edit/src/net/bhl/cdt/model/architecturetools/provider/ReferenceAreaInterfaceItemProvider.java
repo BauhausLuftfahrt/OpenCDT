@@ -27,15 +27,14 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 /**
  * This is the item provider adapter for a {@link net.bhl.cdt.model.architecturetools.ReferenceAreaInterface} object.
  * <!-- begin-user-doc --> <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ReferenceAreaInterfaceItemProvider extends ComponentInterfaceItemProvider implements
 	IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
 	IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ReferenceAreaInterfaceItemProvider(AdapterFactory adapterFactory) {
@@ -43,8 +42,8 @@ public class ReferenceAreaInterfaceItemProvider extends ComponentInterfaceItemPr
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -58,26 +57,30 @@ public class ReferenceAreaInterfaceItemProvider extends ComponentInterfaceItemPr
 	}
 
 	/**
-	 * This adds a property descriptor for the Reference Area Parameter feature. <!-- begin-user-doc --> <!--
+	 * This adds a property descriptor for the Reference Area Parameter feature.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addReferenceAreaParameterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-			.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_ReferenceAreaInterface_referenceAreaParameter_feature"), //$NON-NLS-1$
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_ReferenceAreaInterface_referenceAreaParameter_feature", "_UI_ReferenceAreaInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				ArchitecturetoolsPackage.Literals.REFERENCE_AREA_INTERFACE__REFERENCE_AREA_PARAMETER, true, false,
-				true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ReferenceAreaInterface_referenceAreaParameter_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReferenceAreaInterface_referenceAreaParameter_feature", "_UI_ReferenceAreaInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ArchitecturetoolsPackage.Literals.REFERENCE_AREA_INTERFACE__REFERENCE_AREA_PARAMETER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This returns ReferenceAreaInterface.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns ReferenceAreaInterface.gif.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -86,14 +89,15 @@ public class ReferenceAreaInterfaceItemProvider extends ComponentInterfaceItemPr
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ReferenceAreaInterface) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_ReferenceAreaInterface_type") : //$NON-NLS-1$
+		String label = ((ReferenceAreaInterface)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ReferenceAreaInterface_type") : //$NON-NLS-1$
 			getString("_UI_ReferenceAreaInterface_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -111,9 +115,9 @@ public class ReferenceAreaInterfaceItemProvider extends ComponentInterfaceItemPr
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
-	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -122,8 +126,8 @@ public class ReferenceAreaInterfaceItemProvider extends ComponentInterfaceItemPr
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

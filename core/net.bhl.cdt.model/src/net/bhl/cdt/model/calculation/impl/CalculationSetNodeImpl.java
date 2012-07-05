@@ -21,18 +21,18 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link net.bhl.cdt.model.calculation.impl.CalculationSetNodeImpl#getNextNode <em>Next Node</em>}</li>
- * <li>{@link net.bhl.cdt.model.calculation.impl.CalculationSetNodeImpl#getCalculationSet <em>Calculation Set</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.impl.CalculationSetNodeImpl#getNextNode <em>Next Node</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.impl.CalculationSetNodeImpl#getCalculationSet <em>Calculation Set</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class CalculationSetNodeImpl extends AbstractNodeImpl implements CalculationSetNode {
 	/**
-	 * The cached value of the '{@link #getNextNode() <em>Next Node</em>}' reference. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getNextNode() <em>Next Node</em>}' reference.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getNextNode()
 	 * @generated
 	 * @ordered
@@ -40,9 +40,9 @@ public class CalculationSetNodeImpl extends AbstractNodeImpl implements Calculat
 	protected AbstractNode nextNode;
 
 	/**
-	 * The cached value of the '{@link #getCalculationSet() <em>Calculation Set</em>}' reference. <!-- begin-user-doc
+	 * The cached value of the '{@link #getCalculationSet() <em>Calculation Set</em>}' reference.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getCalculationSet()
 	 * @generated
 	 * @ordered
@@ -51,7 +51,6 @@ public class CalculationSetNodeImpl extends AbstractNodeImpl implements Calculat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected CalculationSetNodeImpl() {
@@ -60,7 +59,6 @@ public class CalculationSetNodeImpl extends AbstractNodeImpl implements Calculat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -70,17 +68,15 @@ public class CalculationSetNodeImpl extends AbstractNodeImpl implements Calculat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public AbstractNode getNextNode() {
 		if (nextNode != null && nextNode.eIsProxy()) {
-			InternalEObject oldNextNode = (InternalEObject) nextNode;
-			nextNode = (AbstractNode) eResolveProxy(oldNextNode);
+			InternalEObject oldNextNode = (InternalEObject)nextNode;
+			nextNode = (AbstractNode)eResolveProxy(oldNextNode);
 			if (nextNode != oldNextNode) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-						CalculationPackage.CALCULATION_SET_NODE__NEXT_NODE, oldNextNode, nextNode));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CalculationPackage.CALCULATION_SET_NODE__NEXT_NODE, oldNextNode, nextNode));
 			}
 		}
 		return nextNode;
@@ -88,7 +84,6 @@ public class CalculationSetNodeImpl extends AbstractNodeImpl implements Calculat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public AbstractNode basicGetNextNode() {
@@ -97,30 +92,26 @@ public class CalculationSetNodeImpl extends AbstractNodeImpl implements Calculat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setNextNode(AbstractNode newNextNode) {
 		AbstractNode oldNextNode = nextNode;
 		nextNode = newNextNode;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CalculationPackage.CALCULATION_SET_NODE__NEXT_NODE,
-				oldNextNode, nextNode));
+			eNotify(new ENotificationImpl(this, Notification.SET, CalculationPackage.CALCULATION_SET_NODE__NEXT_NODE, oldNextNode, nextNode));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CalculationSet getCalculationSet() {
 		if (calculationSet != null && calculationSet.eIsProxy()) {
-			InternalEObject oldCalculationSet = (InternalEObject) calculationSet;
-			calculationSet = (CalculationSet) eResolveProxy(oldCalculationSet);
+			InternalEObject oldCalculationSet = (InternalEObject)calculationSet;
+			calculationSet = (CalculationSet)eResolveProxy(oldCalculationSet);
 			if (calculationSet != oldCalculationSet) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-						CalculationPackage.CALCULATION_SET_NODE__CALCULATION_SET, oldCalculationSet, calculationSet));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CalculationPackage.CALCULATION_SET_NODE__CALCULATION_SET, oldCalculationSet, calculationSet));
 			}
 		}
 		return calculationSet;
@@ -128,7 +119,6 @@ public class CalculationSetNodeImpl extends AbstractNodeImpl implements Calculat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CalculationSet basicGetCalculationSet() {
@@ -137,85 +127,77 @@ public class CalculationSetNodeImpl extends AbstractNodeImpl implements Calculat
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setCalculationSet(CalculationSet newCalculationSet) {
 		CalculationSet oldCalculationSet = calculationSet;
 		calculationSet = newCalculationSet;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-				CalculationPackage.CALCULATION_SET_NODE__CALCULATION_SET, oldCalculationSet, calculationSet));
+			eNotify(new ENotificationImpl(this, Notification.SET, CalculationPackage.CALCULATION_SET_NODE__CALCULATION_SET, oldCalculationSet, calculationSet));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CalculationPackage.CALCULATION_SET_NODE__NEXT_NODE:
-			if (resolve)
-				return getNextNode();
-			return basicGetNextNode();
-		case CalculationPackage.CALCULATION_SET_NODE__CALCULATION_SET:
-			if (resolve)
-				return getCalculationSet();
-			return basicGetCalculationSet();
+			case CalculationPackage.CALCULATION_SET_NODE__NEXT_NODE:
+				if (resolve) return getNextNode();
+				return basicGetNextNode();
+			case CalculationPackage.CALCULATION_SET_NODE__CALCULATION_SET:
+				if (resolve) return getCalculationSet();
+				return basicGetCalculationSet();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CalculationPackage.CALCULATION_SET_NODE__NEXT_NODE:
-			setNextNode((AbstractNode) newValue);
-			return;
-		case CalculationPackage.CALCULATION_SET_NODE__CALCULATION_SET:
-			setCalculationSet((CalculationSet) newValue);
-			return;
+			case CalculationPackage.CALCULATION_SET_NODE__NEXT_NODE:
+				setNextNode((AbstractNode)newValue);
+				return;
+			case CalculationPackage.CALCULATION_SET_NODE__CALCULATION_SET:
+				setCalculationSet((CalculationSet)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CalculationPackage.CALCULATION_SET_NODE__NEXT_NODE:
-			setNextNode((AbstractNode) null);
-			return;
-		case CalculationPackage.CALCULATION_SET_NODE__CALCULATION_SET:
-			setCalculationSet((CalculationSet) null);
-			return;
+			case CalculationPackage.CALCULATION_SET_NODE__NEXT_NODE:
+				setNextNode((AbstractNode)null);
+				return;
+			case CalculationPackage.CALCULATION_SET_NODE__CALCULATION_SET:
+				setCalculationSet((CalculationSet)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CalculationPackage.CALCULATION_SET_NODE__NEXT_NODE:
-			return nextNode != null;
-		case CalculationPackage.CALCULATION_SET_NODE__CALCULATION_SET:
-			return calculationSet != null;
+			case CalculationPackage.CALCULATION_SET_NODE__NEXT_NODE:
+				return nextNode != null;
+			case CalculationPackage.CALCULATION_SET_NODE__CALCULATION_SET:
+				return calculationSet != null;
 		}
 		return super.eIsSet(featureID);
 	}

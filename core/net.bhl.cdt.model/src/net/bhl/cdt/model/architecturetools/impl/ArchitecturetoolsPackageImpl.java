@@ -34,69 +34,59 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ArchitecturetoolsPackageImpl extends EPackageImpl implements ArchitecturetoolsPackage {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass powerConsumerEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass powerDemandViewEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass massiveEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass coefficientInterfaceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass wettedAreaInterfaceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass referenceAreaInterfaceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass altitudeInterfaceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass rangeInterfaceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass sfcInterfaceEClass = null;
@@ -120,7 +110,6 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
@@ -138,13 +127,10 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 	 * @generated
 	 */
 	public static ArchitecturetoolsPackage init() {
-		if (isInited)
-			return (ArchitecturetoolsPackage) EPackage.Registry.INSTANCE.getEPackage(ArchitecturetoolsPackage.eNS_URI);
+		if (isInited) return (ArchitecturetoolsPackage)EPackage.Registry.INSTANCE.getEPackage(ArchitecturetoolsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		ArchitecturetoolsPackageImpl theArchitecturetoolsPackage = (ArchitecturetoolsPackageImpl) (EPackage.Registry.INSTANCE
-			.get(eNS_URI) instanceof ArchitecturetoolsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-			: new ArchitecturetoolsPackageImpl());
+		ArchitecturetoolsPackageImpl theArchitecturetoolsPackage = (ArchitecturetoolsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ArchitecturetoolsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ArchitecturetoolsPackageImpl());
 
 		isInited = true;
 
@@ -154,15 +140,9 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 		EcorePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		ModelPackageImpl theModelPackage = (ModelPackageImpl) (EPackage.Registry.INSTANCE
-			.getEPackage(ModelPackage.eNS_URI) instanceof ModelPackageImpl ? EPackage.Registry.INSTANCE
-			.getEPackage(ModelPackage.eNS_URI) : ModelPackage.eINSTANCE);
-		QualificationPackageImpl theQualificationPackage = (QualificationPackageImpl) (EPackage.Registry.INSTANCE
-			.getEPackage(QualificationPackage.eNS_URI) instanceof QualificationPackageImpl ? EPackage.Registry.INSTANCE
-			.getEPackage(QualificationPackage.eNS_URI) : QualificationPackage.eINSTANCE);
-		CalculationPackageImpl theCalculationPackage = (CalculationPackageImpl) (EPackage.Registry.INSTANCE
-			.getEPackage(CalculationPackage.eNS_URI) instanceof CalculationPackageImpl ? EPackage.Registry.INSTANCE
-			.getEPackage(CalculationPackage.eNS_URI) : CalculationPackage.eINSTANCE);
+		ModelPackageImpl theModelPackage = (ModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI) instanceof ModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI) : ModelPackage.eINSTANCE);
+		QualificationPackageImpl theQualificationPackage = (QualificationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QualificationPackage.eNS_URI) instanceof QualificationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QualificationPackage.eNS_URI) : QualificationPackage.eINSTANCE);
+		CalculationPackageImpl theCalculationPackage = (CalculationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CalculationPackage.eNS_URI) instanceof CalculationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CalculationPackage.eNS_URI) : CalculationPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theArchitecturetoolsPackage.createPackageContents();
@@ -179,6 +159,7 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 		// Mark meta-data to indicate it can't be changed
 		theArchitecturetoolsPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(ArchitecturetoolsPackage.eNS_URI, theArchitecturetoolsPackage);
 		return theArchitecturetoolsPackage;
@@ -186,7 +167,6 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getPowerConsumer() {
@@ -195,25 +175,22 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getPowerConsumer_PowerParameter() {
-		return (EReference) powerConsumerEClass.getEStructuralFeatures().get(0);
+		return (EReference)powerConsumerEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getPowerConsumer_Type() {
-		return (EAttribute) powerConsumerEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)powerConsumerEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getPowerDemandView() {
@@ -222,16 +199,14 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getPowerDemandView_ReferencedConfigurations() {
-		return (EReference) powerDemandViewEClass.getEStructuralFeatures().get(0);
+		return (EReference)powerDemandViewEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getMassive() {
@@ -240,16 +215,14 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getMassive_MassParameter() {
-		return (EReference) massiveEClass.getEStructuralFeatures().get(0);
+		return (EReference)massiveEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getCoefficientInterface() {
@@ -258,25 +231,22 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getCoefficientInterface_Type() {
-		return (EAttribute) coefficientInterfaceEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)coefficientInterfaceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCoefficientInterface_CoefficientParameter() {
-		return (EReference) coefficientInterfaceEClass.getEStructuralFeatures().get(1);
+		return (EReference)coefficientInterfaceEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getWettedAreaInterface() {
@@ -285,16 +255,14 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getWettedAreaInterface_WettedAreaParameter() {
-		return (EReference) wettedAreaInterfaceEClass.getEStructuralFeatures().get(0);
+		return (EReference)wettedAreaInterfaceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getReferenceAreaInterface() {
@@ -303,16 +271,14 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getReferenceAreaInterface_ReferenceAreaParameter() {
-		return (EReference) referenceAreaInterfaceEClass.getEStructuralFeatures().get(0);
+		return (EReference)referenceAreaInterfaceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getAltitudeInterface() {
@@ -321,16 +287,14 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getAltitudeInterface_AltitudeParameter() {
-		return (EReference) altitudeInterfaceEClass.getEStructuralFeatures().get(0);
+		return (EReference)altitudeInterfaceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getRangeInterface() {
@@ -339,16 +303,14 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getRangeInterface_RangeParameter() {
-		return (EReference) rangeInterfaceEClass.getEStructuralFeatures().get(0);
+		return (EReference)rangeInterfaceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getSFCInterface() {
@@ -357,38 +319,34 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getSFCInterface_SFCParameter() {
-		return (EReference) sfcInterfaceEClass.getEStructuralFeatures().get(0);
+		return (EReference)sfcInterfaceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ArchitecturetoolsFactory getArchitecturetoolsFactory() {
-		return (ArchitecturetoolsFactory) getEFactoryInstance();
+		return (ArchitecturetoolsFactory)getEFactoryInstance();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package. This method is guarded to have no affect on any invocation but
-	 * its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates the meta-model objects for the package.  This method is
+	 * guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
-			return;
+		if (isCreated) return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -424,20 +382,18 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model. This method is guarded to have no affect on any
-	 * invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Complete the initialization of the package and its meta-model.  This
+	 * method is guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
-			return;
+		if (isInitialized) return;
 		isInitialized = true;
 
 		// Initialize package
@@ -446,8 +402,8 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		ModelPackage theModelPackage = (ModelPackage) EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage) EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
+		ModelPackage theModelPackage = (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
+		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -465,102 +421,48 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 		sfcInterfaceEClass.getESuperTypes().add(theModelPackage.getMappableComponentInterface());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(powerConsumerEClass, PowerConsumer.class,
-			"PowerConsumer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getPowerConsumer_PowerParameter(),
-			theModelPackage.getParameter(),
-			null,
-			"powerParameter", null, 0, 1, PowerConsumer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-			getPowerConsumer_Type(),
-			ecorePackage.getEString(),
-			"type", null, 0, 1, PowerConsumer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(powerConsumerEClass, PowerConsumer.class, "PowerConsumer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getPowerConsumer_PowerParameter(), theModelPackage.getParameter(), null, "powerParameter", null, 0, 1, PowerConsumer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getPowerConsumer_Type(), ecorePackage.getEString(), "type", null, 0, 1, PowerConsumer.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		addEOperation(powerConsumerEClass, theModelPackage.getValue(),
-			"getPowerConsumption", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEOperation(powerConsumerEClass, theModelPackage.getValue(), "getPowerConsumption", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(powerDemandViewEClass, PowerDemandView.class,
-			"PowerDemandView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getPowerDemandView_ReferencedConfigurations(),
-			theModelPackage.getConfiguration(),
-			null,
-			"referencedConfigurations", null, 0, -1, PowerDemandView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(powerDemandViewEClass, PowerDemandView.class, "PowerDemandView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getPowerDemandView_ReferencedConfigurations(), theModelPackage.getConfiguration(), null, "referencedConfigurations", null, 0, -1, PowerDemandView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(massiveEClass, Massive.class, "Massive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getMassive_MassParameter(),
-			theModelPackage.getParameter(),
-			null,
-			"massParameter", null, 0, 1, Massive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getMassive_MassParameter(), theModelPackage.getParameter(), null, "massParameter", null, 0, 1, Massive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		addEOperation(massiveEClass, theModelPackage.getValue(), "getMass", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(coefficientInterfaceEClass, CoefficientInterface.class,
-			"CoefficientInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(
-			getCoefficientInterface_Type(),
-			theEcorePackage.getEString(),
-			"type", null, 0, 1, CoefficientInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-			getCoefficientInterface_CoefficientParameter(),
-			theModelPackage.getParameter(),
-			null,
-			"coefficientParameter", null, 0, 1, CoefficientInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(coefficientInterfaceEClass, CoefficientInterface.class, "CoefficientInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getCoefficientInterface_Type(), theEcorePackage.getEString(), "type", null, 0, 1, CoefficientInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getCoefficientInterface_CoefficientParameter(), theModelPackage.getParameter(), null, "coefficientParameter", null, 0, 1, CoefficientInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		addEOperation(coefficientInterfaceEClass, theModelPackage.getValue(),
-			"getCoefficient", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEOperation(coefficientInterfaceEClass, theModelPackage.getValue(), "getCoefficient", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(wettedAreaInterfaceEClass, WettedAreaInterface.class,
-			"WettedAreaInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getWettedAreaInterface_WettedAreaParameter(),
-			theModelPackage.getParameter(),
-			null,
-			"wettedAreaParameter", null, 0, 1, WettedAreaInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(wettedAreaInterfaceEClass, WettedAreaInterface.class, "WettedAreaInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getWettedAreaInterface_WettedAreaParameter(), theModelPackage.getParameter(), null, "wettedAreaParameter", null, 0, 1, WettedAreaInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		addEOperation(wettedAreaInterfaceEClass, theModelPackage.getValue(),
-			"getWettedArea", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEOperation(wettedAreaInterfaceEClass, theModelPackage.getValue(), "getWettedArea", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(referenceAreaInterfaceEClass, ReferenceAreaInterface.class,
-			"ReferenceAreaInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getReferenceAreaInterface_ReferenceAreaParameter(),
-			theModelPackage.getParameter(),
-			null,
-			"referenceAreaParameter", null, 0, 1, ReferenceAreaInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(referenceAreaInterfaceEClass, ReferenceAreaInterface.class, "ReferenceAreaInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getReferenceAreaInterface_ReferenceAreaParameter(), theModelPackage.getParameter(), null, "referenceAreaParameter", null, 0, 1, ReferenceAreaInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		addEOperation(referenceAreaInterfaceEClass, theModelPackage.getValue(),
-			"getReferenceArea", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEOperation(referenceAreaInterfaceEClass, theModelPackage.getValue(), "getReferenceArea", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(altitudeInterfaceEClass, AltitudeInterface.class,
-			"AltitudeInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getAltitudeInterface_AltitudeParameter(),
-			theModelPackage.getParameter(),
-			null,
-			"altitudeParameter", null, 0, 1, AltitudeInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(altitudeInterfaceEClass, AltitudeInterface.class, "AltitudeInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getAltitudeInterface_AltitudeParameter(), theModelPackage.getParameter(), null, "altitudeParameter", null, 0, 1, AltitudeInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		addEOperation(altitudeInterfaceEClass, theModelPackage.getValue(), "getAltitude", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(rangeInterfaceEClass, RangeInterface.class,
-			"RangeInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getRangeInterface_RangeParameter(),
-			theModelPackage.getParameter(),
-			null,
-			"rangeParameter", null, 0, 1, RangeInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(rangeInterfaceEClass, RangeInterface.class, "RangeInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getRangeInterface_RangeParameter(), theModelPackage.getParameter(), null, "rangeParameter", null, 0, 1, RangeInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		addEOperation(rangeInterfaceEClass, theModelPackage.getValue(), "getRange", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(sfcInterfaceEClass, SFCInterface.class,
-			"SFCInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getSFCInterface_SFCParameter(),
-			theModelPackage.getParameter(),
-			null,
-			"SFCParameter", null, 0, 1, SFCInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(sfcInterfaceEClass, SFCInterface.class, "SFCInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getSFCInterface_SFCParameter(), theModelPackage.getParameter(), null, "SFCParameter", null, 0, 1, SFCInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		addEOperation(sfcInterfaceEClass, theModelPackage.getValue(), "getSFC", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 	}

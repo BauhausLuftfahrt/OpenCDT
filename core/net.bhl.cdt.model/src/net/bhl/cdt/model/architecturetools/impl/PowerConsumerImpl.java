@@ -38,9 +38,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class PowerConsumerImpl extends ComponentInterfaceImpl implements PowerConsumer {
 	/**
-	 * The cached value of the '{@link #getPowerParameter() <em>Power Parameter</em>}' reference. <!-- begin-user-doc
+	 * The cached value of the '{@link #getPowerParameter() <em>Power Parameter</em>}' reference.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getPowerParameter()
 	 * @generated
 	 * @ordered

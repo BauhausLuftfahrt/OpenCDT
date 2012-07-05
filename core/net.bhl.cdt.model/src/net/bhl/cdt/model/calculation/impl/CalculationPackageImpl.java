@@ -41,97 +41,83 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
- * 
  * @generated
  */
 public class CalculationPackageImpl extends EPackageImpl implements CalculationPackage {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass calculationSetEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass calculationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass parameterMappingEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass calculationGraphEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass abstractNodeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass nodeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass controlNodeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass conditionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass iterationNodeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass conditionalNodeEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass startSetEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass parameterDescriptorToMappableComponentInterfaceMapEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private EClass calculationSetNodeEClass = null;
@@ -155,7 +141,6 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
@@ -173,13 +158,10 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 	 * @generated
 	 */
 	public static CalculationPackage init() {
-		if (isInited)
-			return (CalculationPackage) EPackage.Registry.INSTANCE.getEPackage(CalculationPackage.eNS_URI);
+		if (isInited) return (CalculationPackage)EPackage.Registry.INSTANCE.getEPackage(CalculationPackage.eNS_URI);
 
 		// Obtain or create and register package
-		CalculationPackageImpl theCalculationPackage = (CalculationPackageImpl) (EPackage.Registry.INSTANCE
-			.get(eNS_URI) instanceof CalculationPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI)
-			: new CalculationPackageImpl());
+		CalculationPackageImpl theCalculationPackage = (CalculationPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof CalculationPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new CalculationPackageImpl());
 
 		isInited = true;
 
@@ -189,15 +171,9 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 		EcorePackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
-		ModelPackageImpl theModelPackage = (ModelPackageImpl) (EPackage.Registry.INSTANCE
-			.getEPackage(ModelPackage.eNS_URI) instanceof ModelPackageImpl ? EPackage.Registry.INSTANCE
-			.getEPackage(ModelPackage.eNS_URI) : ModelPackage.eINSTANCE);
-		QualificationPackageImpl theQualificationPackage = (QualificationPackageImpl) (EPackage.Registry.INSTANCE
-			.getEPackage(QualificationPackage.eNS_URI) instanceof QualificationPackageImpl ? EPackage.Registry.INSTANCE
-			.getEPackage(QualificationPackage.eNS_URI) : QualificationPackage.eINSTANCE);
-		ArchitecturetoolsPackageImpl theArchitecturetoolsPackage = (ArchitecturetoolsPackageImpl) (EPackage.Registry.INSTANCE
-			.getEPackage(ArchitecturetoolsPackage.eNS_URI) instanceof ArchitecturetoolsPackageImpl ? EPackage.Registry.INSTANCE
-			.getEPackage(ArchitecturetoolsPackage.eNS_URI) : ArchitecturetoolsPackage.eINSTANCE);
+		ModelPackageImpl theModelPackage = (ModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI) instanceof ModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI) : ModelPackage.eINSTANCE);
+		QualificationPackageImpl theQualificationPackage = (QualificationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QualificationPackage.eNS_URI) instanceof QualificationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QualificationPackage.eNS_URI) : QualificationPackage.eINSTANCE);
+		ArchitecturetoolsPackageImpl theArchitecturetoolsPackage = (ArchitecturetoolsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArchitecturetoolsPackage.eNS_URI) instanceof ArchitecturetoolsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArchitecturetoolsPackage.eNS_URI) : ArchitecturetoolsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theCalculationPackage.createPackageContents();
@@ -214,6 +190,7 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 		// Mark meta-data to indicate it can't be changed
 		theCalculationPackage.freeze();
 
+  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(CalculationPackage.eNS_URI, theCalculationPackage);
 		return theCalculationPackage;
@@ -221,7 +198,6 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getCalculationSet() {
@@ -230,43 +206,38 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCalculationSet_Calculations() {
-		return (EReference) calculationSetEClass.getEStructuralFeatures().get(0);
+		return (EReference)calculationSetEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCalculationSet_Graphs() {
-		return (EReference) calculationSetEClass.getEStructuralFeatures().get(1);
+		return (EReference)calculationSetEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCalculationSet_SpaceQualifiers() {
-		return (EReference) calculationSetEClass.getEStructuralFeatures().get(2);
+		return (EReference)calculationSetEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCalculationSet_SubCalculationSet() {
-		return (EReference) calculationSetEClass.getEStructuralFeatures().get(3);
+		return (EReference)calculationSetEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getCalculation() {
@@ -275,25 +246,22 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCalculation_ParameterMapping() {
-		return (EReference) calculationEClass.getEStructuralFeatures().get(0);
+		return (EReference)calculationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getCalculation_FunctionID() {
-		return (EAttribute) calculationEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)calculationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getParameterMapping() {
@@ -302,25 +270,22 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getParameterMapping_InputMappables() {
-		return (EReference) parameterMappingEClass.getEStructuralFeatures().get(0);
+		return (EReference)parameterMappingEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getParameterMapping_OutputMappables() {
-		return (EReference) parameterMappingEClass.getEStructuralFeatures().get(1);
+		return (EReference)parameterMappingEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getCalculationGraph() {
@@ -329,34 +294,30 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCalculationGraph_Nodes() {
-		return (EReference) calculationGraphEClass.getEStructuralFeatures().get(0);
+		return (EReference)calculationGraphEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCalculationGraph_FirstNode() {
-		return (EReference) calculationGraphEClass.getEStructuralFeatures().get(1);
+		return (EReference)calculationGraphEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCalculationGraph_StartSet() {
-		return (EReference) calculationGraphEClass.getEStructuralFeatures().get(2);
+		return (EReference)calculationGraphEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getAbstractNode() {
@@ -365,7 +326,6 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getNode() {
@@ -374,25 +334,22 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getNode_NextNode() {
-		return (EReference) nodeEClass.getEStructuralFeatures().get(0);
+		return (EReference)nodeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getNode_Calculation() {
-		return (EReference) nodeEClass.getEStructuralFeatures().get(1);
+		return (EReference)nodeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getControlNode() {
@@ -401,34 +358,30 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getControlNode_NextTrue() {
-		return (EReference) controlNodeEClass.getEStructuralFeatures().get(0);
+		return (EReference)controlNodeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getControlNode_NextFalse() {
-		return (EReference) controlNodeEClass.getEStructuralFeatures().get(1);
+		return (EReference)controlNodeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getControlNode_Condition() {
-		return (EReference) controlNodeEClass.getEStructuralFeatures().get(2);
+		return (EReference)controlNodeEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getCondition() {
@@ -437,25 +390,22 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCondition_MappableComponentOfInterest() {
-		return (EReference) conditionEClass.getEStructuralFeatures().get(0);
+		return (EReference)conditionEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getCondition_Value() {
-		return (EAttribute) conditionEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)conditionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getIterationNode() {
@@ -464,16 +414,14 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EAttribute getIterationNode_MaxIteration() {
-		return (EAttribute) iterationNodeEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)iterationNodeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getConditionalNode() {
@@ -482,7 +430,6 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getStartSet() {
@@ -491,16 +438,14 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getStartSet_Values() {
-		return (EReference) startSetEClass.getEStructuralFeatures().get(0);
+		return (EReference)startSetEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getParameterDescriptorToMappableComponentInterfaceMap() {
@@ -509,25 +454,22 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getParameterDescriptorToMappableComponentInterfaceMap_Key() {
-		return (EReference) parameterDescriptorToMappableComponentInterfaceMapEClass.getEStructuralFeatures().get(0);
+		return (EReference)parameterDescriptorToMappableComponentInterfaceMapEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getParameterDescriptorToMappableComponentInterfaceMap_Value() {
-		return (EReference) parameterDescriptorToMappableComponentInterfaceMapEClass.getEStructuralFeatures().get(1);
+		return (EReference)parameterDescriptorToMappableComponentInterfaceMapEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EClass getCalculationSetNode() {
@@ -536,47 +478,42 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCalculationSetNode_NextNode() {
-		return (EReference) calculationSetNodeEClass.getEStructuralFeatures().get(0);
+		return (EReference)calculationSetNodeEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EReference getCalculationSetNode_CalculationSet() {
-		return (EReference) calculationSetNodeEClass.getEStructuralFeatures().get(1);
+		return (EReference)calculationSetNodeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CalculationFactory getCalculationFactory() {
-		return (CalculationFactory) getEFactoryInstance();
+		return (CalculationFactory)getEFactoryInstance();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package. This method is guarded to have no affect on any invocation but
-	 * its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates the meta-model objects for the package.  This method is
+	 * guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated)
-			return;
+		if (isCreated) return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -623,10 +560,8 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 		createEReference(startSetEClass, START_SET__VALUES);
 
 		parameterDescriptorToMappableComponentInterfaceMapEClass = createEClass(PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP);
-		createEReference(parameterDescriptorToMappableComponentInterfaceMapEClass,
-			PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__KEY);
-		createEReference(parameterDescriptorToMappableComponentInterfaceMapEClass,
-			PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__VALUE);
+		createEReference(parameterDescriptorToMappableComponentInterfaceMapEClass, PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__KEY);
+		createEReference(parameterDescriptorToMappableComponentInterfaceMapEClass, PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP__VALUE);
 
 		calculationSetNodeEClass = createEClass(CALCULATION_SET_NODE);
 		createEReference(calculationSetNodeEClass, CALCULATION_SET_NODE__NEXT_NODE);
@@ -635,20 +570,18 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model. This method is guarded to have no affect on any
-	 * invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Complete the initialization of the package and its meta-model.  This
+	 * method is guarded to have no affect on any invocation but its first.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized)
-			return;
+		if (isInitialized) return;
 		isInitialized = true;
 
 		// Initialize package
@@ -657,11 +590,9 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		ModelPackage theModelPackage = (ModelPackage) EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
-		QualificationPackage theQualificationPackage = (QualificationPackage) EPackage.Registry.INSTANCE
-			.getEPackage(QualificationPackage.eNS_URI);
-		BasecalculationmodelPackage theBasecalculationmodelPackage = (BasecalculationmodelPackage) EPackage.Registry.INSTANCE
-			.getEPackage(BasecalculationmodelPackage.eNS_URI);
+		ModelPackage theModelPackage = (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
+		QualificationPackage theQualificationPackage = (QualificationPackage)EPackage.Registry.INSTANCE.getEPackage(QualificationPackage.eNS_URI);
+		BasecalculationmodelPackage theBasecalculationmodelPackage = (BasecalculationmodelPackage)EPackage.Registry.INSTANCE.getEPackage(BasecalculationmodelPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -681,168 +612,60 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 		calculationSetNodeEClass.getESuperTypes().add(this.getAbstractNode());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(calculationSetEClass, CalculationSet.class,
-			"CalculationSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getCalculationSet_Calculations(),
-			this.getCalculation(),
-			null,
-			"calculations", null, 0, -1, CalculationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-			getCalculationSet_Graphs(),
-			this.getCalculationGraph(),
-			null,
-			"graphs", null, 0, -1, CalculationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-			getCalculationSet_SpaceQualifiers(),
-			theQualificationPackage.getCalculationSpaceQualifier(),
-			null,
-			"spaceQualifiers", null, 0, -1, CalculationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-			getCalculationSet_SubCalculationSet(),
-			this.getCalculationSet(),
-			null,
-			"subCalculationSet", null, 0, -1, CalculationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(calculationSetEClass, CalculationSet.class, "CalculationSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getCalculationSet_Calculations(), this.getCalculation(), null, "calculations", null, 0, -1, CalculationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getCalculationSet_Graphs(), this.getCalculationGraph(), null, "graphs", null, 0, -1, CalculationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getCalculationSet_SpaceQualifiers(), theQualificationPackage.getCalculationSpaceQualifier(), null, "spaceQualifiers", null, 0, -1, CalculationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getCalculationSet_SubCalculationSet(), this.getCalculationSet(), null, "subCalculationSet", null, 0, -1, CalculationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		EOperation op = addEOperation(calculationSetEClass, ecorePackage.getEBoolean(),
-			"isCalculable", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, theQualificationPackage.getCalculationSpaceQualifier(),
-			"calcSpaceQualifier", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		EOperation op = addEOperation(calculationSetEClass, ecorePackage.getEBoolean(), "isCalculable", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+		addEParameter(op, theQualificationPackage.getCalculationSpaceQualifier(), "calcSpaceQualifier", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(calculationEClass, Calculation.class,
-			"Calculation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getCalculation_ParameterMapping(),
-			this.getParameterMapping(),
-			null,
-			"parameterMapping", null, 0, 1, Calculation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-			getCalculation_FunctionID(),
-			ecorePackage.getEString(),
-			"functionID", null, 0, 1, Calculation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(calculationEClass, Calculation.class, "Calculation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getCalculation_ParameterMapping(), this.getParameterMapping(), null, "parameterMapping", null, 0, 1, Calculation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getCalculation_FunctionID(), ecorePackage.getEString(), "functionID", null, 0, 1, Calculation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		addEOperation(calculationEClass, ecorePackage.getEBoolean(), "isMapped", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(parameterMappingEClass, ParameterMapping.class,
-			"ParameterMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getParameterMapping_InputMappables(),
-			this.getParameterDescriptorToMappableComponentInterfaceMap(),
-			null,
-			"inputMappables", null, 0, -1, ParameterMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-			getParameterMapping_OutputMappables(),
-			this.getParameterDescriptorToMappableComponentInterfaceMap(),
-			null,
-			"outputMappables", null, 0, -1, ParameterMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(parameterMappingEClass, ParameterMapping.class, "ParameterMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getParameterMapping_InputMappables(), this.getParameterDescriptorToMappableComponentInterfaceMap(), null, "inputMappables", null, 0, -1, ParameterMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getParameterMapping_OutputMappables(), this.getParameterDescriptorToMappableComponentInterfaceMap(), null, "outputMappables", null, 0, -1, ParameterMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(calculationGraphEClass, CalculationGraph.class,
-			"CalculationGraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getCalculationGraph_Nodes(),
-			this.getAbstractNode(),
-			null,
-			"nodes", null, 0, -1, CalculationGraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-			getCalculationGraph_FirstNode(),
-			this.getAbstractNode(),
-			null,
-			"firstNode", null, 0, 1, CalculationGraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-			getCalculationGraph_StartSet(),
-			this.getStartSet(),
-			null,
-			"startSet", null, 0, 1, CalculationGraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(calculationGraphEClass, CalculationGraph.class, "CalculationGraph", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getCalculationGraph_Nodes(), this.getAbstractNode(), null, "nodes", null, 0, -1, CalculationGraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getCalculationGraph_FirstNode(), this.getAbstractNode(), null, "firstNode", null, 0, 1, CalculationGraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getCalculationGraph_StartSet(), this.getStartSet(), null, "startSet", null, 0, 1, CalculationGraph.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(abstractNodeEClass, AbstractNode.class,
-			"AbstractNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEClass(abstractNodeEClass, AbstractNode.class, "AbstractNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getNode_NextNode(),
-			this.getAbstractNode(),
-			null,
-			"nextNode", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-			getNode_Calculation(),
-			this.getCalculation(),
-			null,
-			"calculation", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getNode_NextNode(), this.getAbstractNode(), null, "nextNode", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getNode_Calculation(), this.getCalculation(), null, "calculation", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(controlNodeEClass, ControlNode.class,
-			"ControlNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getControlNode_NextTrue(),
-			this.getAbstractNode(),
-			null,
-			"nextTrue", null, 0, 1, ControlNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-			getControlNode_NextFalse(),
-			this.getAbstractNode(),
-			null,
-			"nextFalse", null, 0, 1, ControlNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-			getControlNode_Condition(),
-			this.getCondition(),
-			null,
-			"condition", null, 0, -1, ControlNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(controlNodeEClass, ControlNode.class, "ControlNode", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getControlNode_NextTrue(), this.getAbstractNode(), null, "nextTrue", null, 0, 1, ControlNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getControlNode_NextFalse(), this.getAbstractNode(), null, "nextFalse", null, 0, 1, ControlNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getControlNode_Condition(), this.getCondition(), null, "condition", null, 0, -1, ControlNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(conditionEClass, Condition.class,
-			"Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getCondition_MappableComponentOfInterest(),
-			theModelPackage.getMappableComponentInterface(),
-			null,
-			"mappableComponentOfInterest", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(
-			getCondition_Value(),
-			ecorePackage.getEDouble(),
-			"value", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(conditionEClass, Condition.class, "Condition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getCondition_MappableComponentOfInterest(), theModelPackage.getMappableComponentInterface(), null, "mappableComponentOfInterest", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getCondition_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(iterationNodeEClass, IterationNode.class,
-			"IterationNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEAttribute(
-			getIterationNode_MaxIteration(),
-			ecorePackage.getEInt(),
-			"maxIteration", null, 0, 1, IterationNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(iterationNodeEClass, IterationNode.class, "IterationNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEAttribute(getIterationNode_MaxIteration(), ecorePackage.getEInt(), "maxIteration", null, 0, 1, IterationNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(conditionalNodeEClass, ConditionalNode.class,
-			"ConditionalNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEClass(conditionalNodeEClass, ConditionalNode.class, "ConditionalNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
 		initEClass(startSetEClass, StartSet.class, "StartSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getStartSet_Values(),
-			theModelPackage.getValue(),
-			null,
-			"values", null, 0, -1, StartSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getStartSet_Values(), theModelPackage.getValue(), null, "values", null, 0, -1, StartSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(
-			parameterDescriptorToMappableComponentInterfaceMapEClass,
-			Map.Entry.class,
-			"ParameterDescriptorToMappableComponentInterfaceMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getParameterDescriptorToMappableComponentInterfaceMap_Key(),
-			theBasecalculationmodelPackage.getParameterDescriptor(),
-			null,
-			"key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-			getParameterDescriptorToMappableComponentInterfaceMap_Value(),
-			theModelPackage.getMappableComponentInterface(),
-			null,
-			"value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(parameterDescriptorToMappableComponentInterfaceMapEClass, Map.Entry.class, "ParameterDescriptorToMappableComponentInterfaceMap", !IS_ABSTRACT, !IS_INTERFACE, !IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getParameterDescriptorToMappableComponentInterfaceMap_Key(), theBasecalculationmodelPackage.getParameterDescriptor(), null, "key", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getParameterDescriptorToMappableComponentInterfaceMap_Value(), theModelPackage.getMappableComponentInterface(), null, "value", null, 0, 1, Map.Entry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
-		initEClass(calculationSetNodeEClass, CalculationSetNode.class,
-			"CalculationSetNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(
-			getCalculationSetNode_NextNode(),
-			this.getAbstractNode(),
-			null,
-			"nextNode", null, 0, 1, CalculationSetNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(
-			getCalculationSetNode_CalculationSet(),
-			this.getCalculationSet(),
-			null,
-			"calculationSet", null, 0, 1, CalculationSetNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(calculationSetNodeEClass, CalculationSetNode.class, "CalculationSetNode", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getCalculationSetNode_NextNode(), this.getAbstractNode(), null, "nextNode", null, 0, 1, CalculationSetNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getCalculationSetNode_CalculationSet(), this.getCalculationSet(), null, "calculationSet", null, 0, 1, CalculationSetNode.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 	}
 
 } // CalculationPackageImpl

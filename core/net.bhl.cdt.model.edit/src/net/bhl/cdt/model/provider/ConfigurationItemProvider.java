@@ -27,16 +27,16 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link net.bhl.cdt.model.Configuration} object. <!-- begin-user-doc --> <!--
+ * This is the item provider adapter for a {@link net.bhl.cdt.model.Configuration} object.
+ * <!-- begin-user-doc --> <!--
  * end-user-doc -->
- * 
  * @generated
  */
 public class ConfigurationItemProvider extends StructuralElementItemProvider implements IEditingDomainItemProvider,
 	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ConfigurationItemProvider(AdapterFactory adapterFactory) {
@@ -44,8 +44,8 @@ public class ConfigurationItemProvider extends StructuralElementItemProvider imp
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -60,9 +60,9 @@ public class ConfigurationItemProvider extends StructuralElementItemProvider imp
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!-- begin-user-doc --> <!--
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -78,7 +78,6 @@ public class ConfigurationItemProvider extends StructuralElementItemProvider imp
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -90,8 +89,8 @@ public class ConfigurationItemProvider extends StructuralElementItemProvider imp
 	}
 
 	/**
-	 * This returns Configuration.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns Configuration.gif.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -100,14 +99,15 @@ public class ConfigurationItemProvider extends StructuralElementItemProvider imp
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Configuration) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Configuration_type") : //$NON-NLS-1$
+		String label = ((Configuration)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Configuration_type") : //$NON-NLS-1$
 			getString("_UI_Configuration_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -123,36 +123,39 @@ public class ConfigurationItemProvider extends StructuralElementItemProvider imp
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Configuration.class)) {
-		case ModelPackage.CONFIGURATION__VIEWS:
-		case ModelPackage.CONFIGURATION__COMPONENTS:
-		case ModelPackage.CONFIGURATION__CALCULATION_SETS:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+			case ModelPackage.CONFIGURATION__VIEWS:
+			case ModelPackage.CONFIGURATION__COMPONENTS:
+			case ModelPackage.CONFIGURATION__CALCULATION_SETS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
-	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.CONFIGURATION__VIEWS,
-			ModelFactory.eINSTANCE.createDisciplineView()));
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.CONFIGURATION__VIEWS,
+				 ArchitecturetoolsFactory.eINSTANCE.createPowerDemandView()));
 
-		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.CONFIGURATION__VIEWS,
-			ArchitecturetoolsFactory.eINSTANCE.createPowerDemandView()));
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.CONFIGURATION__COMPONENTS,
+				 ModelFactory.eINSTANCE.createComponent()));
 
-		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.CONFIGURATION__COMPONENTS,
-			ModelFactory.eINSTANCE.createComponent()));
-
-		newChildDescriptors.add(createChildParameter(ModelPackage.Literals.CONFIGURATION__CALCULATION_SETS,
-			CalculationFactory.eINSTANCE.createCalculationSet()));
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.CONFIGURATION__CALCULATION_SETS,
+				 CalculationFactory.eINSTANCE.createCalculationSet()));
 	}
 
 }

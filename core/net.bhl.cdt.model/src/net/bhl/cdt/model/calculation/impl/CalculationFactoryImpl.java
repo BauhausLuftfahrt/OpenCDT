@@ -31,31 +31,30 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
  * @generated
  */
 public class CalculationFactoryImpl extends EFactoryImpl implements CalculationFactory {
 	/**
-	 * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static CalculationFactory init() {
 		try {
-			CalculationFactory theCalculationFactory = (CalculationFactory) EPackage.Registry.INSTANCE
-				.getEFactory("http://bhl.net/cdt/model/calculation"); //$NON-NLS-1$ 
+			CalculationFactory theCalculationFactory = (CalculationFactory)EPackage.Registry.INSTANCE.getEFactory("http://bhl.net/cdt/model/calculation"); //$NON-NLS-1$ 
 			if (theCalculationFactory != null) {
 				return theCalculationFactory;
 			}
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new CalculationFactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public CalculationFactoryImpl() {
@@ -64,42 +63,29 @@ public class CalculationFactoryImpl extends EFactoryImpl implements CalculationF
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case CalculationPackage.CALCULATION_SET:
-			return createCalculationSet();
-		case CalculationPackage.CALCULATION:
-			return createCalculation();
-		case CalculationPackage.PARAMETER_MAPPING:
-			return createParameterMapping();
-		case CalculationPackage.CALCULATION_GRAPH:
-			return createCalculationGraph();
-		case CalculationPackage.NODE:
-			return createNode();
-		case CalculationPackage.CONDITION:
-			return createCondition();
-		case CalculationPackage.ITERATION_NODE:
-			return createIterationNode();
-		case CalculationPackage.CONDITIONAL_NODE:
-			return createConditionalNode();
-		case CalculationPackage.START_SET:
-			return createStartSet();
-		case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP:
-			return (EObject) createParameterDescriptorToMappableComponentInterfaceMap();
-		case CalculationPackage.CALCULATION_SET_NODE:
-			return createCalculationSetNode();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
+			case CalculationPackage.CALCULATION_SET: return createCalculationSet();
+			case CalculationPackage.CALCULATION: return createCalculation();
+			case CalculationPackage.PARAMETER_MAPPING: return createParameterMapping();
+			case CalculationPackage.CALCULATION_GRAPH: return createCalculationGraph();
+			case CalculationPackage.NODE: return createNode();
+			case CalculationPackage.CONDITION: return createCondition();
+			case CalculationPackage.ITERATION_NODE: return createIterationNode();
+			case CalculationPackage.CONDITIONAL_NODE: return createConditionalNode();
+			case CalculationPackage.START_SET: return createStartSet();
+			case CalculationPackage.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP: return (EObject)createParameterDescriptorToMappableComponentInterfaceMap();
+			case CalculationPackage.CALCULATION_SET_NODE: return createCalculationSetNode();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CalculationSet createCalculationSet() {
@@ -109,7 +95,6 @@ public class CalculationFactoryImpl extends EFactoryImpl implements CalculationF
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Calculation createCalculation() {
@@ -119,7 +104,6 @@ public class CalculationFactoryImpl extends EFactoryImpl implements CalculationF
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ParameterMapping createParameterMapping() {
@@ -129,7 +113,6 @@ public class CalculationFactoryImpl extends EFactoryImpl implements CalculationF
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CalculationGraph createCalculationGraph() {
@@ -139,7 +122,6 @@ public class CalculationFactoryImpl extends EFactoryImpl implements CalculationF
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Node createNode() {
@@ -149,7 +131,6 @@ public class CalculationFactoryImpl extends EFactoryImpl implements CalculationF
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Condition createCondition() {
@@ -159,7 +140,6 @@ public class CalculationFactoryImpl extends EFactoryImpl implements CalculationF
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public IterationNode createIterationNode() {
@@ -169,7 +149,6 @@ public class CalculationFactoryImpl extends EFactoryImpl implements CalculationF
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public ConditionalNode createConditionalNode() {
@@ -179,7 +158,6 @@ public class CalculationFactoryImpl extends EFactoryImpl implements CalculationF
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public StartSet createStartSet() {
@@ -189,7 +167,6 @@ public class CalculationFactoryImpl extends EFactoryImpl implements CalculationF
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Map.Entry<ParameterDescriptor, MappableComponentInterface> createParameterDescriptorToMappableComponentInterfaceMap() {
@@ -199,7 +176,6 @@ public class CalculationFactoryImpl extends EFactoryImpl implements CalculationF
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CalculationSetNode createCalculationSetNode() {
@@ -209,16 +185,14 @@ public class CalculationFactoryImpl extends EFactoryImpl implements CalculationF
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CalculationPackage getCalculationPackage() {
-		return (CalculationPackage) getEPackage();
+		return (CalculationPackage)getEPackage();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @deprecated
 	 * @generated
 	 */

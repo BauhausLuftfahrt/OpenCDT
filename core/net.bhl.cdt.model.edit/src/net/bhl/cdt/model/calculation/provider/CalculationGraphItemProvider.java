@@ -37,8 +37,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 public class CalculationGraphItemProvider extends ElementItemProvider implements IEditingDomainItemProvider,
 	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public CalculationGraphItemProvider(AdapterFactory adapterFactory) {
@@ -46,8 +46,8 @@ public class CalculationGraphItemProvider extends ElementItemProvider implements
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -61,26 +61,32 @@ public class CalculationGraphItemProvider extends ElementItemProvider implements
 	}
 
 	/**
-	 * This adds a property descriptor for the First Node feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds a property descriptor for the First Node feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addFirstNodePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-			.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_CalculationGraph_firstNode_feature"), //$NON-NLS-1$
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_CalculationGraph_firstNode_feature", "_UI_CalculationGraph_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				CalculationPackage.Literals.CALCULATION_GRAPH__FIRST_NODE, true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalculationGraph_firstNode_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalculationGraph_firstNode_feature", "_UI_CalculationGraph_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 CalculationPackage.Literals.CALCULATION_GRAPH__FIRST_NODE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!-- begin-user-doc --> <!--
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -95,7 +101,6 @@ public class CalculationGraphItemProvider extends ElementItemProvider implements
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -107,8 +112,8 @@ public class CalculationGraphItemProvider extends ElementItemProvider implements
 	}
 
 	/**
-	 * This returns CalculationGraph.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns CalculationGraph.gif.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -117,14 +122,15 @@ public class CalculationGraphItemProvider extends ElementItemProvider implements
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CalculationGraph) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_CalculationGraph_type") : //$NON-NLS-1$
+		String label = ((CalculationGraph)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalculationGraph_type") : //$NON-NLS-1$
 			getString("_UI_CalculationGraph_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -140,43 +146,53 @@ public class CalculationGraphItemProvider extends ElementItemProvider implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CalculationGraph.class)) {
-		case CalculationPackage.CALCULATION_GRAPH__NODES:
-		case CalculationPackage.CALCULATION_GRAPH__START_SET:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-			return;
+			case CalculationPackage.CALCULATION_GRAPH__NODES:
+			case CalculationPackage.CALCULATION_GRAPH__START_SET:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
-	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(CalculationPackage.Literals.CALCULATION_GRAPH__NODES,
-			CalculationFactory.eINSTANCE.createNode()));
+		newChildDescriptors.add
+			(createChildParameter
+				(CalculationPackage.Literals.CALCULATION_GRAPH__NODES,
+				 CalculationFactory.eINSTANCE.createNode()));
 
-		newChildDescriptors.add(createChildParameter(CalculationPackage.Literals.CALCULATION_GRAPH__NODES,
-			CalculationFactory.eINSTANCE.createIterationNode()));
+		newChildDescriptors.add
+			(createChildParameter
+				(CalculationPackage.Literals.CALCULATION_GRAPH__NODES,
+				 CalculationFactory.eINSTANCE.createIterationNode()));
 
-		newChildDescriptors.add(createChildParameter(CalculationPackage.Literals.CALCULATION_GRAPH__NODES,
-			CalculationFactory.eINSTANCE.createConditionalNode()));
+		newChildDescriptors.add
+			(createChildParameter
+				(CalculationPackage.Literals.CALCULATION_GRAPH__NODES,
+				 CalculationFactory.eINSTANCE.createConditionalNode()));
 
-		newChildDescriptors.add(createChildParameter(CalculationPackage.Literals.CALCULATION_GRAPH__NODES,
-			CalculationFactory.eINSTANCE.createCalculationSetNode()));
+		newChildDescriptors.add
+			(createChildParameter
+				(CalculationPackage.Literals.CALCULATION_GRAPH__NODES,
+				 CalculationFactory.eINSTANCE.createCalculationSetNode()));
 
-		newChildDescriptors.add(createChildParameter(CalculationPackage.Literals.CALCULATION_GRAPH__START_SET,
-			CalculationFactory.eINSTANCE.createStartSet()));
+		newChildDescriptors.add
+			(createChildParameter
+				(CalculationPackage.Literals.CALCULATION_GRAPH__START_SET,
+				 CalculationFactory.eINSTANCE.createStartSet()));
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

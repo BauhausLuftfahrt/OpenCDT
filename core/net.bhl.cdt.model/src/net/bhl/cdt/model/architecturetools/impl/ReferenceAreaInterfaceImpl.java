@@ -29,11 +29,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link net.bhl.cdt.model.architecturetools.impl.ReferenceAreaInterfaceImpl#getReferenceAreaParameter <em>
- * Reference Area Parameter</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.architecturetools.impl.ReferenceAreaInterfaceImpl#getReferenceAreaParameter <em>Reference Area Parameter</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ReferenceAreaInterfaceImpl extends ComponentInterfaceImpl implements ReferenceAreaInterface {
@@ -49,7 +48,6 @@ public class ReferenceAreaInterfaceImpl extends ComponentInterfaceImpl implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ReferenceAreaInterfaceImpl() {
@@ -58,7 +56,6 @@ public class ReferenceAreaInterfaceImpl extends ComponentInterfaceImpl implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -68,18 +65,15 @@ public class ReferenceAreaInterfaceImpl extends ComponentInterfaceImpl implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter getReferenceAreaParameter() {
 		if (referenceAreaParameter != null && referenceAreaParameter.eIsProxy()) {
-			InternalEObject oldReferenceAreaParameter = (InternalEObject) referenceAreaParameter;
-			referenceAreaParameter = (Parameter) eResolveProxy(oldReferenceAreaParameter);
+			InternalEObject oldReferenceAreaParameter = (InternalEObject)referenceAreaParameter;
+			referenceAreaParameter = (Parameter)eResolveProxy(oldReferenceAreaParameter);
 			if (referenceAreaParameter != oldReferenceAreaParameter) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-						ArchitecturetoolsPackage.REFERENCE_AREA_INTERFACE__REFERENCE_AREA_PARAMETER,
-						oldReferenceAreaParameter, referenceAreaParameter));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchitecturetoolsPackage.REFERENCE_AREA_INTERFACE__REFERENCE_AREA_PARAMETER, oldReferenceAreaParameter, referenceAreaParameter));
 			}
 		}
 		return referenceAreaParameter;
@@ -87,7 +81,6 @@ public class ReferenceAreaInterfaceImpl extends ComponentInterfaceImpl implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter basicGetReferenceAreaParameter() {
@@ -96,16 +89,13 @@ public class ReferenceAreaInterfaceImpl extends ComponentInterfaceImpl implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setReferenceAreaParameter(Parameter newReferenceAreaParameter) {
 		Parameter oldReferenceAreaParameter = referenceAreaParameter;
 		referenceAreaParameter = newReferenceAreaParameter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-				ArchitecturetoolsPackage.REFERENCE_AREA_INTERFACE__REFERENCE_AREA_PARAMETER, oldReferenceAreaParameter,
-				referenceAreaParameter));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchitecturetoolsPackage.REFERENCE_AREA_INTERFACE__REFERENCE_AREA_PARAMETER, oldReferenceAreaParameter, referenceAreaParameter));
 	}
 
 	/**
@@ -209,60 +199,55 @@ public class ReferenceAreaInterfaceImpl extends ComponentInterfaceImpl implement
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.REFERENCE_AREA_INTERFACE__REFERENCE_AREA_PARAMETER:
-			if (resolve)
-				return getReferenceAreaParameter();
-			return basicGetReferenceAreaParameter();
+			case ArchitecturetoolsPackage.REFERENCE_AREA_INTERFACE__REFERENCE_AREA_PARAMETER:
+				if (resolve) return getReferenceAreaParameter();
+				return basicGetReferenceAreaParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.REFERENCE_AREA_INTERFACE__REFERENCE_AREA_PARAMETER:
-			setReferenceAreaParameter((Parameter) newValue);
-			return;
+			case ArchitecturetoolsPackage.REFERENCE_AREA_INTERFACE__REFERENCE_AREA_PARAMETER:
+				setReferenceAreaParameter((Parameter)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.REFERENCE_AREA_INTERFACE__REFERENCE_AREA_PARAMETER:
-			setReferenceAreaParameter((Parameter) null);
-			return;
+			case ArchitecturetoolsPackage.REFERENCE_AREA_INTERFACE__REFERENCE_AREA_PARAMETER:
+				setReferenceAreaParameter((Parameter)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.REFERENCE_AREA_INTERFACE__REFERENCE_AREA_PARAMETER:
-			return referenceAreaParameter != null;
+			case ArchitecturetoolsPackage.REFERENCE_AREA_INTERFACE__REFERENCE_AREA_PARAMETER:
+				return referenceAreaParameter != null;
 		}
 		return super.eIsSet(featureID);
 	}

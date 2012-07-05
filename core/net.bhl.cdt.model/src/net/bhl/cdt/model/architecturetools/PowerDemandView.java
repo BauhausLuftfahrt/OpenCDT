@@ -27,14 +27,14 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface PowerDemandView extends View {
 	/**
-	 * Returns the value of the '<em><b>Referenced Configurations</b></em>' reference list. The list contents are of
-	 * type {@link net.bhl.cdt.model.Configuration}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Referenced Configurations</b></em>' reference list.
+	 * The list contents are of type {@link net.bhl.cdt.model.Configuration}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Referenced Configurations</em>' reference list isn't clear, there really should be
 	 * more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Referenced Configurations</em>' reference list.
 	 * @see net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage#getPowerDemandView_ReferencedConfigurations()
 	 * @model

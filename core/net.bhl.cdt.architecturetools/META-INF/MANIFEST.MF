@@ -1,11 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Architecturetools
-Bundle-SymbolicName: net.bhl.cdt.architecturetools;singleton:=true
+Bundle-SymbolicName: net.bhl.cdt.model.modelview;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: net.bhl.cdt.architecturetools.Activator
+Bundle-Activator: net.bhl.cdt.model.modelview.Activator
 Require-Bundle: net.bhl.cdt.ui;visibility:=reexport,
  net.bhl.cdt.model;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: net.bhl.cdt.model.modelview,
+ net.bhl.cdt.model.modelview.util
 

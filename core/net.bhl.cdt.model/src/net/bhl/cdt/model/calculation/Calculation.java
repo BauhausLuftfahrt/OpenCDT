@@ -10,27 +10,28 @@ import net.bhl.cdt.model.Element;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Calculation</b></em>'. <!-- end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link net.bhl.cdt.model.calculation.Calculation#getParameterMapping <em>Parameter Mapping</em>}</li>
- * <li>{@link net.bhl.cdt.model.calculation.Calculation#getFunctionID <em>Function ID</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.Calculation#getParameterMapping <em>Parameter Mapping</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.Calculation#getFunctionID <em>Function ID</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see net.bhl.cdt.model.calculation.CalculationPackage#getCalculation()
  * @model
  * @generated
  */
 public interface Calculation extends Element {
 	/**
-	 * Returns the value of the '<em><b>Parameter Mapping</b></em>' containment reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Parameter Mapping</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parameter Mapping</em>' containment reference isn't clear, there really should be more
 	 * of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Parameter Mapping</em>' containment reference.
 	 * @see #setParameterMapping(ParameterMapping)
 	 * @see net.bhl.cdt.model.calculation.CalculationPackage#getCalculation_ParameterMapping()
@@ -40,9 +41,8 @@ public interface Calculation extends Element {
 	ParameterMapping getParameterMapping();
 
 	/**
-	 * Sets the value of the '{@link net.bhl.cdt.model.calculation.Calculation#getParameterMapping
-	 * <em>Parameter Mapping</em>}' containment reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Sets the value of the '{@link net.bhl.cdt.model.calculation.Calculation#getParameterMapping <em>Parameter Mapping</em>}' containment reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Parameter Mapping</em>' containment reference.
 	 * @see #getParameterMapping()
 	 * @generated
@@ -50,13 +50,13 @@ public interface Calculation extends Element {
 	void setParameterMapping(ParameterMapping value);
 
 	/**
-	 * Returns the value of the '<em><b>Function ID</b></em>' attribute. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Function ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Function ID</em>' attribute isn't clear, there really should be more of a description
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Function ID</em>' attribute.
 	 * @see #setFunctionID(String)
 	 * @see net.bhl.cdt.model.calculation.CalculationPackage#getCalculation_FunctionID()
@@ -66,9 +66,8 @@ public interface Calculation extends Element {
 	String getFunctionID();
 
 	/**
-	 * Sets the value of the '{@link net.bhl.cdt.model.calculation.Calculation#getFunctionID <em>Function ID</em>}'
-	 * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Sets the value of the '{@link net.bhl.cdt.model.calculation.Calculation#getFunctionID <em>Function ID</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Function ID</em>' attribute.
 	 * @see #getFunctionID()
 	 * @generated
@@ -77,7 +76,6 @@ public interface Calculation extends Element {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */

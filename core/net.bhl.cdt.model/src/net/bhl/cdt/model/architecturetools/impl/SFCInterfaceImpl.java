@@ -28,17 +28,17 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link net.bhl.cdt.model.architecturetools.impl.SFCInterfaceImpl#getSFCParameter <em>SFC Parameter</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.architecturetools.impl.SFCInterfaceImpl#getSFCParameter <em>SFC Parameter</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInterface {
 	/**
-	 * The cached value of the '{@link #getSFCParameter() <em>SFC Parameter</em>}' reference. <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getSFCParameter() <em>SFC Parameter</em>}' reference.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getSFCParameter()
 	 * @generated
 	 * @ordered
@@ -47,7 +47,6 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected SFCInterfaceImpl() {
@@ -56,7 +55,6 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -66,17 +64,15 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter getSFCParameter() {
 		if (sfcParameter != null && sfcParameter.eIsProxy()) {
-			InternalEObject oldSFCParameter = (InternalEObject) sfcParameter;
-			sfcParameter = (Parameter) eResolveProxy(oldSFCParameter);
+			InternalEObject oldSFCParameter = (InternalEObject)sfcParameter;
+			sfcParameter = (Parameter)eResolveProxy(oldSFCParameter);
 			if (sfcParameter != oldSFCParameter) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-						ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER, oldSFCParameter, sfcParameter));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER, oldSFCParameter, sfcParameter));
 			}
 		}
 		return sfcParameter;
@@ -84,7 +80,6 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter basicGetSFCParameter() {
@@ -93,15 +88,13 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setSFCParameter(Parameter newSFCParameter) {
 		Parameter oldSFCParameter = sfcParameter;
 		sfcParameter = newSFCParameter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-				ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER, oldSFCParameter, sfcParameter));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER, oldSFCParameter, sfcParameter));
 	}
 
 	/**
@@ -204,60 +197,55 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER:
-			if (resolve)
-				return getSFCParameter();
-			return basicGetSFCParameter();
+			case ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER:
+				if (resolve) return getSFCParameter();
+				return basicGetSFCParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER:
-			setSFCParameter((Parameter) newValue);
-			return;
+			case ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER:
+				setSFCParameter((Parameter)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER:
-			setSFCParameter((Parameter) null);
-			return;
+			case ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER:
+				setSFCParameter((Parameter)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER:
-			return sfcParameter != null;
+			case ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER:
+				return sfcParameter != null;
 		}
 		return super.eIsSet(featureID);
 	}

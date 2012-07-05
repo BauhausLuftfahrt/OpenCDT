@@ -50,21 +50,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="parentComponent" eType="#//Component"
         eOpposite="#//Component/interfaces"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="View" abstract="true" eSuperTypes="#//Element"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DisciplineView" eSuperTypes="#//View">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subviews" upperBound="-1"
-        eType="#//View" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//StructuralElement" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaceTypes" upperBound="-1"
-        eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EClass"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="viewLinks" upperBound="-1"
-        eType="#//ViewLink" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewLink" eSuperTypes="#//Element">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="virtualParent" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="virtualChild" eType="ecore:EClass platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EObject"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MappableComponentInterface" abstract="true"
       interface="true" eSuperTypes="#//ComponentInterface">
     <eOperations name="getValue" eType="#//Value"/>
@@ -78,6 +63,7 @@
       <eParameters name="calcSpaceQualifier" eType="#//qualification/CalculationSpaceQualifier"/>
     </eOperations>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="View" abstract="true" eSuperTypes="#//Element"/>
   <eSubpackages name="qualification" nsURI="http://bhl.net/cdt/model/qualification"
       nsPrefix="net.bhl.cdt.model">
     <eClassifiers xsi:type="ecore:EClass" name="Qualifier" abstract="true" eSuperTypes="#//Element">

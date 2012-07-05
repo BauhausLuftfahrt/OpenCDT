@@ -29,12 +29,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link net.bhl.cdt.model.architecturetools.impl.CoefficientInterfaceImpl#getType <em>Type</em>}</li>
- * <li>{@link net.bhl.cdt.model.architecturetools.impl.CoefficientInterfaceImpl#getCoefficientParameter <em>Coefficient
- * Parameter</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.architecturetools.impl.CoefficientInterfaceImpl#getType <em>Type</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.architecturetools.impl.CoefficientInterfaceImpl#getCoefficientParameter <em>Coefficient Parameter</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class CoefficientInterfaceImpl extends ComponentInterfaceImpl implements CoefficientInterface {
@@ -70,7 +69,6 @@ public class CoefficientInterfaceImpl extends ComponentInterfaceImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected CoefficientInterfaceImpl() {
@@ -79,7 +77,6 @@ public class CoefficientInterfaceImpl extends ComponentInterfaceImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -89,7 +86,6 @@ public class CoefficientInterfaceImpl extends ComponentInterfaceImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getType() {
@@ -98,31 +94,26 @@ public class CoefficientInterfaceImpl extends ComponentInterfaceImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setType(String newType) {
 		String oldType = type;
 		type = newType;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__TYPE,
-				oldType, type));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__TYPE, oldType, type));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter getCoefficientParameter() {
 		if (coefficientParameter != null && coefficientParameter.eIsProxy()) {
-			InternalEObject oldCoefficientParameter = (InternalEObject) coefficientParameter;
-			coefficientParameter = (Parameter) eResolveProxy(oldCoefficientParameter);
+			InternalEObject oldCoefficientParameter = (InternalEObject)coefficientParameter;
+			coefficientParameter = (Parameter)eResolveProxy(oldCoefficientParameter);
 			if (coefficientParameter != oldCoefficientParameter) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-						ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__COEFFICIENT_PARAMETER, oldCoefficientParameter,
-						coefficientParameter));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__COEFFICIENT_PARAMETER, oldCoefficientParameter, coefficientParameter));
 			}
 		}
 		return coefficientParameter;
@@ -130,7 +121,6 @@ public class CoefficientInterfaceImpl extends ComponentInterfaceImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter basicGetCoefficientParameter() {
@@ -139,16 +129,13 @@ public class CoefficientInterfaceImpl extends ComponentInterfaceImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setCoefficientParameter(Parameter newCoefficientParameter) {
 		Parameter oldCoefficientParameter = coefficientParameter;
 		coefficientParameter = newCoefficientParameter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-				ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__COEFFICIENT_PARAMETER, oldCoefficientParameter,
-				coefficientParameter));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__COEFFICIENT_PARAMETER, oldCoefficientParameter, coefficientParameter));
 	}
 
 	/**
@@ -250,83 +237,76 @@ public class CoefficientInterfaceImpl extends ComponentInterfaceImpl implements 
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__TYPE:
-			return getType();
-		case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__COEFFICIENT_PARAMETER:
-			if (resolve)
-				return getCoefficientParameter();
-			return basicGetCoefficientParameter();
+			case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__TYPE:
+				return getType();
+			case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__COEFFICIENT_PARAMETER:
+				if (resolve) return getCoefficientParameter();
+				return basicGetCoefficientParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__TYPE:
-			setType((String) newValue);
-			return;
-		case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__COEFFICIENT_PARAMETER:
-			setCoefficientParameter((Parameter) newValue);
-			return;
+			case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__TYPE:
+				setType((String)newValue);
+				return;
+			case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__COEFFICIENT_PARAMETER:
+				setCoefficientParameter((Parameter)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__TYPE:
-			setType(TYPE_EDEFAULT);
-			return;
-		case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__COEFFICIENT_PARAMETER:
-			setCoefficientParameter((Parameter) null);
-			return;
+			case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__TYPE:
+				setType(TYPE_EDEFAULT);
+				return;
+			case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__COEFFICIENT_PARAMETER:
+				setCoefficientParameter((Parameter)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__TYPE:
-			return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
-		case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__COEFFICIENT_PARAMETER:
-			return coefficientParameter != null;
+			case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__TYPE:
+				return TYPE_EDEFAULT == null ? type != null : !TYPE_EDEFAULT.equals(type);
+			case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE__COEFFICIENT_PARAMETER:
+				return coefficientParameter != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (type: "); //$NON-NLS-1$

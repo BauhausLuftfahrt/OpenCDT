@@ -16,13 +16,12 @@ import org.eclipse.emf.ecore.EClass;
  * end-user-doc -->
  * <p>
  * </p>
- * 
+ *
  * @generated
  */
 public class BehaviouralQualifierImpl extends QualifierImpl implements BehaviouralQualifier {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected BehaviouralQualifierImpl() {
@@ -31,7 +30,6 @@ public class BehaviouralQualifierImpl extends QualifierImpl implements Behaviour
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override

@@ -9,7 +9,8 @@ import net.bhl.cdt.utilities.exchangemodel.ExchangeElement;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Element</b></em>'. <!-- end-user-doc -->
- * 
+ *
+ *
  * @see net.bhl.cdt.model.ModelPackage#getElement()
  * @model
  * @generated

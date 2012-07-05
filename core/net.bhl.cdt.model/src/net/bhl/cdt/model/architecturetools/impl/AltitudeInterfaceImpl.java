@@ -29,11 +29,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link net.bhl.cdt.model.architecturetools.impl.AltitudeInterfaceImpl#getAltitudeParameter <em>Altitude Parameter
- * </em>}</li>
+ *   <li>{@link net.bhl.cdt.model.architecturetools.impl.AltitudeInterfaceImpl#getAltitudeParameter <em>Altitude Parameter</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class AltitudeInterfaceImpl extends ComponentInterfaceImpl implements AltitudeInterface {
@@ -49,7 +48,6 @@ public class AltitudeInterfaceImpl extends ComponentInterfaceImpl implements Alt
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected AltitudeInterfaceImpl() {
@@ -58,7 +56,6 @@ public class AltitudeInterfaceImpl extends ComponentInterfaceImpl implements Alt
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -68,18 +65,15 @@ public class AltitudeInterfaceImpl extends ComponentInterfaceImpl implements Alt
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter getAltitudeParameter() {
 		if (altitudeParameter != null && altitudeParameter.eIsProxy()) {
-			InternalEObject oldAltitudeParameter = (InternalEObject) altitudeParameter;
-			altitudeParameter = (Parameter) eResolveProxy(oldAltitudeParameter);
+			InternalEObject oldAltitudeParameter = (InternalEObject)altitudeParameter;
+			altitudeParameter = (Parameter)eResolveProxy(oldAltitudeParameter);
 			if (altitudeParameter != oldAltitudeParameter) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-						ArchitecturetoolsPackage.ALTITUDE_INTERFACE__ALTITUDE_PARAMETER, oldAltitudeParameter,
-						altitudeParameter));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchitecturetoolsPackage.ALTITUDE_INTERFACE__ALTITUDE_PARAMETER, oldAltitudeParameter, altitudeParameter));
 			}
 		}
 		return altitudeParameter;
@@ -87,7 +81,6 @@ public class AltitudeInterfaceImpl extends ComponentInterfaceImpl implements Alt
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter basicGetAltitudeParameter() {
@@ -96,16 +89,13 @@ public class AltitudeInterfaceImpl extends ComponentInterfaceImpl implements Alt
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setAltitudeParameter(Parameter newAltitudeParameter) {
 		Parameter oldAltitudeParameter = altitudeParameter;
 		altitudeParameter = newAltitudeParameter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-				ArchitecturetoolsPackage.ALTITUDE_INTERFACE__ALTITUDE_PARAMETER, oldAltitudeParameter,
-				altitudeParameter));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchitecturetoolsPackage.ALTITUDE_INTERFACE__ALTITUDE_PARAMETER, oldAltitudeParameter, altitudeParameter));
 	}
 
 	/**
@@ -208,60 +198,55 @@ public class AltitudeInterfaceImpl extends ComponentInterfaceImpl implements Alt
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.ALTITUDE_INTERFACE__ALTITUDE_PARAMETER:
-			if (resolve)
-				return getAltitudeParameter();
-			return basicGetAltitudeParameter();
+			case ArchitecturetoolsPackage.ALTITUDE_INTERFACE__ALTITUDE_PARAMETER:
+				if (resolve) return getAltitudeParameter();
+				return basicGetAltitudeParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.ALTITUDE_INTERFACE__ALTITUDE_PARAMETER:
-			setAltitudeParameter((Parameter) newValue);
-			return;
+			case ArchitecturetoolsPackage.ALTITUDE_INTERFACE__ALTITUDE_PARAMETER:
+				setAltitudeParameter((Parameter)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.ALTITUDE_INTERFACE__ALTITUDE_PARAMETER:
-			setAltitudeParameter((Parameter) null);
-			return;
+			case ArchitecturetoolsPackage.ALTITUDE_INTERFACE__ALTITUDE_PARAMETER:
+				setAltitudeParameter((Parameter)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.ALTITUDE_INTERFACE__ALTITUDE_PARAMETER:
-			return altitudeParameter != null;
+			case ArchitecturetoolsPackage.ALTITUDE_INTERFACE__ALTITUDE_PARAMETER:
+				return altitudeParameter != null;
 		}
 		return super.eIsSet(featureID);
 	}

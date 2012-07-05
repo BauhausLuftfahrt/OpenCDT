@@ -30,21 +30,20 @@ import org.eclipse.emf.ecore.util.Switch;
  * {@link #doSwitch(EObject) doSwitch(object)} to invoke the <code>caseXXX</code> method for each class of the model,
  * starting with the actual class of the object and proceeding up the inheritance hierarchy until a non-null result is
  * returned, which is the result of the switch. <!-- end-user-doc -->
- * 
  * @see net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage
  * @generated
  */
 public class ArchitecturetoolsSwitch<T> extends Switch<T> {
 	/**
-	 * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached model package
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected static ArchitecturetoolsPackage modelPackage;
 
 	/**
-	 * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates an instance of the switch.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ArchitecturetoolsSwitch() {
@@ -54,8 +53,8 @@ public class ArchitecturetoolsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Checks whether this is a switch for the given package. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Checks whether this is a switch for the given package.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @parameter ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
@@ -66,150 +65,104 @@ public class ArchitecturetoolsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that
-	 * result. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-		case ArchitecturetoolsPackage.POWER_CONSUMER: {
-			PowerConsumer powerConsumer = (PowerConsumer) theEObject;
-			T result = casePowerConsumer(powerConsumer);
-			if (result == null)
-				result = caseMappableComponentInterface(powerConsumer);
-			if (result == null)
-				result = caseComponentInterface(powerConsumer);
-			if (result == null)
-				result = caseElement(powerConsumer);
-			if (result == null)
-				result = caseExchangeElement(powerConsumer);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case ArchitecturetoolsPackage.POWER_DEMAND_VIEW: {
-			PowerDemandView powerDemandView = (PowerDemandView) theEObject;
-			T result = casePowerDemandView(powerDemandView);
-			if (result == null)
-				result = caseView(powerDemandView);
-			if (result == null)
-				result = caseElement(powerDemandView);
-			if (result == null)
-				result = caseExchangeElement(powerDemandView);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case ArchitecturetoolsPackage.MASSIVE: {
-			Massive massive = (Massive) theEObject;
-			T result = caseMassive(massive);
-			if (result == null)
-				result = caseMappableComponentInterface(massive);
-			if (result == null)
-				result = caseComponentInterface(massive);
-			if (result == null)
-				result = caseElement(massive);
-			if (result == null)
-				result = caseExchangeElement(massive);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE: {
-			CoefficientInterface coefficientInterface = (CoefficientInterface) theEObject;
-			T result = caseCoefficientInterface(coefficientInterface);
-			if (result == null)
-				result = caseMappableComponentInterface(coefficientInterface);
-			if (result == null)
-				result = caseComponentInterface(coefficientInterface);
-			if (result == null)
-				result = caseElement(coefficientInterface);
-			if (result == null)
-				result = caseExchangeElement(coefficientInterface);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case ArchitecturetoolsPackage.WETTED_AREA_INTERFACE: {
-			WettedAreaInterface wettedAreaInterface = (WettedAreaInterface) theEObject;
-			T result = caseWettedAreaInterface(wettedAreaInterface);
-			if (result == null)
-				result = caseMappableComponentInterface(wettedAreaInterface);
-			if (result == null)
-				result = caseComponentInterface(wettedAreaInterface);
-			if (result == null)
-				result = caseElement(wettedAreaInterface);
-			if (result == null)
-				result = caseExchangeElement(wettedAreaInterface);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case ArchitecturetoolsPackage.REFERENCE_AREA_INTERFACE: {
-			ReferenceAreaInterface referenceAreaInterface = (ReferenceAreaInterface) theEObject;
-			T result = caseReferenceAreaInterface(referenceAreaInterface);
-			if (result == null)
-				result = caseMappableComponentInterface(referenceAreaInterface);
-			if (result == null)
-				result = caseComponentInterface(referenceAreaInterface);
-			if (result == null)
-				result = caseElement(referenceAreaInterface);
-			if (result == null)
-				result = caseExchangeElement(referenceAreaInterface);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case ArchitecturetoolsPackage.ALTITUDE_INTERFACE: {
-			AltitudeInterface altitudeInterface = (AltitudeInterface) theEObject;
-			T result = caseAltitudeInterface(altitudeInterface);
-			if (result == null)
-				result = caseMappableComponentInterface(altitudeInterface);
-			if (result == null)
-				result = caseComponentInterface(altitudeInterface);
-			if (result == null)
-				result = caseElement(altitudeInterface);
-			if (result == null)
-				result = caseExchangeElement(altitudeInterface);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case ArchitecturetoolsPackage.RANGE_INTERFACE: {
-			RangeInterface rangeInterface = (RangeInterface) theEObject;
-			T result = caseRangeInterface(rangeInterface);
-			if (result == null)
-				result = caseMappableComponentInterface(rangeInterface);
-			if (result == null)
-				result = caseComponentInterface(rangeInterface);
-			if (result == null)
-				result = caseElement(rangeInterface);
-			if (result == null)
-				result = caseExchangeElement(rangeInterface);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		case ArchitecturetoolsPackage.SFC_INTERFACE: {
-			SFCInterface sfcInterface = (SFCInterface) theEObject;
-			T result = caseSFCInterface(sfcInterface);
-			if (result == null)
-				result = caseMappableComponentInterface(sfcInterface);
-			if (result == null)
-				result = caseComponentInterface(sfcInterface);
-			if (result == null)
-				result = caseElement(sfcInterface);
-			if (result == null)
-				result = caseExchangeElement(sfcInterface);
-			if (result == null)
-				result = defaultCase(theEObject);
-			return result;
-		}
-		default:
-			return defaultCase(theEObject);
+			case ArchitecturetoolsPackage.POWER_CONSUMER: {
+				PowerConsumer powerConsumer = (PowerConsumer)theEObject;
+				T result = casePowerConsumer(powerConsumer);
+				if (result == null) result = caseMappableComponentInterface(powerConsumer);
+				if (result == null) result = caseComponentInterface(powerConsumer);
+				if (result == null) result = caseElement(powerConsumer);
+				if (result == null) result = caseExchangeElement(powerConsumer);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArchitecturetoolsPackage.POWER_DEMAND_VIEW: {
+				PowerDemandView powerDemandView = (PowerDemandView)theEObject;
+				T result = casePowerDemandView(powerDemandView);
+				if (result == null) result = caseView(powerDemandView);
+				if (result == null) result = caseElement(powerDemandView);
+				if (result == null) result = caseExchangeElement(powerDemandView);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArchitecturetoolsPackage.MASSIVE: {
+				Massive massive = (Massive)theEObject;
+				T result = caseMassive(massive);
+				if (result == null) result = caseMappableComponentInterface(massive);
+				if (result == null) result = caseComponentInterface(massive);
+				if (result == null) result = caseElement(massive);
+				if (result == null) result = caseExchangeElement(massive);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArchitecturetoolsPackage.COEFFICIENT_INTERFACE: {
+				CoefficientInterface coefficientInterface = (CoefficientInterface)theEObject;
+				T result = caseCoefficientInterface(coefficientInterface);
+				if (result == null) result = caseMappableComponentInterface(coefficientInterface);
+				if (result == null) result = caseComponentInterface(coefficientInterface);
+				if (result == null) result = caseElement(coefficientInterface);
+				if (result == null) result = caseExchangeElement(coefficientInterface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArchitecturetoolsPackage.WETTED_AREA_INTERFACE: {
+				WettedAreaInterface wettedAreaInterface = (WettedAreaInterface)theEObject;
+				T result = caseWettedAreaInterface(wettedAreaInterface);
+				if (result == null) result = caseMappableComponentInterface(wettedAreaInterface);
+				if (result == null) result = caseComponentInterface(wettedAreaInterface);
+				if (result == null) result = caseElement(wettedAreaInterface);
+				if (result == null) result = caseExchangeElement(wettedAreaInterface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArchitecturetoolsPackage.REFERENCE_AREA_INTERFACE: {
+				ReferenceAreaInterface referenceAreaInterface = (ReferenceAreaInterface)theEObject;
+				T result = caseReferenceAreaInterface(referenceAreaInterface);
+				if (result == null) result = caseMappableComponentInterface(referenceAreaInterface);
+				if (result == null) result = caseComponentInterface(referenceAreaInterface);
+				if (result == null) result = caseElement(referenceAreaInterface);
+				if (result == null) result = caseExchangeElement(referenceAreaInterface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArchitecturetoolsPackage.ALTITUDE_INTERFACE: {
+				AltitudeInterface altitudeInterface = (AltitudeInterface)theEObject;
+				T result = caseAltitudeInterface(altitudeInterface);
+				if (result == null) result = caseMappableComponentInterface(altitudeInterface);
+				if (result == null) result = caseComponentInterface(altitudeInterface);
+				if (result == null) result = caseElement(altitudeInterface);
+				if (result == null) result = caseExchangeElement(altitudeInterface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArchitecturetoolsPackage.RANGE_INTERFACE: {
+				RangeInterface rangeInterface = (RangeInterface)theEObject;
+				T result = caseRangeInterface(rangeInterface);
+				if (result == null) result = caseMappableComponentInterface(rangeInterface);
+				if (result == null) result = caseComponentInterface(rangeInterface);
+				if (result == null) result = caseElement(rangeInterface);
+				if (result == null) result = caseExchangeElement(rangeInterface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArchitecturetoolsPackage.SFC_INTERFACE: {
+				SFCInterface sfcInterface = (SFCInterface)theEObject;
+				T result = caseSFCInterface(sfcInterface);
+				if (result == null) result = caseMappableComponentInterface(sfcInterface);
+				if (result == null) result = caseComponentInterface(sfcInterface);
+				if (result == null) result = caseElement(sfcInterface);
+				if (result == null) result = caseExchangeElement(sfcInterface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			default: return defaultCase(theEObject);
 		}
 	}
 
@@ -242,9 +195,9 @@ public class ArchitecturetoolsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Massive</em>'. <!-- begin-user-doc --> This
+	 * Returns the result of interpreting the object as an instance of '<em>Massive</em>'.
+	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Massive</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -325,9 +278,9 @@ public class ArchitecturetoolsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>SFC Interface</em>'. <!-- begin-user-doc -->
+	 * Returns the result of interpreting the object as an instance of '<em>SFC Interface</em>'.
+	 * <!-- begin-user-doc -->
 	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>SFC Interface</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -352,9 +305,9 @@ public class ArchitecturetoolsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'. <!-- begin-user-doc --> This
+	 * Returns the result of interpreting the object as an instance of '<em>Element</em>'.
+	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
@@ -393,11 +346,13 @@ public class ArchitecturetoolsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of ' <em>View</em>'. <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * 
+	 * Returns the result of interpreting the object as an instance of '<em>View</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of ' <em>View</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>View</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
@@ -406,10 +361,10 @@ public class ArchitecturetoolsSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'. <!-- begin-user-doc --> This
+	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
+	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch, but this is the last case
 	 * anyway. <!-- end-user-doc -->
-	 * 
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)

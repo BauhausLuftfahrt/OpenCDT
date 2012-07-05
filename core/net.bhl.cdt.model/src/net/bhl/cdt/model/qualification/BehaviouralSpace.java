@@ -24,14 +24,14 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface BehaviouralSpace extends QualifyingSpace {
 	/**
-	 * Returns the value of the '<em><b>Behavioural Qualifier</b></em>' reference list. The list contents are of type
-	 * {@link net.bhl.cdt.model.qualification.BehaviouralQualifier}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Behavioural Qualifier</b></em>' reference list.
+	 * The list contents are of type {@link net.bhl.cdt.model.qualification.BehaviouralQualifier}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Behavioural Qualifier</em>' reference list isn't clear, there really should be more of
 	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Behavioural Qualifier</em>' reference list.
 	 * @see net.bhl.cdt.model.qualification.QualificationPackage#getBehaviouralSpace_BehaviouralQualifier()
 	 * @model

@@ -25,13 +25,13 @@ import net.bhl.cdt.model.Value;
  */
 public interface AltitudeInterface extends MappableComponentInterface {
 	/**
-	 * Returns the value of the '<em><b>Altitude Parameter</b></em>' reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Altitude Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Altitude Parameter</em>' reference isn't clear, there really should be more of a
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Altitude Parameter</em>' reference.
 	 * @see #setAltitudeParameter(Parameter)
 	 * @see net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage#getAltitudeInterface_AltitudeParameter()
@@ -41,9 +41,8 @@ public interface AltitudeInterface extends MappableComponentInterface {
 	Parameter getAltitudeParameter();
 
 	/**
-	 * Sets the value of the '{@link net.bhl.cdt.model.architecturetools.AltitudeInterface#getAltitudeParameter
-	 * <em>Altitude Parameter</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Sets the value of the '{@link net.bhl.cdt.model.architecturetools.AltitudeInterface#getAltitudeParameter <em>Altitude Parameter</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Altitude Parameter</em>' reference.
 	 * @see #getAltitudeParameter()
 	 * @generated
@@ -52,7 +51,6 @@ public interface AltitudeInterface extends MappableComponentInterface {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */

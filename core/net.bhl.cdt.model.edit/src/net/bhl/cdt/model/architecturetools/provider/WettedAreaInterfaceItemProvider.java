@@ -34,8 +34,8 @@ public class WettedAreaInterfaceItemProvider extends ComponentInterfaceItemProvi
 	IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
 	IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public WettedAreaInterfaceItemProvider(AdapterFactory adapterFactory) {
@@ -43,8 +43,8 @@ public class WettedAreaInterfaceItemProvider extends ComponentInterfaceItemProvi
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -64,20 +64,24 @@ public class WettedAreaInterfaceItemProvider extends ComponentInterfaceItemProvi
 	 * @generated
 	 */
 	protected void addWettedAreaParameterPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-			.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_WettedAreaInterface_wettedAreaParameter_feature"), //$NON-NLS-1$
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_WettedAreaInterface_wettedAreaParameter_feature", "_UI_WettedAreaInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				ArchitecturetoolsPackage.Literals.WETTED_AREA_INTERFACE__WETTED_AREA_PARAMETER, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_WettedAreaInterface_wettedAreaParameter_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_WettedAreaInterface_wettedAreaParameter_feature", "_UI_WettedAreaInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ArchitecturetoolsPackage.Literals.WETTED_AREA_INTERFACE__WETTED_AREA_PARAMETER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This returns WettedAreaInterface.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns WettedAreaInterface.gif.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -86,14 +90,15 @@ public class WettedAreaInterfaceItemProvider extends ComponentInterfaceItemProvi
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((WettedAreaInterface) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_WettedAreaInterface_type") : //$NON-NLS-1$
+		String label = ((WettedAreaInterface)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_WettedAreaInterface_type") : //$NON-NLS-1$
 			getString("_UI_WettedAreaInterface_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -111,9 +116,9 @@ public class WettedAreaInterfaceItemProvider extends ComponentInterfaceItemProvi
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
-	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -122,8 +127,8 @@ public class WettedAreaInterfaceItemProvider extends ComponentInterfaceItemProvi
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

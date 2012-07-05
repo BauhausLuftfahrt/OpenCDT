@@ -34,9 +34,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class RangeInterfaceImpl extends ComponentInterfaceImpl implements RangeInterface {
 	/**
-	 * The cached value of the '{@link #getRangeParameter() <em>Range Parameter</em>}' reference. <!-- begin-user-doc
+	 * The cached value of the '{@link #getRangeParameter() <em>Range Parameter</em>}' reference.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getRangeParameter()
 	 * @generated
 	 * @ordered
@@ -45,7 +45,6 @@ public class RangeInterfaceImpl extends ComponentInterfaceImpl implements RangeI
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected RangeInterfaceImpl() {
@@ -54,7 +53,6 @@ public class RangeInterfaceImpl extends ComponentInterfaceImpl implements RangeI
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -64,17 +62,15 @@ public class RangeInterfaceImpl extends ComponentInterfaceImpl implements RangeI
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter getRangeParameter() {
 		if (rangeParameter != null && rangeParameter.eIsProxy()) {
-			InternalEObject oldRangeParameter = (InternalEObject) rangeParameter;
-			rangeParameter = (Parameter) eResolveProxy(oldRangeParameter);
+			InternalEObject oldRangeParameter = (InternalEObject)rangeParameter;
+			rangeParameter = (Parameter)eResolveProxy(oldRangeParameter);
 			if (rangeParameter != oldRangeParameter) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-						ArchitecturetoolsPackage.RANGE_INTERFACE__RANGE_PARAMETER, oldRangeParameter, rangeParameter));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchitecturetoolsPackage.RANGE_INTERFACE__RANGE_PARAMETER, oldRangeParameter, rangeParameter));
 			}
 		}
 		return rangeParameter;
@@ -82,7 +78,6 @@ public class RangeInterfaceImpl extends ComponentInterfaceImpl implements RangeI
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter basicGetRangeParameter() {
@@ -91,15 +86,13 @@ public class RangeInterfaceImpl extends ComponentInterfaceImpl implements RangeI
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setRangeParameter(Parameter newRangeParameter) {
 		Parameter oldRangeParameter = rangeParameter;
 		rangeParameter = newRangeParameter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-				ArchitecturetoolsPackage.RANGE_INTERFACE__RANGE_PARAMETER, oldRangeParameter, rangeParameter));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchitecturetoolsPackage.RANGE_INTERFACE__RANGE_PARAMETER, oldRangeParameter, rangeParameter));
 	}
 
 	/**
@@ -180,7 +173,6 @@ public class RangeInterfaceImpl extends ComponentInterfaceImpl implements RangeI
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Value getValue(CalculationSpaceQualifier calcSpaceQualifier) {
@@ -191,60 +183,55 @@ public class RangeInterfaceImpl extends ComponentInterfaceImpl implements RangeI
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.RANGE_INTERFACE__RANGE_PARAMETER:
-			if (resolve)
-				return getRangeParameter();
-			return basicGetRangeParameter();
+			case ArchitecturetoolsPackage.RANGE_INTERFACE__RANGE_PARAMETER:
+				if (resolve) return getRangeParameter();
+				return basicGetRangeParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.RANGE_INTERFACE__RANGE_PARAMETER:
-			setRangeParameter((Parameter) newValue);
-			return;
+			case ArchitecturetoolsPackage.RANGE_INTERFACE__RANGE_PARAMETER:
+				setRangeParameter((Parameter)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.RANGE_INTERFACE__RANGE_PARAMETER:
-			setRangeParameter((Parameter) null);
-			return;
+			case ArchitecturetoolsPackage.RANGE_INTERFACE__RANGE_PARAMETER:
+				setRangeParameter((Parameter)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.RANGE_INTERFACE__RANGE_PARAMETER:
-			return rangeParameter != null;
+			case ArchitecturetoolsPackage.RANGE_INTERFACE__RANGE_PARAMETER:
+				return rangeParameter != null;
 		}
 		return super.eIsSet(featureID);
 	}

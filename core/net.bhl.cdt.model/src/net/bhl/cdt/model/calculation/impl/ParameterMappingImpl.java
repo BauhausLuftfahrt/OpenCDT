@@ -37,9 +37,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ParameterMappingImpl extends EObjectImpl implements ParameterMapping {
 	/**
-	 * The cached value of the '{@link #getInputMappables() <em>Input Mappables</em>}' map. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getInputMappables() <em>Input Mappables</em>}' map.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getInputMappables()
 	 * @generated
 	 * @ordered
@@ -47,9 +47,9 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 	protected EMap<ParameterDescriptor, MappableComponentInterface> inputMappables;
 
 	/**
-	 * The cached value of the '{@link #getOutputMappables() <em>Output Mappables</em>}' map. <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getOutputMappables() <em>Output Mappables</em>}' map.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @see #getOutputMappables()
 	 * @generated
 	 * @ordered
@@ -58,7 +58,6 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ParameterMappingImpl() {
@@ -67,7 +66,6 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -77,121 +75,104 @@ public class ParameterMappingImpl extends EObjectImpl implements ParameterMappin
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EMap<ParameterDescriptor, MappableComponentInterface> getInputMappables() {
 		if (inputMappables == null) {
-			inputMappables = new EcoreEMap<ParameterDescriptor, MappableComponentInterface>(
-				CalculationPackage.Literals.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP,
-				ParameterDescriptorToMappableComponentInterfaceMapImpl.class, this,
-				CalculationPackage.PARAMETER_MAPPING__INPUT_MAPPABLES);
+			inputMappables = new EcoreEMap<ParameterDescriptor,MappableComponentInterface>(CalculationPackage.Literals.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP, ParameterDescriptorToMappableComponentInterfaceMapImpl.class, this, CalculationPackage.PARAMETER_MAPPING__INPUT_MAPPABLES);
 		}
 		return inputMappables;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EMap<ParameterDescriptor, MappableComponentInterface> getOutputMappables() {
 		if (outputMappables == null) {
-			outputMappables = new EcoreEMap<ParameterDescriptor, MappableComponentInterface>(
-				CalculationPackage.Literals.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP,
-				ParameterDescriptorToMappableComponentInterfaceMapImpl.class, this,
-				CalculationPackage.PARAMETER_MAPPING__OUTPUT_MAPPABLES);
+			outputMappables = new EcoreEMap<ParameterDescriptor,MappableComponentInterface>(CalculationPackage.Literals.PARAMETER_DESCRIPTOR_TO_MAPPABLE_COMPONENT_INTERFACE_MAP, ParameterDescriptorToMappableComponentInterfaceMapImpl.class, this, CalculationPackage.PARAMETER_MAPPING__OUTPUT_MAPPABLES);
 		}
 		return outputMappables;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case CalculationPackage.PARAMETER_MAPPING__INPUT_MAPPABLES:
-			return ((InternalEList<?>) getInputMappables()).basicRemove(otherEnd, msgs);
-		case CalculationPackage.PARAMETER_MAPPING__OUTPUT_MAPPABLES:
-			return ((InternalEList<?>) getOutputMappables()).basicRemove(otherEnd, msgs);
+			case CalculationPackage.PARAMETER_MAPPING__INPUT_MAPPABLES:
+				return ((InternalEList<?>)getInputMappables()).basicRemove(otherEnd, msgs);
+			case CalculationPackage.PARAMETER_MAPPING__OUTPUT_MAPPABLES:
+				return ((InternalEList<?>)getOutputMappables()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CalculationPackage.PARAMETER_MAPPING__INPUT_MAPPABLES:
-			if (coreType)
-				return getInputMappables();
-			else
-				return getInputMappables().map();
-		case CalculationPackage.PARAMETER_MAPPING__OUTPUT_MAPPABLES:
-			if (coreType)
-				return getOutputMappables();
-			else
-				return getOutputMappables().map();
+			case CalculationPackage.PARAMETER_MAPPING__INPUT_MAPPABLES:
+				if (coreType) return getInputMappables();
+				else return getInputMappables().map();
+			case CalculationPackage.PARAMETER_MAPPING__OUTPUT_MAPPABLES:
+				if (coreType) return getOutputMappables();
+				else return getOutputMappables().map();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CalculationPackage.PARAMETER_MAPPING__INPUT_MAPPABLES:
-			((EStructuralFeature.Setting) getInputMappables()).set(newValue);
-			return;
-		case CalculationPackage.PARAMETER_MAPPING__OUTPUT_MAPPABLES:
-			((EStructuralFeature.Setting) getOutputMappables()).set(newValue);
-			return;
+			case CalculationPackage.PARAMETER_MAPPING__INPUT_MAPPABLES:
+				((EStructuralFeature.Setting)getInputMappables()).set(newValue);
+				return;
+			case CalculationPackage.PARAMETER_MAPPING__OUTPUT_MAPPABLES:
+				((EStructuralFeature.Setting)getOutputMappables()).set(newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CalculationPackage.PARAMETER_MAPPING__INPUT_MAPPABLES:
-			getInputMappables().clear();
-			return;
-		case CalculationPackage.PARAMETER_MAPPING__OUTPUT_MAPPABLES:
-			getOutputMappables().clear();
-			return;
+			case CalculationPackage.PARAMETER_MAPPING__INPUT_MAPPABLES:
+				getInputMappables().clear();
+				return;
+			case CalculationPackage.PARAMETER_MAPPING__OUTPUT_MAPPABLES:
+				getOutputMappables().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CalculationPackage.PARAMETER_MAPPING__INPUT_MAPPABLES:
-			return inputMappables != null && !inputMappables.isEmpty();
-		case CalculationPackage.PARAMETER_MAPPING__OUTPUT_MAPPABLES:
-			return outputMappables != null && !outputMappables.isEmpty();
+			case CalculationPackage.PARAMETER_MAPPING__INPUT_MAPPABLES:
+				return inputMappables != null && !inputMappables.isEmpty();
+			case CalculationPackage.PARAMETER_MAPPING__OUTPUT_MAPPABLES:
+				return outputMappables != null && !outputMappables.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

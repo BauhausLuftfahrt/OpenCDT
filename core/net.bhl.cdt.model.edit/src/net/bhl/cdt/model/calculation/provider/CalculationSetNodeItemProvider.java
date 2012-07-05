@@ -31,8 +31,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 public class CalculationSetNodeItemProvider extends AbstractNodeItemProvider implements IEditingDomainItemProvider,
 	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public CalculationSetNodeItemProvider(AdapterFactory adapterFactory) {
@@ -40,8 +40,8 @@ public class CalculationSetNodeItemProvider extends AbstractNodeItemProvider imp
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -56,38 +56,50 @@ public class CalculationSetNodeItemProvider extends AbstractNodeItemProvider imp
 	}
 
 	/**
-	 * This adds a property descriptor for the Next Node feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds a property descriptor for the Next Node feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addNextNodePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-			.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_CalculationSetNode_nextNode_feature"), //$NON-NLS-1$
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_CalculationSetNode_nextNode_feature", "_UI_CalculationSetNode_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				CalculationPackage.Literals.CALCULATION_SET_NODE__NEXT_NODE, true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalculationSetNode_nextNode_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalculationSetNode_nextNode_feature", "_UI_CalculationSetNode_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 CalculationPackage.Literals.CALCULATION_SET_NODE__NEXT_NODE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Calculation Set feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds a property descriptor for the Calculation Set feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addCalculationSetPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-			.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_CalculationSetNode_calculationSet_feature"), //$NON-NLS-1$
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_CalculationSetNode_calculationSet_feature", "_UI_CalculationSetNode_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				CalculationPackage.Literals.CALCULATION_SET_NODE__CALCULATION_SET, true, false, true, null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalculationSetNode_calculationSet_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalculationSetNode_calculationSet_feature", "_UI_CalculationSetNode_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 CalculationPackage.Literals.CALCULATION_SET_NODE__CALCULATION_SET,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This returns CalculationSetNode.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns CalculationSetNode.gif.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -96,14 +108,15 @@ public class CalculationSetNodeItemProvider extends AbstractNodeItemProvider imp
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CalculationSetNode) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_CalculationSetNode_type") : //$NON-NLS-1$
+		String label = ((CalculationSetNode)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_CalculationSetNode_type") : //$NON-NLS-1$
 			getString("_UI_CalculationSetNode_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -121,9 +134,9 @@ public class CalculationSetNodeItemProvider extends AbstractNodeItemProvider imp
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
-	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

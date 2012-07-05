@@ -12,27 +12,27 @@ import net.bhl.cdt.model.Value;
 /**
  * <!-- begin-user-doc --> A representation of the model object ' <em><b>Reference Area Interface</b></em>'. <!--
  * end-user-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>{@link net.bhl.cdt.model.architecturetools.ReferenceAreaInterface#getReferenceAreaParameter <em>Reference Area
- * Parameter</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.architecturetools.ReferenceAreaInterface#getReferenceAreaParameter <em>Reference Area Parameter</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage#getReferenceAreaInterface()
  * @model
  * @generated
  */
 public interface ReferenceAreaInterface extends MappableComponentInterface {
 	/**
-	 * Returns the value of the '<em><b>Reference Area Parameter</b></em>' reference. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Reference Area Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Reference Area Parameter</em>' reference isn't clear, there really should be more of a
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Reference Area Parameter</em>' reference.
 	 * @see #setReferenceAreaParameter(Parameter)
 	 * @see net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage#getReferenceAreaInterface_ReferenceAreaParameter()
@@ -42,10 +42,8 @@ public interface ReferenceAreaInterface extends MappableComponentInterface {
 	Parameter getReferenceAreaParameter();
 
 	/**
-	 * Sets the value of the '
-	 * {@link net.bhl.cdt.model.architecturetools.ReferenceAreaInterface#getReferenceAreaParameter
-	 * <em>Reference Area Parameter</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Sets the value of the '{@link net.bhl.cdt.model.architecturetools.ReferenceAreaInterface#getReferenceAreaParameter <em>Reference Area Parameter</em>}' reference.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @param value the new value of the '<em>Reference Area Parameter</em>' reference.
 	 * @see #getReferenceAreaParameter()
 	 * @generated
@@ -54,7 +52,6 @@ public interface ReferenceAreaInterface extends MappableComponentInterface {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @model kind="operation"
 	 * @generated
 	 */

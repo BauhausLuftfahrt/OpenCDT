@@ -28,21 +28,20 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter <code>createXXX</code>
  * method for each class of the model. <!-- end-user-doc -->
- * 
  * @see net.bhl.cdt.model.qualification.QualificationPackage
  * @generated
  */
 public class QualificationAdapterFactory extends AdapterFactoryImpl {
 	/**
-	 * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached model package.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected static QualificationPackage modelPackage;
 
 	/**
-	 * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates an instance of the adapter factory.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public QualificationAdapterFactory() {
@@ -52,10 +51,10 @@ public class QualificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Returns whether this factory is applicable for the type of the object. <!-- begin-user-doc --> This
+	 * Returns whether this factory is applicable for the type of the object.
+	 * <!-- begin-user-doc --> This
 	 * implementation returns <code>true</code> if the object is either the model's package or is an instance object of
 	 * the model. <!-- end-user-doc -->
-	 * 
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */
@@ -65,98 +64,85 @@ public class QualificationAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject) object).eClass().getEPackage() == modelPackage;
+			return ((EObject)object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
 
 	/**
-	 * The switch that delegates to the <code>createXXX</code> methods. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The switch that delegates to the <code>createXXX</code> methods.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected QualificationSwitch<Adapter> modelSwitch = new QualificationSwitch<Adapter>() {
-		@Override
-		public Adapter caseQualifier(Qualifier object) {
-			return createQualifierAdapter();
-		}
-
-		@Override
-		public Adapter caseQualifyingSpace(QualifyingSpace object) {
-			return createQualifyingSpaceAdapter();
-		}
-
-		@Override
-		public Adapter caseQualifiable(Qualifiable object) {
-			return createQualifiableAdapter();
-		}
-
-		@Override
-		public Adapter caseCalculationSpace(CalculationSpace object) {
-			return createCalculationSpaceAdapter();
-		}
-
-		@Override
-		public Adapter caseCalculationSpaceQualifier(CalculationSpaceQualifier object) {
-			return createCalculationSpaceQualifierAdapter();
-		}
-
-		@Override
-		public Adapter caseBehaviouralSpace(BehaviouralSpace object) {
-			return createBehaviouralSpaceAdapter();
-		}
-
-		@Override
-		public Adapter caseBehaviouralQualifier(BehaviouralQualifier object) {
-			return createBehaviouralQualifierAdapter();
-		}
-
-		@Override
-		public Adapter caseProcess(net.bhl.cdt.model.qualification.Process object) {
-			return createProcessAdapter();
-		}
-
-		@Override
-		public Adapter caseState(State object) {
-			return createStateAdapter();
-		}
-
-		@Override
-		public Adapter caseSequence(Sequence object) {
-			return createSequenceAdapter();
-		}
-
-		@Override
-		public Adapter caseTransition(Transition object) {
-			return createTransitionAdapter();
-		}
-
-		@Override
-		public Adapter caseExchangeElement(ExchangeElement object) {
-			return createExchangeElementAdapter();
-		}
-
-		@Override
-		public Adapter caseElement(Element object) {
-			return createElementAdapter();
-		}
-
-		@Override
-		public Adapter defaultCase(EObject object) {
-			return createEObjectAdapter();
-		}
-	};
+			@Override
+			public Adapter caseQualifier(Qualifier object) {
+				return createQualifierAdapter();
+			}
+			@Override
+			public Adapter caseQualifyingSpace(QualifyingSpace object) {
+				return createQualifyingSpaceAdapter();
+			}
+			@Override
+			public Adapter caseQualifiable(Qualifiable object) {
+				return createQualifiableAdapter();
+			}
+			@Override
+			public Adapter caseCalculationSpace(CalculationSpace object) {
+				return createCalculationSpaceAdapter();
+			}
+			@Override
+			public Adapter caseCalculationSpaceQualifier(CalculationSpaceQualifier object) {
+				return createCalculationSpaceQualifierAdapter();
+			}
+			@Override
+			public Adapter caseBehaviouralSpace(BehaviouralSpace object) {
+				return createBehaviouralSpaceAdapter();
+			}
+			@Override
+			public Adapter caseBehaviouralQualifier(BehaviouralQualifier object) {
+				return createBehaviouralQualifierAdapter();
+			}
+			@Override
+			public Adapter caseProcess(net.bhl.cdt.model.qualification.Process object) {
+				return createProcessAdapter();
+			}
+			@Override
+			public Adapter caseState(State object) {
+				return createStateAdapter();
+			}
+			@Override
+			public Adapter caseSequence(Sequence object) {
+				return createSequenceAdapter();
+			}
+			@Override
+			public Adapter caseTransition(Transition object) {
+				return createTransitionAdapter();
+			}
+			@Override
+			public Adapter caseExchangeElement(ExchangeElement object) {
+				return createExchangeElementAdapter();
+			}
+			@Override
+			public Adapter caseElement(Element object) {
+				return createElementAdapter();
+			}
+			@Override
+			public Adapter defaultCase(EObject object) {
+				return createEObjectAdapter();
+			}
+		};
 
 	/**
-	 * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates an adapter for the <code>target</code>.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @param target the object to adapt.
 	 * @return the adapter for the <code>target</code>.
 	 * @generated
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject) target);
+		return modelSwitch.doSwitch((EObject)target);
 	}
 
 	/**
@@ -174,11 +160,10 @@ public class QualificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.qualification.QualifyingSpace
-	 * <em>Qualifying Space</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.qualification.QualifyingSpace <em>Qualifying Space</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
-	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.model.qualification.QualifyingSpace
 	 * @generated
@@ -202,11 +187,10 @@ public class QualificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.qualification.CalculationSpace
-	 * <em>Calculation Space</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.qualification.CalculationSpace <em>Calculation Space</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
-	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.model.qualification.CalculationSpace
 	 * @generated
@@ -216,11 +200,10 @@ public class QualificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.qualification.CalculationSpaceQualifier
-	 * <em>Calculation Space Qualifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so that
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.qualification.CalculationSpaceQualifier <em>Calculation Space Qualifier</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns null so that
 	 * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
-	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.model.qualification.CalculationSpaceQualifier
 	 * @generated
@@ -230,11 +213,10 @@ public class QualificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.qualification.BehaviouralSpace
-	 * <em>Behavioural Space</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.qualification.BehaviouralSpace <em>Behavioural Space</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
-	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.model.qualification.BehaviouralSpace
 	 * @generated
@@ -244,11 +226,10 @@ public class QualificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.qualification.BehaviouralQualifier
-	 * <em>Behavioural Qualifier</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.qualification.BehaviouralQualifier <em>Behavioural Qualifier</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
-	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.model.qualification.BehaviouralQualifier
 	 * @generated
@@ -261,7 +242,6 @@ public class QualificationAdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.qualification.Process <em>Process</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
 	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.model.qualification.Process
 	 * @generated
@@ -284,10 +264,9 @@ public class QualificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.qualification.Sequence <em>Sequence</em>}
-	 * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.qualification.Sequence <em>Sequence</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.model.qualification.Sequence
 	 * @generated
@@ -311,11 +290,10 @@ public class QualificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.utilities.exchangemodel.ExchangeElement
-	 * <em>Exchange Element</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.utilities.exchangemodel.ExchangeElement <em>Exchange Element</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
-	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.utilities.exchangemodel.ExchangeElement
 	 * @generated
@@ -338,9 +316,9 @@ public class QualificationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for the default case. <!-- begin-user-doc --> This default implementation returns null.
+	 * Creates a new adapter for the default case.
+	 * <!-- begin-user-doc --> This default implementation returns null.
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the new adapter.
 	 * @generated
 	 */

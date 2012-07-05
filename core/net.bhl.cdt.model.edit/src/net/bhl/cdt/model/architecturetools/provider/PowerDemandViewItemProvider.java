@@ -34,8 +34,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 public class PowerDemandViewItemProvider extends ViewItemProvider implements IEditingDomainItemProvider,
 	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public PowerDemandViewItemProvider(AdapterFactory adapterFactory) {
@@ -43,8 +43,8 @@ public class PowerDemandViewItemProvider extends ViewItemProvider implements IEd
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -58,26 +58,30 @@ public class PowerDemandViewItemProvider extends ViewItemProvider implements IEd
 	}
 
 	/**
-	 * This adds a property descriptor for the Referenced Configurations feature. <!-- begin-user-doc --> <!--
+	 * This adds a property descriptor for the Referenced Configurations feature.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected void addReferencedConfigurationsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-			.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_PowerDemandView_referencedConfigurations_feature"), //$NON-NLS-1$
-				getString(
-					"_UI_PropertyDescriptor_description", "_UI_PowerDemandView_referencedConfigurations_feature", "_UI_PowerDemandView_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				ArchitecturetoolsPackage.Literals.POWER_DEMAND_VIEW__REFERENCED_CONFIGURATIONS, true, false, true,
-				null, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_PowerDemandView_referencedConfigurations_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_PowerDemandView_referencedConfigurations_feature", "_UI_PowerDemandView_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ArchitecturetoolsPackage.Literals.POWER_DEMAND_VIEW__REFERENCED_CONFIGURATIONS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This returns PowerDemandView.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns PowerDemandView.gif.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -86,14 +90,15 @@ public class PowerDemandViewItemProvider extends ViewItemProvider implements IEd
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PowerDemandView) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_PowerDemandView_type") : //$NON-NLS-1$
+		String label = ((PowerDemandView)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PowerDemandView_type") : //$NON-NLS-1$
 			getString("_UI_PowerDemandView_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
@@ -111,9 +116,9 @@ public class PowerDemandViewItemProvider extends ViewItemProvider implements IEd
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
-	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -122,8 +127,8 @@ public class PowerDemandViewItemProvider extends ViewItemProvider implements IEd
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

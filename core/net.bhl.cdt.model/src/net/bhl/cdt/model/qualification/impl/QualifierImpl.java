@@ -22,17 +22,17 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link net.bhl.cdt.model.qualification.impl.QualifierImpl#getQualifies <em>Qualifies</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.qualification.impl.QualifierImpl#getQualifies <em>Qualifies</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public abstract class QualifierImpl extends ElementImpl implements Qualifier {
 	/**
-	 * The cached value of the '{@link #getQualifies() <em>Qualifies</em>}' reference list. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getQualifies() <em>Qualifies</em>}' reference list.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getQualifies()
 	 * @generated
 	 * @ordered
@@ -41,7 +41,6 @@ public abstract class QualifierImpl extends ElementImpl implements Qualifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected QualifierImpl() {
@@ -50,7 +49,6 @@ public abstract class QualifierImpl extends ElementImpl implements Qualifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -60,73 +58,67 @@ public abstract class QualifierImpl extends ElementImpl implements Qualifier {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<Qualifiable> getQualifies() {
 		if (qualifies == null) {
-			qualifies = new EObjectResolvingEList<Qualifiable>(Qualifiable.class, this,
-				QualificationPackage.QUALIFIER__QUALIFIES);
+			qualifies = new EObjectResolvingEList<Qualifiable>(Qualifiable.class, this, QualificationPackage.QUALIFIER__QUALIFIES);
 		}
 		return qualifies;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case QualificationPackage.QUALIFIER__QUALIFIES:
-			return getQualifies();
+			case QualificationPackage.QUALIFIER__QUALIFIES:
+				return getQualifies();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case QualificationPackage.QUALIFIER__QUALIFIES:
-			getQualifies().clear();
-			getQualifies().addAll((Collection<? extends Qualifiable>) newValue);
-			return;
+			case QualificationPackage.QUALIFIER__QUALIFIES:
+				getQualifies().clear();
+				getQualifies().addAll((Collection<? extends Qualifiable>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case QualificationPackage.QUALIFIER__QUALIFIES:
-			getQualifies().clear();
-			return;
+			case QualificationPackage.QUALIFIER__QUALIFIES:
+				getQualifies().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case QualificationPackage.QUALIFIER__QUALIFIES:
-			return qualifies != null && !qualifies.isEmpty();
+			case QualificationPackage.QUALIFIER__QUALIFIES:
+				return qualifies != null && !qualifies.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

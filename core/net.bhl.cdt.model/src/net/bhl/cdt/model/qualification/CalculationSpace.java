@@ -24,14 +24,14 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface CalculationSpace extends QualifyingSpace {
 	/**
-	 * Returns the value of the '<em><b>Space Qualifier</b></em>' reference list. The list contents are of type
-	 * {@link net.bhl.cdt.model.qualification.CalculationSpaceQualifier}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Space Qualifier</b></em>' reference list.
+	 * The list contents are of type {@link net.bhl.cdt.model.qualification.CalculationSpaceQualifier}.
+	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Space Qualifier</em>' reference list isn't clear, there really should be more of a
 	 * description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @return the value of the '<em>Space Qualifier</em>' reference list.
 	 * @see net.bhl.cdt.model.qualification.QualificationPackage#getCalculationSpace_SpaceQualifier()
 	 * @model

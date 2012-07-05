@@ -31,9 +31,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class PowerDemandViewImpl extends ViewImpl implements PowerDemandView {
 	/**
-	 * The cached value of the '{@link #getReferencedConfigurations() <em>Referenced Configurations</em>}' reference
-	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getReferencedConfigurations() <em>Referenced Configurations</em>}' reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getReferencedConfigurations()
 	 * @generated
 	 * @ordered
@@ -42,7 +41,6 @@ public class PowerDemandViewImpl extends ViewImpl implements PowerDemandView {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected PowerDemandViewImpl() {
@@ -51,7 +49,6 @@ public class PowerDemandViewImpl extends ViewImpl implements PowerDemandView {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -61,73 +58,67 @@ public class PowerDemandViewImpl extends ViewImpl implements PowerDemandView {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<Configuration> getReferencedConfigurations() {
 		if (referencedConfigurations == null) {
-			referencedConfigurations = new EObjectResolvingEList<Configuration>(Configuration.class, this,
-				ArchitecturetoolsPackage.POWER_DEMAND_VIEW__REFERENCED_CONFIGURATIONS);
+			referencedConfigurations = new EObjectResolvingEList<Configuration>(Configuration.class, this, ArchitecturetoolsPackage.POWER_DEMAND_VIEW__REFERENCED_CONFIGURATIONS);
 		}
 		return referencedConfigurations;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.POWER_DEMAND_VIEW__REFERENCED_CONFIGURATIONS:
-			return getReferencedConfigurations();
+			case ArchitecturetoolsPackage.POWER_DEMAND_VIEW__REFERENCED_CONFIGURATIONS:
+				return getReferencedConfigurations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.POWER_DEMAND_VIEW__REFERENCED_CONFIGURATIONS:
-			getReferencedConfigurations().clear();
-			getReferencedConfigurations().addAll((Collection<? extends Configuration>) newValue);
-			return;
+			case ArchitecturetoolsPackage.POWER_DEMAND_VIEW__REFERENCED_CONFIGURATIONS:
+				getReferencedConfigurations().clear();
+				getReferencedConfigurations().addAll((Collection<? extends Configuration>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.POWER_DEMAND_VIEW__REFERENCED_CONFIGURATIONS:
-			getReferencedConfigurations().clear();
-			return;
+			case ArchitecturetoolsPackage.POWER_DEMAND_VIEW__REFERENCED_CONFIGURATIONS:
+				getReferencedConfigurations().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.POWER_DEMAND_VIEW__REFERENCED_CONFIGURATIONS:
-			return referencedConfigurations != null && !referencedConfigurations.isEmpty();
+			case ArchitecturetoolsPackage.POWER_DEMAND_VIEW__REFERENCED_CONFIGURATIONS:
+				return referencedConfigurations != null && !referencedConfigurations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

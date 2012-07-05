@@ -41,13 +41,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link net.bhl.cdt.model.calculation.impl.CalculationSetImpl#getCalculations <em>Calculations</em>}</li>
- * <li>{@link net.bhl.cdt.model.calculation.impl.CalculationSetImpl#getGraphs <em>Graphs</em>}</li>
- * <li>{@link net.bhl.cdt.model.calculation.impl.CalculationSetImpl#getSpaceQualifiers <em>Space Qualifiers</em>}</li>
- * <li>{@link net.bhl.cdt.model.calculation.impl.CalculationSetImpl#getSubCalculationSet <em>Sub Calculation Set</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.impl.CalculationSetImpl#getCalculations <em>Calculations</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.impl.CalculationSetImpl#getGraphs <em>Graphs</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.impl.CalculationSetImpl#getSpaceQualifiers <em>Space Qualifiers</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.impl.CalculationSetImpl#getSubCalculationSet <em>Sub Calculation Set</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class CalculationSetImpl extends ElementImpl implements CalculationSet {
@@ -61,9 +61,9 @@ public class CalculationSetImpl extends ElementImpl implements CalculationSet {
 	 */
 	protected EList<Calculation> calculations;
 	/**
-	 * The cached value of the '{@link #getGraphs() <em>Graphs</em>}' containment reference list. <!-- begin-user-doc
+	 * The cached value of the '{@link #getGraphs() <em>Graphs</em>}' containment reference list.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getGraphs()
 	 * @generated
 	 * @ordered
@@ -81,9 +81,8 @@ public class CalculationSetImpl extends ElementImpl implements CalculationSet {
 	protected EList<CalculationSpaceQualifier> spaceQualifiers;
 
 	/**
-	 * The cached value of the '{@link #getSubCalculationSet() <em>Sub Calculation Set</em>}' containment reference
-	 * list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The cached value of the '{@link #getSubCalculationSet() <em>Sub Calculation Set</em>}' containment reference list.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see #getSubCalculationSet()
 	 * @generated
 	 * @ordered
@@ -92,7 +91,6 @@ public class CalculationSetImpl extends ElementImpl implements CalculationSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected CalculationSetImpl() {
@@ -101,7 +99,6 @@ public class CalculationSetImpl extends ElementImpl implements CalculationSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -111,52 +108,44 @@ public class CalculationSetImpl extends ElementImpl implements CalculationSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<Calculation> getCalculations() {
 		if (calculations == null) {
-			calculations = new EObjectContainmentEList.Resolving<Calculation>(Calculation.class, this,
-				CalculationPackage.CALCULATION_SET__CALCULATIONS);
+			calculations = new EObjectContainmentEList.Resolving<Calculation>(Calculation.class, this, CalculationPackage.CALCULATION_SET__CALCULATIONS);
 		}
 		return calculations;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<CalculationGraph> getGraphs() {
 		if (graphs == null) {
-			graphs = new EObjectContainmentEList.Resolving<CalculationGraph>(CalculationGraph.class, this,
-				CalculationPackage.CALCULATION_SET__GRAPHS);
+			graphs = new EObjectContainmentEList.Resolving<CalculationGraph>(CalculationGraph.class, this, CalculationPackage.CALCULATION_SET__GRAPHS);
 		}
 		return graphs;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<CalculationSpaceQualifier> getSpaceQualifiers() {
 		if (spaceQualifiers == null) {
-			spaceQualifiers = new EObjectResolvingEList<CalculationSpaceQualifier>(CalculationSpaceQualifier.class,
-				this, CalculationPackage.CALCULATION_SET__SPACE_QUALIFIERS);
+			spaceQualifiers = new EObjectResolvingEList<CalculationSpaceQualifier>(CalculationSpaceQualifier.class, this, CalculationPackage.CALCULATION_SET__SPACE_QUALIFIERS);
 		}
 		return spaceQualifiers;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<CalculationSet> getSubCalculationSet() {
 		if (subCalculationSet == null) {
-			subCalculationSet = new EObjectContainmentEList.Resolving<CalculationSet>(CalculationSet.class, this,
-				CalculationPackage.CALCULATION_SET__SUB_CALCULATION_SET);
+			subCalculationSet = new EObjectContainmentEList.Resolving<CalculationSet>(CalculationSet.class, this, CalculationPackage.CALCULATION_SET__SUB_CALCULATION_SET);
 		}
 		return subCalculationSet;
 	}
@@ -388,111 +377,106 @@ public class CalculationSetImpl extends ElementImpl implements CalculationSet {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case CalculationPackage.CALCULATION_SET__CALCULATIONS:
-			return ((InternalEList<?>) getCalculations()).basicRemove(otherEnd, msgs);
-		case CalculationPackage.CALCULATION_SET__GRAPHS:
-			return ((InternalEList<?>) getGraphs()).basicRemove(otherEnd, msgs);
-		case CalculationPackage.CALCULATION_SET__SUB_CALCULATION_SET:
-			return ((InternalEList<?>) getSubCalculationSet()).basicRemove(otherEnd, msgs);
+			case CalculationPackage.CALCULATION_SET__CALCULATIONS:
+				return ((InternalEList<?>)getCalculations()).basicRemove(otherEnd, msgs);
+			case CalculationPackage.CALCULATION_SET__GRAPHS:
+				return ((InternalEList<?>)getGraphs()).basicRemove(otherEnd, msgs);
+			case CalculationPackage.CALCULATION_SET__SUB_CALCULATION_SET:
+				return ((InternalEList<?>)getSubCalculationSet()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CalculationPackage.CALCULATION_SET__CALCULATIONS:
-			return getCalculations();
-		case CalculationPackage.CALCULATION_SET__GRAPHS:
-			return getGraphs();
-		case CalculationPackage.CALCULATION_SET__SPACE_QUALIFIERS:
-			return getSpaceQualifiers();
-		case CalculationPackage.CALCULATION_SET__SUB_CALCULATION_SET:
-			return getSubCalculationSet();
+			case CalculationPackage.CALCULATION_SET__CALCULATIONS:
+				return getCalculations();
+			case CalculationPackage.CALCULATION_SET__GRAPHS:
+				return getGraphs();
+			case CalculationPackage.CALCULATION_SET__SPACE_QUALIFIERS:
+				return getSpaceQualifiers();
+			case CalculationPackage.CALCULATION_SET__SUB_CALCULATION_SET:
+				return getSubCalculationSet();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CalculationPackage.CALCULATION_SET__CALCULATIONS:
-			getCalculations().clear();
-			getCalculations().addAll((Collection<? extends Calculation>) newValue);
-			return;
-		case CalculationPackage.CALCULATION_SET__GRAPHS:
-			getGraphs().clear();
-			getGraphs().addAll((Collection<? extends CalculationGraph>) newValue);
-			return;
-		case CalculationPackage.CALCULATION_SET__SPACE_QUALIFIERS:
-			getSpaceQualifiers().clear();
-			getSpaceQualifiers().addAll((Collection<? extends CalculationSpaceQualifier>) newValue);
-			return;
-		case CalculationPackage.CALCULATION_SET__SUB_CALCULATION_SET:
-			getSubCalculationSet().clear();
-			getSubCalculationSet().addAll((Collection<? extends CalculationSet>) newValue);
-			return;
+			case CalculationPackage.CALCULATION_SET__CALCULATIONS:
+				getCalculations().clear();
+				getCalculations().addAll((Collection<? extends Calculation>)newValue);
+				return;
+			case CalculationPackage.CALCULATION_SET__GRAPHS:
+				getGraphs().clear();
+				getGraphs().addAll((Collection<? extends CalculationGraph>)newValue);
+				return;
+			case CalculationPackage.CALCULATION_SET__SPACE_QUALIFIERS:
+				getSpaceQualifiers().clear();
+				getSpaceQualifiers().addAll((Collection<? extends CalculationSpaceQualifier>)newValue);
+				return;
+			case CalculationPackage.CALCULATION_SET__SUB_CALCULATION_SET:
+				getSubCalculationSet().clear();
+				getSubCalculationSet().addAll((Collection<? extends CalculationSet>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CalculationPackage.CALCULATION_SET__CALCULATIONS:
-			getCalculations().clear();
-			return;
-		case CalculationPackage.CALCULATION_SET__GRAPHS:
-			getGraphs().clear();
-			return;
-		case CalculationPackage.CALCULATION_SET__SPACE_QUALIFIERS:
-			getSpaceQualifiers().clear();
-			return;
-		case CalculationPackage.CALCULATION_SET__SUB_CALCULATION_SET:
-			getSubCalculationSet().clear();
-			return;
+			case CalculationPackage.CALCULATION_SET__CALCULATIONS:
+				getCalculations().clear();
+				return;
+			case CalculationPackage.CALCULATION_SET__GRAPHS:
+				getGraphs().clear();
+				return;
+			case CalculationPackage.CALCULATION_SET__SPACE_QUALIFIERS:
+				getSpaceQualifiers().clear();
+				return;
+			case CalculationPackage.CALCULATION_SET__SUB_CALCULATION_SET:
+				getSubCalculationSet().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CalculationPackage.CALCULATION_SET__CALCULATIONS:
-			return calculations != null && !calculations.isEmpty();
-		case CalculationPackage.CALCULATION_SET__GRAPHS:
-			return graphs != null && !graphs.isEmpty();
-		case CalculationPackage.CALCULATION_SET__SPACE_QUALIFIERS:
-			return spaceQualifiers != null && !spaceQualifiers.isEmpty();
-		case CalculationPackage.CALCULATION_SET__SUB_CALCULATION_SET:
-			return subCalculationSet != null && !subCalculationSet.isEmpty();
+			case CalculationPackage.CALCULATION_SET__CALCULATIONS:
+				return calculations != null && !calculations.isEmpty();
+			case CalculationPackage.CALCULATION_SET__GRAPHS:
+				return graphs != null && !graphs.isEmpty();
+			case CalculationPackage.CALCULATION_SET__SPACE_QUALIFIERS:
+				return spaceQualifiers != null && !spaceQualifiers.isEmpty();
+			case CalculationPackage.CALCULATION_SET__SUB_CALCULATION_SET:
+				return subCalculationSet != null && !subCalculationSet.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

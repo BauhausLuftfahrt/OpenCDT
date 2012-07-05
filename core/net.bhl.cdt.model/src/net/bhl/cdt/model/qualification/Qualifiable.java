@@ -10,7 +10,8 @@ import net.bhl.cdt.model.Element;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Qualifiable</b></em>'. <!-- end-user-doc -->
- * 
+ *
+ *
  * @see net.bhl.cdt.model.qualification.QualificationPackage#getQualifiable()
  * @model interface="true" abstract="true"
  * @generated

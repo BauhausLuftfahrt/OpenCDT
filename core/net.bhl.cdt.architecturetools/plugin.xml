@@ -103,32 +103,32 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="net.bhl.cdt.architecturetools.powerconsumer.PDEOpener"
+            defaultHandler="net.bhl.cdt.model.modelview.powerconsumer.PDEOpener"
             id="net.bhl.cdt.architecturetools.openPDE"
             name="pde opener">
       </command>
       <command
-            defaultHandler="net.bhl.cdt.architecturetools.CreateDemoModelHandler"
+            defaultHandler="net.bhl.cdt.model.modelview.CreateDemoModelHandler"
             id="net.bhl.cdt.architecturetools.demomodel"
             name="Create Demo Model">
       </command>
       <command
-            defaultHandler="net.bhl.cdt.architecturetools.powerconsumer.CreatePowerConsumerHandler"
+            defaultHandler="net.bhl.cdt.model.modelview.powerconsumer.CreatePowerConsumerHandler"
             id="net.bhl.cdt.architecturetools.createpowerconsumer"
             name="Create PowerConsumer">
       </command>
       <command
-            defaultHandler="net.bhl.cdt.architecturetools.disciplineview.handler.AddComponentHandler"
+            defaultHandler="net.bhl.cdt.model.modelview.disciplineview.handler.AddComponentHandler"
             id="net.bhl.cdt.architecturetools.addComponent"
             name="Add Component">
       </command>
       <command
-            defaultHandler="net.bhl.cdt.architecturetools.disciplineview.handler.RemoveComponentHandler"
+            defaultHandler="net.bhl.cdt.model.modelview.disciplineview.handler.RemoveComponentHandler"
             id="net.bhl.cdt.architecturetools.removeComponent"
             name="Remove Component">
       </command>
       <command
-            defaultHandler="net.bhl.cdt.architecturetools.TreeTraversionHandler"
+            defaultHandler="net.bhl.cdt.model.modelview.TreeTraversionHandler"
             id="net.bhl.cdt.architecturetools.treeTraversion"
             name="TreeTraversion">
       </command>
@@ -136,14 +136,14 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="net.bhl.cdt.architecturetools.powerconsumer.PowerDemandEstimator"
+            class="net.bhl.cdt.model.modelview.powerconsumer.PowerDemandEstimator"
             default="false"
             id="net.bhl.cdt.architecturetools.powerdemandestimator"
-            matchingStrategy="net.bhl.cdt.architecturetools.powerconsumer.PowerDemandEstimator"
+            matchingStrategy="net.bhl.cdt.model.modelview.powerconsumer.PowerDemandEstimator"
             name="Power Estimator">
       </editor>
       <editor
-            class="net.bhl.cdt.architecturetools.disciplineview.DisciplineViewer"
+            class="net.bhl.cdt.model.modelview.disciplineview.DisciplineViewer"
             id="net.bhl.cdt.architecturetools.disciplineview.disciplineviewer"
             name="DisciplineViewer">
       </editor>
@@ -151,19 +151,27 @@
    <extension
          point="org.eclipse.emf.ecp.common.modelelementopener">
       <ModelElementOpener
-            class="net.bhl.cdt.architecturetools.powerconsumer.PDEOpener"
+            class="net.bhl.cdt.model.modelview.powerconsumer.PDEOpener"
             name="net.bhl.cdt.architecturetools.PDEOpener">
       </ModelElementOpener>
       <ModelElementOpener
-            class="net.bhl.cdt.architecturetools.disciplineview.DisciplineViewOpener"
+            class="net.bhl.cdt.model.modelview.disciplineview.DisciplineViewOpener"
             name="net.bhl.cdt.architecturetools.DisciplineViewOpener">
       </ModelElementOpener>
    </extension>
    <extension
          point="net.bhl.cdt.ui.configurationview.filter">
       <filter
-            class="net.bhl.cdt.architecturetools.powerconsumer.filter.PowerConsumptionFilter">
+            class="net.bhl.cdt.model.modelview.powerconsumer.filter.PowerConsumptionFilter">
       </filter>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.generated_package">
+      <package
+            class="net.bhl.cdt.model.modelview.ModelviewPackage"
+            genModel="model/modelview.genmodel"
+            uri="http://bhl.net/cdt/model/modelview">
+      </package>
    </extension>
    
 </plugin>

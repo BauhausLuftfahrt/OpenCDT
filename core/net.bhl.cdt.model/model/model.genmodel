@@ -39,17 +39,6 @@
     <genClasses image="false" ecoreClass="model.ecore#//ComponentInterface">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference model.ecore#//ComponentInterface/parentComponent"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="model.ecore#//View"/>
-    <genClasses ecoreClass="model.ecore#//DisciplineView">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//DisciplineView/subviews"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//DisciplineView/elements"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//DisciplineView/interfaceTypes"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//DisciplineView/viewLinks"/>
-    </genClasses>
-    <genClasses ecoreClass="model.ecore#//ViewLink">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ViewLink/virtualParent"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//ViewLink/virtualChild"/>
-    </genClasses>
     <genClasses image="false" ecoreClass="model.ecore#//MappableComponentInterface">
       <genOperations ecoreOperation="model.ecore#//MappableComponentInterface/getValue"/>
       <genOperations ecoreOperation="model.ecore#//MappableComponentInterface/getQuantity"/>
@@ -62,6 +51,7 @@
         <genParameters ecoreParameter="model.ecore#//MappableComponentInterface/getValue.1/calcSpaceQualifier"/>
       </genOperations>
     </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//View"/>
     <nestedGenPackages prefix="Qualification" basePackage="net.bhl.cdt.model" disposableProviderFactory="true"
         ecorePackage="model.ecore#//qualification">
       <genClasses image="false" ecoreClass="model.ecore#//qualification/Qualifier">

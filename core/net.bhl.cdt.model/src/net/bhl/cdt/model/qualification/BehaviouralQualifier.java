@@ -8,7 +8,8 @@ package net.bhl.cdt.model.qualification;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Behavioural Qualifier</b></em>'. <!--
  * end-user-doc -->
- * 
+ *
+ *
  * @see net.bhl.cdt.model.qualification.QualificationPackage#getBehaviouralQualifier()
  * @model
  * @generated
