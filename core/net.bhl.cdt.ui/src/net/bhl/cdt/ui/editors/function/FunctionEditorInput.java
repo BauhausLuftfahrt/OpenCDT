@@ -6,6 +6,7 @@
 package net.bhl.cdt.ui.editors.function;
 
 import net.bhl.cdt.calculationrepository.functions.Function;
+import net.bhl.cdt.model.calculation.Calculation;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IEditorInput;

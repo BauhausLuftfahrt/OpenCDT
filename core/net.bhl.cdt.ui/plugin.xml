@@ -164,6 +164,13 @@
             name="Function Editor">
       </editor>
       <editor
+            class="net.bhl.cdt.ui.editors.CalculationEditor"
+            extensions="func"
+            icon="icons/sample.gif"
+            id="net.bhl.cdt.ui.editors.CalculationEditor"
+            name="CalculationEditor">
+      </editor>
+      <editor
             class="net.bhl.cdt.ui.editors.ArrayEditor"
             id="net.bhl.cdt.ui.editors.ArrayEditor"
             name="Array Editor">
@@ -199,17 +206,17 @@
       </ModelElementOpener>
    </extension>
    <extension
+         point="org.eclipse.emf.ecp.common.modelelementopener">
+      <ModelElementOpener
+            class="net.bhl.cdt.ui.editors.calculation.CalculationEditorOpener"
+            name="net.bhl.cdt.ui.editors.calculation.CalculationEditorOpener">
+      </ModelElementOpener>
+   </extension>
+   <extension
          point="org.eclipse.emf.emfstore.client.workspaceLocationProvider">
       <LocationProvider
             providerClass="net.bhl.cdt.ui.WorkspaceLocationProvider">
       </LocationProvider>
-   </extension>
-   <extension
-         point="org.eclipse.emf.ecp.common.modelelementopener">
-      <ModelElementOpener
-            class="net.bhl.cdt.ui.editors.arrays.ArrayEditorOpener"
-            name="net.bhl.cdt.ui.ModelElementOpener1">
-      </ModelElementOpener>
    </extension>
 
 </plugin>
