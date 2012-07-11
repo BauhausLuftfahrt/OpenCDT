@@ -5,7 +5,14 @@
  ******************************************************************************/
 package net.bhl.cdt.ui.editors.calculation;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+import net.bhl.cdt.calculationrepository.CalculationRepositoryManager;
+import net.bhl.cdt.calculationrepository.functions.Function;
 import net.bhl.cdt.model.calculation.Calculation;
+import net.bhl.cdt.utilities.util.UtilitiesHelper;
 
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IEditorInput;
@@ -19,6 +26,7 @@ import org.eclipse.ui.IPersistableElement;
 public class CalculationEditorInput implements IEditorInput {
 
 	private Calculation calculation;
+	private List<String> functionIDs;
 
 	/**
 	 * moo.
@@ -43,6 +51,23 @@ public class CalculationEditorInput implements IEditorInput {
 	public Calculation getCalculation() {
 		return calculation;
 	}
+	
+	public List<String> getFunctionIDs()
+	{
+		List<String> tmpList = new ArrayList<String>();
+		for (Function fun : CalculationRepositoryManager.getInstance().getFunctions(UtilitiesHelper.getProjectId(getCalculation())))
+		{
+			tmpList.add(fun.getFunctionID());
+		}
+		Collections.sort(tmpList);
+		return tmpList;
+	}
+	
+	public void setFunctionIDs(List<String> ids)
+	{
+		//do nothing
+	}
+	
 
 	@Override
 	public Object getAdapter(Class adapter) {

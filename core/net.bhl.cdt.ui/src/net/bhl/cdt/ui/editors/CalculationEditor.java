@@ -5,6 +5,7 @@ import java.util.List;
 import net.bhl.cdt.calculationrepository.CalculationRepositoryManager;
 import net.bhl.cdt.calculationrepository.functions.Function;
 import net.bhl.cdt.ui.editors.calculation.CalculationEditorInput;
+import net.bhl.cdt.utilities.basecalculationmodel.ParameterDescriptor;
 import net.bhl.cdt.utilities.util.UtilitiesHelper;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -27,6 +28,10 @@ import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.core.databinding.beans.PojoProperties;
 import org.eclipse.jface.viewers.ComboViewer;
+import org.eclipse.core.databinding.observable.list.IObservableList;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.ModifyEvent;
 
 public class CalculationEditor extends EditorPart {
 	private DataBindingContext m_bindingContext;
@@ -34,9 +39,8 @@ public class CalculationEditor extends EditorPart {
 	public static final String ID = "net.bhl.cdt.ui.editors.CalculationEditor"; //$NON-NLS-1$
 	private Text calculationName;
 	private CalculationEditorInput input;
-	
-	private List<Function> functions;
-	private Text functionID;
+
+	private Combo functionID;
 
 	public CalculationEditor() {
 		super();
@@ -73,19 +77,33 @@ public class CalculationEditor extends EditorPart {
 		calculationName.setLayoutData(gd_calculationName);
 
 		Label lblFunction = new Label(composite, SWT.NONE);
-		lblFunction.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		lblFunction.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblFunction.setText("Function ID");
 
-		Composite composite_1 = new Composite(container, SWT.NONE);
-		FormData fd_composite_1 = new FormData();
-		fd_composite_1.right = new FormAttachment(composite, 0, SWT.RIGHT);
-		fd_composite_1.bottom = new FormAttachment(composite, 390, SWT.BOTTOM);
-		fd_composite_1.top = new FormAttachment(composite, 6);
-		
-		functionID = new Text(composite, SWT.BORDER);
+		Composite parameterComposite = new Composite(container, SWT.NONE);
+		FormData fd_parameterComposite = new FormData();
+		fd_parameterComposite.right = new FormAttachment(composite, 0, SWT.RIGHT);
+		fd_parameterComposite.bottom = new FormAttachment(composite, 390, SWT.BOTTOM);
+		fd_parameterComposite.top = new FormAttachment(composite, 6);
+
+		functionID = new Combo(composite, SWT.NONE);
+		functionID.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent e) {
+				Function selectedFunction = CalculationRepositoryManager.getInstance().getFunction(
+					UtilitiesHelper.getProjectId(input.getCalculation()), ((Combo) e.getSource()).getText());
+
+				EList<ParameterDescriptor> inputDescriptors = selectedFunction.getInputDescriptors();
+				
+				
+				EList<ParameterDescriptor> outputDescriptors = selectedFunction.getOutputDescriptors();
+				// generate ParameterMapping Table here
+				
+			}
+		});
 		functionID.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		fd_composite_1.left = new FormAttachment(0, 10);
-		composite_1.setLayoutData(fd_composite_1);
+		parameterComposite.setLayout(new GridLayout(1, false));
+		fd_parameterComposite.left = new FormAttachment(0, 10);
+		parameterComposite.setLayoutData(fd_parameterComposite);
 		m_bindingContext = initDataBindings();
 
 	}
@@ -110,8 +128,7 @@ public class CalculationEditor extends EditorPart {
 		input = (CalculationEditorInput) i;
 		setSite(site);
 		setInput(input);
-		setPartName("Parameter mapping editor");
-		functions = CalculationRepositoryManager.getInstance().getFunctions(UtilitiesHelper.getProjectId(input.getCalculation()));
+		setPartName(input.getCalculation().getName());
 	}
 
 	@Override
@@ -123,16 +140,24 @@ public class CalculationEditor extends EditorPart {
 	public boolean isSaveAsAllowed() {
 		return false;
 	}
+
 	protected DataBindingContext initDataBindings() {
 		DataBindingContext bindingContext = new DataBindingContext();
 		//
-		IObservableValue observeTextCalculationNameObserveWidget = WidgetProperties.text(SWT.Modify).observe(calculationName);
+		IObservableValue observeTextCalculationNameObserveWidget = WidgetProperties.text(SWT.Modify).observe(
+			calculationName);
 		IObservableValue calculationnameInputObserveValue = PojoProperties.value("calculation.name").observe(input);
 		bindingContext.bindValue(observeTextCalculationNameObserveWidget, calculationnameInputObserveValue, null, null);
 		//
-		IObservableValue observeTextFunctionIDObserveWidget = WidgetProperties.text(SWT.Modify).observe(functionID);
-		IObservableValue calculationfunctionIDInputObserveValue = PojoProperties.value("calculation.functionID").observe(input);
-		bindingContext.bindValue(observeTextFunctionIDObserveWidget, calculationfunctionIDInputObserveValue, null, null);
+		IObservableList itemsFunctionIDObserveWidget = WidgetProperties.items().observe(functionID);
+		IObservableList functionIDsInputObserveList = PojoProperties.list("functionIDs").observe(input);
+		bindingContext.bindList(itemsFunctionIDObserveWidget, functionIDsInputObserveList, null, null);
+		//
+		IObservableValue observeSelectionFunctionIDObserveWidget = WidgetProperties.selection().observe(functionID);
+		IObservableValue calculationfunctionIDInputObserveValue = PojoProperties.value("calculation.functionID")
+			.observe(input);
+		bindingContext.bindValue(observeSelectionFunctionIDObserveWidget, calculationfunctionIDInputObserveValue, null,
+			null);
 		//
 		return bindingContext;
 	}
