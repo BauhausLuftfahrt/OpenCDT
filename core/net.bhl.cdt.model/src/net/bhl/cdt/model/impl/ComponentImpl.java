@@ -12,6 +12,7 @@ import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.ComponentInterface;
 import net.bhl.cdt.model.ModelPackage;
 import net.bhl.cdt.model.Parameter;
+import net.bhl.cdt.model.calculation.CalculationPackage;
 import net.bhl.cdt.model.calculation.CalculationSet;
 
 import org.eclipse.emf.common.notify.NotificationChain;

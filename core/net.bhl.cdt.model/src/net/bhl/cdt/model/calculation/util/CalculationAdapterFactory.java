@@ -10,6 +10,7 @@ import java.util.Map;
 
 import net.bhl.cdt.model.Element;
 import net.bhl.cdt.model.MappableComponentInterface;
+import net.bhl.cdt.model.calculation.*;
 import net.bhl.cdt.model.calculation.AbstractNode;
 import net.bhl.cdt.model.calculation.Calculation;
 import net.bhl.cdt.model.calculation.CalculationGraph;

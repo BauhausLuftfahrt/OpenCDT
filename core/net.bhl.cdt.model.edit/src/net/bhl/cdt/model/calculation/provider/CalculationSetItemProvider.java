@@ -56,6 +56,7 @@ public class CalculationSetItemProvider extends ElementItemProvider implements I
 			super.getPropertyDescriptors(object);
 
 			addSpaceQualifiersPropertyDescriptor(object);
+			addComponentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -73,6 +74,28 @@ public class CalculationSetItemProvider extends ElementItemProvider implements I
 				 getString("_UI_CalculationSet_spaceQualifiers_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_CalculationSet_spaceQualifiers_feature", "_UI_CalculationSet_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 CalculationPackage.Literals.CALCULATION_SET__SPACE_QUALIFIERS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Component feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addComponentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CalculationSet_component_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_CalculationSet_component_feature", "_UI_CalculationSet_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 CalculationPackage.Literals.CALCULATION_SET__COMPONENT,
 				 true,
 				 false,
 				 true,

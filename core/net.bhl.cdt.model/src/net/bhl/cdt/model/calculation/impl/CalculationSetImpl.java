@@ -8,6 +8,8 @@ package net.bhl.cdt.model.calculation.impl;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import net.bhl.cdt.model.Component;
+import net.bhl.cdt.model.ModelPackage;
 import java.util.List;
 
 import net.bhl.cdt.model.MappableComponentInterface;
@@ -26,14 +28,17 @@ import net.bhl.cdt.model.calculation.ParameterMapping;
 import net.bhl.cdt.model.exceptions.MappableValueErrorException;
 import net.bhl.cdt.model.impl.ElementImpl;
 import net.bhl.cdt.model.qualification.CalculationSpaceQualifier;
+import org.eclipse.emf.common.notify.Notification;
 import net.bhl.cdt.utilities.exceptions.CDTRuntimeException;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -45,6 +50,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link net.bhl.cdt.model.calculation.impl.CalculationSetImpl#getGraphs <em>Graphs</em>}</li>
  *   <li>{@link net.bhl.cdt.model.calculation.impl.CalculationSetImpl#getSpaceQualifiers <em>Space Qualifiers</em>}</li>
  *   <li>{@link net.bhl.cdt.model.calculation.impl.CalculationSetImpl#getSubCalculationSet <em>Sub Calculation Set</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.impl.CalculationSetImpl#getComponent <em>Component</em>}</li>
  * </ul>
  * </p>
  *
@@ -88,6 +94,16 @@ public class CalculationSetImpl extends ElementImpl implements CalculationSet {
 	 * @ordered
 	 */
 	protected EList<CalculationSet> subCalculationSet;
+
+	/**
+	 * The cached value of the '{@link #getComponent() <em>Component</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComponent()
+	 * @generated
+	 * @ordered
+	 */
+	protected Component component;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -148,6 +164,44 @@ public class CalculationSetImpl extends ElementImpl implements CalculationSet {
 			subCalculationSet = new EObjectContainmentEList.Resolving<CalculationSet>(CalculationSet.class, this, CalculationPackage.CALCULATION_SET__SUB_CALCULATION_SET);
 		}
 		return subCalculationSet;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Component getComponent() {
+		if (component != null && component.eIsProxy()) {
+			InternalEObject oldComponent = (InternalEObject)component;
+			component = (Component)eResolveProxy(oldComponent);
+			if (component != oldComponent) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CalculationPackage.CALCULATION_SET__COMPONENT, oldComponent, component));
+			}
+		}
+		return component;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Component basicGetComponent() {
+		return component;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComponent(Component newComponent) {
+		Component oldComponent = component;
+		component = newComponent;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CalculationPackage.CALCULATION_SET__COMPONENT, oldComponent, component));
 	}
 
 	/**
@@ -407,6 +461,9 @@ public class CalculationSetImpl extends ElementImpl implements CalculationSet {
 				return getSpaceQualifiers();
 			case CalculationPackage.CALCULATION_SET__SUB_CALCULATION_SET:
 				return getSubCalculationSet();
+			case CalculationPackage.CALCULATION_SET__COMPONENT:
+				if (resolve) return getComponent();
+				return basicGetComponent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -435,6 +492,9 @@ public class CalculationSetImpl extends ElementImpl implements CalculationSet {
 				getSubCalculationSet().clear();
 				getSubCalculationSet().addAll((Collection<? extends CalculationSet>)newValue);
 				return;
+			case CalculationPackage.CALCULATION_SET__COMPONENT:
+				setComponent((Component)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -458,6 +518,9 @@ public class CalculationSetImpl extends ElementImpl implements CalculationSet {
 			case CalculationPackage.CALCULATION_SET__SUB_CALCULATION_SET:
 				getSubCalculationSet().clear();
 				return;
+			case CalculationPackage.CALCULATION_SET__COMPONENT:
+				setComponent((Component)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -477,6 +540,8 @@ public class CalculationSetImpl extends ElementImpl implements CalculationSet {
 				return spaceQualifiers != null && !spaceQualifiers.isEmpty();
 			case CalculationPackage.CALCULATION_SET__SUB_CALCULATION_SET:
 				return subCalculationSet != null && !subCalculationSet.isEmpty();
+			case CalculationPackage.CALCULATION_SET__COMPONENT:
+				return component != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -9,6 +9,7 @@ import net.bhl.cdt.model.ComponentInterface;
 import net.bhl.cdt.model.Element;
 import net.bhl.cdt.model.MappableComponentInterface;
 import net.bhl.cdt.model.View;
+import net.bhl.cdt.model.architecturetools.*;
 import net.bhl.cdt.model.architecturetools.AltitudeInterface;
 import net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage;
 import net.bhl.cdt.model.architecturetools.CoefficientInterface;

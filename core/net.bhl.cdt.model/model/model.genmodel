@@ -90,6 +90,8 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference model.ecore#//calculation/CalculationSet/spaceQualifiers"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//calculation/CalculationSet/subCalculationSet"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//calculation/CalculationSet/component"/>
         <genOperations ecoreOperation="model.ecore#//calculation/CalculationSet/isCalculable">
           <genParameters ecoreParameter="model.ecore#//calculation/CalculationSet/isCalculable/calcSpaceQualifier"/>
         </genOperations>

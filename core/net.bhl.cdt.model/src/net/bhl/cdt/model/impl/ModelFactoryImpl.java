@@ -6,6 +6,7 @@
 
 package net.bhl.cdt.model.impl;
 
+import net.bhl.cdt.model.*;
 import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.Element;

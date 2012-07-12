@@ -109,12 +109,21 @@ public interface CalculationPackage extends EPackage {
 	int CALCULATION_SET__SUB_CALCULATION_SET = ModelPackage.ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Component</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CALCULATION_SET__COMPONENT = ModelPackage.ELEMENT_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Set</em>' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALCULATION_SET_FEATURE_COUNT = ModelPackage.ELEMENT_FEATURE_COUNT + 4;
+	int CALCULATION_SET_FEATURE_COUNT = ModelPackage.ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.calculation.impl.CalculationImpl <em>Calculation</em>}' class.
@@ -682,6 +691,17 @@ public interface CalculationPackage extends EPackage {
 	EReference getCalculationSet_SubCalculationSet();
 
 	/**
+	 * Returns the meta object for the reference '{@link net.bhl.cdt.model.calculation.CalculationSet#getComponent <em>Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Component</em>'.
+	 * @see net.bhl.cdt.model.calculation.CalculationSet#getComponent()
+	 * @see #getCalculationSet()
+	 * @generated
+	 */
+	EReference getCalculationSet_Component();
+
+	/**
 	 * Returns the meta object for class '{@link net.bhl.cdt.model.calculation.Calculation <em>Calculation</em>}'. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -1067,6 +1087,14 @@ public interface CalculationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CALCULATION_SET__SUB_CALCULATION_SET = eINSTANCE.getCalculationSet_SubCalculationSet();
+
+		/**
+		 * The meta object literal for the '<em><b>Component</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CALCULATION_SET__COMPONENT = eINSTANCE.getCalculationSet_Component();
 
 		/**
 		 * The meta object literal for the '{@link net.bhl.cdt.model.calculation.impl.CalculationImpl <em>Calculation</em>}' class.

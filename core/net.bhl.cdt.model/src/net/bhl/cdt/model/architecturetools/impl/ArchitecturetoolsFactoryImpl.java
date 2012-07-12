@@ -5,6 +5,7 @@
  ******************************************************************************/
 package net.bhl.cdt.model.architecturetools.impl;
 
+import net.bhl.cdt.model.architecturetools.*;
 import net.bhl.cdt.model.architecturetools.AltitudeInterface;
 import net.bhl.cdt.model.architecturetools.ArchitecturetoolsFactory;
 import net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage;

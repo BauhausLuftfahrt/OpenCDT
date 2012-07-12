@@ -8,11 +8,14 @@ package net.bhl.cdt.ui.editors.calculation;
 
 import net.bhl.cdt.model.calculation.Calculation;
 import net.bhl.cdt.ui.editors.CalculationEditor;
+import net.bhl.cdt.ui.editors.CalculationWizard;
 import net.bhl.cdt.ui.editors.function.FunctionEditorInput;
 import net.bhl.cdt.utilities.exceptions.CDTRuntimeException;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecp.common.util.ModelElementOpener;
+import org.eclipse.jface.window.Window;
+import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
@@ -40,10 +43,20 @@ public class CalculationEditorOpener implements ModelElementOpener {
 		if (!(modelElement instanceof Calculation)) {
 			throw new CDTRuntimeException("The selected ModelElement must be of type Calculation");
 		}
-
+		
 		IWorkbench wb = PlatformUI.getWorkbench();
 		IWorkbenchWindow window = wb.getActiveWorkbenchWindow();
 		IWorkbenchPage page = window.getActivePage();
+
+		Calculation calculation = (Calculation) modelElement;
+		if (calculation.getFunctionID() == null || calculation.getFunctionID().equals("")) {
+			WizardDialog wizardDialog = new WizardDialog(window.getShell(), new CalculationWizard());
+			if (wizardDialog.open() == Window.OK) {
+				System.out.println("Ok pressed");
+			} else {
+				System.out.println("Cancel pressed");
+			}
+		}
 
 		CalculationEditorInput input = new CalculationEditorInput((Calculation) modelElement);
 

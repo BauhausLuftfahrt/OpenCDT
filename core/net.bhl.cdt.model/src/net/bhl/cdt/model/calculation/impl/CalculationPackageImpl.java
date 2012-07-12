@@ -237,6 +237,15 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCalculationSet_Component() {
+		return (EReference)calculationSetEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -522,6 +531,7 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 		createEReference(calculationSetEClass, CALCULATION_SET__GRAPHS);
 		createEReference(calculationSetEClass, CALCULATION_SET__SPACE_QUALIFIERS);
 		createEReference(calculationSetEClass, CALCULATION_SET__SUB_CALCULATION_SET);
+		createEReference(calculationSetEClass, CALCULATION_SET__COMPONENT);
 
 		calculationEClass = createEClass(CALCULATION);
 		createEReference(calculationEClass, CALCULATION__PARAMETER_MAPPING);
@@ -617,6 +627,7 @@ public class CalculationPackageImpl extends EPackageImpl implements CalculationP
 		initEReference(getCalculationSet_Graphs(), this.getCalculationGraph(), null, "graphs", null, 0, -1, CalculationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getCalculationSet_SpaceQualifiers(), theQualificationPackage.getCalculationSpaceQualifier(), null, "spaceQualifiers", null, 0, -1, CalculationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getCalculationSet_SubCalculationSet(), this.getCalculationSet(), null, "subCalculationSet", null, 0, -1, CalculationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getCalculationSet_Component(), theModelPackage.getComponent(), null, "component", null, 0, 1, CalculationSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		EOperation op = addEOperation(calculationSetEClass, ecorePackage.getEBoolean(), "isCalculable", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 		addEParameter(op, theQualificationPackage.getCalculationSpaceQualifier(), "calcSpaceQualifier", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$

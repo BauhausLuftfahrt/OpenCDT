@@ -1,7 +1,7 @@
 /*******************************************************************************
  * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
- *  materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
- *  and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
+ * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
+ * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
 package net.bhl.cdt.ui.editors.function;
 
@@ -33,8 +33,7 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Text;
 
 /**
- * This class has several functions which can connect properties of a Function
- * to SWT controls by using Databinding.
+ * This class has several functions which can connect properties of a Function to SWT controls by using Databinding.
  * 
  * @author Sebastian Höcht
  */
@@ -44,26 +43,20 @@ public final class DataBindingHelper {
 	}
 
 	/**
-	 * @param quantity
-	 *            the SWT Control of the Function Parameter's quantity
-	 * @param descriptor
-	 *            the descriptor of the Function's Parameter
+	 * @param quantity the SWT Control of the Function Parameter's quantity
+	 * @param descriptor the descriptor of the Function's Parameter
 	 */
-	public static void bindQuantity(Combo quantity,
-			ParameterDescriptor descriptor) {
-		EStructuralFeature nameFeature = descriptor.eClass()
-				.getEStructuralFeature("quantity");
+	public static void bindQuantity(Combo quantity, ParameterDescriptor descriptor) {
+		EStructuralFeature nameFeature = descriptor.eClass().getEStructuralFeature("quantity");
 
-		IObservableValue model = EMFEditObservables.observeValue(
-				WorkspaceManager.getInstance().getCurrentWorkspace()
-						.getEditingDomain(), descriptor, nameFeature);
+		IObservableValue model = EMFEditObservables.observeValue(WorkspaceManager.getInstance().getCurrentWorkspace()
+			.getEditingDomain(), descriptor, nameFeature);
 
 		EMFDataBindingContext quantityDBC = new EMFDataBindingContext();
 		UpdateValueStrategy toModel = new UpdateValueStrategy() {
 			@Override
 			public Object convert(Object value) {
-				EEnumLiteral literal = UnitsPackage.Literals.QUANTITY
-						.getEEnumLiteralByLiteral(value.toString());
+				EEnumLiteral literal = UnitsPackage.Literals.QUANTITY.getEEnumLiteralByLiteral(value.toString());
 				Quantity quantity = Quantity.get(literal.toString());
 				return quantity;
 			}
@@ -74,23 +67,18 @@ public final class DataBindingHelper {
 				return (((Quantity) value).getLiteral());
 			}
 		};
-		quantityDBC.bindValue(SWTObservables.observeSelection(quantity), model,
-				toModel, toSWT);
+		quantityDBC.bindValue(SWTObservables.observeSelection(quantity), model, toModel, toSWT);
 	}
 
 	/**
-	 * @param unit
-	 *            the SWT Control of the unit of a Function Parameter
-	 * @param descriptor
-	 *            the descriptor of a Parameter
+	 * @param unit the SWT Control of the unit of a Function Parameter
+	 * @param descriptor the descriptor of a Parameter
 	 */
 	public static void bindUnit(Text unit, ParameterDescriptor descriptor) {
-		EStructuralFeature nameFeature = descriptor.eClass()
-				.getEStructuralFeature("unit");
+		EStructuralFeature nameFeature = descriptor.eClass().getEStructuralFeature("unit");
 
-		IObservableValue model = EMFEditObservables.observeValue(
-				WorkspaceManager.getInstance().getCurrentWorkspace()
-						.getEditingDomain(), descriptor, nameFeature);
+		IObservableValue model = EMFEditObservables.observeValue(WorkspaceManager.getInstance().getCurrentWorkspace()
+			.getEditingDomain(), descriptor, nameFeature);
 
 		EMFDataBindingContext unitDBC = new EMFDataBindingContext();
 		UpdateValueStrategy toModel = new UpdateValueStrategy() {
@@ -108,26 +96,19 @@ public final class DataBindingHelper {
 				return value;
 			}
 		};
-		unitDBC.bindValue(SWTObservables.observeText(unit), model, toModel,
-				toSWT);
+		unitDBC.bindValue(SWTObservables.observeText(unit), model, toModel, toSWT);
 	}
 
 	/**
-	 * @param swtObservable
-	 *            .
-	 * @param modelElement
-	 *            the modelElement where the feature shall be bound to
-	 * @param featureName
-	 *            the name of the feature of the modelElement
+	 * @param swtObservable .
+	 * @param modelElement the modelElement where the feature shall be bound to
+	 * @param featureName the name of the feature of the modelElement
 	 */
-	public static void bindValue(ISWTObservableValue swtObservable,
-			EObject modelElement, String featureName) {
-		EStructuralFeature nameFeature = modelElement.eClass()
-				.getEStructuralFeature(featureName);
+	public static void bindValue(ISWTObservableValue swtObservable, EObject modelElement, String featureName) {
+		EStructuralFeature nameFeature = modelElement.eClass().getEStructuralFeature(featureName);
 
-		IObservableValue model = EMFEditObservables.observeValue(
-				WorkspaceManager.getInstance().getCurrentWorkspace()
-						.getEditingDomain(), modelElement, nameFeature);
+		IObservableValue model = EMFEditObservables.observeValue(WorkspaceManager.getInstance().getCurrentWorkspace()
+			.getEditingDomain(), modelElement, nameFeature);
 
 		EMFDataBindingContext dbc = new EMFDataBindingContext();
 		dbc.bindValue(swtObservable, model);
@@ -136,24 +117,20 @@ public final class DataBindingHelper {
 	/**
 	 * Binds combo and descriptor for data type feature.
 	 * 
-	 * @param combo
-	 *            -- The target element for binding (gui)
-	 * @param descriptor
-	 *            -- The model element for binding
+	 * @param combo -- The target element for binding (gui)
+	 * @param descriptor -- The model element for binding
 	 */
 	public static void bindDataType(Combo combo, ParameterDescriptor descriptor) {
 		EStructuralFeature nameFeature = BasecalculationmodelPackage.Literals.PARAMETER_DESCRIPTOR__DATA_TYPE;
 
-		IObservableValue model = EMFEditObservables.observeValue(
-				WorkspaceManager.getInstance().getCurrentWorkspace()
-						.getEditingDomain(), descriptor, nameFeature);
+		IObservableValue model = EMFEditObservables.observeValue(WorkspaceManager.getInstance().getCurrentWorkspace()
+			.getEditingDomain(), descriptor, nameFeature);
 
 		EMFDataBindingContext quantityDBC = new EMFDataBindingContext();
 		UpdateValueStrategy toModel = new UpdateValueStrategy() {
 			@Override
 			public Object convert(Object value) {
-				return DatatypesPackage.eINSTANCE
-						.getEClassifier((String) value);
+				return DatatypesPackage.eINSTANCE.getEClassifier((String) value);
 			}
 		};
 		UpdateValueStrategy toSWT = new UpdateValueStrategy() {
@@ -165,17 +142,14 @@ public final class DataBindingHelper {
 				return value;
 			}
 		};
-		quantityDBC.bindValue(SWTObservables.observeSelection(combo), model,
-				toModel, toSWT);
+		quantityDBC.bindValue(SWTObservables.observeSelection(combo), model, toModel, toSWT);
 	}
 
 	/**
-	 * @param descriptors
-	 *            the list of descriptors where a parameter shall be added
+	 * @param descriptors the list of descriptors where a parameter shall be added
 	 * @return the selectionListener adding a description on a Selection
 	 */
-	public static SelectionListener addParameterListener(
-			final EList<ParameterDescriptor> descriptors) {
+	public static SelectionListener addParameterListener(final EList<ParameterDescriptor> descriptors) {
 		SelectionListener listener = new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -184,7 +158,7 @@ public final class DataBindingHelper {
 					@Override
 					protected void doRun() {
 						ParameterDescriptor parameterDescriptor = BasecalculationmodelFactory.eINSTANCE
-								.createParameterDescriptor();
+							.createParameterDescriptor();
 						parameterDescriptor.setLabel("new parameter");
 						descriptors.add(parameterDescriptor);
 					}
@@ -200,16 +174,12 @@ public final class DataBindingHelper {
 	}
 
 	/**
-	 * @param descriptors
-	 *            the list of Parameter Descriptions a descriptor shall be
-	 *            removed
-	 * @param descriptor
-	 *            the parameter descriptor, that shall be removed
+	 * @param descriptors the list of Parameter Descriptions a descriptor shall be removed
+	 * @param descriptor the parameter descriptor, that shall be removed
 	 * @return the SelectionListener removing a descriptor from the list.
 	 */
-	public static SelectionListener removeParameterListener(
-			final EList<ParameterDescriptor> descriptors,
-			final ParameterDescriptor descriptor) {
+	public static SelectionListener removeParameterListener(final EList<ParameterDescriptor> descriptors,
+		final ParameterDescriptor descriptor) {
 		SelectionListener listener = new SelectionListener() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {

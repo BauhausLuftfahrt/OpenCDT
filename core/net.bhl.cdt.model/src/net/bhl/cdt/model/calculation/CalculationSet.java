@@ -6,6 +6,7 @@
 
 package net.bhl.cdt.model.calculation;
 
+import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.Element;
 import net.bhl.cdt.model.qualification.CalculationSpaceQualifier;
 
@@ -21,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link net.bhl.cdt.model.calculation.CalculationSet#getGraphs <em>Graphs</em>}</li>
  *   <li>{@link net.bhl.cdt.model.calculation.CalculationSet#getSpaceQualifiers <em>Space Qualifiers</em>}</li>
  *   <li>{@link net.bhl.cdt.model.calculation.CalculationSet#getSubCalculationSet <em>Sub Calculation Set</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.calculation.CalculationSet#getComponent <em>Component</em>}</li>
  * </ul>
  * </p>
  *
@@ -92,6 +94,32 @@ public interface CalculationSet extends Element {
 	 * @generated
 	 */
 	EList<CalculationSet> getSubCalculationSet();
+
+	/**
+	 * Returns the value of the '<em><b>Component</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Component</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Component</em>' reference.
+	 * @see #setComponent(Component)
+	 * @see net.bhl.cdt.model.calculation.CalculationPackage#getCalculationSet_Component()
+	 * @model
+	 * @generated
+	 */
+	Component getComponent();
+
+	/**
+	 * Sets the value of the '{@link net.bhl.cdt.model.calculation.CalculationSet#getComponent <em>Component</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Component</em>' reference.
+	 * @see #getComponent()
+	 * @generated
+	 */
+	void setComponent(Component value);
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
