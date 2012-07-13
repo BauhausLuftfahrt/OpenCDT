@@ -9,15 +9,30 @@ package net.bhl.cdt.model.modelview.provider;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import java.util.List;
+import net.bhl.cdt.model.Configuration;
+import net.bhl.cdt.model.ModelPackage;
+import net.bhl.cdt.model.modelview.ModelviewFactory;
+import net.bhl.cdt.model.modelview.ModelviewPackage;
 import net.bhl.cdt.model.modelview.util.ModelviewAdapterFactory;
 
+import net.bhl.cdt.model.util.ModelSwitch;
+import net.bhl.cdt.utilities.exchangemodel.Composite;
+import net.bhl.cdt.utilities.exchangemodel.ExchangemodelPackage;
+import net.bhl.cdt.utilities.exchangemodel.util.ExchangemodelSwitch;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.edit.command.CommandParameter;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ChangeNotifier;
+import org.eclipse.emf.edit.provider.ChildCreationExtenderManager;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -121,6 +136,29 @@ public class ModelviewItemProviderAdapterFactory extends ModelviewAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.modelview.Filter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FilterItemProvider filterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link net.bhl.cdt.model.modelview.Filter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFilterAdapter() {
+		if (filterItemProvider == null) {
+			filterItemProvider = new FilterItemProvider(this);
+		}
+
+		return filterItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -221,6 +259,7 @@ public class ModelviewItemProviderAdapterFactory extends ModelviewAdapterFactory
 	public void dispose() {
 		if (disciplineViewItemProvider != null) disciplineViewItemProvider.dispose();
 		if (viewLinkItemProvider != null) viewLinkItemProvider.dispose();
+		if (filterItemProvider != null) filterItemProvider.dispose();
 	}
 
 }

@@ -52,23 +52,24 @@ public class SFCInterfaceItemProvider extends ComponentInterfaceItemProvider imp
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addSFCParameterPropertyDescriptor(object);
+			addSfcParameterPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the SFC Parameter feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds a property descriptor for the Sfc Parameter feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSFCParameterPropertyDescriptor(Object object) {
+	protected void addSfcParameterPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SFCInterface_SFCParameter_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_SFCInterface_SFCParameter_feature", "_UI_SFCInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 getString("_UI_SFCInterface_sfcParameter_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_SFCInterface_sfcParameter_feature", "_UI_SFCInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ArchitecturetoolsPackage.Literals.SFC_INTERFACE__SFC_PARAMETER,
 				 true,
 				 false,

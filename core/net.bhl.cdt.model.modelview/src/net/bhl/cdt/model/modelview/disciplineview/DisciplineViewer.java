@@ -1,25 +1,34 @@
 /*******************************************************************************
  * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
- *  materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
- *  and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
+ * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
+ * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
 package net.bhl.cdt.model.modelview.disciplineview;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 import net.bhl.cdt.model.Component;
+import net.bhl.cdt.model.ComponentInterface;
 import net.bhl.cdt.model.Configuration;
+import net.bhl.cdt.model.MappableComponentInterface;
+import net.bhl.cdt.model.Model;
+import net.bhl.cdt.model.Parameter;
+import net.bhl.cdt.model.architecturetools.ArchitecturetoolsFactory;
 import net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage;
 import net.bhl.cdt.model.architecturetools.CoefficientInterface;
 import net.bhl.cdt.model.architecturetools.Massive;
 import net.bhl.cdt.model.architecturetools.PowerConsumer;
 import net.bhl.cdt.model.architecturetools.ReferenceAreaInterface;
 import net.bhl.cdt.model.architecturetools.WettedAreaInterface;
+import net.bhl.cdt.model.architecturetools.exceptions.NoParameterSetForInterfaceException;
 import net.bhl.cdt.model.architecturetools.exceptions.NoValueFoundException;
 import net.bhl.cdt.model.modelview.ConfigurationInput;
 import net.bhl.cdt.model.modelview.DisciplineView;
+import net.bhl.cdt.model.modelview.Filter;
 import net.bhl.cdt.model.util.ComponentInterfaceUtil;
 import net.bhl.cdt.ui.menu.ContextMenuGenerator;
 import net.bhl.cdt.utilities.commands.CDTCommand;
@@ -27,6 +36,7 @@ import net.bhl.cdt.utilities.exceptions.CDTRuntimeException;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EContentAdapter;
@@ -82,21 +92,19 @@ public class DisciplineViewer extends EditorPart {
 		header.setLayoutData(gd_header);
 
 		Label lblFocusingOn = new Label(header, SWT.NONE);
-		lblFocusingOn.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false,
-				false, 1, 1));
+		lblFocusingOn.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblFocusingOn.setText("Focus:");
 
 		interfaceText = new Text(header, SWT.BORDER);
 		interfaceText.setEditable(false);
-		interfaceText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
-				false, 1, 1));
+		interfaceText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		Button btnManageInterfaces = new Button(header, SWT.NONE);
 		btnManageInterfaces.setText("Manage");
 		btnManageInterfaces.addSelectionListener(new SelectionListener() {
 			public void widgetSelected(SelectionEvent e) {
-				SelectInterfaceDialog interfaceDialog = new SelectInterfaceDialog(
-						getSite().getShell(), configuration, view);
+				SelectInterfaceDialog interfaceDialog = new SelectInterfaceDialog(getSite().getShell(), configuration,
+					view);
 				interfaceDialog.setBlockOnOpen(true);
 				if (interfaceDialog.open() == Dialog.OK) {
 					final HashSet<EClass> result = interfaceDialog.getResult();
@@ -121,8 +129,7 @@ public class DisciplineViewer extends EditorPart {
 		treeViewer = new TreeViewer(content, SWT.BORDER);
 		Tree tree = treeViewer.getTree();
 		tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
-		treeViewer.setLabelProvider(new DisciplineLabelProvider(treeViewer,
-				view));
+		treeViewer.setLabelProvider(new DisciplineLabelProvider(treeViewer, view));
 		treeViewer.setContentProvider(new DisciplineContenProvider(view));
 
 		// getSite().addSelectionListener(this);
@@ -133,14 +140,11 @@ public class DisciplineViewer extends EditorPart {
 
 		TreeViewer unsortedViewer = new TreeViewer(content, SWT.BORDER);
 		Tree unsortedElements = unsortedViewer.getTree();
-		unsortedElements.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true,
-				true, 1, 1));
-		unsortedViewer.setLabelProvider(new AdapterFactoryLabelProvider(
-				new ComposedAdapterFactory(
-						ComposedAdapterFactory.Descriptor.Registry.INSTANCE)));
-		unsortedViewer.setContentProvider(new AdapterFactoryContentProvider(
-				new ComposedAdapterFactory(
-						ComposedAdapterFactory.Descriptor.Registry.INSTANCE)));
+		unsortedElements.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		unsortedViewer.setLabelProvider(new AdapterFactoryLabelProvider(new ComposedAdapterFactory(
+			ComposedAdapterFactory.Descriptor.Registry.INSTANCE)));
+		unsortedViewer.setContentProvider(new AdapterFactoryContentProvider(new ComposedAdapterFactory(
+			ComposedAdapterFactory.Descriptor.Registry.INSTANCE)));
 		unsortedViewer.setInput(view);
 
 		refresh();
@@ -187,10 +191,9 @@ public class DisciplineViewer extends EditorPart {
 		treeViewer.resetFilters();
 		treeViewer.addFilter(new ViewerFilter() {
 			@Override
-			public boolean select(Viewer viewer, Object parentElement,
-					Object element) {
+			public boolean select(Viewer viewer, Object parentElement, Object element) {
 				return (parentElement instanceof Configuration && element == mainComponent)
-						|| !(parentElement instanceof Configuration);
+					|| !(parentElement instanceof Configuration);
 			}
 		});
 		treeViewer.addFilter(new SimpleFilter());
@@ -198,8 +201,7 @@ public class DisciplineViewer extends EditorPart {
 	}
 
 	@Override
-	public void init(IEditorSite site, IEditorInput input)
-			throws PartInitException {
+	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
 		if (!(input instanceof ConfigurationInput)) {
 			throw new PartInitException("Wrong Input");
 		}
@@ -254,207 +256,113 @@ public class DisciplineViewer extends EditorPart {
 
 		public SimpleFilter() {
 			allowed = new HashSet<EObject>();
-			for (EClass clazz : view.getInterfaceTypes()) {
-				if (clazz.equals(ArchitecturetoolsPackage.eINSTANCE
-						.getPowerConsumer())) {
-					List<PowerConsumer> interfaces = ComponentInterfaceUtil
-							.getComponentInterfaces(configuration, clazz,
-									PowerConsumer.class);
-					for (PowerConsumer consumer : interfaces) {
-						addPowerConsumer(consumer, allowed);
+
+			for (net.bhl.cdt.model.modelview.Filter filter : view.getFilter()) {
+
+				// MappableComponentInterface mappableFilterInterface = (MappableComponentInterface)
+				// filter.getInterface()
+				// .get(0);
+				// EClass eclazz = mappableFilterInterface.eClass();
+				// // filteredInterface: List for keeping all instances of an interface specified in a filter
+				// List<MappableComponentInterface> filteredInterfaces = ComponentInterfaceUtil.getComponentInterfaces(
+				// configuration, eclazz, MappableComponentInterface.class);
+
+				List<MappableComponentInterface> filteredInterfaces = new ArrayList<MappableComponentInterface>();
+
+				if (filter.getInterface().isEmpty()) {
+					filteredInterfaces.addAll(ComponentInterfaceUtil.getComponentInterfaces(configuration,
+						MappableComponentInterface.class));
+				} else {
+
+					for (ComponentInterface filterInterface : filter.getInterface()) {
+						EClass eclazz = filterInterface.eClass();
+						// filteredInterface: List for keeping all instances of an interface specified in a filter
+						filteredInterfaces.addAll(ComponentInterfaceUtil.getComponentInterfaces(configuration, eclazz,
+							MappableComponentInterface.class));
 					}
 				}
-				if (clazz.equals(ArchitecturetoolsPackage.eINSTANCE
-						.getMassive())) {
-					List<Massive> interfaces = ComponentInterfaceUtil
-							.getComponentInterfaces(configuration, clazz,
-									Massive.class);
-					for (Massive mass : interfaces) {
-						addMassive(mass, allowed);
-					}
-				}
-				if (clazz.equals(ArchitecturetoolsPackage.eINSTANCE
-						.getWettedAreaInterface())) {
-					List<WettedAreaInterface> interfaces = ComponentInterfaceUtil
-							.getComponentInterfaces(configuration, clazz,
-									WettedAreaInterface.class);
-					for (WettedAreaInterface wettedAreaInterface : interfaces) {
-						addWettedAreaInterface(wettedAreaInterface, allowed);
-					}
-				}
-				if (clazz.equals(ArchitecturetoolsPackage.eINSTANCE
-						.getReferenceAreaInterface())) {
-					List<ReferenceAreaInterface> interfaces = ComponentInterfaceUtil
-							.getComponentInterfaces(configuration, clazz,
-									ReferenceAreaInterface.class);
-					for (ReferenceAreaInterface referenceAreaInterface : interfaces) {
-						addReferenceAreaInterface(referenceAreaInterface,
-								allowed);
-					}
-				}
-				if (clazz.equals(ArchitecturetoolsPackage.eINSTANCE
-						.getCoefficientInterface())) {
-					List<CoefficientInterface> interfaces = ComponentInterfaceUtil
-							.getComponentInterfaces(configuration, clazz,
-									CoefficientInterface.class);
-					for (CoefficientInterface coefficientInterface : interfaces) {
-						addCoefficientInterface(coefficientInterface, allowed);
+
+				for (MappableComponentInterface mappableInterface : filteredInterfaces) {
+					// Check whether an instance of filtertedInterface matches the other filter criteria
+					if (filtered(filter, mappableInterface)) {
+						try {
+							if (mappableInterface.getParameter() != null) {
+								allowed.add(mappableInterface.getParameter());
+								addParents(mappableInterface.eContainer(), allowed);
+							}
+						} catch (NoParameterSetForInterfaceException e) {
+							// Do nothing
+						} catch (Exception e) {
+							throw new CDTRuntimeException(e.getMessage());
+						}
 					}
 				}
 			}
-
 		}
 
-		private void addMassive(Massive mass, HashSet<EObject> allowed) {
-			allowed.add(mass);
-			addParents(mass.eContainer(), allowed);
-			try {
-				if (mass.getMass() != null) {
+		private boolean filtered(Filter filter, MappableComponentInterface mappableInterface) {
+			boolean result = true;
 
-					allowed.add(mass.getMass());
+			if ((filter.getComponent() != null)
+				&& !(filter.getComponent().equals(mappableInterface.getParentComponent()))) {
+				return false;
+			}
+
+			if (filter.getDiscipline().isEmpty()) {
+				if (mappableInterface.getDiscipline() != null || !mappableInterface.getDiscipline().isEmpty()) {
+					return false;
 				}
-			} catch (NoValueFoundException e) {
-				// Do nothing
-			} catch (Exception e) {
-				throw new CDTRuntimeException(e.getMessage());
+			} else {
+				if (mappableInterface.getDiscipline().isEmpty()) {
+					return false;
+				}
+				boolean match = false;
+				for (String filterDiscipline : filter.getDiscipline()) {
+					if (mappableInterface.getDiscipline().contains(filterDiscipline)) {
+						match = true;
+					} else {
+						match = false;
+					}
+				}
+
+				if (!match) {
+					return false;
+				}
+
 			}
 
-			if (mass.getMassParameter() != null)
-				allowed.add(mass.getMassParameter());
-		}
+			if (filter.getSource() == null) {
+				if (mappableInterface.getSource() != null && !mappableInterface.getSource().isEmpty()) {
+					return false;
+				}
+			} else {
+				if (!filter.getSource().isEmpty() || mappableInterface.getSource() != null) {
 
-		private void addPowerConsumer(PowerConsumer consumer,
-				HashSet<EObject> allowed) {
-			allowed.add(consumer);
-			addParents(consumer.eContainer(), allowed);
-			try {
-				if (consumer.getPowerParameter() != null)
-					allowed.add(consumer.getPowerParameter());
-				if (consumer.getPowerConsumption() != null)
-					allowed.add(consumer.getPowerConsumption());
-			} catch (NoValueFoundException e) {
-				// Do nothing
-			} catch (Exception e) {
-				throw new CDTRuntimeException(e.getMessage());
+					if (!filter.getSource().equals(mappableInterface.getSource())) {
+						return false;
+					}
+				}
 			}
+
+			// if ((filter.getText() != null) && (!filter.getText().equals(mappableInterface.getAnnotation()))) {
+			// return false;
+			// }
+
+			return result;
 		}
 
 		private void addParents(EObject parent, HashSet<EObject> allowed) {
-			if (parent == null || parent instanceof Configuration) {
+			// if (parent == null || parent instanceof Configuration) {
+			// return;
+			// }
+			if (parent == null || parent instanceof Model) {
 				return;
 			}
 			allowed.add(parent);
 			addParents(parent.eContainer(), allowed);
 		}
 
-		public void addWettedAreaInterface(
-				WettedAreaInterface wettedAreaInterface,
-				HashSet<EObject> allowed) {
-
-			allowed.add(wettedAreaInterface);
-			addParents(wettedAreaInterface.eContainer(), allowed);
-			try {
-				if (wettedAreaInterface.getWettedArea() != null) {
-
-					allowed.add(wettedAreaInterface.getWettedArea());
-				}
-			} catch (NoValueFoundException e) {
-				// Do nothing
-			} catch (Exception e) {
-				throw new CDTRuntimeException(e.getMessage());
-			}
-
-			if (wettedAreaInterface.getWettedAreaParameter() != null)
-				allowed.add(wettedAreaInterface.getWettedAreaParameter());
-		}
-
-		public void addReferenceAreaInterface(
-				ReferenceAreaInterface referenceAreaInterface,
-				HashSet<EObject> allowed) {
-
-			allowed.add(referenceAreaInterface);
-			addParents(referenceAreaInterface.eContainer(), allowed);
-			try {
-				if (referenceAreaInterface.getReferenceArea() != null) {
-
-					allowed.add(referenceAreaInterface.getReferenceArea());
-				}
-			} catch (NoValueFoundException e) {
-				// Do nothing
-			} catch (Exception e) {
-				throw new CDTRuntimeException(e.getMessage());
-			}
-
-			if (referenceAreaInterface.getReferenceAreaParameter() != null)
-				allowed.add(referenceAreaInterface.getReferenceAreaParameter());
-		}
-
-		public void addCoefficientInterface(
-				CoefficientInterface coeffecientInterface,
-				HashSet<EObject> allowed) {
-
-			allowed.add(coeffecientInterface);
-			addParents(coeffecientInterface.eContainer(), allowed);
-			try {
-				if (coeffecientInterface.getCoefficient() != null) {
-
-					allowed.add(coeffecientInterface.getCoefficient());
-				}
-			} catch (NoValueFoundException e) {
-				// Do nothing
-			} catch (Exception e) {
-				throw new CDTRuntimeException(e.getMessage());
-			}
-
-			if (coeffecientInterface.getCoefficientParameter() != null)
-				allowed.add(coeffecientInterface.getCoefficientParameter());
-		}
-
-		// public void addWettedAreaInterface(WettedAreaInterface
-		// wettedAreaInterface,
-		// HashSet<EObject> allowed) {
-		//
-		// allowed.add(wettedAreaInterface);
-		// addParents (wettedAreaInterface.eContainer(), allowed);
-		// try {
-		// if (wettedAreaInterface.getWettedArea() != null) {
-		//
-		// allowed.add(wettedAreaInterface.getWettedArea());
-		// }
-		// } catch (NoValueFoundException e) {
-		// //Do nothing
-		// } catch (Exception e) {
-		// throw new CDTRuntimeException(e.getMessage());
-		// }
-		//
-		// if (wettedAreaInterface.getWettedAreaParameter() != null)
-		// allowed.add(wettedAreaInterface.getWettedAreaParameter());
-		// }
-		//
-		// public void addWettedAreaInterface(WettedAreaInterface
-		// wettedAreaInterface,
-		// HashSet<EObject> allowed) {
-		//
-		// allowed.add(wettedAreaInterface);
-		// addParents (wettedAreaInterface.eContainer(), allowed);
-		// try {
-		// if (wettedAreaInterface.getWettedArea() != null) {
-		//
-		// allowed.add(wettedAreaInterface.getWettedArea());
-		// }
-		// } catch (NoValueFoundException e) {
-		// //Do nothing
-		// } catch (Exception e) {
-		// throw new CDTRuntimeException(e.getMessage());
-		// }
-		//
-		// if (wettedAreaInterface.getWettedAreaParameter() != null)
-		// allowed.add(wettedAreaInterface.getWettedAreaParameter());
-		// }
-
-		@Override
-		public boolean select(Viewer viewer, Object parentElement,
-				Object element) {
+		public boolean select(Viewer viewer, Object parentElement, Object element) {
 			return allowed.contains(element);
 		}
 	}

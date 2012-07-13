@@ -6,6 +6,7 @@
  */
 package net.bhl.cdt.model.modelview.impl;
 
+import net.bhl.cdt.model.modelview.*;
 import net.bhl.cdt.model.modelview.DisciplineView;
 import net.bhl.cdt.model.modelview.ModelviewFactory;
 import net.bhl.cdt.model.modelview.ModelviewPackage;
@@ -63,6 +64,7 @@ public class ModelviewFactoryImpl extends EFactoryImpl implements ModelviewFacto
 		switch (eClass.getClassifierID()) {
 			case ModelviewPackage.DISCIPLINE_VIEW: return createDisciplineView();
 			case ModelviewPackage.VIEW_LINK: return createViewLink();
+			case ModelviewPackage.FILTER: return createFilter();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -86,6 +88,16 @@ public class ModelviewFactoryImpl extends EFactoryImpl implements ModelviewFacto
 	public ViewLink createViewLink() {
 		ViewLinkImpl viewLink = new ViewLinkImpl();
 		return viewLink;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Filter createFilter() {
+		FilterImpl filter = new FilterImpl();
+		return filter;
 	}
 
 	/**

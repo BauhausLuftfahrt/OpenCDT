@@ -11,14 +11,18 @@ import java.util.List;
 
 import net.bhl.cdt.model.ComponentInterface;
 
+import net.bhl.cdt.model.ModelPackage;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link net.bhl.cdt.model.ComponentInterface} object.
@@ -47,8 +51,77 @@ public class ComponentInterfaceItemProvider extends ElementItemProvider implemen
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addSourcePropertyDescriptor(object);
+			addDisciplinePropertyDescriptor(object);
+			addAnnotationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Source feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSourcePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ComponentInterface_source_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComponentInterface_source_feature", "_UI_ComponentInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModelPackage.Literals.COMPONENT_INTERFACE__SOURCE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Discipline feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDisciplinePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ComponentInterface_discipline_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComponentInterface_discipline_feature", "_UI_ComponentInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModelPackage.Literals.COMPONENT_INTERFACE__DISCIPLINE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Annotation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAnnotationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ComponentInterface_annotation_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComponentInterface_annotation_feature", "_UI_ComponentInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModelPackage.Literals.COMPONENT_INTERFACE__ANNOTATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -74,6 +147,14 @@ public class ComponentInterfaceItemProvider extends ElementItemProvider implemen
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(ComponentInterface.class)) {
+			case ModelPackage.COMPONENT_INTERFACE__SOURCE:
+			case ModelPackage.COMPONENT_INTERFACE__DISCIPLINE:
+			case ModelPackage.COMPONENT_INTERFACE__ANNOTATION:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

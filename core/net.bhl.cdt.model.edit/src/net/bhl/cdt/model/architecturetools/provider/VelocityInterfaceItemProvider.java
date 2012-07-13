@@ -4,21 +4,24 @@
  *
  * $Id$
  */
-package net.bhl.cdt.model.modelview.provider;
+package net.bhl.cdt.model.architecturetools.provider;
 
 
 import java.util.Collection;
 import java.util.List;
 
-import net.bhl.cdt.model.modelview.ModelviewPackage;
-import net.bhl.cdt.model.modelview.ViewLink;
-import net.bhl.cdt.model.provider.ElementItemProvider;
+import net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage;
+import net.bhl.cdt.model.architecturetools.VelocityInterface;
+
+import net.bhl.cdt.model.provider.ComponentInterfaceItemProvider;
+import net.bhl.cdt.model.provider.ModelEditPlugin;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -27,13 +30,13 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
- * This is the item provider adapter for a {@link net.bhl.cdt.model.modelview.ViewLink} object.
+ * This is the item provider adapter for a {@link net.bhl.cdt.model.architecturetools.VelocityInterface} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ViewLinkItemProvider
-	extends ElementItemProvider
+public class VelocityInterfaceItemProvider
+	extends ComponentInterfaceItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -46,7 +49,7 @@ public class ViewLinkItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ViewLinkItemProvider(AdapterFactory adapterFactory) {
+	public VelocityInterfaceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -61,26 +64,25 @@ public class ViewLinkItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addVirtualParentPropertyDescriptor(object);
-			addVirtualChildPropertyDescriptor(object);
+			addVelocityParameterPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Virtual Parent feature.
+	 * This adds a property descriptor for the Velocity Parameter feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addVirtualParentPropertyDescriptor(Object object) {
+	protected void addVelocityParameterPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ViewLink_virtualParent_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ViewLink_virtualParent_feature", "_UI_ViewLink_type"),
-				 ModelviewPackage.Literals.VIEW_LINK__VIRTUAL_PARENT,
+				 getString("_UI_VelocityInterface_velocityParameter_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_VelocityInterface_velocityParameter_feature", "_UI_VelocityInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ArchitecturetoolsPackage.Literals.VELOCITY_INTERFACE__VELOCITY_PARAMETER,
 				 true,
 				 false,
 				 true,
@@ -90,36 +92,14 @@ public class ViewLinkItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Virtual Child feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addVirtualChildPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_ViewLink_virtualChild_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ViewLink_virtualChild_feature", "_UI_ViewLink_type"),
-				 ModelviewPackage.Literals.VIEW_LINK__VIRTUAL_CHILD,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns ViewLink.gif.
+	 * This returns VelocityInterface.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/ViewLink"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/VelocityInterface")); //$NON-NLS-1$
 	}
 
 	/**
@@ -130,10 +110,10 @@ public class ViewLinkItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((ViewLink)object).getName();
+		String label = ((VelocityInterface)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_ViewLink_type") :
-			getString("_UI_ViewLink_type") + " " + label;
+			getString("_UI_VelocityInterface_type") : //$NON-NLS-1$
+			getString("_UI_VelocityInterface_type") + " " + label; //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -169,7 +149,7 @@ public class ViewLinkItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return ModelviewEditPlugin.INSTANCE;
+		return ModelEditPlugin.INSTANCE;
 	}
 
 }

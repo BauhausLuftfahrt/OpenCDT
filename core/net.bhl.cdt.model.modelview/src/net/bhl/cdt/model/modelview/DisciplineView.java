@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EClass;
  *   <li>{@link net.bhl.cdt.model.modelview.DisciplineView#getElements <em>Elements</em>}</li>
  *   <li>{@link net.bhl.cdt.model.modelview.DisciplineView#getInterfaceTypes <em>Interface Types</em>}</li>
  *   <li>{@link net.bhl.cdt.model.modelview.DisciplineView#getViewLinks <em>View Links</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.modelview.DisciplineView#getFilter <em>Filter</em>}</li>
  * </ul>
  * </p>
  *
@@ -95,5 +96,21 @@ public interface DisciplineView extends View {
 	 * @generated
 	 */
 	EList<ViewLink> getViewLinks();
+
+	/**
+	 * Returns the value of the '<em><b>Filter</b></em>' containment reference list.
+	 * The list contents are of type {@link net.bhl.cdt.model.modelview.Filter}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Filter</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Filter</em>' containment reference list.
+	 * @see net.bhl.cdt.model.modelview.ModelviewPackage#getDisciplineView_Filter()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Filter> getFilter();
 
 } // DisciplineView

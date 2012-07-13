@@ -12,10 +12,18 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelview.ecore#//DisciplineView/elements"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelview.ecore#//DisciplineView/interfaceTypes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelview.ecore#//DisciplineView/viewLinks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelview.ecore#//DisciplineView/filter"/>
     </genClasses>
     <genClasses ecoreClass="modelview.ecore#//ViewLink">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelview.ecore#//ViewLink/virtualParent"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelview.ecore#//ViewLink/virtualChild"/>
+    </genClasses>
+    <genClasses ecoreClass="modelview.ecore#//Filter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelview.ecore#//Filter/interface"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelview.ecore#//Filter/component"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//Filter/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//Filter/discipline"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//Filter/text"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

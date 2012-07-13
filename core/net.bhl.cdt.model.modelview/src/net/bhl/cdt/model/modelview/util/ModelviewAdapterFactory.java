@@ -8,6 +8,7 @@ package net.bhl.cdt.model.modelview.util;
 
 import net.bhl.cdt.model.Element;
 import net.bhl.cdt.model.View;
+import net.bhl.cdt.model.modelview.*;
 import net.bhl.cdt.model.modelview.DisciplineView;
 import net.bhl.cdt.model.modelview.ModelviewPackage;
 import net.bhl.cdt.model.modelview.ViewLink;
@@ -83,6 +84,10 @@ public class ModelviewAdapterFactory extends AdapterFactoryImpl {
 				return createViewLinkAdapter();
 			}
 			@Override
+			public Adapter caseFilter(Filter object) {
+				return createFilterAdapter();
+			}
+			@Override
 			public Adapter caseExchangeElement(ExchangeElement object) {
 				return createExchangeElementAdapter();
 			}
@@ -139,6 +144,20 @@ public class ModelviewAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createViewLinkAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.modelview.Filter <em>Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see net.bhl.cdt.model.modelview.Filter
+	 * @generated
+	 */
+	public Adapter createFilterAdapter() {
 		return null;
 	}
 

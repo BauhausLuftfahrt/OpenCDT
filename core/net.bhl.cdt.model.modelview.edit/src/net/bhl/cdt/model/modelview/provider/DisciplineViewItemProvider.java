@@ -21,6 +21,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -102,6 +103,7 @@ public class DisciplineViewItemProvider extends ViewItemProvider implements
 			childrenFeatures.add(ModelviewPackage.Literals.DISCIPLINE_VIEW__SUBVIEWS);
 			childrenFeatures.add(ModelviewPackage.Literals.DISCIPLINE_VIEW__ELEMENTS);
 			childrenFeatures.add(ModelviewPackage.Literals.DISCIPLINE_VIEW__VIEW_LINKS);
+			childrenFeatures.add(ModelviewPackage.Literals.DISCIPLINE_VIEW__FILTER);
 		}
 		return childrenFeatures;
 	}
@@ -158,6 +160,7 @@ public class DisciplineViewItemProvider extends ViewItemProvider implements
 			case ModelviewPackage.DISCIPLINE_VIEW__SUBVIEWS:
 			case ModelviewPackage.DISCIPLINE_VIEW__ELEMENTS:
 			case ModelviewPackage.DISCIPLINE_VIEW__VIEW_LINKS:
+			case ModelviewPackage.DISCIPLINE_VIEW__FILTER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -205,6 +208,11 @@ public class DisciplineViewItemProvider extends ViewItemProvider implements
 			(createChildParameter
 				(ModelviewPackage.Literals.DISCIPLINE_VIEW__VIEW_LINKS,
 				 ModelviewFactory.eINSTANCE.createViewLink()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelviewPackage.Literals.DISCIPLINE_VIEW__FILTER,
+				 ModelviewFactory.eINSTANCE.createFilter()));
 	}
 
 	/**

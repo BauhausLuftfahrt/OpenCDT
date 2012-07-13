@@ -12,6 +12,7 @@ import net.bhl.cdt.model.StructuralElement;
 import net.bhl.cdt.model.View;
 import net.bhl.cdt.model.impl.ViewImpl;
 import net.bhl.cdt.model.modelview.DisciplineView;
+import net.bhl.cdt.model.modelview.Filter;
 import net.bhl.cdt.model.modelview.ModelviewPackage;
 import net.bhl.cdt.model.modelview.ViewLink;
 
@@ -34,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link net.bhl.cdt.model.modelview.impl.DisciplineViewImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link net.bhl.cdt.model.modelview.impl.DisciplineViewImpl#getInterfaceTypes <em>Interface Types</em>}</li>
  *   <li>{@link net.bhl.cdt.model.modelview.impl.DisciplineViewImpl#getViewLinks <em>View Links</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.modelview.impl.DisciplineViewImpl#getFilter <em>Filter</em>}</li>
  * </ul>
  * </p>
  *
@@ -79,6 +81,16 @@ public class DisciplineViewImpl extends ViewImpl implements DisciplineView {
 	 * @ordered
 	 */
 	protected EList<ViewLink> viewLinks;
+
+	/**
+	 * The cached value of the '{@link #getFilter() <em>Filter</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFilter()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Filter> filter;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -152,6 +164,18 @@ public class DisciplineViewImpl extends ViewImpl implements DisciplineView {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Filter> getFilter() {
+		if (filter == null) {
+			filter = new EObjectContainmentEList<Filter>(Filter.class, this, ModelviewPackage.DISCIPLINE_VIEW__FILTER);
+		}
+		return filter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -161,6 +185,8 @@ public class DisciplineViewImpl extends ViewImpl implements DisciplineView {
 				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 			case ModelviewPackage.DISCIPLINE_VIEW__VIEW_LINKS:
 				return ((InternalEList<?>)getViewLinks()).basicRemove(otherEnd, msgs);
+			case ModelviewPackage.DISCIPLINE_VIEW__FILTER:
+				return ((InternalEList<?>)getFilter()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -181,6 +207,8 @@ public class DisciplineViewImpl extends ViewImpl implements DisciplineView {
 				return getInterfaceTypes();
 			case ModelviewPackage.DISCIPLINE_VIEW__VIEW_LINKS:
 				return getViewLinks();
+			case ModelviewPackage.DISCIPLINE_VIEW__FILTER:
+				return getFilter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,6 +238,10 @@ public class DisciplineViewImpl extends ViewImpl implements DisciplineView {
 				getViewLinks().clear();
 				getViewLinks().addAll((Collection<? extends ViewLink>)newValue);
 				return;
+			case ModelviewPackage.DISCIPLINE_VIEW__FILTER:
+				getFilter().clear();
+				getFilter().addAll((Collection<? extends Filter>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -234,6 +266,9 @@ public class DisciplineViewImpl extends ViewImpl implements DisciplineView {
 			case ModelviewPackage.DISCIPLINE_VIEW__VIEW_LINKS:
 				getViewLinks().clear();
 				return;
+			case ModelviewPackage.DISCIPLINE_VIEW__FILTER:
+				getFilter().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -254,6 +289,8 @@ public class DisciplineViewImpl extends ViewImpl implements DisciplineView {
 				return interfaceTypes != null && !interfaceTypes.isEmpty();
 			case ModelviewPackage.DISCIPLINE_VIEW__VIEW_LINKS:
 				return viewLinks != null && !viewLinks.isEmpty();
+			case ModelviewPackage.DISCIPLINE_VIEW__FILTER:
+				return filter != null && !filter.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

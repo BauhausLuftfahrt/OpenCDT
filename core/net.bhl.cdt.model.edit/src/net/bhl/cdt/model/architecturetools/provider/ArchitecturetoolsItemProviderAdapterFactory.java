@@ -273,6 +273,52 @@ public class ArchitecturetoolsItemProviderAdapterFactory extends Architecturetoo
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.architecturetools.DensityInterface} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DensityInterfaceItemProvider densityInterfaceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link net.bhl.cdt.model.architecturetools.DensityInterface}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDensityInterfaceAdapter() {
+		if (densityInterfaceItemProvider == null) {
+			densityInterfaceItemProvider = new DensityInterfaceItemProvider(this);
+		}
+
+		return densityInterfaceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.architecturetools.VelocityInterface} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected VelocityInterfaceItemProvider velocityInterfaceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link net.bhl.cdt.model.architecturetools.VelocityInterface}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createVelocityInterfaceAdapter() {
+		if (velocityInterfaceItemProvider == null) {
+			velocityInterfaceItemProvider = new VelocityInterfaceItemProvider(this);
+		}
+
+		return velocityInterfaceItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -373,6 +419,8 @@ public class ArchitecturetoolsItemProviderAdapterFactory extends Architecturetoo
 		if (altitudeInterfaceItemProvider != null) altitudeInterfaceItemProvider.dispose();
 		if (rangeInterfaceItemProvider != null) rangeInterfaceItemProvider.dispose();
 		if (sfcInterfaceItemProvider != null) sfcInterfaceItemProvider.dispose();
+		if (densityInterfaceItemProvider != null) densityInterfaceItemProvider.dispose();
+		if (velocityInterfaceItemProvider != null) velocityInterfaceItemProvider.dispose();
 	}
 
 }

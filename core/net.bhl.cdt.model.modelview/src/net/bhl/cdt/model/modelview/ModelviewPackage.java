@@ -8,6 +8,7 @@ package net.bhl.cdt.model.modelview;
 
 import net.bhl.cdt.model.ModelPackage;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -116,13 +117,22 @@ public interface ModelviewPackage extends EPackage {
 	int DISCIPLINE_VIEW__VIEW_LINKS = ModelPackage.VIEW_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Filter</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCIPLINE_VIEW__FILTER = ModelPackage.VIEW_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Discipline View</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISCIPLINE_VIEW_FEATURE_COUNT = ModelPackage.VIEW_FEATURE_COUNT + 4;
+	int DISCIPLINE_VIEW_FEATURE_COUNT = ModelPackage.VIEW_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.modelview.impl.ViewLinkImpl <em>View Link</em>}' class.
@@ -169,6 +179,80 @@ public interface ModelviewPackage extends EPackage {
 	 * @ordered
 	 */
 	int VIEW_LINK_FEATURE_COUNT = ModelPackage.ELEMENT_FEATURE_COUNT + 2;
+
+
+	/**
+	 * The meta object id for the '{@link net.bhl.cdt.model.modelview.impl.FilterImpl <em>Filter</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see net.bhl.cdt.model.modelview.impl.FilterImpl
+	 * @see net.bhl.cdt.model.modelview.impl.ModelviewPackageImpl#getFilter()
+	 * @generated
+	 */
+	int FILTER = 2;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__NAME = ModelPackage.ELEMENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Interface</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__INTERFACE = ModelPackage.ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Component</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__COMPONENT = ModelPackage.ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__SOURCE = ModelPackage.ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__DISCIPLINE = ModelPackage.ELEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Text</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__TEXT = ModelPackage.ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The number of structural features of the '<em>Filter</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER_FEATURE_COUNT = ModelPackage.ELEMENT_FEATURE_COUNT + 5;
 
 
 	/**
@@ -226,6 +310,17 @@ public interface ModelviewPackage extends EPackage {
 	EReference getDisciplineView_ViewLinks();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.modelview.DisciplineView#getFilter <em>Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Filter</em>'.
+	 * @see net.bhl.cdt.model.modelview.DisciplineView#getFilter()
+	 * @see #getDisciplineView()
+	 * @generated
+	 */
+	EReference getDisciplineView_Filter();
+
+	/**
 	 * Returns the meta object for class '{@link net.bhl.cdt.model.modelview.ViewLink <em>View Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -256,6 +351,71 @@ public interface ModelviewPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getViewLink_VirtualChild();
+
+	/**
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.modelview.Filter <em>Filter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Filter</em>'.
+	 * @see net.bhl.cdt.model.modelview.Filter
+	 * @generated
+	 */
+	EClass getFilter();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.modelview.Filter#getInterface <em>Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Interface</em>'.
+	 * @see net.bhl.cdt.model.modelview.Filter#getInterface()
+	 * @see #getFilter()
+	 * @generated
+	 */
+	EReference getFilter_Interface();
+
+	/**
+	 * Returns the meta object for the reference '{@link net.bhl.cdt.model.modelview.Filter#getComponent <em>Component</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Component</em>'.
+	 * @see net.bhl.cdt.model.modelview.Filter#getComponent()
+	 * @see #getFilter()
+	 * @generated
+	 */
+	EReference getFilter_Component();
+
+	/**
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.modelview.Filter#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source</em>'.
+	 * @see net.bhl.cdt.model.modelview.Filter#getSource()
+	 * @see #getFilter()
+	 * @generated
+	 */
+	EAttribute getFilter_Source();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link net.bhl.cdt.model.modelview.Filter#getDiscipline <em>Discipline</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Discipline</em>'.
+	 * @see net.bhl.cdt.model.modelview.Filter#getDiscipline()
+	 * @see #getFilter()
+	 * @generated
+	 */
+	EAttribute getFilter_Discipline();
+
+	/**
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.modelview.Filter#getText <em>Text</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Text</em>'.
+	 * @see net.bhl.cdt.model.modelview.Filter#getText()
+	 * @see #getFilter()
+	 * @generated
+	 */
+	EAttribute getFilter_Text();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -322,6 +482,14 @@ public interface ModelviewPackage extends EPackage {
 		EReference DISCIPLINE_VIEW__VIEW_LINKS = eINSTANCE.getDisciplineView_ViewLinks();
 
 		/**
+		 * The meta object literal for the '<em><b>Filter</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DISCIPLINE_VIEW__FILTER = eINSTANCE.getDisciplineView_Filter();
+
+		/**
 		 * The meta object literal for the '{@link net.bhl.cdt.model.modelview.impl.ViewLinkImpl <em>View Link</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -346,6 +514,56 @@ public interface ModelviewPackage extends EPackage {
 		 * @generated
 		 */
 		EReference VIEW_LINK__VIRTUAL_CHILD = eINSTANCE.getViewLink_VirtualChild();
+
+		/**
+		 * The meta object literal for the '{@link net.bhl.cdt.model.modelview.impl.FilterImpl <em>Filter</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see net.bhl.cdt.model.modelview.impl.FilterImpl
+		 * @see net.bhl.cdt.model.modelview.impl.ModelviewPackageImpl#getFilter()
+		 * @generated
+		 */
+		EClass FILTER = eINSTANCE.getFilter();
+
+		/**
+		 * The meta object literal for the '<em><b>Interface</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FILTER__INTERFACE = eINSTANCE.getFilter_Interface();
+
+		/**
+		 * The meta object literal for the '<em><b>Component</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FILTER__COMPONENT = eINSTANCE.getFilter_Component();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILTER__SOURCE = eINSTANCE.getFilter_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Discipline</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILTER__DISCIPLINE = eINSTANCE.getFilter_Discipline();
+
+		/**
+		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILTER__TEXT = eINSTANCE.getFilter_Text();
 
 	}
 

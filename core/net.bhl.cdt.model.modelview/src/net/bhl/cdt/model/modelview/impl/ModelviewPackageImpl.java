@@ -8,10 +8,12 @@ package net.bhl.cdt.model.modelview.impl;
 
 import net.bhl.cdt.model.ModelPackage;
 import net.bhl.cdt.model.modelview.DisciplineView;
+import net.bhl.cdt.model.modelview.Filter;
 import net.bhl.cdt.model.modelview.ModelviewFactory;
 import net.bhl.cdt.model.modelview.ModelviewPackage;
 import net.bhl.cdt.model.modelview.ViewLink;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
@@ -38,6 +40,13 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 	 * @generated
 	 */
 	private EClass viewLinkEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass filterEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -153,6 +162,15 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDisciplineView_Filter() {
+		return (EReference)disciplineViewEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getViewLink() {
 		return viewLinkEClass;
 	}
@@ -173,6 +191,60 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 	 */
 	public EReference getViewLink_VirtualChild() {
 		return (EReference)viewLinkEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFilter() {
+		return filterEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFilter_Interface() {
+		return (EReference)filterEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFilter_Component() {
+		return (EReference)filterEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFilter_Source() {
+		return (EAttribute)filterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFilter_Discipline() {
+		return (EAttribute)filterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFilter_Text() {
+		return (EAttribute)filterEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -208,10 +280,18 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 		createEReference(disciplineViewEClass, DISCIPLINE_VIEW__ELEMENTS);
 		createEReference(disciplineViewEClass, DISCIPLINE_VIEW__INTERFACE_TYPES);
 		createEReference(disciplineViewEClass, DISCIPLINE_VIEW__VIEW_LINKS);
+		createEReference(disciplineViewEClass, DISCIPLINE_VIEW__FILTER);
 
 		viewLinkEClass = createEClass(VIEW_LINK);
 		createEReference(viewLinkEClass, VIEW_LINK__VIRTUAL_PARENT);
 		createEReference(viewLinkEClass, VIEW_LINK__VIRTUAL_CHILD);
+
+		filterEClass = createEClass(FILTER);
+		createEReference(filterEClass, FILTER__INTERFACE);
+		createEReference(filterEClass, FILTER__COMPONENT);
+		createEAttribute(filterEClass, FILTER__SOURCE);
+		createEAttribute(filterEClass, FILTER__DISCIPLINE);
+		createEAttribute(filterEClass, FILTER__TEXT);
 	}
 
 	/**
@@ -248,6 +328,7 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 		// Add supertypes to classes
 		disciplineViewEClass.getESuperTypes().add(theModelPackage.getView());
 		viewLinkEClass.getESuperTypes().add(theModelPackage.getElement());
+		filterEClass.getESuperTypes().add(theModelPackage.getElement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(disciplineViewEClass, DisciplineView.class, "DisciplineView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -255,10 +336,18 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 		initEReference(getDisciplineView_Elements(), theModelPackage.getStructuralElement(), null, "elements", null, 0, -1, DisciplineView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDisciplineView_InterfaceTypes(), theEcorePackage.getEClass(), null, "interfaceTypes", null, 0, -1, DisciplineView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDisciplineView_ViewLinks(), this.getViewLink(), null, "viewLinks", null, 0, -1, DisciplineView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDisciplineView_Filter(), this.getFilter(), null, "filter", null, 0, -1, DisciplineView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewLinkEClass, ViewLink.class, "ViewLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getViewLink_VirtualParent(), theEcorePackage.getEObject(), null, "virtualParent", null, 0, 1, ViewLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getViewLink_VirtualChild(), theEcorePackage.getEObject(), null, "virtualChild", null, 0, 1, ViewLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(filterEClass, Filter.class, "Filter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getFilter_Interface(), theModelPackage.getComponentInterface(), null, "interface", null, 0, -1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFilter_Component(), theModelPackage.getComponent(), null, "component", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFilter_Source(), theEcorePackage.getEString(), "source", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFilter_Discipline(), theEcorePackage.getEString(), "discipline", null, 0, -1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFilter_Text(), theEcorePackage.getEString(), "text", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
