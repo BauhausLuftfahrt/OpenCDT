@@ -151,7 +151,7 @@ public class DetermineInitialValuesForCalculationSetCommand extends CDTCommand {
 		} else if (mappableComponentInterface instanceof ReferenceAreaInterface) {
 			return ((ReferenceAreaInterface) mappableComponentInterface).getReferenceAreaParameter();
 		} else if (mappableComponentInterface instanceof SFCInterface) {
-			return ((SFCInterface) mappableComponentInterface).getSFCParameter();
+			return ((SFCInterface) mappableComponentInterface).getSfcParameter();
 		} else if (mappableComponentInterface instanceof WettedAreaInterface) {
 			return ((WettedAreaInterface) mappableComponentInterface).getWettedAreaParameter();
 		} else {

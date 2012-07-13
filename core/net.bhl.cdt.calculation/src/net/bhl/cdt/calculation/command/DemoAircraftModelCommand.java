@@ -17,10 +17,12 @@ import net.bhl.cdt.model.Parameter;
 import net.bhl.cdt.model.architecturetools.AltitudeInterface;
 import net.bhl.cdt.model.architecturetools.ArchitecturetoolsFactory;
 import net.bhl.cdt.model.architecturetools.CoefficientInterface;
+import net.bhl.cdt.model.architecturetools.DensityInterface;
 import net.bhl.cdt.model.architecturetools.Massive;
 import net.bhl.cdt.model.architecturetools.RangeInterface;
 import net.bhl.cdt.model.architecturetools.ReferenceAreaInterface;
 import net.bhl.cdt.model.architecturetools.SFCInterface;
+import net.bhl.cdt.model.architecturetools.VelocityInterface;
 import net.bhl.cdt.model.architecturetools.WettedAreaInterface;
 import net.bhl.cdt.model.calculation.Calculation;
 import net.bhl.cdt.model.calculation.CalculationFactory;
@@ -51,7 +53,10 @@ public class DemoAircraftModelCommand extends CDTCommand {
 	private Model model;
 	private Project project;
 	private CalculationRepositoryManager manager;
-
+	
+	static String AERODYNAMICS = "Aerodynamic" ;
+	static String PERFORMANCE = "Performance" ;
+	static String WEIGHTS_AND_BALANCES = "Weight&Balances" ; 
 	/**
 	 * Constructor for the DemoAircraftModelCommand class. The demo model is generated inside the model element.
 	 * @param model the model element that is to contain the generated demo model
@@ -343,26 +348,40 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		i_cd0.setParentComponent(aircraft);
 		i_cd0.setName("Interface CD0");
 		i_cd0.setCoefficientParameter(cd_0);
+		i_cd0.getDiscipline().add(AERODYNAMICS) ;
+		i_cd0.getDiscipline().add(PERFORMANCE) ;
+		
+		CoefficientInterface i_cd = ArchitecturetoolsFactory.eINSTANCE.createCoefficientInterface() ;
+		i_cd.setParentComponent(aircraft);
+		i_cd.setName("Interface C_D (Drag coefficient)" ) ;
+		i_cd.setCoefficientParameter(cd) ;
+		i_cd.getDiscipline().add(AERODYNAMICS) ;
+		i_cd.getDiscipline().add(WEIGHTS_AND_BALANCES) ;
 
 		SFCInterface i_sfc = ArchitecturetoolsFactory.eINSTANCE.createSFCInterface();
 		i_sfc.setParentComponent(aircraft);
 		i_sfc.setName("Interface SFC");
-		i_sfc.setSFCParameter(sfc);
+		i_sfc.setSfcParameter(sfc);
+		i_sfc.getDiscipline().add(PERFORMANCE) ;
 
 		WettedAreaInterface i_s_wet_fus = ArchitecturetoolsFactory.eINSTANCE.createWettedAreaInterface();
 		i_s_wet_fus.setParentComponent(fuselage);
 		i_s_wet_fus.setName("Interface fuselage s_wet_fus");
 		i_s_wet_fus.setWettedAreaParameter(s_wet_fus);
+		i_s_wet_fus.getDiscipline().add(AERODYNAMICS) ;
 
 		ReferenceAreaInterface i_s_ref = ArchitecturetoolsFactory.eINSTANCE.createReferenceAreaInterface();
 		i_s_ref.setParentComponent(wing);
 		i_s_ref.setName("Interface wing s_ref");
 		i_s_ref.setReferenceAreaParameter(s_ref);
+		i_s_ref.getDiscipline().add(AERODYNAMICS) ;
 
 		CoefficientInterface i_cl_liftcoefficient = ArchitecturetoolsFactory.eINSTANCE.createCoefficientInterface();
 		i_cl_liftcoefficient.setParentComponent(wing);
 		i_cl_liftcoefficient.setName("Interface wing cl_liftcoefficient");
 		i_cl_liftcoefficient.setCoefficientParameter(lift_coefficient);
+		i_cl_liftcoefficient.getDiscipline().add(AERODYNAMICS) ;
+		i_cl_liftcoefficient.getDiscipline().add(WEIGHTS_AND_BALANCES) ;
 
 		CoefficientInterface i_kfactor = ArchitecturetoolsFactory.eINSTANCE.createCoefficientInterface();
 		i_kfactor.setParentComponent(wing);
@@ -398,6 +417,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		i_m_propulsion.setParentComponent(engine);
 		i_m_propulsion.setName("Interface engine m_propulsion");
 		i_m_propulsion.setMassParameter(m_propulsion);
+		i_m_propulsion.getDiscipline().add(WEIGHTS_AND_BALANCES) ;
 
 		Massive i_m_ht = ArchitecturetoolsFactory.eINSTANCE.createMassive();
 		i_m_ht.setParentComponent(fin);
@@ -413,16 +433,20 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		i_m_wing.setParentComponent(wing);
 		i_m_wing.setName("Interface wing m_wing");
 		i_m_wing.setMassParameter(m_wing);
+		i_m_wing.getDiscipline().add(WEIGHTS_AND_BALANCES) ;
 
 		Massive i_m_fus = ArchitecturetoolsFactory.eINSTANCE.createMassive();
-		i_m_fus.setParentComponent(wing);
+		i_m_fus.setParentComponent(fuselage);
 		i_m_fus.setName("Interface fuselage m_fus");
 		i_m_fus.setMassParameter(m_fus);
+		i_m_fus.getDiscipline().add(WEIGHTS_AND_BALANCES) ;
 
 		Massive i_m_to = ArchitecturetoolsFactory.eINSTANCE.createMassive();
 		i_m_to.setParentComponent(aircraft);
 		i_m_to.setName("Interface aircraft m_to");
 		i_m_to.setMassParameter(m_to);
+		i_m_to.getDiscipline().add(AERODYNAMICS) ;
+		i_m_to.getDiscipline().add(WEIGHTS_AND_BALANCES) ;
 
 		AltitudeInterface i_alt = ArchitecturetoolsFactory.eINSTANCE.createAltitudeInterface();
 		i_alt.setParentComponent(mission);
@@ -438,6 +462,52 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		i_ff_ref.setParentComponent(fuelSystem);
 		i_ff_ref.setName("Interface ff_ref");
 		i_ff_ref.setCoefficientParameter(ff_ref);
+		
+		CoefficientInterface i_aspect_ratio = ArchitecturetoolsFactory.eINSTANCE.createCoefficientInterface() ;
+		i_aspect_ratio.setParentComponent(wing);
+		i_aspect_ratio.setName("Interface Aspect Ratio"); 
+		i_aspect_ratio.setCoefficientParameter(aspect_ratio) ;
+		i_aspect_ratio.getDiscipline().add(AERODYNAMICS) ;
+		i_aspect_ratio.getDiscipline().add(PERFORMANCE) ;
+		
+		DensityInterface i_rho = ArchitecturetoolsFactory.eINSTANCE.createDensityInterface() ;
+		i_rho.setParentComponent(atmosphere) ;
+		i_rho.setName("Interface Air density (rho)") ;
+		i_rho.setDensityParameter(rho);
+		i_rho.getDiscipline().add(AERODYNAMICS) ;
+		
+		WettedAreaInterface i_s_wet = ArchitecturetoolsFactory.eINSTANCE.createWettedAreaInterface() ;
+		i_s_wet.setParentComponent(aircraft);
+		i_s_wet.setName("Interface Aircraft wetted area (S_wet)");
+		i_s_wet.setWettedAreaParameter(s_wet) ;
+		i_s_wet.getDiscipline().add(AERODYNAMICS) ;
+
+		CoefficientInterface i_oswald_efficiency = ArchitecturetoolsFactory.eINSTANCE.createCoefficientInterface() ;
+		i_oswald_efficiency.setParentComponent(wing);
+		i_oswald_efficiency.setName("Interface Oswald Efficiency") ;
+		i_oswald_efficiency.setCoefficientParameter(oswald_efficiency) ;
+		i_oswald_efficiency.getDiscipline().add(AERODYNAMICS) ;
+		i_oswald_efficiency.getDiscipline().add(PERFORMANCE) ;
+		
+		Massive i_m_oe = ArchitecturetoolsFactory.eINSTANCE.createMassive() ;
+		i_m_oe.setParentComponent(aircraft) ;
+		i_m_oe.setName("Interface Operating Empty Mass") ;
+		i_m_oe.setMassParameter(m_oe) ;
+		i_m_oe.getDiscipline().add(WEIGHTS_AND_BALANCES) ;
+		
+		Massive i_m_payload = ArchitecturetoolsFactory.eINSTANCE.createMassive() ;
+		i_m_payload.setParentComponent(aircraft);
+		i_m_payload.setName("Interface Payload Mass") ;
+		i_m_payload.setMassParameter(m_payload);
+		i_m_payload.getDiscipline().add(WEIGHTS_AND_BALANCES) ;
+		
+		VelocityInterface i_v_cr = ArchitecturetoolsFactory.eINSTANCE.createVelocityInterface() ;
+		i_v_cr.setParentComponent(mission) ;
+		i_v_cr.setName("Interface Cruise speed (v_cr)") ;
+		i_v_cr.setVelocityParameter(v_cr) ;
+		i_v_cr.getDiscipline().add(AERODYNAMICS) ;
+		i_v_cr.getDiscipline().add(PERFORMANCE) ;
+			
 
 		/*
 		 * Begin Calculations, Sets and Nodes
