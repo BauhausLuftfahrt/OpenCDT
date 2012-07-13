@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.bhl.cdt.model.ComponentInterface;
+import net.bhl.cdt.model.View;
 
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EClass;
@@ -50,7 +51,7 @@ public class ComponentInterfaceUtil {
 		TreeIterator<EObject> iterator = parent.eAllContents();
 		while (iterator.hasNext()) {
 			EObject next = iterator.next();
-			if (clazz.equals(next.eClass())) {
+			if ((clazz.equals(next.eClass())) && !(next.eContainer().eContainer() instanceof View)) {
 				result.add((T) next);
 			}
 		}

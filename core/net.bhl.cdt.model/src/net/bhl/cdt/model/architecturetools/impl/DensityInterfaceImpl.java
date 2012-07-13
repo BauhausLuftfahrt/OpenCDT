@@ -11,7 +11,7 @@ import java.util.List;
 import net.bhl.cdt.model.Parameter;
 import net.bhl.cdt.model.Value;
 import net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage;
-import net.bhl.cdt.model.architecturetools.SFCInterface;
+import net.bhl.cdt.model.architecturetools.DensityInterface;
 import net.bhl.cdt.model.architecturetools.exceptions.NoParameterSetForInterfaceException;
 import net.bhl.cdt.model.architecturetools.exceptions.NoValueFoundException;
 import net.bhl.cdt.model.impl.ComponentInterfaceImpl;
@@ -24,80 +24,87 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object ' <em><b>SFC Interface</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Density Interface</b></em>'. <!-- end-user-doc
+ * -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link net.bhl.cdt.model.architecturetools.impl.SFCInterfaceImpl#getSfcParameter <em>Sfc Parameter</em>}</li>
+ * <li>{@link net.bhl.cdt.model.architecturetools.impl.DensityInterfaceImpl#getDensityParameter <em>Density Parameter
+ * </em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
-public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInterface {
+public class DensityInterfaceImpl extends ComponentInterfaceImpl implements DensityInterface {
 	/**
-	 * The cached value of the '{@link #getSfcParameter() <em>Sfc Parameter</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSfcParameter()
+	 * The cached value of the '{@link #getDensityParameter() <em>Density Parameter</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getDensityParameter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Parameter sfcParameter;
+	protected Parameter densityParameter;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected SFCInterfaceImpl() {
+	protected DensityInterfaceImpl() {
 		super();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ArchitecturetoolsPackage.Literals.SFC_INTERFACE;
+		return ArchitecturetoolsPackage.Literals.DENSITY_INTERFACE;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public Parameter getSfcParameter() {
-		if (sfcParameter != null && sfcParameter.eIsProxy()) {
-			InternalEObject oldSfcParameter = (InternalEObject)sfcParameter;
-			sfcParameter = (Parameter)eResolveProxy(oldSfcParameter);
-			if (sfcParameter != oldSfcParameter) {
+	public Parameter getDensityParameter() {
+		if (densityParameter != null && densityParameter.eIsProxy()) {
+			InternalEObject oldDensityParameter = (InternalEObject) densityParameter;
+			densityParameter = (Parameter) eResolveProxy(oldDensityParameter);
+			if (densityParameter != oldDensityParameter) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER, oldSfcParameter, sfcParameter));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+						ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER, oldDensityParameter,
+						densityParameter));
 			}
 		}
-		return sfcParameter;
+		return densityParameter;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public Parameter basicGetSfcParameter() {
-		return sfcParameter;
+	public Parameter basicGetDensityParameter() {
+		return densityParameter;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setSfcParameter(Parameter newSfcParameter) {
-		Parameter oldSfcParameter = sfcParameter;
-		sfcParameter = newSfcParameter;
+	public void setDensityParameter(Parameter newDensityParameter) {
+		Parameter oldDensityParameter = densityParameter;
+		densityParameter = newDensityParameter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER, oldSfcParameter, sfcParameter));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+				ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER, oldDensityParameter, densityParameter));
 	}
 
 	/**
@@ -105,15 +112,14 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 	 * 
 	 * @generated NOT
 	 */
-	public Value getSFC() {
-		if (sfcParameter == null) {
+	public Value getDensity() {
+		if (densityParameter == null) {
 			throw new NoParameterSetForInterfaceException();
 		}
-		if (sfcParameter.getValues().size() == 0) {
+		if (densityParameter.getValues().size() == 0) {
 			throw new NoValueFoundException();
 		}
-		return sfcParameter.getValues().get(0);
-
+		return densityParameter.getValues().get(0);
 	}
 
 	/**
@@ -122,10 +128,10 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 	 * @generated NOT
 	 */
 	public Value getValue() {
-		if (sfcParameter.getValue() == null) {
+		if (getDensity() == null) {
 			throw new NoValueFoundException();
 		}
-		return getSFC();
+		return getDensity();
 	}
 
 	/**
@@ -134,10 +140,11 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 	 * @generated NOT
 	 */
 	public Quantity getQuantity() {
-		if (sfcParameter == null) {
+		Parameter parameter = getDensityParameter();
+		if (parameter == null) {
 			throw new NoParameterSetForInterfaceException();
 		}
-		return sfcParameter.getQuantity();
+		return parameter.getQuantity();
 	}
 
 	/**
@@ -150,7 +157,7 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 		if (value == null) {
 			throw new NoValueFoundException();
 		}
-		sfcParameter.getValues().add(value);
+		densityParameter.getValues().add(value);
 	}
 
 	/**
@@ -159,10 +166,10 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 	 * @generated NOT
 	 */
 	public Parameter getParameter() {
-		if (sfcParameter == null) {
+		if (densityParameter == null) {
 			throw new NoParameterSetForInterfaceException();
 		}
-		return sfcParameter;
+		return densityParameter;
 	}
 
 	/**
@@ -171,10 +178,10 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 	 * @generated NOT
 	 */
 	public boolean hasValue() {
-		if (sfcParameter == null) {
+		if (densityParameter == null) {
 			throw new NoParameterSetForInterfaceException();
 		}
-		return sfcParameter.hasValue();
+		return densityParameter.hasValue();
 	}
 
 	/**
@@ -183,14 +190,14 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 	 * @generated NOT
 	 */
 	public Value getValue(CalculationSpaceQualifier calcSpaceQualifier) {
-		if (sfcParameter == null) {
+		if (densityParameter == null) {
 			throw new NoParameterSetForInterfaceException();
 		}
-		if (sfcParameter.getValues().size() == 0) {
+		if (densityParameter.getValues().size() == 0) {
 			throw new NoValueFoundException();
 		}
 		List<Value> values = new ArrayList<Value>();
-		for (Value value : sfcParameter.getValues()) {
+		for (Value value : densityParameter.getValues()) {
 			if (calcSpaceQualifier.getQualifies().contains(value)) {
 				values.add(value);
 			}
@@ -200,57 +207,62 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER:
-				if (resolve) return getSfcParameter();
-				return basicGetSfcParameter();
+		case ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER:
+			if (resolve)
+				return getDensityParameter();
+			return basicGetDensityParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER:
-				setSfcParameter((Parameter)newValue);
-				return;
+		case ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER:
+			setDensityParameter((Parameter) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER:
-				setSfcParameter((Parameter)null);
-				return;
+		case ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER:
+			setDensityParameter((Parameter) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER:
-				return sfcParameter != null;
+		case ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER:
+			return densityParameter != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} // SFCInterfaceImpl
+} // DensityInterfaceImpl

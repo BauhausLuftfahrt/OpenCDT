@@ -94,6 +94,24 @@ public interface ArchitecturetoolsFactory extends EFactory {
 	SFCInterface createSFCInterface();
 
 	/**
+	 * Returns a new object of class '<em>Density Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Density Interface</em>'.
+	 * @generated
+	 */
+	DensityInterface createDensityInterface();
+
+	/**
+	 * Returns a new object of class '<em>Velocity Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Velocity Interface</em>'.
+	 * @generated
+	 */
+	VelocityInterface createVelocityInterface();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the package supported by this factory.

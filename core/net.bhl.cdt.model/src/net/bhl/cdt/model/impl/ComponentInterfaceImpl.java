@@ -6,15 +6,18 @@
 
 package net.bhl.cdt.model.impl;
 
+import java.util.Collection;
 import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.ComponentInterface;
 import net.bhl.cdt.model.ModelPackage;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -24,12 +27,61 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link net.bhl.cdt.model.impl.ComponentInterfaceImpl#getParentComponent <em>Parent Component</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.impl.ComponentInterfaceImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.impl.ComponentInterfaceImpl#getDiscipline <em>Discipline</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.impl.ComponentInterfaceImpl#getAnnotation <em>Annotation</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public abstract class ComponentInterfaceImpl extends ElementImpl implements ComponentInterface {
+	/**
+	 * The default value of the '{@link #getSource() <em>Source</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSource()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String SOURCE_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getSource() <em>Source</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSource()
+	 * @generated
+	 * @ordered
+	 */
+	protected String source = SOURCE_EDEFAULT;
+	/**
+	 * The cached value of the '{@link #getDiscipline() <em>Discipline</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDiscipline()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> discipline;
+	/**
+	 * The default value of the '{@link #getAnnotation() <em>Annotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String ANNOTATION_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getAnnotation() <em>Annotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getAnnotation()
+	 * @generated
+	 * @ordered
+	 */
+	protected String annotation = ANNOTATION_EDEFAULT;
+
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -95,6 +147,60 @@ public abstract class ComponentInterfaceImpl extends ElementImpl implements Comp
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getSource() {
+		return source;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSource(String newSource) {
+		String oldSource = source;
+		source = newSource;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.COMPONENT_INTERFACE__SOURCE, oldSource, source));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<String> getDiscipline() {
+		if (discipline == null) {
+			discipline = new EDataTypeUniqueEList<String>(String.class, this, ModelPackage.COMPONENT_INTERFACE__DISCIPLINE);
+		}
+		return discipline;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getAnnotation() {
+		return annotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAnnotation(String newAnnotation) {
+		String oldAnnotation = annotation;
+		annotation = newAnnotation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.COMPONENT_INTERFACE__ANNOTATION, oldAnnotation, annotation));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -145,6 +251,12 @@ public abstract class ComponentInterfaceImpl extends ElementImpl implements Comp
 			case ModelPackage.COMPONENT_INTERFACE__PARENT_COMPONENT:
 				if (resolve) return getParentComponent();
 				return basicGetParentComponent();
+			case ModelPackage.COMPONENT_INTERFACE__SOURCE:
+				return getSource();
+			case ModelPackage.COMPONENT_INTERFACE__DISCIPLINE:
+				return getDiscipline();
+			case ModelPackage.COMPONENT_INTERFACE__ANNOTATION:
+				return getAnnotation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -153,11 +265,22 @@ public abstract class ComponentInterfaceImpl extends ElementImpl implements Comp
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ModelPackage.COMPONENT_INTERFACE__PARENT_COMPONENT:
 				setParentComponent((Component)newValue);
+				return;
+			case ModelPackage.COMPONENT_INTERFACE__SOURCE:
+				setSource((String)newValue);
+				return;
+			case ModelPackage.COMPONENT_INTERFACE__DISCIPLINE:
+				getDiscipline().clear();
+				getDiscipline().addAll((Collection<? extends String>)newValue);
+				return;
+			case ModelPackage.COMPONENT_INTERFACE__ANNOTATION:
+				setAnnotation((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -173,6 +296,15 @@ public abstract class ComponentInterfaceImpl extends ElementImpl implements Comp
 			case ModelPackage.COMPONENT_INTERFACE__PARENT_COMPONENT:
 				setParentComponent((Component)null);
 				return;
+			case ModelPackage.COMPONENT_INTERFACE__SOURCE:
+				setSource(SOURCE_EDEFAULT);
+				return;
+			case ModelPackage.COMPONENT_INTERFACE__DISCIPLINE:
+				getDiscipline().clear();
+				return;
+			case ModelPackage.COMPONENT_INTERFACE__ANNOTATION:
+				setAnnotation(ANNOTATION_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -186,8 +318,34 @@ public abstract class ComponentInterfaceImpl extends ElementImpl implements Comp
 		switch (featureID) {
 			case ModelPackage.COMPONENT_INTERFACE__PARENT_COMPONENT:
 				return basicGetParentComponent() != null;
+			case ModelPackage.COMPONENT_INTERFACE__SOURCE:
+				return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
+			case ModelPackage.COMPONENT_INTERFACE__DISCIPLINE:
+				return discipline != null && !discipline.isEmpty();
+			case ModelPackage.COMPONENT_INTERFACE__ANNOTATION:
+				return ANNOTATION_EDEFAULT == null ? annotation != null : !ANNOTATION_EDEFAULT.equals(annotation);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (source: "); //$NON-NLS-1$
+		result.append(source);
+		result.append(", discipline: "); //$NON-NLS-1$
+		result.append(discipline);
+		result.append(", annotation: "); //$NON-NLS-1$
+		result.append(annotation);
+		result.append(')');
+		return result.toString();
 	}
 
 } // ComponentInterfaceImpl

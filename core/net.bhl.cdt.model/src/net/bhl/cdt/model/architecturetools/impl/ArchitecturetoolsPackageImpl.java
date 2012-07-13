@@ -10,12 +10,14 @@ import net.bhl.cdt.model.architecturetools.AltitudeInterface;
 import net.bhl.cdt.model.architecturetools.ArchitecturetoolsFactory;
 import net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage;
 import net.bhl.cdt.model.architecturetools.CoefficientInterface;
+import net.bhl.cdt.model.architecturetools.DensityInterface;
 import net.bhl.cdt.model.architecturetools.Massive;
 import net.bhl.cdt.model.architecturetools.PowerConsumer;
 import net.bhl.cdt.model.architecturetools.PowerDemandView;
 import net.bhl.cdt.model.architecturetools.RangeInterface;
 import net.bhl.cdt.model.architecturetools.ReferenceAreaInterface;
 import net.bhl.cdt.model.architecturetools.SFCInterface;
+import net.bhl.cdt.model.architecturetools.VelocityInterface;
 import net.bhl.cdt.model.architecturetools.WettedAreaInterface;
 import net.bhl.cdt.model.calculation.CalculationPackage;
 import net.bhl.cdt.model.calculation.impl.CalculationPackageImpl;
@@ -90,6 +92,20 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 	 * @generated
 	 */
 	private EClass sfcInterfaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass densityInterfaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass velocityInterfaceEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
@@ -318,11 +334,48 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSFCInterface_SFCParameter() {
+	public EReference getSFCInterface_SfcParameter() {
 		return (EReference)sfcInterfaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDensityInterface() {
+		return densityInterfaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDensityInterface_DensityParameter() {
+		return (EReference)densityInterfaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getVelocityInterface() {
+		return velocityInterfaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getVelocityInterface_VelocityParameter() {
+		return (EReference)velocityInterfaceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -378,6 +431,12 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 
 		sfcInterfaceEClass = createEClass(SFC_INTERFACE);
 		createEReference(sfcInterfaceEClass, SFC_INTERFACE__SFC_PARAMETER);
+
+		densityInterfaceEClass = createEClass(DENSITY_INTERFACE);
+		createEReference(densityInterfaceEClass, DENSITY_INTERFACE__DENSITY_PARAMETER);
+
+		velocityInterfaceEClass = createEClass(VELOCITY_INTERFACE);
+		createEReference(velocityInterfaceEClass, VELOCITY_INTERFACE__VELOCITY_PARAMETER);
 	}
 
 	/**
@@ -419,6 +478,8 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 		altitudeInterfaceEClass.getESuperTypes().add(theModelPackage.getMappableComponentInterface());
 		rangeInterfaceEClass.getESuperTypes().add(theModelPackage.getMappableComponentInterface());
 		sfcInterfaceEClass.getESuperTypes().add(theModelPackage.getMappableComponentInterface());
+		densityInterfaceEClass.getESuperTypes().add(theModelPackage.getMappableComponentInterface());
+		velocityInterfaceEClass.getESuperTypes().add(theModelPackage.getMappableComponentInterface());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(powerConsumerEClass, PowerConsumer.class, "PowerConsumer", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
@@ -462,9 +523,19 @@ public class ArchitecturetoolsPackageImpl extends EPackageImpl implements Archit
 		addEOperation(rangeInterfaceEClass, theModelPackage.getValue(), "getRange", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(sfcInterfaceEClass, SFCInterface.class, "SFCInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getSFCInterface_SFCParameter(), theModelPackage.getParameter(), null, "SFCParameter", null, 0, 1, SFCInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEReference(getSFCInterface_SfcParameter(), theModelPackage.getParameter(), null, "sfcParameter", null, 0, 1, SFCInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		addEOperation(sfcInterfaceEClass, theModelPackage.getValue(), "getSFC", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(densityInterfaceEClass, DensityInterface.class, "DensityInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getDensityInterface_DensityParameter(), theModelPackage.getParameter(), null, "densityParameter", null, 0, 1, DensityInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		addEOperation(densityInterfaceEClass, theModelPackage.getValue(), "getDensity", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
+
+		initEClass(velocityInterfaceEClass, VelocityInterface.class, "VelocityInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEReference(getVelocityInterface_VelocityParameter(), theModelPackage.getParameter(), null, "velocityParameter", null, 0, 1, VelocityInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+
+		addEOperation(velocityInterfaceEClass, theModelPackage.getValue(), "getVelocity", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 	}
 
 } // ArchitecturetoolsPackageImpl

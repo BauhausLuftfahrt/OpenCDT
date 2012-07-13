@@ -372,13 +372,40 @@ public interface ModelPackage extends EPackage {
 	int PARAMETER__PARENT_COMPONENT = STRUCTURAL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__SOURCE = STRUCTURAL_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__DISCIPLINE = STRUCTURAL_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__ANNOTATION = STRUCTURAL_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__VALUES = STRUCTURAL_ELEMENT_FEATURE_COUNT + 1;
+	int PARAMETER__VALUES = STRUCTURAL_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Quantity</b></em>' attribute.
@@ -386,7 +413,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__QUANTITY = STRUCTURAL_ELEMENT_FEATURE_COUNT + 2;
+	int PARAMETER__QUANTITY = STRUCTURAL_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -395,7 +422,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = STRUCTURAL_ELEMENT_FEATURE_COUNT + 3;
+	int PARAMETER_FEATURE_COUNT = STRUCTURAL_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.impl.ComponentInterfaceImpl <em>Component Interface</em>}' class.
@@ -424,13 +451,40 @@ public interface ModelPackage extends EPackage {
 	int COMPONENT_INTERFACE__PARENT_COMPONENT = ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_INTERFACE__SOURCE = ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_INTERFACE__DISCIPLINE = ELEMENT_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_INTERFACE__ANNOTATION = ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Component Interface</em>' class.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_INTERFACE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+	int COMPONENT_INTERFACE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.impl.ViewImpl <em>View</em>}' class.
@@ -467,6 +521,33 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int MAPPABLE_COMPONENT_INTERFACE__PARENT_COMPONENT = COMPONENT_INTERFACE__PARENT_COMPONENT;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPABLE_COMPONENT_INTERFACE__SOURCE = COMPONENT_INTERFACE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPABLE_COMPONENT_INTERFACE__DISCIPLINE = COMPONENT_INTERFACE__DISCIPLINE;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPABLE_COMPONENT_INTERFACE__ANNOTATION = COMPONENT_INTERFACE__ANNOTATION;
 
 	/**
 	 * The number of structural features of the '<em>Mappable Component Interface</em>' class.
@@ -759,6 +840,39 @@ public interface ModelPackage extends EPackage {
 	EReference getComponentInterface_ParentComponent();
 
 	/**
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.ComponentInterface#getSource <em>Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Source</em>'.
+	 * @see net.bhl.cdt.model.ComponentInterface#getSource()
+	 * @see #getComponentInterface()
+	 * @generated
+	 */
+	EAttribute getComponentInterface_Source();
+
+	/**
+	 * Returns the meta object for the attribute list '{@link net.bhl.cdt.model.ComponentInterface#getDiscipline <em>Discipline</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Discipline</em>'.
+	 * @see net.bhl.cdt.model.ComponentInterface#getDiscipline()
+	 * @see #getComponentInterface()
+	 * @generated
+	 */
+	EAttribute getComponentInterface_Discipline();
+
+	/**
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.ComponentInterface#getAnnotation <em>Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Annotation</em>'.
+	 * @see net.bhl.cdt.model.ComponentInterface#getAnnotation()
+	 * @see #getComponentInterface()
+	 * @generated
+	 */
+	EAttribute getComponentInterface_Annotation();
+
+	/**
 	 * Returns the meta object for class '{@link net.bhl.cdt.model.View <em>View</em>}'.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -1017,6 +1131,30 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference COMPONENT_INTERFACE__PARENT_COMPONENT = eINSTANCE.getComponentInterface_ParentComponent();
+
+		/**
+		 * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPONENT_INTERFACE__SOURCE = eINSTANCE.getComponentInterface_Source();
+
+		/**
+		 * The meta object literal for the '<em><b>Discipline</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPONENT_INTERFACE__DISCIPLINE = eINSTANCE.getComponentInterface_Discipline();
+
+		/**
+		 * The meta object literal for the '<em><b>Annotation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPONENT_INTERFACE__ANNOTATION = eINSTANCE.getComponentInterface_Annotation();
 
 		/**
 		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.ViewImpl <em>View</em>}' class. <!--

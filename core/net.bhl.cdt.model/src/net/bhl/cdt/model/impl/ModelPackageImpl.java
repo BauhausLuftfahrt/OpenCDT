@@ -385,6 +385,33 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComponentInterface_Source() {
+		return (EAttribute)componentInterfaceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComponentInterface_Discipline() {
+		return (EAttribute)componentInterfaceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getComponentInterface_Annotation() {
+		return (EAttribute)componentInterfaceEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -458,6 +485,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		componentInterfaceEClass = createEClass(COMPONENT_INTERFACE);
 		createEReference(componentInterfaceEClass, COMPONENT_INTERFACE__PARENT_COMPONENT);
+		createEAttribute(componentInterfaceEClass, COMPONENT_INTERFACE__SOURCE);
+		createEAttribute(componentInterfaceEClass, COMPONENT_INTERFACE__DISCIPLINE);
+		createEAttribute(componentInterfaceEClass, COMPONENT_INTERFACE__ANNOTATION);
 
 		mappableComponentInterfaceEClass = createEClass(MAPPABLE_COMPONENT_INTERFACE);
 
@@ -550,6 +580,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		initEClass(componentInterfaceEClass, ComponentInterface.class, "ComponentInterface", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getComponentInterface_ParentComponent(), this.getComponent(), this.getComponent_Interfaces(), "parentComponent", null, 0, 1, ComponentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getComponentInterface_Source(), theEcorePackage.getEString(), "source", null, 0, 1, ComponentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getComponentInterface_Discipline(), theEcorePackage.getEString(), "discipline", null, 0, -1, ComponentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEAttribute(getComponentInterface_Annotation(), theEcorePackage.getEString(), "annotation", null, 0, 1, ComponentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(mappableComponentInterfaceEClass, MappableComponentInterface.class, "MappableComponentInterface", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 

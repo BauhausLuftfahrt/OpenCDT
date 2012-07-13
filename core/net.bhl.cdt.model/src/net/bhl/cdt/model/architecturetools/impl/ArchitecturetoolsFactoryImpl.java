@@ -72,6 +72,8 @@ public class ArchitecturetoolsFactoryImpl extends EFactoryImpl implements Archit
 			case ArchitecturetoolsPackage.ALTITUDE_INTERFACE: return createAltitudeInterface();
 			case ArchitecturetoolsPackage.RANGE_INTERFACE: return createRangeInterface();
 			case ArchitecturetoolsPackage.SFC_INTERFACE: return createSFCInterface();
+			case ArchitecturetoolsPackage.DENSITY_INTERFACE: return createDensityInterface();
+			case ArchitecturetoolsPackage.VELOCITY_INTERFACE: return createVelocityInterface();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier"); //$NON-NLS-1$ //$NON-NLS-2$
 		}
@@ -156,6 +158,26 @@ public class ArchitecturetoolsFactoryImpl extends EFactoryImpl implements Archit
 	public SFCInterface createSFCInterface() {
 		SFCInterfaceImpl sfcInterface = new SFCInterfaceImpl();
 		return sfcInterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DensityInterface createDensityInterface() {
+		DensityInterfaceImpl densityInterface = new DensityInterfaceImpl();
+		return densityInterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public VelocityInterface createVelocityInterface() {
+		VelocityInterfaceImpl velocityInterface = new VelocityInterfaceImpl();
+		return velocityInterface;
 	}
 
 	/**

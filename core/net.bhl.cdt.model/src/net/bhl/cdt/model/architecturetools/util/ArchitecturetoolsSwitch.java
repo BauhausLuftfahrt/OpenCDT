@@ -163,6 +163,26 @@ public class ArchitecturetoolsSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ArchitecturetoolsPackage.DENSITY_INTERFACE: {
+				DensityInterface densityInterface = (DensityInterface)theEObject;
+				T result = caseDensityInterface(densityInterface);
+				if (result == null) result = caseMappableComponentInterface(densityInterface);
+				if (result == null) result = caseComponentInterface(densityInterface);
+				if (result == null) result = caseElement(densityInterface);
+				if (result == null) result = caseExchangeElement(densityInterface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ArchitecturetoolsPackage.VELOCITY_INTERFACE: {
+				VelocityInterface velocityInterface = (VelocityInterface)theEObject;
+				T result = caseVelocityInterface(velocityInterface);
+				if (result == null) result = caseMappableComponentInterface(velocityInterface);
+				if (result == null) result = caseComponentInterface(velocityInterface);
+				if (result == null) result = caseElement(velocityInterface);
+				if (result == null) result = caseExchangeElement(velocityInterface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -288,6 +308,36 @@ public class ArchitecturetoolsSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseSFCInterface(SFCInterface object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Density Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Density Interface</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDensityInterface(DensityInterface object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Velocity Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Velocity Interface</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVelocityInterface(VelocityInterface object) {
 		return null;
 	}
 

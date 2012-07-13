@@ -5,6 +5,8 @@
  ******************************************************************************/
 package net.bhl.cdt.model;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Component Interface</b></em>'. <!-- end-user-doc
  * -->
@@ -46,5 +48,73 @@ public interface ComponentInterface extends Element {
 	 * @generated
 	 */
 	void setParentComponent(Component value);
+
+	/**
+	 * Returns the value of the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Source</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Source</em>' attribute.
+	 * @see #setSource(String)
+	 * @see net.bhl.cdt.model.ModelPackage#getComponentInterface_Source()
+	 * @model
+	 * @generated
+	 */
+	String getSource();
+
+	/**
+	 * Sets the value of the '{@link net.bhl.cdt.model.ComponentInterface#getSource <em>Source</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Source</em>' attribute.
+	 * @see #getSource()
+	 * @generated
+	 */
+	void setSource(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Discipline</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Discipline</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Discipline</em>' attribute list.
+	 * @see net.bhl.cdt.model.ModelPackage#getComponentInterface_Discipline()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getDiscipline();
+
+	/**
+	 * Returns the value of the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Annotation</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Annotation</em>' attribute.
+	 * @see #setAnnotation(String)
+	 * @see net.bhl.cdt.model.ModelPackage#getComponentInterface_Annotation()
+	 * @model
+	 * @generated
+	 */
+	String getAnnotation();
+
+	/**
+	 * Sets the value of the '{@link net.bhl.cdt.model.ComponentInterface#getAnnotation <em>Annotation</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Annotation</em>' attribute.
+	 * @see #getAnnotation()
+	 * @generated
+	 */
+	void setAnnotation(String value);
 
 } // ComponentInterface

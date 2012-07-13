@@ -81,6 +81,33 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	int POWER_CONSUMER__PARENT_COMPONENT = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__PARENT_COMPONENT;
 
 	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POWER_CONSUMER__SOURCE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POWER_CONSUMER__DISCIPLINE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DISCIPLINE;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POWER_CONSUMER__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
+
+	/**
 	 * The feature id for the '<em><b>Power Parameter</b></em>' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -168,6 +195,33 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	int MASSIVE__PARENT_COMPONENT = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__PARENT_COMPONENT;
 
 	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MASSIVE__SOURCE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MASSIVE__DISCIPLINE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DISCIPLINE;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MASSIVE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
+
+	/**
 	 * The feature id for the '<em><b>Mass Parameter</b></em>' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -208,6 +262,33 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COEFFICIENT_INTERFACE__PARENT_COMPONENT = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__PARENT_COMPONENT;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COEFFICIENT_INTERFACE__SOURCE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COEFFICIENT_INTERFACE__DISCIPLINE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DISCIPLINE;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COEFFICIENT_INTERFACE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -262,6 +343,33 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	int WETTED_AREA_INTERFACE__PARENT_COMPONENT = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__PARENT_COMPONENT;
 
 	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WETTED_AREA_INTERFACE__SOURCE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WETTED_AREA_INTERFACE__DISCIPLINE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DISCIPLINE;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WETTED_AREA_INTERFACE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
+
+	/**
 	 * The feature id for the '<em><b>Wetted Area Parameter</b></em>' reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -304,6 +412,33 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE_AREA_INTERFACE__PARENT_COMPONENT = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__PARENT_COMPONENT;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_AREA_INTERFACE__SOURCE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_AREA_INTERFACE__DISCIPLINE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DISCIPLINE;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_AREA_INTERFACE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
 
 	/**
 	 * The feature id for the '<em><b>Reference Area Parameter</b></em>' reference.
@@ -350,6 +485,33 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	int ALTITUDE_INTERFACE__PARENT_COMPONENT = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__PARENT_COMPONENT;
 
 	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTITUDE_INTERFACE__SOURCE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTITUDE_INTERFACE__DISCIPLINE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DISCIPLINE;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTITUDE_INTERFACE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
+
+	/**
 	 * The feature id for the '<em><b>Altitude Parameter</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
@@ -392,6 +554,33 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int RANGE_INTERFACE__PARENT_COMPONENT = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__PARENT_COMPONENT;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE_INTERFACE__SOURCE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE_INTERFACE__DISCIPLINE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DISCIPLINE;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE_INTERFACE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
 
 	/**
 	 * The feature id for the '<em><b>Range Parameter</b></em>' reference.
@@ -437,7 +626,34 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	int SFC_INTERFACE__PARENT_COMPONENT = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__PARENT_COMPONENT;
 
 	/**
-	 * The feature id for the '<em><b>SFC Parameter</b></em>' reference.
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFC_INTERFACE__SOURCE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFC_INTERFACE__DISCIPLINE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DISCIPLINE;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFC_INTERFACE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Sfc Parameter</b></em>' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -452,6 +668,152 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int SFC_INTERFACE_FEATURE_COUNT = ModelPackage.MAPPABLE_COMPONENT_INTERFACE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link net.bhl.cdt.model.architecturetools.impl.DensityInterfaceImpl <em>Density Interface</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see net.bhl.cdt.model.architecturetools.impl.DensityInterfaceImpl
+	 * @see net.bhl.cdt.model.architecturetools.impl.ArchitecturetoolsPackageImpl#getDensityInterface()
+	 * @generated
+	 */
+	int DENSITY_INTERFACE = 9;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENSITY_INTERFACE__NAME = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parent Component</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENSITY_INTERFACE__PARENT_COMPONENT = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__PARENT_COMPONENT;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENSITY_INTERFACE__SOURCE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENSITY_INTERFACE__DISCIPLINE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DISCIPLINE;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENSITY_INTERFACE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Density Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENSITY_INTERFACE__DENSITY_PARAMETER = ModelPackage.MAPPABLE_COMPONENT_INTERFACE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Density Interface</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENSITY_INTERFACE_FEATURE_COUNT = ModelPackage.MAPPABLE_COMPONENT_INTERFACE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link net.bhl.cdt.model.architecturetools.impl.VelocityInterfaceImpl <em>Velocity Interface</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see net.bhl.cdt.model.architecturetools.impl.VelocityInterfaceImpl
+	 * @see net.bhl.cdt.model.architecturetools.impl.ArchitecturetoolsPackageImpl#getVelocityInterface()
+	 * @generated
+	 */
+	int VELOCITY_INTERFACE = 10;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VELOCITY_INTERFACE__NAME = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Parent Component</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VELOCITY_INTERFACE__PARENT_COMPONENT = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__PARENT_COMPONENT;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VELOCITY_INTERFACE__SOURCE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__SOURCE;
+
+	/**
+	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VELOCITY_INTERFACE__DISCIPLINE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DISCIPLINE;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VELOCITY_INTERFACE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Velocity Parameter</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VELOCITY_INTERFACE__VELOCITY_PARAMETER = ModelPackage.MAPPABLE_COMPONENT_INTERFACE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Velocity Interface</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VELOCITY_INTERFACE_FEATURE_COUNT = ModelPackage.MAPPABLE_COMPONENT_INTERFACE_FEATURE_COUNT + 1;
 
 	/**
 	 * Returns the meta object for class '{@link net.bhl.cdt.model.architecturetools.PowerConsumer <em>Power Consumer</em>}'.
@@ -641,16 +1003,57 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	EClass getSFCInterface();
 
 	/**
-	 * Returns the meta object for the reference '
-	 * {@link net.bhl.cdt.model.architecturetools.SFCInterface#getSFCParameter <em>SFC Parameter</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the reference '<em>SFC Parameter</em>'.
-	 * @see net.bhl.cdt.model.architecturetools.SFCInterface#getSFCParameter()
+	 * Returns the meta object for the reference '{@link net.bhl.cdt.model.architecturetools.SFCInterface#getSfcParameter <em>Sfc Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Sfc Parameter</em>'.
+	 * @see net.bhl.cdt.model.architecturetools.SFCInterface#getSfcParameter()
 	 * @see #getSFCInterface()
 	 * @generated
 	 */
-	EReference getSFCInterface_SFCParameter();
+	EReference getSFCInterface_SfcParameter();
+
+	/**
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.architecturetools.DensityInterface <em>Density Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Density Interface</em>'.
+	 * @see net.bhl.cdt.model.architecturetools.DensityInterface
+	 * @generated
+	 */
+	EClass getDensityInterface();
+
+	/**
+	 * Returns the meta object for the reference '{@link net.bhl.cdt.model.architecturetools.DensityInterface#getDensityParameter <em>Density Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Density Parameter</em>'.
+	 * @see net.bhl.cdt.model.architecturetools.DensityInterface#getDensityParameter()
+	 * @see #getDensityInterface()
+	 * @generated
+	 */
+	EReference getDensityInterface_DensityParameter();
+
+	/**
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.architecturetools.VelocityInterface <em>Velocity Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Velocity Interface</em>'.
+	 * @see net.bhl.cdt.model.architecturetools.VelocityInterface
+	 * @generated
+	 */
+	EClass getVelocityInterface();
+
+	/**
+	 * Returns the meta object for the reference '{@link net.bhl.cdt.model.architecturetools.VelocityInterface#getVelocityParameter <em>Velocity Parameter</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Velocity Parameter</em>'.
+	 * @see net.bhl.cdt.model.architecturetools.VelocityInterface#getVelocityParameter()
+	 * @see #getVelocityInterface()
+	 * @generated
+	 */
+	EReference getVelocityInterface_VelocityParameter();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -834,12 +1237,48 @@ public interface ArchitecturetoolsPackage extends EPackage {
 		EClass SFC_INTERFACE = eINSTANCE.getSFCInterface();
 
 		/**
-		 * The meta object literal for the '<em><b>SFC Parameter</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Sfc Parameter</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SFC_INTERFACE__SFC_PARAMETER = eINSTANCE.getSFCInterface_SFCParameter();
+		EReference SFC_INTERFACE__SFC_PARAMETER = eINSTANCE.getSFCInterface_SfcParameter();
+
+		/**
+		 * The meta object literal for the '{@link net.bhl.cdt.model.architecturetools.impl.DensityInterfaceImpl <em>Density Interface</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see net.bhl.cdt.model.architecturetools.impl.DensityInterfaceImpl
+		 * @see net.bhl.cdt.model.architecturetools.impl.ArchitecturetoolsPackageImpl#getDensityInterface()
+		 * @generated
+		 */
+		EClass DENSITY_INTERFACE = eINSTANCE.getDensityInterface();
+
+		/**
+		 * The meta object literal for the '<em><b>Density Parameter</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DENSITY_INTERFACE__DENSITY_PARAMETER = eINSTANCE.getDensityInterface_DensityParameter();
+
+		/**
+		 * The meta object literal for the '{@link net.bhl.cdt.model.architecturetools.impl.VelocityInterfaceImpl <em>Velocity Interface</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see net.bhl.cdt.model.architecturetools.impl.VelocityInterfaceImpl
+		 * @see net.bhl.cdt.model.architecturetools.impl.ArchitecturetoolsPackageImpl#getVelocityInterface()
+		 * @generated
+		 */
+		EClass VELOCITY_INTERFACE = eINSTANCE.getVelocityInterface();
+
+		/**
+		 * The meta object literal for the '<em><b>Velocity Parameter</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VELOCITY_INTERFACE__VELOCITY_PARAMETER = eINSTANCE.getVelocityInterface_VelocityParameter();
 
 	}
 

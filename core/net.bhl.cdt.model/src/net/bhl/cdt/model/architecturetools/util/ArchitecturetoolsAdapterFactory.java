@@ -114,6 +114,14 @@ public class ArchitecturetoolsAdapterFactory extends AdapterFactoryImpl {
 				return createSFCInterfaceAdapter();
 			}
 			@Override
+			public Adapter caseDensityInterface(DensityInterface object) {
+				return createDensityInterfaceAdapter();
+			}
+			@Override
+			public Adapter caseVelocityInterface(VelocityInterface object) {
+				return createVelocityInterfaceAdapter();
+			}
+			@Override
 			public Adapter caseExchangeElement(ExchangeElement object) {
 				return createExchangeElementAdapter();
 			}
@@ -266,6 +274,34 @@ public class ArchitecturetoolsAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createSFCInterfaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.architecturetools.DensityInterface <em>Density Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see net.bhl.cdt.model.architecturetools.DensityInterface
+	 * @generated
+	 */
+	public Adapter createDensityInterfaceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.architecturetools.VelocityInterface <em>Velocity Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see net.bhl.cdt.model.architecturetools.VelocityInterface
+	 * @generated
+	 */
+	public Adapter createVelocityInterfaceAdapter() {
 		return null;
 	}
 

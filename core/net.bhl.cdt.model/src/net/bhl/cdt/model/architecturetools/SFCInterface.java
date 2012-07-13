@@ -15,7 +15,7 @@ import net.bhl.cdt.model.Value;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link net.bhl.cdt.model.architecturetools.SFCInterface#getSFCParameter <em>SFC Parameter</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.architecturetools.SFCInterface#getSfcParameter <em>Sfc Parameter</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,29 +25,30 @@ import net.bhl.cdt.model.Value;
  */
 public interface SFCInterface extends MappableComponentInterface {
 	/**
-	 * Returns the value of the '<em><b>SFC Parameter</b></em>' reference.
+	 * Returns the value of the '<em><b>Sfc Parameter</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>SFC Parameter</em>' reference isn't clear, there really should be more of a
-	 * description here...
+	 * If the meaning of the '<em>Sfc Parameter</em>' reference isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>SFC Parameter</em>' reference.
-	 * @see #setSFCParameter(Parameter)
-	 * @see net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage#getSFCInterface_SFCParameter()
+	 * @return the value of the '<em>Sfc Parameter</em>' reference.
+	 * @see #setSfcParameter(Parameter)
+	 * @see net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage#getSFCInterface_SfcParameter()
 	 * @model
 	 * @generated
 	 */
-	Parameter getSFCParameter();
+	Parameter getSfcParameter();
 
 	/**
-	 * Sets the value of the '{@link net.bhl.cdt.model.architecturetools.SFCInterface#getSFCParameter <em>SFC Parameter</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>SFC Parameter</em>' reference.
-	 * @see #getSFCParameter()
+	 * Sets the value of the '{@link net.bhl.cdt.model.architecturetools.SFCInterface#getSfcParameter <em>Sfc Parameter</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sfc Parameter</em>' reference.
+	 * @see #getSfcParameter()
 	 * @generated
 	 */
-	void setSFCParameter(Parameter value);
+	void setSfcParameter(Parameter value);
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

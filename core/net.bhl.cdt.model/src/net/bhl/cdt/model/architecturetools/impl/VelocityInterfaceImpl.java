@@ -11,7 +11,7 @@ import java.util.List;
 import net.bhl.cdt.model.Parameter;
 import net.bhl.cdt.model.Value;
 import net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage;
-import net.bhl.cdt.model.architecturetools.SFCInterface;
+import net.bhl.cdt.model.architecturetools.VelocityInterface;
 import net.bhl.cdt.model.architecturetools.exceptions.NoParameterSetForInterfaceException;
 import net.bhl.cdt.model.architecturetools.exceptions.NoValueFoundException;
 import net.bhl.cdt.model.impl.ComponentInterfaceImpl;
@@ -24,80 +24,88 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object ' <em><b>SFC Interface</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Velocity Interface</b></em>'. <!-- end-user-doc
+ * -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link net.bhl.cdt.model.architecturetools.impl.SFCInterfaceImpl#getSfcParameter <em>Sfc Parameter</em>}</li>
+ * <li>{@link net.bhl.cdt.model.architecturetools.impl.VelocityInterfaceImpl#getVelocityParameter <em>Velocity Parameter
+ * </em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
-public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInterface {
+public class VelocityInterfaceImpl extends ComponentInterfaceImpl implements VelocityInterface {
 	/**
-	 * The cached value of the '{@link #getSfcParameter() <em>Sfc Parameter</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSfcParameter()
+	 * The cached value of the '{@link #getVelocityParameter() <em>Velocity Parameter</em>}' reference. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @see #getVelocityParameter()
 	 * @generated
 	 * @ordered
 	 */
-	protected Parameter sfcParameter;
+	protected Parameter velocityParameter;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	protected SFCInterfaceImpl() {
+	protected VelocityInterfaceImpl() {
 		super();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ArchitecturetoolsPackage.Literals.SFC_INTERFACE;
+		return ArchitecturetoolsPackage.Literals.VELOCITY_INTERFACE;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public Parameter getSfcParameter() {
-		if (sfcParameter != null && sfcParameter.eIsProxy()) {
-			InternalEObject oldSfcParameter = (InternalEObject)sfcParameter;
-			sfcParameter = (Parameter)eResolveProxy(oldSfcParameter);
-			if (sfcParameter != oldSfcParameter) {
+	public Parameter getVelocityParameter() {
+		if (velocityParameter != null && velocityParameter.eIsProxy()) {
+			InternalEObject oldVelocityParameter = (InternalEObject) velocityParameter;
+			velocityParameter = (Parameter) eResolveProxy(oldVelocityParameter);
+			if (velocityParameter != oldVelocityParameter) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER, oldSfcParameter, sfcParameter));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
+						ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER, oldVelocityParameter,
+						velocityParameter));
 			}
 		}
-		return sfcParameter;
+		return velocityParameter;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public Parameter basicGetSfcParameter() {
-		return sfcParameter;
+	public Parameter basicGetVelocityParameter() {
+		return velocityParameter;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public void setSfcParameter(Parameter newSfcParameter) {
-		Parameter oldSfcParameter = sfcParameter;
-		sfcParameter = newSfcParameter;
+	public void setVelocityParameter(Parameter newVelocityParameter) {
+		Parameter oldVelocityParameter = velocityParameter;
+		velocityParameter = newVelocityParameter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER, oldSfcParameter, sfcParameter));
+			eNotify(new ENotificationImpl(this, Notification.SET,
+				ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER, oldVelocityParameter,
+				velocityParameter));
 	}
 
 	/**
@@ -105,15 +113,14 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 	 * 
 	 * @generated NOT
 	 */
-	public Value getSFC() {
-		if (sfcParameter == null) {
+	public Value getVelocity() {
+		if (velocityParameter == null) {
 			throw new NoParameterSetForInterfaceException();
 		}
-		if (sfcParameter.getValues().size() == 0) {
+		if (velocityParameter.getValues().size() == 0) {
 			throw new NoValueFoundException();
 		}
-		return sfcParameter.getValues().get(0);
-
+		return velocityParameter.getValues().get(0);
 	}
 
 	/**
@@ -122,10 +129,10 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 	 * @generated NOT
 	 */
 	public Value getValue() {
-		if (sfcParameter.getValue() == null) {
+		if (getVelocity() == null) {
 			throw new NoValueFoundException();
 		}
-		return getSFC();
+		return getVelocity();
 	}
 
 	/**
@@ -134,10 +141,11 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 	 * @generated NOT
 	 */
 	public Quantity getQuantity() {
-		if (sfcParameter == null) {
+		Parameter parameter = getVelocityParameter();
+		if (parameter == null) {
 			throw new NoParameterSetForInterfaceException();
 		}
-		return sfcParameter.getQuantity();
+		return parameter.getQuantity();
 	}
 
 	/**
@@ -150,7 +158,7 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 		if (value == null) {
 			throw new NoValueFoundException();
 		}
-		sfcParameter.getValues().add(value);
+		velocityParameter.getValues().add(value);
 	}
 
 	/**
@@ -159,10 +167,11 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 	 * @generated NOT
 	 */
 	public Parameter getParameter() {
-		if (sfcParameter == null) {
+		if (velocityParameter == null) {
 			throw new NoParameterSetForInterfaceException();
 		}
-		return sfcParameter;
+		return velocityParameter;
+
 	}
 
 	/**
@@ -171,10 +180,10 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 	 * @generated NOT
 	 */
 	public boolean hasValue() {
-		if (sfcParameter == null) {
+		if (velocityParameter == null) {
 			throw new NoParameterSetForInterfaceException();
 		}
-		return sfcParameter.hasValue();
+		return velocityParameter.hasValue();
 	}
 
 	/**
@@ -183,14 +192,14 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 	 * @generated NOT
 	 */
 	public Value getValue(CalculationSpaceQualifier calcSpaceQualifier) {
-		if (sfcParameter == null) {
+		if (velocityParameter == null) {
 			throw new NoParameterSetForInterfaceException();
 		}
-		if (sfcParameter.getValues().size() == 0) {
+		if (velocityParameter.getValues().size() == 0) {
 			throw new NoValueFoundException();
 		}
 		List<Value> values = new ArrayList<Value>();
-		for (Value value : sfcParameter.getValues()) {
+		for (Value value : velocityParameter.getValues()) {
 			if (calcSpaceQualifier.getQualifies().contains(value)) {
 				values.add(value);
 			}
@@ -200,57 +209,62 @@ public class SFCInterfaceImpl extends ComponentInterfaceImpl implements SFCInter
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER:
-				if (resolve) return getSfcParameter();
-				return basicGetSfcParameter();
+		case ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER:
+			if (resolve)
+				return getVelocityParameter();
+			return basicGetVelocityParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER:
-				setSfcParameter((Parameter)newValue);
-				return;
+		case ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER:
+			setVelocityParameter((Parameter) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER:
-				setSfcParameter((Parameter)null);
-				return;
+		case ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER:
+			setVelocityParameter((Parameter) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ArchitecturetoolsPackage.SFC_INTERFACE__SFC_PARAMETER:
-				return sfcParameter != null;
+		case ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER:
+			return velocityParameter != null;
 		}
 		return super.eIsSet(featureID);
 	}
 
-} // SFCInterfaceImpl
+} // VelocityInterfaceImpl
