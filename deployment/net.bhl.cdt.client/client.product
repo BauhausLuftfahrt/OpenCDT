@@ -43,12 +43,31 @@ Martin Glas, Sebastian Höcht, Michael Kagel, Stephan Leutenmayr, Sami Mkhazni, 
       </win>
    </launcher>
 
+
    <vm>
    </vm>
 
+   <license>
+        <url>http://www.eclipse.org/legal/epl-v10.html</url>
+        <text>
+   Conceptual Design Tool (CDT)
+Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html
+
+Version 0.8
+
+CDT uses the following third party libaries:
+* javax.units which is available under the BSD license at  http://jsr-108.sourceforge.net/
+* jscience which is available under the BSD license at http://java.net/projects/jscience/
+
+CDT also uses some icons from fugue icons © 2012 Yusuke Kamiyamane. All rights reserved. which is available under the Creative Commons BY 3.0 license at http://p.yusukekamiyamane.com/
+
+Contributors (in alphabetical order):
+Martin Glas, Sebastian Höcht, Michael Kagel, Stephan Leutenmayr, Sami Mkhazni, Florian Penn, Otto von Wesendonk, Sven Ziemer
+         </text>
+   </license>
+
    <plugins>
       <plugin id="com.ibm.icu"/>
-      <plugin id="net.bhl.cdt.architecturetools"/>
       <plugin id="net.bhl.cdt.calculation"/>
       <plugin id="net.bhl.cdt.calculationrepository"/>
       <plugin id="net.bhl.cdt.calculationrepository.edit"/>
@@ -56,6 +75,8 @@ Martin Glas, Sebastian Höcht, Michael Kagel, Stephan Leutenmayr, Sami Mkhazni, 
       <plugin id="net.bhl.cdt.connector"/>
       <plugin id="net.bhl.cdt.model"/>
       <plugin id="net.bhl.cdt.model.edit"/>
+      <plugin id="net.bhl.cdt.model.modelview"/>
+      <plugin id="net.bhl.cdt.model.modelview.edit"/>
       <plugin id="net.bhl.cdt.resources"/>
       <plugin id="net.bhl.cdt.resources.edit"/>
       <plugin id="net.bhl.cdt.ui"/>
