@@ -58,7 +58,7 @@ public class CalculationEditor extends EditorPart {
 	private CalculationEditorInput input;
 	private List<Parameter> parameterList;
 	private Component component;
-	private Combo functionIDCombo;
+	private Label lblNewLabel;
 
 	public CalculationEditor() {
 		super();
@@ -76,8 +76,6 @@ public class CalculationEditor extends EditorPart {
 
 		Composite composite = new Composite(container, SWT.NONE);
 		FormData fd_composite = new FormData();
-		fd_composite.bottom = new FormAttachment(0, 74);
-		fd_composite.right = new FormAttachment(0, 584);
 		fd_composite.top = new FormAttachment(0, 10);
 		fd_composite.left = new FormAttachment(0, 10);
 		composite.setLayoutData(fd_composite);
@@ -99,22 +97,21 @@ public class CalculationEditor extends EditorPart {
 		lblFunction.setText("Function ID");
 
 		final Composite parameterComposite = new Composite(container, SWT.NONE);
+		fd_composite.bottom = new FormAttachment(parameterComposite, -6);
+		fd_composite.right = new FormAttachment(parameterComposite, 0, SWT.RIGHT);
 		parameterComposite.setLayout(new GridLayout(2, false));
 		FormData fd_parameterComposite = new FormData();
 		fd_parameterComposite.bottom = new FormAttachment(100, -10);
-		fd_parameterComposite.right = new FormAttachment(composite, 0, SWT.RIGHT);
-		fd_parameterComposite.top = new FormAttachment(composite, 6);
-		fd_parameterComposite.left = new FormAttachment(composite, 0, SWT.LEFT);
+		fd_parameterComposite.top = new FormAttachment(0, 80);
+		fd_parameterComposite.left = new FormAttachment(0, 10);
+		fd_parameterComposite.right = new FormAttachment(100, -10);
+		
+		lblNewLabel = new Label(composite, SWT.BORDER);
+		lblNewLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		lblNewLabel.setText("");
 		parameterComposite.setLayoutData(fd_parameterComposite);
 
-		functionIDCombo = new Combo(composite, SWT.NONE);
-		functionIDCombo.addModifyListener(new ModifyListener() {
-			public void modifyText(ModifyEvent e) {
-				createMappingGUI(((Combo) e.getSource()).getText(), parameterComposite);
-			}
-		});
-		functionIDCombo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-
+		createMappingGUI(calculation.getFunctionID(), parameterComposite);
 		m_bindingContext = initDataBindings();
 	}
 
@@ -152,29 +149,20 @@ public class CalculationEditor extends EditorPart {
 	public boolean isSaveAsAllowed() {
 		return false;
 	}
-
 	protected DataBindingContext initDataBindings() {
 		DataBindingContext bindingContext = new DataBindingContext();
 		//
-		IObservableValue observeTextCalculationNameObserveWidget = WidgetProperties.text(SWT.Modify).observe(
-			calculationName);
+		IObservableValue observeTextCalculationNameObserveWidget = WidgetProperties.text(SWT.Modify).observe(calculationName);
 		IObservableValue calculationnameInputObserveValue = PojoProperties.value("calculation.name").observe(input);
 		bindingContext.bindValue(observeTextCalculationNameObserveWidget, calculationnameInputObserveValue, null, null);
 		//
-		IObservableList itemsFunctionIDObserveWidget = WidgetProperties.items().observe(functionIDCombo);
-		IObservableList functionIDsInputObserveList = PojoProperties.list("functionIDs").observe(input);
-		bindingContext.bindList(itemsFunctionIDObserveWidget, functionIDsInputObserveList, null, null);
-		//
-		IObservableValue observeSelectionFunctionIDObserveWidget = WidgetProperties.selection()
-			.observe(functionIDCombo);
-		IObservableValue calculationfunctionIDInputObserveValue = PojoProperties.value("calculation.functionID")
-			.observe(input);
-		bindingContext.bindValue(observeSelectionFunctionIDObserveWidget, calculationfunctionIDInputObserveValue, null,
-			null);
+		IObservableValue observeTextLblNewLabelObserveWidget = WidgetProperties.text().observe(lblNewLabel);
+		IObservableValue calculationfunctionIDInputObserveValue = PojoProperties.value("calculation.functionID").observe(input);
+		bindingContext.bindValue(observeTextLblNewLabelObserveWidget, calculationfunctionIDInputObserveValue, null, null);
 		//
 		return bindingContext;
 	}
-
+	
 	private void createMappingGUI(String functionID, Composite composite) {
 		Function selectedFunction = CalculationRepositoryManager.getInstance().getFunction(
 			UtilitiesHelper.getProjectId(calculation), functionID);

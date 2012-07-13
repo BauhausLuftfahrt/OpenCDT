@@ -10,9 +10,11 @@ import net.bhl.cdt.model.calculation.Calculation;
 import net.bhl.cdt.ui.editors.CalculationEditor;
 import net.bhl.cdt.ui.editors.CalculationWizard;
 import net.bhl.cdt.ui.editors.function.FunctionEditorInput;
+import net.bhl.cdt.utilities.commands.CDTCommand;
 import net.bhl.cdt.utilities.exceptions.CDTRuntimeException;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecp.common.util.ModelElementOpener;
 import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
@@ -39,31 +41,43 @@ public class CalculationEditorOpener implements ModelElementOpener {
 	}
 
 	@Override
-	public void openModelElement(EObject modelElement) {
+	public void openModelElement(final EObject modelElement) {
 		if (!(modelElement instanceof Calculation)) {
 			throw new CDTRuntimeException("The selected ModelElement must be of type Calculation");
 		}
-		
+
 		IWorkbench wb = PlatformUI.getWorkbench();
 		IWorkbenchWindow window = wb.getActiveWorkbenchWindow();
 		IWorkbenchPage page = window.getActivePage();
 
 		Calculation calculation = (Calculation) modelElement;
 		if (calculation.getFunctionID() == null || calculation.getFunctionID().equals("")) {
-			WizardDialog wizardDialog = new WizardDialog(window.getShell(), new CalculationWizard());
+			WizardDialog wizardDialog = new WizardDialog(window.getShell(), new CalculationWizard(calculation));
 			if (wizardDialog.open() == Window.OK) {
-				System.out.println("Ok pressed");
-			} else {
-				System.out.println("Cancel pressed");
+				//CDTCommand executed in CaculationWizard.performFinish
+				openEditor(calculation, page);
 			}
+			// remove empty Calculation element from tree, as it is already created
+			else {
+				(new CDTCommand() {
+					@Override
+					protected void doRun() {
+						EcoreUtil.remove(modelElement);
+					}
+				}).run();
+			}
+		} else {
+			openEditor(calculation, page);
 		}
 
-		CalculationEditorInput input = new CalculationEditorInput((Calculation) modelElement);
+	}
+
+	private void openEditor(Calculation c, IWorkbenchPage page) {
+		CalculationEditorInput input = new CalculationEditorInput(c);
 
 		try {
 			page.openEditor(input, CalculationEditor.ID);
 		} catch (PartInitException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
