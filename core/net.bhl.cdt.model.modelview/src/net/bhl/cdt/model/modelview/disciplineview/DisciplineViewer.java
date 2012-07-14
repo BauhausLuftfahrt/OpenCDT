@@ -189,15 +189,15 @@ public class DisciplineViewer extends EditorPart {
 
 	private void refreshTree() {
 		treeViewer.resetFilters();
-		treeViewer.addFilter(new ViewerFilter() {
-			@Override
-			public boolean select(Viewer viewer, Object parentElement, Object element) {
-				return (parentElement instanceof Configuration && element == mainComponent)
-					|| !(parentElement instanceof Configuration);
-			}
-		});
+//		treeViewer.addFilter(new ViewerFilter() {
+//			@Override
+//			public boolean select(Viewer viewer, Object parentElement, Object element) {
+//				return (parentElement instanceof Configuration && element == mainComponent)
+//					|| !(parentElement instanceof Configuration);
+//			}
+//		});
 		treeViewer.addFilter(new SimpleFilter());
-		treeViewer.setInput(configuration);
+		treeViewer.setInput(configuration.eContainer());
 	}
 
 	@Override
@@ -215,7 +215,10 @@ public class DisciplineViewer extends EditorPart {
 			throw new PartInitException("No components in configuration");
 		}
 		// better aircraft component selection?
-		mainComponent = configuration.getComponents().get(0);
+		//TODO: check this out
+		//mainComponent = configuration.getComponents().get(0);
+		mainComponent = null ;
+		
 
 		// editor related
 		setInput(input);
@@ -363,7 +366,8 @@ public class DisciplineViewer extends EditorPart {
 		}
 
 		public boolean select(Viewer viewer, Object parentElement, Object element) {
-			return allowed.contains(element);
+			boolean result = allowed.contains(element);
+			return result;
 		}
 	}
 
