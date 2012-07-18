@@ -54,7 +54,7 @@ public class CalculationEditorOpener implements ModelElementOpener {
 		if (calculation.getFunctionID() == null || calculation.getFunctionID().equals("")) {
 			WizardDialog wizardDialog = new WizardDialog(window.getShell(), new CalculationWizard(calculation));
 			if (wizardDialog.open() == Window.OK) {
-				//CDTCommand executed in CaculationWizard.performFinish
+				// CDTCommand executed in CaculationWizard.performFinish
 				openEditor(calculation, page);
 			}
 			// remove empty Calculation element from tree, as it is already created
@@ -69,12 +69,10 @@ public class CalculationEditorOpener implements ModelElementOpener {
 		} else {
 			openEditor(calculation, page);
 		}
-
 	}
 
 	private void openEditor(Calculation c, IWorkbenchPage page) {
 		CalculationEditorInput input = new CalculationEditorInput(c);
-
 		try {
 			page.openEditor(input, CalculationEditor.ID);
 		} catch (PartInitException e) {

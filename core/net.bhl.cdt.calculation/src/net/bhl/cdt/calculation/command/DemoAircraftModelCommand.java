@@ -634,6 +634,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		CalculationSet csFuselage = CalculationFactory.eINSTANCE.createCalculationSet();
 		csFuselage.setName("CS_Fuselage (private)");
 		csMassPerformanceLoop.getSubCalculationSet().add(csFuselage);
+		//TODO: for all private calculation sets: set their corresponding components
 		csFuselage.setComponent(fuselage) ;
 
 		Calculation cMassFuselage = CalculationFactory.eINSTANCE.createCalculation();

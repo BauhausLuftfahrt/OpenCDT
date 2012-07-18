@@ -37,6 +37,7 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
+import org.eclipse.jface.databinding.viewers.ObservableListContentProvider;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.core.databinding.beans.PojoProperties;
 import org.eclipse.jface.viewers.ComboViewer;
@@ -48,6 +49,11 @@ import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.FocusAdapter;
 import org.eclipse.swt.events.FocusEvent;
+import org.eclipse.swt.custom.ScrolledComposite;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.layout.RowLayout;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.wb.swt.layout.grouplayout.GroupLayout;
 
 public class CalculationEditor extends EditorPart {
 	private DataBindingContext m_bindingContext;
@@ -76,8 +82,10 @@ public class CalculationEditor extends EditorPart {
 
 		Composite composite = new Composite(container, SWT.NONE);
 		FormData fd_composite = new FormData();
-		fd_composite.top = new FormAttachment(0, 10);
+		fd_composite.bottom = new FormAttachment(0, 57);
 		fd_composite.left = new FormAttachment(0, 10);
+		fd_composite.right = new FormAttachment(100, -10);
+		fd_composite.top = new FormAttachment(0, 10);
 		composite.setLayoutData(fd_composite);
 		composite.setLayout(new GridLayout(2, false));
 
@@ -89,29 +97,27 @@ public class CalculationEditor extends EditorPart {
 
 		calculationName = new Text(composite, SWT.BORDER);
 		GridData gd_calculationName = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
-		gd_calculationName.widthHint = 439;
+		gd_calculationName.widthHint = 452;
 		calculationName.setLayoutData(gd_calculationName);
 
 		Label lblFunction = new Label(composite, SWT.NONE);
 		lblFunction.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblFunction.setText("Function ID");
 
-		final Composite parameterComposite = new Composite(container, SWT.NONE);
-		fd_composite.bottom = new FormAttachment(parameterComposite, -6);
-		fd_composite.right = new FormAttachment(parameterComposite, 0, SWT.RIGHT);
-		parameterComposite.setLayout(new GridLayout(2, false));
-		FormData fd_parameterComposite = new FormData();
-		fd_parameterComposite.bottom = new FormAttachment(100, -10);
-		fd_parameterComposite.top = new FormAttachment(0, 80);
-		fd_parameterComposite.left = new FormAttachment(0, 10);
-		fd_parameterComposite.right = new FormAttachment(100, -10);
-		
 		lblNewLabel = new Label(composite, SWT.BORDER);
 		lblNewLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		lblNewLabel.setText("");
-		parameterComposite.setLayoutData(fd_parameterComposite);
 
-		createMappingGUI(calculation.getFunctionID(), parameterComposite);
+		Composite paramComposite = new Composite(container, SWT.NONE);
+		FormData fd_paramComposite = new FormData();
+		fd_paramComposite.bottom = new FormAttachment(composite, 407, SWT.BOTTOM);
+		fd_paramComposite.right = new FormAttachment(composite, 0, SWT.RIGHT);
+		fd_paramComposite.top = new FormAttachment(composite, 6);
+		fd_paramComposite.left = new FormAttachment(composite, 0, SWT.LEFT);
+		paramComposite.setLayoutData(fd_paramComposite);
+		paramComposite.setLayout(new GridLayout(2, false));
+
+		createMappingGUI(calculation.getFunctionID(), paramComposite);
 		m_bindingContext = initDataBindings();
 	}
 
@@ -149,68 +155,73 @@ public class CalculationEditor extends EditorPart {
 	public boolean isSaveAsAllowed() {
 		return false;
 	}
+
 	protected DataBindingContext initDataBindings() {
 		DataBindingContext bindingContext = new DataBindingContext();
 		//
-		IObservableValue observeTextCalculationNameObserveWidget = WidgetProperties.text(SWT.Modify).observe(calculationName);
+		IObservableValue observeTextCalculationNameObserveWidget = WidgetProperties.text(SWT.Modify).observe(
+			calculationName);
 		IObservableValue calculationnameInputObserveValue = PojoProperties.value("calculation.name").observe(input);
 		bindingContext.bindValue(observeTextCalculationNameObserveWidget, calculationnameInputObserveValue, null, null);
 		//
 		IObservableValue observeTextLblNewLabelObserveWidget = WidgetProperties.text().observe(lblNewLabel);
-		IObservableValue calculationfunctionIDInputObserveValue = PojoProperties.value("calculation.functionID").observe(input);
-		bindingContext.bindValue(observeTextLblNewLabelObserveWidget, calculationfunctionIDInputObserveValue, null, null);
+		IObservableValue calculationfunctionIDInputObserveValue = PojoProperties.value("calculation.functionID")
+			.observe(input);
+		bindingContext.bindValue(observeTextLblNewLabelObserveWidget, calculationfunctionIDInputObserveValue, null,
+			null);
 		//
 		return bindingContext;
 	}
-	
+
 	private void createMappingGUI(String functionID, Composite composite) {
 		Function selectedFunction = CalculationRepositoryManager.getInstance().getFunction(
 			UtilitiesHelper.getProjectId(calculation), functionID);
 
-		if (selectedFunction != null) {
-			// remove previous descriptors from UI
-			for (Control tmp : composite.getChildren()) {
-				tmp.dispose();
-			}
-
-			// generate parameter list of corresponding component
-			if (component != null) {
-				parameterList = component.getParameters();
-			}
-
-			ParameterMapping mapping = calculation.getParameterMapping();
-			if (mapping != null) {
-				EMap<ParameterDescriptor, MappableComponentInterface> iMappables = mapping.getInputMappables();
-				Iterator<Entry<ParameterDescriptor, MappableComponentInterface>> iMappablesIterator = iMappables
-					.iterator();
-
-				while (iMappablesIterator.hasNext()) {
-					Entry<ParameterDescriptor, MappableComponentInterface> entry = iMappablesIterator.next();
-					Label descriptorLabel = new Label(composite, SWT.NONE);
-					descriptorLabel.setText(entry.getKey().getLabel());
-
-					ComboViewer comboViewer = new ComboViewer(composite, SWT.READ_ONLY);
-					// parameterCombo.setText(mapping.getInputMappables().get(descriptor).getName());
-				}
-			} else {
-				// generate new Mapping and fill with descriptors
-				// get current descriptors
-				EList<ParameterDescriptor> inputDescriptors = selectedFunction.getInputDescriptors();
-
-				Iterator<ParameterDescriptor> inputIterator = inputDescriptors.iterator();
-				while (inputIterator.hasNext()) {
-					// final ParameterDescriptor descriptor = inputIterator.next();
-					//
-					// Combo parameterCombo = new Combo(composite, SWT.READ_ONLY);
-					//
-					// GridDataFactory.fillDefaults().applyTo(parameterCombo);
-
-				}
-
-				EList<ParameterDescriptor> outputDescriptors = selectedFunction.getOutputDescriptors();
-				// generate ParameterMapping Table here
-			}
-			composite.layout();
+		// generate parameter list of corresponding component
+		if (component != null) {
+			parameterList = component.getParameters();
 		}
+
+		ParameterMapping mapping = calculation.getParameterMapping();
+
+		EMap<ParameterDescriptor, MappableComponentInterface> iMappables = mapping.getInputMappables();
+		Iterator<Entry<ParameterDescriptor, MappableComponentInterface>> iMappablesIterator = iMappables.iterator();
+
+		while (iMappablesIterator.hasNext()) {
+			Entry<ParameterDescriptor, MappableComponentInterface> entry = iMappablesIterator.next();
+			Label descriptorLabel = new Label(composite, SWT.NONE);
+			descriptorLabel.setText("Input: " + entry.getKey().getLabel());
+
+			ComboViewer comboViewer = new ComboViewer(composite, SWT.READ_ONLY);
+			
+//			ObservableListContentProvider contentProvider = new ObservableListContentProvider();
+//			comboViewer.setContentProvider(contentProvider);
+//			comboViewer.setInput(parameterList);
+		}
+
+		EMap<ParameterDescriptor, MappableComponentInterface> oMappables = mapping.getOutputMappables();
+		Iterator<Entry<ParameterDescriptor, MappableComponentInterface>> oMappablesIterator = oMappables.iterator();
+
+		while (oMappablesIterator.hasNext()) {
+			Entry<ParameterDescriptor, MappableComponentInterface> entry = oMappablesIterator.next();
+			Label descriptorLabel = new Label(composite, SWT.NONE);
+			descriptorLabel.setText("Output: " + entry.getKey().getLabel());
+
+			ComboViewer comboViewer = new ComboViewer(composite, SWT.READ_ONLY);
+		}
+
+		// generate new Mapping and fill with descriptors
+		// get current descriptors
+		// EList<ParameterDescriptor> inputDescriptors = selectedFunction.getInputDescriptors();
+		//
+		// Iterator<ParameterDescriptor> inputIterator = inputDescriptors.iterator();
+		// while (inputIterator.hasNext()) {
+		// final ParameterDescriptor descriptor = inputIterator.next();
+		// Combo parameterCombo = new Combo(composite, SWT.READ_ONLY);
+		// GridDataFactory.fillDefaults().applyTo(parameterCombo);
+		//
+		// }
+
+		composite.layout();
 	}
 }
