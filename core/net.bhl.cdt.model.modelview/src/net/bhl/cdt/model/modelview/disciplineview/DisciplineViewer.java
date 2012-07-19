@@ -189,14 +189,35 @@ public class DisciplineViewer extends EditorPart {
 
 	private void refreshTree() {
 		treeViewer.resetFilters();
-//		treeViewer.addFilter(new ViewerFilter() {
-//			@Override
-//			public boolean select(Viewer viewer, Object parentElement, Object element) {
-//				return (parentElement instanceof Configuration && element == mainComponent)
-//					|| !(parentElement instanceof Configuration);
-//			}
-//		});
-		treeViewer.addFilter(new SimpleFilter());
+
+		List<SimpleFilter> simpleFilterList = new ArrayList<SimpleFilter>();
+
+		for (Filter filter : view.getFilter()) {
+			SimpleFilter simpleFilter = new SimpleFilter(treeViewer.getContentProvider(), filter, configuration);
+			simpleFilterList.add(simpleFilter);
+		}
+		if (simpleFilterList.size() == 1) {
+			//treeViewer.addFilter(simpleFilterList.get(0));
+			treeViewer.addFilter(new NotFilter(treeViewer.getContentProvider(), simpleFilterList.get(0)));
+		} else {
+			//treeViewer.addFilter(new AndFilter(treeViewer.getContentProvider(), simpleFilterList.get(0), simpleFilterList.get(1)));
+			treeViewer.addFilter(new OrFilter(treeViewer.getContentProvider(), simpleFilterList.get(0), simpleFilterList.get(1)));
+		}
+		// treeViewer.addFilter(new ViewerFilter() {
+		// @Override
+		// public boolean select(Viewer viewer, Object parentElement, Object element) {
+		// return (parentElement instanceof Configuration && element == mainComponent)
+		// || !(parentElement instanceof Configuration);
+		// if (element instanceof Component){
+		// if ( (((Component)element).getParameters().isEmpty()) && (((Component)element).getSubComponents().isEmpty()))
+		// {
+		// return false ;
+		// }
+		// }
+		// return true ;
+		// }
+		// });
+		// treeViewer.addFilter(new SimpleFilter());
 		treeViewer.setInput(configuration.eContainer());
 	}
 
@@ -215,10 +236,9 @@ public class DisciplineViewer extends EditorPart {
 			throw new PartInitException("No components in configuration");
 		}
 		// better aircraft component selection?
-		//TODO: check this out
-		//mainComponent = configuration.getComponents().get(0);
-		mainComponent = null ;
-		
+		// TODO: check this out
+		// mainComponent = configuration.getComponents().get(0);
+		mainComponent = null;
 
 		// editor related
 		setInput(input);
@@ -253,122 +273,123 @@ public class DisciplineViewer extends EditorPart {
 		view.eAdapters().remove(eContentAdapter);
 	}
 
-	private final class SimpleFilter extends ViewerFilter {
-
-		private HashSet<EObject> allowed;
-
-		public SimpleFilter() {
-			allowed = new HashSet<EObject>();
-
-			for (net.bhl.cdt.model.modelview.Filter filter : view.getFilter()) {
-
-				// MappableComponentInterface mappableFilterInterface = (MappableComponentInterface)
-				// filter.getInterface()
-				// .get(0);
-				// EClass eclazz = mappableFilterInterface.eClass();
-				// // filteredInterface: List for keeping all instances of an interface specified in a filter
-				// List<MappableComponentInterface> filteredInterfaces = ComponentInterfaceUtil.getComponentInterfaces(
-				// configuration, eclazz, MappableComponentInterface.class);
-
-				List<MappableComponentInterface> filteredInterfaces = new ArrayList<MappableComponentInterface>();
-
-				if (filter.getInterface().isEmpty()) {
-					filteredInterfaces.addAll(ComponentInterfaceUtil.getComponentInterfaces(configuration,
-						MappableComponentInterface.class));
-				} else {
-
-					for (ComponentInterface filterInterface : filter.getInterface()) {
-						EClass eclazz = filterInterface.eClass();
-						// filteredInterface: List for keeping all instances of an interface specified in a filter
-						filteredInterfaces.addAll(ComponentInterfaceUtil.getComponentInterfaces(configuration, eclazz,
-							MappableComponentInterface.class));
-					}
-				}
-
-				for (MappableComponentInterface mappableInterface : filteredInterfaces) {
-					// Check whether an instance of filtertedInterface matches the other filter criteria
-					if (filtered(filter, mappableInterface)) {
-						try {
-							if (mappableInterface.getParameter() != null) {
-								allowed.add(mappableInterface.getParameter());
-								addParents(mappableInterface.eContainer(), allowed);
-							}
-						} catch (NoParameterSetForInterfaceException e) {
-							// Do nothing
-						} catch (Exception e) {
-							throw new CDTRuntimeException(e.getMessage());
-						}
-					}
-				}
-			}
-		}
-
-		private boolean filtered(Filter filter, MappableComponentInterface mappableInterface) {
-			boolean result = true;
-
-			if ((filter.getComponent() != null)
-				&& !(filter.getComponent().equals(mappableInterface.getParentComponent()))) {
-				return false;
-			}
-
-			if (filter.getDiscipline().isEmpty()) {
-				if (mappableInterface.getDiscipline() != null || !mappableInterface.getDiscipline().isEmpty()) {
-					return false;
-				}
-			} else {
-				if (mappableInterface.getDiscipline().isEmpty()) {
-					return false;
-				}
-				boolean match = false;
-				for (String filterDiscipline : filter.getDiscipline()) {
-					if (mappableInterface.getDiscipline().contains(filterDiscipline)) {
-						match = true;
-					} else {
-						match = false;
-					}
-				}
-
-				if (!match) {
-					return false;
-				}
-
-			}
-
-			if (filter.getSource() == null) {
-				if (mappableInterface.getSource() != null && !mappableInterface.getSource().isEmpty()) {
-					return false;
-				}
-			} else {
-				if (!filter.getSource().isEmpty() || mappableInterface.getSource() != null) {
-
-					if (!filter.getSource().equals(mappableInterface.getSource())) {
-						return false;
-					}
-				}
-			}
-
-			// if ((filter.getText() != null) && (!filter.getText().equals(mappableInterface.getAnnotation()))) {
-			// return false;
-			// }
-
-			return result;
-		}
-
-		private void addParents(EObject parent, HashSet<EObject> allowed) {
-			// if (parent == null || parent instanceof Configuration) {
-			// return;
-			// }
-			if (parent == null || parent instanceof Model) {
-				return;
-			}
-			allowed.add(parent);
-			addParents(parent.eContainer(), allowed);
-		}
-
-		public boolean select(Viewer viewer, Object parentElement, Object element) {
-			boolean result = allowed.contains(element);
-			return result;
-		}
-	}
+	// private final class SimpleFilter extends ViewerFilter {
+	//
+	// private HashSet<EObject> allowed;
+	//
+	// public SimpleFilter() {
+	// allowed = new HashSet<EObject>();
+	//
+	// for (net.bhl.cdt.model.modelview.Filter filter : view.getFilter()) {
+	//
+	// // MappableComponentInterface mappableFilterInterface = (MappableComponentInterface)
+	// // filter.getInterface()
+	// // .get(0);
+	// // EClass eclazz = mappableFilterInterface.eClass();
+	// // // filteredInterface: List for keeping all instances of an interface specified in a filter
+	// // List<MappableComponentInterface> filteredInterfaces = ComponentInterfaceUtil.getComponentInterfaces(
+	// // configuration, eclazz, MappableComponentInterface.class);
+	//
+	// List<MappableComponentInterface> filteredInterfaces = new ArrayList<MappableComponentInterface>();
+	//
+	// if (filter.getInterface().isEmpty()) {
+	// filteredInterfaces.addAll(ComponentInterfaceUtil.getComponentInterfaces(configuration,
+	// MappableComponentInterface.class));
+	// } else {
+	//
+	// for (ComponentInterface filterInterface : filter.getInterface()) {
+	// EClass eclazz = filterInterface.eClass();
+	// // filteredInterface: List for keeping all instances of an interface specified in a filter
+	// filteredInterfaces.addAll(ComponentInterfaceUtil.getComponentInterfaces(configuration, eclazz,
+	// MappableComponentInterface.class));
+	// }
+	// }
+	//
+	// for (MappableComponentInterface mappableInterface : filteredInterfaces) {
+	// // Check whether an instance of filtertedInterface matches the other filter criteria
+	// if (filtered(filter, mappableInterface)) {
+	// try {
+	// if (mappableInterface.getParameter() != null) {
+	// allowed.add(mappableInterface.getParameter());
+	// addParents(mappableInterface.eContainer(), allowed);
+	// }
+	// } catch (NoParameterSetForInterfaceException e) {
+	// // Do nothing
+	// } catch (Exception e) {
+	// throw new CDTRuntimeException(e.getMessage());
+	// }
+	// }
+	// }
+	// }
+	// }
+	//
+	// private boolean filtered(Filter filter, MappableComponentInterface mappableInterface) {
+	// boolean result = true;
+	//
+	// if ((filter.getComponent() != null)
+	// && !(filter.getComponent().equals(mappableInterface.getParentComponent()))) {
+	// return false;
+	// }
+	//
+	// if (filter.getDiscipline().isEmpty()) {
+	// if (mappableInterface.getDiscipline() != null || !mappableInterface.getDiscipline().isEmpty()) {
+	// return false;
+	// }
+	// } else {
+	// if (mappableInterface.getDiscipline().isEmpty()) {
+	// return false;
+	// }
+	// boolean match = false;
+	// for (String filterDiscipline : filter.getDiscipline()) {
+	// if (mappableInterface.getDiscipline().contains(filterDiscipline)) {
+	// match = true;
+	// } else {
+	// match = false;
+	// return false ;
+	// }
+	// }
+	//
+	// if (!match) {
+	// return false;
+	// }
+	//
+	// }
+	//
+	// if (filter.getSource() == null) {
+	// if (mappableInterface.getSource() != null && !mappableInterface.getSource().isEmpty()) {
+	// return false;
+	// }
+	// } else {
+	// if (!filter.getSource().isEmpty() || mappableInterface.getSource() != null) {
+	//
+	// if (!filter.getSource().equals(mappableInterface.getSource())) {
+	// return false;
+	// }
+	// }
+	// }
+	//
+	// // if ((filter.getText() != null) && (!filter.getText().equals(mappableInterface.getAnnotation()))) {
+	// // return false;
+	// // }
+	//
+	// return result;
+	// }
+	//
+	// private void addParents(EObject parent, HashSet<EObject> allowed) {
+	// // if (parent == null || parent instanceof Configuration) {
+	// // return;
+	// // }
+	// if (parent == null || parent instanceof Model) {
+	// return;
+	// }
+	// allowed.add(parent);
+	// addParents(parent.eContainer(), allowed);
+	// }
+	//
+	// public boolean select(Viewer viewer, Object parentElement, Object element) {
+	// boolean result = allowed.contains(element);
+	// return result;
+	// }
+	// }
 
 }
