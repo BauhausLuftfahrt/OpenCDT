@@ -31,6 +31,7 @@ public class ComponentInterfaceUtil {
 	 */
 	@SuppressWarnings("unchecked")
 	public static <T extends ComponentInterface> List<T> getComponentInterfaces(EObject obj, Class<T> clazz) {
+		// TODO: Compare functionality to UtilitiesHelper.getChildrenByClass
 		ArrayList<T> result = new ArrayList<T>();
 
 		TreeIterator<EObject> iterator = obj.eAllContents();

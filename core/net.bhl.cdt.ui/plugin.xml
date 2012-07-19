@@ -190,6 +190,11 @@
             id="net.bhl.cdt.gui.editors.ArrayEditor2"
             name="New EditorPart">
       </editor>
+      <editor
+            class="net.bhl.cdt.ui.editors.TestEditor"
+            id="net.bhl.cdt.ui.editors.TestEditor"
+            name="New EditorPart">
+      </editor>
    </extension>
    <extension
          point="org.eclipse.emf.ecp.common.modelelementopener">

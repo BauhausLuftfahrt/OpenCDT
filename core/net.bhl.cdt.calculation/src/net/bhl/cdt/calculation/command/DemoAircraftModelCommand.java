@@ -206,6 +206,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		s_wet_fus.setName("s_wet_fus");
 		s_wet_fus.setQuantity(Quantity.AREA);
 		s_wet_fus.setParentComponent(fuselage);
+		fuselage.getParameters().add(s_wet_fus) ;
 
 		Parameter sfc = ModelFactory.eINSTANCE.createParameter();
 		sfc.setName("SFC");
