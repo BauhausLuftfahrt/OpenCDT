@@ -10,6 +10,7 @@ import net.bhl.cdt.model.ModelPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -81,22 +82,13 @@ public interface ModelviewPackage extends EPackage {
 	int DISCIPLINE_VIEW__NAME = ModelPackage.VIEW__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Subviews</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISCIPLINE_VIEW__SUBVIEWS = ModelPackage.VIEW_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DISCIPLINE_VIEW__ELEMENTS = ModelPackage.VIEW_FEATURE_COUNT + 1;
+	int DISCIPLINE_VIEW__ELEMENTS = ModelPackage.VIEW_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Interface Types</b></em>' reference list.
@@ -105,7 +97,7 @@ public interface ModelviewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISCIPLINE_VIEW__INTERFACE_TYPES = ModelPackage.VIEW_FEATURE_COUNT + 2;
+	int DISCIPLINE_VIEW__INTERFACE_TYPES = ModelPackage.VIEW_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>View Links</b></em>' containment reference list.
@@ -114,7 +106,7 @@ public interface ModelviewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISCIPLINE_VIEW__VIEW_LINKS = ModelPackage.VIEW_FEATURE_COUNT + 3;
+	int DISCIPLINE_VIEW__VIEW_LINKS = ModelPackage.VIEW_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Filter</b></em>' containment reference list.
@@ -123,7 +115,7 @@ public interface ModelviewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISCIPLINE_VIEW__FILTER = ModelPackage.VIEW_FEATURE_COUNT + 4;
+	int DISCIPLINE_VIEW__FILTER = ModelPackage.VIEW_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Discipline View</em>' class.
@@ -132,7 +124,7 @@ public interface ModelviewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DISCIPLINE_VIEW_FEATURE_COUNT = ModelPackage.VIEW_FEATURE_COUNT + 5;
+	int DISCIPLINE_VIEW_FEATURE_COUNT = ModelPackage.VIEW_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.modelview.impl.ViewLinkImpl <em>View Link</em>}' class.
@@ -182,6 +174,34 @@ public interface ModelviewPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link net.bhl.cdt.model.modelview.impl.SetExpressionImpl <em>Set Expression</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see net.bhl.cdt.model.modelview.impl.SetExpressionImpl
+	 * @see net.bhl.cdt.model.modelview.impl.ModelviewPackageImpl#getSetExpression()
+	 * @generated
+	 */
+	int SET_EXPRESSION = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_EXPRESSION__NAME = ModelPackage.ELEMENT__NAME;
+
+	/**
+	 * The number of structural features of the '<em>Set Expression</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_EXPRESSION_FEATURE_COUNT = ModelPackage.ELEMENT_FEATURE_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.modelview.impl.FilterImpl <em>Filter</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -198,7 +218,7 @@ public interface ModelviewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__NAME = ModelPackage.ELEMENT__NAME;
+	int FILTER__NAME = SET_EXPRESSION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Interface</b></em>' containment reference list.
@@ -207,7 +227,7 @@ public interface ModelviewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__INTERFACE = ModelPackage.ELEMENT_FEATURE_COUNT + 0;
+	int FILTER__INTERFACE = SET_EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Component</b></em>' reference.
@@ -216,7 +236,7 @@ public interface ModelviewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__COMPONENT = ModelPackage.ELEMENT_FEATURE_COUNT + 1;
+	int FILTER__COMPONENT = SET_EXPRESSION_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Source</b></em>' attribute.
@@ -225,7 +245,7 @@ public interface ModelviewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__SOURCE = ModelPackage.ELEMENT_FEATURE_COUNT + 2;
+	int FILTER__SOURCE = SET_EXPRESSION_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
@@ -234,7 +254,7 @@ public interface ModelviewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__DISCIPLINE = ModelPackage.ELEMENT_FEATURE_COUNT + 3;
+	int FILTER__DISCIPLINE = SET_EXPRESSION_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -243,7 +263,7 @@ public interface ModelviewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__TEXT = ModelPackage.ELEMENT_FEATURE_COUNT + 4;
+	int FILTER__TEXT = SET_EXPRESSION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Filter</em>' class.
@@ -252,7 +272,64 @@ public interface ModelviewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER_FEATURE_COUNT = ModelPackage.ELEMENT_FEATURE_COUNT + 5;
+	int FILTER_FEATURE_COUNT = SET_EXPRESSION_FEATURE_COUNT + 5;
+
+
+	/**
+	 * The meta object id for the '{@link net.bhl.cdt.model.modelview.impl.SetOperatorImpl <em>Set Operator</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see net.bhl.cdt.model.modelview.impl.SetOperatorImpl
+	 * @see net.bhl.cdt.model.modelview.impl.ModelviewPackageImpl#getSetOperator()
+	 * @generated
+	 */
+	int SET_OPERATOR = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_OPERATOR__NAME = SET_EXPRESSION__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_OPERATOR__OPERATOR = SET_EXPRESSION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Operands</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_OPERATOR__OPERANDS = SET_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Set Operator</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SET_OPERATOR_FEATURE_COUNT = SET_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link net.bhl.cdt.model.modelview.SetOperators <em>Set Operators</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see net.bhl.cdt.model.modelview.SetOperators
+	 * @see net.bhl.cdt.model.modelview.impl.ModelviewPackageImpl#getSetOperators()
+	 * @generated
+	 */
+	int SET_OPERATORS = 5;
 
 
 	/**
@@ -264,17 +341,6 @@ public interface ModelviewPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDisciplineView();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.modelview.DisciplineView#getSubviews <em>Subviews</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Subviews</em>'.
-	 * @see net.bhl.cdt.model.modelview.DisciplineView#getSubviews()
-	 * @see #getDisciplineView()
-	 * @generated
-	 */
-	EReference getDisciplineView_Subviews();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.modelview.DisciplineView#getElements <em>Elements</em>}'.
@@ -418,6 +484,58 @@ public interface ModelviewPackage extends EPackage {
 	EAttribute getFilter_Text();
 
 	/**
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.modelview.SetExpression <em>Set Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Set Expression</em>'.
+	 * @see net.bhl.cdt.model.modelview.SetExpression
+	 * @generated
+	 */
+	EClass getSetExpression();
+
+	/**
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.modelview.SetOperator <em>Set Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Set Operator</em>'.
+	 * @see net.bhl.cdt.model.modelview.SetOperator
+	 * @generated
+	 */
+	EClass getSetOperator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.modelview.SetOperator#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator</em>'.
+	 * @see net.bhl.cdt.model.modelview.SetOperator#getOperator()
+	 * @see #getSetOperator()
+	 * @generated
+	 */
+	EAttribute getSetOperator_Operator();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.modelview.SetOperator#getOperands <em>Operands</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Operands</em>'.
+	 * @see net.bhl.cdt.model.modelview.SetOperator#getOperands()
+	 * @see #getSetOperator()
+	 * @generated
+	 */
+	EReference getSetOperator_Operands();
+
+	/**
+	 * Returns the meta object for enum '{@link net.bhl.cdt.model.modelview.SetOperators <em>Set Operators</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Set Operators</em>'.
+	 * @see net.bhl.cdt.model.modelview.SetOperators
+	 * @generated
+	 */
+	EEnum getSetOperators();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -448,14 +566,6 @@ public interface ModelviewPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DISCIPLINE_VIEW = eINSTANCE.getDisciplineView();
-
-		/**
-		 * The meta object literal for the '<em><b>Subviews</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DISCIPLINE_VIEW__SUBVIEWS = eINSTANCE.getDisciplineView_Subviews();
 
 		/**
 		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
@@ -564,6 +674,52 @@ public interface ModelviewPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FILTER__TEXT = eINSTANCE.getFilter_Text();
+
+		/**
+		 * The meta object literal for the '{@link net.bhl.cdt.model.modelview.impl.SetExpressionImpl <em>Set Expression</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see net.bhl.cdt.model.modelview.impl.SetExpressionImpl
+		 * @see net.bhl.cdt.model.modelview.impl.ModelviewPackageImpl#getSetExpression()
+		 * @generated
+		 */
+		EClass SET_EXPRESSION = eINSTANCE.getSetExpression();
+
+		/**
+		 * The meta object literal for the '{@link net.bhl.cdt.model.modelview.impl.SetOperatorImpl <em>Set Operator</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see net.bhl.cdt.model.modelview.impl.SetOperatorImpl
+		 * @see net.bhl.cdt.model.modelview.impl.ModelviewPackageImpl#getSetOperator()
+		 * @generated
+		 */
+		EClass SET_OPERATOR = eINSTANCE.getSetOperator();
+
+		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SET_OPERATOR__OPERATOR = eINSTANCE.getSetOperator_Operator();
+
+		/**
+		 * The meta object literal for the '<em><b>Operands</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SET_OPERATOR__OPERANDS = eINSTANCE.getSetOperator_Operands();
+
+		/**
+		 * The meta object literal for the '{@link net.bhl.cdt.model.modelview.SetOperators <em>Set Operators</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see net.bhl.cdt.model.modelview.SetOperators
+		 * @see net.bhl.cdt.model.modelview.impl.ModelviewPackageImpl#getSetOperators()
+		 * @generated
+		 */
+		EEnum SET_OPERATORS = eINSTANCE.getSetOperators();
 
 	}
 

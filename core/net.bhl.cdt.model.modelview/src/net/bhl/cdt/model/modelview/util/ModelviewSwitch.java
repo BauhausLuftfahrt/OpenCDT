@@ -95,8 +95,26 @@ public class ModelviewSwitch<T> extends Switch<T> {
 			case ModelviewPackage.FILTER: {
 				Filter filter = (Filter)theEObject;
 				T result = caseFilter(filter);
+				if (result == null) result = caseSetExpression(filter);
 				if (result == null) result = caseElement(filter);
 				if (result == null) result = caseExchangeElement(filter);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelviewPackage.SET_EXPRESSION: {
+				SetExpression setExpression = (SetExpression)theEObject;
+				T result = caseSetExpression(setExpression);
+				if (result == null) result = caseElement(setExpression);
+				if (result == null) result = caseExchangeElement(setExpression);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ModelviewPackage.SET_OPERATOR: {
+				SetOperator setOperator = (SetOperator)theEObject;
+				T result = caseSetOperator(setOperator);
+				if (result == null) result = caseSetExpression(setOperator);
+				if (result == null) result = caseElement(setOperator);
+				if (result == null) result = caseExchangeElement(setOperator);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -146,6 +164,36 @@ public class ModelviewSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseFilter(Filter object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Set Expression</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Set Expression</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSetExpression(SetExpression object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Set Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Set Operator</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseSetOperator(SetOperator object) {
 		return null;
 	}
 

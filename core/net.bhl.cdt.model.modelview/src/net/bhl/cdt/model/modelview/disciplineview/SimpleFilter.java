@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.ComponentInterface;
 import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.MappableComponentInterface;
@@ -23,19 +22,14 @@ import net.bhl.cdt.utilities.exceptions.CDTRuntimeException;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.IContentProvider;
-import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 
 public class SimpleFilter extends ViewerFilter {
 
 	private HashSet<EObject> allowed;
-	private DisciplineContenProvider contentProvider ;
-
 	public SimpleFilter(IContentProvider iContentProvider, Filter filter, Configuration configuration) {
 		allowed = new HashSet<EObject>();
-		this.contentProvider = (DisciplineContenProvider) iContentProvider ;
-		
 		List<MappableComponentInterface> filteredInterfaces = new ArrayList<MappableComponentInterface>();
 
 		if (filter.getInterface().isEmpty()) {
@@ -77,9 +71,6 @@ public class SimpleFilter extends ViewerFilter {
 		if (filter.getDiscipline().isEmpty()) {
 			// No Discipline is specified; allow all elements
 
-			// if (mappableInterface.getDiscipline() != null || !mappableInterface.getDiscipline().isEmpty()) {
-			// return false;
-			// }
 		} else {
 			if (mappableInterface.getDiscipline().isEmpty()) {
 				return false;
@@ -97,7 +88,6 @@ public class SimpleFilter extends ViewerFilter {
 			if (!match) {
 				return false;
 			}
-
 		}
 
 		if (filter.getSource() == null) {
@@ -121,9 +111,7 @@ public class SimpleFilter extends ViewerFilter {
 	}
 
 	private void addParents(EObject parent, HashSet<EObject> allowed) {
-		// if (parent == null || parent instanceof Configuration) {
-		// return;
-		// }
+
 		if (parent == null || parent instanceof Model) {
 			return;
 		}
@@ -136,23 +124,7 @@ public class SimpleFilter extends ViewerFilter {
 
 		boolean result = allowed.contains(element);
 		return result;
-		
-//		if (element instanceof Component) {
-//			if (!contentProvider.hasChildren(element)){
-//				return false ;
-//			}
-//			boolean result = false ;
-//			for (Object object : contentProvider.getChildren(element) ) {
-//				if (select (viewer, element, object)){
-//					result = true ;
-//					break ;
-//				}
-//			}
-//			return result ;
-//		} else {
-//			boolean result = allowed.contains(element);
-//			return result;
-//		}
+
 	}
 
 }

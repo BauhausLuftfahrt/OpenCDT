@@ -11,10 +11,14 @@ import net.bhl.cdt.model.modelview.DisciplineView;
 import net.bhl.cdt.model.modelview.Filter;
 import net.bhl.cdt.model.modelview.ModelviewFactory;
 import net.bhl.cdt.model.modelview.ModelviewPackage;
+import net.bhl.cdt.model.modelview.SetExpression;
+import net.bhl.cdt.model.modelview.SetOperator;
+import net.bhl.cdt.model.modelview.SetOperators;
 import net.bhl.cdt.model.modelview.ViewLink;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EcorePackage;
@@ -47,6 +51,27 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 	 * @generated
 	 */
 	private EClass filterEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass setExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass setOperatorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum setOperatorsEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -126,7 +151,7 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDisciplineView_Subviews() {
+	public EReference getDisciplineView_Elements() {
 		return (EReference)disciplineViewEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -135,7 +160,7 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDisciplineView_Elements() {
+	public EReference getDisciplineView_InterfaceTypes() {
 		return (EReference)disciplineViewEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -144,7 +169,7 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDisciplineView_InterfaceTypes() {
+	public EReference getDisciplineView_ViewLinks() {
 		return (EReference)disciplineViewEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -153,17 +178,8 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDisciplineView_ViewLinks() {
-		return (EReference)disciplineViewEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getDisciplineView_Filter() {
-		return (EReference)disciplineViewEClass.getEStructuralFeatures().get(4);
+		return (EReference)disciplineViewEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -252,6 +268,51 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getSetExpression() {
+		return setExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSetOperator() {
+		return setOperatorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getSetOperator_Operator() {
+		return (EAttribute)setOperatorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSetOperator_Operands() {
+		return (EReference)setOperatorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getSetOperators() {
+		return setOperatorsEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public ModelviewFactory getModelviewFactory() {
 		return (ModelviewFactory)getEFactoryInstance();
 	}
@@ -276,7 +337,6 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 
 		// Create classes and their features
 		disciplineViewEClass = createEClass(DISCIPLINE_VIEW);
-		createEReference(disciplineViewEClass, DISCIPLINE_VIEW__SUBVIEWS);
 		createEReference(disciplineViewEClass, DISCIPLINE_VIEW__ELEMENTS);
 		createEReference(disciplineViewEClass, DISCIPLINE_VIEW__INTERFACE_TYPES);
 		createEReference(disciplineViewEClass, DISCIPLINE_VIEW__VIEW_LINKS);
@@ -292,6 +352,15 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 		createEAttribute(filterEClass, FILTER__SOURCE);
 		createEAttribute(filterEClass, FILTER__DISCIPLINE);
 		createEAttribute(filterEClass, FILTER__TEXT);
+
+		setExpressionEClass = createEClass(SET_EXPRESSION);
+
+		setOperatorEClass = createEClass(SET_OPERATOR);
+		createEAttribute(setOperatorEClass, SET_OPERATOR__OPERATOR);
+		createEReference(setOperatorEClass, SET_OPERATOR__OPERANDS);
+
+		// Create enums
+		setOperatorsEEnum = createEEnum(SET_OPERATORS);
 	}
 
 	/**
@@ -328,15 +397,16 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 		// Add supertypes to classes
 		disciplineViewEClass.getESuperTypes().add(theModelPackage.getView());
 		viewLinkEClass.getESuperTypes().add(theModelPackage.getElement());
-		filterEClass.getESuperTypes().add(theModelPackage.getElement());
+		filterEClass.getESuperTypes().add(this.getSetExpression());
+		setExpressionEClass.getESuperTypes().add(theModelPackage.getElement());
+		setOperatorEClass.getESuperTypes().add(this.getSetExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(disciplineViewEClass, DisciplineView.class, "DisciplineView", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDisciplineView_Subviews(), theModelPackage.getView(), null, "subviews", null, 0, -1, DisciplineView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDisciplineView_Elements(), theModelPackage.getStructuralElement(), null, "elements", null, 0, -1, DisciplineView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDisciplineView_InterfaceTypes(), theEcorePackage.getEClass(), null, "interfaceTypes", null, 0, -1, DisciplineView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDisciplineView_ViewLinks(), this.getViewLink(), null, "viewLinks", null, 0, -1, DisciplineView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDisciplineView_Filter(), this.getFilter(), null, "filter", null, 0, -1, DisciplineView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDisciplineView_Filter(), this.getSetExpression(), null, "filter", null, 0, -1, DisciplineView.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(viewLinkEClass, ViewLink.class, "ViewLink", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getViewLink_VirtualParent(), theEcorePackage.getEObject(), null, "virtualParent", null, 0, 1, ViewLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -348,6 +418,18 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 		initEAttribute(getFilter_Source(), theEcorePackage.getEString(), "source", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFilter_Discipline(), theEcorePackage.getEString(), "discipline", null, 0, -1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFilter_Text(), theEcorePackage.getEString(), "text", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(setExpressionEClass, SetExpression.class, "SetExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(setOperatorEClass, SetOperator.class, "SetOperator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getSetOperator_Operator(), this.getSetOperators(), "operator", null, 0, 1, SetOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSetOperator_Operands(), this.getSetExpression(), null, "operands", null, 0, 2, SetOperator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(setOperatorsEEnum, SetOperators.class, "SetOperators");
+		addEEnumLiteral(setOperatorsEEnum, SetOperators.AND);
+		addEEnumLiteral(setOperatorsEEnum, SetOperators.OR);
+		addEEnumLiteral(setOperatorsEEnum, SetOperators.MINUS);
 
 		// Create resource
 		createResource(eNS_URI);

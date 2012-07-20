@@ -53,6 +53,15 @@ public interface ModelviewFactory extends EFactory {
 	Filter createFilter();
 
 	/**
+	 * Returns a new object of class '<em>Set Operator</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Set Operator</em>'.
+	 * @generated
+	 */
+	SetOperator createSetOperator();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

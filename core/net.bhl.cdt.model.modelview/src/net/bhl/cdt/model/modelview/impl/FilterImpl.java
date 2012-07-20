@@ -47,7 +47,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class FilterImpl extends ElementImpl implements Filter {
+public class FilterImpl extends SetExpressionImpl implements Filter {
 	/**
 	 * The cached value of the '{@link #getInterface() <em>Interface</em>}' containment reference list.
 	 * <!-- begin-user-doc -->

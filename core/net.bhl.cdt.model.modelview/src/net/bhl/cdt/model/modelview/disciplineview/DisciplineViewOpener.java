@@ -52,6 +52,8 @@ public class DisciplineViewOpener implements ModelElementOpener {
 				.getActivePage()
 				.openEditor(new ConfigurationInput(configuration, view),
 						DisciplineViewer.ID, true);
+		
+
 	}
 
 }

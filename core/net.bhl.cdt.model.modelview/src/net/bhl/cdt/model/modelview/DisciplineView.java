@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EClass;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link net.bhl.cdt.model.modelview.DisciplineView#getSubviews <em>Subviews</em>}</li>
  *   <li>{@link net.bhl.cdt.model.modelview.DisciplineView#getElements <em>Elements</em>}</li>
  *   <li>{@link net.bhl.cdt.model.modelview.DisciplineView#getInterfaceTypes <em>Interface Types</em>}</li>
  *   <li>{@link net.bhl.cdt.model.modelview.DisciplineView#getViewLinks <em>View Links</em>}</li>
@@ -33,22 +32,6 @@ import org.eclipse.emf.ecore.EClass;
  * @generated
  */
 public interface DisciplineView extends View {
-	/**
-	 * Returns the value of the '<em><b>Subviews</b></em>' containment reference list.
-	 * The list contents are of type {@link net.bhl.cdt.model.View}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Subviews</em>' containment reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Subviews</em>' containment reference list.
-	 * @see net.bhl.cdt.model.modelview.ModelviewPackage#getDisciplineView_Subviews()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<View> getSubviews();
-
 	/**
 	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link net.bhl.cdt.model.StructuralElement}.
@@ -99,7 +82,7 @@ public interface DisciplineView extends View {
 
 	/**
 	 * Returns the value of the '<em><b>Filter</b></em>' containment reference list.
-	 * The list contents are of type {@link net.bhl.cdt.model.modelview.Filter}.
+	 * The list contents are of type {@link net.bhl.cdt.model.modelview.SetExpression}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Filter</em>' containment reference list isn't clear,
@@ -111,6 +94,6 @@ public interface DisciplineView extends View {
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Filter> getFilter();
+	EList<SetExpression> getFilter();
 
 } // DisciplineView

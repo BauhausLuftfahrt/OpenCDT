@@ -5,47 +5,28 @@
  ******************************************************************************/
 package net.bhl.cdt.model.modelview.disciplineview;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 import net.bhl.cdt.model.Component;
-import net.bhl.cdt.model.ComponentInterface;
 import net.bhl.cdt.model.Configuration;
-import net.bhl.cdt.model.MappableComponentInterface;
-import net.bhl.cdt.model.Model;
-import net.bhl.cdt.model.Parameter;
-import net.bhl.cdt.model.architecturetools.ArchitecturetoolsFactory;
-import net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage;
-import net.bhl.cdt.model.architecturetools.CoefficientInterface;
-import net.bhl.cdt.model.architecturetools.Massive;
-import net.bhl.cdt.model.architecturetools.PowerConsumer;
-import net.bhl.cdt.model.architecturetools.ReferenceAreaInterface;
-import net.bhl.cdt.model.architecturetools.WettedAreaInterface;
-import net.bhl.cdt.model.architecturetools.exceptions.NoParameterSetForInterfaceException;
-import net.bhl.cdt.model.architecturetools.exceptions.NoValueFoundException;
 import net.bhl.cdt.model.modelview.ConfigurationInput;
 import net.bhl.cdt.model.modelview.DisciplineView;
 import net.bhl.cdt.model.modelview.Filter;
-import net.bhl.cdt.model.util.ComponentInterfaceUtil;
+import net.bhl.cdt.model.modelview.SetOperator;
+import net.bhl.cdt.model.modelview.SetOperators;
+import net.bhl.cdt.model.modelview.disciplineview.exceptions.NoFilterDefinedException;
 import net.bhl.cdt.ui.menu.ContextMenuGenerator;
 import net.bhl.cdt.utilities.commands.CDTCommand;
-import net.bhl.cdt.utilities.exceptions.CDTRuntimeException;
-
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
@@ -82,6 +63,7 @@ public class DisciplineViewer extends EditorPart {
 	 */
 	@Override
 	public void createPartControl(Composite parent) {
+		this.setPartName(view.getName());
 		Composite container = new Composite(parent, SWT.NONE);
 		container.setLayout(new GridLayout(1, false));
 
@@ -190,35 +172,65 @@ public class DisciplineViewer extends EditorPart {
 	private void refreshTree() {
 		treeViewer.resetFilters();
 
-		List<SimpleFilter> simpleFilterList = new ArrayList<SimpleFilter>();
+		// Check if a DisciplineView contains a SetExpression
+		if (view.getFilter() == null) {
+			throw new NoFilterDefinedException();
+		}
 
-		for (Filter filter : view.getFilter()) {
+		if (view.getFilter().get(0) instanceof Filter) {
+			Filter filter = (Filter) view.getFilter().get(0);
 			SimpleFilter simpleFilter = new SimpleFilter(treeViewer.getContentProvider(), filter, configuration);
-			simpleFilterList.add(simpleFilter);
-		}
-		if (simpleFilterList.size() == 1) {
-			//treeViewer.addFilter(simpleFilterList.get(0));
-			treeViewer.addFilter(new NotFilter(treeViewer.getContentProvider(), simpleFilterList.get(0)));
+			treeViewer.addFilter(simpleFilter);
+
 		} else {
-			//treeViewer.addFilter(new AndFilter(treeViewer.getContentProvider(), simpleFilterList.get(0), simpleFilterList.get(1)));
-			treeViewer.addFilter(new OrFilter(treeViewer.getContentProvider(), simpleFilterList.get(0), simpleFilterList.get(1)));
+			SetOperator setOperator = (SetOperator) view.getFilter().get(0);
+			ViewerFilter resultFilter = null;
+			resultFilter = buildFilter(setOperator);
+			if (resultFilter != null) {
+				treeViewer.addFilter(resultFilter);
+			}
 		}
-		// treeViewer.addFilter(new ViewerFilter() {
-		// @Override
-		// public boolean select(Viewer viewer, Object parentElement, Object element) {
-		// return (parentElement instanceof Configuration && element == mainComponent)
-		// || !(parentElement instanceof Configuration);
-		// if (element instanceof Component){
-		// if ( (((Component)element).getParameters().isEmpty()) && (((Component)element).getSubComponents().isEmpty()))
-		// {
-		// return false ;
-		// }
-		// }
-		// return true ;
-		// }
-		// });
-		// treeViewer.addFilter(new SimpleFilter());
 		treeViewer.setInput(configuration.eContainer());
+	}
+
+	private ViewerFilter buildFilter(SetOperator setOperator) {
+		ViewerFilter result = null;
+		ViewerFilter filter1 = null;
+		ViewerFilter filter2 = null;
+
+		if (setOperator.getOperands().size() > 2) {
+			// something is wrong
+		} else {
+			if (setOperator.getOperands().get(0) instanceof Filter) {
+				Filter filter = (Filter) setOperator.getOperands().get(0);
+				filter1 = new SimpleFilter(treeViewer.getContentProvider(), filter, configuration);
+			} else {
+				SetOperator operator = (SetOperator) setOperator.getOperands().get(0);
+				filter1 = buildFilter(operator);
+			}
+
+			if (setOperator.getOperands().get(1) instanceof Filter) {
+				Filter filter = (Filter) setOperator.getOperands().get(1);
+				filter2 = new SimpleFilter(treeViewer.getContentProvider(), filter, configuration);
+			} else {
+				SetOperator operator = (SetOperator) setOperator.getOperands().get(1);
+				filter2 = buildFilter(operator);
+			}
+		}
+
+		if (setOperator.getOperator() == null) {
+			// something is wrong
+		} else {
+			SetOperators operator = setOperator.getOperator();
+			if (operator.getName().equals("AND")) {
+				result = new AndFilter(treeViewer.getContentProvider(), filter1, filter2);
+			} else if (operator.getName().equals("OR")) {
+				result = new OrFilter(treeViewer.getContentProvider(), filter1, filter2);
+			} else if (operator.getName().equals("MINUS")) {
+				result = new Minusfilter(treeViewer.getContentProvider(), filter1, filter2);
+			}
+		}
+		return result;
 	}
 
 	@Override

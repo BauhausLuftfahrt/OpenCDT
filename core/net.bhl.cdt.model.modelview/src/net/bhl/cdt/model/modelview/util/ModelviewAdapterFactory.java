@@ -88,6 +88,14 @@ public class ModelviewAdapterFactory extends AdapterFactoryImpl {
 				return createFilterAdapter();
 			}
 			@Override
+			public Adapter caseSetExpression(SetExpression object) {
+				return createSetExpressionAdapter();
+			}
+			@Override
+			public Adapter caseSetOperator(SetOperator object) {
+				return createSetOperatorAdapter();
+			}
+			@Override
 			public Adapter caseExchangeElement(ExchangeElement object) {
 				return createExchangeElementAdapter();
 			}
@@ -158,6 +166,34 @@ public class ModelviewAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createFilterAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.modelview.SetExpression <em>Set Expression</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see net.bhl.cdt.model.modelview.SetExpression
+	 * @generated
+	 */
+	public Adapter createSetExpressionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.modelview.SetOperator <em>Set Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see net.bhl.cdt.model.modelview.SetOperator
+	 * @generated
+	 */
+	public Adapter createSetOperatorAdapter() {
 		return null;
 	}
 

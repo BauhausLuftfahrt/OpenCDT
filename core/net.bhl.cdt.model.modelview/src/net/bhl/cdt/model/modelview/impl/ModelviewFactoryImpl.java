@@ -13,6 +13,7 @@ import net.bhl.cdt.model.modelview.ModelviewPackage;
 import net.bhl.cdt.model.modelview.ViewLink;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
@@ -65,8 +66,39 @@ public class ModelviewFactoryImpl extends EFactoryImpl implements ModelviewFacto
 			case ModelviewPackage.DISCIPLINE_VIEW: return createDisciplineView();
 			case ModelviewPackage.VIEW_LINK: return createViewLink();
 			case ModelviewPackage.FILTER: return createFilter();
+			case ModelviewPackage.SET_OPERATOR: return createSetOperator();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case ModelviewPackage.SET_OPERATORS:
+				return createSetOperatorsFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case ModelviewPackage.SET_OPERATORS:
+				return convertSetOperatorsToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -98,6 +130,36 @@ public class ModelviewFactoryImpl extends EFactoryImpl implements ModelviewFacto
 	public Filter createFilter() {
 		FilterImpl filter = new FilterImpl();
 		return filter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SetOperator createSetOperator() {
+		SetOperatorImpl setOperator = new SetOperatorImpl();
+		return setOperator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SetOperators createSetOperatorsFromString(EDataType eDataType, String initialValue) {
+		SetOperators result = SetOperators.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertSetOperatorsToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**
