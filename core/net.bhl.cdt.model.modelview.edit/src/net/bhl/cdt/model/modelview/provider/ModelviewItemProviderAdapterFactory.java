@@ -159,6 +159,29 @@ public class ModelviewItemProviderAdapterFactory extends ModelviewAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.modelview.SetOperator} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SetOperatorItemProvider setOperatorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link net.bhl.cdt.model.modelview.SetOperator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSetOperatorAdapter() {
+		if (setOperatorItemProvider == null) {
+			setOperatorItemProvider = new SetOperatorItemProvider(this);
+		}
+
+		return setOperatorItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -260,6 +283,7 @@ public class ModelviewItemProviderAdapterFactory extends ModelviewAdapterFactory
 		if (disciplineViewItemProvider != null) disciplineViewItemProvider.dispose();
 		if (viewLinkItemProvider != null) viewLinkItemProvider.dispose();
 		if (filterItemProvider != null) filterItemProvider.dispose();
+		if (setOperatorItemProvider != null) setOperatorItemProvider.dispose();
 	}
 
 }

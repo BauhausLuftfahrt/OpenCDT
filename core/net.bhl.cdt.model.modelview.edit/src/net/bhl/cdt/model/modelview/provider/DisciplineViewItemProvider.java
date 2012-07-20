@@ -100,7 +100,6 @@ public class DisciplineViewItemProvider extends ViewItemProvider implements
 			Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelviewPackage.Literals.DISCIPLINE_VIEW__SUBVIEWS);
 			childrenFeatures.add(ModelviewPackage.Literals.DISCIPLINE_VIEW__ELEMENTS);
 			childrenFeatures.add(ModelviewPackage.Literals.DISCIPLINE_VIEW__VIEW_LINKS);
 			childrenFeatures.add(ModelviewPackage.Literals.DISCIPLINE_VIEW__FILTER);
@@ -157,7 +156,6 @@ public class DisciplineViewItemProvider extends ViewItemProvider implements
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(DisciplineView.class)) {
-			case ModelviewPackage.DISCIPLINE_VIEW__SUBVIEWS:
 			case ModelviewPackage.DISCIPLINE_VIEW__ELEMENTS:
 			case ModelviewPackage.DISCIPLINE_VIEW__VIEW_LINKS:
 			case ModelviewPackage.DISCIPLINE_VIEW__FILTER:
@@ -178,16 +176,6 @@ public class DisciplineViewItemProvider extends ViewItemProvider implements
 	protected void collectNewChildDescriptors(
 			Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelviewPackage.Literals.DISCIPLINE_VIEW__SUBVIEWS,
-				 ModelviewFactory.eINSTANCE.createDisciplineView()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelviewPackage.Literals.DISCIPLINE_VIEW__SUBVIEWS,
-				 ArchitecturetoolsFactory.eINSTANCE.createPowerDemandView()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -213,6 +201,11 @@ public class DisciplineViewItemProvider extends ViewItemProvider implements
 			(createChildParameter
 				(ModelviewPackage.Literals.DISCIPLINE_VIEW__FILTER,
 				 ModelviewFactory.eINSTANCE.createFilter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelviewPackage.Literals.DISCIPLINE_VIEW__FILTER,
+				 ModelviewFactory.eINSTANCE.createSetOperator()));
 	}
 
 	/**

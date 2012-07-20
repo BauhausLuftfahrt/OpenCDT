@@ -43,7 +43,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class FilterItemProvider
-	extends ElementItemProvider
+	extends SetExpressionItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -311,17 +311,6 @@ public class FilterItemProvider
 			(createChildParameter
 				(ModelviewPackage.Literals.FILTER__INTERFACE,
 				 ArchitecturetoolsFactory.eINSTANCE.createVelocityInterface()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ModelviewEditPlugin.INSTANCE;
 	}
 
 }
