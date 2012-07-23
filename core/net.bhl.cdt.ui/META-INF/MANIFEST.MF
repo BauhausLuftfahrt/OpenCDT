@@ -23,4 +23,5 @@ Export-Package: net.bhl.cdt.ui,
  net.bhl.cdt.ui.preferences,
  net.bhl.cdt.ui.views
 Bundle-ClassPath: .,
- swt-grouplayout.jar
+ swt-grouplayout.jar,
+ swing2swt.jar

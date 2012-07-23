@@ -360,6 +360,11 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		i_cd.setCoefficientParameter(cd);
 		i_cd.getDiscipline().add(AERODYNAMICS);
 		i_cd.getDiscipline().add(WEIGHTS_AND_BALANCES);
+		
+		CoefficientInterface i_cd_0 = ArchitecturetoolsFactory.eINSTANCE.createCoefficientInterface();
+		i_cd_0.setParentComponent(aircraft);
+		i_cd_0.setName("Interface C_D 0)");
+		i_cd_0.setCoefficientParameter(cd);		
 
 		SFCInterface i_sfc = ArchitecturetoolsFactory.eINSTANCE.createSFCInterface();
 		i_sfc.setParentComponent(aircraft);
@@ -540,7 +545,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		parameterDescriptor = function.getInputDescriptors().get(3);
 		cWettedAreaMapping.getInputMappables().put(parameterDescriptor, i_s_wet_fus);
 		parameterDescriptor = function.getOutputDescriptors().get(0);
-		cWettedAreaMapping.getOutputMappables().put(parameterDescriptor, s_wet);
+		cWettedAreaMapping.getOutputMappables().put(parameterDescriptor, i_s_wet);
 
 		Calculation cZeroLiftDrag = CalculationFactory.eINSTANCE.createCalculation();
 		csMassPerformanceLoop.getCalculations().add(cZeroLiftDrag);
@@ -551,11 +556,11 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		function = manager.getFunction(UtilitiesHelper.getProjectId(cZeroLiftDrag),
 			"net.bhl.cdt.calculationrepository.scilab.zeroliftdragcoefficientfunction");
 		parameterDescriptor = function.getInputDescriptors().get(0);
-		cZeroLiftDragMapping.getInputMappables().put(parameterDescriptor, s_wet);
+		cZeroLiftDragMapping.getInputMappables().put(parameterDescriptor, i_s_wet);
 		parameterDescriptor = function.getInputDescriptors().get(1);
 		cZeroLiftDragMapping.getInputMappables().put(parameterDescriptor, i_s_ref);
 		parameterDescriptor = function.getOutputDescriptors().get(0);
-		cZeroLiftDragMapping.getOutputMappables().put(parameterDescriptor, cd_0);
+		cZeroLiftDragMapping.getOutputMappables().put(parameterDescriptor, i_cd_0);
 
 		Calculation cDragCoefficient = CalculationFactory.eINSTANCE.createCalculation();
 		csMassPerformanceLoop.getCalculations().add(cDragCoefficient);
@@ -566,13 +571,13 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		function = manager.getFunction(UtilitiesHelper.getProjectId(cDragCoefficient),
 			"net.bhl.cdt.calculationrepository.scilab.dragcoefficientfunction");
 		parameterDescriptor = function.getInputDescriptors().get(0);
-		cDragCoefficientMapping.getInputMappables().put(parameterDescriptor, cd_0);
+		cDragCoefficientMapping.getInputMappables().put(parameterDescriptor, i_cd_0);
 		parameterDescriptor = function.getInputDescriptors().get(1);
 		cDragCoefficientMapping.getInputMappables().put(parameterDescriptor, i_kfactor);
 		parameterDescriptor = function.getInputDescriptors().get(2);
 		cDragCoefficientMapping.getInputMappables().put(parameterDescriptor, i_cl_liftcoefficient);
 		parameterDescriptor = function.getOutputDescriptors().get(0);
-		cDragCoefficientMapping.getOutputMappables().put(parameterDescriptor, cd);
+		cDragCoefficientMapping.getOutputMappables().put(parameterDescriptor, i_cd);
 
 		Calculation cMassOE = CalculationFactory.eINSTANCE.createCalculation();
 		csMassPerformanceLoop.getCalculations().add(cMassOE);
@@ -598,7 +603,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		parameterDescriptor = function.getInputDescriptors().get(6);
 		cMassOEMapping.getInputMappables().put(parameterDescriptor, i_m_systems);
 		parameterDescriptor = function.getOutputDescriptors().get(0);
-		cMassOEMapping.getOutputMappables().put(parameterDescriptor, m_oe);
+		cMassOEMapping.getOutputMappables().put(parameterDescriptor, i_m_oe);
 
 		Calculation cMassTO = CalculationFactory.eINSTANCE.createCalculation();
 		csMassPerformanceLoop.getCalculations().add(cMassTO);
@@ -612,11 +617,11 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		parameterDescriptor = function.getInputDescriptors().get(0);
 		cMassTOMapping.getInputMappables().put(parameterDescriptor, i_m_fuel); // fuelsystem
 		parameterDescriptor = function.getInputDescriptors().get(1);
-		cMassTOMapping.getInputMappables().put(parameterDescriptor, m_oe); // aircraft
+		cMassTOMapping.getInputMappables().put(parameterDescriptor, i_m_oe); // aircraft
 		parameterDescriptor = function.getInputDescriptors().get(2);
-		cMassTOMapping.getInputMappables().put(parameterDescriptor, m_payload);
+		cMassTOMapping.getInputMappables().put(parameterDescriptor, i_m_payload);
 		parameterDescriptor = function.getOutputDescriptors().get(0);
-		cMassTOMapping.getOutputMappables().put(parameterDescriptor, m_to);
+		cMassTOMapping.getOutputMappables().put(parameterDescriptor, i_m_to);
 
 		Calculation cSFC = CalculationFactory.eINSTANCE.createCalculation();
 		csMassPerformanceLoop.getCalculations().add(cSFC);
@@ -630,7 +635,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		parameterDescriptor = function.getInputDescriptors().get(1);
 		cSFCMapping.getInputMappables().put(parameterDescriptor, i_ma);
 		parameterDescriptor = function.getOutputDescriptors().get(0);
-		cSFCMapping.getOutputMappables().put(parameterDescriptor, sfc);
+		cSFCMapping.getOutputMappables().put(parameterDescriptor, i_sfc);
 
 		// Create CalculationSet Fuselage
 		CalculationSet csFuselage = CalculationFactory.eINSTANCE.createCalculationSet();

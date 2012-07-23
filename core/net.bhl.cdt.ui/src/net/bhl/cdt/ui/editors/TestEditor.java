@@ -11,6 +11,11 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.jface.viewers.ComboViewer;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.layout.FormLayout;
+import org.eclipse.swt.layout.FormData;
+import org.eclipse.swt.layout.FormAttachment;
+import swing2swt.layout.BorderLayout;
 
 public class TestEditor extends EditorPart {
 
@@ -26,17 +31,10 @@ public class TestEditor extends EditorPart {
 	@Override
 	public void createPartControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
+		container.setLayout(new BorderLayout(0, 0));
 		
-		ComboViewer comboViewer = new ComboViewer(container, SWT.NONE);
-		Combo combo = comboViewer.getCombo();
-		combo.addModifyListener(new ModifyListener() {
-			public void modifyText(ModifyEvent e) {
-			}
-		});
-		combo.setBounds(10, 10, 91, 23);
-		
-		Combo combo_1 = new Combo(container, SWT.NONE);
-		combo_1.setBounds(76, 98, 91, 23);
+		Group group = new Group(container, SWT.NONE);
+		group.setLayoutData(BorderLayout.NORTH);
 
 	}
 

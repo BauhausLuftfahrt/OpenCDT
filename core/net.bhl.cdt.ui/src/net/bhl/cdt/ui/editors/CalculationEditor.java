@@ -80,6 +80,8 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.layout.RowLayout;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.wb.swt.layout.grouplayout.GroupLayout;
+import swing2swt.layout.BorderLayout;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 /**
  * Creates the parameter mapping editor.
@@ -110,37 +112,25 @@ public class CalculationEditor extends EditorPart {
 	@Override
 	public void createPartControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NONE);
-		container.setLayout(new FormLayout());
+		container.setLayout(new BorderLayout(0, 0));
 
 		grpInputParameters = new Group(container, SWT.NONE);
+		grpInputParameters.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		grpInputParameters.setLayoutData(BorderLayout.CENTER);
 		grpInputParameters.setText("Input Parameters");
 		grpInputParameters.setLayout(new GridLayout(2, false));
-		FormData fd_grpInputParameters = new FormData();
-		fd_grpInputParameters.left = new FormAttachment(0, 10);
-		fd_grpInputParameters.right = new FormAttachment(100, -10);
-		grpInputParameters.setLayoutData(fd_grpInputParameters);
 
 		grpOutputParameters = new Group(container, SWT.NONE);
-		fd_grpInputParameters.bottom = new FormAttachment(grpOutputParameters, -6);
+		grpOutputParameters.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		grpOutputParameters.setLayoutData(BorderLayout.SOUTH);
 		grpOutputParameters.setText("Output Parameters");
 		grpOutputParameters.setLayout(new GridLayout(2, false));
-		FormData fd_grpOutputParameters = new FormData();
-		fd_grpOutputParameters.bottom = new FormAttachment(0, 464);
-		fd_grpOutputParameters.top = new FormAttachment(0, 387);
-		fd_grpOutputParameters.left = new FormAttachment(0, 10);
-		fd_grpOutputParameters.right = new FormAttachment(100, -10);
-		grpOutputParameters.setLayoutData(fd_grpOutputParameters);
 
 		Group grpParameterMapping = new Group(container, SWT.NONE);
-		fd_grpInputParameters.top = new FormAttachment(grpParameterMapping, 6);
+		grpParameterMapping.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
+		grpParameterMapping.setLayoutData(BorderLayout.NORTH);
 		grpParameterMapping.setText("Parameter Mapping");
 		grpParameterMapping.setLayout(new GridLayout(2, false));
-		FormData fd_grpParameterMapping = new FormData();
-		fd_grpParameterMapping.bottom = new FormAttachment(0, 87);
-		fd_grpParameterMapping.top = new FormAttachment(0, 10);
-		fd_grpParameterMapping.left = new FormAttachment(0, 10);
-		fd_grpParameterMapping.right = new FormAttachment(100, -10);
-		grpParameterMapping.setLayoutData(fd_grpParameterMapping);
 
 		Label lblName = new Label(grpParameterMapping, SWT.NONE);
 		lblName.setText("Name");
@@ -151,10 +141,11 @@ public class CalculationEditor extends EditorPart {
 		calculationName.setLayoutData(gd_calculationName);
 
 		Label lblFunction = new Label(grpParameterMapping, SWT.NONE);
+		lblFunction.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, true, 1, 1));
 		lblFunction.setText("Function ID");
 
 		lblNewLabel = new Label(grpParameterMapping, SWT.BORDER);
-		lblNewLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		lblNewLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, true, 1, 1));
 		lblNewLabel.setText("");
 		
 		generateMappingGUI();
