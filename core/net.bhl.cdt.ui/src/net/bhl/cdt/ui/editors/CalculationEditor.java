@@ -1,3 +1,8 @@
+/*******************************************************************************
+ * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
+ * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
+ ******************************************************************************/
 package net.bhl.cdt.ui.editors;
 
 import java.util.ArrayList;
@@ -77,7 +82,7 @@ import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.wb.swt.layout.grouplayout.GroupLayout;
 
 /**
- * This class is responsible for creating the parameter mapping editor.
+ * Creates the parameter mapping editor.
  * 
  * @author stephan.leutenmayr
  */
@@ -94,6 +99,8 @@ public class CalculationEditor extends EditorPart {
 	private Component component;
 	private Label lblNewLabel;
 	private Configuration configuration;
+	private Group grpInputParameters;
+	private Group grpOutputParameters;
 
 	/**
 	 * Create contents of the editor part.
@@ -105,49 +112,52 @@ public class CalculationEditor extends EditorPart {
 		Composite container = new Composite(parent, SWT.NONE);
 		container.setLayout(new FormLayout());
 
-		Composite composite = new Composite(container, SWT.NONE);
-		FormData fd_composite = new FormData();
-		fd_composite.top = new FormAttachment(0, 10);
-		fd_composite.left = new FormAttachment(0, 10);
-		fd_composite.bottom = new FormAttachment(0, 83);
-		fd_composite.right = new FormAttachment(100, -10);
-		composite.setLayoutData(fd_composite);
-		composite.setLayout(new GridLayout(2, false));
-		new Label(composite, SWT.NONE);
+		grpInputParameters = new Group(container, SWT.NONE);
+		grpInputParameters.setText("Input Parameters");
+		grpInputParameters.setLayout(new GridLayout(2, false));
+		FormData fd_grpInputParameters = new FormData();
+		fd_grpInputParameters.left = new FormAttachment(0, 10);
+		fd_grpInputParameters.right = new FormAttachment(100, -10);
+		grpInputParameters.setLayoutData(fd_grpInputParameters);
 
-		Label lblParameterMapping = new Label(composite, SWT.NONE);
-		lblParameterMapping.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
-		lblParameterMapping.setText("Parameter Mapping");
+		grpOutputParameters = new Group(container, SWT.NONE);
+		fd_grpInputParameters.bottom = new FormAttachment(grpOutputParameters, -6);
+		grpOutputParameters.setText("Output Parameters");
+		grpOutputParameters.setLayout(new GridLayout(2, false));
+		FormData fd_grpOutputParameters = new FormData();
+		fd_grpOutputParameters.bottom = new FormAttachment(0, 464);
+		fd_grpOutputParameters.top = new FormAttachment(0, 387);
+		fd_grpOutputParameters.left = new FormAttachment(0, 10);
+		fd_grpOutputParameters.right = new FormAttachment(100, -10);
+		grpOutputParameters.setLayoutData(fd_grpOutputParameters);
 
-		Label lblName = new Label(composite, SWT.NONE);
-		GridData gd_lblName = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-		gd_lblName.widthHint = 59;
-		lblName.setLayoutData(gd_lblName);
+		Group grpParameterMapping = new Group(container, SWT.NONE);
+		fd_grpInputParameters.top = new FormAttachment(grpParameterMapping, 6);
+		grpParameterMapping.setText("Parameter Mapping");
+		grpParameterMapping.setLayout(new GridLayout(2, false));
+		FormData fd_grpParameterMapping = new FormData();
+		fd_grpParameterMapping.bottom = new FormAttachment(0, 87);
+		fd_grpParameterMapping.top = new FormAttachment(0, 10);
+		fd_grpParameterMapping.left = new FormAttachment(0, 10);
+		fd_grpParameterMapping.right = new FormAttachment(100, -10);
+		grpParameterMapping.setLayoutData(fd_grpParameterMapping);
+
+		Label lblName = new Label(grpParameterMapping, SWT.NONE);
 		lblName.setText("Name");
 
-		calculationName = new Text(composite, SWT.BORDER);
-		GridData gd_calculationName = new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1);
-		gd_calculationName.widthHint = 452;
+		calculationName = new Text(grpParameterMapping, SWT.BORDER);
+		GridData gd_calculationName = new GridData(SWT.FILL, SWT.TOP, false, false, 1, 1);
+		gd_calculationName.widthHint = 461;
 		calculationName.setLayoutData(gd_calculationName);
 
-		Label lblFunction = new Label(composite, SWT.NONE);
-		lblFunction.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		Label lblFunction = new Label(grpParameterMapping, SWT.NONE);
 		lblFunction.setText("Function ID");
 
-		lblNewLabel = new Label(composite, SWT.BORDER);
+		lblNewLabel = new Label(grpParameterMapping, SWT.BORDER);
 		lblNewLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
 		lblNewLabel.setText("");
-
-		Composite paramComposite = new Composite(container, SWT.NONE);
-		FormData fd_paramComposite = new FormData();
-		fd_paramComposite.top = new FormAttachment(composite, 6);
-		fd_paramComposite.left = new FormAttachment(0, 10);
-		fd_paramComposite.bottom = new FormAttachment(100, -10);
-		fd_paramComposite.right = new FormAttachment(100, -10);
-		paramComposite.setLayoutData(fd_paramComposite);
-		paramComposite.setLayout(new GridLayout(2, false));
-
-		createMappingGUI(calculation.getFunctionID(), paramComposite);
+		
+		generateMappingGUI();
 		m_bindingContext = initDataBindings();
 	}
 
@@ -205,53 +215,53 @@ public class CalculationEditor extends EditorPart {
 	}
 
 	/**
-	 * Dynamically generates the mapping GUI elements.
+	 * Retrieves a list of parameter interfaces of the configuration. Removes parameters from the list.
 	 * 
-	 * @param functionID
-	 * @param composite
+	 * @param configuration
+	 * @param component
+	 * @return list of parameter interfaces without parameters
 	 */
-	private void createMappingGUI(String functionID, Composite composite) {
-		Function selectedFunction = CalculationRepositoryManager.getInstance().getFunction(
-			UtilitiesHelper.getProjectId(calculation), functionID);
-
-		// Get list of mappable interfaces from the configuration
+	private List<MappableComponentInterface> getParameterInterfaces(Configuration configuration, Component component) {
+		// Get list of all mappable interfaces of the current configuration
 		List<MappableComponentInterface> parameterInterfaces = ComponentInterfaceUtil.getComponentInterfaces(
 			configuration, MappableComponentInterface.class);
 
-		// Remove instances of Parameter from the list of interfaces
+		// Remove instances of class Parameter from the list of interfaces, as parameters are considered private.
 		Iterator<MappableComponentInterface> parameterInterfacesIterator = parameterInterfaces.iterator();
 		while (parameterInterfacesIterator.hasNext()) {
 			MappableComponentInterface pi = parameterInterfacesIterator.next();
-			if (pi instanceof Parameter)
+			if (pi instanceof Parameter) {
 				parameterInterfacesIterator.remove();
+			}
 		}
 
 		// Sort mappable interfaces by their names
 		Collections.sort(parameterInterfaces, new NameComparator());
 
 		// If the calculationSet of the selected calculation is attached to a component, the calculationSet is
-		// considered to be private. The parameter of such a component are intended to be directly accessible.
-		List<Parameter> parameterList = new ArrayList<Parameter>();
+		// considered to be private. The parameters of such a component are intended to be directly accessible.
+		List<Parameter> componentParameters = new ArrayList<Parameter>();
 		if (component != null) {
-			parameterList.addAll(component.getParameters()) ;
-			//parameterList = UtilitiesHelper.getChildrenByClass(component, Parameter.class) ;//= component.getParameters();
-			// Sort..
-			Collections.sort(parameterList, new NameComparator());
-			parameterInterfaces.addAll(parameterList);
+			componentParameters.addAll(component.getParameters());
+			// We sort them alphabetically..
+			Collections.sort(componentParameters, new NameComparator());
+			// We add the parameters to the overall parameterInterfaces list
+			parameterInterfaces.addAll(componentParameters);
 		}
+		return parameterInterfaces;
+	}
 
-		ParameterMapping mapping = calculation.getParameterMapping();
-
-		final EMap<ParameterDescriptor, MappableComponentInterface> iMappables = mapping.getInputMappables();
-		Iterator<Entry<ParameterDescriptor, MappableComponentInterface>> iMappablesIterator = iMappables.iterator();
+	private void generateMappingGUI(final EMap<ParameterDescriptor, MappableComponentInterface> mappables,
+		List<MappableComponentInterface> parameterInterfaces, Composite composite) {
+		Iterator<Entry<ParameterDescriptor, MappableComponentInterface>> mappablesIterator = mappables.iterator();
 
 		// Iterate over mappables and generate GUI elements (label, comboViewer) for each item
-		while (iMappablesIterator.hasNext()) {
-			Entry<ParameterDescriptor, MappableComponentInterface> entry = iMappablesIterator.next();
+		while (mappablesIterator.hasNext()) {
+			Entry<ParameterDescriptor, MappableComponentInterface> entry = mappablesIterator.next();
 			Label descriptorLabel = new Label(composite, SWT.NONE);
 			ParameterDescriptor descriptor = entry.getKey();
 
-			descriptorLabel.setText("Input: " + descriptor.getLabel());
+			descriptorLabel.setText(descriptor.getLabel());
 
 			ComboViewer comboViewer = new ComboViewer(composite, SWT.READ_ONLY);
 			comboViewer.getCombo().setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
@@ -261,10 +271,10 @@ public class CalculationEditor extends EditorPart {
 			comboViewer.setLabelProvider(new ComboViewerLabelProvider());
 
 			// Generate a list of inputs that form the basis of the comboViewer. The list is filtered by the allowed
-			// Quantity for the specific parameter. The wrapper is neeeded to have access to the mappable key from
+			// Quantity for the specific parameter. The wrapper is needed to have access to the mappable key from
 			// inside the event listener.
 			List<ComboViewerItem> comboViewerItemList = new ArrayList<ComboViewerItem>();
-			parameterInterfacesIterator = parameterInterfaces.iterator();
+			Iterator<MappableComponentInterface> parameterInterfacesIterator = parameterInterfaces.iterator();
 			while (parameterInterfacesIterator.hasNext()) {
 				MappableComponentInterface mci = parameterInterfacesIterator.next();
 				if (mci.getQuantity().equals(descriptor.getQuantity()))
@@ -274,7 +284,7 @@ public class CalculationEditor extends EditorPart {
 			IObservableList input = Properties.selfList(Parameter.class).observe(comboViewerItemList);
 			comboViewer.setInput(input);
 
-			// if a mapping exists for a given item, set parameter name in comboViever
+			// if a mapping exists for a given item, set its parameter name in comboViever
 			if (entry.getValue() != null)
 				comboViewer.getCombo().setText(entry.getValue().getName());
 
@@ -287,25 +297,28 @@ public class CalculationEditor extends EditorPart {
 					new CDTCommand() {
 						@Override
 						protected void doRun() {
-							iMappables.put(cvi.getParameterDescriptor(), cvi.getMappableComponentInterface());
+							mappables.put(cvi.getParameterDescriptor(), cvi.getMappableComponentInterface());
 						}
 					}.run();
 				}
 			});
 		}
+	}
 
-		// TODO: refactor code for oMappables
-		EMap<ParameterDescriptor, MappableComponentInterface> oMappables = mapping.getOutputMappables();
-		Iterator<Entry<ParameterDescriptor, MappableComponentInterface>> oMappablesIterator = oMappables.iterator();
+	/**
+	 * Dynamically generates the mapping GUI elements depending on the parameter mapping of the selected calculation.
+	 * 
+	 * @param functionID
+	 * @param composite
+	 */
+	private void generateMappingGUI() {
+		// Get mapping of the current calculation
+		ParameterMapping mapping = calculation.getParameterMapping();
 
-		while (oMappablesIterator.hasNext()) {
-			Entry<ParameterDescriptor, MappableComponentInterface> entry = oMappablesIterator.next();
-			Label descriptorLabel = new Label(composite, SWT.NONE);
-			descriptorLabel.setText("Output: " + entry.getKey().getLabel());
+		// Get mappable parameter interfaces
+		List<MappableComponentInterface> parameterInterfaces = getParameterInterfaces(configuration, component);
 
-			ComboViewer comboViewer = new ComboViewer(composite, SWT.READ_ONLY);
-		}
-
-		composite.layout();
+		generateMappingGUI(mapping.getInputMappables(), parameterInterfaces, grpInputParameters);
+		generateMappingGUI(mapping.getOutputMappables(), parameterInterfaces, grpOutputParameters);
 	}
 }
