@@ -53,12 +53,14 @@ public class DemoAircraftModelCommand extends CDTCommand {
 	private Model model;
 	private Project project;
 	private CalculationRepositoryManager manager;
-	
-	static String AERODYNAMICS = "Aerodynamic" ;
-	static String PERFORMANCE = "Performance" ;
-	static String WEIGHTS_AND_BALANCES = "Weight&Balances" ; 
+
+	static String AERODYNAMICS = "Aerodynamic";
+	static String PERFORMANCE = "Performance";
+	static String WEIGHTS_AND_BALANCES = "Weight&Balances";
+
 	/**
 	 * Constructor for the DemoAircraftModelCommand class. The demo model is generated inside the model element.
+	 * 
 	 * @param model the model element that is to contain the generated demo model
 	 */
 	public DemoAircraftModelCommand(Model model) {
@@ -67,11 +69,12 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		manager = CalculationRepositoryManager.getInstance();
 
 	}
-	
-/**
- * Constructor for the DemoAircraftModelCommand class. The demo model is generated inside the project element.
- * @param project the project element that is to contain the generated demo model 
- */
+
+	/**
+	 * Constructor for the DemoAircraftModelCommand class. The demo model is generated inside the project element.
+	 * 
+	 * @param project the project element that is to contain the generated demo model
+	 */
 	public DemoAircraftModelCommand(Project project) {
 		this.project = project;
 		manager = CalculationRepositoryManager.getInstance();
@@ -91,7 +94,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		}
 
 		// Check existence of calculation repository in project
-		//TODO: CalculationRepository must be present in order to create configuration; refactor code.
+		// TODO: CalculationRepository must be present in order to create configuration; refactor code.
 		EList<EObject> projectContent = project.eContents();
 		boolean calcRepositoryPresent = false;
 		for (EObject eObject : projectContent) {
@@ -103,11 +106,11 @@ public class DemoAircraftModelCommand extends CDTCommand {
 			createCalculationRepository();
 		}
 	}
-	
-/**
- * Creates an demo configuration of an aircraft model and populates it with (sub-) components, 
- * parameters, interfaces and calculations.
- */
+
+	/**
+	 * Creates an demo configuration of an aircraft model and populates it with (sub-) components, parameters,
+	 * interfaces and calculations.
+	 */
 	protected void createConfiguration() {
 		// Create configuration and add it to model
 		Configuration configuration = ModelFactory.eINSTANCE.createConfiguration();
@@ -170,7 +173,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		Parameter m_to = ModelFactory.eINSTANCE.createParameter();
 		m_to.setName("m_to");
 		m_to.setQuantity(Quantity.MASS);
-		m_to.setParentComponent(aircraft);
+		aircraft.getParameters().add(m_to);
 
 		// Parameter m_to_real = ModelFactory.eINSTANCE.createParameter();
 		// m_to_real.setName("m_to_real");
@@ -180,164 +183,163 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		Parameter m_oe = ModelFactory.eINSTANCE.createParameter();
 		m_oe.setName("m_oe");
 		m_oe.setQuantity(Quantity.MASS);
-		m_oe.setParentComponent(aircraft);
+		aircraft.getParameters().add(m_oe);
 
 		Parameter m_payload = ModelFactory.eINSTANCE.createParameter();
 		m_payload.setName("m_payload");
 		m_payload.setQuantity(Quantity.MASS);
-		m_payload.setParentComponent(aircraft);
+		aircraft.getParameters().add(m_payload);
 
 		Parameter s_wet = ModelFactory.eINSTANCE.createParameter();
-		s_wet.setParentComponent(aircraft);
+		aircraft.getParameters().add(s_wet);
 		s_wet.setName("s_wet");
 		s_wet.setQuantity(Quantity.AREA);
 
 		Parameter cd_0 = ModelFactory.eINSTANCE.createParameter();
-		cd_0.setParentComponent(aircraft);
+		aircraft.getParameters().add(cd_0);
 		cd_0.setName("CD_0");
 		cd_0.setQuantity(Quantity.COEFFICIENT);
 
 		Parameter cd = ModelFactory.eINSTANCE.createParameter();
-		cd.setParentComponent(aircraft);
+		aircraft.getParameters().add(cd);
 		cd.setName("CD_dragcoefficient");
 		cd.setQuantity(Quantity.COEFFICIENT);
 
 		Parameter s_wet_fus = ModelFactory.eINSTANCE.createParameter();
 		s_wet_fus.setName("s_wet_fus");
 		s_wet_fus.setQuantity(Quantity.AREA);
-		s_wet_fus.setParentComponent(fuselage);
-		fuselage.getParameters().add(s_wet_fus) ;
+		fuselage.getParameters().add(s_wet_fus);
 
 		Parameter sfc = ModelFactory.eINSTANCE.createParameter();
 		sfc.setName("SFC");
 		sfc.setQuantity(Quantity.SPECIFICFUELCONSUMPTION);
-		sfc.setParentComponent(aircraft);
+		aircraft.getParameters().add(sfc);
 
 		Parameter r = ModelFactory.eINSTANCE.createParameter();
 		r.setName("R");
 		r.setQuantity(Quantity.LENGTH);
-		r.setParentComponent(aircraft);
+		aircraft.getParameters().add(r);
 
 		Parameter m_fus = ModelFactory.eINSTANCE.createParameter();
-		m_fus.setParentComponent(fuselage);
+		fuselage.getParameters().add(m_fus);
 		m_fus.setName("m_fus");
 		m_fus.setQuantity(Quantity.MASS);
 
 		Parameter s_ref = ModelFactory.eINSTANCE.createParameter();
 		s_ref.setName("s_ref");
 		s_ref.setQuantity(Quantity.AREA);
-		s_ref.setParentComponent(wing);
+		wing.getParameters().add(s_ref);
 
 		Parameter k_factor = ModelFactory.eINSTANCE.createParameter();
-		k_factor.setParentComponent(wing);
+		wing.getParameters().add(k_factor);
 		k_factor.setName("k_factor");
 		k_factor.setQuantity(Quantity.COEFFICIENT);
 
 		Parameter aspect_ratio = ModelFactory.eINSTANCE.createParameter();
-		aspect_ratio.setParentComponent(wing);
+		wing.getParameters().add(aspect_ratio);
 		aspect_ratio.setName("aspect ratio");
 		aspect_ratio.setQuantity(Quantity.COEFFICIENT);
 
 		Parameter m_wing = ModelFactory.eINSTANCE.createParameter();
-		m_wing.setParentComponent(wing);
+		wing.getParameters().add(m_wing);
 		m_wing.setName("m_wing");
 		m_wing.setQuantity(Quantity.MASS);
 
 		Parameter lift_coefficient = ModelFactory.eINSTANCE.createParameter();
-		lift_coefficient.setParentComponent(wing);
+		wing.getParameters().add(lift_coefficient);
 		lift_coefficient.setName("Lift Coefficient");
 		lift_coefficient.setQuantity(Quantity.COEFFICIENT);
 
 		Parameter oswald_efficiency = ModelFactory.eINSTANCE.createParameter();
-		oswald_efficiency.setParentComponent(wing);
+		wing.getParameters().add(oswald_efficiency);
 		oswald_efficiency.setName("Oswald efficieny");
 		oswald_efficiency.setQuantity(Quantity.COEFFICIENT);
 
 		Parameter m_vt = ModelFactory.eINSTANCE.createParameter();
 		m_vt.setName("m_vt");
 		m_vt.setQuantity(Quantity.MASS);
-		m_vt.setParentComponent(stabilizer);
+		stabilizer.getParameters().add(m_vt);
 
 		Parameter s_ref_vt = ModelFactory.eINSTANCE.createParameter();
 		s_ref_vt.setName("S_ref_vt");
 		s_ref_vt.setQuantity(Quantity.AREA);
-		s_ref_vt.setParentComponent(stabilizer);
+		stabilizer.getParameters().add(s_ref_vt);
 
 		Parameter m_ht = ModelFactory.eINSTANCE.createParameter();
 		m_ht.setName("m_ht");
 		m_ht.setQuantity(Quantity.MASS);
-		m_ht.setParentComponent(fin);
+		fin.getParameters().add(m_ht);
 
 		Parameter s_ref_ht = ModelFactory.eINSTANCE.createParameter();
 		s_ref_ht.setName("s_ref_ht");
 		s_ref_ht.setQuantity(Quantity.AREA);
-		s_ref_ht.setParentComponent(fin);
+		fin.getParameters().add(s_ref_ht);
 
 		Parameter m_propulsion = ModelFactory.eINSTANCE.createParameter();
 		m_propulsion.setName("m_Propulsion");
 		m_propulsion.setQuantity(Quantity.MASS);
-		m_propulsion.setParentComponent(engine);
+		engine.getParameters().add(m_propulsion);
 
 		Parameter m_lg = ModelFactory.eINSTANCE.createParameter();
 		m_lg.setName("m_LG");
 		m_lg.setQuantity(Quantity.MASS);
-		m_lg.setParentComponent(landingGear);
+		landingGear.getParameters().add(m_lg);
 
 		Parameter m_systems = ModelFactory.eINSTANCE.createParameter();
 		m_systems.setName("m_Systems");
 		m_systems.setQuantity(Quantity.MASS);
-		m_systems.setParentComponent(systems);
+		systems.getParameters().add(m_systems);
 
 		Parameter m_fuel = ModelFactory.eINSTANCE.createParameter();
 		m_fuel.setName("m_Fuel");
 		m_fuel.setQuantity(Quantity.MASS);
-		m_fuel.setParentComponent(fuelSystem);
+		fuelSystem.getParameters().add(m_fuel);
 
 		// Temporary?
 		Parameter ff_ref = ModelFactory.eINSTANCE.createParameter();
 		ff_ref.setName("ff_ref");
 		ff_ref.setQuantity(Quantity.COEFFICIENT);
-		ff_ref.setParentComponent(fuelSystem);
+		fuelSystem.getParameters().add(ff_ref);
 
 		Parameter a = ModelFactory.eINSTANCE.createParameter();
 		a.setName("a");
 		a.setQuantity(Quantity.VELOCITY);
-		a.setParentComponent(atmosphere);
+		atmosphere.getParameters().add(a);
 
 		Parameter t = ModelFactory.eINSTANCE.createParameter();
 		t.setName("T");
 		t.setQuantity(Quantity.TEMPERATURE);
-		t.setParentComponent(atmosphere);
+		atmosphere.getParameters().add(t);
 
 		Parameter rho = ModelFactory.eINSTANCE.createParameter();
 		rho.setName("rho");
 		rho.setQuantity(Quantity.DENSITY);
-		rho.setParentComponent(atmosphere);
+		atmosphere.getParameters().add(rho);
 
 		Parameter g = ModelFactory.eINSTANCE.createParameter();
 		g.setName("g");
 		g.setQuantity(Quantity.ACCELERATION);
-		g.setParentComponent(atmosphere);
+		atmosphere.getParameters().add(g);
 
 		Parameter alt = ModelFactory.eINSTANCE.createParameter();
 		alt.setName("Altitude");
 		alt.setQuantity(Quantity.LENGTH);
-		alt.setParentComponent(mission);
+		mission.getParameters().add(alt);
 
 		Parameter ma = ModelFactory.eINSTANCE.createParameter();
 		ma.setName("Mach Number");
 		ma.setQuantity(Quantity.COEFFICIENT);
-		ma.setParentComponent(mission);
+		mission.getParameters().add(ma);
 
 		Parameter r_mission = ModelFactory.eINSTANCE.createParameter();
 		r_mission.setName("R");
 		r_mission.setQuantity(Quantity.LENGTH);
-		r_mission.setParentComponent(mission);
+		mission.getParameters().add(r_mission);
 
 		Parameter v_cr = ModelFactory.eINSTANCE.createParameter();
 		v_cr.setName("v_cr");
 		v_cr.setQuantity(Quantity.VELOCITY);
-		v_cr.setParentComponent(mission);
+		mission.getParameters().add(v_cr);
 
 		// create interfaces
 		RangeInterface i_r = ArchitecturetoolsFactory.eINSTANCE.createRangeInterface();
@@ -349,40 +351,40 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		i_cd0.setParentComponent(aircraft);
 		i_cd0.setName("Interface CD0");
 		i_cd0.setCoefficientParameter(cd_0);
-		i_cd0.getDiscipline().add(AERODYNAMICS) ;
-		i_cd0.getDiscipline().add(PERFORMANCE) ;
-		
-		CoefficientInterface i_cd = ArchitecturetoolsFactory.eINSTANCE.createCoefficientInterface() ;
+		i_cd0.getDiscipline().add(AERODYNAMICS);
+		i_cd0.getDiscipline().add(PERFORMANCE);
+
+		CoefficientInterface i_cd = ArchitecturetoolsFactory.eINSTANCE.createCoefficientInterface();
 		i_cd.setParentComponent(aircraft);
-		i_cd.setName("Interface C_D (Drag coefficient)" ) ;
-		i_cd.setCoefficientParameter(cd) ;
-		i_cd.getDiscipline().add(AERODYNAMICS) ;
-		i_cd.getDiscipline().add(WEIGHTS_AND_BALANCES) ;
+		i_cd.setName("Interface C_D (Drag coefficient)");
+		i_cd.setCoefficientParameter(cd);
+		i_cd.getDiscipline().add(AERODYNAMICS);
+		i_cd.getDiscipline().add(WEIGHTS_AND_BALANCES);
 
 		SFCInterface i_sfc = ArchitecturetoolsFactory.eINSTANCE.createSFCInterface();
 		i_sfc.setParentComponent(aircraft);
 		i_sfc.setName("Interface SFC");
 		i_sfc.setSfcParameter(sfc);
-		i_sfc.getDiscipline().add(PERFORMANCE) ;
+		i_sfc.getDiscipline().add(PERFORMANCE);
 
 		WettedAreaInterface i_s_wet_fus = ArchitecturetoolsFactory.eINSTANCE.createWettedAreaInterface();
 		i_s_wet_fus.setParentComponent(fuselage);
 		i_s_wet_fus.setName("Interface fuselage s_wet_fus");
 		i_s_wet_fus.setWettedAreaParameter(s_wet_fus);
-		i_s_wet_fus.getDiscipline().add(AERODYNAMICS) ;
+		i_s_wet_fus.getDiscipline().add(AERODYNAMICS);
 
 		ReferenceAreaInterface i_s_ref = ArchitecturetoolsFactory.eINSTANCE.createReferenceAreaInterface();
 		i_s_ref.setParentComponent(wing);
 		i_s_ref.setName("Interface wing s_ref");
 		i_s_ref.setReferenceAreaParameter(s_ref);
-		i_s_ref.getDiscipline().add(AERODYNAMICS) ;
+		i_s_ref.getDiscipline().add(AERODYNAMICS);
 
 		CoefficientInterface i_cl_liftcoefficient = ArchitecturetoolsFactory.eINSTANCE.createCoefficientInterface();
 		i_cl_liftcoefficient.setParentComponent(wing);
 		i_cl_liftcoefficient.setName("Interface wing cl_liftcoefficient");
 		i_cl_liftcoefficient.setCoefficientParameter(lift_coefficient);
-		i_cl_liftcoefficient.getDiscipline().add(AERODYNAMICS) ;
-		i_cl_liftcoefficient.getDiscipline().add(WEIGHTS_AND_BALANCES) ;
+		i_cl_liftcoefficient.getDiscipline().add(AERODYNAMICS);
+		i_cl_liftcoefficient.getDiscipline().add(WEIGHTS_AND_BALANCES);
 
 		CoefficientInterface i_kfactor = ArchitecturetoolsFactory.eINSTANCE.createCoefficientInterface();
 		i_kfactor.setParentComponent(wing);
@@ -418,7 +420,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		i_m_propulsion.setParentComponent(engine);
 		i_m_propulsion.setName("Interface engine m_propulsion");
 		i_m_propulsion.setMassParameter(m_propulsion);
-		i_m_propulsion.getDiscipline().add(WEIGHTS_AND_BALANCES) ;
+		i_m_propulsion.getDiscipline().add(WEIGHTS_AND_BALANCES);
 
 		Massive i_m_ht = ArchitecturetoolsFactory.eINSTANCE.createMassive();
 		i_m_ht.setParentComponent(fin);
@@ -434,20 +436,20 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		i_m_wing.setParentComponent(wing);
 		i_m_wing.setName("Interface wing m_wing");
 		i_m_wing.setMassParameter(m_wing);
-		i_m_wing.getDiscipline().add(WEIGHTS_AND_BALANCES) ;
+		i_m_wing.getDiscipline().add(WEIGHTS_AND_BALANCES);
 
 		Massive i_m_fus = ArchitecturetoolsFactory.eINSTANCE.createMassive();
 		i_m_fus.setParentComponent(fuselage);
 		i_m_fus.setName("Interface fuselage m_fus");
 		i_m_fus.setMassParameter(m_fus);
-		i_m_fus.getDiscipline().add(WEIGHTS_AND_BALANCES) ;
+		i_m_fus.getDiscipline().add(WEIGHTS_AND_BALANCES);
 
 		Massive i_m_to = ArchitecturetoolsFactory.eINSTANCE.createMassive();
 		i_m_to.setParentComponent(aircraft);
 		i_m_to.setName("Interface aircraft m_to");
 		i_m_to.setMassParameter(m_to);
-		i_m_to.getDiscipline().add(AERODYNAMICS) ;
-		i_m_to.getDiscipline().add(WEIGHTS_AND_BALANCES) ;
+		i_m_to.getDiscipline().add(AERODYNAMICS);
+		i_m_to.getDiscipline().add(WEIGHTS_AND_BALANCES);
 
 		AltitudeInterface i_alt = ArchitecturetoolsFactory.eINSTANCE.createAltitudeInterface();
 		i_alt.setParentComponent(mission);
@@ -463,52 +465,51 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		i_ff_ref.setParentComponent(fuelSystem);
 		i_ff_ref.setName("Interface ff_ref");
 		i_ff_ref.setCoefficientParameter(ff_ref);
-		
-		CoefficientInterface i_aspect_ratio = ArchitecturetoolsFactory.eINSTANCE.createCoefficientInterface() ;
+
+		CoefficientInterface i_aspect_ratio = ArchitecturetoolsFactory.eINSTANCE.createCoefficientInterface();
 		i_aspect_ratio.setParentComponent(wing);
-		i_aspect_ratio.setName("Interface Aspect Ratio"); 
-		i_aspect_ratio.setCoefficientParameter(aspect_ratio) ;
-		i_aspect_ratio.getDiscipline().add(AERODYNAMICS) ;
-		i_aspect_ratio.getDiscipline().add(PERFORMANCE) ;
-		
-		DensityInterface i_rho = ArchitecturetoolsFactory.eINSTANCE.createDensityInterface() ;
-		i_rho.setParentComponent(atmosphere) ;
-		i_rho.setName("Interface Air density (rho)") ;
+		i_aspect_ratio.setName("Interface Aspect Ratio");
+		i_aspect_ratio.setCoefficientParameter(aspect_ratio);
+		i_aspect_ratio.getDiscipline().add(AERODYNAMICS);
+		i_aspect_ratio.getDiscipline().add(PERFORMANCE);
+
+		DensityInterface i_rho = ArchitecturetoolsFactory.eINSTANCE.createDensityInterface();
+		i_rho.setParentComponent(atmosphere);
+		i_rho.setName("Interface Air density (rho)");
 		i_rho.setDensityParameter(rho);
-		i_rho.getDiscipline().add(AERODYNAMICS) ;
-		
-		WettedAreaInterface i_s_wet = ArchitecturetoolsFactory.eINSTANCE.createWettedAreaInterface() ;
+		i_rho.getDiscipline().add(AERODYNAMICS);
+
+		WettedAreaInterface i_s_wet = ArchitecturetoolsFactory.eINSTANCE.createWettedAreaInterface();
 		i_s_wet.setParentComponent(aircraft);
 		i_s_wet.setName("Interface Aircraft wetted area (S_wet)");
-		i_s_wet.setWettedAreaParameter(s_wet) ;
-		i_s_wet.getDiscipline().add(AERODYNAMICS) ;
+		i_s_wet.setWettedAreaParameter(s_wet);
+		i_s_wet.getDiscipline().add(AERODYNAMICS);
 
-		CoefficientInterface i_oswald_efficiency = ArchitecturetoolsFactory.eINSTANCE.createCoefficientInterface() ;
+		CoefficientInterface i_oswald_efficiency = ArchitecturetoolsFactory.eINSTANCE.createCoefficientInterface();
 		i_oswald_efficiency.setParentComponent(wing);
-		i_oswald_efficiency.setName("Interface Oswald Efficiency") ;
-		i_oswald_efficiency.setCoefficientParameter(oswald_efficiency) ;
-		i_oswald_efficiency.getDiscipline().add(AERODYNAMICS) ;
-		i_oswald_efficiency.getDiscipline().add(PERFORMANCE) ;
-		
-		Massive i_m_oe = ArchitecturetoolsFactory.eINSTANCE.createMassive() ;
-		i_m_oe.setParentComponent(aircraft) ;
-		i_m_oe.setName("Interface Operating Empty Mass") ;
-		i_m_oe.setMassParameter(m_oe) ;
-		i_m_oe.getDiscipline().add(WEIGHTS_AND_BALANCES) ;
-		
-		Massive i_m_payload = ArchitecturetoolsFactory.eINSTANCE.createMassive() ;
+		i_oswald_efficiency.setName("Interface Oswald Efficiency");
+		i_oswald_efficiency.setCoefficientParameter(oswald_efficiency);
+		i_oswald_efficiency.getDiscipline().add(AERODYNAMICS);
+		i_oswald_efficiency.getDiscipline().add(PERFORMANCE);
+
+		Massive i_m_oe = ArchitecturetoolsFactory.eINSTANCE.createMassive();
+		i_m_oe.setParentComponent(aircraft);
+		i_m_oe.setName("Interface Operating Empty Mass");
+		i_m_oe.setMassParameter(m_oe);
+		i_m_oe.getDiscipline().add(WEIGHTS_AND_BALANCES);
+
+		Massive i_m_payload = ArchitecturetoolsFactory.eINSTANCE.createMassive();
 		i_m_payload.setParentComponent(aircraft);
-		i_m_payload.setName("Interface Payload Mass") ;
+		i_m_payload.setName("Interface Payload Mass");
 		i_m_payload.setMassParameter(m_payload);
-		i_m_payload.getDiscipline().add(WEIGHTS_AND_BALANCES) ;
-		
-		VelocityInterface i_v_cr = ArchitecturetoolsFactory.eINSTANCE.createVelocityInterface() ;
-		i_v_cr.setParentComponent(mission) ;
-		i_v_cr.setName("Interface Cruise speed (v_cr)") ;
-		i_v_cr.setVelocityParameter(v_cr) ;
-		i_v_cr.getDiscipline().add(AERODYNAMICS) ;
-		i_v_cr.getDiscipline().add(PERFORMANCE) ;
-			
+		i_m_payload.getDiscipline().add(WEIGHTS_AND_BALANCES);
+
+		VelocityInterface i_v_cr = ArchitecturetoolsFactory.eINSTANCE.createVelocityInterface();
+		i_v_cr.setParentComponent(mission);
+		i_v_cr.setName("Interface Cruise speed (v_cr)");
+		i_v_cr.setVelocityParameter(v_cr);
+		i_v_cr.getDiscipline().add(AERODYNAMICS);
+		i_v_cr.getDiscipline().add(PERFORMANCE);
 
 		/*
 		 * Begin Calculations, Sets and Nodes
@@ -635,8 +636,8 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		CalculationSet csFuselage = CalculationFactory.eINSTANCE.createCalculationSet();
 		csFuselage.setName("CS_Fuselage (private)");
 		csMassPerformanceLoop.getSubCalculationSet().add(csFuselage);
-		//TODO: for all private calculation sets: set their corresponding components
-		csFuselage.setComponent(fuselage) ;
+		// TODO: for all private calculation sets: set their corresponding components
+		csFuselage.setComponent(fuselage);
 
 		Calculation cMassFuselage = CalculationFactory.eINSTANCE.createCalculation();
 		csFuselage.getCalculations().add(cMassFuselage);
@@ -668,6 +669,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		CalculationSet csWing = CalculationFactory.eINSTANCE.createCalculationSet();
 		csMassPerformanceLoop.getSubCalculationSet().add(csWing);
 		csWing.setName("CS_Wing (private)");
+		csWing.setComponent(wing);
 
 		Calculation ck_factor = CalculationFactory.eINSTANCE.createCalculation();
 		csWing.getCalculations().add(ck_factor);
@@ -750,6 +752,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		CalculationSet csStabilizer = CalculationFactory.eINSTANCE.createCalculationSet();
 		csStabilizer.setName("CS_Stabilizer (private)");
 		csMassPerformanceLoop.getSubCalculationSet().add(csStabilizer);
+		csStabilizer.setComponent(stabilizer);
 
 		Calculation cRefAreaVerticalTail = CalculationFactory.eINSTANCE.createCalculation();
 		cRefAreaVerticalTail.setName("Reference Area Vertical Tail");
@@ -802,6 +805,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		CalculationSet csFin = CalculationFactory.eINSTANCE.createCalculationSet();
 		csFin.setName("CS_Fin (private)");
 		csMassPerformanceLoop.getSubCalculationSet().add(csFin);
+		csFin.setComponent(fin);
 
 		Calculation cRefAreaHorizontalTail = CalculationFactory.eINSTANCE.createCalculation();
 		cRefAreaHorizontalTail.setName("Reference Area Horizontal Tail");
@@ -852,6 +856,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		CalculationSet csEngine = CalculationFactory.eINSTANCE.createCalculationSet();
 		csEngine.setName("CS_Engine (private)");
 		csMassPerformanceLoop.getSubCalculationSet().add(csEngine);
+		csEngine.setComponent(engine);
 
 		Calculation cMassPropulsion = CalculationFactory.eINSTANCE.createCalculation();
 		csEngine.getCalculations().add(cMassPropulsion);
@@ -884,6 +889,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		CalculationSet csLandingGear = CalculationFactory.eINSTANCE.createCalculationSet();
 		csLandingGear.setName("CS_LandingGear (private)");
 		csMassPerformanceLoop.getSubCalculationSet().add(csLandingGear);
+		csLandingGear.setComponent(landingGear);
 
 		Calculation cMassLandingGear = CalculationFactory.eINSTANCE.createCalculation();
 		csLandingGear.getCalculations().add(cMassLandingGear);
@@ -916,6 +922,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		CalculationSet csSystems = CalculationFactory.eINSTANCE.createCalculationSet();
 		csSystems.setName("CS_Systems (private)");
 		csMassPerformanceLoop.getSubCalculationSet().add(csSystems);
+		csSystems.setComponent(systems);
 
 		Calculation cMassSystems = CalculationFactory.eINSTANCE.createCalculation();
 		csSystems.getCalculations().add(cMassSystems);
@@ -948,6 +955,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		CalculationSet csFuelSystem = CalculationFactory.eINSTANCE.createCalculationSet();
 		csFuelSystem.setName("CS_FuelSystem (private)");
 		csMassPerformanceLoop.getSubCalculationSet().add(csFuelSystem);
+		csFuelSystem.setComponent(fuelSystem);
 
 		Calculation cMassFuelSystem = CalculationFactory.eINSTANCE.createCalculation();
 		csFuelSystem.getCalculations().add(cMassFuelSystem);
@@ -1100,17 +1108,19 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		niMassPerformanceLoop.getCondition().add(condition);
 		niMassPerformanceLoop.setName("Mass Performance Loop");
 	}
-/**
- * Creates an empty calculation repository and adds it to the containing project.
- */
+
+	/**
+	 * Creates an empty calculation repository and adds it to the containing project.
+	 */
 	protected void createCalculationRepository() {
 		CalculationRepository calculationRepository = FunctionsFactory.eINSTANCE.createCalculationRepository();
 		this.project.addModelElement(calculationRepository);
 
 	}
-/**
- * Creates an empty model.
- */
+
+	/**
+	 * Creates an empty model.
+	 */
 	protected void createModel() {
 		Model model = ModelFactory.eINSTANCE.createModel();
 		this.project.addModelElement(model);
