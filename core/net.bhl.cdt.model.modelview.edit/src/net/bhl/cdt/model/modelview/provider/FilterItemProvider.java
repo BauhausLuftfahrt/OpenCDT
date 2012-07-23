@@ -75,6 +75,7 @@ public class FilterItemProvider
 			addSourcePropertyDescriptor(object);
 			addDisciplinePropertyDescriptor(object);
 			addTextPropertyDescriptor(object);
+			addComplementPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -168,6 +169,28 @@ public class FilterItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Complement feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addComplementPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Filter_complement_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Filter_complement_feature", "_UI_Filter_type"),
+				 ModelviewPackage.Literals.FILTER__COMPLEMENT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -237,6 +260,7 @@ public class FilterItemProvider
 			case ModelviewPackage.FILTER__SOURCE:
 			case ModelviewPackage.FILTER__DISCIPLINE:
 			case ModelviewPackage.FILTER__TEXT:
+			case ModelviewPackage.FILTER__COMPLEMENT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelviewPackage.FILTER__INTERFACE:
