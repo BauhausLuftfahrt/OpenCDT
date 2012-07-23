@@ -39,7 +39,7 @@ public class CalculationWizard extends Wizard {
 				// set name and function id
 				calculation.setName(wizPage.getCalculationName());
 				calculation.setFunctionID(wizPage.getFunctionID());
-				
+								
 				// generate mapping and set null valued i/o mappables depending on the selected functionID
 				Function selectedFunction = CalculationRepositoryManager.getInstance().getFunction(
 					UtilitiesHelper.getProjectId(calculation), wizPage.getFunctionID());

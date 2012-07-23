@@ -171,6 +171,13 @@
             name="CalculationEditor">
       </editor>
       <editor
+            class="net.bhl.cdt.ui.editors.CalculationSetEditor"
+            extensions="func"
+            icon="icons/sample.gif"
+            id="net.bhl.cdt.ui.editors.CalculationSetEditor"
+            name="CalculationSetEditor">
+      </editor>
+      <editor
             class="net.bhl.cdt.ui.editors.ArrayEditor"
             id="net.bhl.cdt.ui.editors.ArrayEditor"
             name="Array Editor">
@@ -215,6 +222,13 @@
       <ModelElementOpener
             class="net.bhl.cdt.ui.editors.calculation.CalculationEditorOpener"
             name="net.bhl.cdt.ui.editors.calculation.CalculationEditorOpener">
+      </ModelElementOpener>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecp.common.modelelementopener">
+      <ModelElementOpener
+            class="net.bhl.cdt.ui.editors.calculationset.CalculationSetOpener"
+            name="net.bhl.cdt.ui.editors.calculationset.CalculationSetOpener">
       </ModelElementOpener>
    </extension>
    <extension
