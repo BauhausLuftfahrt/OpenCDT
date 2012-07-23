@@ -268,6 +268,15 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getFilter_Complement() {
+		return (EAttribute)filterEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getSetExpression() {
 		return setExpressionEClass;
 	}
@@ -352,6 +361,7 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 		createEAttribute(filterEClass, FILTER__SOURCE);
 		createEAttribute(filterEClass, FILTER__DISCIPLINE);
 		createEAttribute(filterEClass, FILTER__TEXT);
+		createEAttribute(filterEClass, FILTER__COMPLEMENT);
 
 		setExpressionEClass = createEClass(SET_EXPRESSION);
 
@@ -418,6 +428,7 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 		initEAttribute(getFilter_Source(), theEcorePackage.getEString(), "source", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFilter_Discipline(), theEcorePackage.getEString(), "discipline", null, 0, -1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFilter_Text(), theEcorePackage.getEString(), "text", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFilter_Complement(), ecorePackage.getEBooleanObject(), "complement", "true", 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(setExpressionEClass, SetExpression.class, "SetExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -430,6 +441,7 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 		addEEnumLiteral(setOperatorsEEnum, SetOperators.AND);
 		addEEnumLiteral(setOperatorsEEnum, SetOperators.OR);
 		addEEnumLiteral(setOperatorsEEnum, SetOperators.MINUS);
+		addEEnumLiteral(setOperatorsEEnum, SetOperators.PLUS);
 
 		// Create resource
 		createResource(eNS_URI);

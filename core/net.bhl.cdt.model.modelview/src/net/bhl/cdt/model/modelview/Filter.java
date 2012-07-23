@@ -25,6 +25,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link net.bhl.cdt.model.modelview.Filter#getSource <em>Source</em>}</li>
  *   <li>{@link net.bhl.cdt.model.modelview.Filter#getDiscipline <em>Discipline</em>}</li>
  *   <li>{@link net.bhl.cdt.model.modelview.Filter#getText <em>Text</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.modelview.Filter#getComplement <em>Complement</em>}</li>
  * </ul>
  * </p>
  *
@@ -142,5 +143,32 @@ public interface Filter extends SetExpression {
 	 * @generated
 	 */
 	void setText(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Complement</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Complement</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Complement</em>' attribute.
+	 * @see #setComplement(Boolean)
+	 * @see net.bhl.cdt.model.modelview.ModelviewPackage#getFilter_Complement()
+	 * @model default="true"
+	 * @generated
+	 */
+	Boolean getComplement();
+
+	/**
+	 * Sets the value of the '{@link net.bhl.cdt.model.modelview.Filter#getComplement <em>Complement</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Complement</em>' attribute.
+	 * @see #getComplement()
+	 * @generated
+	 */
+	void setComplement(Boolean value);
 
 } // Filter

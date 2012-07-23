@@ -11,6 +11,7 @@
       <genEnumLiterals ecoreEnumLiteral="modelview.ecore#//SetOperators/AND"/>
       <genEnumLiterals ecoreEnumLiteral="modelview.ecore#//SetOperators/OR"/>
       <genEnumLiterals ecoreEnumLiteral="modelview.ecore#//SetOperators/MINUS"/>
+      <genEnumLiterals ecoreEnumLiteral="modelview.ecore#//SetOperators/PLUS"/>
     </genEnums>
     <genClasses ecoreClass="modelview.ecore#//DisciplineView">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelview.ecore#//DisciplineView/elements"/>
@@ -28,13 +29,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//Filter/source"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//Filter/discipline"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//Filter/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//Filter/complement"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="modelview.ecore#//SetExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelview.ecore#//SetExpression/firstOperand"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelview.ecore#//SetExpression/secondOperand"/>
-    </genClasses>
+    <genClasses image="false" ecoreClass="modelview.ecore#//SetExpression"/>
     <genClasses ecoreClass="modelview.ecore#//SetOperator">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//SetOperator/operator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelview.ecore#//SetOperator/operands"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

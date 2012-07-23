@@ -7,37 +7,39 @@
 package net.bhl.cdt.model.modelview.disciplineview;
 
 import net.bhl.cdt.model.Component;
+import net.bhl.cdt.model.Configuration;
 
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 
-public class OrFilter extends ViewerFilter {
-
-	private ViewerFilter filter1;
-	private ViewerFilter filter2;
+public class MinusFilter extends ViewerFilter {
+	
+	ViewerFilter filter1;
+	ViewerFilter filter2;
 	private DisciplineContenProvider contentProvider;
 
-	public OrFilter(IContentProvider iContentProvider, ViewerFilter filter1, ViewerFilter filter2) {
+	public MinusFilter(IContentProvider iContentProvider, ViewerFilter filter1, ViewerFilter filter2) {
 		this.filter1 = filter1;
 		this.filter2 = filter2;
 		contentProvider = (DisciplineContenProvider) iContentProvider;
 	}
-	
+
 	@Override
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
 		boolean result;
 
-		if (element instanceof Component) {
+		if (element instanceof Component || element instanceof Configuration) {
 			result = false;
 			for (Object object : contentProvider.getChildren(element)) {
-				if (filter1.select(viewer, element, object) || filter2.select(viewer, element, object)) {
+				if (filter1.select(viewer, element, object) && !filter2.select(viewer, element, object)) {
 					result = true;
 					break;
 				}
 			}
+
 		} else {
-			result = filter1.select(viewer, parentElement, element) || filter2.select(viewer, parentElement, element);
+			result = filter1.select(viewer, parentElement, element) && !filter2.select(viewer, parentElement, element);
 		}
 		return result;
 	}

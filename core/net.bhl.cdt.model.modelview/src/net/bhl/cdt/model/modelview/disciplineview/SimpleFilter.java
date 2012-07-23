@@ -1,7 +1,7 @@
 /*******************************************************************************
  * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
- *  materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
- *  and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
+ * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
+ * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
 
 package net.bhl.cdt.model.modelview.disciplineview;
@@ -10,10 +10,12 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
+import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.ComponentInterface;
 import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.MappableComponentInterface;
 import net.bhl.cdt.model.Model;
+import net.bhl.cdt.model.Parameter;
 import net.bhl.cdt.model.architecturetools.exceptions.NoParameterSetForInterfaceException;
 import net.bhl.cdt.model.modelview.Filter;
 import net.bhl.cdt.model.util.ComponentInterfaceUtil;
@@ -26,10 +28,14 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 
 public class SimpleFilter extends ViewerFilter {
-
+	private Filter filter;
 	private HashSet<EObject> allowed;
+	private DisciplineContenProvider contentProvider;
+
 	public SimpleFilter(IContentProvider iContentProvider, Filter filter, Configuration configuration) {
+		this.filter = filter;
 		allowed = new HashSet<EObject>();
+		contentProvider = (DisciplineContenProvider) iContentProvider;
 		List<MappableComponentInterface> filteredInterfaces = new ArrayList<MappableComponentInterface>();
 
 		if (filter.getInterface().isEmpty()) {
@@ -122,9 +128,23 @@ public class SimpleFilter extends ViewerFilter {
 	@Override
 	public boolean select(Viewer viewer, Object parentElement, Object element) {
 
-		boolean result = allowed.contains(element);
+		boolean result = false;
+
+		if (element instanceof Component || element instanceof Configuration) {
+			result = false;
+			for (Object object : contentProvider.getChildren(element)) {
+				if (this.select(viewer, element, object)) {
+					result = true;
+					break;
+				}
+			}
+		} else if (element instanceof Parameter ){
+			if (filter.getComplement() == null || filter.getComplement()) {
+				result = allowed.contains(element);
+			} else {
+				result = !allowed.contains(element);
+			}
+		}
 		return result;
-
 	}
-
 }

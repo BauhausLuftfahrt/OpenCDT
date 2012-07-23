@@ -266,13 +266,22 @@ public interface ModelviewPackage extends EPackage {
 	int FILTER__TEXT = SET_EXPRESSION_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Complement</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__COMPLEMENT = SET_EXPRESSION_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Filter</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER_FEATURE_COUNT = SET_EXPRESSION_FEATURE_COUNT + 5;
+	int FILTER_FEATURE_COUNT = SET_EXPRESSION_FEATURE_COUNT + 6;
 
 
 	/**
@@ -484,6 +493,17 @@ public interface ModelviewPackage extends EPackage {
 	EAttribute getFilter_Text();
 
 	/**
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.modelview.Filter#getComplement <em>Complement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Complement</em>'.
+	 * @see net.bhl.cdt.model.modelview.Filter#getComplement()
+	 * @see #getFilter()
+	 * @generated
+	 */
+	EAttribute getFilter_Complement();
+
+	/**
 	 * Returns the meta object for class '{@link net.bhl.cdt.model.modelview.SetExpression <em>Set Expression</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -674,6 +694,14 @@ public interface ModelviewPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FILTER__TEXT = eINSTANCE.getFilter_Text();
+
+		/**
+		 * The meta object literal for the '<em><b>Complement</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILTER__COMPLEMENT = eINSTANCE.getFilter_Complement();
 
 		/**
 		 * The meta object literal for the '{@link net.bhl.cdt.model.modelview.impl.SetExpressionImpl <em>Set Expression</em>}' class.

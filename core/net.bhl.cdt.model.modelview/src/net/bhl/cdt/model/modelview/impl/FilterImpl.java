@@ -42,6 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link net.bhl.cdt.model.modelview.impl.FilterImpl#getSource <em>Source</em>}</li>
  *   <li>{@link net.bhl.cdt.model.modelview.impl.FilterImpl#getDiscipline <em>Discipline</em>}</li>
  *   <li>{@link net.bhl.cdt.model.modelview.impl.FilterImpl#getText <em>Text</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.modelview.impl.FilterImpl#getComplement <em>Complement</em>}</li>
  * </ul>
  * </p>
  *
@@ -117,6 +118,26 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 	 * @ordered
 	 */
 	protected String text = TEXT_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getComplement() <em>Complement</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComplement()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean COMPLEMENT_EDEFAULT = Boolean.TRUE;
+
+	/**
+	 * The cached value of the '{@link #getComplement() <em>Complement</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComplement()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean complement = COMPLEMENT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -246,6 +267,27 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Boolean getComplement() {
+		return complement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setComplement(Boolean newComplement) {
+		Boolean oldComplement = complement;
+		complement = newComplement;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelviewPackage.FILTER__COMPLEMENT, oldComplement, complement));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -274,6 +316,8 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 				return getDiscipline();
 			case ModelviewPackage.FILTER__TEXT:
 				return getText();
+			case ModelviewPackage.FILTER__COMPLEMENT:
+				return getComplement();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -304,6 +348,9 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 			case ModelviewPackage.FILTER__TEXT:
 				setText((String)newValue);
 				return;
+			case ModelviewPackage.FILTER__COMPLEMENT:
+				setComplement((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -331,6 +378,9 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 			case ModelviewPackage.FILTER__TEXT:
 				setText(TEXT_EDEFAULT);
 				return;
+			case ModelviewPackage.FILTER__COMPLEMENT:
+				setComplement(COMPLEMENT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -353,6 +403,8 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 				return discipline != null && !discipline.isEmpty();
 			case ModelviewPackage.FILTER__TEXT:
 				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
+			case ModelviewPackage.FILTER__COMPLEMENT:
+				return COMPLEMENT_EDEFAULT == null ? complement != null : !COMPLEMENT_EDEFAULT.equals(complement);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -373,6 +425,8 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 		result.append(discipline);
 		result.append(", text: ");
 		result.append(text);
+		result.append(", complement: ");
+		result.append(complement);
 		result.append(')');
 		return result.toString();
 	}

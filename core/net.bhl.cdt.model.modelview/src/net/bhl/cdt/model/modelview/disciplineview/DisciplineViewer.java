@@ -227,7 +227,9 @@ public class DisciplineViewer extends EditorPart {
 			} else if (operator.getName().equals("OR")) {
 				result = new OrFilter(treeViewer.getContentProvider(), filter1, filter2);
 			} else if (operator.getName().equals("MINUS")) {
-				result = new Minusfilter(treeViewer.getContentProvider(), filter1, filter2);
+				result = new MinusFilter(treeViewer.getContentProvider(), filter1, filter2);
+			} else if (operator.getName().equals("PLUS")) {
+				result = new PlusFilter(treeViewer.getContentProvider(), filter1, filter2);
 			}
 		}
 		return result;

@@ -50,7 +50,15 @@ public enum SetOperators implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	MINUS(0, "MINUS", "MINUS");
+	MINUS(0, "MINUS", "MINUS"), /**
+	 * The '<em><b>PLUS</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PLUS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PLUS(0, "PLUS", "PLUS");
 
 	/**
 	 * The '<em><b>AND</b></em>' literal value.
@@ -98,6 +106,21 @@ public enum SetOperators implements Enumerator {
 	public static final int MINUS_VALUE = 0;
 
 	/**
+	 * The '<em><b>PLUS</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>PLUS</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #PLUS
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PLUS_VALUE = 0;
+
+	/**
 	 * An array of all the '<em><b>Set Operators</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -108,6 +131,7 @@ public enum SetOperators implements Enumerator {
 			AND,
 			OR,
 			MINUS,
+			PLUS,
 		};
 
 	/**
