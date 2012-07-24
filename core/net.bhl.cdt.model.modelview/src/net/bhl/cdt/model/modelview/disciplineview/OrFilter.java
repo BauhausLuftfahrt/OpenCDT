@@ -31,7 +31,11 @@ public class OrFilter extends ViewerFilter {
 		if (element instanceof Component) {
 			result = false;
 			for (Object object : contentProvider.getChildren(element)) {
-				if (filter1.select(viewer, element, object) || filter2.select(viewer, element, object)) {
+//				if (filter1.select(viewer, element, object) || filter2.select(viewer, element, object)) {
+//					result = true;
+//					break;
+//				}
+				if (this.select(viewer, element, object)) {
 					result = true;
 					break;
 				}

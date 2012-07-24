@@ -30,7 +30,7 @@ public class NotFilter extends ViewerFilter {
 		if (element instanceof Component) {
 			result = false;
 			for (Object object : contentProvider.getChildren(element)) {
-				if (!filter.select(viewer, element, object)) {
+				if (this.select(viewer, element, object)) {
 					result = true;
 					break;
 				}
