@@ -8,13 +8,12 @@ package net.bhl.cdt.model.modelview.disciplineview;
 
 import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.Configuration;
-
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 
 public class MinusFilter extends ViewerFilter {
-	
+
 	ViewerFilter filter1;
 	ViewerFilter filter2;
 	private DisciplineContenProvider contentProvider;
@@ -32,7 +31,8 @@ public class MinusFilter extends ViewerFilter {
 		if (element instanceof Component || element instanceof Configuration) {
 			result = false;
 			for (Object object : contentProvider.getChildren(element)) {
-				if (filter1.select(viewer, element, object) && !filter2.select(viewer, element, object)) {
+
+				if (this.select(viewer, element, object)) {
 					result = true;
 					break;
 				}
@@ -43,5 +43,4 @@ public class MinusFilter extends ViewerFilter {
 		}
 		return result;
 	}
-
 }

@@ -32,18 +32,10 @@ public class PlusFilter extends ViewerFilter {
 		if (element instanceof Component || element instanceof Configuration) {
 			result = false;
 			for (Object object : contentProvider.getChildren(element)) {
-				if ((filter1.select(viewer, element, object) || filter2.select(viewer, element, object))
-					&& !(filter1.select(viewer, element, object) && filter2.select(viewer, element, object))) {
+				if (this.select(viewer, element, object)) {
 					result = true;
 					break;
-				}
-				if (filter1.select(viewer, element, object) || filter2.select(viewer, element, object)) {
-					if (filter1.select(viewer, element, object) && filter2.select(viewer, element, object)) {
-						result = false;
-					} else {
-						result = true;
-						break;
-					}
+
 				}
 			}
 
