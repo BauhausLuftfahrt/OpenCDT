@@ -72,10 +72,12 @@ public class FilterItemProvider
 			super.getPropertyDescriptors(object);
 
 			addComponentPropertyDescriptor(object);
-			addSourcePropertyDescriptor(object);
-			addDisciplinePropertyDescriptor(object);
-			addTextPropertyDescriptor(object);
 			addComplementPropertyDescriptor(object);
+			addDisciplinePropertyDescriptor(object);
+			addDesignPhasePropertyDescriptor(object);
+			addSourcePropertyDescriptor(object);
+			addAnnotationPropertyDescriptor(object);
+			addOwnerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -125,6 +127,28 @@ public class FilterItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Annotation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAnnotationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Filter_annotation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Filter_annotation_feature", "_UI_Filter_type"),
+				 ModelviewPackage.Literals.FILTER__ANNOTATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This adds a property descriptor for the Discipline feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -147,19 +171,19 @@ public class FilterItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Text feature.
+	 * This adds a property descriptor for the Design Phase feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTextPropertyDescriptor(Object object) {
+	protected void addDesignPhasePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Filter_text_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Filter_text_feature", "_UI_Filter_type"),
-				 ModelviewPackage.Literals.FILTER__TEXT,
+				 getString("_UI_Filter_designPhase_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Filter_designPhase_feature", "_UI_Filter_type"),
+				 ModelviewPackage.Literals.FILTER__DESIGN_PHASE,
 				 true,
 				 false,
 				 false,
@@ -169,19 +193,19 @@ public class FilterItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Complement feature.
+	 * This adds a property descriptor for the Owner feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addComplementPropertyDescriptor(Object object) {
+	protected void addOwnerPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Filter_complement_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Filter_complement_feature", "_UI_Filter_type"),
-				 ModelviewPackage.Literals.FILTER__COMPLEMENT,
+				 getString("_UI_Filter_owner_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Filter_owner_feature", "_UI_Filter_type"),
+				 ModelviewPackage.Literals.FILTER__OWNER,
 				 true,
 				 false,
 				 false,
@@ -221,6 +245,28 @@ public class FilterItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Complement feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addComplementPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Filter_complement_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Filter_complement_feature", "_UI_Filter_type"),
+				 ModelviewPackage.Literals.FILTER__COMPLEMENT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Filter.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -257,10 +303,12 @@ public class FilterItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Filter.class)) {
-			case ModelviewPackage.FILTER__SOURCE:
-			case ModelviewPackage.FILTER__DISCIPLINE:
-			case ModelviewPackage.FILTER__TEXT:
 			case ModelviewPackage.FILTER__COMPLEMENT:
+			case ModelviewPackage.FILTER__DISCIPLINE:
+			case ModelviewPackage.FILTER__DESIGN_PHASE:
+			case ModelviewPackage.FILTER__SOURCE:
+			case ModelviewPackage.FILTER__ANNOTATION:
+			case ModelviewPackage.FILTER__OWNER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelviewPackage.FILTER__INTERFACE:
