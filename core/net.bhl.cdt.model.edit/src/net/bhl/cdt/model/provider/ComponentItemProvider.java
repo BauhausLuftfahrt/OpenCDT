@@ -227,6 +227,16 @@ public class ComponentItemProvider extends StructuralElementItemProvider impleme
 			(createChildParameter
 				(ModelPackage.Literals.COMPONENT__INTERFACES,
 				 ArchitecturetoolsFactory.eINSTANCE.createSFCInterface()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.COMPONENT__INTERFACES,
+				 ArchitecturetoolsFactory.eINSTANCE.createDensityInterface()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.COMPONENT__INTERFACES,
+				 ArchitecturetoolsFactory.eINSTANCE.createVelocityInterface()));
 	}
 
 	/**

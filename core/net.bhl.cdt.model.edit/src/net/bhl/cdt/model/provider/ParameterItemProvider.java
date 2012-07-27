@@ -56,6 +56,8 @@ public class ParameterItemProvider extends StructuralElementItemProvider impleme
 			addSourcePropertyDescriptor(object);
 			addDisciplinePropertyDescriptor(object);
 			addAnnotationPropertyDescriptor(object);
+			addDesignPhasePropertyDescriptor(object);
+			addOwnerPropertyDescriptor(object);
 			addQuantityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -119,6 +121,50 @@ public class ParameterItemProvider extends StructuralElementItemProvider impleme
 				 getString("_UI_ComponentInterface_annotation_feature"), //$NON-NLS-1$
 				 getString("_UI_PropertyDescriptor_description", "_UI_ComponentInterface_annotation_feature", "_UI_ComponentInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 				 ModelPackage.Literals.COMPONENT_INTERFACE__ANNOTATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Design Phase feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDesignPhasePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ComponentInterface_designPhase_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComponentInterface_designPhase_feature", "_UI_ComponentInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModelPackage.Literals.COMPONENT_INTERFACE__DESIGN_PHASE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Owner feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOwnerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ComponentInterface_Owner_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComponentInterface_Owner_feature", "_UI_ComponentInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModelPackage.Literals.COMPONENT_INTERFACE__OWNER,
 				 true,
 				 false,
 				 false,
@@ -214,6 +260,8 @@ public class ParameterItemProvider extends StructuralElementItemProvider impleme
 			case ModelPackage.PARAMETER__SOURCE:
 			case ModelPackage.PARAMETER__DISCIPLINE:
 			case ModelPackage.PARAMETER__ANNOTATION:
+			case ModelPackage.PARAMETER__DESIGN_PHASE:
+			case ModelPackage.PARAMETER__OWNER:
 			case ModelPackage.PARAMETER__QUANTITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

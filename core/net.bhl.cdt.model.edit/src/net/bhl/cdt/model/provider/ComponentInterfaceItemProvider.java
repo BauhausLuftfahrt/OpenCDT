@@ -54,6 +54,8 @@ public class ComponentInterfaceItemProvider extends ElementItemProvider implemen
 			addSourcePropertyDescriptor(object);
 			addDisciplinePropertyDescriptor(object);
 			addAnnotationPropertyDescriptor(object);
+			addDesignPhasePropertyDescriptor(object);
+			addOwnerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -125,6 +127,50 @@ public class ComponentInterfaceItemProvider extends ElementItemProvider implemen
 	}
 
 	/**
+	 * This adds a property descriptor for the Design Phase feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDesignPhasePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ComponentInterface_designPhase_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComponentInterface_designPhase_feature", "_UI_ComponentInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModelPackage.Literals.COMPONENT_INTERFACE__DESIGN_PHASE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Owner feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOwnerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ComponentInterface_Owner_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_ComponentInterface_Owner_feature", "_UI_ComponentInterface_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModelPackage.Literals.COMPONENT_INTERFACE__OWNER,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -152,6 +198,8 @@ public class ComponentInterfaceItemProvider extends ElementItemProvider implemen
 			case ModelPackage.COMPONENT_INTERFACE__SOURCE:
 			case ModelPackage.COMPONENT_INTERFACE__DISCIPLINE:
 			case ModelPackage.COMPONENT_INTERFACE__ANNOTATION:
+			case ModelPackage.COMPONENT_INTERFACE__DESIGN_PHASE:
+			case ModelPackage.COMPONENT_INTERFACE__OWNER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
