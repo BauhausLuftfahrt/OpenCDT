@@ -117,4 +117,56 @@ public interface ComponentInterface extends Element {
 	 */
 	void setAnnotation(String value);
 
+	/**
+	 * Returns the value of the '<em><b>Design Phase</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Design Phase</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Design Phase</em>' attribute.
+	 * @see #setDesignPhase(String)
+	 * @see net.bhl.cdt.model.ModelPackage#getComponentInterface_DesignPhase()
+	 * @model
+	 * @generated
+	 */
+	String getDesignPhase();
+
+	/**
+	 * Sets the value of the '{@link net.bhl.cdt.model.ComponentInterface#getDesignPhase <em>Design Phase</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Design Phase</em>' attribute.
+	 * @see #getDesignPhase()
+	 * @generated
+	 */
+	void setDesignPhase(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Owner</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Owner</em>' attribute.
+	 * @see #setOwner(String)
+	 * @see net.bhl.cdt.model.ModelPackage#getComponentInterface_Owner()
+	 * @model
+	 * @generated
+	 */
+	String getOwner();
+
+	/**
+	 * Sets the value of the '{@link net.bhl.cdt.model.ComponentInterface#getOwner <em>Owner</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Owner</em>' attribute.
+	 * @see #getOwner()
+	 * @generated
+	 */
+	void setOwner(String value);
+
 } // ComponentInterface

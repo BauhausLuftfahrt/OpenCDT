@@ -42,6 +42,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ComponentInterface/source"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ComponentInterface/discipline"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ComponentInterface/annotation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ComponentInterface/designPhase"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//ComponentInterface/Owner"/>
     </genClasses>
     <genClasses image="false" ecoreClass="model.ecore#//MappableComponentInterface">
       <genOperations ecoreOperation="model.ecore#//MappableComponentInterface/getValue"/>

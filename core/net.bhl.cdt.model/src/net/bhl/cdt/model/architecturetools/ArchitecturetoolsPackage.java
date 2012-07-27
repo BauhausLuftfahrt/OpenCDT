@@ -108,6 +108,24 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	int POWER_CONSUMER__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Design Phase</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POWER_CONSUMER__DESIGN_PHASE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DESIGN_PHASE;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POWER_CONSUMER__OWNER = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__OWNER;
+
+	/**
 	 * The feature id for the '<em><b>Power Parameter</b></em>' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -222,6 +240,24 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	int MASSIVE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Design Phase</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MASSIVE__DESIGN_PHASE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DESIGN_PHASE;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MASSIVE__OWNER = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__OWNER;
+
+	/**
 	 * The feature id for the '<em><b>Mass Parameter</b></em>' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -289,6 +325,24 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int COEFFICIENT_INTERFACE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Design Phase</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COEFFICIENT_INTERFACE__DESIGN_PHASE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DESIGN_PHASE;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COEFFICIENT_INTERFACE__OWNER = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__OWNER;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' attribute.
@@ -370,6 +424,24 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	int WETTED_AREA_INTERFACE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Design Phase</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WETTED_AREA_INTERFACE__DESIGN_PHASE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DESIGN_PHASE;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int WETTED_AREA_INTERFACE__OWNER = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__OWNER;
+
+	/**
 	 * The feature id for the '<em><b>Wetted Area Parameter</b></em>' reference.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -439,6 +511,24 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE_AREA_INTERFACE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Design Phase</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_AREA_INTERFACE__DESIGN_PHASE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DESIGN_PHASE;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_AREA_INTERFACE__OWNER = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__OWNER;
 
 	/**
 	 * The feature id for the '<em><b>Reference Area Parameter</b></em>' reference.
@@ -512,6 +602,24 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	int ALTITUDE_INTERFACE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Design Phase</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTITUDE_INTERFACE__DESIGN_PHASE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DESIGN_PHASE;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALTITUDE_INTERFACE__OWNER = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__OWNER;
+
+	/**
 	 * The feature id for the '<em><b>Altitude Parameter</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
@@ -583,6 +691,24 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	int RANGE_INTERFACE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Design Phase</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE_INTERFACE__DESIGN_PHASE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DESIGN_PHASE;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RANGE_INTERFACE__OWNER = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__OWNER;
+
+	/**
 	 * The feature id for the '<em><b>Range Parameter</b></em>' reference.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -651,6 +777,24 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int SFC_INTERFACE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Design Phase</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFC_INTERFACE__DESIGN_PHASE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DESIGN_PHASE;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SFC_INTERFACE__OWNER = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__OWNER;
 
 	/**
 	 * The feature id for the '<em><b>Sfc Parameter</b></em>' reference.
@@ -725,6 +869,24 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	int DENSITY_INTERFACE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
 
 	/**
+	 * The feature id for the '<em><b>Design Phase</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENSITY_INTERFACE__DESIGN_PHASE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DESIGN_PHASE;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DENSITY_INTERFACE__OWNER = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__OWNER;
+
+	/**
 	 * The feature id for the '<em><b>Density Parameter</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -796,6 +958,24 @@ public interface ArchitecturetoolsPackage extends EPackage {
 	 * @ordered
 	 */
 	int VELOCITY_INTERFACE__ANNOTATION = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Design Phase</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VELOCITY_INTERFACE__DESIGN_PHASE = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__DESIGN_PHASE;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VELOCITY_INTERFACE__OWNER = ModelPackage.MAPPABLE_COMPONENT_INTERFACE__OWNER;
 
 	/**
 	 * The feature id for the '<em><b>Velocity Parameter</b></em>' reference.

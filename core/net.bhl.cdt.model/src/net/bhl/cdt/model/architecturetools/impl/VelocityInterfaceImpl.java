@@ -49,7 +49,6 @@ public class VelocityInterfaceImpl extends ComponentInterfaceImpl implements Vel
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected VelocityInterfaceImpl() {
@@ -58,7 +57,6 @@ public class VelocityInterfaceImpl extends ComponentInterfaceImpl implements Vel
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -68,18 +66,15 @@ public class VelocityInterfaceImpl extends ComponentInterfaceImpl implements Vel
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter getVelocityParameter() {
 		if (velocityParameter != null && velocityParameter.eIsProxy()) {
-			InternalEObject oldVelocityParameter = (InternalEObject) velocityParameter;
-			velocityParameter = (Parameter) eResolveProxy(oldVelocityParameter);
+			InternalEObject oldVelocityParameter = (InternalEObject)velocityParameter;
+			velocityParameter = (Parameter)eResolveProxy(oldVelocityParameter);
 			if (velocityParameter != oldVelocityParameter) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-						ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER, oldVelocityParameter,
-						velocityParameter));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER, oldVelocityParameter, velocityParameter));
 			}
 		}
 		return velocityParameter;
@@ -87,7 +82,6 @@ public class VelocityInterfaceImpl extends ComponentInterfaceImpl implements Vel
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter basicGetVelocityParameter() {
@@ -96,16 +90,13 @@ public class VelocityInterfaceImpl extends ComponentInterfaceImpl implements Vel
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setVelocityParameter(Parameter newVelocityParameter) {
 		Parameter oldVelocityParameter = velocityParameter;
 		velocityParameter = newVelocityParameter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-				ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER, oldVelocityParameter,
-				velocityParameter));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER, oldVelocityParameter, velocityParameter));
 	}
 
 	/**
@@ -209,60 +200,55 @@ public class VelocityInterfaceImpl extends ComponentInterfaceImpl implements Vel
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER:
-			if (resolve)
-				return getVelocityParameter();
-			return basicGetVelocityParameter();
+			case ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER:
+				if (resolve) return getVelocityParameter();
+				return basicGetVelocityParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER:
-			setVelocityParameter((Parameter) newValue);
-			return;
+			case ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER:
+				setVelocityParameter((Parameter)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER:
-			setVelocityParameter((Parameter) null);
-			return;
+			case ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER:
+				setVelocityParameter((Parameter)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER:
-			return velocityParameter != null;
+			case ArchitecturetoolsPackage.VELOCITY_INTERFACE__VELOCITY_PARAMETER:
+				return velocityParameter != null;
 		}
 		return super.eIsSet(featureID);
 	}

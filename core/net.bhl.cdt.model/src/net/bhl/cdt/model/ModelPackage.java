@@ -399,13 +399,31 @@ public interface ModelPackage extends EPackage {
 	int PARAMETER__ANNOTATION = STRUCTURAL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Design Phase</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__DESIGN_PHASE = STRUCTURAL_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER__OWNER = STRUCTURAL_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__VALUES = STRUCTURAL_ELEMENT_FEATURE_COUNT + 4;
+	int PARAMETER__VALUES = STRUCTURAL_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Quantity</b></em>' attribute.
@@ -413,7 +431,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__QUANTITY = STRUCTURAL_ELEMENT_FEATURE_COUNT + 5;
+	int PARAMETER__QUANTITY = STRUCTURAL_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -422,7 +440,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = STRUCTURAL_ELEMENT_FEATURE_COUNT + 6;
+	int PARAMETER_FEATURE_COUNT = STRUCTURAL_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.impl.ComponentInterfaceImpl <em>Component Interface</em>}' class.
@@ -478,13 +496,31 @@ public interface ModelPackage extends EPackage {
 	int COMPONENT_INTERFACE__ANNOTATION = ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The feature id for the '<em><b>Design Phase</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_INTERFACE__DESIGN_PHASE = ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_INTERFACE__OWNER = ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>Component Interface</em>' class.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_INTERFACE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 4;
+	int COMPONENT_INTERFACE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.impl.ViewImpl <em>View</em>}' class.
@@ -548,6 +584,24 @@ public interface ModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int MAPPABLE_COMPONENT_INTERFACE__ANNOTATION = COMPONENT_INTERFACE__ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Design Phase</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPABLE_COMPONENT_INTERFACE__DESIGN_PHASE = COMPONENT_INTERFACE__DESIGN_PHASE;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAPPABLE_COMPONENT_INTERFACE__OWNER = COMPONENT_INTERFACE__OWNER;
 
 	/**
 	 * The number of structural features of the '<em>Mappable Component Interface</em>' class.
@@ -873,6 +927,28 @@ public interface ModelPackage extends EPackage {
 	EAttribute getComponentInterface_Annotation();
 
 	/**
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.ComponentInterface#getDesignPhase <em>Design Phase</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Design Phase</em>'.
+	 * @see net.bhl.cdt.model.ComponentInterface#getDesignPhase()
+	 * @see #getComponentInterface()
+	 * @generated
+	 */
+	EAttribute getComponentInterface_DesignPhase();
+
+	/**
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.ComponentInterface#getOwner <em>Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Owner</em>'.
+	 * @see net.bhl.cdt.model.ComponentInterface#getOwner()
+	 * @see #getComponentInterface()
+	 * @generated
+	 */
+	EAttribute getComponentInterface_Owner();
+
+	/**
 	 * Returns the meta object for class '{@link net.bhl.cdt.model.View <em>View</em>}'.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -1155,6 +1231,22 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute COMPONENT_INTERFACE__ANNOTATION = eINSTANCE.getComponentInterface_Annotation();
+
+		/**
+		 * The meta object literal for the '<em><b>Design Phase</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPONENT_INTERFACE__DESIGN_PHASE = eINSTANCE.getComponentInterface_DesignPhase();
+
+		/**
+		 * The meta object literal for the '<em><b>Owner</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMPONENT_INTERFACE__OWNER = eINSTANCE.getComponentInterface_Owner();
 
 		/**
 		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.ViewImpl <em>View</em>}' class. <!--

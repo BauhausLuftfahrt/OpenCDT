@@ -29,11 +29,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link net.bhl.cdt.model.architecturetools.impl.WettedAreaInterfaceImpl#getWettedAreaParameter <em>Wetted Area
- * Parameter</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.architecturetools.impl.WettedAreaInterfaceImpl#getWettedAreaParameter <em>Wetted Area Parameter</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class WettedAreaInterfaceImpl extends ComponentInterfaceImpl implements WettedAreaInterface {
@@ -58,7 +57,6 @@ public class WettedAreaInterfaceImpl extends ComponentInterfaceImpl implements W
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -68,18 +66,15 @@ public class WettedAreaInterfaceImpl extends ComponentInterfaceImpl implements W
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter getWettedAreaParameter() {
 		if (wettedAreaParameter != null && wettedAreaParameter.eIsProxy()) {
-			InternalEObject oldWettedAreaParameter = (InternalEObject) wettedAreaParameter;
-			wettedAreaParameter = (Parameter) eResolveProxy(oldWettedAreaParameter);
+			InternalEObject oldWettedAreaParameter = (InternalEObject)wettedAreaParameter;
+			wettedAreaParameter = (Parameter)eResolveProxy(oldWettedAreaParameter);
 			if (wettedAreaParameter != oldWettedAreaParameter) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-						ArchitecturetoolsPackage.WETTED_AREA_INTERFACE__WETTED_AREA_PARAMETER, oldWettedAreaParameter,
-						wettedAreaParameter));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchitecturetoolsPackage.WETTED_AREA_INTERFACE__WETTED_AREA_PARAMETER, oldWettedAreaParameter, wettedAreaParameter));
 			}
 		}
 		return wettedAreaParameter;
@@ -87,7 +82,6 @@ public class WettedAreaInterfaceImpl extends ComponentInterfaceImpl implements W
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter basicGetWettedAreaParameter() {
@@ -96,16 +90,13 @@ public class WettedAreaInterfaceImpl extends ComponentInterfaceImpl implements W
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setWettedAreaParameter(Parameter newWettedAreaParameter) {
 		Parameter oldWettedAreaParameter = wettedAreaParameter;
 		wettedAreaParameter = newWettedAreaParameter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-				ArchitecturetoolsPackage.WETTED_AREA_INTERFACE__WETTED_AREA_PARAMETER, oldWettedAreaParameter,
-				wettedAreaParameter));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchitecturetoolsPackage.WETTED_AREA_INTERFACE__WETTED_AREA_PARAMETER, oldWettedAreaParameter, wettedAreaParameter));
 	}
 
 	/**
@@ -209,60 +200,55 @@ public class WettedAreaInterfaceImpl extends ComponentInterfaceImpl implements W
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.WETTED_AREA_INTERFACE__WETTED_AREA_PARAMETER:
-			if (resolve)
-				return getWettedAreaParameter();
-			return basicGetWettedAreaParameter();
+			case ArchitecturetoolsPackage.WETTED_AREA_INTERFACE__WETTED_AREA_PARAMETER:
+				if (resolve) return getWettedAreaParameter();
+				return basicGetWettedAreaParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.WETTED_AREA_INTERFACE__WETTED_AREA_PARAMETER:
-			setWettedAreaParameter((Parameter) newValue);
-			return;
+			case ArchitecturetoolsPackage.WETTED_AREA_INTERFACE__WETTED_AREA_PARAMETER:
+				setWettedAreaParameter((Parameter)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.WETTED_AREA_INTERFACE__WETTED_AREA_PARAMETER:
-			setWettedAreaParameter((Parameter) null);
-			return;
+			case ArchitecturetoolsPackage.WETTED_AREA_INTERFACE__WETTED_AREA_PARAMETER:
+				setWettedAreaParameter((Parameter)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.WETTED_AREA_INTERFACE__WETTED_AREA_PARAMETER:
-			return wettedAreaParameter != null;
+			case ArchitecturetoolsPackage.WETTED_AREA_INTERFACE__WETTED_AREA_PARAMETER:
+				return wettedAreaParameter != null;
 		}
 		return super.eIsSet(featureID);
 	}

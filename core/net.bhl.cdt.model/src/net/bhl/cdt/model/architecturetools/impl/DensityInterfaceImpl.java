@@ -49,7 +49,6 @@ public class DensityInterfaceImpl extends ComponentInterfaceImpl implements Dens
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected DensityInterfaceImpl() {
@@ -58,7 +57,6 @@ public class DensityInterfaceImpl extends ComponentInterfaceImpl implements Dens
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -68,18 +66,15 @@ public class DensityInterfaceImpl extends ComponentInterfaceImpl implements Dens
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter getDensityParameter() {
 		if (densityParameter != null && densityParameter.eIsProxy()) {
-			InternalEObject oldDensityParameter = (InternalEObject) densityParameter;
-			densityParameter = (Parameter) eResolveProxy(oldDensityParameter);
+			InternalEObject oldDensityParameter = (InternalEObject)densityParameter;
+			densityParameter = (Parameter)eResolveProxy(oldDensityParameter);
 			if (densityParameter != oldDensityParameter) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-						ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER, oldDensityParameter,
-						densityParameter));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER, oldDensityParameter, densityParameter));
 			}
 		}
 		return densityParameter;
@@ -87,7 +82,6 @@ public class DensityInterfaceImpl extends ComponentInterfaceImpl implements Dens
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Parameter basicGetDensityParameter() {
@@ -96,15 +90,13 @@ public class DensityInterfaceImpl extends ComponentInterfaceImpl implements Dens
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setDensityParameter(Parameter newDensityParameter) {
 		Parameter oldDensityParameter = densityParameter;
 		densityParameter = newDensityParameter;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET,
-				ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER, oldDensityParameter, densityParameter));
+			eNotify(new ENotificationImpl(this, Notification.SET, ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER, oldDensityParameter, densityParameter));
 	}
 
 	/**
@@ -207,60 +199,55 @@ public class DensityInterfaceImpl extends ComponentInterfaceImpl implements Dens
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER:
-			if (resolve)
-				return getDensityParameter();
-			return basicGetDensityParameter();
+			case ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER:
+				if (resolve) return getDensityParameter();
+				return basicGetDensityParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER:
-			setDensityParameter((Parameter) newValue);
-			return;
+			case ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER:
+				setDensityParameter((Parameter)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER:
-			setDensityParameter((Parameter) null);
-			return;
+			case ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER:
+				setDensityParameter((Parameter)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER:
-			return densityParameter != null;
+			case ArchitecturetoolsPackage.DENSITY_INTERFACE__DENSITY_PARAMETER:
+				return densityParameter != null;
 		}
 		return super.eIsSet(featureID);
 	}

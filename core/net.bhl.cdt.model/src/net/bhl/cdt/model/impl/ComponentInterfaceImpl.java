@@ -30,6 +30,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link net.bhl.cdt.model.impl.ComponentInterfaceImpl#getSource <em>Source</em>}</li>
  *   <li>{@link net.bhl.cdt.model.impl.ComponentInterfaceImpl#getDiscipline <em>Discipline</em>}</li>
  *   <li>{@link net.bhl.cdt.model.impl.ComponentInterfaceImpl#getAnnotation <em>Annotation</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.impl.ComponentInterfaceImpl#getDesignPhase <em>Design Phase</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.impl.ComponentInterfaceImpl#getOwner <em>Owner</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,6 +83,43 @@ public abstract class ComponentInterfaceImpl extends ElementImpl implements Comp
 	 * @ordered
 	 */
 	protected String annotation = ANNOTATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDesignPhase() <em>Design Phase</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDesignPhase()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESIGN_PHASE_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getDesignPhase() <em>Design Phase</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDesignPhase()
+	 * @generated
+	 * @ordered
+	 */
+	protected String designPhase = DESIGN_PHASE_EDEFAULT;
+	/**
+	 * The default value of the '{@link #getOwner() <em>Owner</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOwner()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String OWNER_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOwner()
+	 * @generated
+	 * @ordered
+	 */
+	protected String owner = OWNER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -201,6 +240,48 @@ public abstract class ComponentInterfaceImpl extends ElementImpl implements Comp
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getDesignPhase() {
+		return designPhase;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDesignPhase(String newDesignPhase) {
+		String oldDesignPhase = designPhase;
+		designPhase = newDesignPhase;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.COMPONENT_INTERFACE__DESIGN_PHASE, oldDesignPhase, designPhase));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getOwner() {
+		return owner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOwner(String newOwner) {
+		String oldOwner = owner;
+		owner = newOwner;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.COMPONENT_INTERFACE__OWNER, oldOwner, owner));
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -257,6 +338,10 @@ public abstract class ComponentInterfaceImpl extends ElementImpl implements Comp
 				return getDiscipline();
 			case ModelPackage.COMPONENT_INTERFACE__ANNOTATION:
 				return getAnnotation();
+			case ModelPackage.COMPONENT_INTERFACE__DESIGN_PHASE:
+				return getDesignPhase();
+			case ModelPackage.COMPONENT_INTERFACE__OWNER:
+				return getOwner();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -282,6 +367,12 @@ public abstract class ComponentInterfaceImpl extends ElementImpl implements Comp
 			case ModelPackage.COMPONENT_INTERFACE__ANNOTATION:
 				setAnnotation((String)newValue);
 				return;
+			case ModelPackage.COMPONENT_INTERFACE__DESIGN_PHASE:
+				setDesignPhase((String)newValue);
+				return;
+			case ModelPackage.COMPONENT_INTERFACE__OWNER:
+				setOwner((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -305,6 +396,12 @@ public abstract class ComponentInterfaceImpl extends ElementImpl implements Comp
 			case ModelPackage.COMPONENT_INTERFACE__ANNOTATION:
 				setAnnotation(ANNOTATION_EDEFAULT);
 				return;
+			case ModelPackage.COMPONENT_INTERFACE__DESIGN_PHASE:
+				setDesignPhase(DESIGN_PHASE_EDEFAULT);
+				return;
+			case ModelPackage.COMPONENT_INTERFACE__OWNER:
+				setOwner(OWNER_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -324,6 +421,10 @@ public abstract class ComponentInterfaceImpl extends ElementImpl implements Comp
 				return discipline != null && !discipline.isEmpty();
 			case ModelPackage.COMPONENT_INTERFACE__ANNOTATION:
 				return ANNOTATION_EDEFAULT == null ? annotation != null : !ANNOTATION_EDEFAULT.equals(annotation);
+			case ModelPackage.COMPONENT_INTERFACE__DESIGN_PHASE:
+				return DESIGN_PHASE_EDEFAULT == null ? designPhase != null : !DESIGN_PHASE_EDEFAULT.equals(designPhase);
+			case ModelPackage.COMPONENT_INTERFACE__OWNER:
+				return OWNER_EDEFAULT == null ? owner != null : !OWNER_EDEFAULT.equals(owner);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -344,6 +445,10 @@ public abstract class ComponentInterfaceImpl extends ElementImpl implements Comp
 		result.append(discipline);
 		result.append(", annotation: "); //$NON-NLS-1$
 		result.append(annotation);
+		result.append(", designPhase: "); //$NON-NLS-1$
+		result.append(designPhase);
+		result.append(", Owner: "); //$NON-NLS-1$
+		result.append(owner);
 		result.append(')');
 		return result.toString();
 	}
