@@ -223,7 +223,7 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFilter_Interface() {
+	public EReference getFilter_Component() {
 		return (EReference)filterEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -232,34 +232,7 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFilter_Component() {
-		return (EReference)filterEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EAttribute getFilter_Source() {
-		return (EAttribute)filterEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFilter_Discipline() {
-		return (EAttribute)filterEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getFilter_Text() {
 		return (EAttribute)filterEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -268,8 +241,53 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFilter_Complement() {
+	public EAttribute getFilter_Annotation() {
 		return (EAttribute)filterEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFilter_Discipline() {
+		return (EAttribute)filterEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFilter_DesignPhase() {
+		return (EAttribute)filterEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFilter_Owner() {
+		return (EAttribute)filterEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFilter_Interface() {
+		return (EReference)filterEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFilter_Complement() {
+		return (EAttribute)filterEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -356,12 +374,14 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 		createEReference(viewLinkEClass, VIEW_LINK__VIRTUAL_CHILD);
 
 		filterEClass = createEClass(FILTER);
-		createEReference(filterEClass, FILTER__INTERFACE);
 		createEReference(filterEClass, FILTER__COMPONENT);
-		createEAttribute(filterEClass, FILTER__SOURCE);
-		createEAttribute(filterEClass, FILTER__DISCIPLINE);
-		createEAttribute(filterEClass, FILTER__TEXT);
 		createEAttribute(filterEClass, FILTER__COMPLEMENT);
+		createEAttribute(filterEClass, FILTER__DISCIPLINE);
+		createEAttribute(filterEClass, FILTER__DESIGN_PHASE);
+		createEAttribute(filterEClass, FILTER__SOURCE);
+		createEAttribute(filterEClass, FILTER__ANNOTATION);
+		createEAttribute(filterEClass, FILTER__OWNER);
+		createEReference(filterEClass, FILTER__INTERFACE);
 
 		setExpressionEClass = createEClass(SET_EXPRESSION);
 
@@ -423,12 +443,14 @@ public class ModelviewPackageImpl extends EPackageImpl implements ModelviewPacka
 		initEReference(getViewLink_VirtualChild(), theEcorePackage.getEObject(), null, "virtualChild", null, 0, 1, ViewLink.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(filterEClass, Filter.class, "Filter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFilter_Interface(), theModelPackage.getComponentInterface(), null, "interface", null, 0, -1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFilter_Component(), theModelPackage.getComponent(), null, "component", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFilter_Source(), theEcorePackage.getEString(), "source", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFilter_Component(), theModelPackage.getComponent(), null, "component", null, 0, -1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFilter_Complement(), ecorePackage.getEBooleanObject(), "complement", "false", 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFilter_Discipline(), theEcorePackage.getEString(), "discipline", null, 0, -1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFilter_Text(), theEcorePackage.getEString(), "text", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFilter_Complement(), ecorePackage.getEBooleanObject(), "complement", "true", 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFilter_DesignPhase(), ecorePackage.getEString(), "designPhase", null, 0, -1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFilter_Source(), theEcorePackage.getEString(), "source", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFilter_Annotation(), theEcorePackage.getEString(), "annotation", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFilter_Owner(), ecorePackage.getEString(), "owner", null, 0, 1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFilter_Interface(), theModelPackage.getComponentInterface(), null, "interface", null, 0, -1, Filter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(setExpressionEClass, SetExpression.class, "SetExpression", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

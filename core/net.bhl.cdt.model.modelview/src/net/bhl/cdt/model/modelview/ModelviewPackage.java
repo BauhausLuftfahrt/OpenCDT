@@ -221,49 +221,13 @@ public interface ModelviewPackage extends EPackage {
 	int FILTER__NAME = SET_EXPRESSION__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Interface</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Component</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__INTERFACE = SET_EXPRESSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Component</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILTER__COMPONENT = SET_EXPRESSION_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILTER__SOURCE = SET_EXPRESSION_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILTER__DISCIPLINE = SET_EXPRESSION_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Text</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FILTER__TEXT = SET_EXPRESSION_FEATURE_COUNT + 4;
+	int FILTER__COMPONENT = SET_EXPRESSION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Complement</b></em>' attribute.
@@ -272,7 +236,61 @@ public interface ModelviewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER__COMPLEMENT = SET_EXPRESSION_FEATURE_COUNT + 5;
+	int FILTER__COMPLEMENT = SET_EXPRESSION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Discipline</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__DISCIPLINE = SET_EXPRESSION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Design Phase</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__DESIGN_PHASE = SET_EXPRESSION_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Source</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__SOURCE = SET_EXPRESSION_FEATURE_COUNT + 4;
+
+	/**
+	 * The feature id for the '<em><b>Annotation</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__ANNOTATION = SET_EXPRESSION_FEATURE_COUNT + 5;
+
+	/**
+	 * The feature id for the '<em><b>Owner</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__OWNER = SET_EXPRESSION_FEATURE_COUNT + 6;
+
+	/**
+	 * The feature id for the '<em><b>Interface</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILTER__INTERFACE = SET_EXPRESSION_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of structural features of the '<em>Filter</em>' class.
@@ -281,7 +299,7 @@ public interface ModelviewPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FILTER_FEATURE_COUNT = SET_EXPRESSION_FEATURE_COUNT + 6;
+	int FILTER_FEATURE_COUNT = SET_EXPRESSION_FEATURE_COUNT + 8;
 
 
 	/**
@@ -438,21 +456,10 @@ public interface ModelviewPackage extends EPackage {
 	EClass getFilter();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.modelview.Filter#getInterface <em>Interface</em>}'.
+	 * Returns the meta object for the reference list '{@link net.bhl.cdt.model.modelview.Filter#getComponent <em>Component</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Interface</em>'.
-	 * @see net.bhl.cdt.model.modelview.Filter#getInterface()
-	 * @see #getFilter()
-	 * @generated
-	 */
-	EReference getFilter_Interface();
-
-	/**
-	 * Returns the meta object for the reference '{@link net.bhl.cdt.model.modelview.Filter#getComponent <em>Component</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Component</em>'.
+	 * @return the meta object for the reference list '<em>Component</em>'.
 	 * @see net.bhl.cdt.model.modelview.Filter#getComponent()
 	 * @see #getFilter()
 	 * @generated
@@ -471,6 +478,17 @@ public interface ModelviewPackage extends EPackage {
 	EAttribute getFilter_Source();
 
 	/**
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.modelview.Filter#getAnnotation <em>Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Annotation</em>'.
+	 * @see net.bhl.cdt.model.modelview.Filter#getAnnotation()
+	 * @see #getFilter()
+	 * @generated
+	 */
+	EAttribute getFilter_Annotation();
+
+	/**
 	 * Returns the meta object for the attribute list '{@link net.bhl.cdt.model.modelview.Filter#getDiscipline <em>Discipline</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -482,15 +500,37 @@ public interface ModelviewPackage extends EPackage {
 	EAttribute getFilter_Discipline();
 
 	/**
-	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.modelview.Filter#getText <em>Text</em>}'.
+	 * Returns the meta object for the attribute list '{@link net.bhl.cdt.model.modelview.Filter#getDesignPhase <em>Design Phase</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Text</em>'.
-	 * @see net.bhl.cdt.model.modelview.Filter#getText()
+	 * @return the meta object for the attribute list '<em>Design Phase</em>'.
+	 * @see net.bhl.cdt.model.modelview.Filter#getDesignPhase()
 	 * @see #getFilter()
 	 * @generated
 	 */
-	EAttribute getFilter_Text();
+	EAttribute getFilter_DesignPhase();
+
+	/**
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.modelview.Filter#getOwner <em>Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Owner</em>'.
+	 * @see net.bhl.cdt.model.modelview.Filter#getOwner()
+	 * @see #getFilter()
+	 * @generated
+	 */
+	EAttribute getFilter_Owner();
+
+	/**
+	 * Returns the meta object for the reference list '{@link net.bhl.cdt.model.modelview.Filter#getInterface <em>Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Interface</em>'.
+	 * @see net.bhl.cdt.model.modelview.Filter#getInterface()
+	 * @see #getFilter()
+	 * @generated
+	 */
+	EReference getFilter_Interface();
 
 	/**
 	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.modelview.Filter#getComplement <em>Complement</em>}'.
@@ -656,15 +696,7 @@ public interface ModelviewPackage extends EPackage {
 		EClass FILTER = eINSTANCE.getFilter();
 
 		/**
-		 * The meta object literal for the '<em><b>Interface</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FILTER__INTERFACE = eINSTANCE.getFilter_Interface();
-
-		/**
-		 * The meta object literal for the '<em><b>Component</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Component</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -680,6 +712,14 @@ public interface ModelviewPackage extends EPackage {
 		EAttribute FILTER__SOURCE = eINSTANCE.getFilter_Source();
 
 		/**
+		 * The meta object literal for the '<em><b>Annotation</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILTER__ANNOTATION = eINSTANCE.getFilter_Annotation();
+
+		/**
 		 * The meta object literal for the '<em><b>Discipline</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -688,12 +728,28 @@ public interface ModelviewPackage extends EPackage {
 		EAttribute FILTER__DISCIPLINE = eINSTANCE.getFilter_Discipline();
 
 		/**
-		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Design Phase</b></em>' attribute list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FILTER__TEXT = eINSTANCE.getFilter_Text();
+		EAttribute FILTER__DESIGN_PHASE = eINSTANCE.getFilter_DesignPhase();
+
+		/**
+		 * The meta object literal for the '<em><b>Owner</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FILTER__OWNER = eINSTANCE.getFilter_Owner();
+
+		/**
+		 * The meta object literal for the '<em><b>Interface</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FILTER__INTERFACE = eINSTANCE.getFilter_Interface();
 
 		/**
 		 * The meta object literal for the '<em><b>Complement</b></em>' attribute feature.

@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -37,12 +38,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link net.bhl.cdt.model.modelview.impl.FilterImpl#getInterface <em>Interface</em>}</li>
  *   <li>{@link net.bhl.cdt.model.modelview.impl.FilterImpl#getComponent <em>Component</em>}</li>
- *   <li>{@link net.bhl.cdt.model.modelview.impl.FilterImpl#getSource <em>Source</em>}</li>
- *   <li>{@link net.bhl.cdt.model.modelview.impl.FilterImpl#getDiscipline <em>Discipline</em>}</li>
- *   <li>{@link net.bhl.cdt.model.modelview.impl.FilterImpl#getText <em>Text</em>}</li>
  *   <li>{@link net.bhl.cdt.model.modelview.impl.FilterImpl#getComplement <em>Complement</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.modelview.impl.FilterImpl#getDiscipline <em>Discipline</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.modelview.impl.FilterImpl#getDesignPhase <em>Design Phase</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.modelview.impl.FilterImpl#getSource <em>Source</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.modelview.impl.FilterImpl#getAnnotation <em>Annotation</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.modelview.impl.FilterImpl#getOwner <em>Owner</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.modelview.impl.FilterImpl#getInterface <em>Interface</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,24 +53,54 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class FilterImpl extends SetExpressionImpl implements Filter {
 	/**
-	 * The cached value of the '{@link #getInterface() <em>Interface</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInterface()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ComponentInterface> interface_;
-
-	/**
-	 * The cached value of the '{@link #getComponent() <em>Component</em>}' reference.
+	 * The cached value of the '{@link #getComponent() <em>Component</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getComponent()
 	 * @generated
 	 * @ordered
 	 */
-	protected Component component;
+	protected EList<Component> component;
+
+	/**
+	 * The default value of the '{@link #getComplement() <em>Complement</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComplement()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final Boolean COMPLEMENT_EDEFAULT = Boolean.FALSE;
+
+	/**
+	 * The cached value of the '{@link #getComplement() <em>Complement</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComplement()
+	 * @generated
+	 * @ordered
+	 */
+	protected Boolean complement = COMPLEMENT_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDiscipline() <em>Discipline</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDiscipline()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> discipline;
+
+	/**
+	 * The cached value of the '{@link #getDesignPhase() <em>Design Phase</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDesignPhase()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> designPhase;
 
 	/**
 	 * The default value of the '{@link #getSource() <em>Source</em>}' attribute.
@@ -90,54 +123,54 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 	protected String source = SOURCE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDiscipline() <em>Discipline</em>}' attribute list.
+	 * The default value of the '{@link #getAnnotation() <em>Annotation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDiscipline()
+	 * @see #getAnnotation()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<String> discipline;
+	protected static final String ANNOTATION_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getText() <em>Text</em>}' attribute.
+	 * The cached value of the '{@link #getAnnotation() <em>Annotation</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getText()
+	 * @see #getAnnotation()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String TEXT_EDEFAULT = null;
+	protected String annotation = ANNOTATION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
+	 * The default value of the '{@link #getOwner() <em>Owner</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getText()
+	 * @see #getOwner()
 	 * @generated
 	 * @ordered
 	 */
-	protected String text = TEXT_EDEFAULT;
+	protected static final String OWNER_EDEFAULT = null;
 
 	/**
-	 * The default value of the '{@link #getComplement() <em>Complement</em>}' attribute.
+	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComplement()
+	 * @see #getOwner()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Boolean COMPLEMENT_EDEFAULT = Boolean.TRUE;
+	protected String owner = OWNER_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getComplement() <em>Complement</em>}' attribute.
+	 * The cached value of the '{@link #getInterface() <em>Interface</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getComplement()
+	 * @see #getInterface()
 	 * @generated
 	 * @ordered
 	 */
-	protected Boolean complement = COMPLEMENT_EDEFAULT;
+	protected EList<ComponentInterface> interface_;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -163,49 +196,11 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ComponentInterface> getInterface() {
-		if (interface_ == null) {
-			interface_ = new EObjectContainmentEList<ComponentInterface>(ComponentInterface.class, this, ModelviewPackage.FILTER__INTERFACE);
-		}
-		return interface_;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Component getComponent() {
-		if (component != null && component.eIsProxy()) {
-			InternalEObject oldComponent = (InternalEObject)component;
-			component = (Component)eResolveProxy(oldComponent);
-			if (component != oldComponent) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ModelviewPackage.FILTER__COMPONENT, oldComponent, component));
-			}
+	public EList<Component> getComponent() {
+		if (component == null) {
+			component = new EObjectResolvingEList<Component>(Component.class, this, ModelviewPackage.FILTER__COMPONENT);
 		}
 		return component;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Component basicGetComponent() {
-		return component;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setComponent(Component newComponent) {
-		Component oldComponent = component;
-		component = newComponent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelviewPackage.FILTER__COMPONENT, oldComponent, component));
 	}
 
 	/**
@@ -234,6 +229,27 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getAnnotation() {
+		return annotation;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setAnnotation(String newAnnotation) {
+		String oldAnnotation = annotation;
+		annotation = newAnnotation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelviewPackage.FILTER__ANNOTATION, oldAnnotation, annotation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<String> getDiscipline() {
 		if (discipline == null) {
 			discipline = new EDataTypeUniqueEList<String>(String.class, this, ModelviewPackage.FILTER__DISCIPLINE);
@@ -246,8 +262,11 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getText() {
-		return text;
+	public EList<String> getDesignPhase() {
+		if (designPhase == null) {
+			designPhase = new EDataTypeUniqueEList<String>(String.class, this, ModelviewPackage.FILTER__DESIGN_PHASE);
+		}
+		return designPhase;
 	}
 
 	/**
@@ -255,11 +274,32 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setText(String newText) {
-		String oldText = text;
-		text = newText;
+	public String getOwner() {
+		return owner;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOwner(String newOwner) {
+		String oldOwner = owner;
+		owner = newOwner;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelviewPackage.FILTER__TEXT, oldText, text));
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelviewPackage.FILTER__OWNER, oldOwner, owner));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ComponentInterface> getInterface() {
+		if (interface_ == null) {
+			interface_ = new EObjectResolvingEList<ComponentInterface>(ComponentInterface.class, this, ModelviewPackage.FILTER__INTERFACE);
+		}
+		return interface_;
 	}
 
 	/**
@@ -289,35 +329,24 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ModelviewPackage.FILTER__INTERFACE:
-				return ((InternalEList<?>)getInterface()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ModelviewPackage.FILTER__INTERFACE:
-				return getInterface();
 			case ModelviewPackage.FILTER__COMPONENT:
-				if (resolve) return getComponent();
-				return basicGetComponent();
-			case ModelviewPackage.FILTER__SOURCE:
-				return getSource();
-			case ModelviewPackage.FILTER__DISCIPLINE:
-				return getDiscipline();
-			case ModelviewPackage.FILTER__TEXT:
-				return getText();
+				return getComponent();
 			case ModelviewPackage.FILTER__COMPLEMENT:
 				return getComplement();
+			case ModelviewPackage.FILTER__DISCIPLINE:
+				return getDiscipline();
+			case ModelviewPackage.FILTER__DESIGN_PHASE:
+				return getDesignPhase();
+			case ModelviewPackage.FILTER__SOURCE:
+				return getSource();
+			case ModelviewPackage.FILTER__ANNOTATION:
+				return getAnnotation();
+			case ModelviewPackage.FILTER__OWNER:
+				return getOwner();
+			case ModelviewPackage.FILTER__INTERFACE:
+				return getInterface();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -331,25 +360,33 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ModelviewPackage.FILTER__INTERFACE:
-				getInterface().clear();
-				getInterface().addAll((Collection<? extends ComponentInterface>)newValue);
-				return;
 			case ModelviewPackage.FILTER__COMPONENT:
-				setComponent((Component)newValue);
+				getComponent().clear();
+				getComponent().addAll((Collection<? extends Component>)newValue);
 				return;
-			case ModelviewPackage.FILTER__SOURCE:
-				setSource((String)newValue);
+			case ModelviewPackage.FILTER__COMPLEMENT:
+				setComplement((Boolean)newValue);
 				return;
 			case ModelviewPackage.FILTER__DISCIPLINE:
 				getDiscipline().clear();
 				getDiscipline().addAll((Collection<? extends String>)newValue);
 				return;
-			case ModelviewPackage.FILTER__TEXT:
-				setText((String)newValue);
+			case ModelviewPackage.FILTER__DESIGN_PHASE:
+				getDesignPhase().clear();
+				getDesignPhase().addAll((Collection<? extends String>)newValue);
 				return;
-			case ModelviewPackage.FILTER__COMPLEMENT:
-				setComplement((Boolean)newValue);
+			case ModelviewPackage.FILTER__SOURCE:
+				setSource((String)newValue);
+				return;
+			case ModelviewPackage.FILTER__ANNOTATION:
+				setAnnotation((String)newValue);
+				return;
+			case ModelviewPackage.FILTER__OWNER:
+				setOwner((String)newValue);
+				return;
+			case ModelviewPackage.FILTER__INTERFACE:
+				getInterface().clear();
+				getInterface().addAll((Collection<? extends ComponentInterface>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -363,23 +400,29 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ModelviewPackage.FILTER__INTERFACE:
-				getInterface().clear();
-				return;
 			case ModelviewPackage.FILTER__COMPONENT:
-				setComponent((Component)null);
+				getComponent().clear();
 				return;
-			case ModelviewPackage.FILTER__SOURCE:
-				setSource(SOURCE_EDEFAULT);
+			case ModelviewPackage.FILTER__COMPLEMENT:
+				setComplement(COMPLEMENT_EDEFAULT);
 				return;
 			case ModelviewPackage.FILTER__DISCIPLINE:
 				getDiscipline().clear();
 				return;
-			case ModelviewPackage.FILTER__TEXT:
-				setText(TEXT_EDEFAULT);
+			case ModelviewPackage.FILTER__DESIGN_PHASE:
+				getDesignPhase().clear();
 				return;
-			case ModelviewPackage.FILTER__COMPLEMENT:
-				setComplement(COMPLEMENT_EDEFAULT);
+			case ModelviewPackage.FILTER__SOURCE:
+				setSource(SOURCE_EDEFAULT);
+				return;
+			case ModelviewPackage.FILTER__ANNOTATION:
+				setAnnotation(ANNOTATION_EDEFAULT);
+				return;
+			case ModelviewPackage.FILTER__OWNER:
+				setOwner(OWNER_EDEFAULT);
+				return;
+			case ModelviewPackage.FILTER__INTERFACE:
+				getInterface().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -393,18 +436,22 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ModelviewPackage.FILTER__INTERFACE:
-				return interface_ != null && !interface_.isEmpty();
 			case ModelviewPackage.FILTER__COMPONENT:
-				return component != null;
-			case ModelviewPackage.FILTER__SOURCE:
-				return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
-			case ModelviewPackage.FILTER__DISCIPLINE:
-				return discipline != null && !discipline.isEmpty();
-			case ModelviewPackage.FILTER__TEXT:
-				return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
+				return component != null && !component.isEmpty();
 			case ModelviewPackage.FILTER__COMPLEMENT:
 				return COMPLEMENT_EDEFAULT == null ? complement != null : !COMPLEMENT_EDEFAULT.equals(complement);
+			case ModelviewPackage.FILTER__DISCIPLINE:
+				return discipline != null && !discipline.isEmpty();
+			case ModelviewPackage.FILTER__DESIGN_PHASE:
+				return designPhase != null && !designPhase.isEmpty();
+			case ModelviewPackage.FILTER__SOURCE:
+				return SOURCE_EDEFAULT == null ? source != null : !SOURCE_EDEFAULT.equals(source);
+			case ModelviewPackage.FILTER__ANNOTATION:
+				return ANNOTATION_EDEFAULT == null ? annotation != null : !ANNOTATION_EDEFAULT.equals(annotation);
+			case ModelviewPackage.FILTER__OWNER:
+				return OWNER_EDEFAULT == null ? owner != null : !OWNER_EDEFAULT.equals(owner);
+			case ModelviewPackage.FILTER__INTERFACE:
+				return interface_ != null && !interface_.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
@@ -419,14 +466,18 @@ public class FilterImpl extends SetExpressionImpl implements Filter {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (source: ");
-		result.append(source);
+		result.append(" (complement: ");
+		result.append(complement);
 		result.append(", discipline: ");
 		result.append(discipline);
-		result.append(", text: ");
-		result.append(text);
-		result.append(", complement: ");
-		result.append(complement);
+		result.append(", designPhase: ");
+		result.append(designPhase);
+		result.append(", source: ");
+		result.append(source);
+		result.append(", annotation: ");
+		result.append(annotation);
+		result.append(", owner: ");
+		result.append(owner);
 		result.append(')');
 		return result.toString();
 	}

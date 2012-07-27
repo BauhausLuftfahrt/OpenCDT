@@ -16,6 +16,7 @@ import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.MappableComponentInterface;
 import net.bhl.cdt.model.Model;
 import net.bhl.cdt.model.Parameter;
+import net.bhl.cdt.model.Value;
 import net.bhl.cdt.model.architecturetools.exceptions.NoParameterSetForInterfaceException;
 import net.bhl.cdt.model.modelview.Filter;
 import net.bhl.cdt.model.util.ComponentInterfaceUtil;
@@ -70,8 +71,22 @@ public class SimpleFilter extends ViewerFilter {
 	private boolean filtered(Filter filter, MappableComponentInterface mappableInterface) {
 		boolean result = true;
 
-		if ((filter.getComponent() != null) && !(filter.getComponent().equals(mappableInterface.getParentComponent()))) {
-			return false;
+		if (filter.getComponent().isEmpty()) {
+			// No Components are specified; allow all elements
+		} else {
+			boolean match = false ;
+			for (Component component : filter.getComponent()) {
+				if (mappableInterface.getParentComponent() == component ) {
+					match = true ;
+					break;
+				}
+			}
+			if (!match) {
+				return false ;
+			} else {
+				result = match ;
+			}
+			
 		}
 
 		if (filter.getDiscipline().isEmpty()) {
@@ -93,7 +108,10 @@ public class SimpleFilter extends ViewerFilter {
 
 			if (!match) {
 				return false;
+			} else {
+				result = match ;
 			}
+			
 		}
 
 		if (filter.getSource() == null) {
@@ -138,13 +156,20 @@ public class SimpleFilter extends ViewerFilter {
 					break;
 				}
 			}
-		} else if (element instanceof Parameter ){
-			if (filter.getComplement() == null || filter.getComplement()) {
+		} else if (element instanceof Parameter) {
+			if (filter.getComplement() == null || !filter.getComplement()) {
 				result = allowed.contains(element);
 			} else {
 				result = !allowed.contains(element);
 			}
+		} else if (element instanceof Value) {
+			Parameter parameter;
+			Component component;
+			parameter = (Parameter) ((Value) element).eContainer();
+			component = parameter.getParentComponent();
+			result = this.select(viewer, component, parameter);
 		}
+
 		return result;
 	}
 }

@@ -24,12 +24,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelview.ecore#//ViewLink/virtualChild"/>
     </genClasses>
     <genClasses ecoreClass="modelview.ecore#//Filter">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelview.ecore#//Filter/interface"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference modelview.ecore#//Filter/component"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//Filter/source"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//Filter/discipline"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//Filter/text"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//Filter/complement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//Filter/discipline"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//Filter/designPhase"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//Filter/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//Filter/annotation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute modelview.ecore#//Filter/owner"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference modelview.ecore#//Filter/interface"/>
     </genClasses>
     <genClasses image="false" ecoreClass="modelview.ecore#//SetExpression"/>
     <genClasses ecoreClass="modelview.ecore#//SetOperator">
