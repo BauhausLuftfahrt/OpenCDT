@@ -56,6 +56,7 @@ public class CalculationSetEditor extends EditorPart {
 	private DataBindingContext m_bindingContext;
 
 	public static final String ID = "net.bhl.cdt.ui.editors.CalculationSetEditor"; //$NON-NLS-1$
+	private CalculationSetEditorInput input;
 	private CalculationSet calculationSet;
 	private Component component;
 	private Text text;
@@ -67,7 +68,6 @@ public class CalculationSetEditor extends EditorPart {
 	 */
 	@Override
 	public void createPartControl(Composite parent) {
-
 		ObservableListContentProvider contentProvider = new ObservableListContentProvider();
 
 		List<Component> componentList = UtilitiesHelper.getChildrenByClass(
@@ -109,6 +109,7 @@ public class CalculationSetEditor extends EditorPart {
 		comboViewer.setLabelProvider(new ComboViewerLabelProvider());
 		comboViewer.setInput(input);
 
+		// Button for removing component assignment
 		Button btnNewButton = new Button(grpCalculationSet, SWT.PUSH);
 		btnNewButton.addSelectionListener(new SelectionAdapter() {
 			@Override
@@ -119,8 +120,7 @@ public class CalculationSetEditor extends EditorPart {
 						calculationSet.setComponent(null);
 					}
 				}).run();
-				// TODO: different data binding for comboViewer selection?
-			comboViewer.refresh();
+				combo.deselectAll();
 			}
 		});
 		btnNewButton.setText("X");
@@ -149,7 +149,7 @@ public class CalculationSetEditor extends EditorPart {
 
 	@Override
 	public void init(IEditorSite site, IEditorInput i) throws PartInitException {
-		CalculationSetEditorInput input = (CalculationSetEditorInput) i;
+		input = (CalculationSetEditorInput) i;
 		setSite(site);
 		setInput(input);
 		calculationSet = input.getCalculationSet();
@@ -176,13 +176,12 @@ public class CalculationSetEditor extends EditorPart {
 	public boolean isSaveAsAllowed() {
 		return false;
 	}
-
 	protected DataBindingContext initDataBindings() {
 		DataBindingContext bindingContext = new DataBindingContext();
 		//
-		IObservableValue observeTextTextObserveWidget = WidgetProperties.text(SWT.Modify).observe(text);
-		IObservableValue nameCalculationSetObserveValue = PojoProperties.value("name").observe(calculationSet);
-		bindingContext.bindValue(observeTextTextObserveWidget, nameCalculationSetObserveValue, null, null);
+		IObservableValue observeTextTextObserveWidget_1 = WidgetProperties.text(SWT.Modify).observe(text);
+		IObservableValue calculationSetnameInputObserveValue = PojoProperties.value("calculationSet.name").observe(input);
+		bindingContext.bindValue(observeTextTextObserveWidget_1, calculationSetnameInputObserveValue, null, null);
 		//
 		return bindingContext;
 	}
