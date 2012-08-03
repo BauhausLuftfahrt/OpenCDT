@@ -639,7 +639,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 
 		// Create CalculationSet Fuselage
 		CalculationSet csFuselage = CalculationFactory.eINSTANCE.createCalculationSet();
-		csFuselage.setName("CS_Fuselage (private)");
+		csFuselage.setName("CS_Fuselage");
 		csMassPerformanceLoop.getSubCalculationSet().add(csFuselage);
 		// TODO: for all private calculation sets: set their corresponding components
 		csFuselage.setComponent(fuselage);
@@ -673,7 +673,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 		// Create CalculationSet Wing
 		CalculationSet csWing = CalculationFactory.eINSTANCE.createCalculationSet();
 		csMassPerformanceLoop.getSubCalculationSet().add(csWing);
-		csWing.setName("CS_Wing (private)");
+		csWing.setName("CS_Wing");
 		csWing.setComponent(wing);
 
 		Calculation ck_factor = CalculationFactory.eINSTANCE.createCalculation();
@@ -755,7 +755,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 
 		// Create CalculationSet Stabilizer
 		CalculationSet csStabilizer = CalculationFactory.eINSTANCE.createCalculationSet();
-		csStabilizer.setName("CS_Stabilizer (private)");
+		csStabilizer.setName("CS_Stabilizer");
 		csMassPerformanceLoop.getSubCalculationSet().add(csStabilizer);
 		csStabilizer.setComponent(stabilizer);
 
@@ -808,7 +808,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 
 		// Create CalculationSet Fin
 		CalculationSet csFin = CalculationFactory.eINSTANCE.createCalculationSet();
-		csFin.setName("CS_Fin (private)");
+		csFin.setName("CS_Fin");
 		csMassPerformanceLoop.getSubCalculationSet().add(csFin);
 		csFin.setComponent(fin);
 
@@ -859,7 +859,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 
 		// Create CalculationSet Engine
 		CalculationSet csEngine = CalculationFactory.eINSTANCE.createCalculationSet();
-		csEngine.setName("CS_Engine (private)");
+		csEngine.setName("CS_Engine");
 		csMassPerformanceLoop.getSubCalculationSet().add(csEngine);
 		csEngine.setComponent(engine);
 
@@ -892,7 +892,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 
 		// Create CalculationSet LandingGear
 		CalculationSet csLandingGear = CalculationFactory.eINSTANCE.createCalculationSet();
-		csLandingGear.setName("CS_LandingGear (private)");
+		csLandingGear.setName("CS_LandingGear");
 		csMassPerformanceLoop.getSubCalculationSet().add(csLandingGear);
 		csLandingGear.setComponent(landingGear);
 
@@ -925,7 +925,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 
 		// Create CalculationSet Systems
 		CalculationSet csSystems = CalculationFactory.eINSTANCE.createCalculationSet();
-		csSystems.setName("CS_Systems (private)");
+		csSystems.setName("CS_Systems");
 		csMassPerformanceLoop.getSubCalculationSet().add(csSystems);
 		csSystems.setComponent(systems);
 
@@ -958,7 +958,7 @@ public class DemoAircraftModelCommand extends CDTCommand {
 
 		// Create CalculationSet Fuel System
 		CalculationSet csFuelSystem = CalculationFactory.eINSTANCE.createCalculationSet();
-		csFuelSystem.setName("CS_FuelSystem (private)");
+		csFuelSystem.setName("CS_FuelSystem");
 		csMassPerformanceLoop.getSubCalculationSet().add(csFuelSystem);
 		csFuelSystem.setComponent(fuelSystem);
 
