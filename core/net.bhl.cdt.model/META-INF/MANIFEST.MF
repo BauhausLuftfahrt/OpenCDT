@@ -2,12 +2,12 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: net.bhl.cdt.model;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 0.8.8.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Require-Bundle: net.bhl.cdt.calculationrepository;visibility:=reexport
+Require-Bundle: net.bhl.cdt.calculationrepository;bundle-version="0.8.8";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Export-Package: net.bhl.cdt.model;
   uses:="org.eclipse.core.runtime,

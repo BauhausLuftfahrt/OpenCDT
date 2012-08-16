@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Calculation
 Bundle-SymbolicName: net.bhl.cdt.calculation;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.8.8.qualifier
 Bundle-Activator: net.bhl.cdt.calculation.Activator
-Require-Bundle: net.bhl.cdt.resources;visibility:=reexport,
+Require-Bundle: net.bhl.cdt.resources;bundle-version="0.8.8";visibility:=reexport,
  org.eclipse.emf.ecp.navigator;visibility:=reexport,
- net.bhl.cdt.model;visibility:=reexport
+ net.bhl.cdt.model;bundle-version="0.8.8";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: net.bhl.cdt.calculation,

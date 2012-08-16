@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: net.bhl.cdt.resources;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 0.8.8.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
@@ -12,5 +12,5 @@ Export-Package: net.bhl.cdt.resources,
  net.bhl.cdt.resources.exceptions,
  net.bhl.cdt.resources.impl,
  net.bhl.cdt.resources.util
-Require-Bundle: net.bhl.cdt.utilities;visibility:=reexport
+Require-Bundle: net.bhl.cdt.utilities;bundle-version="0.8.8";visibility:=reexport
 Bundle-ActivationPolicy: lazy

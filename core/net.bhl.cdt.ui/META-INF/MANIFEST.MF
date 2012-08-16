@@ -2,11 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Gui
 Bundle-SymbolicName: net.bhl.cdt.ui;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.8.8.qualifier
 Bundle-Activator: net.bhl.cdt.ui.Activator
 Require-Bundle: org.eclipse.emf.emfstore.client.model.edit;bundle-version="0.8.9";visibility:=reexport,
  org.eclipse.ui.editors;visibility:=reexport,
- net.bhl.cdt.calculation;visibility:=reexport,
+ net.bhl.cdt.calculation;bundle-version="0.8.8";visibility:=reexport,
  org.eclipse.jface.text;bundle-version="3.7.2",
  org.eclipse.core.databinding.beans,
  org.eclipse.core.databinding.property;bundle-version="1.4.0"
