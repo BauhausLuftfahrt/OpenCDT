@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/net.bhl.cdt.utilities/src"
+    modelPluginID="net.bhl.cdt.utilities" modelName="Units" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>units.ecore</foreignModel>
+  <genPackages prefix="Units" basePackage="net.bhl.cdt.utilities" disposableProviderFactory="true"
+      ecorePackage="units.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="units.ecore#//Quantity">
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/LENGTH"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/WEIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/MASS"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/ACCELERATION"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/COEFFICIENT"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/TEMPERATURE"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/VELOCITY"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/DENSITY"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/SPECIFICFUELCONSUMPTION"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/AREA"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/ANGLE"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="units.ecore#//Unit"/>
+  </genPackages>
+</genmodel:GenModel>

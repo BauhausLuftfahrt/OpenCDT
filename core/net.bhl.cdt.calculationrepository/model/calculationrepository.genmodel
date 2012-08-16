@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/net.bhl.cdt.calculationrepository/src"
+    modelPluginID="net.bhl.cdt.calculationrepository" modelName="CalculationRepository"
+    importerID="org.eclipse.emf.importer.ecore" containmentProxies="true" complianceLevel="6.0"
+    copyrightFields="false" usedGenPackages="../../net.bhl.cdt.utilities/model/basecalculationmodel.genmodel#//basecalculationmodel ../../net.bhl.cdt.utilities/model/units.genmodel#//units">
+  <foreignModel>calculationrepository.ecore</foreignModel>
+  <genPackages prefix="Functions" basePackage="net.bhl.cdt.calculationrepository"
+      disposableProviderFactory="true" ecorePackage="calculationrepository.ecore#/">
+    <genClasses image="false" ecoreClass="calculationrepository.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calculationrepository.ecore#//Function/functionID"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference calculationrepository.ecore#//Function/inputDescriptors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference calculationrepository.ecore#//Function/outputDescriptors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calculationrepository.ecore#//Function/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calculationrepository.ecore#//Function/synopsis"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="calculationrepository.ecore#//CalculationScript">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calculationrepository.ecore#//CalculationScript/scriptText"/>
+    </genClasses>
+    <genClasses ecoreClass="calculationrepository.ecore#//ScilabFunction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calculationrepository.ecore#//ScilabFunction/functionDefinition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calculationrepository.ecore#//ScilabFunction/functionBody"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calculationrepository.ecore#//ScilabFunction/functionCall"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute calculationrepository.ecore#//ScilabFunction/functionReturn"/>
+    </genClasses>
+    <genClasses ecoreClass="calculationrepository.ecore#//CalculationRepository">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference calculationrepository.ecore#//CalculationRepository/functions"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

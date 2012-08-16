@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model"
+    nsURI="http://bhl.net/cdt/model" nsPrefix="net.bhl.cdt.model">
+  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//StructuralElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subComponents" upperBound="-1"
+        eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//Parameter" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectedComponents" upperBound="-1"
+        eType="#//Component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calculationSets" upperBound="-1"
+        eType="#//calculation/CalculationSet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interfaces" upperBound="-1"
+        eType="#//ComponentInterface" containment="true" eOpposite="#//ComponentInterface/parentComponent"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//qualification/Qualifiable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="ecore:EDataType ../../net.bhl.cdt.utilities/model/units.ecore#//Unit"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datatypes" upperBound="-1"
+        eType="ecore:EClass ../../net.bhl.cdt.utilities/model/datatypes.ecore#//DataType"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Configuration" eSuperTypes="#//StructuralElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="views" upperBound="-1"
+        eType="#//View" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="calculationSets" upperBound="-1"
+        eType="#//calculation/CalculationSet" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
+        eType="#//Configuration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="qualifyingSpaces" upperBound="-1"
+        eType="#//qualification/QualifyingSpace" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Element" eSuperTypes="../../net.bhl.cdt.utilities/model/exchangemodel.ecore#//ExchangeElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//StructuralElement #//MappableComponentInterface">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+        eType="#//Value" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantity" eType="ecore:EEnum ../../net.bhl.cdt.utilities/model/units.ecore#//Quantity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StructuralElement" abstract="true" eSuperTypes="#//Element"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ComponentInterface" abstract="true"
+      eSuperTypes="#//Element">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentComponent" eType="#//Component"
+        eOpposite="#//Component/interfaces"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="discipline" upperBound="-1"
+        eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="annotation" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="designPhase" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Owner" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MappableComponentInterface" abstract="true"
+      interface="true" eSuperTypes="#//ComponentInterface">
+    <eOperations name="getValue" eType="#//Value"/>
+    <eOperations name="getQuantity" eType="ecore:EEnum ../../net.bhl.cdt.utilities/model/units.ecore#//Quantity"/>
+    <eOperations name="setValue">
+      <eParameters name="value" eType="#//Value"/>
+    </eOperations>
+    <eOperations name="getParameter" eType="#//Parameter"/>
+    <eOperations name="hasValue" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EBoolean"/>
+    <eOperations name="getValue" eType="#//Value">
+      <eParameters name="calcSpaceQualifier" eType="#//qualification/CalculationSpaceQualifier"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="View" abstract="true" eSuperTypes="#//Element"/>
+  <eSubpackages name="qualification" nsURI="http://bhl.net/cdt/model/qualification"
+      nsPrefix="net.bhl.cdt.model">
+    <eClassifiers xsi:type="ecore:EClass" name="Qualifier" abstract="true" eSuperTypes="#//Element">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="qualifies" upperBound="-1"
+          eType="#//qualification/Qualifiable"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QualifyingSpace" abstract="true" eSuperTypes="#//Element"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Qualifiable" abstract="true" interface="true"
+        eSuperTypes="#//Element"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CalculationSpace" eSuperTypes="#//qualification/QualifyingSpace">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="spaceQualifier" upperBound="-1"
+          eType="#//qualification/CalculationSpaceQualifier"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CalculationSpaceQualifier" eSuperTypes="#//qualification/Qualifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="BehaviouralSpace" eSuperTypes="#//qualification/QualifyingSpace">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="behaviouralQualifier"
+          upperBound="-1" eType="#//qualification/BehaviouralQualifier"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BehaviouralQualifier" eSuperTypes="#//qualification/Qualifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Process" abstract="true" eSuperTypes="#//qualification/BehaviouralQualifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="initState" eType="#//qualification/State"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="finState" eType="#//qualification/State"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//qualification/BehaviouralQualifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Sequence" eSuperTypes="#//qualification/Process">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="processes" upperBound="-1"
+          eType="#//qualification/Process" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//qualification/Process"/>
+  </eSubpackages>
+  <eSubpackages name="calculation" nsURI="http://bhl.net/cdt/model/calculation" nsPrefix="net.bhl.cdt.model">
+    <eClassifiers xsi:type="ecore:EClass" name="CalculationSet" eSuperTypes="#//Element">
+      <eOperations name="isCalculable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="calcSpaceQualifier" eType="#//qualification/CalculationSpaceQualifier"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="calculations" upperBound="-1"
+          eType="#//calculation/Calculation" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="graphs" upperBound="-1"
+          eType="#//calculation/CalculationGraph" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="spaceQualifiers" upperBound="-1"
+          eType="#//qualification/CalculationSpaceQualifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subCalculationSet" upperBound="-1"
+          eType="#//calculation/CalculationSet" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//Component"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Calculation" eSuperTypes="#//Element">
+      <eOperations name="isMapped" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterMapping" eType="#//calculation/ParameterMapping"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="functionID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterMapping">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inputMappables" upperBound="-1"
+          eType="#//calculation/ParameterDescriptorToMappableComponentInterfaceMap"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outputMappables" upperBound="-1"
+          eType="#//calculation/ParameterDescriptorToMappableComponentInterfaceMap"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CalculationGraph" eSuperTypes="#//Element">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
+          eType="#//calculation/AbstractNode" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="firstNode" eType="#//calculation/AbstractNode"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="startSet" eType="#//calculation/StartSet"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AbstractNode" abstract="true" eSuperTypes="#//Element"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//calculation/AbstractNode">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nextNode" eType="#//calculation/AbstractNode"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="calculation" eType="#//calculation/Calculation"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ControlNode" abstract="true" eSuperTypes="#//calculation/AbstractNode">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nextTrue" eType="#//calculation/AbstractNode"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nextFalse" eType="#//calculation/AbstractNode"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="condition" upperBound="-1"
+          eType="#//calculation/Condition" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Condition" eSuperTypes="#//Element">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mappableComponentOfInterest"
+          eType="#//MappableComponentInterface"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IterationNode" eSuperTypes="#//calculation/ControlNode">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maxIteration" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ConditionalNode" eSuperTypes="#//calculation/ControlNode"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StartSet" eSuperTypes="#//Element">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+          eType="#//Value"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterDescriptorToMappableComponentInterfaceMap"
+        instanceClassName="java.util.Map$Entry">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="key" eType="ecore:EClass ../../net.bhl.cdt.utilities/model/basecalculationmodel.ecore#//ParameterDescriptor"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//MappableComponentInterface"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CalculationSetNode" eSuperTypes="#//calculation/AbstractNode">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="nextNode" eType="#//calculation/AbstractNode"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="calculationSet" eType="#//calculation/CalculationSet"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="architecturetools" nsURI="http://bhl.net/cdt/model/architecturetools"
+      nsPrefix="net.bhl.cdt.architecturetools">
+    <eClassifiers xsi:type="ecore:EClass" name="PowerConsumer" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getPowerConsumption" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="powerParameter" eType="#//Parameter"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PowerDemandView" eSuperTypes="#//View">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="referencedConfigurations"
+          upperBound="-1" eType="#//Configuration"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Massive" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getMass" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="massParameter" eType="#//Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CoefficientInterface" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getCoefficient" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType platform:/plugin/org.eclipse.emf.ecore/model/Ecore.ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="coefficientParameter"
+          eType="#//Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="WettedAreaInterface" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getWettedArea" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="wettedAreaParameter"
+          eType="#//Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReferenceAreaInterface" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getReferenceArea" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="referenceAreaParameter"
+          eType="#//Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AltitudeInterface" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getAltitude" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="altitudeParameter" eType="#//Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RangeInterface" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getRange" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rangeParameter" eType="#//Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SFCInterface" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getSFC" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sfcParameter" eType="#//Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DensityInterface" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getDensity" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="densityParameter" eType="#//Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VelocityInterface" eSuperTypes="#//MappableComponentInterface">
+      <eOperations name="getVelocity" eType="#//Value"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="velocityParameter" eType="#//Parameter"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

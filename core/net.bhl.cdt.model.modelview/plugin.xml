@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.emf.ecp.navigator.viewer?after=additions">
+         <command
+               commandId="net.bhl.cdt.architecturetools.openPDE"
+               label="Open Power Demand Estimator"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <and>
+                  <iterate
+                        ifEmpty="false"
+                        operator="or">
+                     <instanceof
+                           value="net.bhl.cdt.model.Configuration">
+                     </instanceof>
+                  </iterate>
+               </and>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="net.bhl.cdt.architecturetools.demomodel"
+               label="Create Demo Model"
+               style="push">
+         </command>
+         <command
+               commandId="net.bhl.cdt.architecturetools.createpowerconsumer"
+               label="Create PowerConsumer Component"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <and>
+                  <iterate
+                        ifEmpty="false"
+                        operator="or">
+                     <instanceof
+                           value="net.bhl.cdt.model.Component">
+                     </instanceof>
+                  </iterate>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="popup:net.bhl.cdt.architecturetools.disciplineview.disciplineviewer">
+         <command
+               commandId="net.bhl.cdt.architecturetools.addComponent"
+               label="Add Component Link"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <and>
+                  <iterate
+                        ifEmpty="false"
+                        operator="or">
+                     <instanceof
+                           value="net.bhl.cdt.model.Component">
+                     </instanceof>
+                  </iterate>
+               </and>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="net.bhl.cdt.architecturetools.removeComponent"
+               label="Remove Component Link"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <and>
+                  <iterate
+                        ifEmpty="false"
+                        operator="or">
+                     <instanceof
+                           value="net.bhl.cdt.model.Component">
+                     </instanceof>
+                  </iterate>
+               </and>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.emf.ecp.navigator.viewer?after=additions">
+         <command
+               commandId="net.bhl.cdt.architecturetools.treeTraversion"
+               label="Sum Powerconsumption"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <iterate>
+                  <instanceof
+                        value="net.bhl.cdt.architecturetools.model.architecturetools.impl.PowerConsumerImpl">
+                  </instanceof>
+               </iterate>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="net.bhl.cdt.model.modelview.powerconsumer.PDEOpener"
+            id="net.bhl.cdt.architecturetools.openPDE"
+            name="pde opener">
+      </command>
+      <command
+            defaultHandler="net.bhl.cdt.model.modelview.CreateDemoModelHandler"
+            id="net.bhl.cdt.architecturetools.demomodel"
+            name="Create Demo Model">
+      </command>
+      <command
+            defaultHandler="net.bhl.cdt.model.modelview.powerconsumer.CreatePowerConsumerHandler"
+            id="net.bhl.cdt.architecturetools.createpowerconsumer"
+            name="Create PowerConsumer">
+      </command>
+      <command
+            defaultHandler="net.bhl.cdt.model.modelview.disciplineview.handler.AddComponentHandler"
+            id="net.bhl.cdt.architecturetools.addComponent"
+            name="Add Component">
+      </command>
+      <command
+            defaultHandler="net.bhl.cdt.model.modelview.disciplineview.handler.RemoveComponentHandler"
+            id="net.bhl.cdt.architecturetools.removeComponent"
+            name="Remove Component">
+      </command>
+      <command
+            defaultHandler="net.bhl.cdt.model.modelview.TreeTraversionHandler"
+            id="net.bhl.cdt.architecturetools.treeTraversion"
+            name="TreeTraversion">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="net.bhl.cdt.model.modelview.powerconsumer.PowerDemandEstimator"
+            default="false"
+            id="net.bhl.cdt.architecturetools.powerdemandestimator"
+            matchingStrategy="net.bhl.cdt.model.modelview.powerconsumer.PowerDemandEstimator"
+            name="Power Estimator">
+      </editor>
+      <editor
+            class="net.bhl.cdt.model.modelview.disciplineview.DisciplineViewer"
+            id="net.bhl.cdt.architecturetools.disciplineview.disciplineviewer"
+            name="DisciplineViewer">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecp.common.modelelementopener">
+      <ModelElementOpener
+            class="net.bhl.cdt.model.modelview.powerconsumer.PDEOpener"
+            name="net.bhl.cdt.architecturetools.PDEOpener">
+      </ModelElementOpener>
+      <ModelElementOpener
+            class="net.bhl.cdt.model.modelview.disciplineview.DisciplineViewOpener"
+            name="net.bhl.cdt.architecturetools.DisciplineViewOpener">
+      </ModelElementOpener>
+   </extension>
+   <extension
+         point="net.bhl.cdt.ui.configurationview.filter">
+      <filter
+            class="net.bhl.cdt.model.modelview.powerconsumer.filter.PowerConsumptionFilter">
+      </filter>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.generated_package">
+      <package
+            class="net.bhl.cdt.model.modelview.ModelviewPackage"
+            genModel="model/modelview.genmodel"
+            uri="http://bhl.net/cdt/model/modelview">
+      </package>
+   </extension>
+   
+</plugin>

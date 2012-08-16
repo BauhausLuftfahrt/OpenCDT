@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="importstrategy" name="importstrategy" schema="schema/importstrategy.exsd"/>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="net.bhl.cdt.connector.io.ImportFileHandler"
+            id="net.bhl.cdt.connector.importFileCommand"
+            name="importFileCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.emf.ecp.navigator.viewer?after=additions">
+         <command
+               commandId="net.bhl.cdt.connector.importFileCommand"
+               label="Import File"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <iterate>
+                  <instanceof
+                        value="net.bhl.cdt.resources.Resources">
+                  </instanceof>
+               </iterate>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="net.bhl.cdt.connector.importstrategy">
+      <importstrategy
+            class="net.bhl.cdt.connector.io.strategyimpl.SimpleCSVImportStrategy">
+      </importstrategy>
+   </extension>
+   <extension
+         point="net.bhl.cdt.connector.importstrategy">
+      <importstrategy
+            class="net.bhl.cdt.connector.io.strategyimpl.DummyCSVStrategy">
+      </importstrategy>
+   </extension>
+   <extension
+         point="net.bhl.cdt.connector.importstrategy">
+      <importstrategy
+            class="net.bhl.cdt.connector.io.strategyimpl.APDFileAsCSVImport">
+      </importstrategy>
+   </extension>
+   <extension
+         point="net.bhl.cdt.connector.importstrategy">
+      <importstrategy
+            class="net.bhl.cdt.connector.io.strategyimpl.CSVFileImport_2012_2">
+      </importstrategy>
+   </extension>
+
+</plugin>

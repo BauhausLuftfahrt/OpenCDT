@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="OpenCDT" id="net.bhl.cdt.client.product" application="net.bhl.cdt.client.application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/net.bhl.cdt.client/icons/48cdt.gif"/>
+      <text>
+         Conceptual Design Tool (CDT)
+Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html
+
+Version 0.8.8
+
+CDT uses the following third party libaries:
+* javax.units which is available under the BSD license at  http://jsr-108.sourceforge.net/
+* jscience which is available under the BSD license at http://java.net/projects/jscience/
+
+CDT also uses some icons from fugue icons © 2012 Yusuke Kamiyamane. All rights reserved. which is available under the Creative Commons BY 3.0 license at http://p.yusukekamiyamane.com/
+
+Contributors (in alphabetical order):
+Martin Glas, Sebastian Höcht, Michael Kagel, Stephan Leutenmayr, Sami Mkhazni, Florian Penn, Otto von Wesendonk, Sven Ziemer
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <windowImages i16="icons/16cdt.gif" i32="icons/32cdt.gif" i48="icons/48cdt.gif"/>
+
+   <splash
+      location="net.bhl.cdt.client"
+      startupProgressRect="5,275,445,15"
+      startupMessageRect="7,252,445,20"
+      startupForegroundColor="000000" />
+   <launcher name="OpenCDT">
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <license>
+        <url>http://www.eclipse.org/legal/epl-v10.html</url>
+        <text>
+   Conceptual Design Tool (CDT)
+Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html
+
+Version 0.8.8
+
+CDT uses the following third party libaries:
+* javax.units which is available under the BSD license at  http://jsr-108.sourceforge.net/
+* jscience which is available under the BSD license at http://java.net/projects/jscience/
+
+CDT also uses some icons from fugue icons © 2012 Yusuke Kamiyamane. All rights reserved. which is available under the Creative Commons BY 3.0 license at http://p.yusukekamiyamane.com/
+
+Contributors (in alphabetical order):
+Martin Glas, Sebastian Höcht, Michael Kagel, Stephan Leutenmayr, Sami Mkhazni, Florian Penn, Otto von Wesendonk, Sven Ziemer
+         </text>
+   </license>
+
+   <plugins>
+      <plugin id="com.ibm.icu"/>
+      <plugin id="net.bhl.cdt.calculation"/>
+      <plugin id="net.bhl.cdt.calculationrepository"/>
+      <plugin id="net.bhl.cdt.calculationrepository.edit"/>
+      <plugin id="net.bhl.cdt.client"/>
+      <plugin id="net.bhl.cdt.connector"/>
+      <plugin id="net.bhl.cdt.model"/>
+      <plugin id="net.bhl.cdt.model.edit"/>
+      <plugin id="net.bhl.cdt.model.modelview"/>
+      <plugin id="net.bhl.cdt.model.modelview.edit"/>
+      <plugin id="net.bhl.cdt.resources"/>
+      <plugin id="net.bhl.cdt.resources.edit"/>
+      <plugin id="net.bhl.cdt.ui"/>
+      <plugin id="net.bhl.cdt.utilities"/>
+      <plugin id="net.bhl.cdt.utilities.edit"/>
+      <plugin id="org.apache.commons.codec"/>
+      <plugin id="org.apache.commons.logging"/>
+      <plugin id="org.eclipse.compare.core"/>
+      <plugin id="org.eclipse.core.commands"/>
+      <plugin id="org.eclipse.core.contenttype"/>
+      <plugin id="org.eclipse.core.databinding"/>
+      <plugin id="org.eclipse.core.databinding.beans"/>
+      <plugin id="org.eclipse.core.databinding.observable"/>
+      <plugin id="org.eclipse.core.databinding.property"/>
+      <plugin id="org.eclipse.core.expressions"/>
+      <plugin id="org.eclipse.core.filebuffers"/>
+      <plugin id="org.eclipse.core.filesystem"/>
+      <plugin id="org.eclipse.core.filesystem.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.core.jobs"/>
+      <plugin id="org.eclipse.core.resources"/>
+      <plugin id="org.eclipse.core.resources.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
+      <plugin id="org.eclipse.emf.common"/>
+      <plugin id="org.eclipse.emf.common.ui"/>
+      <plugin id="org.eclipse.emf.databinding"/>
+      <plugin id="org.eclipse.emf.databinding.edit"/>
+      <plugin id="org.eclipse.emf.ecore"/>
+      <plugin id="org.eclipse.emf.ecore.change"/>
+      <plugin id="org.eclipse.emf.ecore.edit"/>
+      <plugin id="org.eclipse.emf.ecore.xmi"/>
+      <plugin id="org.eclipse.emf.ecp.common"/>
+      <plugin id="org.eclipse.emf.ecp.common.model"/>
+      <plugin id="org.eclipse.emf.ecp.common.rcp" fragment="true"/>
+      <plugin id="org.eclipse.emf.ecp.common.util"/>
+      <plugin id="org.eclipse.emf.ecp.editor"/>
+      <plugin id="org.eclipse.emf.ecp.emfstorebridge"/>
+      <plugin id="org.eclipse.emf.ecp.navigator"/>
+      <plugin id="org.eclipse.emf.ecp.navigatoreditorbridge"/>
+      <plugin id="org.eclipse.emf.edit"/>
+      <plugin id="org.eclipse.emf.edit.ui"/>
+      <plugin id="org.eclipse.emf.emfstore.client"/>
+      <plugin id="org.eclipse.emf.emfstore.client.model.edit"/>
+      <plugin id="org.eclipse.emf.emfstore.client.ui"/>
+      <plugin id="org.eclipse.emf.emfstore.common"/>
+      <plugin id="org.eclipse.emf.emfstore.common.model"/>
+      <plugin id="org.eclipse.emf.emfstore.common.model.edit"/>
+      <plugin id="org.eclipse.emf.emfstore.migration"/>
+      <plugin id="org.eclipse.emf.emfstore.server"/>
+      <plugin id="org.eclipse.emf.emfstore.server.model"/>
+      <plugin id="org.eclipse.emf.emfstore.server.model.edit"/>
+      <plugin id="org.eclipse.emf.transaction"/>
+      <plugin id="org.eclipse.emf.validation"/>
+      <plugin id="org.eclipse.emf.workspace"/>
+      <plugin id="org.eclipse.equinox.app"/>
+      <plugin id="org.eclipse.equinox.common"/>
+      <plugin id="org.eclipse.equinox.p2.core"/>
+      <plugin id="org.eclipse.equinox.p2.engine"/>
+      <plugin id="org.eclipse.equinox.p2.metadata"/>
+      <plugin id="org.eclipse.equinox.p2.metadata.repository"/>
+      <plugin id="org.eclipse.equinox.p2.repository"/>
+      <plugin id="org.eclipse.equinox.preferences"/>
+      <plugin id="org.eclipse.equinox.registry"/>
+      <plugin id="org.eclipse.equinox.security"/>
+      <plugin id="org.eclipse.equinox.security.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.help"/>
+      <plugin id="org.eclipse.jface"/>
+      <plugin id="org.eclipse.jface.databinding"/>
+      <plugin id="org.eclipse.jface.text"/>
+      <plugin id="org.eclipse.osgi"/>
+      <plugin id="org.eclipse.swt"/>
+      <plugin id="org.eclipse.swt.win32.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.text"/>
+      <plugin id="org.eclipse.ui"/>
+      <plugin id="org.eclipse.ui.editors"/>
+      <plugin id="org.eclipse.ui.forms"/>
+      <plugin id="org.eclipse.ui.ide"/>
+      <plugin id="org.eclipse.ui.views"/>
+      <plugin id="org.eclipse.ui.win32" fragment="true"/>
+      <plugin id="org.eclipse.ui.workbench"/>
+      <plugin id="org.eclipse.ui.workbench.texteditor"/>
+      <plugin id="org.hamcrest.core"/>
+   </plugins>
+
+
+</product>
