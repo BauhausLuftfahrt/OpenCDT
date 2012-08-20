@@ -69,6 +69,11 @@ public class CalculationWizardPage extends WizardPage {
 		return text.getText();
 	}
 
+	/**
+	 * Returns the ID of the selected function.
+	 * 
+	 * @return String representation of the ID of the selected function
+	 */
 	public String getFunctionID() {
 		return comboViewer.getCombo().getText();
 	}
@@ -77,10 +82,10 @@ public class CalculationWizardPage extends WizardPage {
 		List<String> tmp = new ArrayList<String>();
 		List<Function> functions = CalculationRepositoryManager.getInstance().getFunctions(
 			UtilitiesHelper.getProjectId(calculation));
-		// Collections.sort
 		for (Function f : functions) {
 			tmp.add(f.getFunctionID());
 		}
+		Collections.sort(tmp);
 		return tmp.toArray(new String[1]);
 	}
 }

@@ -12,6 +12,7 @@ import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.ModelPackage;
 import net.bhl.cdt.model.Parameter;
+import net.bhl.cdt.model.calculation.CalculationPackage;
 import net.bhl.cdt.model.calculation.CalculationSet;
 import net.bhl.cdt.ui.editors.calculation.NameComparator;
 import net.bhl.cdt.ui.editors.calculationset.ComboViewerLabelProvider;
@@ -50,11 +51,19 @@ import org.eclipse.emf.databinding.IEMFValueProperty;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.events.FocusEvent;
+import org.eclipse.swt.events.FocusListener;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.emf.databinding.EMFObservables;
+import net.bhl.cdt.utilities.exchangemodel.ExchangemodelPackage.Literals;
 
 /**
- * Creates the parameter mapping editor.
+ * Creates the calculation set editor. Name is persisted using Listeners for focusLost and Enter key. Function is
+ * persisted upon drop-down selection. Function assignment can be removed (== null) by "x" button. A calculation set is
+ * considered private iff it has a component assigned to it (!= null).
  * 
  * @author stephan.leutenmayr
  */
@@ -63,12 +72,10 @@ public class CalculationSetEditor extends EditorPart {
 	}
 
 	private DataBindingContext m_bindingContext;
-
 	public static final String ID = "net.bhl.cdt.ui.editors.CalculationSetEditor"; //$NON-NLS-1$
 	private CalculationSetEditorInput input;
 	private CalculationSet calculationSet;
-	private Component component;
-	private Text text;
+	private Text nameText;
 
 	/**
 	 * Create contents of the editor part.
@@ -77,8 +84,6 @@ public class CalculationSetEditor extends EditorPart {
 	 */
 	@Override
 	public void createPartControl(Composite parent) {
-		// TODO: Persistierung Name per DataBinding
-		// TODO: Update Component status in tree
 		ObservableListContentProvider contentProvider = new ObservableListContentProvider();
 
 		List<Component> componentList = UtilitiesHelper.getChildrenByClass(
@@ -94,8 +99,11 @@ public class CalculationSetEditor extends EditorPart {
 		Label lblName = new Label(grpCalculationSet, SWT.NONE);
 		lblName.setText("Name");
 
-		text = new Text(grpCalculationSet, SWT.BORDER);
-		text.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		nameText = new Text(grpCalculationSet, SWT.BORDER);
+		nameText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+
+		nameText.addFocusListener(new NameListener());
+		nameText.addKeyListener(new NameKeyListener());
 		new Label(grpCalculationSet, SWT.NONE);
 
 		Label lblComponent = new Label(grpCalculationSet, SWT.NONE);
@@ -122,8 +130,8 @@ public class CalculationSetEditor extends EditorPart {
 		comboViewer.setInput(comboInput);
 
 		// Button for removing component assignment
-		Button btnNewButton = new Button(grpCalculationSet, SWT.PUSH);
-		btnNewButton.addSelectionListener(new SelectionAdapter() {
+		Button deleteButton = new Button(grpCalculationSet, SWT.PUSH);
+		deleteButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				(new CDTCommand() {
@@ -135,7 +143,7 @@ public class CalculationSetEditor extends EditorPart {
 				combo.deselectAll();
 			}
 		});
-		btnNewButton.setText("X");
+		deleteButton.setText("X");
 
 		if (calculationSet.getComponent() != null) {
 			combo.setText(calculationSet.getComponent().getName());
@@ -165,7 +173,6 @@ public class CalculationSetEditor extends EditorPart {
 		setSite(site);
 		setInput(input);
 		calculationSet = input.getCalculationSet();
-		component = calculationSet.getComponent();
 		if (calculationSet.getName() == null) {
 			(new CDTCommand() {
 				@Override
@@ -174,7 +181,7 @@ public class CalculationSetEditor extends EditorPart {
 				}
 			}).run();
 		}
-		setPartName("Set: " + calculationSet.getName());
+		setPartName("Set " + calculationSet.getName());
 	}
 
 	@Override
@@ -189,27 +196,59 @@ public class CalculationSetEditor extends EditorPart {
 
 	protected DataBindingContext initDataBindings() {
 		DataBindingContext bindingContext = new DataBindingContext();
-		
-		// TODO: Refactor DataBinding to EMF DataBinding
-		
-//		IObservableValue observeTextTextObserveWidget_1 = WidgetProperties.text(SWT.Modify).observe(text);
-//		IEMFValueProperty property = EMFProperties.value(ExchangemodelPackage.Literals.EXCHANGE_ELEMENT__NAME.observe(calculationSet));
-		
-		// bindingContext.bindValue(WidgetProperties.text(SWT.Modify).observe(text),
-		// EMFProperties.value(ExchangemodelPackage.Literals.EXCHANGE_ELEMENT__NAME
-		// .observe(calculationSet)));
-		
-//		 FeaturePath feature = FeaturePath.fromList(ModelPackage.Literals.,
-//		 ModelPackage.Literals.PHONE__NUMBER);
-//		 bindingContext.bindValue(WidgetProperties.text(SWT.Modify).observe(phoneNumber),
-//		 EMFProperties.value(feature).observe(person));
-		
-		// //
-		// IObservableValue observeTextTextObserveWidget_1 = WidgetProperties.text(SWT.Modify).observe(text);
-		// IObservableValue calculationSetnameInputObserveValue = PojoProperties.value("calculationSet.name").observe(
-		// input);
-		// bindingContext.bindValue(observeTextTextObserveWidget_1, calculationSetnameInputObserveValue, null, null);
-		// //
+		//
+		IObservableValue observeTextNameTextObserveWidget = WidgetProperties.text(
+			new int[] { SWT.Modify, SWT.FocusOut }).observe(nameText);
+		IObservableValue calculationSetNameObserveValue = EMFProperties.value(Literals.EXCHANGE_ELEMENT__NAME).observe(
+			calculationSet);
+		bindingContext.bindValue(observeTextNameTextObserveWidget, calculationSetNameObserveValue, null, null);
+		//
 		return bindingContext;
+	}
+
+	/**
+	 * Hack for persisting name change in EMFStore. This listener is necessary as changes to the EMF model are not
+	 * automagically persisted to EMFStore.
+	 * 
+	 * @author stephan.leutenmayr
+	 */
+	class NameListener implements FocusListener {
+		@Override
+		public void focusGained(FocusEvent e) {
+		}
+
+		@Override
+		public void focusLost(final FocusEvent e) {
+			// Run CDTCommand for setting name
+			(new CDTCommand() {
+				@Override
+				protected void doRun() {
+					calculationSet.setName(((Text) e.getSource()).getText());
+				}
+			}).run();
+		}
+	}
+
+	/**
+	 * Implements the same as the NameListener, just for storing name upon hitting Enter
+	 */
+	class NameKeyListener implements KeyListener {
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+		}
+
+		@Override
+		public void keyReleased(final KeyEvent e) {
+			if (e.keyCode == SWT.CR) {
+				// Run CDTCommand for setting name
+				(new CDTCommand() {
+					@Override
+					protected void doRun() {
+						calculationSet.setName(((Text) e.getSource()).getText());
+					}
+				}).run();
+			}
+		}
 	}
 }

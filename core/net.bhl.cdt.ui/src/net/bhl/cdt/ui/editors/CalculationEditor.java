@@ -67,6 +67,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.EMap;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.swt.events.FocusListener;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.FocusAdapter;
@@ -85,6 +88,8 @@ import org.eclipse.wb.swt.SWTResourceManager;
 
 /**
  * Creates the parameter mapping editor.
+ * Parameter mappings are persisted in EMFStore upon drop-down selection.
+ * Name ist persisted by Listeners upon focusLost or Enter key.
  * 
  * @author stephan.leutenmayr
  */
@@ -140,6 +145,9 @@ public class CalculationEditor extends EditorPart {
 		gd_calculationName.widthHint = 461;
 		calculationName.setLayoutData(gd_calculationName);
 
+		calculationName.addFocusListener(new NameListener());
+		calculationName.addKeyListener(new NameKeyListener());
+
 		Label lblFunction = new Label(grpParameterMapping, SWT.NONE);
 		lblFunction.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, true, 1, 1));
 		lblFunction.setText("Function ID");
@@ -147,7 +155,7 @@ public class CalculationEditor extends EditorPart {
 		lblNewLabel = new Label(grpParameterMapping, SWT.BORDER);
 		lblNewLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, true, 1, 1));
 		lblNewLabel.setText("");
-		
+
 		generateMappingGUI();
 		m_bindingContext = initDataBindings();
 	}
@@ -311,5 +319,51 @@ public class CalculationEditor extends EditorPart {
 
 		generateMappingGUI(mapping.getInputMappables(), parameterInterfaces, grpInputParameters);
 		generateMappingGUI(mapping.getOutputMappables(), parameterInterfaces, grpOutputParameters);
+	}
+
+	/**
+	 * Hack for persisting name change in EMFStore. This listener is necessary as changes to the EMF model are not
+	 * automagically persisted to EMFStore.
+	 * 
+	 * @author stephan.leutenmayr
+	 */
+	class NameListener implements FocusListener {
+		@Override
+		public void focusGained(FocusEvent e) {
+		}
+
+		@Override
+		public void focusLost(final FocusEvent e) {
+			// Run CDTCommand for setting name
+			(new CDTCommand() {
+				@Override
+				protected void doRun() {
+					calculation.setName(((Text) e.getSource()).getText());
+				}
+			}).run();
+		}
+	}
+
+	/**
+	 * Implements the same as the NameListener, just for storing name upon hitting Enter
+	 */
+	class NameKeyListener implements KeyListener {
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+		}
+
+		@Override
+		public void keyReleased(final KeyEvent e) {
+			if (e.keyCode == SWT.CR) {
+				// Run CDTCommand for setting name
+				(new CDTCommand() {
+					@Override
+					protected void doRun() {
+						calculation.setName(((Text) e.getSource()).getText());
+					}
+				}).run();
+			}
+		}
 	}
 }
