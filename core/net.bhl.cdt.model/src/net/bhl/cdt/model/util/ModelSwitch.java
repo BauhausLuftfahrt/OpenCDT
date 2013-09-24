@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -8,17 +8,14 @@ package net.bhl.cdt.model.util;
 
 import net.bhl.cdt.model.*;
 import net.bhl.cdt.model.Component;
-import net.bhl.cdt.model.ComponentInterface;
 import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.Element;
-import net.bhl.cdt.model.MappableComponentInterface;
 import net.bhl.cdt.model.Model;
 import net.bhl.cdt.model.ModelPackage;
 import net.bhl.cdt.model.Parameter;
 import net.bhl.cdt.model.StructuralElement;
 import net.bhl.cdt.model.Value;
 import net.bhl.cdt.model.View;
-import net.bhl.cdt.model.qualification.Qualifiable;
 import net.bhl.cdt.utilities.exchangemodel.ExchangeElement;
 
 import org.eclipse.emf.ecore.EObject;
@@ -85,7 +82,6 @@ public class ModelSwitch<T> extends Switch<T> {
 			case ModelPackage.VALUE: {
 				Value value = (Value)theEObject;
 				T result = caseValue(value);
-				if (result == null) result = caseQualifiable(value);
 				if (result == null) result = caseElement(value);
 				if (result == null) result = caseExchangeElement(value);
 				if (result == null) result = defaultCase(theEObject);
@@ -119,8 +115,6 @@ public class ModelSwitch<T> extends Switch<T> {
 				Parameter parameter = (Parameter)theEObject;
 				T result = caseParameter(parameter);
 				if (result == null) result = caseStructuralElement(parameter);
-				if (result == null) result = caseMappableComponentInterface(parameter);
-				if (result == null) result = caseComponentInterface(parameter);
 				if (result == null) result = caseElement(parameter);
 				if (result == null) result = caseExchangeElement(parameter);
 				if (result == null) result = defaultCase(theEObject);
@@ -131,23 +125,6 @@ public class ModelSwitch<T> extends Switch<T> {
 				T result = caseStructuralElement(structuralElement);
 				if (result == null) result = caseElement(structuralElement);
 				if (result == null) result = caseExchangeElement(structuralElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ModelPackage.COMPONENT_INTERFACE: {
-				ComponentInterface componentInterface = (ComponentInterface)theEObject;
-				T result = caseComponentInterface(componentInterface);
-				if (result == null) result = caseElement(componentInterface);
-				if (result == null) result = caseExchangeElement(componentInterface);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ModelPackage.MAPPABLE_COMPONENT_INTERFACE: {
-				MappableComponentInterface mappableComponentInterface = (MappableComponentInterface)theEObject;
-				T result = caseMappableComponentInterface(mappableComponentInterface);
-				if (result == null) result = caseComponentInterface(mappableComponentInterface);
-				if (result == null) result = caseElement(mappableComponentInterface);
-				if (result == null) result = caseExchangeElement(mappableComponentInterface);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -256,20 +233,6 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Component Interface</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
-	 * 
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Component Interface</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseComponentInterface(ComponentInterface object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>View</em>'.
 	 * <!-- begin-user-doc --> This
 	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
@@ -279,20 +242,6 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseView(View object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Mappable Component Interface</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
-	 * 
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Mappable Component Interface</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseMappableComponentInterface(MappableComponentInterface object) {
 		return null;
 	}
 
@@ -307,19 +256,6 @@ public class ModelSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseExchangeElement(ExchangeElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Qualifiable</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Qualifiable</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseQualifiable(Qualifiable object) {
 		return null;
 	}
 

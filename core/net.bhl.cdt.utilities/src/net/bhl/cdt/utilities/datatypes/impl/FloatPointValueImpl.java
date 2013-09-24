@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -27,9 +27,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class FloatPointValueImpl extends ScalarImpl implements FloatPointValue {
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getValue()
 	 * @generated
 	 * @ordered
@@ -48,7 +48,6 @@ public class FloatPointValueImpl extends ScalarImpl implements FloatPointValue {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected FloatPointValueImpl() {
@@ -57,7 +56,6 @@ public class FloatPointValueImpl extends ScalarImpl implements FloatPointValue {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -67,7 +65,6 @@ public class FloatPointValueImpl extends ScalarImpl implements FloatPointValue {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public double getValue() {
@@ -76,84 +73,76 @@ public class FloatPointValueImpl extends ScalarImpl implements FloatPointValue {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setValue(double newValue) {
 		double oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.FLOAT_POINT_VALUE__VALUE, oldValue,
-				value));
+			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.FLOAT_POINT_VALUE__VALUE, oldValue, value));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case DatatypesPackage.FLOAT_POINT_VALUE__VALUE:
-			return getValue();
+			case DatatypesPackage.FLOAT_POINT_VALUE__VALUE:
+				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case DatatypesPackage.FLOAT_POINT_VALUE__VALUE:
-			setValue((Double) newValue);
-			return;
+			case DatatypesPackage.FLOAT_POINT_VALUE__VALUE:
+				setValue((Double)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case DatatypesPackage.FLOAT_POINT_VALUE__VALUE:
-			setValue(VALUE_EDEFAULT);
-			return;
+			case DatatypesPackage.FLOAT_POINT_VALUE__VALUE:
+				setValue(VALUE_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case DatatypesPackage.FLOAT_POINT_VALUE__VALUE:
-			return value != VALUE_EDEFAULT;
+			case DatatypesPackage.FLOAT_POINT_VALUE__VALUE:
+				return value != VALUE_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (value: ");

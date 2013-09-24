@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  *  materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  *  and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -8,6 +8,7 @@ package net.bhl.cdt.ui.views;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.Element;
@@ -24,10 +25,9 @@ import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
-import org.eclipse.emf.emfstore.client.model.ProjectSpace;
-import org.eclipse.emf.emfstore.client.model.Workspace;
-import org.eclipse.emf.emfstore.client.model.WorkspaceManager;
-import org.eclipse.emf.emfstore.common.model.Project;
+import org.eclipse.emf.emfstore.client.ESLocalProject;
+import org.eclipse.emf.emfstore.client.ESWorkspace;
+import org.eclipse.emf.emfstore.client.ESWorkspaceProvider;
 import org.eclipse.jface.action.Action;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.jface.viewers.DecoratingLabelProvider;
@@ -55,16 +55,16 @@ public class ConfigurationView extends ViewPart implements ISelectionListener {
 	 */
 	public static final String ID = "net.bhl.cdt.ui.views.ConfigurationView";
 	private static TreeViewer viewer;
-	private Workspace currentWorkspace;
+	private ESWorkspace currentWorkspace;
 
 	private List<ConfigurationViewFilter> filters;
-	private boolean filterActive = false;
+	private boolean filterActive;
 
 	/**
 	 * Constructor.
 	 */
 	public ConfigurationView() {
-		currentWorkspace = WorkspaceManager.getInstance().getCurrentWorkspace();
+		currentWorkspace = ESWorkspaceProvider.INSTANCE.getWorkspace();
 		addOperationListener(currentWorkspace);
 		initFilters();
 	}
@@ -231,7 +231,7 @@ public class ConfigurationView extends ViewPart implements ISelectionListener {
 	 * 
 	 * @param currentWorkspace
 	 */
-	private void addOperationListener(Workspace currentWorkspace) {
+	private void addOperationListener(ESWorkspace currentWorkspace) {
 
 		EContentAdapter contentRefreshAdapter = new EContentAdapter() {
 			@Override
@@ -244,8 +244,11 @@ public class ConfigurationView extends ViewPart implements ISelectionListener {
 			}
 		};
 
-		for (ProjectSpace projectSpace : currentWorkspace.getProjectSpaces()) {
-			projectSpace.eAdapters().add(contentRefreshAdapter);
+		for (ESLocalProject localProject : currentWorkspace.getLocalProjects()) {
+			Set<EObject> list = localProject.getAllModelElements();
+			for (EObject obj : list){
+				obj.eAdapters().add(contentRefreshAdapter);
+			}
 		}
 	}
 
@@ -288,7 +291,7 @@ public class ConfigurationView extends ViewPart implements ISelectionListener {
 
 		if (eContainer instanceof Configuration) {
 			return (Configuration) eContainer;
-		} else if (eContainer instanceof Project) {
+		} else if (eContainer instanceof ESLocalProject) {
 			return null;
 		} else {
 			return getConfiguration((Element) eContainer);

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  *  materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  *  and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -7,11 +7,13 @@ package net.bhl.cdt.ui;
 
 import java.io.File;
 
-import org.eclipse.emf.emfstore.client.model.util.DefaultWorkspaceLocationProvider;
-import org.eclipse.emf.emfstore.server.LocationProvider;
+/**
+ * Do we really need this class?
+ */
+import org.eclipse.emf.emfstore.internal.client.model.util.DefaultWorkspaceLocationProvider;
 
-public class WorkspaceLocationProvider extends DefaultWorkspaceLocationProvider
-		implements LocationProvider {
+
+public class WorkspaceLocationProvider extends DefaultWorkspaceLocationProvider{
 
 	public static final Object CDT_FOLDERNAME = ".cdt";
 

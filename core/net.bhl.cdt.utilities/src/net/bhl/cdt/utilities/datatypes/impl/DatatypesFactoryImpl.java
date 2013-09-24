@@ -1,11 +1,12 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
 
 package net.bhl.cdt.utilities.datatypes.impl;
 
+import net.bhl.cdt.utilities.datatypes.*;
 import net.bhl.cdt.utilities.datatypes.Array;
 import net.bhl.cdt.utilities.datatypes.Cells;
 import net.bhl.cdt.utilities.datatypes.CompositeValues;
@@ -25,31 +26,30 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
  * @generated
  */
 public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFactory {
 	/**
-	 * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public static DatatypesFactory init() {
 		try {
-			DatatypesFactory theDatatypesFactory = (DatatypesFactory) EPackage.Registry.INSTANCE
-				.getEFactory("http://bhl.net/cdt/utilities/datatypes/");
+			DatatypesFactory theDatatypesFactory = (DatatypesFactory)EPackage.Registry.INSTANCE.getEFactory(DatatypesPackage.eNS_URI);
 			if (theDatatypesFactory != null) {
 				return theDatatypesFactory;
 			}
-		} catch (Exception exception) {
+		}
+		catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new DatatypesFactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public DatatypesFactoryImpl() {
@@ -58,36 +58,26 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-		case DatatypesPackage.FLOAT_POINT_VALUE:
-			return createFloatPointValue();
-		case DatatypesPackage.MEASURED_VALUE:
-			return createMeasuredValue();
-		case DatatypesPackage.INTEGER_VALUE:
-			return createIntegerValue();
-		case DatatypesPackage.STRING_VALUE:
-			return createStringValue();
-		case DatatypesPackage.FORMULA:
-			return createFormula();
-		case DatatypesPackage.COMPOSITE_VALUES:
-			return createCompositeValues();
-		case DatatypesPackage.ARRAY:
-			return createArray();
-		case DatatypesPackage.CELLS:
-			return createCells();
-		default:
-			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+			case DatatypesPackage.FLOAT_POINT_VALUE: return createFloatPointValue();
+			case DatatypesPackage.MEASURED_VALUE: return createMeasuredValue();
+			case DatatypesPackage.INTEGER_VALUE: return createIntegerValue();
+			case DatatypesPackage.STRING_VALUE: return createStringValue();
+			case DatatypesPackage.FORMULA: return createFormula();
+			case DatatypesPackage.COMPOSITE_VALUES: return createCompositeValues();
+			case DatatypesPackage.ARRAY: return createArray();
+			case DatatypesPackage.CELLS: return createCells();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public FloatPointValue createFloatPointValue() {
@@ -97,7 +87,6 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public MeasuredValue createMeasuredValue() {
@@ -107,7 +96,6 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public IntegerValue createIntegerValue() {
@@ -117,7 +105,6 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public StringValue createStringValue() {
@@ -127,7 +114,6 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Formula createFormula() {
@@ -137,7 +123,6 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public CompositeValues createCompositeValues() {
@@ -147,7 +132,6 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Array createArray() {
@@ -157,7 +141,6 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Cells createCells() {
@@ -167,16 +150,14 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public DatatypesPackage getDatatypesPackage() {
-		return (DatatypesPackage) getEPackage();
+		return (DatatypesPackage)getEPackage();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @deprecated
 	 * @generated
 	 */

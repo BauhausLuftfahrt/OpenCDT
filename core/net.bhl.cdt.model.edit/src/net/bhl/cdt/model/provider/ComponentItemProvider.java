@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -12,8 +12,6 @@ import java.util.List;
 import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.model.ModelPackage;
-import net.bhl.cdt.model.architecturetools.ArchitecturetoolsFactory;
-import net.bhl.cdt.model.calculation.CalculationFactory;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -95,8 +93,6 @@ public class ComponentItemProvider extends StructuralElementItemProvider impleme
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModelPackage.Literals.COMPONENT__SUB_COMPONENTS);
 			childrenFeatures.add(ModelPackage.Literals.COMPONENT__PARAMETERS);
-			childrenFeatures.add(ModelPackage.Literals.COMPONENT__CALCULATION_SETS);
-			childrenFeatures.add(ModelPackage.Literals.COMPONENT__INTERFACES);
 		}
 		return childrenFeatures;
 	}
@@ -150,8 +146,6 @@ public class ComponentItemProvider extends StructuralElementItemProvider impleme
 		switch (notification.getFeatureID(Component.class)) {
 			case ModelPackage.COMPONENT__SUB_COMPONENTS:
 			case ModelPackage.COMPONENT__PARAMETERS:
-			case ModelPackage.COMPONENT__CALCULATION_SETS:
-			case ModelPackage.COMPONENT__INTERFACES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -177,89 +171,6 @@ public class ComponentItemProvider extends StructuralElementItemProvider impleme
 			(createChildParameter
 				(ModelPackage.Literals.COMPONENT__PARAMETERS,
 				 ModelFactory.eINSTANCE.createParameter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPONENT__CALCULATION_SETS,
-				 CalculationFactory.eINSTANCE.createCalculationSet()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPONENT__INTERFACES,
-				 ModelFactory.eINSTANCE.createParameter()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPONENT__INTERFACES,
-				 ArchitecturetoolsFactory.eINSTANCE.createPowerConsumer()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPONENT__INTERFACES,
-				 ArchitecturetoolsFactory.eINSTANCE.createMassive()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPONENT__INTERFACES,
-				 ArchitecturetoolsFactory.eINSTANCE.createCoefficientInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPONENT__INTERFACES,
-				 ArchitecturetoolsFactory.eINSTANCE.createWettedAreaInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPONENT__INTERFACES,
-				 ArchitecturetoolsFactory.eINSTANCE.createReferenceAreaInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPONENT__INTERFACES,
-				 ArchitecturetoolsFactory.eINSTANCE.createAltitudeInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPONENT__INTERFACES,
-				 ArchitecturetoolsFactory.eINSTANCE.createRangeInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPONENT__INTERFACES,
-				 ArchitecturetoolsFactory.eINSTANCE.createSFCInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPONENT__INTERFACES,
-				 ArchitecturetoolsFactory.eINSTANCE.createDensityInterface()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.COMPONENT__INTERFACES,
-				 ArchitecturetoolsFactory.eINSTANCE.createVelocityInterface()));
-	}
-
-	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == ModelPackage.Literals.COMPONENT__PARAMETERS ||
-			childFeature == ModelPackage.Literals.COMPONENT__INTERFACES;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2", //$NON-NLS-1$
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  *  materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  *  and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
 
 /**
  * This class is like a memory, where all stored items imported from CSV file,
- * after that they are controlled (if they exist already in this memory)
+ * after that they are controlled (if they exist already in this memory).
  * 
  * @author Sami Mkhazni
  * 
@@ -29,7 +29,7 @@ public class CSVFileImportStack {
 	public EList<DataType> CompositeList = new BasicEList<DataType>();
 
 	/**
-	 * Constructor
+	 * Constructor.
 	 **/
 	public CSVFileImportStack(EList<DataType> CompositeList) {
 		this.CompositeList = CompositeList;
@@ -187,7 +187,7 @@ public class CSVFileImportStack {
 
 	/**
 	 * the "second part" is either a string ==> StringValue or a Value ==>
-	 * MeasuredValue
+	 * MeasuredValue.
 	 * 
 	 * @param zweiteTeil
 	 * @return
@@ -231,7 +231,7 @@ public class CSVFileImportStack {
 	}
 
 	/**
-	 * Recursive construction of composite value from a list
+	 * Recursive construction of composite value from a list.
 	 * 
 	 * @param list
 	 * @param compositeValues

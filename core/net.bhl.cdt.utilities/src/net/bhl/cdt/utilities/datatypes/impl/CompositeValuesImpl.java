@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -44,7 +44,6 @@ public class CompositeValuesImpl extends DataTypeImpl implements CompositeValues
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected CompositeValuesImpl() {
@@ -53,7 +52,6 @@ public class CompositeValuesImpl extends DataTypeImpl implements CompositeValues
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -63,13 +61,11 @@ public class CompositeValuesImpl extends DataTypeImpl implements CompositeValues
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<DataType> getDatatypes() {
 		if (datatypes == null) {
-			datatypes = new EObjectContainmentEList<DataType>(DataType.class, this,
-				DatatypesPackage.COMPOSITE_VALUES__DATATYPES);
+			datatypes = new EObjectContainmentEList<DataType>(DataType.class, this, DatatypesPackage.COMPOSITE_VALUES__DATATYPES);
 		}
 		return datatypes;
 	}
@@ -88,74 +84,69 @@ public class CompositeValuesImpl extends DataTypeImpl implements CompositeValues
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case DatatypesPackage.COMPOSITE_VALUES__DATATYPES:
-			return ((InternalEList<?>) getDatatypes()).basicRemove(otherEnd, msgs);
+			case DatatypesPackage.COMPOSITE_VALUES__DATATYPES:
+				return ((InternalEList<?>)getDatatypes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case DatatypesPackage.COMPOSITE_VALUES__DATATYPES:
-			return getDatatypes();
+			case DatatypesPackage.COMPOSITE_VALUES__DATATYPES:
+				return getDatatypes();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case DatatypesPackage.COMPOSITE_VALUES__DATATYPES:
-			getDatatypes().clear();
-			getDatatypes().addAll((Collection<? extends DataType>) newValue);
-			return;
+			case DatatypesPackage.COMPOSITE_VALUES__DATATYPES:
+				getDatatypes().clear();
+				getDatatypes().addAll((Collection<? extends DataType>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case DatatypesPackage.COMPOSITE_VALUES__DATATYPES:
-			getDatatypes().clear();
-			return;
+			case DatatypesPackage.COMPOSITE_VALUES__DATATYPES:
+				getDatatypes().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case DatatypesPackage.COMPOSITE_VALUES__DATATYPES:
-			return datatypes != null && !datatypes.isEmpty();
+			case DatatypesPackage.COMPOSITE_VALUES__DATATYPES:
+				return datatypes != null && !datatypes.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

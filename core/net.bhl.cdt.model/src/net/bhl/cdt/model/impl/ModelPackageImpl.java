@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -7,10 +7,8 @@
 package net.bhl.cdt.model.impl;
 
 import net.bhl.cdt.model.Component;
-import net.bhl.cdt.model.ComponentInterface;
 import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.Element;
-import net.bhl.cdt.model.MappableComponentInterface;
 import net.bhl.cdt.model.Model;
 import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.model.ModelPackage;
@@ -18,23 +16,14 @@ import net.bhl.cdt.model.Parameter;
 import net.bhl.cdt.model.StructuralElement;
 import net.bhl.cdt.model.Value;
 import net.bhl.cdt.model.View;
-import net.bhl.cdt.model.architecturetools.ArchitecturetoolsPackage;
-import net.bhl.cdt.model.architecturetools.impl.ArchitecturetoolsPackageImpl;
-import net.bhl.cdt.model.calculation.CalculationPackage;
-import net.bhl.cdt.model.calculation.impl.CalculationPackageImpl;
-import net.bhl.cdt.model.qualification.QualificationPackage;
-import net.bhl.cdt.model.qualification.impl.QualificationPackageImpl;
-import net.bhl.cdt.utilities.basecalculationmodel.BasecalculationmodelPackage;
 import net.bhl.cdt.utilities.datatypes.DatatypesPackage;
 import net.bhl.cdt.utilities.exchangemodel.ExchangemodelPackage;
 import net.bhl.cdt.utilities.units.UnitsPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -88,19 +77,7 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass componentInterfaceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass viewEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass mappableComponentInterfaceEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
@@ -146,26 +123,13 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		isInited = true;
 
 		// Initialize simple dependencies
-		BasecalculationmodelPackage.eINSTANCE.eClass();
 		DatatypesPackage.eINSTANCE.eClass();
-		EcorePackage.eINSTANCE.eClass();
-
-		// Obtain or create and register interdependencies
-		QualificationPackageImpl theQualificationPackage = (QualificationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QualificationPackage.eNS_URI) instanceof QualificationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QualificationPackage.eNS_URI) : QualificationPackage.eINSTANCE);
-		CalculationPackageImpl theCalculationPackage = (CalculationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CalculationPackage.eNS_URI) instanceof CalculationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CalculationPackage.eNS_URI) : CalculationPackage.eINSTANCE);
-		ArchitecturetoolsPackageImpl theArchitecturetoolsPackage = (ArchitecturetoolsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ArchitecturetoolsPackage.eNS_URI) instanceof ArchitecturetoolsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ArchitecturetoolsPackage.eNS_URI) : ArchitecturetoolsPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theModelPackage.createPackageContents();
-		theQualificationPackage.createPackageContents();
-		theCalculationPackage.createPackageContents();
-		theArchitecturetoolsPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theModelPackage.initializePackageContents();
-		theQualificationPackage.initializePackageContents();
-		theCalculationPackage.initializePackageContents();
-		theArchitecturetoolsPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theModelPackage.freeze();
@@ -206,22 +170,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EReference getComponent_ConnectedComponents() {
 		return (EReference)componentEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getComponent_CalculationSets() {
-		return (EReference)componentEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getComponent_Interfaces() {
-		return (EReference)componentEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -292,14 +240,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConfiguration_CalculationSets() {
-		return (EReference)configurationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getConfiguration_Views() {
 		return (EReference)configurationEClass.getEStructuralFeatures().get(0);
 	}
@@ -318,14 +258,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 */
 	public EReference getModel_Configurations() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModel_QualifyingSpaces() {
-		return (EReference)modelEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -372,77 +304,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getComponentInterface() {
-		return componentInterfaceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getComponentInterface_ParentComponent() {
-		return (EReference)componentInterfaceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getComponentInterface_Source() {
-		return (EAttribute)componentInterfaceEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getComponentInterface_Discipline() {
-		return (EAttribute)componentInterfaceEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getComponentInterface_Annotation() {
-		return (EAttribute)componentInterfaceEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getComponentInterface_DesignPhase() {
-		return (EAttribute)componentInterfaceEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getComponentInterface_Owner() {
-		return (EAttribute)componentInterfaceEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getView() {
 		return viewEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getMappableComponentInterface() {
-		return mappableComponentInterfaceEClass;
 	}
 
 	/**
@@ -474,8 +337,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEReference(componentEClass, COMPONENT__SUB_COMPONENTS);
 		createEReference(componentEClass, COMPONENT__PARAMETERS);
 		createEReference(componentEClass, COMPONENT__CONNECTED_COMPONENTS);
-		createEReference(componentEClass, COMPONENT__CALCULATION_SETS);
-		createEReference(componentEClass, COMPONENT__INTERFACES);
 
 		valueEClass = createEClass(VALUE);
 		createEAttribute(valueEClass, VALUE__UNIT);
@@ -487,11 +348,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		configurationEClass = createEClass(CONFIGURATION);
 		createEReference(configurationEClass, CONFIGURATION__VIEWS);
 		createEReference(configurationEClass, CONFIGURATION__COMPONENTS);
-		createEReference(configurationEClass, CONFIGURATION__CALCULATION_SETS);
 
 		modelEClass = createEClass(MODEL);
 		createEReference(modelEClass, MODEL__CONFIGURATIONS);
-		createEReference(modelEClass, MODEL__QUALIFYING_SPACES);
 
 		elementEClass = createEClass(ELEMENT);
 
@@ -500,16 +359,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		createEAttribute(parameterEClass, PARAMETER__QUANTITY);
 
 		structuralElementEClass = createEClass(STRUCTURAL_ELEMENT);
-
-		componentInterfaceEClass = createEClass(COMPONENT_INTERFACE);
-		createEReference(componentInterfaceEClass, COMPONENT_INTERFACE__PARENT_COMPONENT);
-		createEAttribute(componentInterfaceEClass, COMPONENT_INTERFACE__SOURCE);
-		createEAttribute(componentInterfaceEClass, COMPONENT_INTERFACE__DISCIPLINE);
-		createEAttribute(componentInterfaceEClass, COMPONENT_INTERFACE__ANNOTATION);
-		createEAttribute(componentInterfaceEClass, COMPONENT_INTERFACE__DESIGN_PHASE);
-		createEAttribute(componentInterfaceEClass, COMPONENT_INTERFACE__OWNER);
-
-		mappableComponentInterfaceEClass = createEClass(MAPPABLE_COMPONENT_INTERFACE);
 
 		viewEClass = createEClass(VIEW);
 	}
@@ -536,18 +385,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		QualificationPackage theQualificationPackage = (QualificationPackage)EPackage.Registry.INSTANCE.getEPackage(QualificationPackage.eNS_URI);
-		CalculationPackage theCalculationPackage = (CalculationPackage)EPackage.Registry.INSTANCE.getEPackage(CalculationPackage.eNS_URI);
-		ArchitecturetoolsPackage theArchitecturetoolsPackage = (ArchitecturetoolsPackage)EPackage.Registry.INSTANCE.getEPackage(ArchitecturetoolsPackage.eNS_URI);
 		UnitsPackage theUnitsPackage = (UnitsPackage)EPackage.Registry.INSTANCE.getEPackage(UnitsPackage.eNS_URI);
 		DatatypesPackage theDatatypesPackage = (DatatypesPackage)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
 		ExchangemodelPackage theExchangemodelPackage = (ExchangemodelPackage)EPackage.Registry.INSTANCE.getEPackage(ExchangemodelPackage.eNS_URI);
-		EcorePackage theEcorePackage = (EcorePackage)EPackage.Registry.INSTANCE.getEPackage(EcorePackage.eNS_URI);
-
-		// Add subpackages
-		getESubpackages().add(theQualificationPackage);
-		getESubpackages().add(theCalculationPackage);
-		getESubpackages().add(theArchitecturetoolsPackage);
 
 		// Create type parameters
 
@@ -555,15 +395,12 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		// Add supertypes to classes
 		componentEClass.getESuperTypes().add(this.getStructuralElement());
-		valueEClass.getESuperTypes().add(theQualificationPackage.getQualifiable());
+		valueEClass.getESuperTypes().add(this.getElement());
 		configurationEClass.getESuperTypes().add(this.getStructuralElement());
 		modelEClass.getESuperTypes().add(this.getElement());
 		elementEClass.getESuperTypes().add(theExchangemodelPackage.getExchangeElement());
 		parameterEClass.getESuperTypes().add(this.getStructuralElement());
-		parameterEClass.getESuperTypes().add(this.getMappableComponentInterface());
 		structuralElementEClass.getESuperTypes().add(this.getElement());
-		componentInterfaceEClass.getESuperTypes().add(this.getElement());
-		mappableComponentInterfaceEClass.getESuperTypes().add(this.getComponentInterface());
 		viewEClass.getESuperTypes().add(this.getElement());
 
 		// Initialize classes and features; add operations and parameters
@@ -571,8 +408,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEReference(getComponent_SubComponents(), this.getComponent(), null, "subComponents", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getComponent_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getComponent_ConnectedComponents(), this.getComponent(), null, "connectedComponents", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getComponent_CalculationSets(), theCalculationPackage.getCalculationSet(), null, "calculationSets", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getComponent_Interfaces(), this.getComponentInterface(), this.getComponentInterface_ParentComponent(), "interfaces", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEAttribute(getValue_Unit(), theUnitsPackage.getUnit(), "unit", null, 0, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
@@ -584,11 +419,9 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getConfiguration_Views(), this.getView(), null, "views", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 		initEReference(getConfiguration_Components(), this.getComponent(), null, "components", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getConfiguration_CalculationSets(), theCalculationPackage.getCalculationSet(), null, "calculationSets", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 		initEReference(getModel_Configurations(), this.getConfiguration(), null, "configurations", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getModel_QualifyingSpaces(), theQualificationPackage.getQualifyingSpace(), null, "qualifyingSpaces", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(elementEClass, Element.class, "Element", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 
@@ -597,30 +430,6 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		initEAttribute(getParameter_Quantity(), theUnitsPackage.getQuantity(), "quantity", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(structuralElementEClass, StructuralElement.class, "StructuralElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-
-		initEClass(componentInterfaceEClass, ComponentInterface.class, "ComponentInterface", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getComponentInterface_ParentComponent(), this.getComponent(), this.getComponent_Interfaces(), "parentComponent", null, 0, 1, ComponentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getComponentInterface_Source(), theEcorePackage.getEString(), "source", null, 0, 1, ComponentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getComponentInterface_Discipline(), theEcorePackage.getEString(), "discipline", null, 0, -1, ComponentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getComponentInterface_Annotation(), theEcorePackage.getEString(), "annotation", null, 0, 1, ComponentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getComponentInterface_DesignPhase(), theEcorePackage.getEString(), "designPhase", null, 0, 1, ComponentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getComponentInterface_Owner(), theEcorePackage.getEString(), "Owner", null, 0, 1, ComponentInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-
-		initEClass(mappableComponentInterfaceEClass, MappableComponentInterface.class, "MappableComponentInterface", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-
-		addEOperation(mappableComponentInterfaceEClass, this.getValue(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-
-		addEOperation(mappableComponentInterfaceEClass, theUnitsPackage.getQuantity(), "getQuantity", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-
-		EOperation op = addEOperation(mappableComponentInterfaceEClass, null, "setValue", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, this.getValue(), "value", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-
-		addEOperation(mappableComponentInterfaceEClass, this.getParameter(), "getParameter", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-
-		addEOperation(mappableComponentInterfaceEClass, theEcorePackage.getEBoolean(), "hasValue", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-
-		op = addEOperation(mappableComponentInterfaceEClass, this.getValue(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
-		addEParameter(op, theQualificationPackage.getCalculationSpaceQualifier(), "calcSpaceQualifier", 0, 1, IS_UNIQUE, IS_ORDERED); //$NON-NLS-1$
 
 		initEClass(viewEClass, View.class, "View", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
 

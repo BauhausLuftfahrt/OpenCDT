@@ -33,4 +33,12 @@
       </provider>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated datatypes -->
+      <package
+            uri="http://bhl.net/cdt/utilities/datatypes/"
+            class="net.bhl.cdt.utilities.datatypes.DatatypesPackage"
+            genModel="model/datatypes.genmodel"/>
+   </extension>
+
 </plugin>

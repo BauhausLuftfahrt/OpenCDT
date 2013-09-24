@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -20,10 +20,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link net.bhl.cdt.utilities.datatypes.impl.MeasuredValueImpl#getUnit <em>Unit</em>}</li>
+ *   <li>{@link net.bhl.cdt.utilities.datatypes.impl.MeasuredValueImpl#getUnit <em>Unit</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredValue {
@@ -49,7 +49,6 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected MeasuredValueImpl() {
@@ -58,7 +57,6 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -68,7 +66,6 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public Unit getUnit() {
@@ -77,7 +74,6 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setUnit(Unit newUnit) {
@@ -89,71 +85,65 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case DatatypesPackage.MEASURED_VALUE__UNIT:
-			return getUnit();
+			case DatatypesPackage.MEASURED_VALUE__UNIT:
+				return getUnit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case DatatypesPackage.MEASURED_VALUE__UNIT:
-			setUnit((Unit) newValue);
-			return;
+			case DatatypesPackage.MEASURED_VALUE__UNIT:
+				setUnit((Unit)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case DatatypesPackage.MEASURED_VALUE__UNIT:
-			setUnit(UNIT_EDEFAULT);
-			return;
+			case DatatypesPackage.MEASURED_VALUE__UNIT:
+				setUnit(UNIT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case DatatypesPackage.MEASURED_VALUE__UNIT:
-			return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT.equals(unit);
+			case DatatypesPackage.MEASURED_VALUE__UNIT:
+				return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT.equals(unit);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (unit: ");

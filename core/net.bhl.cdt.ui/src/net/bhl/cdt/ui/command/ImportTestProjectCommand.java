@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  *  materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  *  and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -15,9 +15,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.emf.emfstore.client.model.Workspace;
-import org.eclipse.emf.emfstore.client.model.WorkspaceManager;
-import org.eclipse.emf.emfstore.common.model.Project;
+import org.eclipse.emf.emfstore.client.ESWorkspace;
+import org.eclipse.emf.emfstore.client.ESWorkspaceProvider;
+import org.eclipse.emf.emfstore.internal.client.model.ESWorkspaceProviderImpl;
+import org.eclipse.emf.emfstore.internal.client.model.Workspace;
+import org.eclipse.emf.emfstore.internal.client.model.impl.api.ESWorkspaceImpl;
+import org.eclipse.emf.emfstore.internal.common.model.Project;
 
 /**
  * This Command creates a specific test project.
@@ -38,8 +41,9 @@ public class ImportTestProjectCommand extends CDTCommand {
 	protected void doRun() {
 		final String path = getPath();
 
-		final Workspace currentWorkspace = WorkspaceManager.getInstance()
-				.getCurrentWorkspace();
+		final ESWorkspace currentWorkspace = ESWorkspaceProvider.INSTANCE.getWorkspace();
+		ESWorkspaceImpl workspace = ((ESWorkspaceImpl) currentWorkspace);
+		Workspace internalWorkspace = ((ESWorkspaceImpl) workspace).toInternalAPI();
 
 		ResourceSet resourceSet = new ResourceSetImpl();
 		Resource resource = resourceSet.getResource(URI.createURI(path), true);
@@ -48,6 +52,6 @@ public class ImportTestProjectCommand extends CDTCommand {
 
 		Project project = (Project) directContents.get(0);
 
-		currentWorkspace.importProject(project, "Testproject", "");
+		internalWorkspace.importProject(project, "Testproject", "");
 	}
 }

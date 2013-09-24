@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -19,10 +19,10 @@ import net.bhl.cdt.utilities.exchangemodel.ExchangeElement;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.emfstore.client.model.ProjectSpace;
-import org.eclipse.emf.emfstore.client.model.WorkspaceManager;
-import org.eclipse.emf.emfstore.server.model.ModelFactory;
-import org.eclipse.emf.emfstore.server.model.ProjectId;
+import org.eclipse.emf.emfstore.client.ESLocalProject;
+import org.eclipse.emf.emfstore.client.ESWorkspace;
+import org.eclipse.emf.emfstore.client.ESWorkspaceProvider;
+import org.eclipse.emf.emfstore.server.model.ESGlobalProjectId;
 
 /**
  * This is a helper class for the utilities package.
@@ -73,15 +73,17 @@ public final class UtilitiesHelper {
 	 * @param modelElement the ModelElement
 	 * @return the ProjectID of the specified ModelElement
 	 */
-	public static ProjectId getProjectId(EObject modelElement) {
-		WorkspaceManager.getInstance();
-		ProjectSpace space = WorkspaceManager.getProjectSpace(modelElement);
-		if (space == null) {
+	public static ESGlobalProjectId getProjectId(EObject modelElement) {
+		ESWorkspace workspace = ESWorkspaceProvider.INSTANCE.getWorkspace();
+		ESLocalProject project = workspace.getLocalProject(modelElement);
+		if (project == null) {
 			return null;
 		}
-		ProjectId id = ModelFactory.eINSTANCE.createProjectId();
-		id.setId(space.getIdentifier());
-		return id;
+		if (project.isShared()) {
+			ESGlobalProjectId projectId = project.getGlobalProjectId();
+			return projectId;
+		}
+		return null;
 	}
 
 	/**
@@ -96,6 +98,9 @@ public final class UtilitiesHelper {
 	@SuppressWarnings("unchecked")
 	public static <T extends ExchangeElement> List<T> getChildrenByClass(ExchangeElement parent, Class<T> clazz) {
 		List<T> result = new ArrayList<T>();
+		if (parent == null) {
+			return result;
+		}
 		TreeIterator<EObject> iterator = parent.eAllContents();
 		while (iterator.hasNext()) {
 			EObject ob = iterator.next();
@@ -118,6 +123,9 @@ public final class UtilitiesHelper {
 	@SuppressWarnings("unchecked")
 	public static <T extends EObject> List<T> getChildrenByClassAndName(EObject parent, Class<T> clazz, String name) {
 		List<T> result = new ArrayList<T>();
+		if (parent == null) {
+			return result;
+		}
 		TreeIterator<EObject> iterator = parent.eAllContents();
 		while (iterator.hasNext()) {
 			EObject eObject = iterator.next();
@@ -136,11 +144,15 @@ public final class UtilitiesHelper {
 	 * 
 	 * @param parent root element of subtree which is searched
 	 * @param type needle class
-	 * @param <T> The Type parameter which should match clazz
+	 * @param <T> The Type parameter which should match class
 	 * @return The list of Elements which are found among the child objects of the parent Element
 	 */
+	@SuppressWarnings("unchecked")
 	public static <T extends EObject> List<EObject> getChildrenOfType(EObject parent, Class<T> type) {
 		ArrayList<EObject> result = new ArrayList<EObject>();
+		if (parent == null) {
+			return result;
+		}
 
 		TreeIterator<EObject> iterator = parent.eAllContents();
 		while (iterator.hasNext()) {
@@ -187,6 +199,13 @@ public final class UtilitiesHelper {
 		return null;
 	}
 
+	/**
+	 * getFileURL.
+	 * 
+	 * @param filePath path of the file
+	 * @param fileName name of the file
+	 * @return new URL
+	 */
 	public static URL getFileURL(String filePath, String fileName) {
 		try {
 			return new URL(filePath + fileName);

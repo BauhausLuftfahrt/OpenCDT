@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -8,6 +8,7 @@ package net.bhl.cdt.calculationrepository;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 
 import net.bhl.cdt.calculationrepository.functions.Function;
 import net.bhl.cdt.calculationrepository.functions.FunctionsPackage;
@@ -15,11 +16,9 @@ import net.bhl.cdt.calculationrepository.functions.FunctionsPackage;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.common.util.BasicEList;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.emfstore.client.model.ProjectSpace;
-import org.eclipse.emf.emfstore.client.model.WorkspaceManager;
-import org.eclipse.emf.emfstore.server.model.ProjectId;
+import org.eclipse.emf.emfstore.client.ESLocalProject;
+import org.eclipse.emf.emfstore.client.ESWorkspaceProvider;
+import org.eclipse.emf.emfstore.server.model.ESGlobalProjectId;
 
 /**
  * This class registers all available Calculation Methods in the Workspace.
@@ -55,12 +54,19 @@ public final class CalculationRepositoryManager {
 
 		}
 		// get all Functions from projects
-		for (ProjectSpace projectSpace : WorkspaceManager.getInstance().getCurrentWorkspace().getProjectSpaces()) {
-			EList<Function> functionList = projectSpace.getProject().getAllModelElementsbyClass(
-				FunctionsPackage.eINSTANCE.getFunction(), new BasicEList<Function>());
+		for (ESLocalProject localProject : ESWorkspaceProvider.INSTANCE.getWorkspace().getLocalProjects()) {
+			@SuppressWarnings("unchecked")
+			Set<Function> set = (Set<Function>) localProject.getAllModelElementsByClass(FunctionsPackage.eINSTANCE
+				.getFunction().getClass());
+			// EList<Function> functionList =
+			List<Function> functionList = new ArrayList<Function>(set);
+			// .getProject().getAllModelElementsbyClass(
+			// FunctionsPackage.eINSTANCE.getFunction(), new BasicEList<Function>());
 
 			for (Function function : functionList) {
-				addFunction(projectSpace.getIdentifier(), function);
+				if (localProject.isShared()) {
+					addFunction(localProject.getGlobalProjectId().toString(), function);
+				}
 			}
 		}
 
@@ -116,7 +122,7 @@ public final class CalculationRepositoryManager {
 	 * @param identifier the identifier of the Function
 	 * @return if its available the Function
 	 */
-	public Function getFunction(ProjectId projectId, String identifier) {
+	public Function getFunction(ESGlobalProjectId projectId, String identifier) {
 		Function result = null;
 		if (functionMap.containsKey("*")) {
 			if (functionMap.get("*").containsKey(identifier)) {
@@ -139,7 +145,7 @@ public final class CalculationRepositoryManager {
 	 * @param projectId the ID of the Project
 	 * @return a list of all Functions available in the specified project
 	 */
-	public List<Function> getFunctions(ProjectId projectId) {
+	public List<Function> getFunctions(ESGlobalProjectId projectId) {
 		List<Function> result = new ArrayList<Function>();
 		if (functionMap.containsKey("*")) {
 			result.addAll(functionMap.get("*").values());

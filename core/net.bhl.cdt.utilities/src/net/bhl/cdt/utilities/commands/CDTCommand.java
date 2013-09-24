@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -7,7 +7,7 @@ package net.bhl.cdt.utilities.commands;
 
 import net.bhl.cdt.utilities.exceptions.CDTRuntimeException;
 
-import org.eclipse.emf.emfstore.client.model.util.EMFStoreCommand;
+import org.eclipse.emf.common.command.AbstractCommand;
 
 /**
  * TODO: When we use new EMFStore version, replace this command with UnicaseCommand.
@@ -15,7 +15,9 @@ import org.eclipse.emf.emfstore.client.model.util.EMFStoreCommand;
  * @see UnicaseCommand
  * @author Otto von Wesendonk
  */
-public abstract class CDTCommand extends EMFStoreCommand {
+
+public abstract class CDTCommand extends AbstractCommand {
+	private RuntimeException runtimeException;
 
 	/**
 	 * Checks objects for null and throws {@link CDTRuntimeException} in case of null.
@@ -24,6 +26,44 @@ public abstract class CDTCommand extends EMFStoreCommand {
 	 */
 	protected void nullCheck(Object... objects) {
 		nullCheck("Input was null.", objects);
+	}
+
+	/**
+	 * get the RuntimeException if occurred.
+	 * 
+	 * @return exception /null
+	 */
+	public RuntimeException getRuntimeException() {
+		return runtimeException;
+	}
+
+	/**
+	 * Execute the command. {@link #commandBody()}
+	 */
+	public void execute() {
+		try {
+			doRun();
+			// commandBody();
+		} catch (RuntimeException e) {
+			runtimeException = e;
+			throw e;
+		}
+	}
+
+	/**
+	 * {@link #doRun()}. protected void commandBody() { doRun(); }
+	 */
+
+	/**
+	 * to be implemented.
+	 */
+	protected abstract void doRun();
+
+	/**
+	 * Not supported.
+	 */
+	public void redo() {
+		// do nothing
 	}
 
 	/**

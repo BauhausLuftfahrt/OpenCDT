@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -12,8 +12,6 @@ import java.util.List;
 import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.model.ModelPackage;
-import net.bhl.cdt.model.architecturetools.ArchitecturetoolsFactory;
-import net.bhl.cdt.model.calculation.CalculationFactory;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -71,7 +69,6 @@ public class ConfigurationItemProvider extends StructuralElementItemProvider imp
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModelPackage.Literals.CONFIGURATION__VIEWS);
 			childrenFeatures.add(ModelPackage.Literals.CONFIGURATION__COMPONENTS);
-			childrenFeatures.add(ModelPackage.Literals.CONFIGURATION__CALCULATION_SETS);
 		}
 		return childrenFeatures;
 	}
@@ -125,7 +122,6 @@ public class ConfigurationItemProvider extends StructuralElementItemProvider imp
 		switch (notification.getFeatureID(Configuration.class)) {
 			case ModelPackage.CONFIGURATION__VIEWS:
 			case ModelPackage.CONFIGURATION__COMPONENTS:
-			case ModelPackage.CONFIGURATION__CALCULATION_SETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -144,18 +140,8 @@ public class ConfigurationItemProvider extends StructuralElementItemProvider imp
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ModelPackage.Literals.CONFIGURATION__VIEWS,
-				 ArchitecturetoolsFactory.eINSTANCE.createPowerDemandView()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(ModelPackage.Literals.CONFIGURATION__COMPONENTS,
 				 ModelFactory.eINSTANCE.createComponent()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.CONFIGURATION__CALCULATION_SETS,
-				 CalculationFactory.eINSTANCE.createCalculationSet()));
 	}
 
 }

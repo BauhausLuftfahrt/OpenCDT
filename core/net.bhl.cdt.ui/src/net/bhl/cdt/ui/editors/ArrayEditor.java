@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  *  materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  *  and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -15,6 +15,7 @@ import net.bhl.cdt.utilities.datatypes.MeasuredValue;
 import net.bhl.cdt.utilities.datatypes.StringValue;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.ecp.core.ECPProject;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -46,6 +47,7 @@ public class ArrayEditor extends EditorPart {
 	private Table table;
 	private Composite parent;
 	private Array array;
+	private ECPProject ecpProject;
 
 	public ArrayEditor() {
 
@@ -150,7 +152,7 @@ public class ArrayEditor extends EditorPart {
 											ArrayEditorOpener ArrayEditorOpener = new ArrayEditorOpener();
 
 											ArrayEditorOpener
-													.openModelElement((Array) data);
+													.openModelElement((Array) data, ecpProject);
 										}
 									});
 
@@ -240,6 +242,7 @@ public class ArrayEditor extends EditorPart {
 
 		ArrayEditorInput editorInput = (ArrayEditorInput) input;
 		this.array = editorInput.getArray();
+		this.ecpProject = editorInput.getECPProject();
 		setSite(site);
 		setInput(input);
 

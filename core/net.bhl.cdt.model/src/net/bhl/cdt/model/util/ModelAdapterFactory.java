@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -8,17 +8,14 @@ package net.bhl.cdt.model.util;
 
 import net.bhl.cdt.model.*;
 import net.bhl.cdt.model.Component;
-import net.bhl.cdt.model.ComponentInterface;
 import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.Element;
-import net.bhl.cdt.model.MappableComponentInterface;
 import net.bhl.cdt.model.Model;
 import net.bhl.cdt.model.ModelPackage;
 import net.bhl.cdt.model.Parameter;
 import net.bhl.cdt.model.StructuralElement;
 import net.bhl.cdt.model.Value;
 import net.bhl.cdt.model.View;
-import net.bhl.cdt.model.qualification.Qualifiable;
 import net.bhl.cdt.utilities.exchangemodel.ExchangeElement;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -105,24 +102,12 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 				return createStructuralElementAdapter();
 			}
 			@Override
-			public Adapter caseComponentInterface(ComponentInterface object) {
-				return createComponentInterfaceAdapter();
-			}
-			@Override
-			public Adapter caseMappableComponentInterface(MappableComponentInterface object) {
-				return createMappableComponentInterfaceAdapter();
-			}
-			@Override
 			public Adapter caseView(View object) {
 				return createViewAdapter();
 			}
 			@Override
 			public Adapter caseExchangeElement(ExchangeElement object) {
 				return createExchangeElementAdapter();
-			}
-			@Override
-			public Adapter caseQualifiable(Qualifiable object) {
-				return createQualifiableAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -233,19 +218,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.ComponentInterface <em>Component Interface</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can
-	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-	 * end-user-doc -->
-	 * @return the new adapter.
-	 * @see net.bhl.cdt.model.ComponentInterface
-	 * @generated
-	 */
-	public Adapter createComponentInterfaceAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.View <em>View</em>}'.
 	 * <!-- begin-user-doc
 	 * --> This default implementation returns null so that we can easily ignore cases; it's useful to ignore a case
@@ -259,19 +231,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.MappableComponentInterface <em>Mappable Component Interface</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that
-	 * we can easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-	 * end-user-doc -->
-	 * @return the new adapter.
-	 * @see net.bhl.cdt.model.MappableComponentInterface
-	 * @generated
-	 */
-	public Adapter createMappableComponentInterfaceAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.utilities.exchangemodel.ExchangeElement <em>Exchange Element</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
@@ -281,20 +240,6 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createExchangeElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.qualification.Qualifiable
-	 * <em>Qualifiable</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 * 
-	 * @return the new adapter.
-	 * @see net.bhl.cdt.model.qualification.Qualifiable
-	 * @generated
-	 */
-	public Adapter createQualifiableAdapter() {
 		return null;
 	}
 

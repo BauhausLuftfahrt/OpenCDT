@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -31,7 +31,7 @@ import net.bhl.cdt.utilities.util.UtilitiesHelper;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.emfstore.common.model.Project;
+import org.eclipse.emf.emfstore.client.ESProject;
 
 /**
  * This is a helper class for the Model package.
@@ -109,7 +109,6 @@ public class ModelHelper {
 
 	@SuppressWarnings("unchecked")
 	public static <T extends Element> List<T> getChildrenByClass(Element parent, Class<T> clazz) {
-
 		List<T> result = new ArrayList<T>();
 
 		TreeIterator<EObject> iterator = parent.eAllContents();
@@ -151,7 +150,6 @@ public class ModelHelper {
 	 * @param name The name of Elements the method looks for
 	 * @return The list of Elements which are found among the child objects of the parent Element
 	 */
-	@SuppressWarnings("unchecked")
 	public static <T extends Element> List<T> getChildrenByClassAndName(Element parent, Class<T> clazz, String name) {
 
 		return UtilitiesHelper.getChildrenByClassAndName(parent, clazz, name);
@@ -185,7 +183,6 @@ public class ModelHelper {
 		}
 
 		MeasuredValue exValue = DatatypesFactory.eINSTANCE.createMeasuredValue();
-		exValue.setName(value.getName());
 		exValue.setUnit(value.getUnit());
 		exValue.setValue(((MeasuredValue) dataType).getValue());
 		return exValue;
@@ -196,7 +193,6 @@ public class ModelHelper {
 			return null;
 		}
 		Value value = ModelFactory.eINSTANCE.createValue();
-		value.setName(exValue.getName());
 		value.setUnit(exValue.getUnit());
 		value.getDatatypes().add(exValue);
 		return value;
@@ -214,7 +210,6 @@ public class ModelHelper {
 		targetValue.setUnit(sourceValue.getUnit());
 
 		targetValue.setDescription(sourceValue.getDescription());
-		targetValue.setName(sourceValue.getName());
 		targetValue.setSource(sourceValue.getSource());
 		targetValue.setUnit(sourceValue.getUnit());
 		targetValue.setValue(sourceValue.getValue());
@@ -273,7 +268,6 @@ public class ModelHelper {
 		Value newValue = ModelFactory.eINSTANCE.createValue();
 		newValue.setUnit(sourceValue.getUnit());
 		newValue.setDescription(sourceValue.getDescription());
-		newValue.setName(sourceValue.getName());
 		newValue.setSource(sourceValue.getSource());
 		newValue.setUnit(sourceValue.getUnit());
 		newValue.setValue(sourceValue.getValue());
@@ -289,7 +283,6 @@ public class ModelHelper {
 	public static MeasuredValue copyToMeasuredValue(Value sourceValue) {
 		MeasuredValue newValue = DatatypesFactory.eINSTANCE.createMeasuredValue();
 		newValue.setUnit(sourceValue.getUnit());
-		newValue.setName(sourceValue.getName());
 		newValue.setUnit(sourceValue.getUnit());
 		newValue.setValue(sourceValue.getValue());
 		return newValue;
@@ -378,7 +371,6 @@ public class ModelHelper {
 
 		if (!((Double) exchangeValue.getValue()).isNaN()) {
 			Value value = ModelFactory.eINSTANCE.createValue();
-			value.setName(exchangeValue.getName());
 			value.setValue(exchangeValue.getValue());
 			value.setUnit(exchangeValue.getUnit());
 			parameter.getValues().add(value);
@@ -396,7 +388,6 @@ public class ModelHelper {
 	public static Value mapToValue(MeasuredValue exchangeValue) {
 		Value resultValue = ModelFactory.eINSTANCE.createValue();
 		// copy attributes
-		resultValue.setName(exchangeValue.getName());
 		resultValue.setUnit(exchangeValue.getUnit());
 		resultValue.setValue(exchangeValue.getValue());
 		return resultValue;
@@ -504,7 +495,7 @@ public class ModelHelper {
 			return (Component) obj;
 		}
 
-		if (obj instanceof Project) {
+		if (obj instanceof ESProject) {
 			return null;
 		}
 
@@ -535,7 +526,7 @@ public class ModelHelper {
 	public static Parameter createParameter(String name, DataType datatype) {
 		Parameter resultParameter = ModelFactory.eINSTANCE.createParameter();
 		resultParameter.setName(name);
-		resultParameter.getValues().add(createValue(name, datatype));
+		resultParameter.getValues().add(createValue(datatype));
 		// TODO if Datatype has unit infer Quantity
 		return resultParameter;
 	}
@@ -543,13 +534,11 @@ public class ModelHelper {
 	/**
 	 * This method creates a Value object from a given datatype.
 	 * 
-	 * @param name the name of the Parameter object.
 	 * @param datatype the datatype of the Parameter object
 	 * @return the created Value object.
 	 */
-	public static Value createValue(String name, DataType datatype) {
+	public static Value createValue(DataType datatype) {
 		Value newValue = ModelFactory.eINSTANCE.createValue();
-		newValue.setName(name);
 		DataType newDataType = EcoreUtil.copy(datatype);
 		newValue.getDatatypes().add(newDataType);
 		if (newDataType instanceof MeasuredValue) {
@@ -558,8 +547,6 @@ public class ModelHelper {
 				newValue.setUnit(measuredValue.getUnit());
 			}
 			newValue.setValue(measuredValue.getValue());
-
-			newValue.setName(measuredValue.getName());
 		}
 		return newValue;
 	}

@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -12,7 +12,6 @@ import java.util.List;
 import net.bhl.cdt.model.Model;
 import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.model.ModelPackage;
-import net.bhl.cdt.model.qualification.QualificationFactory;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -69,7 +68,6 @@ public class ModelItemProvider extends ElementItemProvider implements IEditingDo
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModelPackage.Literals.MODEL__CONFIGURATIONS);
-			childrenFeatures.add(ModelPackage.Literals.MODEL__QUALIFYING_SPACES);
 		}
 		return childrenFeatures;
 	}
@@ -122,7 +120,6 @@ public class ModelItemProvider extends ElementItemProvider implements IEditingDo
 
 		switch (notification.getFeatureID(Model.class)) {
 			case ModelPackage.MODEL__CONFIGURATIONS:
-			case ModelPackage.MODEL__QUALIFYING_SPACES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -143,16 +140,6 @@ public class ModelItemProvider extends ElementItemProvider implements IEditingDo
 			(createChildParameter
 				(ModelPackage.Literals.MODEL__CONFIGURATIONS,
 				 ModelFactory.eINSTANCE.createConfiguration()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.MODEL__QUALIFYING_SPACES,
-				 QualificationFactory.eINSTANCE.createCalculationSpace()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ModelPackage.Literals.MODEL__QUALIFYING_SPACES,
-				 QualificationFactory.eINSTANCE.createBehaviouralSpace()));
 	}
 
 }

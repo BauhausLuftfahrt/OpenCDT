@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -8,21 +8,15 @@ package net.bhl.cdt.model.provider;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
 import java.util.List;
-import net.bhl.cdt.model.ModelFactory;
+
 import net.bhl.cdt.model.ModelPackage;
 import net.bhl.cdt.model.util.ModelAdapterFactory;
 
-import net.bhl.cdt.utilities.exchangemodel.Composite;
-import net.bhl.cdt.utilities.exchangemodel.ExchangemodelPackage;
-import net.bhl.cdt.utilities.exchangemodel.util.ExchangemodelSwitch;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.edit.command.CommandParameter;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ChangeNotifier;
 import org.eclipse.emf.edit.provider.ChildCreationExtenderManager;
@@ -46,7 +40,8 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * 
  * @generated
  */
-public class ModelItemProviderAdapterFactory extends ModelAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
+public class ModelItemProviderAdapterFactory extends ModelAdapterFactory implements ComposeableAdapterFactory,
+	IChangeNotifier, IDisposable, IChildCreationExtender {
 	/**
 	 * This keeps track of the root adapter factory that delegates to this adapter factory.
 	 * <!-- begin-user-doc --> <!--
@@ -65,8 +60,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 
 	/**
 	 * This helps manage the child creation extenders.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(ModelEditPlugin.INSTANCE, ModelPackage.eNS_URI);
@@ -280,8 +274,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public List<IChildCreationExtender> getChildCreationExtenders() {
@@ -289,8 +282,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
@@ -298,8 +290,7 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ResourceLocator getResourceLocator() {

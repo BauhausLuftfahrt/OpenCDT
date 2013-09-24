@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -11,7 +11,8 @@ import java.io.IOException;
 import net.bhl.cdt.utilities.exceptions.CDTRuntimeException;
 
 import org.eclipse.core.runtime.Platform;
-import org.eclipse.emf.emfstore.common.model.util.ModelUtil;
+
+// import org.eclipse.emf.emfstore.internal.common.model.util.ModelUtil;
 
 /**
  * Helper class for starting the scilab server.
@@ -97,7 +98,7 @@ public final class ProcessHelper {
 		} catch (IOException e) {
 			e.printStackTrace();
 			String message = "Couldn't start Scilab process. Maybe Scilab isn't installed. Also check that java and scilab path variables are set on your system.";
-			ModelUtil.logWarning(message, e);
+			// ModelUtil.logWarning(message, e);
 			process = null;
 			throw new CDTRuntimeException(message, e);
 		}

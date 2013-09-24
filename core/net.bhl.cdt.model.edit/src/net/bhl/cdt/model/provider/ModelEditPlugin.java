@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -43,9 +43,7 @@ public final class ModelEditPlugin extends EMFPlugin {
 	public ModelEditPlugin() {
 		super
 		  (new ResourceLocator [] {
-		     BasecalculationmodelEditPlugin.INSTANCE,
 		     DatatypesEditPlugin.INSTANCE,
-		     EcoreEditPlugin.INSTANCE,
 		     ExchangemodelEditPlugin.INSTANCE,
 		     UnitsEditPlugin.INSTANCE,
 		   });

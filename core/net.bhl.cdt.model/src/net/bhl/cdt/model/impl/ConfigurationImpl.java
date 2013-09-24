@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -12,7 +12,6 @@ import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.ModelPackage;
 import net.bhl.cdt.model.View;
-import net.bhl.cdt.model.calculation.CalculationSet;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -28,7 +27,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link net.bhl.cdt.model.impl.ConfigurationImpl#getViews <em>Views</em>}</li>
  *   <li>{@link net.bhl.cdt.model.impl.ConfigurationImpl#getComponents <em>Components</em>}</li>
- *   <li>{@link net.bhl.cdt.model.impl.ConfigurationImpl#getCalculationSets <em>Calculation Sets</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,15 +52,6 @@ public class ConfigurationImpl extends StructuralElementImpl implements Configur
 	 * @ordered
 	 */
 	protected EList<Component> components;
-
-	/**
-	 * The cached value of the '{@link #getCalculationSets() <em>Calculation Sets</em>}' containment reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #getCalculationSets()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<CalculationSet> calculationSets;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -96,17 +85,6 @@ public class ConfigurationImpl extends StructuralElementImpl implements Configur
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CalculationSet> getCalculationSets() {
-		if (calculationSets == null) {
-			calculationSets = new EObjectContainmentEList.Resolving<CalculationSet>(CalculationSet.class, this, ModelPackage.CONFIGURATION__CALCULATION_SETS);
-		}
-		return calculationSets;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<View> getViews() {
 		if (views == null) {
 			views = new EObjectContainmentEList.Resolving<View>(View.class, this, ModelPackage.CONFIGURATION__VIEWS);
@@ -125,8 +103,6 @@ public class ConfigurationImpl extends StructuralElementImpl implements Configur
 				return ((InternalEList<?>)getViews()).basicRemove(otherEnd, msgs);
 			case ModelPackage.CONFIGURATION__COMPONENTS:
 				return ((InternalEList<?>)getComponents()).basicRemove(otherEnd, msgs);
-			case ModelPackage.CONFIGURATION__CALCULATION_SETS:
-				return ((InternalEList<?>)getCalculationSets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -142,8 +118,6 @@ public class ConfigurationImpl extends StructuralElementImpl implements Configur
 				return getViews();
 			case ModelPackage.CONFIGURATION__COMPONENTS:
 				return getComponents();
-			case ModelPackage.CONFIGURATION__CALCULATION_SETS:
-				return getCalculationSets();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -164,10 +138,6 @@ public class ConfigurationImpl extends StructuralElementImpl implements Configur
 				getComponents().clear();
 				getComponents().addAll((Collection<? extends Component>)newValue);
 				return;
-			case ModelPackage.CONFIGURATION__CALCULATION_SETS:
-				getCalculationSets().clear();
-				getCalculationSets().addAll((Collection<? extends CalculationSet>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -185,9 +155,6 @@ public class ConfigurationImpl extends StructuralElementImpl implements Configur
 			case ModelPackage.CONFIGURATION__COMPONENTS:
 				getComponents().clear();
 				return;
-			case ModelPackage.CONFIGURATION__CALCULATION_SETS:
-				getCalculationSets().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -203,8 +170,6 @@ public class ConfigurationImpl extends StructuralElementImpl implements Configur
 				return views != null && !views.isEmpty();
 			case ModelPackage.CONFIGURATION__COMPONENTS:
 				return components != null && !components.isEmpty();
-			case ModelPackage.CONFIGURATION__CALCULATION_SETS:
-				return calculationSets != null && !calculationSets.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
