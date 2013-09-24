@@ -1,5 +1,5 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2012 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
@@ -12,10 +12,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.Enumerator;
 import org.eclipse.emf.common.util.UniqueEList;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EEnum;
@@ -25,7 +23,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.ExtendedMetaData;
-import org.eclipse.emf.emfstore.common.model.Project;
+import org.eclipse.emf.emfstore.client.ESLocalProject;
 
 /**
  * Helper class for provider.
@@ -93,7 +91,7 @@ public final class ProviderHelper {
 		Collection<EObject> result = new ArrayList<EObject>();
 
 		EObject tmpObject = object;
-		while (!(tmpObject instanceof Project)) {
+		while (!(tmpObject instanceof ESLocalProject)) {
 			if (tmpObject.eContainer() != null) {
 				tmpObject = tmpObject.eContainer();
 			} else {
@@ -101,9 +99,11 @@ public final class ProviderHelper {
 			}
 		}
 
-		Project project = (Project) tmpObject;
-		BasicEList<EObject> list = new BasicEList<EObject>();
-		project.getAllModelElementsbyClass((EClass) type, list);
+		ESLocalProject project = (ESLocalProject) tmpObject;
+		ArrayList<EObject> list = new ArrayList<EObject>();
+		list = new ArrayList<EObject>(project.getAllModelElementsByClass(type.getClass()));
+
+		// project.getAllModelElementsbyClass((EClass) type, list);
 		result.addAll(list);
 
 		return result;
