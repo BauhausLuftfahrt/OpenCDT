@@ -23,16 +23,16 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
- * This is the item provider adapter for a {@link net.bhl.cdt.utilities.datatypes.DataType} object. <!-- begin-user-doc
+ * This is the item provider adapter for a {@link net.bhl.cdt.utilities.datatypes.DataType} object.
+ * <!-- begin-user-doc
  * --> <!-- end-user-doc -->
- * 
  * @generated
  */
 public class DataTypeItemProvider extends ExchangeElementItemProvider implements IEditingDomainItemProvider,
 	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public DataTypeItemProvider(AdapterFactory adapterFactory) {
@@ -40,8 +40,8 @@ public class DataTypeItemProvider extends ExchangeElementItemProvider implements
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -54,15 +54,16 @@ public class DataTypeItemProvider extends ExchangeElementItemProvider implements
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DataType) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_DataType_type") : getString("_UI_DataType_type")
-			+ " " + label;
+		String label = ((DataType)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_DataType_type") :
+			getString("_UI_DataType_type") + " " + label;
 	}
 
 	/**
@@ -79,9 +80,9 @@ public class DataTypeItemProvider extends ExchangeElementItemProvider implements
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
-	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -90,8 +91,8 @@ public class DataTypeItemProvider extends ExchangeElementItemProvider implements
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

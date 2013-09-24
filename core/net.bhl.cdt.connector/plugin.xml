@@ -3,34 +3,6 @@
 <plugin>
    <extension-point id="importstrategy" name="importstrategy" schema="schema/importstrategy.exsd"/>
    <extension
-         point="org.eclipse.ui.commands">
-      <command
-            defaultHandler="net.bhl.cdt.connector.io.ImportFileHandler"
-            id="net.bhl.cdt.connector.importFileCommand"
-            name="importFileCommand">
-      </command>
-   </extension>
-   <extension
-         point="org.eclipse.ui.menus">
-      <menuContribution
-            allPopups="false"
-            locationURI="popup:org.eclipse.emf.ecp.navigator.viewer?after=additions">
-         <command
-               commandId="net.bhl.cdt.connector.importFileCommand"
-               label="Import File"
-               style="push">
-            <visibleWhen
-                  checkEnabled="false">
-               <iterate>
-                  <instanceof
-                        value="net.bhl.cdt.resources.Resources">
-                  </instanceof>
-               </iterate>
-            </visibleWhen>
-         </command>
-      </menuContribution>
-   </extension>
-   <extension
          point="net.bhl.cdt.connector.importstrategy">
       <importstrategy
             class="net.bhl.cdt.connector.io.strategyimpl.SimpleCSVImportStrategy">

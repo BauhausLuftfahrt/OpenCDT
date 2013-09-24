@@ -9,7 +9,9 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: net.bhl.cdt.model.provider
-Require-Bundle: net.bhl.cdt.model;bundle-version="0.8.8";visibility:=reexport,
- net.bhl.cdt.utilities.edit;bundle-version="0.8.8";visibility:=reexport,
- org.eclipse.emf.ecore.edit
+Require-Bundle: org.eclipse.core.runtime,
+ net.bhl.cdt.model;bundle-version="0.8.8";visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ net.bhl.cdt.utilities;visibility:=reexport,
+ net.bhl.cdt.utilities.edit;bundle-version="0.8.8";visibility:=reexport
 Bundle-ActivationPolicy: lazy

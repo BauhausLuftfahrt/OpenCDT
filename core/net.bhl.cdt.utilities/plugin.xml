@@ -26,12 +26,6 @@
             uri="http://bhl.net/cdt/utilities/basecalculationmodel/">
       </package>
    </extension>
-   <extension
-         point="org.eclipse.emf.emfstore.client.editingDomainProvider">
-      <provider
-            class="net.bhl.cdt.utilities.commands.CDTEditingDomainProvider">
-      </provider>
-   </extension>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated datatypes -->

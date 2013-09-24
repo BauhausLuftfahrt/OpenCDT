@@ -33,8 +33,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 public class IntegerValueItemProvider extends ScalarItemProvider implements IEditingDomainItemProvider,
 	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public IntegerValueItemProvider(AdapterFactory adapterFactory) {
@@ -42,8 +42,8 @@ public class IntegerValueItemProvider extends ScalarItemProvider implements IEdi
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -57,22 +57,29 @@ public class IntegerValueItemProvider extends ScalarItemProvider implements IEdi
 	}
 
 	/**
-	 * This adds a property descriptor for the Value feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds a property descriptor for the Value feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addValuePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add(createItemPropertyDescriptor(
-			((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(), getResourceLocator(),
-			getString("_UI_IntegerValue_value_feature"),
-			getString("_UI_PropertyDescriptor_description", "_UI_IntegerValue_value_feature", "_UI_IntegerValue_type"),
-			DatatypesPackage.Literals.INTEGER_VALUE__VALUE, true, false, false,
-			ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_IntegerValue_value_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IntegerValue_value_feature", "_UI_IntegerValue_type"),
+				 DatatypesPackage.Literals.INTEGER_VALUE__VALUE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This returns IntegerValue.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns IntegerValue.gif.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -81,15 +88,16 @@ public class IntegerValueItemProvider extends ScalarItemProvider implements IEdi
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((IntegerValue) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_IntegerValue_type")
-			: getString("_UI_IntegerValue_type") + " " + label;
+		String label = ((IntegerValue)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_IntegerValue_type") :
+			getString("_UI_IntegerValue_type") + " " + label;
 	}
 
 	/**
@@ -104,17 +112,17 @@ public class IntegerValueItemProvider extends ScalarItemProvider implements IEdi
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(IntegerValue.class)) {
-		case DatatypesPackage.INTEGER_VALUE__VALUE:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case DatatypesPackage.INTEGER_VALUE__VALUE:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
-	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

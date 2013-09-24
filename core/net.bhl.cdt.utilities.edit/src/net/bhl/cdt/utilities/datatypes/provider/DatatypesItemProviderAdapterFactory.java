@@ -37,17 +37,17 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory implements ComposeableAdapterFactory,
 	IChangeNotifier, IDisposable {
 	/**
-	 * This keeps track of the root adapter factory that delegates to this adapter factory. <!-- begin-user-doc --> <!--
+	 * This keeps track of the root adapter factory that delegates to this adapter factory.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ComposedAdapterFactory parentAdapterFactory;
 
 	/**
-	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}. <!-- begin-user-doc --> <!--
+	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
@@ -61,8 +61,8 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
-	 * This constructs an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This constructs an instance.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public DatatypesItemProviderAdapterFactory() {
@@ -74,17 +74,16 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.utilities.datatypes.FloatPointValue}
-	 * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.utilities.datatypes.FloatPointValue} instances.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected FloatPointValueItemProvider floatPointValueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.utilities.datatypes.FloatPointValue}. <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link net.bhl.cdt.utilities.datatypes.FloatPointValue}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -99,15 +98,14 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	/**
 	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.utilities.datatypes.MeasuredValue} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected MeasuredValueItemProvider measuredValueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.utilities.datatypes.MeasuredValue}. <!-- begin-user-doc --> <!--
+	 * This creates an adapter for a {@link net.bhl.cdt.utilities.datatypes.MeasuredValue}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -122,15 +120,14 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	/**
 	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.utilities.datatypes.IntegerValue} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected IntegerValueItemProvider integerValueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.utilities.datatypes.IntegerValue}. <!-- begin-user-doc --> <!--
+	 * This creates an adapter for a {@link net.bhl.cdt.utilities.datatypes.IntegerValue}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -145,15 +142,14 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	/**
 	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.utilities.datatypes.StringValue} instances.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected StringValueItemProvider stringValueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.utilities.datatypes.StringValue}. <!-- begin-user-doc --> <!--
+	 * This creates an adapter for a {@link net.bhl.cdt.utilities.datatypes.StringValue}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -174,9 +170,9 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	protected FormulaItemProvider formulaItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.utilities.datatypes.Formula}. <!-- begin-user-doc --> <!--
+	 * This creates an adapter for a {@link net.bhl.cdt.utilities.datatypes.Formula}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -189,17 +185,16 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.utilities.datatypes.CompositeValues}
-	 * instances. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.utilities.datatypes.CompositeValues} instances.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected CompositeValuesItemProvider compositeValuesItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.utilities.datatypes.CompositeValues}. <!-- begin-user-doc -->
+	 * This creates an adapter for a {@link net.bhl.cdt.utilities.datatypes.CompositeValues}.
+	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -220,9 +215,9 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	protected ArrayItemProvider arrayItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.utilities.datatypes.Array}. <!-- begin-user-doc --> <!--
+	 * This creates an adapter for a {@link net.bhl.cdt.utilities.datatypes.Array}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -243,9 +238,9 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	protected CellsItemProvider cellsItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.utilities.datatypes.Cells}. <!-- begin-user-doc --> <!--
+	 * This creates an adapter for a {@link net.bhl.cdt.utilities.datatypes.Cells}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -258,8 +253,8 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	}
 
 	/**
-	 * This returns the root adapter factory that contains this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the root adapter factory that contains this factory.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ComposeableAdapterFactory getRootAdapterFactory() {
@@ -267,8 +262,8 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	}
 
 	/**
-	 * This sets the composed adapter factory that contains this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This sets the composed adapter factory that contains this factory.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
@@ -277,7 +272,6 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -286,9 +280,9 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	}
 
 	/**
-	 * This implementation substitutes the factory itself as the key for the adapter. <!-- begin-user-doc --> <!--
+	 * This implementation substitutes the factory itself as the key for the adapter.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -298,14 +292,13 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object adapt(Object object, Object type) {
 		if (isFactoryForType(type)) {
 			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>) type).isInstance(adapter))) {
+			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
 				return adapter;
 			}
 		}
@@ -314,8 +307,8 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	}
 
 	/**
-	 * This adds a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds a listener.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void addListener(INotifyChangedListener notifyChangedListener) {
@@ -323,8 +316,8 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	}
 
 	/**
-	 * This removes a listener. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This removes a listener.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
@@ -332,9 +325,9 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	}
 
 	/**
-	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}. <!-- begin-user-doc --> <!--
+	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void fireNotifyChanged(Notification notification) {
@@ -346,27 +339,19 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	}
 
 	/**
-	 * This disposes all of the item providers created by this factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This disposes all of the item providers created by this factory. 
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void dispose() {
-		if (floatPointValueItemProvider != null)
-			floatPointValueItemProvider.dispose();
-		if (measuredValueItemProvider != null)
-			measuredValueItemProvider.dispose();
-		if (integerValueItemProvider != null)
-			integerValueItemProvider.dispose();
-		if (stringValueItemProvider != null)
-			stringValueItemProvider.dispose();
-		if (formulaItemProvider != null)
-			formulaItemProvider.dispose();
-		if (compositeValuesItemProvider != null)
-			compositeValuesItemProvider.dispose();
-		if (arrayItemProvider != null)
-			arrayItemProvider.dispose();
-		if (cellsItemProvider != null)
-			cellsItemProvider.dispose();
+		if (floatPointValueItemProvider != null) floatPointValueItemProvider.dispose();
+		if (measuredValueItemProvider != null) measuredValueItemProvider.dispose();
+		if (integerValueItemProvider != null) integerValueItemProvider.dispose();
+		if (stringValueItemProvider != null) stringValueItemProvider.dispose();
+		if (formulaItemProvider != null) formulaItemProvider.dispose();
+		if (compositeValuesItemProvider != null) compositeValuesItemProvider.dispose();
+		if (arrayItemProvider != null) arrayItemProvider.dispose();
+		if (cellsItemProvider != null) cellsItemProvider.dispose();
 	}
 
 }

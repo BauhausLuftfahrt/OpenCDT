@@ -21,16 +21,16 @@ import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
- * This is the item provider adapter for a {@link net.bhl.cdt.utilities.datatypes.Array} object. <!-- begin-user-doc -->
+ * This is the item provider adapter for a {@link net.bhl.cdt.utilities.datatypes.Array} object.
+ * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
- * 
  * @generated
  */
 public class ArrayItemProvider extends CompositeValuesItemProvider implements IEditingDomainItemProvider,
 	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public ArrayItemProvider(AdapterFactory adapterFactory) {
@@ -38,8 +38,8 @@ public class ArrayItemProvider extends CompositeValuesItemProvider implements IE
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -52,8 +52,8 @@ public class ArrayItemProvider extends CompositeValuesItemProvider implements IE
 	}
 
 	/**
-	 * This returns Array.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns Array.gif.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -62,15 +62,16 @@ public class ArrayItemProvider extends CompositeValuesItemProvider implements IE
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Array) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_Array_type") : getString("_UI_Array_type") + " "
-			+ label;
+		String label = ((Array)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Array_type") :
+			getString("_UI_Array_type") + " " + label;
 	}
 
 	/**
@@ -87,9 +88,9 @@ public class ArrayItemProvider extends CompositeValuesItemProvider implements IE
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
-	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

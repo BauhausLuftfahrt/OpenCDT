@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Ui
-Bundle-SymbolicName: net.bhl.cdt.connector.ui
+Bundle-SymbolicName: net.bhl.cdt.connector.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: net.bhl.cdt.connector;bundle-version="0.8.8";visibility:=reexport,

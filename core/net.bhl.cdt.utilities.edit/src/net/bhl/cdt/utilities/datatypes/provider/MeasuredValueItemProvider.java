@@ -33,8 +33,8 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 public class MeasuredValueItemProvider extends FloatPointValueItemProvider implements IEditingDomainItemProvider,
 	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
-	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This constructs an instance from a factory and a notifier.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	public MeasuredValueItemProvider(AdapterFactory adapterFactory) {
@@ -42,8 +42,8 @@ public class MeasuredValueItemProvider extends FloatPointValueItemProvider imple
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the property descriptors for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -57,24 +57,29 @@ public class MeasuredValueItemProvider extends FloatPointValueItemProvider imple
 	}
 
 	/**
-	 * This adds a property descriptor for the Unit feature. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds a property descriptor for the Unit feature.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void addUnitPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-			.add(createItemPropertyDescriptor(
-				((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-				getResourceLocator(),
-				getString("_UI_MeasuredValue_unit_feature"),
-				getString("_UI_PropertyDescriptor_description", "_UI_MeasuredValue_unit_feature",
-					"_UI_MeasuredValue_type"), DatatypesPackage.Literals.MEASURED_VALUE__UNIT, true, false, false,
-				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MeasuredValue_unit_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MeasuredValue_unit_feature", "_UI_MeasuredValue_type"),
+				 DatatypesPackage.Literals.MEASURED_VALUE__UNIT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
-	 * This returns MeasuredValue.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns MeasuredValue.gif.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -83,15 +88,16 @@ public class MeasuredValueItemProvider extends FloatPointValueItemProvider imple
 	}
 
 	/**
-	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This returns the label text for the adapted class.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((MeasuredValue) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_MeasuredValue_type")
-			: getString("_UI_MeasuredValue_type") + " " + label;
+		String label = ((MeasuredValue)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_MeasuredValue_type") :
+			getString("_UI_MeasuredValue_type") + " " + label;
 	}
 
 	/**
@@ -106,17 +112,17 @@ public class MeasuredValueItemProvider extends FloatPointValueItemProvider imple
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(MeasuredValue.class)) {
-		case DatatypesPackage.MEASURED_VALUE__UNIT:
-			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-			return;
+			case DatatypesPackage.MEASURED_VALUE__UNIT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
-	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
+	 * that can be created under this object.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override

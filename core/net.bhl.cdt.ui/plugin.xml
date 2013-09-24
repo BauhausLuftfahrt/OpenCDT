@@ -7,7 +7,7 @@
       <perspective
             class="net.bhl.cdt.ui.CDTPerspectiveFactory"
             id="net.bhl.cdt.ui.CDTPerspective"
-            name="CDTPerspective">
+            name="CDT Perspective">
       </perspective>
    </extension>
    <extension
