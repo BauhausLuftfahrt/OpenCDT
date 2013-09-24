@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="net.bhl.cdt.ui.preferences.ScilabPreferencePage"
+            id="net.bhl.cdt.ui.ScilabPreferencePage"
+            name="Scilab Preferences">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            default="false"
+            id="net.bhl.cdt.calculation.ui.editor2"
+            name="name">
+      </editor>
+      <editor
+            class="net.bhl.cdt.ui.editors.FunctionEditor"
+            extensions="func"
+            icon="icons/sample.gif"
+            id="net.bhl.cdt.ui.editors.FunctionEditor"
+            name="Function Editor">
+      </editor>
+      <editor
+            class="net.bhl.cdt.ui.editors.CalculationEditor"
+            extensions="func"
+            icon="icons/sample.gif"
+            id="net.bhl.cdt.ui.editors.CalculationEditor"
+            name="CalculationEditor">
+      </editor>
+      <editor
+            class="net.bhl.cdt.ui.editors.CalculationSetEditor"
+            extensions="func"
+            icon="icons/sample.gif"
+            id="net.bhl.cdt.ui.editors.CalculationSetEditor"
+            name="CalculationSetEditor">
+      </editor>
+   </extension>
+
+</plugin>
