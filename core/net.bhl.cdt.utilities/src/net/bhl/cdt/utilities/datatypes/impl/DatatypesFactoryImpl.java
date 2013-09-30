@@ -6,7 +6,6 @@
 
 package net.bhl.cdt.utilities.datatypes.impl;
 
-import net.bhl.cdt.utilities.datatypes.*;
 import net.bhl.cdt.utilities.datatypes.Array;
 import net.bhl.cdt.utilities.datatypes.Cells;
 import net.bhl.cdt.utilities.datatypes.CompositeValues;

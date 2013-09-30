@@ -39,10 +39,10 @@ import org.eclipse.emf.emfstore.client.ESProject;
  * @author Martin Glas
  * @author Otto von Wesendonk
  */
-public class ModelHelper {
+public final class ModelHelper {
 
-	public ModelHelper() {
-		super();
+	private ModelHelper() {
+
 	}
 
 	/**
@@ -171,6 +171,13 @@ public class ModelHelper {
 
 	}
 
+	/**
+	 * This class converts a Value to an Measured value. The unit is not set
+	 * 
+	 * @param value the Value
+	 * @return the MeasuredValue without Unit
+	 */
+
 	public static MeasuredValue valueToEx(Value value) {
 		if (value == null) {
 			return null;
@@ -188,13 +195,20 @@ public class ModelHelper {
 		return exValue;
 	}
 
-	public static Value exToValue(MeasuredValue exValue) {
-		if (exValue == null) {
+	/**
+	 * This class converts MeasuredValue to Value omitting the Unit .
+	 * 
+	 * @param measuredValue the MeasuredValue
+	 * @return the Value without unit
+	 */
+
+	public static Value exToValue(MeasuredValue measuredValue) {
+		if (measuredValue == null) {
 			return null;
 		}
 		Value value = ModelFactory.eINSTANCE.createValue();
-		value.setUnit(exValue.getUnit());
-		value.getDatatypes().add(exValue);
+		value.setUnit(measuredValue.getUnit());
+		value.getDatatypes().add(measuredValue);
 		return value;
 	}
 

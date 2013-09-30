@@ -11,7 +11,6 @@ import javax.units.Unit;
 import net.bhl.cdt.utilities.datatypes.DataType;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Value</b></em>'. <!-- end-user-doc -->

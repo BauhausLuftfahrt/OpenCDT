@@ -13,7 +13,7 @@ import org.eclipse.emf.common.command.AbstractCommand;
  * TODO: When we use new EMFStore version, replace this command with UnicaseCommand.
  * 
  * @see UnicaseCommand
- * @author Otto von Wesendonk
+ * @author Otto von Wesendonk, David Otter
  */
 
 public abstract class CDTCommand extends AbstractCommand {

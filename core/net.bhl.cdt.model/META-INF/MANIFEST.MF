@@ -11,6 +11,5 @@ Require-Bundle: net.bhl.cdt.utilities;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Export-Package: net.bhl.cdt.model;uses:="org.eclipse.core.runtime,  org.eclipse.emf.ecore,  net.bhl.cdt.utilities.units,  org.eclipse.emf.common.util,  javax.units,  org.osgi.framework",
  net.bhl.cdt.model.commands;uses:="org.eclipse.emf.common.util,net.bhl.cdt.model,org.eclipse.emf.common.command",
- net.bhl.cdt.model.exceptions,
  net.bhl.cdt.model.impl;uses:="net.bhl.cdt.utilities.units,  org.eclipse.emf.ecore,  org.eclipse.emf.common.util,  net.bhl.cdt.model,  javax.units,  org.eclipse.emf.ecore.impl,  org.eclipse.emf.common.notify",
  net.bhl.cdt.model.util;uses:="org.eclipse.emf.ecore,  org.eclipse.emf.common.notify.impl,  net.bhl.cdt.resources,  org.eclipse.emf.common.notify"
