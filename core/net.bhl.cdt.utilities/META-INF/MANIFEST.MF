@@ -8,7 +8,7 @@ Bundle-ClassPath: .,
  lib/jscience.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: javax.measure,
  javax.measure.converter,
  javax.measure.quantity,

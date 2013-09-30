@@ -12,16 +12,32 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IPersistableElement;
 
+/**
+ * This  EditorInput class passes all relevant information for the initialization of the ArrayEditor.
+ * @author martin.glas
+ *
+ */
 public class ArrayEditorInput implements IEditorInput {
 
 	private Array array;
 	private ECPProject ecpProject;
 
+	
+	/**
+	 * This is the constructor of the ArrayEditor.
+	 * @param array the Array object which should be displayed
+	 * @param ecpProject the ECPProjekct where the array is versioned
+	 */
 	public ArrayEditorInput(Array array, ECPProject ecpProject) {
 		this.array = array;
 		this.setECPProject(ecpProject);
 	}
 
+	/**
+	 * This Method returns the array which has to be edited.
+	 * @return the Array which has to be edited
+	 */
+	
 	public Array getArray() {
 		return array;
 	}
