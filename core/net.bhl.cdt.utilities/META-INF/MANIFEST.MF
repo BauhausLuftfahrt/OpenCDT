@@ -60,5 +60,5 @@ Export-Package: javax.measure,
  org.opengis.spatialschema.geometry,
  org.opengis.spatialschema.geometry.geometry,
  org.opengis.util
-Require-Bundle: org.eclipse.emf.emfstore.client;visibility:=reexport
+Require-Bundle: org.eclipse.emf.emfstore.client;bundle-version="1.0.1";visibility:=reexport
 Bundle-ActivationPolicy: lazy

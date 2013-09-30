@@ -10,5 +10,5 @@ Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: net.bhl.cdt.resources.provider
 Require-Bundle: net.bhl.cdt.resources;bundle-version="0.8.8";visibility:=reexport,
- net.bhl.cdt.utilities.edit;visibility:=reexport
+ net.bhl.cdt.utilities.edit;bundle-version="0.8.8";visibility:=reexport
 Bundle-ActivationPolicy: lazy

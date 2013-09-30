@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: net.bhl.cdt.utilities;visibility:=reexport
+Require-Bundle: net.bhl.cdt.utilities;bundle-version="0.8.8";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Export-Package: net.bhl.cdt.model;
   uses:="org.eclipse.emf.ecore,
