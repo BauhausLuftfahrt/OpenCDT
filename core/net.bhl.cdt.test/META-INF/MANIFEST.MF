@@ -4,9 +4,8 @@ Bundle-Name: Test
 Bundle-SymbolicName: net.bhl.cdt.test;singleton:=true
 Bundle-Version: 0.8.8.qualifier
 Bundle-Activator: net.bhl.cdt.test.Activator
-Require-Bundle: org.junit;bundle-version="4.11.0",
- net.bhl.cdt.utilities;bundle-version="0.8.8",
- org.eclipse.emf.emfstore.client;bundle-version="1.0.1"
+Require-Bundle: org.junit;bundle-version="4.11.0";visibility:=reexport,
+ net.bhl.cdt.utilities;bundle-version="0.8.8";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: net.bhl.cdt.test
