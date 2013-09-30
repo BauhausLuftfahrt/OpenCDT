@@ -28,20 +28,21 @@ import org.eclipse.emf.ecore.EObject;
 /**
  * <!-- begin-user-doc --> The <b>Adapter Factory</b> for the model. It provides an adapter <code>createXXX</code>
  * method for each class of the model. <!-- end-user-doc -->
+ * 
  * @see net.bhl.cdt.utilities.datatypes.DatatypesPackage
  * @generated
  */
 public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	/**
-	 * The cached model package.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The cached model package. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected static DatatypesPackage modelPackage;
 
 	/**
-	 * Creates an instance of the adapter factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates an instance of the adapter factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public DatatypesAdapterFactory() {
@@ -51,10 +52,10 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Returns whether this factory is applicable for the type of the object.
-	 * <!-- begin-user-doc --> This
+	 * Returns whether this factory is applicable for the type of the object. <!-- begin-user-doc --> This
 	 * implementation returns <code>true</code> if the object is either the model's package or is an instance object of
 	 * the model. <!-- end-user-doc -->
+	 * 
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */
@@ -64,87 +65,100 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
 
 	/**
-	 * The switch that delegates to the <code>createXXX</code> methods.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The switch that delegates to the <code>createXXX</code> methods. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	protected DatatypesSwitch<Adapter> modelSwitch = new DatatypesSwitch<Adapter>() {
-			@Override
-			public Adapter caseDataType(DataType object) {
-				return createDataTypeAdapter();
-			}
-			@Override
-			public Adapter caseLeafValue(LeafValue object) {
-				return createLeafValueAdapter();
-			}
-			@Override
-			public Adapter caseScalar(Scalar object) {
-				return createScalarAdapter();
-			}
-			@Override
-			public Adapter caseFloatPointValue(FloatPointValue object) {
-				return createFloatPointValueAdapter();
-			}
-			@Override
-			public Adapter caseMeasuredValue(MeasuredValue object) {
-				return createMeasuredValueAdapter();
-			}
-			@Override
-			public Adapter caseIntegerValue(IntegerValue object) {
-				return createIntegerValueAdapter();
-			}
-			@Override
-			public Adapter caseStringValue(StringValue object) {
-				return createStringValueAdapter();
-			}
-			@Override
-			public Adapter caseFormula(Formula object) {
-				return createFormulaAdapter();
-			}
-			@Override
-			public Adapter caseCompositeValues(CompositeValues object) {
-				return createCompositeValuesAdapter();
-			}
-			@Override
-			public Adapter caseArray(Array object) {
-				return createArrayAdapter();
-			}
-			@Override
-			public Adapter caseCells(Cells object) {
-				return createCellsAdapter();
-			}
-			@Override
-			public Adapter caseExchangeElement(ExchangeElement object) {
-				return createExchangeElementAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+		@Override
+		public Adapter caseDataType(DataType object) {
+			return createDataTypeAdapter();
+		}
+
+		@Override
+		public Adapter caseLeafValue(LeafValue object) {
+			return createLeafValueAdapter();
+		}
+
+		@Override
+		public Adapter caseScalar(Scalar object) {
+			return createScalarAdapter();
+		}
+
+		@Override
+		public Adapter caseFloatPointValue(FloatPointValue object) {
+			return createFloatPointValueAdapter();
+		}
+
+		@Override
+		public Adapter caseMeasuredValue(MeasuredValue object) {
+			return createMeasuredValueAdapter();
+		}
+
+		@Override
+		public Adapter caseIntegerValue(IntegerValue object) {
+			return createIntegerValueAdapter();
+		}
+
+		@Override
+		public Adapter caseStringValue(StringValue object) {
+			return createStringValueAdapter();
+		}
+
+		@Override
+		public Adapter caseFormula(Formula object) {
+			return createFormulaAdapter();
+		}
+
+		@Override
+		public Adapter caseCompositeValues(CompositeValues object) {
+			return createCompositeValuesAdapter();
+		}
+
+		@Override
+		public Adapter caseArray(Array object) {
+			return createArrayAdapter();
+		}
+
+		@Override
+		public Adapter caseCells(Cells object) {
+			return createCellsAdapter();
+		}
+
+		@Override
+		public Adapter caseExchangeElement(ExchangeElement object) {
+			return createExchangeElementAdapter();
+		}
+
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
-	 * Creates an adapter for the <code>target</code>.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates an adapter for the <code>target</code>. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param target the object to adapt.
 	 * @return the adapter for the <code>target</code>.
 	 * @generated
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.utilities.datatypes.DataType <em>Data Type</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.utilities.datatypes.DataType <em>Data Type</em>}
+	 * '. <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's
 	 * useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.utilities.datatypes.DataType
 	 * @generated
@@ -171,6 +185,7 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.utilities.datatypes.Scalar <em>Scalar</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
 	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.utilities.datatypes.Scalar
 	 * @generated
@@ -180,10 +195,11 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.utilities.datatypes.FloatPointValue <em>Float Point Value</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.utilities.datatypes.FloatPointValue
+	 * <em>Float Point Value</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.utilities.datatypes.FloatPointValue
 	 * @generated
@@ -238,6 +254,7 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.utilities.datatypes.Formula <em>Formula</em>}'.
 	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
 	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.utilities.datatypes.Formula
 	 * @generated
@@ -247,10 +264,11 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.utilities.datatypes.CompositeValues <em>Composite Values</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.utilities.datatypes.CompositeValues
+	 * <em>Composite Values</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.utilities.datatypes.CompositeValues
 	 * @generated
@@ -286,10 +304,11 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.utilities.exchangemodel.ExchangeElement <em>Exchange Element</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.utilities.exchangemodel.ExchangeElement
+	 * <em>Exchange Element</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can
 	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
 	 * end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.utilities.exchangemodel.ExchangeElement
 	 * @generated
@@ -299,9 +318,9 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for the default case.
-	 * <!-- begin-user-doc --> This default implementation returns null.
+	 * Creates a new adapter for the default case. <!-- begin-user-doc --> This default implementation returns null.
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @generated
 	 */

@@ -14,6 +14,9 @@ public class TestEditor extends EditorPart {
 
 	public static final String ID = "net.bhl.cdt.ui.editors.TestEditor"; //$NON-NLS-1$
 
+	/**
+	 * Constructor.
+	 */
 	public TestEditor() {
 	}
 

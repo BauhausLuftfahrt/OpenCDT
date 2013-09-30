@@ -41,13 +41,15 @@ public class Application implements IApplication {
 	 */
 	public void stop() {
 		final IWorkbench workbench = PlatformUI.getWorkbench();
-		if (workbench == null)
+		if (workbench == null) {
 			return;
+		}
 		final Display display = workbench.getDisplay();
 		display.syncExec(new Runnable() {
 			public void run() {
-				if (!display.isDisposed())
+				if (!display.isDisposed()) {
 					workbench.close();
+				}
 			}
 		});
 	}

@@ -92,7 +92,7 @@ public class APDFileAsCSVImport implements ImportStrategy {
 								line.length() - 1);
 						firstDistributed = deleteSpace(firstDistributed);
 						EList<CompositeValues> cv = new BasicEList<CompositeValues>();
-						CompositeValues compositeValues2 = CompositeRekurisivKonstruktion(
+						CompositeValues compositeValues2 = compositeRekurisivKonstruktion(
 								firstDistributed, line);
 
 						exchangeElements.add(compositeValues2);
@@ -167,7 +167,7 @@ public class APDFileAsCSVImport implements ImportStrategy {
 	 * return minus; }
 	 */
 
-	private CompositeValues CompositeRekurisivKonstruktion(EList<String> list,
+	private CompositeValues compositeRekurisivKonstruktion(EList<String> list,
 			String secondline) {
 		EList<CompositeValues> compositeList = new BasicEList<CompositeValues>();
 		CompositeValues compositeValues = DatatypesFactory.eINSTANCE
@@ -186,16 +186,17 @@ public class APDFileAsCSVImport implements ImportStrategy {
 
 		stringValue.setValue(secondline);
 
-		if (compositeList.size() > 0)
+		if (compositeList.size() > 0) {
 			compositeList.get(compositeList.size() - 1).getDatatypes()
 					.add(stringValue);
-		compositeValues = CompositeRekurisivKonstruktion2(compositeList,
+		}
+		compositeValues = compositeRekurisivKonstruktion2(compositeList,
 				compositeValues);
 
 		return compositeValues;
 	}
 
-	private CompositeValues CompositeRekurisivKonstruktion2(
+	private CompositeValues compositeRekurisivKonstruktion2(
 			EList<CompositeValues> list, CompositeValues compositeValues) {
 
 		if (list.size() > 0) {

@@ -17,7 +17,6 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.emfstore.client.ESWorkspace;
 import org.eclipse.emf.emfstore.client.ESWorkspaceProvider;
-import org.eclipse.emf.emfstore.internal.client.model.ESWorkspaceProviderImpl;
 import org.eclipse.emf.emfstore.internal.client.model.Workspace;
 import org.eclipse.emf.emfstore.internal.client.model.impl.api.ESWorkspaceImpl;
 import org.eclipse.emf.emfstore.internal.common.model.Project;
@@ -27,6 +26,7 @@ import org.eclipse.emf.emfstore.internal.common.model.Project;
  * 
  * @author Michael Kagel
  */
+@SuppressWarnings("restriction")
 public class ImportTestProjectCommand extends CDTCommand {
 
 	private static final String PROJECTNAME = "/resources/DemoProject.ucp";

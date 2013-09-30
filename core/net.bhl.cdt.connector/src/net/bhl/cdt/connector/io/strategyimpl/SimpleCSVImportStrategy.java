@@ -89,6 +89,7 @@ public class SimpleCSVImportStrategy implements ImportStrategy {
 				compositeElement.getDatatypes().add(exchangeValue);
 			}
 			exchangeElements.add(compositeElement);
+			bufReader.close();
 		} catch (FileNotFoundException e) {
 			throw new ImportException("File does not exist!", e);
 		} catch (IOException e) {

@@ -97,6 +97,7 @@ public class DummyCSVStrategy implements ImportStrategy {
 				}
 				exchangeElements.add(compositeElement);
 			}
+			bufReader.close();
 		} catch (FileNotFoundException e) {
 			throw new ImportException("File does not exist!", e);
 		} catch (IOException e) {

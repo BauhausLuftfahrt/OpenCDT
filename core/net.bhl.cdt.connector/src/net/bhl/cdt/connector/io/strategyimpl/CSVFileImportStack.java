@@ -26,13 +26,13 @@ public class CSVFileImportStack {
 	 * @param CompositeList
 	 *            is our Memory
 	 */
-	public EList<DataType> CompositeList = new BasicEList<DataType>();
+	private EList<DataType> compositeList = new BasicEList<DataType>();
 
 	/**
 	 * Constructor.
 	 **/
-	public CSVFileImportStack(EList<DataType> CompositeList) {
-		this.CompositeList = CompositeList;
+	public CSVFileImportStack(EList<DataType> compositeList) {
+		this.compositeList = compositeList;
 	}
 
 	/**
@@ -82,7 +82,7 @@ public class CSVFileImportStack {
 	}
 
 	/**
-	 * The first element is deleted from the first part
+	 * The first element is deleted from the first part.
 	 * 
 	 * @param ersteTeil
 	 * @return
@@ -105,20 +105,21 @@ public class CSVFileImportStack {
 
 	/**
 	 * position of the difference between "StackList" and "ersteVonErsteTeil" is
-	 * returned
+	 * returned.
 	 * 
 	 * @param stackList
 	 * @param ersteVonErsteTeil
 	 * @return
 	 */
 	private int getPosition(EList<DataType> stackList, String ersteVonErsteTeil) {
-		int res;
+		//int res;
 		for (int stacklistcounter = 0; stacklistcounter < stackList.size(); stacklistcounter++) {
 			if (stackList.get(stacklistcounter) instanceof CompositeValues) {
 				CompositeValues compositeValues = (CompositeValues) stackList
 						.get(stacklistcounter);
-				if (ersteVonErsteTeil.equals(compositeValues.getName()))
+				if (ersteVonErsteTeil.equals(compositeValues.getName())) {
 					return stacklistcounter;
+				}
 
 			}
 
@@ -140,7 +141,7 @@ public class CSVFileImportStack {
 	private CompositeValues konstruiereCVvonList(int pos,
 			EList<String> ersteTeil, EList<String> zweiteTeil) {
 
-		int position = pos;
+		//int position = pos;
 
 		EList<CompositeValues> compositeList = new BasicEList<CompositeValues>();
 
@@ -163,7 +164,7 @@ public class CSVFileImportStack {
 				MeasuredValue measuredValue = (MeasuredValue) dataType;
 				compositeValues.getDatatypes().add(measuredValue);
 			} else if (dataType instanceof StringValue) {
-				StringValue stringValue = (StringValue) dataType;
+				//StringValue stringValue = (StringValue) dataType;
 			}
 
 		}
@@ -179,7 +180,7 @@ public class CSVFileImportStack {
 						.add(stringValue);
 			}
 
-			compositeValues = CompositeRekurisivKonstruktion2(compositeList,
+			compositeValues = compositeRekurisivKonstruktion2(compositeList,
 					compositeValues);
 		}
 		return compositeValues;
@@ -203,10 +204,12 @@ public class CSVFileImportStack {
 		try {
 			d = Double.valueOf(zweiteTeil.get(0));
 			measuredValue.setValue(d);
-			if (zweiteTeil.size() > 1)
+			if (zweiteTeil.size() > 1) {
 				s1 = zweiteTeil.get(1);
-			if (zweiteTeil.size() > 2)
+			}
+			if (zweiteTeil.size() > 2) {
 				s2 = zweiteTeil.get(2);
+			}
 
 			measuredValue.setName(s1 + " : " + s2);
 
@@ -218,8 +221,9 @@ public class CSVFileImportStack {
 
 		}
 
-		if (measuredValue.equals(null))
+		if (measuredValue.equals(null)) {
 			return stringValue;
+		}
 
 		return measuredValue;
 	}
@@ -227,7 +231,7 @@ public class CSVFileImportStack {
 	public EList<DataType> returnList()
 
 	{
-		return this.CompositeList;
+		return this.compositeList;
 	}
 
 	/**
@@ -237,7 +241,7 @@ public class CSVFileImportStack {
 	 * @param compositeValues
 	 * @return
 	 */
-	private CompositeValues CompositeRekurisivKonstruktion2(
+	private CompositeValues compositeRekurisivKonstruktion2(
 			EList<CompositeValues> list, CompositeValues compositeValues) {
 
 		if (list.size() > 0) {

@@ -114,7 +114,7 @@ public class CSVFileImport_2012_2 implements ImportStrategy {
 				}
 
 			}
-
+			bufReader.close();
 		} catch (FileNotFoundException e) {
 			throw new ImportException("File does not exist!", e);
 		} catch (IOException e) {

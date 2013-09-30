@@ -45,9 +45,6 @@ public class InsertFileResourceCommand extends CDTCommand {
 	 *            The Model in which the Configuration will be inserted in
 	 * @param fileName
 	 *            The name of the new Configuration
-	 * @param importedExchangeElements
-	 *            A list of Elements which will should be imported as new
-	 *            Configuration
 	 */
 
 	public InsertFileResourceCommand(final Resources targetResources,

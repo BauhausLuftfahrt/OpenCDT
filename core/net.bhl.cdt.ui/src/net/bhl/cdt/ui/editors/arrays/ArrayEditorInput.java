@@ -26,6 +26,7 @@ public class ArrayEditorInput implements IEditorInput {
 		return array;
 	}
 
+	@SuppressWarnings("rawtypes")
 	@Override
 	public Object getAdapter(Class adapter) {
 		return null;

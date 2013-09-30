@@ -14,6 +14,7 @@ import org.eclipse.emf.ecp.core.util.ECPFilterProvider;
 
 /**
  * Filter all EPackages not in bhl.net.
+ * Used by ExtensionPoint filter.
  * 
  * @author David Otter
  *
@@ -32,9 +33,6 @@ public class CDTDefaultFilterProvider implements ECPFilterProvider {
 			if (!temp.contains("bhl.net")) {
 				hiddenElements.add(temp);
 			}
-		}
-		for (String key: hiddenElements){
-			System.out.println(key);
 		}
 		return hiddenElements;
 	}

@@ -7,12 +7,14 @@ package net.bhl.cdt.ui;
 
 import java.io.File;
 
+
 /**
  * Do we really need this class?
  */
 import org.eclipse.emf.emfstore.internal.client.model.util.DefaultWorkspaceLocationProvider;
 
 
+@SuppressWarnings("restriction")
 public class WorkspaceLocationProvider extends DefaultWorkspaceLocationProvider{
 
 	public static final Object CDT_FOLDERNAME = ".cdt";

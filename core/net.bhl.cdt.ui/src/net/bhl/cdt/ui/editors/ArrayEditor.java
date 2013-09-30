@@ -45,10 +45,13 @@ public class ArrayEditor extends EditorPart {
 
 	public static final String ID = "net.bhl.cdt.ui.editors.ArrayEditor"; //$NON-NLS-1$
 	private Table table;
-	private Composite parent;
+	//private Composite parent;
 	private Array array;
 	private ECPProject ecpProject;
 
+	/**
+	 * Calls super Constructor.
+	 */
 	public ArrayEditor() {
 
 		super();
@@ -79,7 +82,7 @@ public class ArrayEditor extends EditorPart {
 
 	public void createData(Array array, Table table) {
 		int clmn = 0;
-		int k = 0;
+		//int k = 0;
 		if (array.getDatatypes().get(0) instanceof Array) {
 
 			int f = 0;
@@ -110,10 +113,10 @@ public class ArrayEditor extends EditorPart {
 					else {
 						if (data instanceof Array) {
 
-							DataType data2 = ((Array) data).getDatatypes().get(
-									0);
+							//DataType data2 = ((Array) data).getDatatypes().get(
+							//		0);
 
-							k++;
+							//k++;
 							item.setText(z, ((Array) data).getName());
 							TableEditor[] buttonEditors = new TableEditor[1];
 
@@ -149,9 +152,9 @@ public class ArrayEditor extends EditorPart {
 										public void widgetSelected(
 												SelectionEvent event) {
 
-											ArrayEditorOpener ArrayEditorOpener = new ArrayEditorOpener();
+											ArrayEditorOpener arrayEditorOpener = new ArrayEditorOpener();
 
-											ArrayEditorOpener
+											arrayEditorOpener
 													.openModelElement((Array) data, ecpProject);
 										}
 									});
@@ -203,8 +206,9 @@ public class ArrayEditor extends EditorPart {
 
 				try {
 					s = dataType.getName();
-					if (s == null)
+					if (s == null) {
 						s = "NO NAME";
+					}
 				} catch (Exception e) {
 
 					// TODO: handle exception
@@ -216,13 +220,15 @@ public class ArrayEditor extends EditorPart {
 			}
 		}
 
+
 		else {
 			TableColumn tblclmnTest = new TableColumn(table, SWT.NONE);
 			tblclmnTest.setWidth(110);
 			try {
 				s = array.getName();
-				if (s == null)
+				if (s == null) {
 					s = "NO NAME";
+				}
 			} catch (Exception e) {
 				// TODO: handle exception
 				s = "NO NAME";
@@ -411,8 +417,9 @@ public class ArrayEditor extends EditorPart {
 							visible = true;
 						}
 					}
-					if (!visible)
+					if (!visible) {
 						return;
+					}
 					index++;
 				}
 			}
