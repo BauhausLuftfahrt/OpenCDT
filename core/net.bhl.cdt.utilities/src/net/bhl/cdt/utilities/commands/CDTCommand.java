@@ -17,7 +17,6 @@ import org.eclipse.emf.common.command.AbstractCommand;
  */
 
 public abstract class CDTCommand extends AbstractCommand {
-	private RuntimeException runtimeException;
 
 	/**
 	 * Checks objects for null and throws {@link CDTRuntimeException} in case of null.
@@ -29,25 +28,11 @@ public abstract class CDTCommand extends AbstractCommand {
 	}
 
 	/**
-	 * get the RuntimeException if occurred.
-	 * 
-	 * @return exception /null
-	 */
-	public RuntimeException getRuntimeException() {
-		return runtimeException;
-	}
-
-	/**
 	 * Execute the command. {@link #commandBody()}
 	 */
 	public void execute() {
-		try {
-			doRun();
-			// commandBody();
-		} catch (RuntimeException e) {
-			runtimeException = e;
-			throw e;
-		}
+		doRun();
+		// commandBody();
 	}
 
 	/**

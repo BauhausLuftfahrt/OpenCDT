@@ -16,7 +16,6 @@ import org.eclipse.emf.common.command.AbstractCommand;
  */
 
 public abstract class CDTCommandWithResult<T> extends AbstractCommand {
-	private RuntimeException runtimeException;
 	private T result;
 
 	/**
@@ -29,25 +28,11 @@ public abstract class CDTCommandWithResult<T> extends AbstractCommand {
 	}
 
 	/**
-	 * get the RuntimeException if occurred.
-	 * 
-	 * @return exception /null
-	 */
-	public RuntimeException getRuntimeException() {
-		return runtimeException;
-	}
-
-	/**
 	 * Execute the command. {@link #commandBody()}
 	 */
 	public void execute() {
-		try {
-			result = doRun();
-			// commandBody();
-		} catch (RuntimeException e) {
-			runtimeException = e;
-			throw e;
-		}
+		result = doRun();
+		// commandBody();
 	}
 
 	/**
