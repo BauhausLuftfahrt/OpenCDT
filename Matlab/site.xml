@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/net.bhl.cdt.MatlabGenerator_1.0.0.201310081316.jar" id="net.bhl.cdt.MatlabGenerator" version="1.0.0.201310081316" os="" ws="" nl=""/>
+   <feature url="features/net.bhl.cdt.MatlabGenerator_1.0.0.201310081322.jar" id="net.bhl.cdt.MatlabGenerator" version="1.0.0.201310081322"/>
 </site>
