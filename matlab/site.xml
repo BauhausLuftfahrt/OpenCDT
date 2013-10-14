@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/MatlabGenerator_1.0.0.201310141309.jar" id="MatlabGenerator" version="1.0.0.201310141309"/>
+</site>
