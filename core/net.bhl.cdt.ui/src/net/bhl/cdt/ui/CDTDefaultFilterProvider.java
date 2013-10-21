@@ -30,7 +30,8 @@ public class CDTDefaultFilterProvider implements ECPFilterProvider {
 		Iterator<String> iterator = relevantURIs.iterator();
 		while (iterator.hasNext()){
 			temp = iterator.next();
-			if (!temp.contains("bhl.net")) {
+			System.out.println(temp);
+			if (!temp.contains("bhl.net") && !temp.contains("admf.org")) {
 				hiddenElements.add(temp);
 			}
 		}
