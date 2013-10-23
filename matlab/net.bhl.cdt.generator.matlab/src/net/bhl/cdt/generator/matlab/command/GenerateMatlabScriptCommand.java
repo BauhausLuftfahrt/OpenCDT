@@ -78,6 +78,7 @@ public class GenerateMatlabScriptCommand extends CDTCommand {
 		}
 		names = new LinkedList<String>();
 		if (firstElement instanceof AircraftModelImpl) {
+			System.err.println("print");
 			AircraftModelImpl aircraftModelImpl = (AircraftModelImpl) firstElement;
 			write(directory, aircraftModelImpl);
 		}
