@@ -15,10 +15,13 @@
                style="push">
             <visibleWhen
                   checkEnabled="false">
-               <iterate>
-                  <instanceof
-                        value="org.admf.AircraftModelElement">
-                  </instanceof>
+               <iterate
+                     ifEmpty="false">
+                  <and>
+                     <instanceof
+                           value="admf.AircraftModelElement">
+                     </instanceof>
+                  </and>
                </iterate>
             </visibleWhen>
          </command>
