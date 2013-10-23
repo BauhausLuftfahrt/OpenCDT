@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.emf.ecp.ui.ModelExplorerView">
+         <separator
+               name="separator"
+               visible="true">
+         </separator>
+         <command
+               commandId="net.bhl.cdt.opencdt.converter.convert"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <iterate>
+                  <instanceof
+                        value="org.admf.AircraftModelElement">
+                  </instanceof>
+               </iterate>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="net.bhl.cdt.generator.matlab.handler.Converter"
+            id="net.bhl.cdt.opencdt.converter.convert"
+            name="Generate Matlab Code">
+      </command>
+   </extension>
+
+</plugin>
