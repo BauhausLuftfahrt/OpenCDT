@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!-- Schema file written by PDE -->
-<schema targetNamespace="net.bhl.cdt.controller" xmlns="http://www.w3.org/2001/XMLSchema">
+<schema targetNamespace="net.bhl.cdt.connector" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="net.bhl.cdt.controller" id="importstrategy" name="importstrategy"/>
+         <meta.schema plugin="net.bhl.cdt.connector" id="importstrategy" name="importstrategy"/>
       </appinfo>
       <documentation>
          [Enter description of this extension point.]

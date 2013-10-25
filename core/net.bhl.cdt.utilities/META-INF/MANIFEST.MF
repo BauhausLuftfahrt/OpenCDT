@@ -24,9 +24,6 @@ Export-Package: javax.measure,
  javolution.xml,
  javolution.xml.sax,
  javolution.xml.stream,
- net.bhl.cdt.utilities.basecalculationmodel,
- net.bhl.cdt.utilities.basecalculationmodel.impl,
- net.bhl.cdt.utilities.basecalculationmodel.util,
  net.bhl.cdt.utilities.commands,
  net.bhl.cdt.utilities.datatypes,
  net.bhl.cdt.utilities.datatypes.impl,
@@ -60,5 +57,8 @@ Export-Package: javax.measure,
  org.opengis.spatialschema.geometry,
  org.opengis.spatialschema.geometry.geometry,
  org.opengis.util
-Require-Bundle: org.eclipse.emf.emfstore.client;bundle-version="1.0.1";visibility:=reexport
+Require-Bundle: org.eclipse.emf.emfstore.client;visibility:=reexport;bundle-version="1.0.1",
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ net.bhl.cdt.utilities;visibility:=reexport
 Bundle-ActivationPolicy: lazy

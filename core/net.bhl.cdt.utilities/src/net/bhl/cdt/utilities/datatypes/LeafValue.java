@@ -8,8 +8,7 @@ package net.bhl.cdt.utilities.datatypes;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Leaf Value</b></em>'. <!-- end-user-doc -->
- *
- *
+ * 
  * @see net.bhl.cdt.utilities.datatypes.DatatypesPackage#getLeafValue()
  * @model abstract="true"
  * @generated

@@ -8,27 +8,26 @@ package net.bhl.cdt.utilities.datatypes;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>String Value</b></em>'. <!-- end-user-doc -->
- *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link net.bhl.cdt.utilities.datatypes.StringValue#getValue <em>Value</em>}</li>
+ * <li>{@link net.bhl.cdt.utilities.datatypes.StringValue#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see net.bhl.cdt.utilities.datatypes.DatatypesPackage#getStringValue()
  * @model
  * @generated
  */
 public interface StringValue extends LeafValue {
 	/**
-	 * Returns the value of the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Value</em>' attribute isn't clear, there really should be more of a description
 	 * here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Value</em>' attribute.
 	 * @see #setValue(String)
 	 * @see net.bhl.cdt.utilities.datatypes.DatatypesPackage#getStringValue_Value()
@@ -40,6 +39,7 @@ public interface StringValue extends LeafValue {
 	/**
 	 * Sets the value of the '{@link net.bhl.cdt.utilities.datatypes.StringValue#getValue <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @param value the new value of the '<em>Value</em>' attribute.
 	 * @see #getValue()
 	 * @generated

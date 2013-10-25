@@ -32,8 +32,7 @@ public class UnitsFactoryImpl extends EFactoryImpl implements UnitsFactory {
 	 */
 	public static UnitsFactory init() {
 		try {
-			UnitsFactory theUnitsFactory = (UnitsFactory) EPackage.Registry.INSTANCE
-				.getEFactory("http://bhl.net/cdt/utilities/units");
+			UnitsFactory theUnitsFactory = (UnitsFactory) EPackage.Registry.INSTANCE.getEFactory(UnitsPackage.eNS_URI);
 			if (theUnitsFactory != null) {
 				return theUnitsFactory;
 			}

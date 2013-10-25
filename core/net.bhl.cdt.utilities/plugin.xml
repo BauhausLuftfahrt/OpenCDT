@@ -20,12 +20,23 @@
             genModel="model/datatypes.genmodel"
             uri="http://bhl.net/cdt/utilities/datatypes">
       </package>
-      <package
-            class="net.bhl.cdt.utilities.basecalculationmodel.BasecalculationmodelPackage"
-            genModel="model/basecalculation.genmodel"
-            uri="http://bhl.net/cdt/utilities/basecalculationmodel/">
-      </package>
    </extension>
 
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated units -->
+      <package
+            uri="http://bhl.net/cdt/utilities/units"
+            class="net.bhl.cdt.utilities.units.UnitsPackage"
+            genModel="model/units.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated datatypes -->
+      <package
+            uri="http://bhl.net/cdt/utilities/datatypes/"
+            class="net.bhl.cdt.utilities.datatypes.DatatypesPackage"
+            genModel="model/datatypes.genmodel"/>
+   </extension>
 
 </plugin>

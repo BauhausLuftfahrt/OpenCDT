@@ -30,7 +30,7 @@ public class ExchangemodelFactoryImpl extends EFactoryImpl implements Exchangemo
 	public static ExchangemodelFactory init() {
 		try {
 			ExchangemodelFactory theExchangemodelFactory = (ExchangemodelFactory) EPackage.Registry.INSTANCE
-				.getEFactory("http://bhl.net/cdt/utilities/exchangemodel/");
+				.getEFactory(ExchangemodelPackage.eNS_URI);
 			if (theExchangemodelFactory != null) {
 				return theExchangemodelFactory;
 			}

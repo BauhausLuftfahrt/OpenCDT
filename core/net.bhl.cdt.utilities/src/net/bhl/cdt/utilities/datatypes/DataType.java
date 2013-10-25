@@ -10,8 +10,7 @@ import net.bhl.cdt.utilities.exchangemodel.ExchangeElement;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Data Type</b></em>'. <!-- end-user-doc -->
- *
- *
+ * 
  * @see net.bhl.cdt.utilities.datatypes.DatatypesPackage#getDataType()
  * @model abstract="true"
  * @generated

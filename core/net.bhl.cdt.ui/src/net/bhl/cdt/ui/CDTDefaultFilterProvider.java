@@ -34,6 +34,7 @@ public class CDTDefaultFilterProvider implements ECPFilterProvider {
 			if (!temp.contains("bhl.net") && !temp.contains("admf.org")) {
 				hiddenElements.add(temp);
 			}
+			else System.out.println(temp);
 		}
 		return hiddenElements;
 	}

@@ -24,14 +24,14 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface CompositeValues extends DataType {
 	/**
-	 * Returns the value of the '<em><b>Datatypes</b></em>' containment reference list.
-	 * The list contents are of type {@link net.bhl.cdt.utilities.datatypes.DataType}.
-	 * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Datatypes</b></em>' containment reference list. The list contents are of type
+	 * {@link net.bhl.cdt.utilities.datatypes.DataType}. <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Datatypes</em>' containment reference list isn't clear, there really should be more of
 	 * a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the value of the '<em>Datatypes</em>' containment reference list.
 	 * @see net.bhl.cdt.utilities.datatypes.DatatypesPackage#getCompositeValues_Datatypes()
 	 * @model containment="true"
@@ -41,6 +41,7 @@ public interface CompositeValues extends DataType {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @model kind="operation" many="false"
 	 * @generated
 	 */
