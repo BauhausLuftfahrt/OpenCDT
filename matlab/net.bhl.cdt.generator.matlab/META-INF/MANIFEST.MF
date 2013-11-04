@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Converter
-Bundle-SymbolicName: net.bhl.cdt.generator.matlab;singleton=true
+Bundle-SymbolicName: net.bhl.cdt.generator.matlab;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: net.bhl.cdt.generator.matlab.Activator
 Require-Bundle: org.eclipse.ui;bundle-version="3.105.0",
