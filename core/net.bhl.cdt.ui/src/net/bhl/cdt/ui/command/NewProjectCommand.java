@@ -33,29 +33,26 @@ public class NewProjectCommand extends CDTCommand {
 	 * Constructor.
 	 */
 	public NewProjectCommand() {
-		this(null, null);
+		this(null);
 	}
 
 	/**
 	 * Constructor.
 	 * 
 	 * @param projectName The new project will have this name.
-	 * @param projectDescription The new project will have this description.
 	 */
-	public NewProjectCommand(String projectName, String projectDescription) {
+	public NewProjectCommand(String projectName) {
 
-		if (projectName == null || projectName == "" || projectName == " " || projectDescription == null) {
+		if (projectName == null || projectName == "" || projectName == " ") {
 			CreateProjectDialog dialog = new CreateProjectDialog(PlatformUI.getWorkbench().getDisplay()
-				.getActiveShell(), projectName, projectDescription);
+				.getActiveShell(), projectName);
 
 			dialog.open();
 
 			this.projectName = dialog.getProjectName();
-			this.projectDescription = dialog.getProjectDescription();
 
 		} else {
 			this.projectName = projectName;
-			this.projectDescription = projectDescription;
 		}
 	}
 

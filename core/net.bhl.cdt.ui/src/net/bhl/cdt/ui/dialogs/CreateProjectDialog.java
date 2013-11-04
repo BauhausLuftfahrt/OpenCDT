@@ -27,10 +27,8 @@ import org.eclipse.swt.widgets.Text;
 public class CreateProjectDialog extends TitleAreaDialog {
 
 	private Text txtProjectName;
-	private Text txtProjectDesc;
 
 	private String projectName;
-	private String projectDescription;
 
 	/**
 	 * Default constructor.
@@ -39,14 +37,11 @@ public class CreateProjectDialog extends TitleAreaDialog {
 	 *            the parent shell
 	 * @param name
 	 *            name of project
-	 * @param description
-	 *            description of project
 	 */
-	public CreateProjectDialog(Shell parent, String name, String description) {
+	public CreateProjectDialog(Shell parent, String name) {
 		super(parent);
 
 		this.projectName = name;
-		this.projectDescription = description;
 	}
 
 	/**
@@ -58,7 +53,7 @@ public class CreateProjectDialog extends TitleAreaDialog {
 		contents.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
 		setTitle("Create new project");
-		setMessage("Enter the name and the description of the project");
+		setMessage("Enter the name of the project");
 
 		Label name = new Label(contents, SWT.NULL);
 		name.setText("Name:");
@@ -66,14 +61,6 @@ public class CreateProjectDialog extends TitleAreaDialog {
 		txtProjectName.setSize(150, 20);
 		if (projectName != null) {
 			txtProjectName.setText(projectName);
-		}
-
-		Label desc = new Label(contents, SWT.NULL);
-		desc.setText("Description:");
-		txtProjectDesc = new Text(contents, SWT.MULTI | SWT.BORDER);
-		txtProjectDesc.setSize(150, 60);
-		if (projectDescription != null) {
-			txtProjectDesc.setText(projectDescription);
 		}
 
 		Point defaultMargins = LayoutConstants.getMargins();
@@ -90,7 +77,6 @@ public class CreateProjectDialog extends TitleAreaDialog {
 	@Override
 	public void okPressed() {
 		this.projectName = txtProjectName.getText();
-		this.projectDescription = txtProjectDesc.getText();
 		close();
 	}
 
@@ -109,15 +95,6 @@ public class CreateProjectDialog extends TitleAreaDialog {
 	 */
 	public String getProjectName() {
 		return this.projectName;
-	}
-
-	/**
-	 * Returns the description of the new Project.
-	 * 
-	 * @return Project description
-	 */
-	public String getProjectDescription() {
-		return this.projectDescription;
 	}
 
 }

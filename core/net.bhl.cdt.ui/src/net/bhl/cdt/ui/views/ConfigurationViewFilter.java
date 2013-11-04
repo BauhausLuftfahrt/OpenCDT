@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.EObject;
 
 public interface ConfigurationViewFilter {
 
-	public boolean configureFilter(Configuration config);
+	boolean configureFilter(Configuration config);
 
-	public boolean filter(EObject obj);
+	boolean filter(EObject obj);
 
 }

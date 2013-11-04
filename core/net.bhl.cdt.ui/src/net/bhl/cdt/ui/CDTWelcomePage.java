@@ -5,7 +5,7 @@
  ******************************************************************************/
 package net.bhl.cdt.ui;
 
-import net.bhl.cdt.ui.command.NewProjectCommand;
+// import net.bhl.cdt.ui.command.NewProjectCommand;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
@@ -14,6 +14,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.intro.IIntroPart;
 import org.eclipse.ui.part.IntroPart;
 
@@ -39,10 +40,17 @@ public class CDTWelcomePage extends IntroPart implements IIntroPart {
 		newProjectButton.computeSize(SWT.DEFAULT, SWT.DEFAULT);
 		newProjectButton.addSelectionListener(new SelectionListener() {
 
+			/**
+			 * NewProjectCommand does no longer work - ECPHandlerHelper.createProject does the same job due it has
+			 * discouraged access it maybe has to be replaced in future versions
+			 */
+			@SuppressWarnings("restriction")
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				dispose();
-				new NewProjectCommand().execute();
+				// new NewProjectCommand().execute();
+				org.eclipse.emf.ecp.internal.ui.util.ECPHandlerHelper.createProject(PlatformUI.getWorkbench()
+					.getDisplay().getActiveShell());
 			}
 
 			@Override
