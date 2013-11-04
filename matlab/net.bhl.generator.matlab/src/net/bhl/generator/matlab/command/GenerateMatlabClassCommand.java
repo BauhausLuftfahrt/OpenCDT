@@ -12,9 +12,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import org.eclipse.core.commands.AbstractHandler;
-import org.eclipse.core.commands.ExecutionEvent;
-import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.emf.codegen.ecore.genmodel.GenClass;
 import org.eclipse.emf.codegen.ecore.genmodel.GenEnum;
 import org.eclipse.emf.codegen.ecore.genmodel.GenFeature;
@@ -24,11 +21,8 @@ import org.eclipse.emf.codegen.ecore.genmodel.impl.GenClassImpl;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenModelImpl;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenPackageImpl;
 import org.eclipse.emf.common.command.AbstractCommand;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.handlers.HandlerUtil;
 
 /**
  * GenModel to Matlab Converter.
@@ -85,8 +79,7 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 	 * @param genPackage
 	 */
 	private void writePackage(String dir, GenPackage genPackage) {
-		dir = dir + "\\" + genPackage.getNSName() + "."
-				+ genPackage.getPackageName();
+		dir = dir + "\\" + genPackage.getNSName() + "." + genPackage.getPackageName();
 		File packageName = new File(dir);
 		if (!packageName.exists()) {
 			packageName.mkdir();
@@ -122,15 +115,14 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 					new FileReader(dir));
 			List<String> notGenerated = bufferedReader.readNonGenerated();
 			bufferedReader.close();
-			ConverterBufferedWriter bufferedWriter = new ConverterBufferedWriter(
-					new FileWriter(file));
+			ConverterBufferedWriter bufferedWriter = new ConverterBufferedWriter(new FileWriter(
+					file));
 			// Comment
 			if (!WriteHelper.isMatch(notGenerated,
 					"% Generated with Bauhaus Luftfahrt Matlab Converter")) {
 				bufferedWriter.writeLine(WriteHelper.getComment());
 			}
-			WriteHelper.writeUntilMark("MARK_classdef", bufferedWriter,
-					notGenerated);
+			WriteHelper.writeUntilMark("MARK_classdef", bufferedWriter, notGenerated);
 			// Class
 			if (WriteHelper.isMatch(notGenerated, "classdef")) {
 				WriteHelper.removeFirst(notGenerated);
@@ -141,40 +133,32 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 			}
 			bufferedWriter.writeLine("classdef " + abstrac + genClass.getName()
 					+ WriteHelper.getInheritance(genClass.getBaseGenClasses()));
-			WriteHelper.writeUntilMark("MARK_properties", bufferedWriter,
-					notGenerated);
+			WriteHelper.writeUntilMark("MARK_properties", bufferedWriter, notGenerated);
 			// Properties + References
 			String properties;
-			if (!WriteHelper
-					.isMatch(notGenerated, "properties.*Access.*public")) {
-				properties = writeProperties(bufferedWriter,
-						genClass.getGenFeatures());
+			if (!WriteHelper.isMatch(notGenerated, "properties.*Access.*public")) {
+				properties = writeProperties(bufferedWriter, genClass.getGenFeatures());
 			} else {
 				properties = "";
 			}
-			WriteHelper.writeUntilMark("MARK_methods", bufferedWriter,
-					notGenerated);
+			WriteHelper.writeUntilMark("MARK_methods", bufferedWriter, notGenerated);
 			// Methods
 			if (WriteHelper.isMatch(notGenerated, "methods")) {
 				WriteHelper.removeFirst(notGenerated);
 			}
 			bufferedWriter.writeLine(1, "methods");
 			// Constructor
-			if (!WriteHelper.isMatch(notGenerated,
-					"function obj = " + genClass.getName())) {
-				writeConstructor(bufferedWriter, genClass.getGenFeatures(),
-						genClass.getName(), properties);
+			if (!WriteHelper.isMatch(notGenerated, "function obj = " + genClass.getName())) {
+				writeConstructor(bufferedWriter, genClass.getGenFeatures(), genClass.getName(),
+						properties);
 			}
 			// Other Methods
-			writeFunctions(bufferedWriter, genClass.getGenOperations(),
-					notGenerated);
+			writeFunctions(bufferedWriter, genClass.getGenOperations(), notGenerated);
 			// Getter and Setter
-			writeGetterSetter(bufferedWriter, genClass.getGenFeatures(),
-					notGenerated);
+			writeGetterSetter(bufferedWriter, genClass.getGenFeatures(), notGenerated);
 			// End
 			WriteHelper.removeEndTail(notGenerated);
-			WriteHelper
-					.writeUntilMark("MARK_END", bufferedWriter, notGenerated);
+			WriteHelper.writeUntilMark("MARK_END", bufferedWriter, notGenerated);
 			bufferedWriter.writeLine(1, "end");
 			bufferedWriter.write("end");
 			bufferedWriter.close();
@@ -194,15 +178,14 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 					new FileReader(dir));
 			List<String> notGenerated = bufferedReader.readNonGenerated();
 			bufferedReader.close();
-			ConverterBufferedWriter bufferedWriter = new ConverterBufferedWriter(
-					new FileWriter(file));
+			ConverterBufferedWriter bufferedWriter = new ConverterBufferedWriter(new FileWriter(
+					file));
 			// Comment
 			if (!WriteHelper.isMatch(notGenerated,
 					"% Generated with Bauhaus Luftfahrt Matlab Converter")) {
 				bufferedWriter.writeLine(WriteHelper.getComment());
 			}
-			WriteHelper.writeUntilMark("MARK_classdef", bufferedWriter,
-					notGenerated);
+			WriteHelper.writeUntilMark("MARK_classdef", bufferedWriter, notGenerated);
 			if (WriteHelper.isMatch(notGenerated, "classdef")) {
 				WriteHelper.removeFirst(notGenerated);
 			}
@@ -212,12 +195,11 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 			if (!WriteHelper.isMatch(notGenerated, "enumeration")) {
 				bufferedWriter.writeLine(1, "% Generated");
 				bufferedWriter.writeLine(1, "enumeration");
-				bufferedWriter.writeLine(2, WriteHelper.getEnumLiterals(genEnum
-						.getGenEnumLiterals()));
+				bufferedWriter.writeLine(2,
+						WriteHelper.getEnumLiterals(genEnum.getGenEnumLiterals()));
 			}
 			WriteHelper.removeEndTail(notGenerated);
-			WriteHelper
-					.writeUntilMark("MARK_END", bufferedWriter, notGenerated);
+			WriteHelper.writeUntilMark("MARK_END", bufferedWriter, notGenerated);
 			bufferedWriter.writeLine(1, "end");
 
 			bufferedWriter.write("end");
@@ -252,10 +234,8 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 			if (initialization == null) {
 				bufferedWriter.writeLine(2, genFeature.getName());
 			} else {
-				initialization = initialization.substring(1,
-						initialization.length() - 1);
-				bufferedWriter.writeLine(2, genFeature.getName() + " = "
-						+ initialization + ";");
+				initialization = initialization.substring(1, initialization.length() - 1);
+				bufferedWriter.writeLine(2, genFeature.getName() + " = " + initialization + ";");
 			}
 		}
 		bufferedWriter.writeLine(1, "end");
@@ -284,23 +264,19 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 			// check for Generated NOT - Begin setter
 			if (!WriteHelper.isMatch(notGenerated, "function set." + name)) {
 				bufferedWriter.writeLine(2, "% Generated Set");
-				bufferedWriter.writeLine(2, "function set." + name + " (obj,"
-						+ name + ")");
+				bufferedWriter.writeLine(2, "function set." + name + " (obj," + name + ")");
 				if (!genFeature.isReferenceType()) {// Variables
 					if (type != null && map.containsKey(type)) {
 						writeTypeSafety(bufferedWriter, map.get(type), name);
 					} else {
-						bufferedWriter.writeLine(3, "obj." + name + " = "
-								+ name + ";");
+						bufferedWriter.writeLine(3, "obj." + name + " = " + name + ";");
 					}
 				} else {// References
-					if (type != null
-							&& !type.equals("org.eclipse.emf.ecore.EObject")) {
-						writeTypeSafety(bufferedWriter,
-								type.substring(type.lastIndexOf('.') + 1), name);
+					if (type != null && !type.equals("org.eclipse.emf.ecore.EObject")) {
+						writeTypeSafety(bufferedWriter, type.substring(type.lastIndexOf('.') + 1),
+								name);
 					} else {
-						bufferedWriter.writeLine(3, "obj." + name + " = "
-								+ name + ";");
+						bufferedWriter.writeLine(3, "obj." + name + " = " + name + ";");
 					}
 				}
 				bufferedWriter.writeLine(2, "end");
@@ -309,8 +285,7 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 			// check for Generated NOT - Begin getter
 			if (!WriteHelper.isMatch(notGenerated, "function get." + name)) {
 				bufferedWriter.writeLine(2, "% Generated Get");
-				bufferedWriter.writeLine(2, "function " + name + " = " + "get."
-						+ name + " (obj)");
+				bufferedWriter.writeLine(2, "function " + name + " = " + "get." + name + " (obj)");
 				bufferedWriter.writeLine(3, name + " = obj." + name + ";");
 				bufferedWriter.writeLine(2, "end");
 			}
@@ -327,8 +302,7 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 	 * @param name
 	 *            Name of the Property
 	 */
-	private void writeTypeSafety(ConverterBufferedWriter bufferedWriter,
-			String type, String name) {
+	private void writeTypeSafety(ConverterBufferedWriter bufferedWriter, String type, String name) {
 		type = type.replaceAll(">", "");
 		bufferedWriter.writeLine(3, "if (isa(" + name + ", '" + type + "'))");
 		bufferedWriter.writeLine(4, "obj." + name + " = " + name + ";");
@@ -356,8 +330,7 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 		if (genFeatures.isEmpty()) {
 			bufferedWriter.writeLine(2, "function obj = " + className + " ()");
 		} else {
-			bufferedWriter.writeLine(2, "function obj = " + className + " ("
-					+ properties + ")");
+			bufferedWriter.writeLine(2, "function obj = " + className + " (" + properties + ")");
 			bufferedWriter.writeLine(3, "if (nargin > 0)");
 			for (GenFeature genFeature : genFeatures) {
 				String name = genFeature.getName();
@@ -377,7 +350,7 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 	private void writeFunctions(ConverterBufferedWriter bufferedWriter,
 			List<GenOperation> genOperations, List<String> notGenerated) {
 		for (GenOperation genOperation : genOperations) {
-			if (WriteHelper.isMatch(notGenerated, "function.*"+genOperation.getName())){
+			if (WriteHelper.isMatch(notGenerated, "function.*" + genOperation.getName())) {
 				continue;
 			}
 			String parameter = genOperation.getParameterNames(",");
@@ -389,14 +362,13 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 			bufferedWriter.writeLine(2, "% Generated");
 			// with return value
 			if (genOperation.getTypeGenDataType() != null) {
-				bufferedWriter.writeLine(2, "function " + "value = "
-						+ genOperation.getName() + " (" + parameter + ")");
+				bufferedWriter.writeLine(2, "function " + "value = " + genOperation.getName()
+						+ " (" + parameter + ")");
 				bufferedWriter.writeLine(3, "value = 0;");
 			} else {
 				// without return value
-				bufferedWriter.writeLine(2,
-						"function " + genOperation.getName() + " (" + parameter
-								+ ")");
+				bufferedWriter.writeLine(2, "function " + genOperation.getName() + " (" + parameter
+						+ ")");
 				bufferedWriter.writeLine(3, "");
 			}
 			bufferedWriter.writeLine(2, "end");
@@ -406,12 +378,12 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 	@Override
 	public void execute() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void redo() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
