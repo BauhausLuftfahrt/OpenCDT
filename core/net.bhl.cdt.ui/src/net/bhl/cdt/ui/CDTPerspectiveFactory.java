@@ -5,10 +5,8 @@
  ******************************************************************************/
 package net.bhl.cdt.ui;
 
-import net.bhl.cdt.ui.adapter.CDTAdapterFacotry;
 import net.bhl.cdt.ui.views.ConfigurationView;
 
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecp.ui.views.ModelExplorerView;
 import org.eclipse.emf.ecp.ui.views.ModelRepositoriesView;
 import org.eclipse.ui.IFolderLayout;
@@ -18,7 +16,7 @@ import org.eclipse.ui.IPerspectiveFactory;
 /**
  * Creates the CDTPerspective. Called by implemented extension point.
  * 
- * @author Michael Kagel
+ * @author Michael Kagel, David Otter
  */
 @SuppressWarnings("restriction")
 public class CDTPerspectiveFactory implements IPerspectiveFactory {
@@ -43,10 +41,13 @@ public class CDTPerspectiveFactory implements IPerspectiveFactory {
 		IFolderLayout bottom = layout.createFolder("bottom", IPageLayout.BOTTOM, 0.70f, layout.getEditorArea());
 		bottom.addView(IPageLayout.ID_PROP_SHEET);
 
-		CDTAdapterFacotry facotry = new CDTAdapterFacotry();
-		Platform.getAdapterManager().registerAdapters(facotry, ModelExplorerView.class);
-		Platform.getAdapterManager().registerAdapters(facotry, ModelRepositoriesView.class);
-		Platform.getAdapterManager().registerAdapters(facotry, ConfigurationView.class);
+		/**
+		 * Replaced by ApplicationWorkbenchWindowAdvisor.preWindowOpen()
+		 */
+//		CDTAdapterFacotry facotry = new CDTAdapterFacotry();
+//		Platform.getAdapterManager().registerAdapters(facotry, ModelExplorerView.class);
+//		Platform.getAdapterManager().registerAdapters(facotry, ModelRepositoriesView.class);
+//		Platform.getAdapterManager().registerAdapters(facotry, ConfigurationView.class);
 	}
 
 }

@@ -5,6 +5,9 @@
  ******************************************************************************/
 package net.bhl.cdt.client;
 
+import net.bhl.cdt.ui.adapter.CDTAdapterFacotry;
+
+import org.eclipse.core.runtime.Platform;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
@@ -27,5 +30,8 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 		configurer.setShowCoolBar(false);
 		configurer.setShowStatusLine(false);
 		configurer.setTitle("OpenCDT");
+
+		CDTAdapterFacotry facotry = new CDTAdapterFacotry();
+		Platform.getAdapterManager().registerAdapters(facotry, Object.class);
 	}
 }
