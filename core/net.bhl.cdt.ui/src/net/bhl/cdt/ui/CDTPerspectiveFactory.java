@@ -40,11 +40,6 @@ public class CDTPerspectiveFactory implements IPerspectiveFactory {
 
 		IFolderLayout bottom = layout.createFolder("bottom", IPageLayout.BOTTOM, 0.70f, layout.getEditorArea());
 		bottom.addView(IPageLayout.ID_PROP_SHEET);
-
-//		CDTAdapterFacotry facotry = new CDTAdapterFacotry();
-//		Platform.getAdapterManager().registerAdapters(facotry, ModelExplorerView.class);
-//		Platform.getAdapterManager().registerAdapters(facotry, ModelRepositoriesView.class);
-//		Platform.getAdapterManager().registerAdapters(facotry, ConfigurationView.class);
 	}
 
 }
