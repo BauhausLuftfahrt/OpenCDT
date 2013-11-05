@@ -126,5 +126,15 @@
             class="net.bhl.cdt.ui.CDTDefaultFilterProvider">
       </FilterProvider>
    </extension>
+   <extension
+         point="org.eclipse.core.runtime.adapters">
+      <factory
+            adaptableType="java.lang.Object"
+            class="net.bhl.cdt.ui.adapter.CDTAdapterFacotry">
+         <adapter
+               type="org.eclipse.ui.views.properties.IPropertySheetPage">
+         </adapter>
+      </factory>
+   </extension>
 
 </plugin>

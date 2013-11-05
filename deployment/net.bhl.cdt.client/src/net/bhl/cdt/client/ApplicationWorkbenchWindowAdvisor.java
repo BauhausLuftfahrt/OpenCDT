@@ -5,9 +5,6 @@
  ******************************************************************************/
 package net.bhl.cdt.client;
 
-import net.bhl.cdt.ui.adapter.CDTAdapterFacotry;
-
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.ui.application.ActionBarAdvisor;
 import org.eclipse.ui.application.IActionBarConfigurer;
@@ -25,13 +22,14 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 	}
 
 	public void preWindowOpen() {
+		System.err.println("PRE Window");
 		IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
 		configurer.setInitialSize(new Point(1400, 756));
 		configurer.setShowCoolBar(false);
 		configurer.setShowStatusLine(false);
 		configurer.setTitle("OpenCDT");
 
-		CDTAdapterFacotry facotry = new CDTAdapterFacotry();
-		Platform.getAdapterManager().registerAdapters(facotry, Object.class);
+		// CDTAdapterFacotry facotry = new CDTAdapterFacotry();
+		// Platform.getAdapterManager().registerAdapters(facotry, Object.class);
 	}
 }

@@ -7,6 +7,8 @@ package net.bhl.cdt.ui.adapter;
 
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.swt.widgets.Control;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
 import org.eclipse.ui.views.properties.PropertySheetPage;
 
@@ -17,7 +19,7 @@ import org.eclipse.ui.views.properties.PropertySheetPage;
  * @author Michael Kagel
  */
 public final class PropertySheetPageAdapter {
-
+	
 	private PropertySheetPageAdapter() {
 	}
 

@@ -65,7 +65,9 @@ public class ArrayEditor extends EditorPart {
 	 */
 	@Override
 	public void createPartControl(Composite parent) {
-
+		if(array.getDatatypes().isEmpty()) {
+			return;
+		}
 		table = new Table(parent, SWT.BORDER);
 		table.setHeaderVisible(true);
 		table.setLinesVisible(true);
