@@ -93,7 +93,6 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 				allClasses.add(((GenClass) next).getEcoreClass());
 			}
 		}
-		// TODO remove duplicates?
 	}
 
 	/**
@@ -299,11 +298,10 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 						bufferedWriter.writeLine(3, "obj." + name + " = " + name + ";");
 					}
 				} else {// References
-					if (type != null && !type.equals("org.eclipse.emf.ecore.EObject")) {
-						if (!hasSubtype(genFeature.getTypeGenClass().getEcoreClass())) {
-							writeTypeSafety(bufferedWriter,
-									type.substring(type.lastIndexOf('.') + 1), name);
-						}
+					if (type != null && !type.equals("org.eclipse.emf.ecore.EObject")
+							&& !hasSubtype(genFeature.getTypeGenClass().getEcoreClass())) {
+						writeTypeSafety(bufferedWriter, type.substring(type.lastIndexOf('.') + 1),
+								name);
 					} else {
 						bufferedWriter.writeLine(3, "obj." + name + " = " + name + ";");
 					}
