@@ -21,6 +21,7 @@ import org.eclipse.emf.codegen.ecore.genmodel.impl.GenClassImpl;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenModelImpl;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenPackageImpl;
 import org.eclipse.emf.common.command.AbstractCommand;
+import org.eclipse.emf.ecore.EReference;
 import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Shell;
 
@@ -85,7 +86,6 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 			packageName.mkdir();
 		}
 		for (GenPackage genSubPackage : genPackage.getSubGenPackages()) {
-			System.out.println(dir);
 			writePackage(dir, genSubPackage);
 		}
 		for (GenClass genClass : genPackage.getGenClasses()) {
@@ -273,8 +273,13 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 					}
 				} else {// References
 					if (type != null && !type.equals("org.eclipse.emf.ecore.EObject")) {
-						writeTypeSafety(bufferedWriter, type.substring(type.lastIndexOf('.') + 1),
-								name);
+						// &&
+						// genFeature.getContainmentFlag().equals("IS_COMPOSITE")
+						System.err.println(genFeature);
+						//if (!genFeature.getTypeGenClass().getChildrenFeatures().isEmpty()) {
+							writeTypeSafety(bufferedWriter,
+									type.substring(type.lastIndexOf('.') + 1), name);
+						//}
 					} else {
 						bufferedWriter.writeLine(3, "obj." + name + " = " + name + ";");
 					}

@@ -10,7 +10,7 @@
          visible="true">
    		</separator>        
         <command
-        	commandId="net.bhl.cdt.converter.convert"
+        	commandId="net.bhl.converter.convert"
             style="push">
             	<visibleWhen checkEnabled="false">
                 	<iterate>
@@ -33,8 +33,8 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="net.bhl.generator.matlab.command.GenerateMatlabClassCommand"
-            id="net.bhl.cdt.converter.convert"
+            defaultHandler="net.bhl.generator.matlab.handler.Converter"
+            id="net.bhl.converter.convert"
             name="Generate Matlab Code">
       </command>
    </extension>
