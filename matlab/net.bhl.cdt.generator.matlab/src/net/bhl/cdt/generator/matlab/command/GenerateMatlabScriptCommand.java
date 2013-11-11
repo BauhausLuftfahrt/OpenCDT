@@ -14,7 +14,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.ADDAM.AircraftModelElement;
-import org.ADDAM.impl.AircraftModelImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -59,7 +58,7 @@ public class GenerateMatlabScriptCommand extends CDTCommand {
 	}
 
 	/**
-	 * Get directory and Class of firstElement. Select and create .m file.
+	 * Get directory and Class of firstElement. Select .m file directory.
 	 */
 	public void doRun() {
 		FileDialog fileDialog = new FileDialog(shell);
@@ -73,33 +72,29 @@ public class GenerateMatlabScriptCommand extends CDTCommand {
 		if (!directory.matches(".*\\.m")) {
 			directory += ".m";
 		}
-		File file = new File(directory);
-		if (!file.exists()) {
-			try {
-				file.createNewFile();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
 		names = new LinkedList<String>();
-		if (firstElement instanceof AircraftModelImpl) {
-			AircraftModelImpl aircraftModelImpl = (AircraftModelImpl) firstElement;
+		if (firstElement instanceof AircraftModelElement) {
+			AircraftModelElement aircraftModelImpl = (AircraftModelElement) firstElement;
 			write(directory, aircraftModelImpl);
 		} else {
-			System.err.println("No AircraftModel element selected.");
+			System.err.println("No AircraftModelElement selected.");
 		}
 	}
 
 	/**
-	 * Create BufferedWriter and iterate over all AircraftModelElements.
+	 * Create BufferedWriter, File and iterate over all AircraftModelElements.
 	 * 
 	 * @param dir
 	 *            Direction to write
 	 * @param aircraftModelImpl
 	 */
-	private void write(String dir, AircraftModelImpl aircraftModelImpl) {
+	private void write(String dir, AircraftModelElement aircraftModelImpl) {
 		try {
-			bufferedWriter = new ConverterBufferedWriter(new FileWriter(new File(dir)));
+			File file = new File(dir);
+			if (!file.exists()) {
+				file.createNewFile();
+			}
+			bufferedWriter = new ConverterBufferedWriter(new FileWriter(file));
 			bufferedWriter.writeLine(WriteHelper.getComment());
 			writeElement(aircraftModelImpl, 0);
 			bufferedWriter.close();
@@ -157,7 +152,6 @@ public class GenerateMatlabScriptCommand extends CDTCommand {
 		if (!isAnonymous) {
 			bufferedWriter.writeLine(tab, name + " = " + eClass.getName() + "();");
 		}
-
 		// Iterate through attributes and set them
 		for (EAttribute attribute : attributes) {
 			Object value = element.eGet(attribute);
@@ -172,36 +166,40 @@ public class GenerateMatlabScriptCommand extends CDTCommand {
 						+ ";");
 			}
 		}
+		// Iterate through and write References
 		for (EReference reference : references) {
 			Object value = element.eGet(reference);
+			/**
+			 * check if root or reference it self is anonymous
+			 */
 			if (value != null && !value.toString().equals("[]")) {
-				writeReference(reference, element, tab, name, isAnonymous);
+				if (value instanceof EObjectContainmentEList || isAnonymous
+						|| reference.isContainment()) {
+					this.writeAnonymousReference(reference, element, tab, name);
+				} else {
+					this.writeReference(reference, value, tab, name);
+				}
 			}
 		}
 	}
 
-	@SuppressWarnings("unchecked")
-	private void writeReference(EReference reference, AircraftModelElement element, int tab,
-			String name, Boolean isAnonymous) {
-
-		Object refObject = element.eGet(reference);
-		/**
-		 * check if root or reference it self is anonymous
-		 */
-		if (refObject instanceof EObjectContainmentEList || isAnonymous
-				|| reference.isContainment()) {
-			writeAnonymousReference(reference, element, tab, name);
-			return;
-		}
+	/**
+	 * Write References if they are not anonymous.
+	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	private void writeReference(EReference reference, Object refObject, int tab, String name) {
 
 		String referenceName;
 		AircraftModelElement refAircraftElement;
 		String allReferences = "";
+		// For Cell Array Check
+		List<Class> classes = new LinkedList<Class>();
 
 		if (refObject instanceof EObjectResolvingEList) {
 			Iterator<EObject> iterator = ((EObjectResolvingEList<EObject>) refObject).iterator();
 			while (iterator.hasNext()) {
 				refAircraftElement = (AircraftModelElement) iterator.next();
+				classes.add(refAircraftElement.getClass());
 				referenceName = this.checkName(refAircraftElement.getName());
 				allReferences += referenceName;
 				if (iterator.hasNext()) {
@@ -219,80 +217,78 @@ public class GenerateMatlabScriptCommand extends CDTCommand {
 				this.writeElement(refAircraftElement, tab + 2);
 			}
 		}
-		// set Reference
-		bufferedWriter.writeLine(tab + 1, name + "." + reference.getName() + " = [" + allReferences
-				+ "];");
+		if (isCellArray(classes)) {
+			bufferedWriter.writeLine(tab + 1, name + "." + reference.getName() + " = {"
+					+ allReferences + "};");
+		} else {
+			bufferedWriter.writeLine(tab + 1, name + "." + reference.getName() + " = ["
+					+ allReferences + "];");
+		}
 	}
 
 	/**
 	 * Get all Reference Targets, match with namesHash, initialize reference,
 	 * call writeElement for Reference Targets (if not happened before).
 	 */
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void writeAnonymousReference(EReference reference, AircraftModelElement element,
 			int tab, String name) {
 		String referenceName;
 		Object refObject = element.eGet(reference);
 		AircraftModelElement refAircraftElement;
-		List<AircraftModelElement> refAircraftElementList = new LinkedList<AircraftModelElement>();
-		String allReferences = "";
-		int count = 1;
+		List<Class> classes = new LinkedList<Class>();
+		Iterator<EObject> iterator = null;
 
 		if (refObject instanceof EObjectContainmentEList) {
-			Iterator<EObject> iterator = ((EObjectContainmentEList<EObject>) refObject).iterator();
+			iterator = ((EObjectContainmentEList<EObject>) refObject).iterator();
+		} else if (refObject instanceof EObjectResolvingEList) {
+			iterator = ((EObjectResolvingEList<EObject>) refObject).iterator();
+		}
+
+		if (iterator != null) {
+			List<AircraftModelElement> refAircraftElementList = new LinkedList<AircraftModelElement>();
+			String allReferences = "";
+			int count = 1;
+
 			while (iterator.hasNext()) {
 				refAircraftElement = (AircraftModelElement) iterator.next();
+				classes.add(refAircraftElement.getClass());
 				refAircraftElementList.add(refAircraftElement);
-				EClass refEClass = refAircraftElement.eClass();
-				allReferences += refEClass.getName() + "()";
+				allReferences += refAircraftElement.eClass().getName() + "()";
 				if (iterator.hasNext()) {
 					allReferences += ", ";
 				}
 			}
-			bufferedWriter.writeLine(tab + 1, name + "." + reference.getName() + " = ["
-					+ allReferences + "];");
-			
+			if (isCellArray(classes)) {
+				bufferedWriter.writeLine(tab + 1, name + "." + reference.getName() + " = {"
+						+ allReferences + "};");
+			} else {
+				bufferedWriter.writeLine(tab + 1, name + "." + reference.getName() + " = ["
+						+ allReferences + "];");
+			}
+
 			List<WritingCommand> commands = new LinkedList<WritingCommand>();
 			for (AircraftModelElement elem : refAircraftElementList) {
 				if (!names.contains(this.checkName(elem.getName()))) {
 					// add names as key and full path as values to hashName
-					// this has to be done before writeElement is called for a reference
-					String path = name + "." + reference.getName() + "(" + count++ + ")";
+					// this has to be done before writeElement is called for a
+					// reference
+					String path;
+					if (isCellArray(classes)) {
+						path = name + "." + reference.getName() + "{" + count++ + "}";
+					} else {
+						path = name + "." + reference.getName() + "(" + count++ + ")";
+					}
 					hashNames.put(elem.getName(), path);
 					commands.add(new WritingCommand(this, elem, tab + 1, true, path));
 					names.add(this.checkName(elem.getName()));
 				}
 			}
+			// Execute all collected Class writing jobs - won't work with
+			// threads
 			for (WritingCommand command : commands) {
 				command.execute();
 			}
-		} else if (refObject instanceof EObjectResolvingEList) {
-			Iterator<EObject> iterator = ((EObjectResolvingEList<EObject>) refObject).iterator();
-			while (iterator.hasNext()) {
-				refAircraftElement = (AircraftModelElement) iterator.next();
-				refAircraftElementList.add(refAircraftElement);
-				referenceName = this.getFullName(refAircraftElement);
-				if (names.contains(this.checkName(refAircraftElement.getName()))) {
-					allReferences += referenceName;
-				} else {
-					allReferences += refAircraftElement.eClass().getName() + "()";
-				}
-				if (iterator.hasNext()) {
-					allReferences += ", ";
-				}
-			}
-			bufferedWriter.writeLine(tab + 1, name + "." + reference.getName() + " = ["
-					+ allReferences + "];");
-			for (AircraftModelElement elem : refAircraftElementList) {
-				if (!names.contains(this.checkName(elem.getName()))) {
-					// add names as key and full path as values to hashName
-					// this has to be done before writeElement is called for a reference
-					String path = name + "." + reference.getName() + "(" + count++ + ")";
-					hashNames.put(elem.getName(), path);
-					this.writeElementNameCheck(elem, tab + 1, true, path);
-				}
-			}
-			// Reference
 		} else {
 			refAircraftElement = (AircraftModelElement) refObject;
 			referenceName = this.getFullName(refAircraftElement);
@@ -321,12 +317,34 @@ public class GenerateMatlabScriptCommand extends CDTCommand {
 		}
 		return str;
 	}
-	
+
+	/**
+	 * Search hashNames.
+	 * 
+	 * @param refAircraftElement
+	 * @return the full path or the name if no path exists
+	 */
 	private String getFullName(AircraftModelElement refAircraftElement) {
 		String referenceName = this.checkName(refAircraftElement.getName());
 		if (hashNames.containsKey(referenceName)) {
 			return hashNames.get(referenceName);
 		}
 		return referenceName;
+	}
+
+	/**
+	 * Search classes for not equal entries.
+	 * 
+	 * @param classes
+	 * @return
+	 */
+	@SuppressWarnings("rawtypes")
+	private Boolean isCellArray(List<Class> classes) {
+		for (Class clazz : classes) {
+			if (!classes.get(0).equals(clazz)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
