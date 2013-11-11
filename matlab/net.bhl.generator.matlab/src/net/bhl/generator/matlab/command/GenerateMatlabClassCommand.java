@@ -275,7 +275,7 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 					if (type != null && !type.equals("org.eclipse.emf.ecore.EObject")) {
 						// &&
 						// genFeature.getContainmentFlag().equals("IS_COMPOSITE")
-						System.err.println(genFeature);
+						System.err.println(genFeature.isChildren());
 						//if (!genFeature.getTypeGenClass().getChildrenFeatures().isEmpty()) {
 							writeTypeSafety(bufferedWriter,
 									type.substring(type.lastIndexOf('.') + 1), name);
