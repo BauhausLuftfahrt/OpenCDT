@@ -19,7 +19,7 @@
                      ifEmpty="false">
                   <and>
                      <instanceof
-                           value="org.admf.AircraftModelElement">
+                           value="org.ADDAM.AircraftModelElement">
                      </instanceof>
                   </and>
                </iterate>

@@ -13,8 +13,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.admf.AircraftModelElement;
-import org.admf.impl.AircraftModelImpl;
+import org.ADDAM.AircraftModelElement;
+import org.ADDAM.impl.AircraftModelImpl;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
