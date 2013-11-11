@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -21,7 +22,9 @@ import org.eclipse.emf.codegen.ecore.genmodel.impl.GenClassImpl;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenModelImpl;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenPackageImpl;
 import org.eclipse.emf.common.command.AbstractCommand;
-import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Shell;
 
@@ -32,6 +35,8 @@ import org.eclipse.swt.widgets.Shell;
  * 
  */
 public class GenerateMatlabClassCommand extends AbstractCommand {
+
+	private List<EClass> allClasses = new LinkedList<EClass>();
 
 	/**
 	 * Get directory and Class of firstElement.
@@ -68,8 +73,27 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 	 */
 	private void write(String dir, GenModelImpl genModelImpl) {
 		for (GenPackage genPackage : genModelImpl.getGenPackages()) {
+			addAllClasses(genPackage.eAllContents());
+		}
+		for (GenPackage genPackage : genModelImpl.getGenPackages()) {
 			writePackage(dir, genPackage);
 		}
+	}
+
+	/**
+	 * Add all EClasses to {@link #allClasses}.
+	 * 
+	 * @param TreeIterator
+	 *            over all EContents
+	 */
+	private void addAllClasses(TreeIterator<EObject> iterable) {
+		while (iterable.hasNext()) {
+			EObject next = iterable.next();
+			if (next instanceof GenClass) {
+				allClasses.add(((GenClass) next).getEcoreClass());
+			}
+		}
+		// TODO remove duplicates?
 	}
 
 	/**
@@ -84,6 +108,9 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 		File packageName = new File(dir);
 		if (!packageName.exists()) {
 			packageName.mkdir();
+		}
+		if (allClasses.isEmpty()) {
+			addAllClasses(genPackage.eAllContents());
 		}
 		for (GenPackage genSubPackage : genPackage.getSubGenPackages()) {
 			writePackage(dir, genSubPackage);
@@ -273,13 +300,10 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 					}
 				} else {// References
 					if (type != null && !type.equals("org.eclipse.emf.ecore.EObject")) {
-						// &&
-						// genFeature.getContainmentFlag().equals("IS_COMPOSITE")
-						System.err.println(genFeature.isChildren());
-						//if (!genFeature.getTypeGenClass().getChildrenFeatures().isEmpty()) {
+						if (!hasSubtype(genFeature.getTypeGenClass().getEcoreClass())) {
 							writeTypeSafety(bufferedWriter,
 									type.substring(type.lastIndexOf('.') + 1), name);
-						//}
+						}
 					} else {
 						bufferedWriter.writeLine(3, "obj." + name + " = " + name + ";");
 					}
@@ -295,6 +319,22 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 				bufferedWriter.writeLine(2, "end");
 			}
 		}
+	}
+
+	/**
+	 * Look if the eSuperClass is SuperClass of any EClass of the selected
+	 * Project.
+	 * 
+	 * @param eSuperClass
+	 * @return
+	 */
+	private Boolean hasSubtype(EClass eSuperClass) {
+		for (EClass eClass : allClasses) {
+			if (eClass.getEAllSuperTypes().contains(eSuperClass)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	/**
