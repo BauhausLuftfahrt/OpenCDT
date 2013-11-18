@@ -28,9 +28,11 @@ public class CSVFileImportStack {
 	 */
 	private EList<DataType> compositeList = new BasicEList<DataType>();
 
+
 	/**
 	 * Constructor.
-	 **/
+	 * @param compositeList
+	 */
 	public CSVFileImportStack(EList<DataType> compositeList) {
 		this.compositeList = compositeList;
 	}

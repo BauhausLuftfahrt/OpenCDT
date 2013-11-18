@@ -73,10 +73,18 @@ public class ArrayEditorInput implements IEditorInput {
 		return "ArrayEditorInput";
 	}
 
+	/**
+	 * Getter.
+	 * @return ecpProject
+	 */
 	public ECPProject getECPProject() {
 		return ecpProject;
 	}
 
+	/**
+	 * Setter.
+	 * @param ecpProject ECPProject
+	 */
 	public void setECPProject(ECPProject ecpProject) {
 		this.ecpProject = ecpProject;
 	}

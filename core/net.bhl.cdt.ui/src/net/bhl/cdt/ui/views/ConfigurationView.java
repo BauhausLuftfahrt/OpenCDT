@@ -113,30 +113,25 @@ public class ConfigurationView extends ViewPart implements ISelectionListener {
 		Action action = new Action("Filter View", Action.AS_CHECK_BOX) {
 			public void run() {
 				filterActive = false;
-
 				Configuration configuration = (Configuration) viewer.getInput();
 				if (configuration == null) {
 					return;
 				}
-
 				// uncheck
 				if (!isChecked()) {
 					refreshFiltering(configuration);
 					return;
 				}
-
 				boolean successfulFilterConfig = false;
 				for (ConfigurationViewFilter filter : filters) {
 					successfulFilterConfig |= filter
 							.configureFilter(configuration);
 				}
-
 				if (successfulFilterConfig) {
 					filterActive = true;
 					refreshFiltering(configuration);
 				}
 			}
-
 		};
 
 		action.setEnabled(filters.size() > 0);

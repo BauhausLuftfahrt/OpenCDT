@@ -1,3 +1,8 @@
+/*******************************************************************************
+ * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ *  materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
+ *  and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
+ ******************************************************************************/
 package net.bhl.cdt.ui.editors;
 
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -22,7 +27,7 @@ public class TestEditor extends EditorPart {
 
 	/**
 	 * Create contents of the editor part.
-	 * @param parent
+	 * @param parent a widget which will be the parent of the new instance (cannot be null)
 	 */
 	@Override
 	public void createPartControl(Composite parent) {

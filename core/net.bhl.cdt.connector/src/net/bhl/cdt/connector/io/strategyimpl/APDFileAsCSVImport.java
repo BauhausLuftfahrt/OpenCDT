@@ -31,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
  */
 public class APDFileAsCSVImport implements ImportStrategy {
 
-	CompositeValues test = DatatypesFactory.eINSTANCE.createCompositeValues();
+	//CompositeValues test = DatatypesFactory.eINSTANCE.createCompositeValues();
 
 	// declare file extension for importStrategy
 	@Override
@@ -52,7 +52,7 @@ public class APDFileAsCSVImport implements ImportStrategy {
 
 			boolean header = true;
 
-			int count = 1;
+//			int count = 1;
 			int head = 1;
 			CompositeValues all = DatatypesFactory.eINSTANCE
 					.createCompositeValues();
@@ -88,10 +88,10 @@ public class APDFileAsCSVImport implements ImportStrategy {
 							s = s + s2;
 						}
 
-						String secondline = line.substring(s.length() - 1,
-								line.length() - 1);
+//						String secondline = line.substring(s.length() - 1,
+//								line.length() - 1);
 						firstDistributed = deleteSpace(firstDistributed);
-						EList<CompositeValues> cv = new BasicEList<CompositeValues>();
+//						EList<CompositeValues> cv = new BasicEList<CompositeValues>();
 						CompositeValues compositeValues2 = compositeRekurisivKonstruktion(
 								firstDistributed, line);
 
@@ -144,6 +144,7 @@ public class APDFileAsCSVImport implements ImportStrategy {
 			}
 			exchangeElements.add(headers);
 			// exchangeElements.add(all);
+			bufReader.close();
 		} catch (FileNotFoundException e) {
 			throw new ImportException("File does not exist!", e);
 		} catch (IOException e) {
@@ -246,6 +247,7 @@ public class APDFileAsCSVImport implements ImportStrategy {
 		return result;
 	}
 
+	@SuppressWarnings("unused")
 	private boolean exist(String firstString, CompositeValues all) {
 		boolean b = false;
 		int count = 0;

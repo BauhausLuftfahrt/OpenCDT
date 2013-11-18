@@ -35,8 +35,9 @@ import org.eclipse.emf.common.util.EList;
  * 
  */
 public class CSVFileImport_2012_2 implements ImportStrategy {
-	EList<DataType> stackList = new BasicEList<DataType>();
-	CSVFileImportStack csvFileImportStack = new CSVFileImportStack(stackList);
+	
+	private EList<DataType> stackList = new BasicEList<DataType>();
+	private CSVFileImportStack csvFileImportStack = new CSVFileImportStack(stackList);
 	private int headerCount = 1;
 
 	/**
@@ -44,7 +45,8 @@ public class CSVFileImport_2012_2 implements ImportStrategy {
 	 * 
 	 * Here is checked whether the import file has a "CSV" extension or not.
 	 * 
-	 * @param file
+	 * @param file The file to check.
+	 * @return True/False
 	 */
 	@Override
 	public boolean canImport(File file) {
@@ -56,6 +58,9 @@ public class CSVFileImport_2012_2 implements ImportStrategy {
 	 * Here is the mainMethod in which all other utility methods called. she use
 	 * the class "CSVFileImportStack" to know whether it needs to store the line
 	 * or not
+	 * 
+	 * @file The file to import from.
+	 * @return
 	 */
 	@Override
 	public EList<DataType> importModelFromFile(File file) {
