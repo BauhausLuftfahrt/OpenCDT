@@ -20,12 +20,12 @@ public class CDTAdapterFacotry implements IAdapterFactory {
 	/**
 	 * Prevent loop in second call.
 	 */
-	private Boolean doubble = true;
+//	private Boolean doubble = true;
 	/**
 	 * use the propertySheetPage as a Singleton.
 	 */
-	private static IPropertySheetPage propertySheetPage;
-	private int counter;
+//	private static IPropertySheetPage propertySheetPage;
+//	private int counter;
 
 	/**
 	 * Returns a adapter of type adapterType for the given object o.
@@ -37,19 +37,19 @@ public class CDTAdapterFacotry implements IAdapterFactory {
 	@SuppressWarnings("rawtypes")
 	public Object getAdapter(Object o, Class adapterType) {
 		if (adapterType == IPropertySheetPage.class) {
-			if (counter < 2 || o instanceof PropertySheet) {
-				if (counter++ == 0) {
-					propertySheetPage = PropertySheetPageAdapter.getPropertySheetPage();
-				}
-				return propertySheetPage;
-			}
-			if (doubble) {
+//			if (counter < 2 || o instanceof PropertySheet) {
+//				if (counter++ == 0) {
+//					propertySheetPage = PropertySheetPageAdapter.getPropertySheetPage();
+//				}
+				return PropertySheetPageAdapter.getPropertySheetPage();
+//			}
+//			if (doubble) {
 //				 Needed to update the PropertyView
 //				 TODO: Solution without setFocus?
-				((PropertySheetPage) propertySheetPage).setFocus();
-				((IWorkbenchPart) o).setFocus();
-			}
-			doubble = !doubble;
+//				((PropertySheetPage) propertySheetPage).setFocus();
+//				((IWorkbenchPart) o).setFocus();
+//			}
+//			doubble = !doubble;
 		}
 		return null;
 	}
