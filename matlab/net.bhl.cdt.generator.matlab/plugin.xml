@@ -19,7 +19,7 @@
                      ifEmpty="false">
                   <and>
                      <instanceof
-                           value="org.ADDAM.AircraftModelElement">
+                           value="org.eclipse.emf.ecore.EObject">
                      </instanceof>
                   </and>
                </iterate>
