@@ -7,10 +7,10 @@
 package net.bhl.cdt.ui.adapter;
 
 import org.eclipse.core.runtime.IAdapterFactory;
-import org.eclipse.ui.IWorkbenchPart;
+//import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
-import org.eclipse.ui.views.properties.PropertySheet;
-import org.eclipse.ui.views.properties.PropertySheetPage;
+//import org.eclipse.ui.views.properties.PropertySheet;
+//import org.eclipse.ui.views.properties.PropertySheetPage;
 
 /**
  * @author mck, David Otter
@@ -45,7 +45,7 @@ public class CDTAdapterFacotry implements IAdapterFactory {
 //			}
 //			if (doubble) {
 //				 Needed to update the PropertyView
-//				 TODO: Solution without setFocus?
+//				 T ODO: Solution without setFocus?
 //				((PropertySheetPage) propertySheetPage).setFocus();
 //				((IWorkbenchPart) o).setFocus();
 //			}
