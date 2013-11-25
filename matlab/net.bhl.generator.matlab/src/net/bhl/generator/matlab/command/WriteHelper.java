@@ -82,10 +82,7 @@ final class WriteHelper {
 		bufferedWriter.writeLine("% Author:\t\t" + System.getProperty("user.name"));
 		bufferedWriter.writeLine("% Date:\t\t\t" + dateFormat.format(new Date()));
 		bufferedWriter.writeLine("% Matlab:\t\tR2013a");
-		bufferedWriter.writeLine("% Contact:\t\tTechnische Universität München");
-		bufferedWriter.writeLine("%\t\t\t\tFaculty of Mechanical Engineering");
-		bufferedWriter.writeLine("%\t\t\t\tInstitute of Aircraft Design");
-		bufferedWriter.writeLine("%\t\t\t\tsebastian.herbst@tum.de ");
+		bufferedWriter.writeLine("% Contact:");
 		bufferedWriter
 				.writeLine("% -------------------------------------------------------------------------");
 		bufferedWriter.writeLine("");
