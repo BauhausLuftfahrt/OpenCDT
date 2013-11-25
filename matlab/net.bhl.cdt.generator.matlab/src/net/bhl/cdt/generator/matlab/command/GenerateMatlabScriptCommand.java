@@ -38,6 +38,9 @@ public class GenerateMatlabScriptCommand extends CDTCommand {
 	 * Keep all Object names to avoid duplication and loops.
 	 */
 	private List<String> names;
+	/**
+	 * Keep the full path of all objects associated with their name as key.
+	 */
 	private HashMap<String, String> hashNames = new HashMap<String, String>();
 	private Shell shell;
 	// Selected Root Element
@@ -188,7 +191,6 @@ public class GenerateMatlabScriptCommand extends CDTCommand {
 	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void writeReference(EReference reference, Object refObject, int tab, String name) {
-
 		String referenceName;
 		AircraftModelElement refAircraftElement;
 		String allReferences = "";
@@ -200,18 +202,18 @@ public class GenerateMatlabScriptCommand extends CDTCommand {
 			while (iterator.hasNext()) {
 				refAircraftElement = (AircraftModelElement) iterator.next();
 				classes.add(refAircraftElement.getClass());
-				referenceName = this.checkName(refAircraftElement.getName());
+				referenceName = this.getFullName(refAircraftElement);
 				allReferences += referenceName;
 				if (iterator.hasNext()) {
 					allReferences += ", ";
 				}
-				if (!names.contains(referenceName)) {
+				if (!names.contains(this.checkName(refAircraftElement.getName()))) {
 					this.writeElement(refAircraftElement, tab + 2);
 				}
 			}
 		} else {
 			refAircraftElement = (AircraftModelElement) refObject;
-			allReferences = this.checkName(refAircraftElement.getName());
+			allReferences = this.getFullName(refAircraftElement);
 			// for bidirectional references
 			if (!names.contains(allReferences)) {
 				this.writeElement(refAircraftElement, tab + 2);
@@ -236,6 +238,7 @@ public class GenerateMatlabScriptCommand extends CDTCommand {
 		String referenceName;
 		Object refObject = element.eGet(reference);
 		AircraftModelElement refAircraftElement;
+		// For Cell Array Check
 		List<Class> classes = new LinkedList<Class>();
 		Iterator<EObject> iterator = null;
 
@@ -246,15 +249,23 @@ public class GenerateMatlabScriptCommand extends CDTCommand {
 		}
 
 		if (iterator != null) {
-			List<AircraftModelElement> refAircraftElementList = new LinkedList<AircraftModelElement>();
+			List<AircraftModelElement> refAircraftElements = new LinkedList<AircraftModelElement>();
 			String allReferences = "";
-			int count = 1;
+			int count = 0;
 
 			while (iterator.hasNext()) {
 				refAircraftElement = (AircraftModelElement) iterator.next();
 				classes.add(refAircraftElement.getClass());
-				refAircraftElementList.add(refAircraftElement);
-				allReferences += refAircraftElement.eClass().getName() + "()";
+				refAircraftElements.add(refAircraftElement);
+				referenceName = this.getFullName(refAircraftElement);
+				/**
+				 * Look up the name. If the object doesn't exist create it.
+				 */
+				if (names.contains(this.checkName(refAircraftElement.getName()))) {
+					allReferences += referenceName;
+				} else {
+					allReferences += refAircraftElement.eClass().getName() + "()";
+				}
 				if (iterator.hasNext()) {
 					allReferences += ", ";
 				}
@@ -267,25 +278,32 @@ public class GenerateMatlabScriptCommand extends CDTCommand {
 						+ allReferences + "];");
 			}
 
+			/**
+			 * Why all Objects have to be collected before calling #writeElement
+			 * [command.execute()]? To ensure that no object writes an object
+			 * that is also part of #refAircraftElements (!) all Objects have to
+			 * be marked as been created before the first call of #writeElement.
+			 * But therefore all Classes that should be written must be
+			 * collected, because otherwise you don't know anymore which objects
+			 * were already been created and which not.
+			 */
 			List<WritingCommand> commands = new LinkedList<WritingCommand>();
-			for (AircraftModelElement elem : refAircraftElementList) {
+			for (AircraftModelElement elem : refAircraftElements) {
+				count++;
 				if (!names.contains(this.checkName(elem.getName()))) {
-					// add names as key and full path as values to hashName
-					// this has to be done before writeElement is called for a
-					// reference
 					String path;
 					if (isCellArray(classes)) {
-						path = name + "." + reference.getName() + "{" + count++ + "}";
+						path = name + "." + reference.getName() + "{" + count + "}";
 					} else {
-						path = name + "." + reference.getName() + "(" + count++ + ")";
+						path = name + "." + reference.getName() + "(" + count + ")";
 					}
+					// add names as key and full path as values to hashName
 					hashNames.put(elem.getName(), path);
 					commands.add(new WritingCommand(this, elem, tab + 1, true, path));
 					names.add(this.checkName(elem.getName()));
 				}
 			}
-			// Execute all collected Class writing jobs - won't work with
-			// threads
+			// Execute all collected Class writing jobs
 			for (WritingCommand command : commands) {
 				command.execute();
 			}
@@ -336,7 +354,7 @@ public class GenerateMatlabScriptCommand extends CDTCommand {
 	 * Search classes for not equal entries.
 	 * 
 	 * @param classes
-	 * @return
+	 * @return True if not equal entries were found.
 	 */
 	@SuppressWarnings("rawtypes")
 	private Boolean isCellArray(List<Class> classes) {

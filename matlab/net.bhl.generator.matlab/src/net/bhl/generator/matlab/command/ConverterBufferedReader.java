@@ -49,7 +49,7 @@ public class ConverterBufferedReader extends BufferedReader {
 				result = this.mark(line, result);
 				if (line.contains("% Generated")
 						&& !line.toUpperCase().contains("NOT")
-						&& !line.contains("with Bauhaus Luftfahrt Matlab Converter")) {
+						&& !line.contains("with Bauhaus Luftfahrt Matlab Generator")) {
 					this.readUntilEnd();
 				} else {
 					result.add(line);

@@ -36,6 +36,10 @@ import org.eclipse.swt.widgets.Shell;
  */
 public class GenerateMatlabClassCommand extends AbstractCommand {
 
+	/**
+	 * Stores all EClasses of the selected project. Used to find Subclasses of a
+	 * given Class with {@link #hasSubtype(EClass)}.
+	 */
 	private List<EClass> allClasses = new LinkedList<EClass>();
 
 	/**
@@ -47,10 +51,9 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 	 *            GenModel or GenPackage Element
 	 */
 	public void createOutput(Shell shell, Object firstElement) {
-		String directory;
 		DirectoryDialog fileDialog = new DirectoryDialog(shell);
 		fileDialog.setText("Select Target Folder");
-		directory = fileDialog.open();
+		String directory = fileDialog.open();
 
 		if (firstElement instanceof GenModelImpl) {
 			GenModelImpl genModelImpl = (GenModelImpl) firstElement;
@@ -145,8 +148,8 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 					file));
 			// Comment
 			if (!WriteHelper.isMatch(notGenerated,
-					"% Generated with Bauhaus Luftfahrt Matlab Converter")) {
-				bufferedWriter.writeLine(WriteHelper.getComment());
+					"%\t\t\tGenerated with Bauhaus Luftfahrt Matlab Generator")) {
+				WriteHelper.writeTUMHead(bufferedWriter, genClass.getName());
 			}
 			WriteHelper.writeUntilMark("MARK_classdef", bufferedWriter, notGenerated);
 			// Class
@@ -184,9 +187,20 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 			writeGetterSetter(bufferedWriter, genClass.getGenFeatures(), notGenerated);
 			// End
 			WriteHelper.removeEndTail(notGenerated);
-			WriteHelper.writeUntilMark("MARK_END", bufferedWriter, notGenerated);
-			bufferedWriter.writeLine(1, "end");
-			bufferedWriter.write("end");
+			if (notGenerated.contains("% Revision history:")) {
+				WriteHelper.writeUntilMark("% Revision history: ", bufferedWriter, notGenerated);
+				bufferedWriter.writeLine(1, "end");
+				bufferedWriter.write("end");
+				bufferedWriter.newLine();
+				bufferedWriter.newLine();
+				bufferedWriter.writeLine("% Revision history:");
+				WriteHelper.writeUntilMark("MARK_END", bufferedWriter, notGenerated);
+			} else {
+				WriteHelper.writeUntilMark("MARK_END", bufferedWriter, notGenerated);
+				bufferedWriter.writeLine(1, "end");
+				bufferedWriter.write("end");
+				WriteHelper.writeRevision(bufferedWriter);
+			}
 			bufferedWriter.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -208,8 +222,8 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 					file));
 			// Comment
 			if (!WriteHelper.isMatch(notGenerated,
-					"% Generated with Bauhaus Luftfahrt Matlab Converter")) {
-				bufferedWriter.writeLine(WriteHelper.getComment());
+					"%\t\t\tGenerated with Bauhaus Luftfahrt Matlab Generator")) {
+				WriteHelper.writeTUMHead(bufferedWriter, genEnum.getName());
 			}
 			WriteHelper.writeUntilMark("MARK_classdef", bufferedWriter, notGenerated);
 			if (WriteHelper.isMatch(notGenerated, "classdef")) {
@@ -225,10 +239,19 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 						WriteHelper.getEnumLiterals(genEnum.getGenEnumLiterals()));
 			}
 			WriteHelper.removeEndTail(notGenerated);
-			WriteHelper.writeUntilMark("MARK_END", bufferedWriter, notGenerated);
-			bufferedWriter.writeLine(1, "end");
-
-			bufferedWriter.write("end");
+			if (notGenerated.contains("% Revision history:")) {
+				WriteHelper.writeUntilMark("% Revision history: ", bufferedWriter, notGenerated);
+				bufferedWriter.writeLine(1, "end");
+				bufferedWriter.write("end");
+				bufferedWriter.newLine();
+				bufferedWriter.writeLine("% Revision history:");
+				WriteHelper.writeUntilMark("MARK_END", bufferedWriter, notGenerated);
+			} else {
+				WriteHelper.writeUntilMark("MARK_END", bufferedWriter, notGenerated);
+				bufferedWriter.writeLine(1, "end");
+				bufferedWriter.write("end");
+				WriteHelper.writeRevision(bufferedWriter);
+			}
 			bufferedWriter.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -298,8 +321,10 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 						bufferedWriter.writeLine(3, "obj." + name + " = " + name + ";");
 					}
 				} else {// References
-					if (type != null && !type.equals("org.eclipse.emf.ecore.EObject")
-							&& !hasSubtype(genFeature.getTypeGenClass().getEcoreClass())) {
+					if (type != null
+							&& !type.contains("org.eclipse.emf.ecore.EObject")
+							&& (!hasSubtype(genFeature.getTypeGenClass().getEcoreClass()) || genFeature
+									.getUpperBound().equals("1"))) {
 						writeTypeSafety(bufferedWriter, type.substring(type.lastIndexOf('.') + 1),
 								name);
 					} else {

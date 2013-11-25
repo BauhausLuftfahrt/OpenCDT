@@ -7,7 +7,7 @@
             locationURI="popup:org.eclipse.emf.codegen.ecore.genmodel.presentation.GenModelEditorID?before=open-actions">
 		<separator
          	name="separator"
-         visible="true">
+         	visible="true">
    		</separator>        
         <command
         	commandId="net.bhl.converter.convert"
@@ -21,9 +21,9 @@
                      		<instanceof
                            		value="org.eclipse.emf.codegen.ecore.genmodel.impl.GenPackageImpl">
                      		</instanceof>
-                       <instanceof
-                             value="org.eclipse.emf.codegen.ecore.genmodel.impl.GenClassImpl">
-                       </instanceof>
+                       		<instanceof
+                             	value="org.eclipse.emf.codegen.ecore.genmodel.impl.GenClassImpl">
+                       		</instanceof>
                     	</or>
                   	</iterate>
             	</visibleWhen>
