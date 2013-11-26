@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.emf.codegen.ecore.genmodel.presentation.GenModelEditorID?before=open-actions">
+		<separator
+         	name="separator"
+         visible="true">
+   		</separator>        
+        <command
+        	commandId="net.bhl.cdt.converter.convert"
+            style="push">
+            	<visibleWhen checkEnabled="false">
+                	<iterate>
+                  		<or>
+                     		<instanceof
+                           		value="org.eclipse.emf.codegen.ecore.genmodel.impl.GenModelImpl">
+                     		</instanceof>
+                     		<instanceof
+                           		value="org.eclipse.emf.codegen.ecore.genmodel.impl.GenPackageImpl">
+                     		</instanceof>
+                       <instanceof
+                             value="org.eclipse.emf.codegen.ecore.genmodel.impl.GenClassImpl">
+                       </instanceof>
+                    	</or>
+                  	</iterate>
+            	</visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="net.bhl.generator.matlab.command.GenerateMatlabClassCommand"
+            id="net.bhl.cdt.converter.convert"
+            name="Generate Matlab Code">
+      </command>
+   </extension>
+
+</plugin>
