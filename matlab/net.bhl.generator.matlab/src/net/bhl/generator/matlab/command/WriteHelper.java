@@ -206,7 +206,6 @@ final class WriteHelper {
 			
 			list.remove(posEnd1);
 			list.remove(posEnd2);
-			System.err.println(revision);
 			if (revision > -1 && list.get(revision).isEmpty()){
 				list.remove(revision);
 			}
