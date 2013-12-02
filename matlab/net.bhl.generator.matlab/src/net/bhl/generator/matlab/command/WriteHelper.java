@@ -5,6 +5,7 @@
  ******************************************************************************/
 package net.bhl.generator.matlab.command;
 
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -189,23 +190,26 @@ final class WriteHelper {
 		int count = 0;
 		int posEnd1 = 0;
 		int posEnd2 = 0;
-//		int posRev = -1;
+		int revision = -1;
+		
 		if (list.size() > 2) {
 			for (String line : list) {
 				if (line.matches("\\s*end\\s*")) {
 					posEnd2 = posEnd1;
 					posEnd1 = count;
-				} 
-//				else if (line.matches("% Revision history:")) {
-//					posRev = count;
-//				}
+				}
+				if (line.matches("% Revision history:")){
+					revision = count - 3;
+				}
 				count++;
 			}
-//			if (posRev != -1) {
-//				list.remove(posRev - 1);
-//			}
+			
 			list.remove(posEnd1);
 			list.remove(posEnd2);
+			System.err.println(revision);
+			if (revision > -1 && list.get(revision).isEmpty()){
+				list.remove(revision);
+			}
 		}
 	}
 

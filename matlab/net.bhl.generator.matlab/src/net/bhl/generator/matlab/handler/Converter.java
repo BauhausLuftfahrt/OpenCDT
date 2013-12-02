@@ -40,7 +40,7 @@ public class Converter extends AbstractHandler {
 
 		Object firstElement = selection.getFirstElement();
 
-		new GenerateMatlabClassCommand().createOutput(shell, firstElement);
+		new GenerateMatlabClassCommand(shell, firstElement).execute();
 
 		return null;
 	}

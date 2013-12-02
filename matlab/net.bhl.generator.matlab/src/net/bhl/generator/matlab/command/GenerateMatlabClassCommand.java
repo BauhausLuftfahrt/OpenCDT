@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.eclipse.emf.codegen.ecore.genmodel.GenClass;
 import org.eclipse.emf.codegen.ecore.genmodel.GenEnum;
@@ -23,6 +24,7 @@ import org.eclipse.emf.codegen.ecore.genmodel.impl.GenModelImpl;
 import org.eclipse.emf.codegen.ecore.genmodel.impl.GenPackageImpl;
 import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.swt.widgets.DirectoryDialog;
@@ -36,6 +38,22 @@ import org.eclipse.swt.widgets.Shell;
  */
 public class GenerateMatlabClassCommand extends AbstractCommand {
 
+	private Shell shell;
+	private Object firstElement;
+
+	/**
+	 * Constructor.
+	 * 
+	 * @param shell
+	 *            Shell
+	 * @param firstElement
+	 *            Selected Element
+	 */
+	public GenerateMatlabClassCommand(Shell shell, Object firstElement) {
+		this.shell = shell;
+		this.firstElement = firstElement;
+	}
+
 	/**
 	 * Stores all EClasses of the selected project. Used to find Subclasses of a
 	 * given Class with {@link #hasSubtype(EClass)}.
@@ -45,12 +63,9 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 	/**
 	 * Get directory and Class of firstElement.
 	 * 
-	 * @param shell
-	 *            active shell
-	 * @param firstElement
-	 *            GenModel or GenPackage Element
 	 */
-	public void createOutput(Shell shell, Object firstElement) {
+	@Override
+	public void execute() {
 		DirectoryDialog fileDialog = new DirectoryDialog(shell);
 		fileDialog.setText("Select Target Folder");
 		String directory = fileDialog.open();
@@ -186,9 +201,19 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 			// Getter and Setter
 			writeGetterSetter(bufferedWriter, genClass.getGenFeatures(), notGenerated);
 			// End
+			this.writeEnd(bufferedWriter, notGenerated);
+
+			bufferedWriter.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void writeEnd(ConverterBufferedWriter bufferedWriter, List<String> notGenerated) {
+		try {
 			WriteHelper.removeEndTail(notGenerated);
 			if (notGenerated.contains("% Revision history:")) {
-				WriteHelper.writeUntilMark("% Revision history: ", bufferedWriter, notGenerated);
+				WriteHelper.writeUntilMark("% Revision history:", bufferedWriter, notGenerated);
 				bufferedWriter.writeLine(1, "end");
 				bufferedWriter.write("end");
 				bufferedWriter.newLine();
@@ -201,7 +226,6 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 				bufferedWriter.write("end");
 				WriteHelper.writeRevision(bufferedWriter);
 			}
-			bufferedWriter.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -238,20 +262,8 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 				bufferedWriter.writeLine(2,
 						WriteHelper.getEnumLiterals(genEnum.getGenEnumLiterals()));
 			}
-			WriteHelper.removeEndTail(notGenerated);
-			if (notGenerated.contains("% Revision history:")) {
-				WriteHelper.writeUntilMark("% Revision history: ", bufferedWriter, notGenerated);
-				bufferedWriter.writeLine(1, "end");
-				bufferedWriter.write("end");
-				bufferedWriter.newLine();
-				bufferedWriter.writeLine("% Revision history:");
-				WriteHelper.writeUntilMark("MARK_END", bufferedWriter, notGenerated);
-			} else {
-				WriteHelper.writeUntilMark("MARK_END", bufferedWriter, notGenerated);
-				bufferedWriter.writeLine(1, "end");
-				bufferedWriter.write("end");
-				WriteHelper.writeRevision(bufferedWriter);
-			}
+			this.writeEnd(bufferedWriter, notGenerated);
+
 			bufferedWriter.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -428,25 +440,43 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 				parameter = ("obj," + parameter);
 			}
 			bufferedWriter.writeLine(2, "% Generated");
+			List<String> body = new LinkedList<String>();
+			for (EAnnotation annotation : genOperation.getEcoreModelElement().getEAnnotations()) {
+				for (Entry<String, String> entry : annotation.getDetails()) {
+					if (entry.getKey().toLowerCase().equals("matlab")) {
+						body.add(entry.getValue());
+					}
+				}
+			}
 			// with return value
 			if (genOperation.getTypeGenDataType() != null) {
 				bufferedWriter.writeLine(2, "function " + "value = " + genOperation.getName()
 						+ " (" + parameter + ")");
-				bufferedWriter.writeLine(3, "value = 0;");
+				if (body.isEmpty()) {
+					bufferedWriter.writeLine(3, "value = 0;");
+				} else {
+					for (String line : body) {
+						for (String expression : line.split(System.lineSeparator())) {
+							bufferedWriter.writeLine(3, expression);
+						}
+					}
+				}
 			} else {
 				// without return value
 				bufferedWriter.writeLine(2, "function " + genOperation.getName() + " (" + parameter
 						+ ")");
-				bufferedWriter.writeLine(3, "");
+				if (body.isEmpty()) {
+					bufferedWriter.writeLine(3, "");
+				} else {
+					for (String line : body) {
+						for (String expression : line.split(System.lineSeparator())) {
+							bufferedWriter.writeLine(3, expression);
+						}
+					}
+				}
 			}
 			bufferedWriter.writeLine(2, "end");
 		}
-	}
-
-	@Override
-	public void execute() {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
