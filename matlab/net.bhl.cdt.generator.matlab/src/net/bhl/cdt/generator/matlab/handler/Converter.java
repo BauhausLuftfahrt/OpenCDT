@@ -6,8 +6,11 @@
 package net.bhl.cdt.generator.matlab.handler;
 
 import net.bhl.cdt.generator.matlab.command.GenerateMatlabScriptCommand;
-import net.bhl.cdt.ui.handler.AbstractCDTHandler;
 
+
+
+
+import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.viewers.ISelection;
@@ -21,7 +24,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
  * @author David Otter
  * 
  */
-public class Converter extends AbstractCDTHandler {
+public class Converter extends AbstractHandler {
 
 	/**
 	 * Get selected Element.
@@ -33,15 +36,17 @@ public class Converter extends AbstractCDTHandler {
 	 * @return null
 	 */
 	@Override
-	public Object doExecute(ExecutionEvent event) throws ExecutionException {
+	public Object execute(ExecutionEvent event) throws ExecutionException {
 		Shell shell = HandlerUtil.getActiveShell(event);
 		ISelection sel = HandlerUtil.getActiveMenuSelection(event);
 		IStructuredSelection selection = (IStructuredSelection) sel;
 
 		Object firstElement = selection.getFirstElement();
 
-		new GenerateMatlabScriptCommand(shell, firstElement).doRun();
+		new GenerateMatlabScriptCommand(shell, firstElement).execute();
 
 		return null;
 	}
+
+	
 }

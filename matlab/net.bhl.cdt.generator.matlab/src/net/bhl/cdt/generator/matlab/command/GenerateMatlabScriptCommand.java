@@ -13,6 +13,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.eclipse.emf.common.command.AbstractCommand;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -23,15 +24,13 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 
-import net.bhl.cdt.utilities.commands.CDTCommand;
-
 /**
  * GenModel to Matlab Converter.
  * 
  * @author David Otter
  * 
  */
-public class GenerateMatlabScriptCommand extends CDTCommand {
+public class GenerateMatlabScriptCommand extends AbstractCommand {
 
 	/**
 	 * Keep all Object names to avoid duplication and loops.
@@ -62,7 +61,8 @@ public class GenerateMatlabScriptCommand extends CDTCommand {
 	/**
 	 * Get directory and Class of firstElement. Select .m file directory.
 	 */
-	public void doRun() {
+	@Override
+	public void execute() {
 		FileDialog fileDialog = new FileDialog(shell);
 		String[] extensions = { "*.m" };
 		fileDialog.setFilterExtensions(extensions);
@@ -384,5 +384,11 @@ public class GenerateMatlabScriptCommand extends CDTCommand {
 			name = (String) nameObject;
 		}
 		return name;
+	}
+	
+	@Override
+	public void redo() {
+		// TODO Auto-generated method stub
+		
 	}
 }
