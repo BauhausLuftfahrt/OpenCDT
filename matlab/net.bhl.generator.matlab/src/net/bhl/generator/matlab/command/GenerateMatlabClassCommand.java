@@ -121,7 +121,7 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 	 * @param genPackage
 	 */
 	private void writePackage(String dir, GenPackage genPackage) {
-		dir = dir + "\\" + genPackage.getNSName() + "." + genPackage.getPackageName();
+		dir = dir + File.separator + genPackage.getNSName() + "." + genPackage.getPackageName();
 		File packageName = new File(dir);
 		if (!packageName.exists()) {
 			packageName.mkdir();
@@ -149,7 +149,7 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 	 * @param genClass
 	 */
 	private void writeClass(String dir, GenClass genClass) {
-		dir = dir + "\\" + genClass.getName() + ".m";
+		dir = dir + File.separator + genClass.getName() + ".m";
 		File file = new File(dir);
 		try {
 			if (!file.exists()) {
