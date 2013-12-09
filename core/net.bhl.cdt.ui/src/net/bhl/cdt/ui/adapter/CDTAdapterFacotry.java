@@ -36,7 +36,7 @@ public class CDTAdapterFacotry implements IAdapterFactory {
 	 */
 	@SuppressWarnings("rawtypes")
 	public Object getAdapter(Object o, Class adapterType) {
-		if (adapterType == IPropertySheetPage.class) {
+		if (adapterType == IPropertySheetPage.class && ! (o instanceof net.bhl.cdt.ui.CDTWelcomePage)) {
 			if (counter < 2 || o instanceof PropertySheet) {
 				if (counter++ == 0) {
 					propertySheetPage = PropertySheetPageAdapter.getPropertySheetPage();
