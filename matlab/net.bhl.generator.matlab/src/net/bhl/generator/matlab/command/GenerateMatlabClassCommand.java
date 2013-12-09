@@ -292,7 +292,7 @@ public class GenerateMatlabClassCommand extends AbstractCommand {
 			}
 			result += genFeature.getName();
 			String initialization = genFeature.getDefaultValue();
-			if (initialization == null || initialization.trim().isEmpty()) {
+			if (initialization == null || initialization.equals("\"\"")) {
 				bufferedWriter.writeLine(2, genFeature.getName());
 			} else {
 				initialization = initialization.substring(1, initialization.length() - 1);
