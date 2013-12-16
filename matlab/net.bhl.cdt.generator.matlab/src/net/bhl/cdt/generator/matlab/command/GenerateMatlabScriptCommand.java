@@ -167,6 +167,9 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 				if (value.getClass().equals(Integer.class)) {
 					value = "int32(" + value + ")";
 				}
+				if (value.getClass().toString().equals("class org.eclipse.emf.ecore.util.EDataTypeUniqueEList")) {
+					value = value.toString().replaceAll(",", ";");
+				}
 				bufferedWriter.writeLine(tab + 1, name + "." + attribute.getName() + " = " + value
 						+ ";");
 			}
