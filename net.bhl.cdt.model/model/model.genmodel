@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/net.bhl.cdt.model/src" modelPluginID="net.bhl.cdt.model"
+    redirection="" modelName="Model" nonNLSMarkers="true" importerID="org.eclipse.emf.importer.ecore"
+    containmentProxies="true" complianceLevel="6.0" copyrightFields="false" providerRootExtendsClass=""
+    usedGenPackages="../../net.bhl.cdt.utilities/model/datatypes.genmodel#//datatypes ../../net.bhl.cdt.utilities/model/exchangemodel.genmodel#//exchangemodel ../../net.bhl.cdt.utilities/model/units.genmodel#//units">
+  <foreignModel>model.ecore</foreignModel>
+  <genPackages prefix="Model" basePackage="net.bhl.cdt" disposableProviderFactory="true"
+      extensibleProviderFactory="true" ecorePackage="model.ecore#/">
+    <genClasses ecoreClass="model.ecore#//Component">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Component/subComponents"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Component/parameters"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Component/connectedComponents"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="model.ecore#//Value">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Value/unit"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Value/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Value/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Value/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Value/datatypes"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Configuration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Configuration/views"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Configuration/components"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Model/configurations"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//Element"/>
+    <genClasses ecoreClass="model.ecore#//Parameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Parameter/values"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Parameter/quantity"/>
+    </genClasses>
+    <genClasses ecoreClass="model.ecore#//StructuralElement"/>
+    <genClasses image="false" ecoreClass="model.ecore#//View"/>
+  </genPackages>
+</genmodel:GenModel>

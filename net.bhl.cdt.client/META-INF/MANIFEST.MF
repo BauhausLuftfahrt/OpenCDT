@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Client
+Bundle-SymbolicName: net.bhl.cdt.client; singleton:=true
+Bundle-Version: 0.9.1.qualifier
+Bundle-Activator: net.bhl.cdt.client.Activator
+Require-Bundle: net.bhl.cdt.ui;bundle-version="0.9.1";visibility:=reexport
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
