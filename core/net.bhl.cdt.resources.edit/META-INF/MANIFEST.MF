@@ -2,13 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: net.bhl.cdt.resources.edit;singleton:=true
-Bundle-Version: 0.9.0.qualifier
+Bundle-Version: 0.9.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: net.bhl.cdt.resources.provider.ResourcesEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: net.bhl.cdt.resources.provider
-Require-Bundle: net.bhl.cdt.resources;bundle-version="0.9.0";visibility:=reexport,
- net.bhl.cdt.utilities.edit;bundle-version="0.9.0";visibility:=reexport
+Require-Bundle: net.bhl.cdt.resources;bundle-version="0.9.1";visibility:=reexport,
+ net.bhl.cdt.utilities.edit;bundle-version="0.9.1";visibility:=reexport
 Bundle-ActivationPolicy: lazy

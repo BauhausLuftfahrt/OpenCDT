@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: net.bhl.cdt.utilities.edit;singleton:=true
-Bundle-Version: 0.9.0.qualifier
+Bundle-Version: 0.9.1.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: net.bhl.cdt.utilities.exchangemodel.provider.ExchangemodelEditPlugin$Implementation
 Bundle-Vendor: %providerName
@@ -13,4 +13,4 @@ Export-Package: net.bhl.cdt.utilities.datatypes.provider,
  net.bhl.cdt.utilities.ui,
  net.bhl.cdt.utilities.units.provider
 Bundle-ActivationPolicy: lazy
-Require-Bundle: net.bhl.cdt.utilities;bundle-version="0.9.0"
+Require-Bundle: net.bhl.cdt.utilities;bundle-version="0.9.1"

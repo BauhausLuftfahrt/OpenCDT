@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: net.bhl.cdt.utilities;singleton:=true
-Bundle-Version: 0.9.0.qualifier
+Bundle-Version: 0.9.1.qualifier
 Bundle-ClassPath: .,
  lib/units.jar,
  lib/jscience.jar
@@ -57,9 +57,9 @@ Export-Package: javax.measure,
  org.opengis.spatialschema.geometry,
  org.opengis.spatialschema.geometry.geometry,
  org.opengis.util
-Require-Bundle: org.eclipse.emf.emfstore.client;bundle-version="1.0.3";visibility:=reexport,
- org.eclipse.emf.ecp.explorereditorbridge;bundle-version="1.1.0",
- org.eclipse.emf.ecp.emfstore.ui;bundle-version="1.1.0",
+Require-Bundle: org.eclipse.emf.emfstore.client;bundle-version="1.1.0";visibility:=reexport,
+ org.eclipse.emf.ecp.explorereditorbridge;bundle-version="1.1.1",
+ org.eclipse.emf.ecp.emfstore.ui;bundle-version="1.1.1",
  org.eclipse.pde.ui;bundle-version="3.8.0",
- org.eclipse.emf.ecp.view.model.provider.generator;bundle-version="1.1.0"
+ org.eclipse.emf.ecp.view.model.provider.generator;bundle-version="1.1.1"
 Bundle-ActivationPolicy: lazy
