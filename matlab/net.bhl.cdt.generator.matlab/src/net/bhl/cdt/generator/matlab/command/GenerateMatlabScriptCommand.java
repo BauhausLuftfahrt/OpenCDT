@@ -36,6 +36,7 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 	 * Keep all Object names to avoid duplication and loops.
 	 */
 	private List<String> names;
+	private String firstName = null;
 	/**
 	 * Keep the full path of all objects associated with their name as key.
 	 */
@@ -99,6 +100,7 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 			bufferedWriter = new ConverterBufferedWriter(new FileWriter(file));
 			bufferedWriter.writeLine(WriteHelper.getComment());
 			writeElement(eObject, 0);
+			bufferedWriter.writeLine("struct_" + firstName + " = struct(" + firstName + ");");
 			bufferedWriter.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -142,6 +144,9 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 		EObject element = (EObject) eObject;
 		EClass eClass = element.eClass();
 		String name = this.checkName(this.getName(element));
+		if (firstName == null) {
+			firstName = name;
+		}
 		if (isAnonymous) {
 			name = root;
 		}
@@ -385,10 +390,10 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 		}
 		return name;
 	}
-	
+
 	@Override
 	public void redo() {
 		// TODO Auto-generated method stub
-		
+
 	}
 }
