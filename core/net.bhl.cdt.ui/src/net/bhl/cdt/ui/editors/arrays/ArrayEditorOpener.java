@@ -39,11 +39,12 @@ public class ArrayEditorOpener implements ECPModelElementOpener {
 	 */
 	public void openModelElement(Object element, ECPProject ecpProject) {
 		Array array = (Array) element;
+		ArrayEditorInput input = new ArrayEditorInput(array, ecpProject);
 
 		try {
 			PlatformUI.getWorkbench().getActiveWorkbenchWindow()
 					.getActivePage()
-					.openEditor(new ArrayEditorInput(array, ecpProject), ArrayEditor.ID);
+					.openEditor(input, ArrayEditor.ID, true);
 		} catch (PartInitException e) {
 			e.printStackTrace();
 		}

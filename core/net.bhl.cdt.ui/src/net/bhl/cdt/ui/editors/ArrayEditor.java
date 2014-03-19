@@ -195,7 +195,7 @@ public class ArrayEditor extends EditorPart {
 				} catch (Exception e) {
 
 					// TODO: handle exception
-					s = "NO NAME";
+					//s = "NO NAME";
 				}
 
 				tblclmnTest.setText(s);
@@ -213,7 +213,7 @@ public class ArrayEditor extends EditorPart {
 				}
 			} catch (Exception e) {
 				// TODO: handle exception
-				s = "NO NAME";
+				//s = "NO NAME";
 			}
 			tblclmnTest.setText(s);
 			// tblclmnTest.setText(array.getName());
@@ -273,7 +273,6 @@ public class ArrayEditor extends EditorPart {
 	@Override
 	public void setFocus() {
 		// TODO Auto-generated method stub
-
 	}
 
 }

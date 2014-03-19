@@ -88,5 +88,22 @@ public class ArrayEditorInput implements IEditorInput {
 	public void setECPProject(ECPProject ecpProject) {
 		this.ecpProject = ecpProject;
 	}
+	
+
+    /**
+     * Custom equals() for this class.
+     *
+     * @param obj the compared object.
+     * @return the boolean state. {@inheritDoc}
+     */
+    @Override
+    public boolean equals(Object obj) {
+            if (obj instanceof ArrayEditorInput) {
+            		ArrayEditorInput other = (ArrayEditorInput) obj;
+                    boolean ret = array.equals(other.array);
+                    return ret;
+            }
+            return false;
+    }
 
 }

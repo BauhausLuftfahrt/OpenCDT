@@ -98,11 +98,6 @@
             id="net.bhl.cdt.ui.editors.ArrayEditor"
             name="Array Editor">
       </editor>
-      <editor
-            class="net.bhl.cdt.ui.editors.TestEditor"
-            id="net.bhl.cdt.ui.editors.TestEditor"
-            name="New EditorPart">
-      </editor>
    </extension>
    <extension
          point="org.eclipse.emf.emfstore.client.workspaceLocationProvider">
