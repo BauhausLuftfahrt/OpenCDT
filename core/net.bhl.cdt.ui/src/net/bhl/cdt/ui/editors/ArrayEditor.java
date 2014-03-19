@@ -74,6 +74,17 @@ public class ArrayEditor extends EditorPart {
 		tableEdit(array);
 
 	}
+	
+	/**
+	 * Refresh the table with the new array.
+	 * 
+	 * @param array the new Array data to refresh
+	 */
+	public void refresh(Array array) {
+		this.array = array;
+		table.removeAll();
+		createData(array, table);
+	}
 
 	/**
 	 * @param array Array that contains the data
