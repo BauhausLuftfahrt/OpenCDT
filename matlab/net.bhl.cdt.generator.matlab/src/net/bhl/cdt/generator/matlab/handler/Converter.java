@@ -5,17 +5,12 @@
  ******************************************************************************/
 package net.bhl.cdt.generator.matlab.handler;
 
-import java.util.Date;
-
 import net.bhl.cdt.generator.matlab.command.GenerateMatlabScriptCommand;
-
-
-
-
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
@@ -44,12 +39,12 @@ public class Converter extends AbstractHandler {
 		ISelection sel = HandlerUtil.getActiveMenuSelection(event);
 		IStructuredSelection selection = (IStructuredSelection) sel;
 
-		Object firstElement = selection.getFirstElement();
+		if (selection.getFirstElement() instanceof EObject) {
 
-		new GenerateMatlabScriptCommand(shell, firstElement).execute();
-
+			new GenerateMatlabScriptCommand(shell,
+					(EObject) selection.getFirstElement()).execute();
+		}
 		return null;
 	}
 
-	
 }

@@ -15,7 +15,7 @@ import java.io.Writer;
  * @author David Otter
  * 
  */
-public class ConverterBufferedWriter extends BufferedWriter {
+public class ConverterBufferedWriter extends BufferedWriter  implements ConverterWriter{
 
 	/**
 	 * Default Constructor.
@@ -57,5 +57,7 @@ public class ConverterBufferedWriter extends BufferedWriter {
 	public void writeLine(String str) {
 		this.writeLine(0, str);
 	}
+	
+	
 
 }

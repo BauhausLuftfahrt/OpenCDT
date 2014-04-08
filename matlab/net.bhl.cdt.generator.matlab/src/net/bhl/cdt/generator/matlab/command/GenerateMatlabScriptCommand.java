@@ -24,10 +24,15 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 
+
+
+
+
 /**
  * GenModel to Matlab Converter.
  * 
  * @author David Otter
+ * @author Martin Glas
  * 
  */
 public class GenerateMatlabScriptCommand extends AbstractCommand {
@@ -43,8 +48,9 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 	private HashMap<String, String> hashNames = new HashMap<String, String>();
 	private Shell shell;
 	// Selected Root Element
-	private Object firstElement;
-	private ConverterBufferedWriter bufferedWriter;
+	
+	private EObject firstElement;
+	private ConverterWriter converterWriter;
 
 	/**
 	 * Constructor.
@@ -54,7 +60,7 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 	 * @param firstElement
 	 *            Selected Element
 	 */
-	public GenerateMatlabScriptCommand(Shell shell, Object firstElement) {
+	public GenerateMatlabScriptCommand(Shell shell, EObject firstElement) {
 		this.shell = shell;
 		this.firstElement = firstElement;
 	}
@@ -97,11 +103,11 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 			if (!file.exists()) {
 				file.createNewFile();
 			}
-			bufferedWriter = new ConverterBufferedWriter(new FileWriter(file));
-			bufferedWriter.writeLine(WriteHelper.getComment());
+			converterWriter = new ConverterBufferedWriter(new FileWriter(file));
+			converterWriter.writeLine(WriteHelper.getComment());
 			writeElement(eObject, 0);
-			bufferedWriter.writeLine("struct_" + firstName + " = struct(" + firstName + ");");
-			bufferedWriter.close();
+//			bufferedWriter.writeLine("struct_" + firstName + " = struct(" + firstName + ");");
+			converterWriter.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -110,7 +116,7 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 	/**
 	 * call writeElement with "isAnonymous = false" and "root = null".
 	 */
-	private void writeElement(EObject eObject, int tab) {
+	protected void writeElement(EObject eObject, int tab) {
 		this.writeElementNameCheck(eObject, tab, false, null);
 	}
 
@@ -119,7 +125,7 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 	 */
 	private void writeElementNameCheck(EObject eObject, int tab, Boolean isAnonymous, String root) {
 		EObject element = (EObject) eObject;
-		String name = this.checkName(this.getName(element));
+		String name = this.checkName(WriteHelper.getName(element));
 		// Check if name already exists
 		if (name == null || name.isEmpty() || names.contains(name)) {
 			System.err.println("No unique name choosen!");
@@ -143,7 +149,7 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 	protected void writeElement(EObject eObject, int tab, Boolean isAnonymous, String root) {
 		EObject element = (EObject) eObject;
 		EClass eClass = element.eClass();
-		String name = this.checkName(this.getName(element));
+		String name = this.checkName(WriteHelper.getName(element));
 		if (firstName == null) {
 			firstName = name;
 		}
@@ -155,7 +161,7 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 		EList<EReference> references = eClass.getEAllReferences();
 		// Create Instance
 		if (!isAnonymous) {
-			bufferedWriter.writeLine(tab, name + " = " + eClass.getName() + "();");
+			converterWriter.writeLine(tab, name + " = " + eClass.getName() + "();");
 		}
 		// Iterate through attributes and set them
 		for (EAttribute attribute : attributes) {
@@ -170,7 +176,7 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 				if (value.getClass().toString().equals("class org.eclipse.emf.ecore.util.EDataTypeEList")) {
 					value = value.toString().replaceAll(",", ";");
 				}
-				bufferedWriter.writeLine(tab + 1, name + "." + attribute.getName() + " = " + value
+				converterWriter.writeLine(tab + 1, name + "." + attribute.getName() + " = " + value
 						+ ";");
 			}
 		}
@@ -212,7 +218,7 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 				if (iterator.hasNext()) {
 					allReferences += ", ";
 				}
-				if (!names.contains(this.checkName(this.getName(eObject)))) {
+				if (!names.contains(this.checkName(WriteHelper.getName(eObject)))) {
 					this.writeElement(eObject, tab + 2);
 				}
 			}
@@ -225,10 +231,10 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 			}
 		}
 		if (isCellArray(classes)) {
-			bufferedWriter.writeLine(tab + 1, name + "." + reference.getName() + " = {"
+			converterWriter.writeLine(tab + 1, name + "." + reference.getName() + " = {"
 					+ allReferences + "};");
 		} else {
-			bufferedWriter.writeLine(tab + 1, name + "." + reference.getName() + " = ["
+			converterWriter.writeLine(tab + 1, name + "." + reference.getName() + " = ["
 					+ allReferences + "];");
 		}
 	}
@@ -265,7 +271,7 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 				/**
 				 * Look up the name. If the object doesn't exist create it.
 				 */
-				if (names.contains(this.checkName(this.getName(referenceElement)))) {
+				if (names.contains(this.checkName(WriteHelper.getName(referenceElement)))) {
 					allReferences += referenceName;
 				} else {
 					allReferences += referenceElement.eClass().getName() + "()";
@@ -275,10 +281,10 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 				}
 			}
 			if (isCellArray(classes)) {
-				bufferedWriter.writeLine(tab + 1, name + "." + reference.getName() + " = {"
+				converterWriter.writeLine(tab + 1, name + "." + reference.getName() + " = {"
 						+ allReferences + "};");
 			} else {
-				bufferedWriter.writeLine(tab + 1, name + "." + reference.getName() + " = ["
+				converterWriter.writeLine(tab + 1, name + "." + reference.getName() + " = ["
 						+ allReferences + "];");
 			}
 
@@ -294,7 +300,7 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 			List<WritingCommand> commands = new LinkedList<WritingCommand>();
 			for (EObject elem : referenceElements) {
 				count++;
-				if (!names.contains(this.checkName(this.getName(elem)))) {
+				if (!names.contains(this.checkName(WriteHelper.getName(elem)))) {
 					String path;
 					if (isCellArray(classes)) {
 						path = name + "." + reference.getName() + "{" + count + "}";
@@ -302,9 +308,9 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 						path = name + "." + reference.getName() + "(" + count + ")";
 					}
 					// add names as key and full path as values to hashName
-					hashNames.put(this.getName(elem), path);
+					hashNames.put(WriteHelper.getName(elem), path);
 					commands.add(new WritingCommand(this, elem, tab + 1, true, path));
-					names.add(this.checkName(this.getName(elem)));
+					names.add(this.checkName(WriteHelper.getName(elem)));
 				}
 			}
 			// Execute all collected Class writing jobs
@@ -314,14 +320,14 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 		} else {
 			referenceElement = (EObject) referenceObject;
 			referenceName = this.getFullName(referenceElement);
-			if (!names.contains(this.checkName(this.getName(referenceElement)))) {
-				hashNames.put(this.getName(referenceElement), name + "." + reference.getName());
-				bufferedWriter.writeLine(tab + 1, name + "." + reference.getName() + " = ["
+			if (!names.contains(this.checkName(WriteHelper.getName(referenceElement)))) {
+				hashNames.put(WriteHelper.getName(referenceElement), name + "." + reference.getName());
+				converterWriter.writeLine(tab + 1, name + "." + reference.getName() + " = ["
 						+ referenceElement.eClass().getName() + "()];");
 				this.writeElementNameCheck(referenceElement, tab + 1, true,
 						name + "." + reference.getName());
 			} else {
-				bufferedWriter.writeLine(tab + 1, name + "." + reference.getName() + " = ["
+				converterWriter.writeLine(tab + 1, name + "." + reference.getName() + " = ["
 						+ referenceName + "];");
 			}
 		}
@@ -347,7 +353,7 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 	 * @return the full path or the name if no path exists
 	 */
 	private String getFullName(EObject referenceElement) {
-		String referenceName = this.checkName(this.getName(referenceElement));
+		String referenceName = this.checkName(WriteHelper.getName(referenceElement));
 		if (hashNames.containsKey(referenceName)) {
 			return hashNames.get(referenceName);
 		}
@@ -370,33 +376,46 @@ public class GenerateMatlabScriptCommand extends AbstractCommand {
 		return false;
 	}
 
-	/**
-	 * Get the value of the name Attribute or otherwise the toString ID of the
-	 * EObject.
-	 * 
-	 * @param eObject
-	 * @return
-	 */
-	private String getName(EObject eObject) {
-		Object nameObject = null;
-		for (EAttribute attribute : eObject.eClass().getEAllAttributes()) {
-			if (attribute.getName().toLowerCase().equals("name")) {
-				nameObject = eObject.eGet(attribute);
-			}
-		}
-		String name;
-		if (nameObject == null || ((String) nameObject).isEmpty()) {
-			name = (String) eObject.toString().subSequence(0,
-					(eObject.toString() + ' ').indexOf(' '));
-		} else {
-			name = (String) nameObject;
-		}
-		return name;
-	}
-
+	
 	@Override
 	public void redo() {
 		// TODO Auto-generated method stub
 
+	}
+
+	/**
+	 * This is the setter Method for ConverterWriter.
+	 * @param converterWriter the ConverterWriter
+	 */
+	public void setConverterWriter(ConverterWriter converterWriter) {
+		this.converterWriter=converterWriter;
+		
+	}
+
+	/**
+	 * This is the getter method for the ConverterWriter.
+	 * @return the ConverterWriter
+	 */
+	public ConverterWriter getConverterWriter() {
+		return this.converterWriter;
+		
+	}
+
+	/**
+	 * This is the setter Method for the names List.
+	 * @param names the names List
+	 */
+	public void setNames(LinkedList<String> names) {
+		this.names=names;
+		
+	}
+
+	/**
+	 * This is the getter method for the firstElement.
+	 * @return the ConverterWriter
+	 */
+	public EObject getFirstElement() {
+		// TODO Auto-generated method stub
+		return this.firstElement;
 	}
 }
