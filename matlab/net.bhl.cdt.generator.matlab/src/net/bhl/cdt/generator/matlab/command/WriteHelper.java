@@ -52,6 +52,8 @@ public final class WriteHelper {
 		} else {
 			name = (String) nameObject;
 		}
+		name = name.replace(".", "_");
+		name = name.replace("@", "_");
 		return name;
 	}
 
