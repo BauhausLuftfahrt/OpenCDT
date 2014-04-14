@@ -73,9 +73,21 @@ public final class UtilitiesHelper {
 	 * @param modelElement the ModelElement
 	 * @return the ProjectID of the specified ModelElement
 	 */
-	public static ESGlobalProjectId getProjectId(EObject modelElement) {
+	public static ESLocalProject getContainingProject(EObject modelElement) {
 		ESWorkspace workspace = ESWorkspaceProvider.INSTANCE.getWorkspace();
-		ESLocalProject project = workspace.getLocalProject(modelElement);
+		return workspace.getLocalProject(modelElement);
+
+	}
+
+	/**
+	 * This is a method which returns the ProjectID of the ModelElement.
+	 * 
+	 * @param modelElement the ModelElement
+	 * @return the ProjectID of the specified ModelElement
+	 */
+	public static ESGlobalProjectId getProjectId(EObject modelElement) {
+
+		ESLocalProject project = getContainingProject(modelElement);
 		if (project == null) {
 			return null;
 		}
