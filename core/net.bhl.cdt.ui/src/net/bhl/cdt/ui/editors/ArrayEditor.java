@@ -5,15 +5,15 @@
  ******************************************************************************/
 package net.bhl.cdt.ui.editors;
 
+import net.bhl.cdt.model.datatypes.Array;
+import net.bhl.cdt.model.datatypes.DataType;
+import net.bhl.cdt.model.datatypes.FloatPointValue;
+import net.bhl.cdt.model.datatypes.IntegerValue;
+import net.bhl.cdt.model.datatypes.MeasuredValue;
+import net.bhl.cdt.model.datatypes.StringValue;
 import net.bhl.cdt.ui.editors.arrays.ArrayEditorInput;
 import net.bhl.cdt.ui.editors.arrays.ArrayEditorOpener;
 import net.bhl.cdt.ui.listener.ArrayMouseDownListener;
-import net.bhl.cdt.utilities.datatypes.Array;
-import net.bhl.cdt.utilities.datatypes.DataType;
-import net.bhl.cdt.utilities.datatypes.FloatPointValue;
-import net.bhl.cdt.utilities.datatypes.IntegerValue;
-import net.bhl.cdt.utilities.datatypes.MeasuredValue;
-import net.bhl.cdt.utilities.datatypes.StringValue;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecp.core.ECPProject;

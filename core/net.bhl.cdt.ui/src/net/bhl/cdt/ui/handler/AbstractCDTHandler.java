@@ -5,8 +5,8 @@
  ******************************************************************************/
 package net.bhl.cdt.ui.handler;
 
+import net.bhl.cdt.exceptions.CDTRuntimeException;
 import net.bhl.cdt.ui.Activator;
-import net.bhl.cdt.utilities.exceptions.CDTRuntimeException;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;

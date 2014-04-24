@@ -5,12 +5,12 @@
  ******************************************************************************/
 package net.bhl.cdt.ui.listener;
 
-import net.bhl.cdt.utilities.datatypes.Array;
-import net.bhl.cdt.utilities.datatypes.DataType;
-import net.bhl.cdt.utilities.datatypes.FloatPointValue;
-import net.bhl.cdt.utilities.datatypes.IntegerValue;
-import net.bhl.cdt.utilities.datatypes.MeasuredValue;
-import net.bhl.cdt.utilities.datatypes.StringValue;
+import net.bhl.cdt.model.datatypes.Array;
+import net.bhl.cdt.model.datatypes.DataType;
+import net.bhl.cdt.model.datatypes.FloatPointValue;
+import net.bhl.cdt.model.datatypes.IntegerValue;
+import net.bhl.cdt.model.datatypes.MeasuredValue;
+import net.bhl.cdt.model.datatypes.StringValue;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;

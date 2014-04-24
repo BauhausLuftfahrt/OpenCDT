@@ -5,7 +5,7 @@
  ******************************************************************************/
 package net.bhl.cdt.ui.editors.arrays;
 
-import net.bhl.cdt.utilities.datatypes.Array;
+import net.bhl.cdt.model.datatypes.Array;
 
 import org.eclipse.emf.ecp.core.ECPProject;
 import org.eclipse.jface.resource.ImageDescriptor;

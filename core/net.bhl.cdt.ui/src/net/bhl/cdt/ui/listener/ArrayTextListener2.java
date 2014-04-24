@@ -5,12 +5,12 @@
  ******************************************************************************/
 package net.bhl.cdt.ui.listener;
 
-import net.bhl.cdt.utilities.datatypes.Array;
-import net.bhl.cdt.utilities.datatypes.DataType;
-import net.bhl.cdt.utilities.datatypes.FloatPointValue;
-import net.bhl.cdt.utilities.datatypes.IntegerValue;
-import net.bhl.cdt.utilities.datatypes.MeasuredValue;
-import net.bhl.cdt.utilities.datatypes.StringValue;
+import net.bhl.cdt.model.datatypes.Array;
+import net.bhl.cdt.model.datatypes.DataType;
+import net.bhl.cdt.model.datatypes.FloatPointValue;
+import net.bhl.cdt.model.datatypes.IntegerValue;
+import net.bhl.cdt.model.datatypes.MeasuredValue;
+import net.bhl.cdt.model.datatypes.StringValue;
 
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
@@ -48,7 +48,7 @@ public class ArrayTextListener2 implements Listener {
 	public void handleEvent(Event event) {
 
 		if (!(s2.equals(text.getText()))) {
-//			System.out.println("Schon geändert!!!!!");
+//			System.out.println("Schon geï¿½ndert!!!!!");
 //			System.out.println("*********" + array.getName() + "*******");
 
 			double d = 0;

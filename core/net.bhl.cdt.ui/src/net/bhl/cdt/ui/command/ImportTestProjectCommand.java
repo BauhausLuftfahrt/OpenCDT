@@ -7,7 +7,7 @@ package net.bhl.cdt.ui.command;
 
 import java.net.URL;
 
-import net.bhl.cdt.utilities.commands.CDTCommand;
+import net.bhl.cdt.commands.CDTCommand;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;

@@ -9,6 +9,7 @@ package net.bhl.cdt.ui.adapter;
 import org.eclipse.core.runtime.IAdapterFactory;
 //import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.views.properties.IPropertySheetPage;
+
 //import org.eclipse.ui.views.properties.PropertySheet;
 //import org.eclipse.ui.views.properties.PropertySheetPage;
 

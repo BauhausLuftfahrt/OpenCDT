@@ -4,15 +4,21 @@ Bundle-Name: Gui
 Bundle-SymbolicName: net.bhl.cdt.ui;singleton:=true
 Bundle-Version: 0.9.1.qualifier
 Bundle-Activator: net.bhl.cdt.ui.Activator
-Require-Bundle: org.eclipse.emf.databinding.edit;bundle-version="1.3.0";visibility:=reexport,
+Require-Bundle: 
  net.bhl.cdt.model;bundle-version="0.9.1";visibility:=reexport,
- net.bhl.cdt.resources;bundle-version="0.9.1";visibility:=reexport,
- org.eclipse.emf.ecp.ui;bundle-version="1.1.1";visibility:=reexport,
- org.eclipse.emf.ecp.ui.e3;bundle-version="1.1.1";visibility:=reexport,
- org.eclipse.emf.edit.ui;bundle-version="2.9.0";visibility:=reexport
+ org.eclipse.ui.workbench;visibility:=reexport,
+ org.eclipse.swt;visibility:=reexport,
+ org.eclipse.core.commands;visibility:=reexport,
+ org.eclipse.jface;visibility:=reexport,
+ org.eclipse.emf.ecp.core;visibility:=reexport,
+ org.eclipse.emf.ecp.ui;visibility:=reexport,
+ org.eclipse.emf.ecp.ui.e3;visibility:=reexport,
+ org.eclipse.ui.views;visibility:=reexport,
+ org.eclipse.emf.edit.ui;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: net.bhl.cdt.ui;
+Export-Package: net.bhl.cdt.commands,
+ net.bhl.cdt.ui;
   uses:="org.eclipse.emf.ecore,
    org.eclipse.emf.ecp.ui.util,
    org.eclipse.emf.ecp.core,
@@ -33,15 +39,5 @@ Export-Package: net.bhl.cdt.ui;
    net.bhl.cdt.utilities.datatypes,
    org.eclipse.ui.part,
    org.eclipse.swt.widgets",
- net.bhl.cdt.ui.handler;uses:="org.eclipse.emf.ecore,org.eclipse.core.commands,org.eclipse.swt.widgets",
- net.bhl.cdt.ui.menu;uses:="org.eclipse.ui,org.eclipse.jface.viewers",
- net.bhl.cdt.ui.views;
-  uses:="org.eclipse.emf.ecore,
-   net.bhl.cdt.model,
-   org.eclipse.ui,
-   org.eclipse.jface.viewers,
-   org.eclipse.ui.part,
-   org.eclipse.swt.widgets"
-Bundle-ClassPath: .,
- swt-grouplayout.jar,
- swing2swt.jar
+ net.bhl.cdt.ui.handler;uses:="org.eclipse.emf.ecore,org.eclipse.core.commands,org.eclipse.swt.widgets"
+Bundle-ClassPath: .

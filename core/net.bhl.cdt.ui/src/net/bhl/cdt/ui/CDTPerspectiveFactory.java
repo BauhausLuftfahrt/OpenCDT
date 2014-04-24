@@ -5,7 +5,6 @@
  ******************************************************************************/
 package net.bhl.cdt.ui;
 
-import net.bhl.cdt.ui.views.ConfigurationView;
 
 import org.eclipse.emf.ecp.ui.views.ModelExplorerView;
 import org.eclipse.emf.ecp.ui.views.ModelRepositoriesView;
@@ -35,7 +34,7 @@ public class CDTPerspectiveFactory implements IPerspectiveFactory {
 		left.addView(ModelExplorerView.ID);
 
 		IFolderLayout right = layout.createFolder("right", IPageLayout.RIGHT, 0.70f, layout.getEditorArea());
-		right.addView(ConfigurationView.ID);
+		
 		right.addView(ModelRepositoriesView.ID);
 
 		IFolderLayout bottom = layout.createFolder("bottom", IPageLayout.BOTTOM, 0.70f, layout.getEditorArea());

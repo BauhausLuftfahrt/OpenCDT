@@ -7,7 +7,6 @@ package net.bhl.cdt.ui;
 
 import java.io.File;
 
-
 /**
  * Do we really need this class?
  */
