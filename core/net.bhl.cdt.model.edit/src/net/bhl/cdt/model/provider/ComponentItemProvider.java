@@ -93,6 +93,7 @@ public class ComponentItemProvider extends StructuralElementItemProvider impleme
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ModelPackage.Literals.COMPONENT__SUB_COMPONENTS);
 			childrenFeatures.add(ModelPackage.Literals.COMPONENT__PARAMETERS);
+			childrenFeatures.add(ModelPackage.Literals.COMPONENT__STATES);
 		}
 		return childrenFeatures;
 	}
@@ -146,6 +147,7 @@ public class ComponentItemProvider extends StructuralElementItemProvider impleme
 		switch (notification.getFeatureID(Component.class)) {
 			case ModelPackage.COMPONENT__SUB_COMPONENTS:
 			case ModelPackage.COMPONENT__PARAMETERS:
+			case ModelPackage.COMPONENT__STATES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -171,6 +173,11 @@ public class ComponentItemProvider extends StructuralElementItemProvider impleme
 			(createChildParameter
 				(ModelPackage.Literals.COMPONENT__PARAMETERS,
 				 ModelFactory.eINSTANCE.createParameter()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.COMPONENT__STATES,
+				 ModelFactory.eINSTANCE.createState()));
 	}
 
 }

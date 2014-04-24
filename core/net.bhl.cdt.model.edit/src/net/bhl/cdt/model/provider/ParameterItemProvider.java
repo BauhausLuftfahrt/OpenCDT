@@ -9,9 +9,9 @@ package net.bhl.cdt.model.provider;
 import java.util.Collection;
 import java.util.List;
 
-import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.model.ModelPackage;
 import net.bhl.cdt.model.Parameter;
+import net.bhl.cdt.model.datatypes.DatatypesFactory;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -53,24 +53,25 @@ public class ParameterItemProvider extends StructuralElementItemProvider impleme
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addQuantityPropertyDescriptor(object);
+			addDefaultUnitPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Quantity feature.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds a property descriptor for the Default Unit feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addQuantityPropertyDescriptor(Object object) {
+	protected void addDefaultUnitPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_quantity_feature"), //$NON-NLS-1$
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_quantity_feature", "_UI_Parameter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
-				 ModelPackage.Literals.PARAMETER__QUANTITY,
+				 getString("_UI_Parameter_defaultUnit_feature"), //$NON-NLS-1$
+				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_defaultUnit_feature", "_UI_Parameter_type"), //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
+				 ModelPackage.Literals.PARAMETER__DEFAULT_UNIT,
 				 true,
 				 false,
 				 false,
@@ -142,7 +143,7 @@ public class ParameterItemProvider extends StructuralElementItemProvider impleme
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Parameter.class)) {
-			case ModelPackage.PARAMETER__QUANTITY:
+			case ModelPackage.PARAMETER__DEFAULT_UNIT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case ModelPackage.PARAMETER__VALUES:
@@ -165,7 +166,42 @@ public class ParameterItemProvider extends StructuralElementItemProvider impleme
 		newChildDescriptors.add
 			(createChildParameter
 				(ModelPackage.Literals.PARAMETER__VALUES,
-				 ModelFactory.eINSTANCE.createValue()));
+				 DatatypesFactory.eINSTANCE.createFloatPointValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.PARAMETER__VALUES,
+				 DatatypesFactory.eINSTANCE.createMeasuredValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.PARAMETER__VALUES,
+				 DatatypesFactory.eINSTANCE.createIntegerValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.PARAMETER__VALUES,
+				 DatatypesFactory.eINSTANCE.createStringValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.PARAMETER__VALUES,
+				 DatatypesFactory.eINSTANCE.createFormula()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.PARAMETER__VALUES,
+				 DatatypesFactory.eINSTANCE.createCompositeValues()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.PARAMETER__VALUES,
+				 DatatypesFactory.eINSTANCE.createArray()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.PARAMETER__VALUES,
+				 DatatypesFactory.eINSTANCE.createCells()));
 	}
 
 }

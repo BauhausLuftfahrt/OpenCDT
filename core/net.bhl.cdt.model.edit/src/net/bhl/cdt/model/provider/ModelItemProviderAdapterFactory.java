@@ -109,28 +109,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.Value} instances.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ValueItemProvider valueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.Value}.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createValueAdapter() {
-		if (valueItemProvider == null) {
-			valueItemProvider = new ValueItemProvider(this);
-		}
-
-		return valueItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.Configuration} instances. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -176,28 +154,6 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.Element} instances.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ElementItemProvider elementItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link net.bhl.cdt.model.Element}.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createElementAdapter() {
-		if (elementItemProvider == null) {
-			elementItemProvider = new ElementItemProvider(this);
-		}
-
-		return elementItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.Parameter} instances. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->
 	 * 
@@ -217,6 +173,29 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 		}
 
 		return parameterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link net.bhl.cdt.model.State} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StateItemProvider stateItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link net.bhl.cdt.model.State}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStateAdapter() {
+		if (stateItemProvider == null) {
+			stateItemProvider = new StateItemProvider(this);
+		}
+
+		return stateItemProvider;
 	}
 
 	/**
@@ -336,11 +315,10 @@ public class ModelItemProviderAdapterFactory extends ModelAdapterFactory impleme
 	 */
 	public void dispose() {
 		if (componentItemProvider != null) componentItemProvider.dispose();
-		if (valueItemProvider != null) valueItemProvider.dispose();
 		if (configurationItemProvider != null) configurationItemProvider.dispose();
 		if (modelItemProvider != null) modelItemProvider.dispose();
-		if (elementItemProvider != null) elementItemProvider.dispose();
 		if (parameterItemProvider != null) parameterItemProvider.dispose();
+		if (stateItemProvider != null) stateItemProvider.dispose();
 	}
 
 }

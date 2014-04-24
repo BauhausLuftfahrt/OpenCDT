@@ -67,7 +67,6 @@ public class ConfigurationItemProvider extends StructuralElementItemProvider imp
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ModelPackage.Literals.CONFIGURATION__VIEWS);
 			childrenFeatures.add(ModelPackage.Literals.CONFIGURATION__COMPONENTS);
 		}
 		return childrenFeatures;
@@ -120,7 +119,6 @@ public class ConfigurationItemProvider extends StructuralElementItemProvider imp
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Configuration.class)) {
-			case ModelPackage.CONFIGURATION__VIEWS:
 			case ModelPackage.CONFIGURATION__COMPONENTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
