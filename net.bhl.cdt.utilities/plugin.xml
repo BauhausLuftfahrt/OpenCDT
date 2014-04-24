@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://bhl.net/cdt/utilities/exchangemodel"
+            class="net.bhl.cdt.utilities.exchangemodel.ExchangemodelPackage"
+            genModel="model/exchangemodel.genmodel"/>
+      <package
+            class="net.bhl.cdt.utilities.datatypes.DatatypesPackage"
+            genModel="model/datatypes.genmodel"
+            uri="http://bhl.net/cdt/utilities/datatypes">
+      </package>
+   </extension>
+
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated units -->
+      <package
+            uri="http://bhl.net/cdt/utilities/units"
+            class="net.bhl.cdt.utilities.units.UnitsPackage"
+            genModel="model/units.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated datatypes -->
+      <package
+            uri="http://bhl.net/cdt/utilities/datatypes/"
+            class="net.bhl.cdt.utilities.datatypes.DatatypesPackage"
+            genModel="model/datatypes.genmodel"/>
+   </extension>
+
+</plugin>
