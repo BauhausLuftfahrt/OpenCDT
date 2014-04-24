@@ -8,10 +8,11 @@ package net.bhl.cdt.model.impl;
 
 import java.util.Collection;
 
+import javax.measure.unit.Unit;
+
 import net.bhl.cdt.model.ModelPackage;
 import net.bhl.cdt.model.Parameter;
-import net.bhl.cdt.model.Value;
-import net.bhl.cdt.utilities.units.Quantity;
+import net.bhl.cdt.model.datatypes.DataType;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -27,47 +28,46 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link net.bhl.cdt.model.impl.ParameterImpl#getValues <em>Values</em>}</li>
- * <li>{@link net.bhl.cdt.model.impl.ParameterImpl#getQuantity <em>Quantity</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.impl.ParameterImpl#getValues <em>Values</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.impl.ParameterImpl#getDefaultUnit <em>Default Unit</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @generated
  */
 public class ParameterImpl extends StructuralElementImpl implements Parameter {
 	/**
-	 * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list. <!-- begin-user-doc
+	 * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
+	 * <!-- begin-user-doc
 	 * --> <!-- end-user-doc -->
-	 * 
 	 * @see #getValues()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Value> values;
+	protected EList<DataType> values;
 
 	/**
-	 * The default value of the '{@link #getQuantity() <em>Quantity</em>}' attribute. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @see #getQuantity()
+	 * The default value of the '{@link #getDefaultUnit() <em>Default Unit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefaultUnit()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Quantity QUANTITY_EDEFAULT = Quantity.LENGTH;
+	protected static final Unit DEFAULT_UNIT_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getQuantity() <em>Quantity</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getDefaultUnit() <em>Default Unit</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
-	 * @see #getQuantity()
+	 * @see #getDefaultUnit()
 	 * @generated
 	 * @ordered
 	 */
-	protected Quantity quantity = QUANTITY_EDEFAULT;
+	protected Unit defaultUnit = DEFAULT_UNIT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected ParameterImpl() {
@@ -76,7 +76,6 @@ public class ParameterImpl extends StructuralElementImpl implements Parameter {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -86,146 +85,124 @@ public class ParameterImpl extends StructuralElementImpl implements Parameter {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
-	public EList<Value> getValues() {
+	public EList<DataType> getValues() {
 		if (values == null) {
-			values = new EObjectContainmentEList.Resolving<Value>(Value.class, this, ModelPackage.PARAMETER__VALUES);
+			values = new EObjectContainmentEList.Resolving<DataType>(DataType.class, this, ModelPackage.PARAMETER__VALUES);
 		}
 		return values;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
-	public Quantity getQuantity() {
-		return quantity;
+	public Unit getDefaultUnit() {
+		return defaultUnit;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
-	public void setQuantity(Quantity newQuantity) {
-		Quantity oldQuantity = quantity;
-		quantity = newQuantity == null ? QUANTITY_EDEFAULT : newQuantity;
+	public void setDefaultUnit(Unit newDefaultUnit) {
+		Unit oldDefaultUnit = defaultUnit;
+		defaultUnit = newDefaultUnit;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PARAMETER__QUANTITY, oldQuantity,
-				quantity));
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->.
-	 * 
-	 * @param value -- Value which should be set
-	 * @generated NOT
-	 */
-	public void setValue(Value value) {
-		// getValues().set(0, value);
-		getValues().add(value);
+			eNotify(new ENotificationImpl(this, Notification.SET, ModelPackage.PARAMETER__DEFAULT_UNIT, oldDefaultUnit, defaultUnit));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case ModelPackage.PARAMETER__VALUES:
-			return ((InternalEList<?>) getValues()).basicRemove(otherEnd, msgs);
+			case ModelPackage.PARAMETER__VALUES:
+				return ((InternalEList<?>)getValues()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case ModelPackage.PARAMETER__VALUES:
-			return getValues();
-		case ModelPackage.PARAMETER__QUANTITY:
-			return getQuantity();
+			case ModelPackage.PARAMETER__VALUES:
+				return getValues();
+			case ModelPackage.PARAMETER__DEFAULT_UNIT:
+				return getDefaultUnit();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case ModelPackage.PARAMETER__VALUES:
-			getValues().clear();
-			getValues().addAll((Collection<? extends Value>) newValue);
-			return;
-		case ModelPackage.PARAMETER__QUANTITY:
-			setQuantity((Quantity) newValue);
-			return;
+			case ModelPackage.PARAMETER__VALUES:
+				getValues().clear();
+				getValues().addAll((Collection<? extends DataType>)newValue);
+				return;
+			case ModelPackage.PARAMETER__DEFAULT_UNIT:
+				setDefaultUnit((Unit)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case ModelPackage.PARAMETER__VALUES:
-			getValues().clear();
-			return;
-		case ModelPackage.PARAMETER__QUANTITY:
-			setQuantity(QUANTITY_EDEFAULT);
-			return;
+			case ModelPackage.PARAMETER__VALUES:
+				getValues().clear();
+				return;
+			case ModelPackage.PARAMETER__DEFAULT_UNIT:
+				setDefaultUnit(DEFAULT_UNIT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case ModelPackage.PARAMETER__VALUES:
-			return values != null && !values.isEmpty();
-		case ModelPackage.PARAMETER__QUANTITY:
-			return quantity != QUANTITY_EDEFAULT;
+			case ModelPackage.PARAMETER__VALUES:
+				return values != null && !values.isEmpty();
+			case ModelPackage.PARAMETER__DEFAULT_UNIT:
+				return DEFAULT_UNIT_EDEFAULT == null ? defaultUnit != null : !DEFAULT_UNIT_EDEFAULT.equals(defaultUnit);
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (quantity: "); //$NON-NLS-1$
-		result.append(quantity);
+		result.append(" (defaultUnit: "); //$NON-NLS-1$
+		result.append(defaultUnit);
 		result.append(')');
 		return result.toString();
 	}

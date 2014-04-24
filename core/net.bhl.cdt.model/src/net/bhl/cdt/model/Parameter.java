@@ -5,7 +5,9 @@
  ******************************************************************************/
 package net.bhl.cdt.model;
 
-import net.bhl.cdt.utilities.units.Quantity;
+import javax.measure.unit.Unit;
+
+import net.bhl.cdt.model.datatypes.DataType;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -16,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link net.bhl.cdt.model.Parameter#getValues <em>Values</em>}</li>
- *   <li>{@link net.bhl.cdt.model.Parameter#getQuantity <em>Quantity</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.Parameter#getDefaultUnit <em>Default Unit</em>}</li>
  * </ul>
  * </p>
  *
@@ -27,7 +29,7 @@ import org.eclipse.emf.common.util.EList;
 public interface Parameter extends StructuralElement {
 	/**
 	 * Returns the value of the '<em><b>Values</b></em>' containment reference list.
-	 * The list contents are of type {@link net.bhl.cdt.model.Value}.
+	 * The list contents are of type {@link net.bhl.cdt.datatypes.DataType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Values</em>' containment reference list isn't clear, there really should be more of a
@@ -39,35 +41,32 @@ public interface Parameter extends StructuralElement {
 	 * @model containment="true" resolveProxies="true"
 	 * @generated
 	 */
-	EList<Value> getValues();
+	EList<DataType> getValues();
 
 	/**
-	 * Returns the value of the '<em><b>Quantity</b></em>' attribute.
-	 * The literals are from the enumeration {@link net.bhl.cdt.utilities.units.Quantity}.
+	 * Returns the value of the '<em><b>Default Unit</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Quantity</em>' attribute isn't clear, there really should be more of a description
-	 * here...
+	 * If the meaning of the '<em>Default Unit</em>' attribute isn't clear,
+	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Quantity</em>' attribute.
-	 * @see net.bhl.cdt.utilities.units.Quantity
-	 * @see #setQuantity(Quantity)
-	 * @see net.bhl.cdt.model.ModelPackage#getParameter_Quantity()
-	 * @model
+	 * @return the value of the '<em>Default Unit</em>' attribute.
+	 * @see #setDefaultUnit(Unit)
+	 * @see net.bhl.cdt.model.ModelPackage#getParameter_DefaultUnit()
+	 * @model dataType="net.bhl.cdt.utilities.units.Unit"
 	 * @generated
 	 */
-	Quantity getQuantity();
+	Unit getDefaultUnit();
 
 	/**
-	 * Sets the value of the '{@link net.bhl.cdt.model.Parameter#getQuantity <em>Quantity</em>}' attribute. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @param value the new value of the '<em>Quantity</em>' attribute.
-	 * @see net.bhl.cdt.utilities.units.Quantity
-	 * @see #getQuantity()
+	 * Sets the value of the '{@link net.bhl.cdt.model.Parameter#getDefaultUnit <em>Default Unit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Default Unit</em>' attribute.
+	 * @see #getDefaultUnit()
 	 * @generated
 	 */
-	void setQuantity(Quantity value);
+	void setDefaultUnit(Unit value);
 
 } // Parameter

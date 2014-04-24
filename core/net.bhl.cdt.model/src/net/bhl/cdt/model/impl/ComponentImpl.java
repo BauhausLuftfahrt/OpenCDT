@@ -11,6 +11,7 @@ import java.util.Collection;
 import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.ModelPackage;
 import net.bhl.cdt.model.Parameter;
+import net.bhl.cdt.model.State;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link net.bhl.cdt.model.impl.ComponentImpl#getSubComponents <em>Sub Components</em>}</li>
  *   <li>{@link net.bhl.cdt.model.impl.ComponentImpl#getParameters <em>Parameters</em>}</li>
  *   <li>{@link net.bhl.cdt.model.impl.ComponentImpl#getConnectedComponents <em>Connected Components</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.impl.ComponentImpl#getStates <em>States</em>}</li>
  * </ul>
  * </p>
  *
@@ -63,6 +65,16 @@ public class ComponentImpl extends StructuralElementImpl implements Component {
 	 * @ordered
 	 */
 	protected EList<Component> connectedComponents;
+
+	/**
+	 * The cached value of the '{@link #getStates() <em>States</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getStates()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<State> states;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -115,6 +127,18 @@ public class ComponentImpl extends StructuralElementImpl implements Component {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<State> getStates() {
+		if (states == null) {
+			states = new EObjectContainmentEList.Resolving<State>(State.class, this, ModelPackage.COMPONENT__STATES);
+		}
+		return states;
+	}
+
+	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -125,6 +149,8 @@ public class ComponentImpl extends StructuralElementImpl implements Component {
 				return ((InternalEList<?>)getSubComponents()).basicRemove(otherEnd, msgs);
 			case ModelPackage.COMPONENT__PARAMETERS:
 				return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+			case ModelPackage.COMPONENT__STATES:
+				return ((InternalEList<?>)getStates()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -142,6 +168,8 @@ public class ComponentImpl extends StructuralElementImpl implements Component {
 				return getParameters();
 			case ModelPackage.COMPONENT__CONNECTED_COMPONENTS:
 				return getConnectedComponents();
+			case ModelPackage.COMPONENT__STATES:
+				return getStates();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -166,6 +194,10 @@ public class ComponentImpl extends StructuralElementImpl implements Component {
 				getConnectedComponents().clear();
 				getConnectedComponents().addAll((Collection<? extends Component>)newValue);
 				return;
+			case ModelPackage.COMPONENT__STATES:
+				getStates().clear();
+				getStates().addAll((Collection<? extends State>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -186,6 +218,9 @@ public class ComponentImpl extends StructuralElementImpl implements Component {
 			case ModelPackage.COMPONENT__CONNECTED_COMPONENTS:
 				getConnectedComponents().clear();
 				return;
+			case ModelPackage.COMPONENT__STATES:
+				getStates().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -203,6 +238,8 @@ public class ComponentImpl extends StructuralElementImpl implements Component {
 				return parameters != null && !parameters.isEmpty();
 			case ModelPackage.COMPONENT__CONNECTED_COMPONENTS:
 				return connectedComponents != null && !connectedComponents.isEmpty();
+			case ModelPackage.COMPONENT__STATES:
+				return states != null && !states.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

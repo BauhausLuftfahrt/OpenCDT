@@ -3,18 +3,15 @@
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
-package net.bhl.cdt.model;
+package net.bhl.cdt.model.quantities.derived;
 
-import net.bhl.cdt.utilities.exchangemodel.ExchangeElement;
+import javax.measure.quantity.Quantity;
 
 /**
- * <!-- begin-user-doc --> A representation of the model object '<em><b>Element</b></em>'. <!-- end-user-doc -->
- *
- *
- * @see net.bhl.cdt.model.ModelPackage#getElement()
- * @model
- * @generated
+ * This class specifies the Specific Fuel Consumption Quantity as an Interface.
+ * 
+ * @author Martin Glas
  */
-public interface Element extends ExchangeElement {
+public interface SpecificFuelConsumption extends Quantity {
 
-} // Element
+}

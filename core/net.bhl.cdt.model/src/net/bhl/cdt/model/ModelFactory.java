@@ -30,14 +30,6 @@ public interface ModelFactory extends EFactory {
 	Component createComponent();
 
 	/**
-	 * Returns a new object of class '<em>Value</em>'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return a new object of class '<em>Value</em>'.
-	 * @generated
-	 */
-	Value createValue();
-
-	/**
 	 * Returns a new object of class '<em>Configuration</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return a new object of class '<em>Configuration</em>'.
@@ -54,20 +46,21 @@ public interface ModelFactory extends EFactory {
 	Model createModel();
 
 	/**
-	 * Returns a new object of class '<em>Element</em>'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return a new object of class '<em>Element</em>'.
-	 * @generated
-	 */
-	Element createElement();
-
-	/**
 	 * Returns a new object of class '<em>Parameter</em>'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return a new object of class '<em>Parameter</em>'.
 	 * @generated
 	 */
 	Parameter createParameter();
+
+	/**
+	 * Returns a new object of class '<em>State</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>State</em>'.
+	 * @generated
+	 */
+	State createState();
 
 	/**
 	 * Returns the package supported by this factory.

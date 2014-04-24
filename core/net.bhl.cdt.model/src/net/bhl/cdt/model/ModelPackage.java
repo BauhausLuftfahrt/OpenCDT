@@ -5,7 +5,7 @@
  ******************************************************************************/
 package net.bhl.cdt.model;
 
-import net.bhl.cdt.utilities.exchangemodel.ExchangemodelPackage;
+import net.bhl.cdt.model.datatypes.DatatypesPackage;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -55,39 +55,13 @@ public interface ModelPackage extends EPackage {
 	ModelPackage eINSTANCE = net.bhl.cdt.model.impl.ModelPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.impl.ElementImpl <em>Element</em>}' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see net.bhl.cdt.model.impl.ElementImpl
-	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getElement()
-	 * @generated
-	 */
-	int ELEMENT = 4;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT__NAME = ExchangemodelPackage.EXCHANGE_ELEMENT__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Element</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ELEMENT_FEATURE_COUNT = ExchangemodelPackage.EXCHANGE_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.impl.StructuralElementImpl <em>Structural Element</em>}' class.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @see net.bhl.cdt.model.impl.StructuralElementImpl
 	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getStructuralElement()
 	 * @generated
 	 */
-	int STRUCTURAL_ELEMENT = 6;
+	int STRUCTURAL_ELEMENT = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -95,7 +69,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURAL_ELEMENT__NAME = ELEMENT__NAME;
+	int STRUCTURAL_ELEMENT__NAME = DatatypesPackage.NAMED_ELEMENT__NAME;
 
 	/**
 	 * The number of structural features of the '<em>Structural Element</em>' class.
@@ -104,7 +78,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURAL_ELEMENT_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 0;
+	int STRUCTURAL_ELEMENT_FEATURE_COUNT = DatatypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.impl.ComponentImpl <em>Component</em>}' class. <!--
@@ -152,81 +126,22 @@ public interface ModelPackage extends EPackage {
 	int COMPONENT__CONNECTED_COMPONENTS = STRUCTURAL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>States</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT__STATES = STRUCTURAL_ELEMENT_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Component</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = STRUCTURAL_ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.impl.ValueImpl <em>Value</em>}' class.
-	 * <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * @see net.bhl.cdt.model.impl.ValueImpl
-	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getValue()
-	 * @generated
-	 */
-	int VALUE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE__NAME = ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Unit</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE__UNIT = ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE__DESCRIPTION = ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Source</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE__SOURCE = ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE__VALUE = ELEMENT_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Datatypes</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE__DATATYPES = ELEMENT_FEATURE_COUNT + 4;
-
-	/**
-	 * The number of structural features of the '<em>Value</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 5;
+	int COMPONENT_FEATURE_COUNT = STRUCTURAL_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.impl.ConfigurationImpl <em>Configuration</em>}' class. <!--
@@ -236,7 +151,7 @@ public interface ModelPackage extends EPackage {
 	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getConfiguration()
 	 * @generated
 	 */
-	int CONFIGURATION = 2;
+	int CONFIGURATION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -247,22 +162,13 @@ public interface ModelPackage extends EPackage {
 	int CONFIGURATION__NAME = STRUCTURAL_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Views</b></em>' containment reference list.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFIGURATION__VIEWS = STRUCTURAL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Components</b></em>' containment reference list.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION__COMPONENTS = STRUCTURAL_ELEMENT_FEATURE_COUNT + 1;
+	int CONFIGURATION__COMPONENTS = STRUCTURAL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Configuration</em>' class.
@@ -271,7 +177,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_FEATURE_COUNT = STRUCTURAL_ELEMENT_FEATURE_COUNT + 2;
+	int CONFIGURATION_FEATURE_COUNT = STRUCTURAL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.impl.ModelImpl <em>Model</em>}' class.
@@ -281,7 +187,7 @@ public interface ModelPackage extends EPackage {
 	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getModel()
 	 * @generated
 	 */
-	int MODEL = 3;
+	int MODEL = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -289,7 +195,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__NAME = ELEMENT__NAME;
+	int MODEL__NAME = DatatypesPackage.NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
@@ -298,7 +204,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__CONFIGURATIONS = ELEMENT_FEATURE_COUNT + 0;
+	int MODEL__CONFIGURATIONS = DatatypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -306,7 +212,7 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 1;
+	int MODEL_FEATURE_COUNT = DatatypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.impl.ParameterImpl <em>Parameter</em>}' class. <!--
@@ -316,7 +222,7 @@ public interface ModelPackage extends EPackage {
 	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getParameter()
 	 * @generated
 	 */
-	int PARAMETER = 5;
+	int PARAMETER = 3;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -336,12 +242,13 @@ public interface ModelPackage extends EPackage {
 	int PARAMETER__VALUES = STRUCTURAL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Quantity</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Default Unit</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__QUANTITY = STRUCTURAL_ELEMENT_FEATURE_COUNT + 1;
+	int PARAMETER__DEFAULT_UNIT = STRUCTURAL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Parameter</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -353,30 +260,41 @@ public interface ModelPackage extends EPackage {
 	int PARAMETER_FEATURE_COUNT = STRUCTURAL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.impl.ViewImpl <em>View</em>}' class.
+	 * The meta object id for the '{@link net.bhl.cdt.model.impl.StateImpl <em>State</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see net.bhl.cdt.model.impl.ViewImpl
-	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getView()
+	 * @see net.bhl.cdt.model.impl.StateImpl
+	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getState()
 	 * @generated
 	 */
-	int VIEW = 7;
+	int STATE = 5;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW__NAME = ELEMENT__NAME;
+	int STATE__NAME = DatatypesPackage.NAMED_ELEMENT__NAME;
 
 	/**
-	 * The number of structural features of the '<em>View</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Values</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_FEATURE_COUNT = ELEMENT_FEATURE_COUNT + 0;
+	int STATE__VALUES = DatatypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>State</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE_FEATURE_COUNT = DatatypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * Returns the meta object for class '{@link net.bhl.cdt.model.Component <em>Component</em>}'.
@@ -419,67 +337,15 @@ public interface ModelPackage extends EPackage {
 	EReference getComponent_ConnectedComponents();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.Value <em>Value</em>}'.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @return the meta object for class '<em>Value</em>'.
-	 * @see net.bhl.cdt.model.Value
+	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.Component#getStates <em>States</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>States</em>'.
+	 * @see net.bhl.cdt.model.Component#getStates()
+	 * @see #getComponent()
 	 * @generated
 	 */
-	EClass getValue();
-
-	/**
-	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.Value#getUnit <em>Unit</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Unit</em>'.
-	 * @see net.bhl.cdt.model.Value#getUnit()
-	 * @see #getValue()
-	 * @generated
-	 */
-	EAttribute getValue_Unit();
-
-	/**
-	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.Value#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see net.bhl.cdt.model.Value#getDescription()
-	 * @see #getValue()
-	 * @generated
-	 */
-	EAttribute getValue_Description();
-
-	/**
-	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.Value#getSource <em>Source</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Source</em>'.
-	 * @see net.bhl.cdt.model.Value#getSource()
-	 * @see #getValue()
-	 * @generated
-	 */
-	EAttribute getValue_Source();
-
-	/**
-	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.Value#getValue <em>Value</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see net.bhl.cdt.model.Value#getValue()
-	 * @see #getValue()
-	 * @generated
-	 */
-	EAttribute getValue_Value();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.Value#getDatatypes <em>Datatypes</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Datatypes</em>'.
-	 * @see net.bhl.cdt.model.Value#getDatatypes()
-	 * @see #getValue()
-	 * @generated
-	 */
-	EReference getValue_Datatypes();
+	EReference getComponent_States();
 
 	/**
 	 * Returns the meta object for class '{@link net.bhl.cdt.model.Configuration <em>Configuration</em>}'. <!--
@@ -502,16 +368,6 @@ public interface ModelPackage extends EPackage {
 	EReference getConfiguration_Components();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.Configuration#getViews <em>Views</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Views</em>'.
-	 * @see net.bhl.cdt.model.Configuration#getViews()
-	 * @see #getConfiguration()
-	 * @generated
-	 */
-	EReference getConfiguration_Views();
-
-	/**
 	 * Returns the meta object for class '{@link net.bhl.cdt.model.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
@@ -530,16 +386,6 @@ public interface ModelPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getModel_Configurations();
-
-	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.Element <em>Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Element</em>'.
-	 * @see net.bhl.cdt.model.Element
-	 * @generated
-	 */
-	EClass getElement();
 
 	/**
 	 * Returns the meta object for class '{@link net.bhl.cdt.model.Parameter <em>Parameter</em>}'.
@@ -562,14 +408,15 @@ public interface ModelPackage extends EPackage {
 	EReference getParameter_Values();
 
 	/**
-	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.Parameter#getQuantity <em>Quantity</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Quantity</em>'.
-	 * @see net.bhl.cdt.model.Parameter#getQuantity()
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.Parameter#getDefaultUnit <em>Default Unit</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Default Unit</em>'.
+	 * @see net.bhl.cdt.model.Parameter#getDefaultUnit()
 	 * @see #getParameter()
 	 * @generated
 	 */
-	EAttribute getParameter_Quantity();
+	EAttribute getParameter_DefaultUnit();
 
 	/**
 	 * Returns the meta object for class '{@link net.bhl.cdt.model.StructuralElement <em>Structural Element</em>}'. <!--
@@ -582,14 +429,25 @@ public interface ModelPackage extends EPackage {
 	EClass getStructuralElement();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.View <em>View</em>}'.
-	 * <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * @return the meta object for class '<em>View</em>'.
-	 * @see net.bhl.cdt.model.View
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.State <em>State</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>State</em>'.
+	 * @see net.bhl.cdt.model.State
 	 * @generated
 	 */
-	EClass getView();
+	EClass getState();
+
+	/**
+	 * Returns the meta object for the reference list '{@link net.bhl.cdt.model.State#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Values</em>'.
+	 * @see net.bhl.cdt.model.State#getValues()
+	 * @see #getState()
+	 * @generated
+	 */
+	EReference getState_Values();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -646,54 +504,12 @@ public interface ModelPackage extends EPackage {
 		EReference COMPONENT__CONNECTED_COMPONENTS = eINSTANCE.getComponent_ConnectedComponents();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.ValueImpl <em>Value</em>}' class. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @see net.bhl.cdt.model.impl.ValueImpl
-		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getValue()
+		 * The meta object literal for the '<em><b>States</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EClass VALUE = eINSTANCE.getValue();
-
-		/**
-		 * The meta object literal for the '<em><b>Unit</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VALUE__UNIT = eINSTANCE.getValue_Unit();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VALUE__DESCRIPTION = eINSTANCE.getValue_Description();
-
-		/**
-		 * The meta object literal for the '<em><b>Source</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VALUE__SOURCE = eINSTANCE.getValue_Source();
-
-		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VALUE__VALUE = eINSTANCE.getValue_Value();
-
-		/**
-		 * The meta object literal for the '<em><b>Datatypes</b></em>' containment reference feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference VALUE__DATATYPES = eINSTANCE.getValue_Datatypes();
+		EReference COMPONENT__STATES = eINSTANCE.getComponent_States();
 
 		/**
 		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.ConfigurationImpl <em>Configuration</em>}' class.
@@ -711,14 +527,6 @@ public interface ModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CONFIGURATION__COMPONENTS = eINSTANCE.getConfiguration_Components();
-
-		/**
-		 * The meta object literal for the '<em><b>Views</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference CONFIGURATION__VIEWS = eINSTANCE.getConfiguration_Views();
 
 		/**
 		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.ModelImpl <em>Model</em>}' class. <!--
@@ -739,16 +547,6 @@ public interface ModelPackage extends EPackage {
 		EReference MODEL__CONFIGURATIONS = eINSTANCE.getModel_Configurations();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.ElementImpl <em>Element</em>}' class. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @see net.bhl.cdt.model.impl.ElementImpl
-		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getElement()
-		 * @generated
-		 */
-		EClass ELEMENT = eINSTANCE.getElement();
-
-		/**
 		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.ParameterImpl <em>Parameter</em>}' class. <!--
 		 * begin-user-doc --> <!-- end-user-doc -->
 		 * 
@@ -767,12 +565,12 @@ public interface ModelPackage extends EPackage {
 		EReference PARAMETER__VALUES = eINSTANCE.getParameter_Values();
 
 		/**
-		 * The meta object literal for the '<em><b>Quantity</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
+		 * The meta object literal for the '<em><b>Default Unit</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER__QUANTITY = eINSTANCE.getParameter_Quantity();
+		EAttribute PARAMETER__DEFAULT_UNIT = eINSTANCE.getParameter_DefaultUnit();
 
 		/**
 		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.StructuralElementImpl <em>Structural Element</em>}' class.
@@ -784,14 +582,22 @@ public interface ModelPackage extends EPackage {
 		EClass STRUCTURAL_ELEMENT = eINSTANCE.getStructuralElement();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.ViewImpl <em>View</em>}' class. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @see net.bhl.cdt.model.impl.ViewImpl
-		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getView()
+		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.StateImpl <em>State</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see net.bhl.cdt.model.impl.StateImpl
+		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getState()
 		 * @generated
 		 */
-		EClass VIEW = eINSTANCE.getView();
+		EClass STATE = eINSTANCE.getState();
+
+		/**
+		 * The meta object literal for the '<em><b>Values</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference STATE__VALUES = eINSTANCE.getState_Values();
 
 	}
 

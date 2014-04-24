@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/net.bhl.cdt.model/src" editDirectory="/net.bhl.cdt.model.edit/src"
+    editorDirectory="/net.bhl.cdt.model.editor/src" modelPluginID="net.bhl.cdt.model"
+    modelName="Units" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false" editPluginID="net.bhl.cdt.model.edit" editorPluginID="net.bhl.cdt.model.editor">
+  <foreignModel>units.ecore</foreignModel>
+  <genPackages prefix="Units" basePackage="net.bhl.cdt.model" disposableProviderFactory="true"
+      ecorePackage="units.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="units.ecore#//Quantity">
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/LENGTH"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/WEIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/MASS"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/ACCELERATION"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/COEFFICIENT"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/TEMPERATURE"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/VELOCITY"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/DENSITY"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/SPECIFICFUELCONSUMPTION"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/AREA"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/ANGLE"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/CURRENCY"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/LABORCOST"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/COUNT"/>
+      <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/FUELCOST"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="units.ecore#//Unit"/>
+  </genPackages>
+</genmodel:GenModel>

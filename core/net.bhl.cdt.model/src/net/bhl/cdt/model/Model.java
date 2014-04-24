@@ -5,6 +5,8 @@
  ******************************************************************************/
 package net.bhl.cdt.model;
 
+import net.bhl.cdt.model.datatypes.NamedElement;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -21,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Model extends Element {
+public interface Model extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Configurations</b></em>' containment reference list.
 	 * The list contents are of type {@link net.bhl.cdt.model.Configuration}.

@@ -5,33 +5,39 @@
  ******************************************************************************/
 package net.bhl.cdt.model.util;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
-import javax.units.ConversionException;
-import javax.units.Converter;
-import javax.units.Unit;
+import javax.measure.converter.ConversionException;
+import javax.measure.converter.UnitConverter;
+import javax.measure.unit.Unit;
 
 import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.Configuration;
-import net.bhl.cdt.model.Element;
 import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.model.Parameter;
-import net.bhl.cdt.model.Value;
-import net.bhl.cdt.utilities.datatypes.CompositeValues;
-import net.bhl.cdt.utilities.datatypes.DataType;
-import net.bhl.cdt.utilities.datatypes.DatatypesFactory;
-import net.bhl.cdt.utilities.datatypes.MeasuredValue;
-import net.bhl.cdt.utilities.exchangemodel.ExchangeElement;
-import net.bhl.cdt.utilities.units.Quantity;
-import net.bhl.cdt.utilities.units.util.UnitsHelper;
-import net.bhl.cdt.utilities.util.UtilitiesHelper;
+import net.bhl.cdt.model.datatypes.CompositeValues;
+import net.bhl.cdt.model.datatypes.DataType;
+import net.bhl.cdt.model.datatypes.DatatypesFactory;
+import net.bhl.cdt.model.datatypes.FloatPointValue;
+import net.bhl.cdt.model.datatypes.MeasuredValue;
+import net.bhl.cdt.model.datatypes.NamedElement;
 
+import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.emfstore.client.ESLocalProject;
 import org.eclipse.emf.emfstore.client.ESProject;
+import org.eclipse.emf.emfstore.client.ESWorkspace;
+import org.eclipse.emf.emfstore.client.ESWorkspaceProvider;
+import org.eclipse.emf.emfstore.server.model.ESGlobalProjectId;
 
 /**
  * This is a helper class for the Model package.
@@ -46,14 +52,207 @@ public final class ModelHelper {
 	}
 
 	/**
+	 * Get the EContainer that contains the given model element and whose EContainer is null.
+	 * 
+	 * @param parent the Class of the parent
+	 * @param child the model element whose container should get returned
+	 * @param <T> the type parameter of the generic method
+	 * @return the container
+	 */
+	public static <T extends EObject> T getParent(Class<T> parent, EObject child) {
+		Set<EObject> seenModelElements = new HashSet<EObject>();
+		seenModelElements.add(child);
+		return getParent(parent, child, seenModelElements);
+	}
+
+	@SuppressWarnings("unchecked")
+	private static <T extends EObject> T getParent(Class<T> parent, EObject child, Set<EObject> seenModelElements) {
+		if (child == null) {
+			return null;
+		}
+
+		if (seenModelElements.contains(child.eContainer())) {
+			throw new IllegalStateException("ModelElement is in a containment cycle");
+		}
+
+		if (parent.isInstance(child)) {
+			return (T) child;
+		} else {
+			seenModelElements.add(child);
+			return getParent(parent, child.eContainer(), seenModelElements);
+		}
+	}
+
+	/**
+	 * This is a method which returns the ProjectID of the ModelElement.
+	 * 
+	 * @param modelElement the ModelElement
+	 * @return the ProjectID of the specified ModelElement
+	 */
+	public static ESLocalProject getContainingProject(EObject modelElement) {
+		ESWorkspace workspace = ESWorkspaceProvider.INSTANCE.getWorkspace();
+		return workspace.getLocalProject(modelElement);
+
+	}
+
+	/**
+	 * This is a method which returns the ProjectID of the ModelElement.
+	 * 
+	 * @param modelElement the ModelElement
+	 * @return the ProjectID of the specified ModelElement
+	 */
+	public static ESGlobalProjectId getProjectId(EObject modelElement) {
+
+		ESLocalProject project = getContainingProject(modelElement);
+		if (project == null) {
+			return null;
+		}
+		if (project.isShared()) {
+			ESGlobalProjectId projectId = project.getGlobalProjectId();
+			return projectId;
+		}
+		return null;
+	}
+
+	/**
+	 * This method returns all child Objects of a given Element having a specific type.
+	 * 
+	 * @param <T> The Type parameter which should match clazz
+	 * @param parent The methods looks in the child objects of this parent Element
+	 * @param clazz The type of Element the method looks for
+	 * @return The list of Elements which are found among the child objects of the parent Element
+	 */
+
+	@SuppressWarnings("unchecked")
+	public static <T extends EObject> List<T> getChildrenByClass(EObject parent, Class<T> clazz) {
+		List<T> result = new ArrayList<T>();
+		if (parent == null) {
+			return result;
+		}
+		TreeIterator<EObject> iterator = parent.eAllContents();
+		while (iterator.hasNext()) {
+			EObject ob = iterator.next();
+			if (clazz.isInstance(ob)) {
+				result.add((T) ob);
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * This method returns all child Objects of a given Element having a specific type and name.
+	 * 
+	 * @param <T> The Type parameter which should match clazz
+	 * @param parent The methods looks in the child objects of this parent Element
+	 * @param clazz The type of Elements the method looks for
+	 * @param name The name of Elements the method looks for
+	 * @return The list of Elements which are found among the child objects of the parent Element
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T extends EObject> List<T> getChildrenByClassAndName(EObject parent, Class<T> clazz, String name) {
+		List<T> result = new ArrayList<T>();
+		if (parent == null) {
+			return result;
+		}
+		TreeIterator<EObject> iterator = parent.eAllContents();
+		while (iterator.hasNext()) {
+			EObject eObject = iterator.next();
+			if (eObject instanceof NamedElement) {
+				NamedElement ob = (NamedElement) eObject;
+				if ((clazz.isInstance(ob) && (ob.getName().equals(name)))) {
+					result.add((T) ob);
+				}
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * Returns all Children of type.
+	 * 
+	 * @param parent root element of subtree which is searched
+	 * @param type needle class
+	 * @param <T> The Type parameter which should match class
+	 * @return The list of Elements which are found among the child objects of the parent Element
+	 */
+	@SuppressWarnings("unchecked")
+	public static <T extends EObject> List<EObject> getChildrenOfType(EObject parent, Class<T> type) {
+		ArrayList<EObject> result = new ArrayList<EObject>();
+		if (parent == null) {
+			return result;
+		}
+
+		TreeIterator<EObject> iterator = parent.eAllContents();
+		while (iterator.hasNext()) {
+			EObject next = iterator.next();
+			if (type.isInstance(next)) {
+				result.add((T) next);
+			}
+		}
+
+		return result;
+	}
+
+	/**
+	 * This method returns the path of the current workspace as string.
+	 * 
+	 * @param pluginID the ID of the plug-in
+	 * @return the file path to the current workspace as string
+	 */
+	public static String getPluginFilePath(String pluginID) {
+		String result = "";
+		if (getPluginFileURL(pluginID) != null) {
+			result = getPluginFileURL(pluginID).toString();
+		}
+		return result;
+	}
+
+	/**
+	 * This method returns the path of the current workspace as string.
+	 * 
+	 * @param pluginID the ID of the plug-in
+	 * @return the file path to the current workspace as string
+	 */
+	public static URL getPluginFileURL(String pluginID) {
+
+		try {
+			return FileLocator.resolve(new URL("platform:/plugin/" + pluginID + "/"));
+		} catch (MalformedURLException e) {
+			System.out.println("Could not form a valid URL from " + pluginID);
+			e.printStackTrace();
+		} catch (IOException e) {
+			System.out.println("Could not locate a file folder at " + pluginID);
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
+	 * getFileURL.
+	 * 
+	 * @param filePath path of the file
+	 * @param fileName name of the file
+	 * @return new URL
+	 */
+	public static URL getFileURL(String filePath, String fileName) {
+		try {
+			return new URL(filePath + fileName);
+		} catch (MalformedURLException e) {
+			System.out.println("Could not form a valid URL from " + filePath + fileName);
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	/**
 	 * This method determines the parent Configuration of a given Value.
 	 * 
-	 * @param value The Value to which a Configuration will be determined.
+	 * @param dataType The dataType to which a Configuration will be determined.
 	 * @return The appropriate Configuration of a given Value
 	 */
-	public static Configuration getConfigurationOf(Value value) {
+	public static Configuration getConfigurationOf(DataType dataType) {
 
-		return getParentOf(getParentOf(getParentOf(value)));
+		return getParentOf(getParentOf(getParentOf(dataType)));
 	}
 
 	/**
@@ -62,7 +261,7 @@ public final class ModelHelper {
 	 * @param value The Value to which parent Parameter will be determined.
 	 * @return The parent Parameter of a Value
 	 */
-	public static Parameter getParentOf(Value value) {
+	public static Parameter getParentOf(DataType value) {
 		if (value.eContainer() instanceof Parameter) {
 			return (Parameter) value.eContainer();
 		}
@@ -99,16 +298,16 @@ public final class ModelHelper {
 	}
 
 	/**
-	 * This method returns all child Objects of a given Element having a specific type.
+	 * This method returns all child Objects of a given NamedElement having a specific type.
 	 * 
 	 * @param <T> The Type parameter which should match clazz
-	 * @param parent The methods looks in the child objects of this parent Element
-	 * @param clazz The type of Element the method looks for
-	 * @return The list of Elements which are found among the child objects of the parent Element
+	 * @param parent The methods looks in the child objects of this parent NamedElement
+	 * @param clazz The type of NamedElement the method looks for
+	 * @return The list of Elements which are found among the child objects of the parent NamedElement
 	 */
 
 	@SuppressWarnings("unchecked")
-	public static <T extends Element> List<T> getChildrenByClass(Element parent, Class<T> clazz) {
+	public static <T extends NamedElement> List<T> getChildrenByClass(NamedElement parent, Class<T> clazz) {
 		List<T> result = new ArrayList<T>();
 
 		TreeIterator<EObject> iterator = parent.eAllContents();
@@ -121,50 +320,51 @@ public final class ModelHelper {
 		return result;
 	}
 
-	/**
-	 * This method gives back all child Values of a given Element having a specific Quantity.
-	 * 
-	 * @param parent The methods looks in the child objects of this parent Element
-	 * @param quantity The Quantity of Value the method looks for
-	 * @return The list of Elements which are found among the child objects of the parent Element
-	 */
-	public static List<Value> getValuesByQuantity(Element parent, Quantity quantity) {
-		List<Value> resultList = new ArrayList<Value>();
+	// /**
+	// * This method gives back all child Values of a given NamedElement having a specific Quantity.
+	// *
+	// * @param parent The methods looks in the child objects of this parent NamedElement
+	// * @param quantity The Quantity of Value the method looks for
+	// * @return The list of Elements which are found among the child objects of the parent NamedElement
+	// */
+	// public static List<Value> getValuesByQuantity(NamedElement parent, Quantity quantity) {
+	// List<Value> resultList = new ArrayList<Value>();
+	//
+	// for (Value value : getChildrenByClass(parent, Value.class)) {
+	// if (getParentOf(value) != null) {
+	// if (getParentOf(value).getQuantity().equals(quantity)) {
+	// resultList.add(value);
+	// }
+	// }
+	// }
+	// return resultList;
+	// }
 
-		for (Value value : getChildrenByClass(parent, Value.class)) {
-			if (getParentOf(value) != null) {
-				if (getParentOf(value).getQuantity().equals(quantity)) {
-					resultList.add(value);
-				}
-			}
-		}
-		return resultList;
-	}
-
 	/**
-	 * This method returns all child Objects of a given Element having a specific type and name.
+	 * This method returns all child Objects of a given NamedElement having a specific type and name.
 	 * 
 	 * @param <T> The Type parameter which should match clazz
-	 * @param parent The methods looks in the child objects of this parent Element
+	 * @param parent The methods looks in the child objects of this parent NamedElement
 	 * @param clazz The type of Elements the method looks for
 	 * @param name The name of Elements the method looks for
-	 * @return The list of Elements which are found among the child objects of the parent Element
+	 * @return The list of Elements which are found among the child objects of the parent NamedElement
 	 */
-	public static <T extends Element> List<T> getChildrenByClassAndName(Element parent, Class<T> clazz, String name) {
+	public static <T extends NamedElement> List<T> getChildrenByClassAndName(NamedElement parent, Class<T> clazz,
+		String name) {
 
-		return UtilitiesHelper.getChildrenByClassAndName(parent, clazz, name);
+		return getChildrenByClassAndName(parent, clazz, name);
 	}
 
 	/**
 	 * This method looks up a list of Values and copies them to a List of ExValues.
 	 * 
-	 * @param values The list of Values which should be copied to ExValues
+	 * @param dataTypes The list of Values which should be copied to ExValues
 	 * @return The list of EeValues which contain copies of the given list of Values
 	 */
-	public static List<MeasuredValue> copyToExValues(List<Value> values) {
+	public static List<MeasuredValue> copyToNamedValues(List<DataType> dataTypes) {
 		List<MeasuredValue> exValues = new LinkedList<MeasuredValue>();
-		for (Value value : values) {
-			exValues.add(valueToEx(value));
+		for (DataType datatype : dataTypes) {
+			exValues.add(copyToMeasuredValue(datatype));
 		}
 
 		return exValues;
@@ -174,60 +374,52 @@ public final class ModelHelper {
 	/**
 	 * This class converts a Value to an Measured value. The unit is not set
 	 * 
-	 * @param value the Value
+	 * @param dataType the dataType
 	 * @return the MeasuredValue without Unit
 	 */
 
-	public static MeasuredValue valueToEx(Value value) {
-		if (value == null) {
-			return null;
-		}
-
-		DataType dataType = value.getDatatypes().get(0);
+	public static MeasuredValue copyToMeasuredValue(DataType dataType) {
 
 		if (!(dataType instanceof MeasuredValue)) {
 			throw new RuntimeException("Not supported datatype: " + dataType.getClass());
 		}
 
-		MeasuredValue exValue = DatatypesFactory.eINSTANCE.createMeasuredValue();
-		exValue.setUnit(value.getUnit());
-		exValue.setValue(((MeasuredValue) dataType).getValue());
-		return exValue;
+		MeasuredValue measuredValue = EcoreUtil.copy((MeasuredValue) dataType);
+
+		return measuredValue;
 	}
 
 	/**
-	 * This class converts MeasuredValue to Value omitting the Unit .
+	 * This class converts MeasuredValue to FloatPointvalue omitting the Unit .
 	 * 
 	 * @param measuredValue the MeasuredValue
-	 * @return the Value without unit
+	 * @return the FloatPointValue without unit
 	 */
 
-	public static Value exToValue(MeasuredValue measuredValue) {
+	public static FloatPointValue exToValue(MeasuredValue measuredValue) {
 		if (measuredValue == null) {
 			return null;
 		}
-		Value value = ModelFactory.eINSTANCE.createValue();
-		value.setUnit(measuredValue.getUnit());
-		value.getDatatypes().add(measuredValue);
-		return value;
+
+		FloatPointValue floatPointValue = DatatypesFactory.eINSTANCE.createFloatPointValue();
+		floatPointValue.setName(measuredValue.getName());
+		floatPointValue.setValue(measuredValue.getValue());
+		return floatPointValue;
 	}
 
-	/**
-	 * This method merges the attributes of two Value objects by overwriting the attributes of the target with the
-	 * values of the source Value.
-	 * 
-	 * @param sourceValue The Value object which is the source of the merging
-	 * @param targetValue The Value object which is the target of the merging
-	 */
-
-	public static void merge(Value sourceValue, Value targetValue) {
-		targetValue.setUnit(sourceValue.getUnit());
-
-		targetValue.setDescription(sourceValue.getDescription());
-		targetValue.setSource(sourceValue.getSource());
-		targetValue.setUnit(sourceValue.getUnit());
-		targetValue.setValue(sourceValue.getValue());
-	}
+	// /**
+	// * This method merges the attributes of two Value objects by overwriting the attributes of the target with the
+	// * values of the source Value.
+	// *
+	// * @param sourceValue The Value object which is the source of the merging
+	// * @param targetValue The Value object which is the target of the merging
+	// */
+	//
+	// public static void merge(MeasuredValue sourceValue, MeasuredValue targetValue) {
+	// targetValue.setUnit(sourceValue.getUnit());
+	// targetValue.setUnit(sourceValue.getUnit());
+	// targetValue.setValue(sourceValue.getValue());
+	// }
 
 	/**
 	 * This method merges a MeasuredValue object with a Value object.
@@ -235,13 +427,14 @@ public final class ModelHelper {
 	 * @param sourceMeasuredValue the source MeasuredValue object
 	 * @param targetValue the target Value object
 	 */
-	public static void merge(MeasuredValue sourceMeasuredValue, Value targetValue) {
+	public static void merge(MeasuredValue sourceMeasuredValue, MeasuredValue targetValue) {
 
 		if (!sourceMeasuredValue.getUnit().isCompatible(targetValue.getUnit())) {
 			throw new RuntimeException("units of Source Exchange Value and Target Exchange Value are incompatible");
 		}
-		Converter converter = sourceMeasuredValue.getUnit().getConverterTo(targetValue.getUnit());
-		targetValue.setValue(converter.convert(sourceMeasuredValue.getValue()));
+
+		UnitConverter unitConverter = sourceMeasuredValue.getUnit().getConverterTo(targetValue.getUnit());
+		targetValue.setValue(unitConverter.convert(sourceMeasuredValue.getValue()));
 	}
 
 	/**
@@ -252,10 +445,7 @@ public final class ModelHelper {
 	 */
 	public static Parameter copy(Parameter sourceParameter) {
 
-		Parameter newParameter = ModelFactory.eINSTANCE.createParameter();
-		newParameter.setName(sourceParameter.getName());
-		newParameter.setQuantity(sourceParameter.getQuantity());
-		return newParameter;
+		return EcoreUtil.copy(sourceParameter);
 	}
 
 	/**
@@ -275,32 +465,27 @@ public final class ModelHelper {
 	/**
 	 * This method copies a given Value object.
 	 * 
-	 * @param sourceValue The source Value object of the copy
+	 * @param dataType The source Value object of the copy
 	 * @return The new Value which is a copy of a given Value
 	 */
-	public static Value copy(Value sourceValue) {
-		Value newValue = ModelFactory.eINSTANCE.createValue();
-		newValue.setUnit(sourceValue.getUnit());
-		newValue.setDescription(sourceValue.getDescription());
-		newValue.setSource(sourceValue.getSource());
-		newValue.setUnit(sourceValue.getUnit());
-		newValue.setValue(sourceValue.getValue());
-		return newValue;
+	public static DataType copy(DataType dataType) {
+
+		return EcoreUtil.copy(dataType);
 	}
 
-	/**
-	 * This method copies a Value object to a new ExValue Object.
-	 * 
-	 * @param sourceValue The source Value object of the copy
-	 * @return The new ExVlue which is a copy of a given Value regarding overlapping attributes.
-	 */
-	public static MeasuredValue copyToMeasuredValue(Value sourceValue) {
-		MeasuredValue newValue = DatatypesFactory.eINSTANCE.createMeasuredValue();
-		newValue.setUnit(sourceValue.getUnit());
-		newValue.setUnit(sourceValue.getUnit());
-		newValue.setValue(sourceValue.getValue());
-		return newValue;
-	}
+	// /**
+	// * This method copies a Value object to a new ExValue Object.
+	// *
+	// * @param sourceValue The source Value object of the copy
+	// * @return The new ExVlue which is a copy of a given Value regarding overlapping attributes.
+	// */
+	// public static MeasuredValue copyToMeasuredValue(Value sourceValue) {
+	// MeasuredValue newValue = DatatypesFactory.eINSTANCE.createMeasuredValue();
+	// newValue.setUnit(sourceValue.getUnit());
+	// newValue.setUnit(sourceValue.getUnit());
+	// newValue.setValue(sourceValue.getValue());
+	// return newValue;
+	// }
 
 	/**
 	 * This method copies all Values specified in the Calculation object of a derived Value from the Model into
@@ -326,15 +511,15 @@ public final class ModelHelper {
 	 * This method returns the value attribute of a given value converted into a given Unit. The method throws an
 	 * exception if the Unit is not compatible to the unit of the Value.
 	 * 
-	 * @param value The Value which contains the value attribute
+	 * @param measuredValue The MeasuredValue which contains the value attribute
 	 * @param unit The Unit the value attribute should be converted to
 	 * @return The returned value attribute converted to0 the desired Unit
 	 * @throws ConversionException This Exception is thrown if the conversion cannot be performed
 	 */
 
-	public static double getValueAttributeToUnit(Value value, Unit unit) throws ConversionException {
+	public static double getMeasuredValueToUnit(MeasuredValue measuredValue, Unit unit) throws ConversionException {
 
-		return value.getUnit().getConverterTo(unit).convert(value.getValue());
+		return measuredValue.getUnit().getConverterTo(unit).convert(measuredValue.getValue());
 
 	}
 
@@ -355,11 +540,11 @@ public final class ModelHelper {
 
 		if (compositeElement.getDatatypes().size() > 0) {
 
-			for (ExchangeElement exchangeElement : compositeElement.getDatatypes()) {
-				if (exchangeElement instanceof MeasuredValue) {
-					component.getParameters().add(mapToParameter((MeasuredValue) exchangeElement));
-				} else if (exchangeElement instanceof CompositeValues) {
-					component.getSubComponents().add(mapToComponent((CompositeValues) exchangeElement));
+			for (NamedElement namedElement : compositeElement.getDatatypes()) {
+				if (namedElement instanceof MeasuredValue) {
+					component.getParameters().add(mapToParameter((MeasuredValue) namedElement));
+				} else if (namedElement instanceof CompositeValues) {
+					component.getSubComponents().add(mapToComponent((CompositeValues) namedElement));
 				}
 
 			}
@@ -371,41 +556,38 @@ public final class ModelHelper {
 	/**
 	 * This method maps an MeasuredValue a Parameter which has one Value.
 	 * 
-	 * @param exchangeValue The EchangeValue which is the source of the copy
+	 * @param measuredValue The EchangeValue which is the source of the copy
 	 * @return The Parameter which is the result of the mapping of the MeasuredValue
 	 */
 
-	public static Parameter mapToParameter(MeasuredValue exchangeValue) {
+	public static Parameter mapToParameter(MeasuredValue measuredValue) {
 		Parameter parameter = ModelFactory.eINSTANCE.createParameter();
 		// copy name and infer Quantity
 
-		parameter.setName(exchangeValue.getName());
-		parameter.setQuantity(UnitsHelper.getQuantityByUnit(exchangeValue.getUnit()));
+		parameter.setName(measuredValue.getName());
+
 		// copy name and value
 
-		if (!((Double) exchangeValue.getValue()).isNaN()) {
-			Value value = ModelFactory.eINSTANCE.createValue();
-			value.setValue(exchangeValue.getValue());
-			value.setUnit(exchangeValue.getUnit());
-			parameter.getValues().add(value);
+		if (!((Double) measuredValue.getValue()).isNaN()) {
+			parameter.getValues().add(EcoreUtil.copy(measuredValue));
 		}
 
 		return parameter;
 	}
 
-	/**
-	 * This method maps an MeasuredValue to a StaticValue.
-	 * 
-	 * @param exchangeValue The MeasuredValue which is the source of the copy
-	 * @return The Value which is a mapping of the ExValue
-	 */
-	public static Value mapToValue(MeasuredValue exchangeValue) {
-		Value resultValue = ModelFactory.eINSTANCE.createValue();
-		// copy attributes
-		resultValue.setUnit(exchangeValue.getUnit());
-		resultValue.setValue(exchangeValue.getValue());
-		return resultValue;
-	}
+	// /**
+	// * This method maps an MeasuredValue to a StaticValue.
+	// *
+	// * @param exchangeValue The MeasuredValue which is the source of the copy
+	// * @return The Value which is a mapping of the ExValue
+	// */
+	// public static Value mapToValue(MeasuredValue exchangeValue) {
+	// Value resultValue = ModelFactory.eINSTANCE.createValue();
+	// // copy attributes
+	// resultValue.setUnit(exchangeValue.getUnit());
+	// resultValue.setValue(exchangeValue.getValue());
+	// return resultValue;
+	// }
 
 	/**
 	 * This Method formalizes a List of ExchangeElements and its contents to a model conform Configuration.
@@ -421,12 +603,12 @@ public final class ModelHelper {
 		// Set the name of the Configuration
 		newConfiguration.setName(configurationName);
 
-		for (ExchangeElement exchangeElement : dataTypes) {
-			if (exchangeElement instanceof CompositeValues) {
-				Component newComponent = ModelHelper.mapToComponent((CompositeValues) exchangeElement);
+		for (NamedElement namedElement : dataTypes) {
+			if (namedElement instanceof CompositeValues) {
+				Component newComponent = ModelHelper.mapToComponent((CompositeValues) namedElement);
 
 				newConfiguration.getComponents().add(newComponent);
-			} else if (exchangeElement instanceof MeasuredValue) {
+			} else if (namedElement instanceof MeasuredValue) {
 				// Value cannot stand alone and is therefore attached to the default Component "Aircraft".
 				// Create the Component "Aircraft" if it does not exist and attach it to the new configuration
 				Component targetComponent = ModelFactory.eINSTANCE.createComponent();
@@ -444,7 +626,7 @@ public final class ModelHelper {
 					targetComponent = candidateTargetComponents.get(0);
 				}
 				// Copy exParameter to the default "Aircraft" Component
-				Parameter newParameter = ModelHelper.mapToParameter((MeasuredValue) exchangeElement);
+				Parameter newParameter = ModelHelper.mapToParameter((MeasuredValue) namedElement);
 				// Attach the newly created Parameter to the default "Aircraft" Component.
 				targetComponent.getParameters().add(newParameter);
 
@@ -465,12 +647,12 @@ public final class ModelHelper {
 
 		Component newRootComponent = mapToComponent(compositeElement);
 
-		for (ExchangeElement exchangeElement : compositeElement.getDatatypes()) {
-			if (exchangeElement instanceof CompositeValues) {
-				Component newComponent = ModelHelper.mapToComponent((CompositeValues) exchangeElement);
+		for (NamedElement namedElement : compositeElement.getDatatypes()) {
+			if (namedElement instanceof CompositeValues) {
+				Component newComponent = ModelHelper.mapToComponent((CompositeValues) namedElement);
 
 				newRootComponent.getSubComponents().add(newComponent);
-			} else if (exchangeElement instanceof MeasuredValue) {
+			} else if (namedElement instanceof MeasuredValue) {
 				// Value cannot stand alone and is therefore attached to the default Component "Aircraft".
 				// Create the Component "Aircraft" if it does not exist and attach it to the new configuration
 				Component targetComponent = ModelFactory.eINSTANCE.createComponent();
@@ -488,7 +670,7 @@ public final class ModelHelper {
 					targetComponent = candidateTargetComponents.get(0);
 				}
 				// Copy exParameter to the default "Aircraft" Component
-				Parameter newParameter = ModelHelper.mapToParameter((MeasuredValue) exchangeElement);
+				Parameter newParameter = ModelHelper.mapToParameter((MeasuredValue) namedElement);
 				// Attach the newly created Parameter to the default "Aircraft" Component.
 				targetComponent.getParameters().add(newParameter);
 
@@ -540,28 +722,28 @@ public final class ModelHelper {
 	public static Parameter createParameter(String name, DataType datatype) {
 		Parameter resultParameter = ModelFactory.eINSTANCE.createParameter();
 		resultParameter.setName(name);
-		resultParameter.getValues().add(createValue(datatype));
+		resultParameter.getValues().add(datatype);
 		// TODO if Datatype has unit infer Quantity
 		return resultParameter;
 	}
 
-	/**
-	 * This method creates a Value object from a given datatype.
-	 * 
-	 * @param datatype the datatype of the Parameter object
-	 * @return the created Value object.
-	 */
-	public static Value createValue(DataType datatype) {
-		Value newValue = ModelFactory.eINSTANCE.createValue();
-		DataType newDataType = EcoreUtil.copy(datatype);
-		newValue.getDatatypes().add(newDataType);
-		if (newDataType instanceof MeasuredValue) {
-			MeasuredValue measuredValue = (MeasuredValue) newDataType;
-			if (measuredValue.getUnit() != null) {
-				newValue.setUnit(measuredValue.getUnit());
-			}
-			newValue.setValue(measuredValue.getValue());
-		}
-		return newValue;
-	}
+	// /**
+	// * This method creates a Value object from a given datatype.
+	// *
+	// * @param datatype the datatype of the Parameter object
+	// * @return the created Value object.
+	// */
+	// public static Value createValue(DataType datatype) {
+	// Value newValue = ModelFactory.eINSTANCE.createValue();
+	// DataType newDataType = EcoreUtil.copy(datatype);
+	// newValue.getDatatypes().add(newDataType);
+	// if (newDataType instanceof MeasuredValue) {
+	// MeasuredValue measuredValue = (MeasuredValue) newDataType;
+	// if (measuredValue.getUnit() != null) {
+	// newValue.setUnit(measuredValue.getUnit());
+	// }
+	// newValue.setValue(measuredValue.getValue());
+	// }
+	// return newValue;
+	// }
 }

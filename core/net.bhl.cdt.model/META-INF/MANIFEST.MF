@@ -3,13 +3,26 @@ Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: net.bhl.cdt.model;singleton:=true
 Bundle-Version: 0.9.1.qualifier
-Bundle-ClassPath: .
+Bundle-ClassPath: .,
+ lib/javolution-5.2.3.jar,
+ lib/jscience-4.3.1.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: net.bhl.cdt.utilities;bundle-version="0.9.1";visibility:=reexport
+Require-Bundle: 
+ org.eclipse.emf.emfstore.client;bundle-version="1.1.0";visibility:=reexport,
+ org.eclipse.emf.ecp.explorereditorbridge;bundle-version="1.1.1";visibility:=reexport,
+ org.eclipse.emf.ecp.emfstore.ui;bundle-version="1.1.1";visibility:=reexport,
+ org.eclipse.emf.ecp.view.model.provider.generator;bundle-version="1.1.1";visibility:=reexport,
+ org.eclipse.core.runtime;visibility:=reexport,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ net.bhl.cdt.model;visibility:=reexport,
+ org.eclipse.emf.emfstore.client;visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Export-Package: net.bhl.cdt.model;
+Export-Package: 
+ javax.measure.unit,
+ net.bhl.cdt.exceptions,
+ net.bhl.cdt.model;
   uses:="org.eclipse.emf.ecore,
    org.eclipse.core.runtime,
    net.bhl.cdt.utilities.units,
@@ -17,7 +30,10 @@ Export-Package: net.bhl.cdt.model;
    javax.units,
    org.osgi.framework,
    net.bhl.cdt.utilities.exchangemodel",
- net.bhl.cdt.model.commands;uses:="org.eclipse.emf.common.util,net.bhl.cdt.model,net.bhl.cdt.utilities.commands",
+ net.bhl.cdt.model.currencies,
+ net.bhl.cdt.model.datatypes,
+ net.bhl.cdt.model.datatypes.impl,
+ net.bhl.cdt.model.datatypes.util,
  net.bhl.cdt.model.impl;
   uses:="net.bhl.cdt.utilities.units,
    org.eclipse.emf.ecore,
@@ -27,6 +43,14 @@ Export-Package: net.bhl.cdt.model;
    net.bhl.cdt.utilities.exchangemodel.impl,
    org.eclipse.emf.ecore.impl,
    org.eclipse.emf.common.notify",
+ net.bhl.cdt.model.quantities.derived,
+ net.bhl.cdt.model.units;uses:="org.eclipse.emf.ecore",
+ net.bhl.cdt.model.units.impl;
+  uses:="org.eclipse.emf.ecore,
+   net.bhl.cdt.utilities.units,
+   javax.units,
+   org.eclipse.emf.ecore.impl",
+ net.bhl.cdt.model.units.util,
  net.bhl.cdt.model.util;
   uses:="org.eclipse.emf.ecore.util,
    org.eclipse.emf.ecore,
@@ -36,4 +60,5 @@ Export-Package: net.bhl.cdt.model;
    net.bhl.cdt.utilities.datatypes,
    javax.units,
    org.eclipse.emf.common.notify,
-   net.bhl.cdt.utilities.exchangemodel"
+   net.bhl.cdt.utilities.exchangemodel",
+ net.bhl.cdt.quantities

@@ -8,6 +8,7 @@ package net.bhl.cdt.model.impl;
 
 import net.bhl.cdt.model.ModelPackage;
 import net.bhl.cdt.model.StructuralElement;
+import net.bhl.cdt.model.datatypes.impl.NamedElementImpl;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -19,7 +20,7 @@ import org.eclipse.emf.ecore.EClass;
  * 
  * @generated
  */
-public abstract class StructuralElementImpl extends ElementImpl implements StructuralElement {
+public abstract class StructuralElementImpl extends NamedElementImpl implements StructuralElement {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

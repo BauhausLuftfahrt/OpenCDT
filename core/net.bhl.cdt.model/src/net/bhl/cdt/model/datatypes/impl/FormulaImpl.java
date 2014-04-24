@@ -4,27 +4,25 @@
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
 
-package net.bhl.cdt.model.impl;
+package net.bhl.cdt.model.datatypes.impl;
 
-import net.bhl.cdt.model.Element;
-import net.bhl.cdt.model.ModelPackage;
-import net.bhl.cdt.utilities.exchangemodel.impl.ExchangeElementImpl;
-
+import net.bhl.cdt.model.datatypes.DatatypesPackage;
+import net.bhl.cdt.model.datatypes.Formula;
 import org.eclipse.emf.ecore.EClass;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Element</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model object '<em><b>Formula</b></em>'. <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class ElementImpl extends ExchangeElementImpl implements Element {
+public class FormulaImpl extends StringValueImpl implements Formula {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ElementImpl() {
+	protected FormulaImpl() {
 		super();
 	}
 
@@ -34,7 +32,7 @@ public class ElementImpl extends ExchangeElementImpl implements Element {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return ModelPackage.Literals.ELEMENT;
+		return DatatypesPackage.Literals.FORMULA;
 	}
 
-} // ElementImpl
+} // FormulaImpl

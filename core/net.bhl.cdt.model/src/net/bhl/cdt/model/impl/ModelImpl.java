@@ -11,6 +11,7 @@ import java.util.Collection;
 import net.bhl.cdt.model.Configuration;
 import net.bhl.cdt.model.Model;
 import net.bhl.cdt.model.ModelPackage;
+import net.bhl.cdt.model.datatypes.impl.NamedElementImpl;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -30,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ModelImpl extends ElementImpl implements Model {
+public class ModelImpl extends NamedElementImpl implements Model {
 	/**
 	 * The cached value of the '{@link #getConfigurations() <em>Configurations</em>}' containment reference list. <!--
 	 * begin-user-doc --> <!-- end-user-doc -->

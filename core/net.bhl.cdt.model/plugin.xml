@@ -17,4 +17,20 @@
             genModel="model/model.genmodel"/>
    </extension>
    
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated units -->
+      <package
+            uri="http://bhl.net/cdt/model/units"
+            class="net.bhl.cdt.model.units.UnitsPackage"
+            genModel="model/units.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated datatypes -->
+      <package
+            uri="http://bhl.net/cdt/model/datatypes/"
+            class="net.bhl.cdt.model.datatypes.DatatypesPackage"
+            genModel="model/datatypes.genmodel"/>
+   </extension>
+
 </plugin>

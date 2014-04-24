@@ -6,6 +6,8 @@
 
 package net.bhl.cdt.model;
 
+import net.bhl.cdt.model.datatypes.NamedElement;
+
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Structural Element</b></em>'. <!-- end-user-doc
  * -->
@@ -14,5 +16,5 @@ package net.bhl.cdt.model;
  * @model
  * @generated
  */
-public interface StructuralElement extends Element {
+public interface StructuralElement extends NamedElement {
 } // StructuralElement

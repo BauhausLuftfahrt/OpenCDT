@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link net.bhl.cdt.model.Component#getSubComponents <em>Sub Components</em>}</li>
  *   <li>{@link net.bhl.cdt.model.Component#getParameters <em>Parameters</em>}</li>
  *   <li>{@link net.bhl.cdt.model.Component#getConnectedComponents <em>Connected Components</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.Component#getStates <em>States</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,5 +73,21 @@ public interface Component extends StructuralElement {
 	 * @generated
 	 */
 	EList<Component> getConnectedComponents();
+
+	/**
+	 * Returns the value of the '<em><b>States</b></em>' containment reference list.
+	 * The list contents are of type {@link net.bhl.cdt.model.State}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>States</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>States</em>' containment reference list.
+	 * @see net.bhl.cdt.model.ModelPackage#getComponent_States()
+	 * @model containment="true" resolveProxies="true"
+	 * @generated
+	 */
+	EList<State> getStates();
 
 } // Component
