@@ -5,11 +5,11 @@
  ******************************************************************************/
 package net.bhl.cdt.connector.io.strategyimpl;
 
-import net.bhl.cdt.utilities.datatypes.CompositeValues;
-import net.bhl.cdt.utilities.datatypes.DataType;
-import net.bhl.cdt.utilities.datatypes.DatatypesFactory;
-import net.bhl.cdt.utilities.datatypes.MeasuredValue;
-import net.bhl.cdt.utilities.datatypes.StringValue;
+import net.bhl.cdt.model.datatypes.CompositeValues;
+import net.bhl.cdt.model.datatypes.DataType;
+import net.bhl.cdt.model.datatypes.DatatypesFactory;
+import net.bhl.cdt.model.datatypes.MeasuredValue;
+import net.bhl.cdt.model.datatypes.StringValue;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;

@@ -13,7 +13,7 @@ import java.util.Map;
 
 import net.bhl.cdt.connector.io.ImportStrategy;
 import net.bhl.cdt.connector.io.util.ImportFileUtil;
-import net.bhl.cdt.utilities.datatypes.DataType;
+import net.bhl.cdt.model.datatypes.DataType;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;

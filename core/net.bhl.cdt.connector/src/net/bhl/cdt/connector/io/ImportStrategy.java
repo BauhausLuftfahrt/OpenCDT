@@ -7,7 +7,7 @@ package net.bhl.cdt.connector.io;
 
 import java.io.File;
 
-import net.bhl.cdt.utilities.datatypes.DataType;
+import net.bhl.cdt.model.datatypes.DataType;
 
 import org.eclipse.emf.common.util.EList;
 

@@ -5,7 +5,7 @@
  ******************************************************************************/
 package net.bhl.cdt.connector.exception;
 
-import net.bhl.cdt.utilities.exceptions.CDTRuntimeException;
+import net.bhl.cdt.exceptions.CDTRuntimeException;
 
 /**
  * A exception class which will be thrown if during the import process is some

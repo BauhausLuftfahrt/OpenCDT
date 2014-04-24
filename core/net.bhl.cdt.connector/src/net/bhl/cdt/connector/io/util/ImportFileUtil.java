@@ -7,10 +7,10 @@ package net.bhl.cdt.connector.io.util;
 
 import java.io.File;
 
-import javax.units.Unit;
+import javax.measure.unit.Unit;
 
-import net.bhl.cdt.utilities.units.UnitsFactory;
-import net.bhl.cdt.utilities.units.UnitsPackage;
+import net.bhl.cdt.model.units.UnitsFactory;
+import net.bhl.cdt.model.units.UnitsPackage;
 
 /**
  * Helper methods for the FileImport.

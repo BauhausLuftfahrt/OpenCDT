@@ -14,10 +14,10 @@ import java.io.IOException;
 import net.bhl.cdt.connector.exception.ImportException;
 import net.bhl.cdt.connector.io.ImportStrategy;
 import net.bhl.cdt.connector.io.util.ImportFileUtil;
-import net.bhl.cdt.utilities.datatypes.CompositeValues;
-import net.bhl.cdt.utilities.datatypes.DataType;
-import net.bhl.cdt.utilities.datatypes.DatatypesFactory;
-import net.bhl.cdt.utilities.datatypes.MeasuredValue;
+import net.bhl.cdt.model.datatypes.CompositeValues;
+import net.bhl.cdt.model.datatypes.DataType;
+import net.bhl.cdt.model.datatypes.DatatypesFactory;
+import net.bhl.cdt.model.datatypes.MeasuredValue;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;

@@ -15,10 +15,10 @@ import java.io.InputStreamReader;
 import net.bhl.cdt.connector.exception.ImportException;
 import net.bhl.cdt.connector.io.ImportStrategy;
 import net.bhl.cdt.connector.io.util.ImportFileUtil;
-import net.bhl.cdt.utilities.datatypes.CompositeValues;
-import net.bhl.cdt.utilities.datatypes.DataType;
-import net.bhl.cdt.utilities.datatypes.DatatypesFactory;
-import net.bhl.cdt.utilities.datatypes.StringValue;
+import net.bhl.cdt.model.datatypes.CompositeValues;
+import net.bhl.cdt.model.datatypes.DataType;
+import net.bhl.cdt.model.datatypes.DatatypesFactory;
+import net.bhl.cdt.model.datatypes.StringValue;
 
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
