@@ -110,7 +110,7 @@
       <modelElementOpener
             class="net.bhl.cdt.ui.editors.arrays.ArrayEditorOpener">
          <staticTester
-               modelElement="net.bhl.cdt.utilities.datatypes.Array"
+               modelElement="net.bhl.cdt.model.datatypes.Array"
                priority="1">
          </staticTester>
       </modelElementOpener>
