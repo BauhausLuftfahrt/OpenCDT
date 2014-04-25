@@ -29,7 +29,7 @@ import org.eclipse.emf.common.util.EList;
 public interface Parameter extends StructuralElement {
 	/**
 	 * Returns the value of the '<em><b>Values</b></em>' containment reference list.
-	 * The list contents are of type {@link net.bhl.cdt.datatypes.DataType}.
+	 * The list contents are of type {@link net.bhl.cdt.model.datatypes.DataType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Values</em>' containment reference list isn't clear, there really should be more of a
@@ -54,7 +54,7 @@ public interface Parameter extends StructuralElement {
 	 * @return the value of the '<em>Default Unit</em>' attribute.
 	 * @see #setDefaultUnit(Unit)
 	 * @see net.bhl.cdt.model.ModelPackage#getParameter_DefaultUnit()
-	 * @model dataType="net.bhl.cdt.utilities.units.Unit"
+	 * @model dataType="net.bhl.cdt.model.units.Unit"
 	 * @generated
 	 */
 	Unit getDefaultUnit();

@@ -26,7 +26,7 @@ import org.eclipse.emf.common.util.EList;
 public interface State extends NamedElement {
 	/**
 	 * Returns the value of the '<em><b>Values</b></em>' reference list.
-	 * The list contents are of type {@link net.bhl.cdt.datatypes.DataType}.
+	 * The list contents are of type {@link net.bhl.cdt.model.datatypes.DataType}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Values</em>' reference list isn't clear,

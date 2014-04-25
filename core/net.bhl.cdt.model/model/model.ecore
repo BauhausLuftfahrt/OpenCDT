@@ -15,18 +15,19 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
         eType="#//Component" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="datatypes.ecore#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="../../net.bhl.cdt.model/model/datatypes.ecore#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
         eType="#//Configuration" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//StructuralElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
-        eType="ecore:EClass datatypes.ecore#//DataType" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultUnit" eType="ecore:EDataType units.ecore#//Unit"/>
+        eType="ecore:EClass ../../net.bhl.cdt.model/model/datatypes.ecore#//DataType"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultUnit" eType="ecore:EDataType ../../net.bhl.cdt.model/model/units.ecore#//Unit"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StructuralElement" abstract="true" eSuperTypes="datatypes.ecore#//NamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="datatypes.ecore#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="StructuralElement" abstract="true" eSuperTypes="../../net.bhl.cdt.model/model/datatypes.ecore#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="../../net.bhl.cdt.model/model/datatypes.ecore#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
-        eType="ecore:EClass datatypes.ecore#//DataType"/>
+        eType="ecore:EClass ../../net.bhl.cdt.model/model/datatypes.ecore#//DataType"/>
   </eClassifiers>
 </ecore:EPackage>
