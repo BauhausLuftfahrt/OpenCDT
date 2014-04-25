@@ -49,15 +49,10 @@ Martin Glas, Sebastian Höcht, Michael Kagel, Stephan Leutenmayr, Sami Mkhazni, 
       <plugin id="javax.xml"/>
       <plugin id="net.bhl.cdt.client"/>
       <plugin id="net.bhl.cdt.connector"/>
-      <plugin id="net.bhl.cdt.connector.ui"/>
       <plugin id="net.bhl.cdt.generator.matlab"/>
       <plugin id="net.bhl.cdt.model"/>
       <plugin id="net.bhl.cdt.model.edit"/>
-      <plugin id="net.bhl.cdt.resources"/>
-      <plugin id="net.bhl.cdt.resources.edit"/>
       <plugin id="net.bhl.cdt.ui"/>
-      <plugin id="net.bhl.cdt.utilities"/>
-      <plugin id="net.bhl.cdt.utilities.edit"/>
       <plugin id="org.apache.ant"/>
       <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.util"/>
