@@ -8,8 +8,6 @@ package net.bhl.cdt.model.units.impl;
 
 import javax.measure.unit.Unit;
 
-import net.bhl.cdt.model.units.*;
-import net.bhl.cdt.model.units.Quantity;
 import net.bhl.cdt.model.units.UnitsFactory;
 import net.bhl.cdt.model.units.UnitsPackage;
 
@@ -22,30 +20,30 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class UnitsFactoryImpl extends EFactoryImpl implements UnitsFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public static UnitsFactory init() {
 		try {
-			UnitsFactory theUnitsFactory = (UnitsFactory)EPackage.Registry.INSTANCE.getEFactory(UnitsPackage.eNS_URI);
+			UnitsFactory theUnitsFactory = (UnitsFactory) EPackage.Registry.INSTANCE.getEFactory(UnitsPackage.eNS_URI);
 			if (theUnitsFactory != null) {
 				return theUnitsFactory;
 			}
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new UnitsFactoryImpl();
 	}
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public UnitsFactoryImpl() {
@@ -54,64 +52,67 @@ public class UnitsFactoryImpl extends EFactoryImpl implements UnitsFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
-			case UnitsPackage.QUANTITY:
-				return createQuantityFromString(eDataType, initialValue);
-			case UnitsPackage.UNIT:
-				return createUnitFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		case UnitsPackage.UNIT:
+			return createUnitFromString(eDataType, initialValue);
+		case UnitsPackage.QUANTITY:
+			return createQuantityFromString(eDataType, initialValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
-			case UnitsPackage.QUANTITY:
-				return convertQuantityToString(eDataType, instanceValue);
-			case UnitsPackage.UNIT:
-				return convertUnitToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		case UnitsPackage.UNIT:
+			return convertUnitToString(eDataType, instanceValue);
+		case UnitsPackage.QUANTITY:
+			return convertQuantityToString(eDataType, instanceValue);
+		default:
+			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public Quantity createQuantityFromString(EDataType eDataType, String initialValue) {
-		Quantity result = Quantity.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
+	public javax.measure.quantity.Quantity createQuantityFromString(EDataType eDataType, String initialValue) {
+		return (javax.measure.quantity.Quantity) super.createFromString(eDataType, initialValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public String convertQuantityToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
+		return super.convertToString(eDataType, instanceValue);
 	}
 
 	/**
@@ -119,7 +120,7 @@ public class UnitsFactoryImpl extends EFactoryImpl implements UnitsFactory {
 	 * 
 	 * @generated not
 	 */
-	public Unit createUnitFromString(EDataType eDataType, String initialValue) {
+	public Unit<?> createUnitFromString(EDataType eDataType, String initialValue) {
 		if (initialValue == null) {
 			return null;
 		}
@@ -158,14 +159,16 @@ public class UnitsFactoryImpl extends EFactoryImpl implements UnitsFactory {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public UnitsPackage getUnitsPackage() {
-		return (UnitsPackage)getEPackage();
+		return (UnitsPackage) getEPackage();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @deprecated
 	 * @generated
 	 */

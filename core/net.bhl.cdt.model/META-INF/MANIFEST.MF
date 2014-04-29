@@ -18,17 +18,32 @@ Require-Bundle: org.eclipse.emf.emfstore.client;visibility:=reexport;bundle-vers
  net.bhl.cdt.model;visibility:=reexport,
  org.eclipse.emf.emfstore.client;visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Export-Package: javax.measure.unit,
+Export-Package: javax.measure.converter,
+ javax.measure.unit,
  net.bhl.cdt.exceptions,
- net.bhl.cdt.model;uses:="org.eclipse.emf.ecore,  org.eclipse.core.runtime,  net.bhl.cdt.utilities.units,  org.eclipse.emf.common.util,  javax.units,  org.osgi.framework,  net.bhl.cdt.utilities.exchangemodel",
- net.bhl.cdt.model.currencies,
+ net.bhl.cdt.model;
+  uses:="org.eclipse.emf.ecore,
+   org.eclipse.core.runtime,
+   net.bhl.cdt.utilities.units,
+   org.eclipse.emf.common.util,
+   javax.units,
+   org.osgi.framework",
  net.bhl.cdt.model.datatypes,
  net.bhl.cdt.model.datatypes.impl,
  net.bhl.cdt.model.datatypes.util,
- net.bhl.cdt.model.impl;uses:="net.bhl.cdt.utilities.units,  org.eclipse.emf.ecore,  org.eclipse.emf.common.util,  net.bhl.cdt.model,  javax.units,  net.bhl.cdt.utilities.exchangemodel.impl,  org.eclipse.emf.ecore.impl,  org.eclipse.emf.common.notify",
- net.bhl.cdt.model.quantities.derived,
- net.bhl.cdt.model.units;uses:=org.eclipse.emf.ecore,
- net.bhl.cdt.model.units.impl;uses:="org.eclipse.emf.ecore,  net.bhl.cdt.utilities.units,  javax.units,  org.eclipse.emf.ecore.impl",
- net.bhl.cdt.model.units.util,
- net.bhl.cdt.model.util;uses:="org.eclipse.emf.ecore.util,  org.eclipse.emf.ecore,  net.bhl.cdt.utilities.units,  org.eclipse.emf.common.notify.impl,  net.bhl.cdt.model,  net.bhl.cdt.utilities.datatypes,  javax.units,  org.eclipse.emf.common.notify,  net.bhl.cdt.utilities.exchangemodel",
- net.bhl.cdt.quantities
+ net.bhl.cdt.model.impl;
+  uses:="org.eclipse.emf.ecore,
+   org.eclipse.emf.common.util,
+   net.bhl.cdt.model,
+   org.eclipse.emf.ecore.impl,
+   org.eclipse.emf.common.notify",
+ net.bhl.cdt.model.units;uses:="org.eclipse.emf.ecore",
+ net.bhl.cdt.model.units.impl;uses:="org.eclipse.emf.ecore,org.eclipse.emf.ecore.impl",
+ net.bhl.cdt.model.util;
+  uses:="org.eclipse.emf.ecore.util,
+   org.eclipse.emf.ecore,
+   org.eclipse.emf.common.notify.impl,
+   net.bhl.cdt.model,
+   javax.units,
+   org.eclipse.emf.common.notify"
+

@@ -60,7 +60,7 @@ public interface UnitsPackage extends EPackage {
 	 * @see net.bhl.cdt.model.units.impl.UnitsPackageImpl#getQuantity()
 	 * @generated
 	 */
-	int QUANTITY = 0;
+	int QUANTITY = 1;
 
 	/**
 	 * The meta object id for the '<em>Unit</em>' data type.
@@ -69,7 +69,7 @@ public interface UnitsPackage extends EPackage {
 	 * @see net.bhl.cdt.model.units.impl.UnitsPackageImpl#getUnit()
 	 * @generated
 	 */
-	int UNIT = 1;
+	int UNIT = 0;
 
 	/**
 	 * Returns the meta object for enum '{@link net.bhl.cdt.model.units.Quantity <em>Quantity</em>}'. <!--
@@ -79,7 +79,7 @@ public interface UnitsPackage extends EPackage {
 	 * @see net.bhl.cdt.model.units.Quantity
 	 * @generated
 	 */
-	EEnum getQuantity();
+	EDataType getQuantity();
 
 	/**
 	 * Returns the meta object for data type '{@link javax.measure.unit.Unit <em>Unit</em>}'.
@@ -87,7 +87,7 @@ public interface UnitsPackage extends EPackage {
 	 * end-user-doc -->
 	 * @return the meta object for data type '<em>Unit</em>'.
 	 * @see javax.measure.unit.Unit
-	 * @model instanceClass="javax.measure.unit.Unit"
+	 * @model instanceClass="javax.measure.unit.Unit" typeParameters="Q" QBounds="net.bhl.cdt.model.units.Quantity"
 	 * @generated
 	 */
 	EDataType getUnit();
@@ -120,7 +120,7 @@ public interface UnitsPackage extends EPackage {
 		 * @see net.bhl.cdt.model.units.impl.UnitsPackageImpl#getQuantity()
 		 * @generated
 		 */
-		EEnum QUANTITY = eINSTANCE.getQuantity();
+		EDataType QUANTITY = eINSTANCE.getQuantity();
 		/**
 		 * The meta object literal for the '<em>Unit</em>' data type.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->

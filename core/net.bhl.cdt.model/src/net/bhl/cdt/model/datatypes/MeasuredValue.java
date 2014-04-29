@@ -32,10 +32,10 @@ public interface MeasuredValue extends FloatPointValue {
 	 * @return the value of the '<em>Unit</em>' attribute.
 	 * @see #setUnit(Unit)
 	 * @see net.bhl.cdt.model.datatypes.DatatypesPackage#getMeasuredValue_Unit()
-	 * @model dataType="net.bhl.cdt.model.units.Unit"
+	 * @model dataType="net.bhl.cdt.model.units.Unit<?>"
 	 * @generated
 	 */
-	Unit getUnit();
+	Unit<?> getUnit();
 
 	/**
 	 * Sets the value of the '{@link net.bhl.cdt.model.datatypes.MeasuredValue#getUnit <em>Unit</em>}' attribute.
@@ -45,6 +45,6 @@ public interface MeasuredValue extends FloatPointValue {
 	 * @see #getUnit()
 	 * @generated
 	 */
-	void setUnit(Unit value);
+	void setUnit(Unit<?> value);
 
 } // MeasuredValue

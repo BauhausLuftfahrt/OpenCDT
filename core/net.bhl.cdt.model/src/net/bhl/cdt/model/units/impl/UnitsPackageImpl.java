@@ -8,30 +8,32 @@ package net.bhl.cdt.model.units.impl;
 
 import javax.measure.unit.Unit;
 
-import net.bhl.cdt.model.units.Quantity;
 import net.bhl.cdt.model.units.UnitsFactory;
 import net.bhl.cdt.model.units.UnitsPackage;
 
 import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Package</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class UnitsPackageImpl extends EPackageImpl implements UnitsPackage {
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EEnum quantityEEnum = null;
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private EDataType unitEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
+	 * @generated
+	 */
+	private EDataType quantityEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
@@ -52,27 +54,30 @@ public class UnitsPackageImpl extends EPackageImpl implements UnitsPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private static boolean isInited = false;
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
-	 * <p>This method is used to initialize {@link UnitsPackage#eINSTANCE} when that field is accessed.
-	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-	 * <!-- begin-user-doc -->
+	 * <p>
+	 * This method is used to initialize {@link UnitsPackage#eINSTANCE} when that field is accessed. Clients should not
+	 * invoke it directly. Instead, they should simply access that field to obtain the package. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @see #eNS_URI
 	 * @see #createPackageContents()
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
 	public static UnitsPackage init() {
-		if (isInited) return (UnitsPackage)EPackage.Registry.INSTANCE.getEPackage(UnitsPackage.eNS_URI);
+		if (isInited)
+			return (UnitsPackage) EPackage.Registry.INSTANCE.getEPackage(UnitsPackage.eNS_URI);
 
 		// Obtain or create and register package
-		UnitsPackageImpl theUnitsPackage = (UnitsPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof UnitsPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new UnitsPackageImpl());
+		UnitsPackageImpl theUnitsPackage = (UnitsPackageImpl) (EPackage.Registry.INSTANCE.get(eNS_URI) instanceof UnitsPackageImpl ? EPackage.Registry.INSTANCE
+			.get(eNS_URI) : new UnitsPackageImpl());
 
 		isInited = true;
 
@@ -85,7 +90,6 @@ public class UnitsPackageImpl extends EPackageImpl implements UnitsPackage {
 		// Mark meta-data to indicate it can't be changed
 		theUnitsPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(UnitsPackage.eNS_URI, theUnitsPackage);
 		return theUnitsPackage;
@@ -93,14 +97,16 @@ public class UnitsPackageImpl extends EPackageImpl implements UnitsPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
-	public EEnum getQuantity() {
-		return quantityEEnum;
+	public EDataType getQuantity() {
+		return quantityEDataType;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public EDataType getUnit() {
@@ -109,49 +115,52 @@ public class UnitsPackageImpl extends EPackageImpl implements UnitsPackage {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public UnitsFactory getUnitsFactory() {
-		return (UnitsFactory)getEFactoryInstance();
+		return (UnitsFactory) getEFactoryInstance();
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Creates the meta-model objects for the package. This method is guarded to have no affect on any invocation but
+	 * its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) return;
+		if (isCreated)
+			return;
 		isCreated = true;
-
-		// Create enums
-		quantityEEnum = createEEnum(QUANTITY);
 
 		// Create data types
 		unitEDataType = createEDataType(UNIT);
+		quantityEDataType = createEDataType(QUANTITY);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * Complete the initialization of the package and its meta-model. This method is guarded to have no affect on any
+	 * invocation but its first. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) return;
+		if (isInitialized)
+			return;
 		isInitialized = true;
 
 		// Initialize package
@@ -159,26 +168,10 @@ public class UnitsPackageImpl extends EPackageImpl implements UnitsPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
-		// Initialize enums and add enum literals
-		initEEnum(quantityEEnum, Quantity.class, "Quantity");
-		addEEnumLiteral(quantityEEnum, Quantity.LENGTH);
-		addEEnumLiteral(quantityEEnum, Quantity.WEIGHT);
-		addEEnumLiteral(quantityEEnum, Quantity.MASS);
-		addEEnumLiteral(quantityEEnum, Quantity.ACCELERATION);
-		addEEnumLiteral(quantityEEnum, Quantity.COEFFICIENT);
-		addEEnumLiteral(quantityEEnum, Quantity.TEMPERATURE);
-		addEEnumLiteral(quantityEEnum, Quantity.VELOCITY);
-		addEEnumLiteral(quantityEEnum, Quantity.DENSITY);
-		addEEnumLiteral(quantityEEnum, Quantity.SPECIFICFUELCONSUMPTION);
-		addEEnumLiteral(quantityEEnum, Quantity.AREA);
-		addEEnumLiteral(quantityEEnum, Quantity.ANGLE);
-		addEEnumLiteral(quantityEEnum, Quantity.CURRENCY);
-		addEEnumLiteral(quantityEEnum, Quantity.LABORCOST);
-		addEEnumLiteral(quantityEEnum, Quantity.COUNT);
-		addEEnumLiteral(quantityEEnum, Quantity.FUELCOST);
-
 		// Initialize data types
 		initEDataType(unitEDataType, Unit.class, "Unit", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(quantityEDataType, javax.measure.quantity.Quantity.class, "Quantity", IS_SERIALIZABLE,
+			!IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

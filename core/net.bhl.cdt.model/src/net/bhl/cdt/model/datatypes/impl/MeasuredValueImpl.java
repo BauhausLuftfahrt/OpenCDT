@@ -27,16 +27,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredValue {
 	/**
-	 * The default value of the '{@link #getUnit() <em>Unit</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @see #getUnit()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Unit UNIT_EDEFAULT = null;
-
-	/**
 	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
 	 * -->
 	 * 
@@ -44,7 +34,7 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 	 * @generated
 	 * @ordered
 	 */
-	protected Unit unit = UNIT_EDEFAULT;
+	protected Unit<?> unit;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -67,7 +57,7 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Unit getUnit() {
+	public Unit<?> getUnit() {
 		return unit;
 	}
 
@@ -75,8 +65,8 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setUnit(Unit newUnit) {
-		Unit oldUnit = unit;
+	public void setUnit(Unit<?> newUnit) {
+		Unit<?> oldUnit = unit;
 		unit = newUnit;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, DatatypesPackage.MEASURED_VALUE__UNIT, oldUnit, unit));
@@ -103,7 +93,7 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case DatatypesPackage.MEASURED_VALUE__UNIT:
-				setUnit((Unit)newValue);
+				setUnit((Unit<?>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -117,7 +107,7 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case DatatypesPackage.MEASURED_VALUE__UNIT:
-				setUnit(UNIT_EDEFAULT);
+				setUnit((Unit<?>)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -131,7 +121,7 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case DatatypesPackage.MEASURED_VALUE__UNIT:
-				return UNIT_EDEFAULT == null ? unit != null : !UNIT_EDEFAULT.equals(unit);
+				return unit != null;
 		}
 		return super.eIsSet(featureID);
 	}

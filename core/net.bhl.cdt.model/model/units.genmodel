@@ -24,6 +24,8 @@
       <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/COUNT"/>
       <genEnumLiterals ecoreEnumLiteral="units.ecore#//Quantity/FUELCOST"/>
     </genEnums>
-    <genDataTypes ecoreDataType="units.ecore#//Unit"/>
+    <genDataTypes ecoreDataType="units.ecore#//Unit">
+      <genTypeParameters ecoreTypeParameter="units.ecore#//Unit/Q"/>
+    </genDataTypes>
   </genPackages>
 </genmodel:GenModel>
