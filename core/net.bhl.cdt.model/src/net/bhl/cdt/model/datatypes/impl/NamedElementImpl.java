@@ -4,6 +4,7 @@ package net.bhl.cdt.model.datatypes.impl;
 
 import net.bhl.cdt.model.datatypes.DatatypesPackage;
 import net.bhl.cdt.model.datatypes.NamedElement;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;

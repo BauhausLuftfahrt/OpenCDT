@@ -5,7 +5,11 @@ Bundle-SymbolicName: net.bhl.cdt.test;singleton:=true
 Bundle-Version: 0.9.0.qualifier
 Bundle-Activator: net.bhl.cdt.test.Activator
 Require-Bundle: org.junit;bundle-version="4.11.0";visibility:=reexport,
- net.bhl.cdt.utilities;bundle-version="0.9.0";visibility:=reexport
+ org.eclipse.osgi,
+ org.eclipse.emf.emfstore.client,
+ net.bhl.cdt.ui,
+ org.eclipse.emf.emfstore.common,
+ org.eclipse.emf.emfstore.server
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: net.bhl.cdt.test

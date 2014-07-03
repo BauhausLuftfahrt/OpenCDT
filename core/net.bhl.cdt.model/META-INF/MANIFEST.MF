@@ -9,14 +9,15 @@ Bundle-ClassPath: .,
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.eclipse.emf.emfstore.client;visibility:=reexport;bundle-version="1.1.0",
- org.eclipse.emf.ecp.explorereditorbridge;visibility:=reexport;bundle-version="1.1.1",
- org.eclipse.emf.ecp.emfstore.ui;visibility:=reexport;bundle-version="1.1.1",
- org.eclipse.emf.ecp.view.model.provider.generator;visibility:=reexport;bundle-version="1.1.1",
+Require-Bundle: org.eclipse.emf.emfstore.client;bundle-version="1.1.0";visibility:=reexport,
+ org.eclipse.emf.ecp.explorereditorbridge;bundle-version="1.1.1";visibility:=reexport,
+ org.eclipse.emf.ecp.emfstore.ui;bundle-version="1.1.1";visibility:=reexport,
+ org.eclipse.emf.ecp.view.model.provider.generator;bundle-version="1.1.1";visibility:=reexport,
  org.eclipse.core.runtime;visibility:=reexport,
  org.eclipse.emf.ecore;visibility:=reexport,
  net.bhl.cdt.model;visibility:=reexport,
- org.eclipse.emf.emfstore.client;visibility:=reexport
+ org.eclipse.emf.emfstore.client;visibility:=reexport,
+ org.eclipse.emf.emfstore.server.model
 Bundle-ActivationPolicy: lazy
 Export-Package: javax.measure.converter,
  javax.measure.unit,

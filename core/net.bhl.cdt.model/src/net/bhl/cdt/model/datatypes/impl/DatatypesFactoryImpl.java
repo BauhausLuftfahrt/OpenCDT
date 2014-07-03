@@ -1,13 +1,21 @@
 /*******************************************************************************
- * <copyright> Copyright (c) 2009-2013 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * <copyright> Copyright (c) 2009-2014 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
 
 package net.bhl.cdt.model.datatypes.impl;
 
-import net.bhl.cdt.model.datatypes.*;
+import net.bhl.cdt.model.datatypes.Array;
+import net.bhl.cdt.model.datatypes.Cells;
+import net.bhl.cdt.model.datatypes.CompositeValues;
+import net.bhl.cdt.model.datatypes.DatatypesFactory;
 import net.bhl.cdt.model.datatypes.DatatypesPackage;
+import net.bhl.cdt.model.datatypes.FloatPointValue;
+import net.bhl.cdt.model.datatypes.Formula;
+import net.bhl.cdt.model.datatypes.IntegerValue;
+import net.bhl.cdt.model.datatypes.MeasuredValue;
+import net.bhl.cdt.model.datatypes.StringValue;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
