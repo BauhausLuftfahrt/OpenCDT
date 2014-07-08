@@ -4,6 +4,7 @@ package net.bhl.cdt.model.datatypes;
 
 import org.eclipse.emf.ecore.EFactory;
 
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Factory</b> for the model.

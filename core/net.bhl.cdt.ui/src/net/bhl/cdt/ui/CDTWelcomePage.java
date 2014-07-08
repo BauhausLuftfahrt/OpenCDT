@@ -5,8 +5,6 @@
  ******************************************************************************/
 package net.bhl.cdt.ui;
 
-// import net.bhl.cdt.ui.command.NewProjectCommand;
-
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
@@ -17,6 +15,10 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.intro.IIntroPart;
 import org.eclipse.ui.part.IntroPart;
+
+// import net.bhl.cdt.ui.command.NewProjectCommand;
+
+
 
 /**
  * CDTWelcome page which will be shown at the first start.

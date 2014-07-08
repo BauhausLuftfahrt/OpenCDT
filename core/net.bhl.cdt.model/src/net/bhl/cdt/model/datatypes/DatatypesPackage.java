@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Package</b> for the model.
