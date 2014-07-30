@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="openCDTTarget" sequenceNumber="247">
+<?pde version="3.8"?><target name="openCDTTarget" sequenceNumber="248">
 <locations>
 <location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.equinox.sdk.feature.group" version="3.8.0.v20121212-203907-7M7fA78g4_y-gDvtH0ZcFvhMPDZJ"/>
@@ -70,6 +70,21 @@
 <location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.platform.sdk" version="4.3.2.M20140221-1700"/>
 <repository location="http://download.eclipse.org/eclipse/updates/4.3"/>
+</location>
+<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.emfstore.example.feature.feature.group" version="1.1.0.v20131205-1626"/>
+<unit id="org.eclipse.emf.emfstore.client.ui.feature.feature.group" version="1.1.0.v20131205-1626"/>
+<unit id="org.eclipse.emf.emfstore.sdk.feature.feature.group" version="1.1.0.v20131205-1626"/>
+<unit id="org.eclipse.emf.emfstore.mongodb.client.feature.feature.group" version="1.1.0.v20131205-1626"/>
+<unit id="org.eclipse.emf.emfstore.mongodb.server.feature.feature.group" version="1.1.0.v20131205-1626"/>
+<unit id="org.eclipse.emf.emfstore.modelmutator.feature.feature.group" version="1.1.0.v20131205-1626"/>
+<unit id="org.eclipse.emf.emfstore.common.feature.feature.group" version="1.1.0.v20131205-1626"/>
+<unit id="org.eclipse.emf.emfstore.client.ui.historybrowsercomparator.feature.feature.group" version="1.1.0.v20131205-1626"/>
+<unit id="org.eclipse.emf.emfstore.client.transaction.feature.feature.group" version="1.1.0.v20131205-1626"/>
+<unit id="org.eclipse.emf.emfstore.ecore.feature.feature.group" version="1.1.0.v20131205-1626"/>
+<unit id="org.eclipse.emf.emfstore.client.feature.feature.group" version="1.1.0.v20131205-1626"/>
+<unit id="org.eclipse.emf.emfstore.server.feature.feature.group" version="1.1.0.v20131205-1626"/>
+<repository location="http://download.eclipse.org/emf-store/releases_11"/>
 </location>
 </locations>
 </target>
