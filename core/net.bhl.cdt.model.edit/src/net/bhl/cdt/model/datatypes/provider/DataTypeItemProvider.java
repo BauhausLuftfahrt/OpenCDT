@@ -25,8 +25,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * --> <!-- end-user-doc -->
  * @generated
  */
-public class DataTypeItemProvider extends NamedElementItemProvider implements IEditingDomainItemProvider,
-	IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
+public class DataTypeItemProvider extends NamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->

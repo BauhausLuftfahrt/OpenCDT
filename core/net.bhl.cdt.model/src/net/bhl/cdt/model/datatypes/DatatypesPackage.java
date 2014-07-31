@@ -7,59 +7,53 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
-
 /**
- * <!-- begin-user-doc -->
- * The <b>Package</b> for the model.
- * It contains accessors for the meta objects to represent
+ * <!-- begin-user-doc --> The <b>Package</b> for the model. It contains accessors for the meta objects to represent
  * <ul>
- *   <li>each class,</li>
- *   <li>each feature of each class,</li>
- *   <li>each enum,</li>
- *   <li>and each data type</li>
+ * <li>each class,</li>
+ * <li>each feature of each class,</li>
+ * <li>each enum,</li>
+ * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
+ * 
  * @see net.bhl.cdt.model.datatypes.DatatypesFactory
  * @model kind="package"
  * @generated
  */
 public interface DatatypesPackage extends EPackage {
 	/**
-	 * The package name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNAME = "datatypes";
 
 	/**
-	 * The package namespace URI.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNS_URI = "http://bhl.net/cdt/model/datatypes/";
 
 	/**
-	 * The package namespace name.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	String eNS_PREFIX = "net.bhl.cdt.model";
 
 	/**
-	 * The singleton instance of the package.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	DatatypesPackage eINSTANCE = net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.NamedElementImpl <em>Named Element</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.NamedElementImpl <em>Named Element</em>}'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.datatypes.impl.NamedElementImpl
 	 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getNamedElement()
 	 * @generated
@@ -67,27 +61,26 @@ public interface DatatypesPackage extends EPackage {
 	int NAMED_ELEMENT = 11;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int NAMED_ELEMENT__NAME = 0;
 
 	/**
-	 * The number of structural features of the '<em>Named Element</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Named Element</em>' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int NAMED_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.DataTypeImpl <em>Data Type</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.DataTypeImpl <em>Data Type</em>}' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.datatypes.impl.DataTypeImpl
 	 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getDataType()
 	 * @generated
@@ -95,18 +88,17 @@ public interface DatatypesPackage extends EPackage {
 	int DATA_TYPE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int DATA_TYPE__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The number of structural features of the '<em>Data Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Data Type</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
@@ -114,8 +106,8 @@ public interface DatatypesPackage extends EPackage {
 
 	/**
 	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.LeafValueImpl <em>Leaf Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.datatypes.impl.LeafValueImpl
 	 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getLeafValue()
 	 * @generated
@@ -123,27 +115,26 @@ public interface DatatypesPackage extends EPackage {
 	int LEAF_VALUE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int LEAF_VALUE__NAME = DATA_TYPE__NAME;
 
 	/**
-	 * The number of structural features of the '<em>Leaf Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Leaf Value</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int LEAF_VALUE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.ScalarImpl <em>Scalar</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.ScalarImpl <em>Scalar</em>}' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.datatypes.impl.ScalarImpl
 	 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getScalar()
 	 * @generated
@@ -151,27 +142,25 @@ public interface DatatypesPackage extends EPackage {
 	int SCALAR = 2;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SCALAR__NAME = LEAF_VALUE__NAME;
 
 	/**
-	 * The number of structural features of the '<em>Scalar</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Scalar</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int SCALAR_FEATURE_COUNT = LEAF_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.FloatPointValueImpl <em>Float Point Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.FloatPointValueImpl
+	 * <em>Float Point Value</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.datatypes.impl.FloatPointValueImpl
 	 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getFloatPointValue()
 	 * @generated
@@ -179,36 +168,34 @@ public interface DatatypesPackage extends EPackage {
 	int FLOAT_POINT_VALUE = 3;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int FLOAT_POINT_VALUE__NAME = SCALAR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int FLOAT_POINT_VALUE__VALUE = SCALAR_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Float Point Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Float Point Value</em>' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int FLOAT_POINT_VALUE_FEATURE_COUNT = SCALAR_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.MeasuredValueImpl <em>Measured Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.MeasuredValueImpl <em>Measured Value</em>}'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.datatypes.impl.MeasuredValueImpl
 	 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getMeasuredValue()
 	 * @generated
@@ -216,45 +203,42 @@ public interface DatatypesPackage extends EPackage {
 	int MEASURED_VALUE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int MEASURED_VALUE__NAME = FLOAT_POINT_VALUE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int MEASURED_VALUE__VALUE = FLOAT_POINT_VALUE__VALUE;
 
 	/**
-	 * The feature id for the '<em><b>Unit</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Unit</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int MEASURED_VALUE__UNIT = FLOAT_POINT_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Measured Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Measured Value</em>' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int MEASURED_VALUE_FEATURE_COUNT = FLOAT_POINT_VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.IntegerValueImpl <em>Integer Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.IntegerValueImpl <em>Integer Value</em>}'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.datatypes.impl.IntegerValueImpl
 	 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getIntegerValue()
 	 * @generated
@@ -262,36 +246,34 @@ public interface DatatypesPackage extends EPackage {
 	int INTEGER_VALUE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int INTEGER_VALUE__NAME = SCALAR__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int INTEGER_VALUE__VALUE = SCALAR_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Integer Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Integer Value</em>' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int INTEGER_VALUE_FEATURE_COUNT = SCALAR_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.StringValueImpl <em>String Value</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.StringValueImpl <em>String Value</em>}'
+	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.datatypes.impl.StringValueImpl
 	 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getStringValue()
 	 * @generated
@@ -299,36 +281,34 @@ public interface DatatypesPackage extends EPackage {
 	int STRING_VALUE = 6;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int STRING_VALUE__NAME = LEAF_VALUE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int STRING_VALUE__VALUE = LEAF_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>String Value</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>String Value</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
+	 * -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int STRING_VALUE_FEATURE_COUNT = LEAF_VALUE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.FormulaImpl <em>Formula</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.FormulaImpl <em>Formula</em>}' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.datatypes.impl.FormulaImpl
 	 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getFormula()
 	 * @generated
@@ -336,36 +316,33 @@ public interface DatatypesPackage extends EPackage {
 	int FORMULA = 7;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int FORMULA__NAME = STRING_VALUE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Value</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int FORMULA__VALUE = STRING_VALUE__VALUE;
 
 	/**
-	 * The number of structural features of the '<em>Formula</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Formula</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int FORMULA_FEATURE_COUNT = STRING_VALUE_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.CompositeValuesImpl <em>Composite Values</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.CompositeValuesImpl
+	 * <em>Composite Values</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.datatypes.impl.CompositeValuesImpl
 	 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getCompositeValues()
 	 * @generated
@@ -373,36 +350,35 @@ public interface DatatypesPackage extends EPackage {
 	int COMPOSITE_VALUES = 8;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COMPOSITE_VALUES__NAME = DATA_TYPE__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Datatypes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Datatypes</b></em>' containment reference list. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COMPOSITE_VALUES__DATATYPES = DATA_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Composite Values</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Composite Values</em>' class. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int COMPOSITE_VALUES_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 1;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.ArrayImpl <em>Array</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.ArrayImpl <em>Array</em>}' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.datatypes.impl.ArrayImpl
 	 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getArray()
 	 * @generated
@@ -410,36 +386,34 @@ public interface DatatypesPackage extends EPackage {
 	int ARRAY = 9;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ARRAY__NAME = COMPOSITE_VALUES__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Datatypes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Datatypes</b></em>' containment reference list. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ARRAY__DATATYPES = COMPOSITE_VALUES__DATATYPES;
 
 	/**
-	 * The number of structural features of the '<em>Array</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Array</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int ARRAY_FEATURE_COUNT = COMPOSITE_VALUES_FEATURE_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.CellsImpl <em>Cells</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The meta object id for the '{@link net.bhl.cdt.model.datatypes.impl.CellsImpl <em>Cells</em>}' class. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @see net.bhl.cdt.model.datatypes.impl.CellsImpl
 	 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getCells()
 	 * @generated
@@ -447,37 +421,34 @@ public interface DatatypesPackage extends EPackage {
 	int CELLS = 10;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CELLS__NAME = COMPOSITE_VALUES__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Datatypes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The feature id for the '<em><b>Datatypes</b></em>' containment reference list. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CELLS__DATATYPES = COMPOSITE_VALUES__DATATYPES;
 
 	/**
-	 * The number of structural features of the '<em>Cells</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * The number of structural features of the '<em>Cells</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 * @ordered
 	 */
 	int CELLS_FEATURE_COUNT = COMPOSITE_VALUES_FEATURE_COUNT + 0;
 
-
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.DataType <em>Data Type</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.DataType <em>Data Type</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Data Type</em>'.
 	 * @see net.bhl.cdt.model.datatypes.DataType
 	 * @generated
@@ -485,9 +456,9 @@ public interface DatatypesPackage extends EPackage {
 	EClass getDataType();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.LeafValue <em>Leaf Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.LeafValue <em>Leaf Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Leaf Value</em>'.
 	 * @see net.bhl.cdt.model.datatypes.LeafValue
 	 * @generated
@@ -495,9 +466,9 @@ public interface DatatypesPackage extends EPackage {
 	EClass getLeafValue();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.Scalar <em>Scalar</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.Scalar <em>Scalar</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Scalar</em>'.
 	 * @see net.bhl.cdt.model.datatypes.Scalar
 	 * @generated
@@ -505,9 +476,9 @@ public interface DatatypesPackage extends EPackage {
 	EClass getScalar();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.FloatPointValue <em>Float Point Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.FloatPointValue <em>Float Point Value</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Float Point Value</em>'.
 	 * @see net.bhl.cdt.model.datatypes.FloatPointValue
 	 * @generated
@@ -515,9 +486,9 @@ public interface DatatypesPackage extends EPackage {
 	EClass getFloatPointValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.datatypes.FloatPointValue#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.datatypes.FloatPointValue#getValue
+	 * <em>Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the attribute '<em>Value</em>'.
 	 * @see net.bhl.cdt.model.datatypes.FloatPointValue#getValue()
 	 * @see #getFloatPointValue()
@@ -527,8 +498,8 @@ public interface DatatypesPackage extends EPackage {
 
 	/**
 	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.MeasuredValue <em>Measured Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Measured Value</em>'.
 	 * @see net.bhl.cdt.model.datatypes.MeasuredValue
 	 * @generated
@@ -536,9 +507,9 @@ public interface DatatypesPackage extends EPackage {
 	EClass getMeasuredValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.datatypes.MeasuredValue#getUnit <em>Unit</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.datatypes.MeasuredValue#getUnit
+	 * <em>Unit</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the attribute '<em>Unit</em>'.
 	 * @see net.bhl.cdt.model.datatypes.MeasuredValue#getUnit()
 	 * @see #getMeasuredValue()
@@ -547,9 +518,9 @@ public interface DatatypesPackage extends EPackage {
 	EAttribute getMeasuredValue_Unit();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.IntegerValue <em>Integer Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.IntegerValue <em>Integer Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Integer Value</em>'.
 	 * @see net.bhl.cdt.model.datatypes.IntegerValue
 	 * @generated
@@ -557,9 +528,9 @@ public interface DatatypesPackage extends EPackage {
 	EClass getIntegerValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.datatypes.IntegerValue#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.datatypes.IntegerValue#getValue
+	 * <em>Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the attribute '<em>Value</em>'.
 	 * @see net.bhl.cdt.model.datatypes.IntegerValue#getValue()
 	 * @see #getIntegerValue()
@@ -568,9 +539,9 @@ public interface DatatypesPackage extends EPackage {
 	EAttribute getIntegerValue_Value();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.StringValue <em>String Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.StringValue <em>String Value</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>String Value</em>'.
 	 * @see net.bhl.cdt.model.datatypes.StringValue
 	 * @generated
@@ -578,9 +549,9 @@ public interface DatatypesPackage extends EPackage {
 	EClass getStringValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.datatypes.StringValue#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.datatypes.StringValue#getValue
+	 * <em>Value</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the attribute '<em>Value</em>'.
 	 * @see net.bhl.cdt.model.datatypes.StringValue#getValue()
 	 * @see #getStringValue()
@@ -589,9 +560,9 @@ public interface DatatypesPackage extends EPackage {
 	EAttribute getStringValue_Value();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.Formula <em>Formula</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.Formula <em>Formula</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Formula</em>'.
 	 * @see net.bhl.cdt.model.datatypes.Formula
 	 * @generated
@@ -599,9 +570,9 @@ public interface DatatypesPackage extends EPackage {
 	EClass getFormula();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.CompositeValues <em>Composite Values</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.CompositeValues <em>Composite Values</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Composite Values</em>'.
 	 * @see net.bhl.cdt.model.datatypes.CompositeValues
 	 * @generated
@@ -609,9 +580,10 @@ public interface DatatypesPackage extends EPackage {
 	EClass getCompositeValues();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.datatypes.CompositeValues#getDatatypes <em>Datatypes</em>}'.
-	 * <!-- begin-user-doc -->
+	 * Returns the meta object for the containment reference list '
+	 * {@link net.bhl.cdt.model.datatypes.CompositeValues#getDatatypes <em>Datatypes</em>}'. <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the containment reference list '<em>Datatypes</em>'.
 	 * @see net.bhl.cdt.model.datatypes.CompositeValues#getDatatypes()
 	 * @see #getCompositeValues()
@@ -620,9 +592,9 @@ public interface DatatypesPackage extends EPackage {
 	EReference getCompositeValues_Datatypes();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.Array <em>Array</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.Array <em>Array</em>}'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Array</em>'.
 	 * @see net.bhl.cdt.model.datatypes.Array
 	 * @generated
@@ -630,9 +602,9 @@ public interface DatatypesPackage extends EPackage {
 	EClass getArray();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.Cells <em>Cells</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.Cells <em>Cells</em>}'. <!-- begin-user-doc
+	 * --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Cells</em>'.
 	 * @see net.bhl.cdt.model.datatypes.Cells
 	 * @generated
@@ -640,9 +612,9 @@ public interface DatatypesPackage extends EPackage {
 	EClass getCells();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.NamedElement <em>Named Element</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.datatypes.NamedElement <em>Named Element</em>}'. <!--
+	 * begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for class '<em>Named Element</em>'.
 	 * @see net.bhl.cdt.model.datatypes.NamedElement
 	 * @generated
@@ -650,9 +622,9 @@ public interface DatatypesPackage extends EPackage {
 	EClass getNamedElement();
 
 	/**
-	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.datatypes.NamedElement#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.datatypes.NamedElement#getName <em>Name</em>}
+	 * '. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the meta object for the attribute '<em>Name</em>'.
 	 * @see net.bhl.cdt.model.datatypes.NamedElement#getName()
 	 * @see #getNamedElement()
@@ -661,31 +633,30 @@ public interface DatatypesPackage extends EPackage {
 	EAttribute getNamedElement_Name();
 
 	/**
-	 * Returns the factory that creates the instances of the model.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
 	DatatypesFactory getDatatypesFactory();
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * Defines literals for the meta objects that represent
+	 * <!-- begin-user-doc --> Defines literals for the meta objects that represent
 	 * <ul>
-	 *   <li>each class,</li>
-	 *   <li>each feature of each class,</li>
-	 *   <li>each enum,</li>
-	 *   <li>and each data type</li>
+	 * <li>each class,</li>
+	 * <li>each feature of each class,</li>
+	 * <li>each enum,</li>
+	 * <li>and each data type</li>
 	 * </ul>
 	 * <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.DataTypeImpl <em>Data Type</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.DataTypeImpl <em>Data Type</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.datatypes.impl.DataTypeImpl
 		 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getDataType()
 		 * @generated
@@ -693,9 +664,9 @@ public interface DatatypesPackage extends EPackage {
 		EClass DATA_TYPE = eINSTANCE.getDataType();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.LeafValueImpl <em>Leaf Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.LeafValueImpl <em>Leaf Value</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.datatypes.impl.LeafValueImpl
 		 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getLeafValue()
 		 * @generated
@@ -704,8 +675,8 @@ public interface DatatypesPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.ScalarImpl <em>Scalar</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.datatypes.impl.ScalarImpl
 		 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getScalar()
 		 * @generated
@@ -713,9 +684,9 @@ public interface DatatypesPackage extends EPackage {
 		EClass SCALAR = eINSTANCE.getScalar();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.FloatPointValueImpl <em>Float Point Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.FloatPointValueImpl
+		 * <em>Float Point Value</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.datatypes.impl.FloatPointValueImpl
 		 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getFloatPointValue()
 		 * @generated
@@ -723,17 +694,17 @@ public interface DatatypesPackage extends EPackage {
 		EClass FLOAT_POINT_VALUE = eINSTANCE.getFloatPointValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EAttribute FLOAT_POINT_VALUE__VALUE = eINSTANCE.getFloatPointValue_Value();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.MeasuredValueImpl <em>Measured Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.MeasuredValueImpl
+		 * <em>Measured Value</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.datatypes.impl.MeasuredValueImpl
 		 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getMeasuredValue()
 		 * @generated
@@ -741,17 +712,17 @@ public interface DatatypesPackage extends EPackage {
 		EClass MEASURED_VALUE = eINSTANCE.getMeasuredValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Unit</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Unit</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EAttribute MEASURED_VALUE__UNIT = eINSTANCE.getMeasuredValue_Unit();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.IntegerValueImpl <em>Integer Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.IntegerValueImpl
+		 * <em>Integer Value</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.datatypes.impl.IntegerValueImpl
 		 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getIntegerValue()
 		 * @generated
@@ -759,17 +730,17 @@ public interface DatatypesPackage extends EPackage {
 		EClass INTEGER_VALUE = eINSTANCE.getIntegerValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EAttribute INTEGER_VALUE__VALUE = eINSTANCE.getIntegerValue_Value();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.StringValueImpl <em>String Value</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.StringValueImpl
+		 * <em>String Value</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.datatypes.impl.StringValueImpl
 		 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getStringValue()
 		 * @generated
@@ -777,17 +748,17 @@ public interface DatatypesPackage extends EPackage {
 		EClass STRING_VALUE = eINSTANCE.getStringValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EAttribute STRING_VALUE__VALUE = eINSTANCE.getStringValue_Value();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.FormulaImpl <em>Formula</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.FormulaImpl <em>Formula</em>}'
+		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.datatypes.impl.FormulaImpl
 		 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getFormula()
 		 * @generated
@@ -795,9 +766,9 @@ public interface DatatypesPackage extends EPackage {
 		EClass FORMULA = eINSTANCE.getFormula();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.CompositeValuesImpl <em>Composite Values</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.CompositeValuesImpl
+		 * <em>Composite Values</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.datatypes.impl.CompositeValuesImpl
 		 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getCompositeValues()
 		 * @generated
@@ -805,17 +776,17 @@ public interface DatatypesPackage extends EPackage {
 		EClass COMPOSITE_VALUES = eINSTANCE.getCompositeValues();
 
 		/**
-		 * The meta object literal for the '<em><b>Datatypes</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Datatypes</b></em>' containment reference list feature. <!--
+		 * begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EReference COMPOSITE_VALUES__DATATYPES = eINSTANCE.getCompositeValues_Datatypes();
 
 		/**
 		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.ArrayImpl <em>Array</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.datatypes.impl.ArrayImpl
 		 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getArray()
 		 * @generated
@@ -824,8 +795,8 @@ public interface DatatypesPackage extends EPackage {
 
 		/**
 		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.CellsImpl <em>Cells</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.datatypes.impl.CellsImpl
 		 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getCells()
 		 * @generated
@@ -833,9 +804,9 @@ public interface DatatypesPackage extends EPackage {
 		EClass CELLS = eINSTANCE.getCells();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.NamedElementImpl <em>Named Element</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.datatypes.impl.NamedElementImpl
+		 * <em>Named Element</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+		 * 
 		 * @see net.bhl.cdt.model.datatypes.impl.NamedElementImpl
 		 * @see net.bhl.cdt.model.datatypes.impl.DatatypesPackageImpl#getNamedElement()
 		 * @generated
@@ -843,13 +814,13 @@ public interface DatatypesPackage extends EPackage {
 		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+		 * end-user-doc -->
+		 * 
 		 * @generated
 		 */
 		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
 
 	}
 
-} //DatatypesPackage
+} // DatatypesPackage
