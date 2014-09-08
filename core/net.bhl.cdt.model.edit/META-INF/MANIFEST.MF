@@ -4,12 +4,17 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: net.bhl.cdt.model.edit;singleton:=true
 Bundle-Version: 0.9.1.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: net.bhl.cdt.model.datatypes.provider.DatatypesEditPlugin$Implementation
+Bundle-Activator: net.bhl.cdt.model.provider.ModelEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: net.bhl.cdt.model.datatypes.provider,
+ net.bhl.cdt.model.geometry.provider,
+ net.bhl.cdt.model.process.designoperations.provider,
+ net.bhl.cdt.model.process.provider,
+ net.bhl.cdt.model.process.selection.provider,
  net.bhl.cdt.model.provider,
+ net.bhl.cdt.model.system.provider,
  net.bhl.cdt.model.units.provider
 Require-Bundle: org.eclipse.core.runtime,
  net.bhl.cdt.model;bundle-version="0.9.1";visibility:=reexport,

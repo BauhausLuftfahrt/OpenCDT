@@ -32,15 +32,6 @@ public interface DatatypesFactory extends EFactory {
 	FloatPointValue createFloatPointValue();
 
 	/**
-	 * Returns a new object of class '<em>Measured Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Measured Value</em>'.
-	 * @generated
-	 */
-	MeasuredValue createMeasuredValue();
-
-	/**
 	 * Returns a new object of class '<em>Integer Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -93,6 +84,15 @@ public interface DatatypesFactory extends EFactory {
 	 * @generated
 	 */
 	Cells createCells();
+
+	/**
+	 * Returns a new object of class '<em>Measured Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Measured Value</em>'.
+	 * @generated
+	 */
+	MeasuredValue createMeasuredValue();
 
 	/**
 	 * Returns the package supported by this factory.

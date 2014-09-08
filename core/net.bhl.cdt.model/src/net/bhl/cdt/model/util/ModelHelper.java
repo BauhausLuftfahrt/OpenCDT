@@ -20,14 +20,12 @@ import javax.measure.unit.Unit;
 
 import net.bhl.cdt.model.Component;
 import net.bhl.cdt.model.Configuration;
-import net.bhl.cdt.model.ModelFactory;
+import net.bhl.cdt.model.NamedElement;
 import net.bhl.cdt.model.Parameter;
-import net.bhl.cdt.model.datatypes.CompositeValues;
 import net.bhl.cdt.model.datatypes.DataType;
 import net.bhl.cdt.model.datatypes.DatatypesFactory;
 import net.bhl.cdt.model.datatypes.FloatPointValue;
 import net.bhl.cdt.model.datatypes.MeasuredValue;
-import net.bhl.cdt.model.datatypes.NamedElement;
 
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.emf.common.util.TreeIterator;
@@ -449,20 +447,6 @@ public final class ModelHelper {
 	}
 
 	/**
-	 * This method returns a copy a given Parameter object.
-	 * 
-	 * @param sourceComponent The source Parameter object of the copy
-	 * @return The new Component which is a copy of a given Parameter
-	 */
-	public static Component copy(Component sourceComponent) {
-		Component newComponent = ModelFactory.eINSTANCE.createComponent();
-		newComponent.setName(sourceComponent.getName());
-
-		return newComponent;
-
-	}
-
-	/**
 	 * This method copies a given Value object.
 	 * 
 	 * @param dataType The source Value object of the copy
@@ -524,162 +508,6 @@ public final class ModelHelper {
 	}
 
 	/**
-	 * This method maps an CompositeValues and its child ExchangeElements to a Component with subComponents and
-	 * Parameters.
-	 * 
-	 * @param compositeElement The CompositeValues which is mapped to a Component
-	 * @return the Component which is a mapping of the CompositeValues ant its content
-	 */
-
-	public static Component mapToComponent(CompositeValues compositeElement) {
-		Component component = ModelFactory.eINSTANCE.createComponent();
-		// copy attributes
-		component.setName(compositeElement.getName());
-
-		// copy Parameters
-
-		if (compositeElement.getDatatypes().size() > 0) {
-
-			for (NamedElement namedElement : compositeElement.getDatatypes()) {
-				if (namedElement instanceof MeasuredValue) {
-					component.getParameters().add(mapToParameter((MeasuredValue) namedElement));
-				} else if (namedElement instanceof CompositeValues) {
-					component.getSubComponents().add(mapToComponent((CompositeValues) namedElement));
-				}
-
-			}
-		}
-
-		return component;
-	}
-
-	/**
-	 * This method maps an MeasuredValue a Parameter which has one Value.
-	 * 
-	 * @param measuredValue The EchangeValue which is the source of the copy
-	 * @return The Parameter which is the result of the mapping of the MeasuredValue
-	 */
-
-	public static Parameter mapToParameter(MeasuredValue measuredValue) {
-		Parameter parameter = ModelFactory.eINSTANCE.createParameter();
-		// copy name and infer Quantity
-
-		parameter.setName(measuredValue.getName());
-
-		// copy name and value
-
-		if (!((Double) measuredValue.getValue()).isNaN()) {
-			parameter.getValues().add(EcoreUtil.copy(measuredValue));
-		}
-
-		return parameter;
-	}
-
-	// /**
-	// * This method maps an MeasuredValue to a StaticValue.
-	// *
-	// * @param exchangeValue The MeasuredValue which is the source of the copy
-	// * @return The Value which is a mapping of the ExValue
-	// */
-	// public static Value mapToValue(MeasuredValue exchangeValue) {
-	// Value resultValue = ModelFactory.eINSTANCE.createValue();
-	// // copy attributes
-	// resultValue.setUnit(exchangeValue.getUnit());
-	// resultValue.setValue(exchangeValue.getValue());
-	// return resultValue;
-	// }
-
-	/**
-	 * This Method formalizes a List of ExchangeElements and its contents to a model conform Configuration.
-	 * 
-	 * @param configurationName The name of the returned Configuration
-	 * @param dataTypes the List of
-	 * @return The resulting Configuration
-	 */
-	public static Configuration formalizeToConfiguration(String configurationName, List<DataType> dataTypes) {
-
-		Configuration newConfiguration = ModelFactory.eINSTANCE.createConfiguration();
-
-		// Set the name of the Configuration
-		newConfiguration.setName(configurationName);
-
-		for (NamedElement namedElement : dataTypes) {
-			if (namedElement instanceof CompositeValues) {
-				Component newComponent = ModelHelper.mapToComponent((CompositeValues) namedElement);
-
-				newConfiguration.getComponents().add(newComponent);
-			} else if (namedElement instanceof MeasuredValue) {
-				// Value cannot stand alone and is therefore attached to the default Component "Aircraft".
-				// Create the Component "Aircraft" if it does not exist and attach it to the new configuration
-				Component targetComponent = ModelFactory.eINSTANCE.createComponent();
-
-				targetComponent.setName("Aircraft");
-
-				List<Component> candidateTargetComponents = ModelHelper.getChildrenByClassAndName(newConfiguration,
-					Component.class, targetComponent.getName());
-				// Component targetComponent = ModelHelper.findComponentInConfiguration(newConfiguration,
-				// searchComponent);
-				if (candidateTargetComponents.isEmpty()) {
-
-					newConfiguration.getComponents().add(targetComponent);
-				} else {
-					targetComponent = candidateTargetComponents.get(0);
-				}
-				// Copy exParameter to the default "Aircraft" Component
-				Parameter newParameter = ModelHelper.mapToParameter((MeasuredValue) namedElement);
-				// Attach the newly created Parameter to the default "Aircraft" Component.
-				targetComponent.getParameters().add(newParameter);
-
-			}
-		}
-		return newConfiguration;
-	}
-
-	/**
-	 * This method formalizes an existing ExchangeElements data structure into a model conform data structure. Hereby,
-	 * it infers Data types and substitutes missing information.
-	 * 
-	 * @param compositeElement The CompositeValues which contains other ExchangeElements
-	 * @return The model conform data structure which is a mapping of an exchangemodel conform structure
-	 */
-
-	public static Component formalizeToComponent(CompositeValues compositeElement) {
-
-		Component newRootComponent = mapToComponent(compositeElement);
-
-		for (NamedElement namedElement : compositeElement.getDatatypes()) {
-			if (namedElement instanceof CompositeValues) {
-				Component newComponent = ModelHelper.mapToComponent((CompositeValues) namedElement);
-
-				newRootComponent.getSubComponents().add(newComponent);
-			} else if (namedElement instanceof MeasuredValue) {
-				// Value cannot stand alone and is therefore attached to the default Component "Aircraft".
-				// Create the Component "Aircraft" if it does not exist and attach it to the new configuration
-				Component targetComponent = ModelFactory.eINSTANCE.createComponent();
-
-				targetComponent.setName("Aircraft");
-
-				List<Component> candidateTargetComponents = ModelHelper.getChildrenByClassAndName(newRootComponent,
-					Component.class, targetComponent.getName());
-				// Component targetComponent = ModelHelper.findComponentInConfiguration(newConfiguration,
-				// searchComponent);
-				if (candidateTargetComponents.isEmpty()) {
-
-					newRootComponent.getSubComponents().add(targetComponent);
-				} else {
-					targetComponent = candidateTargetComponents.get(0);
-				}
-				// Copy exParameter to the default "Aircraft" Component
-				Parameter newParameter = ModelHelper.mapToParameter((MeasuredValue) namedElement);
-				// Attach the newly created Parameter to the default "Aircraft" Component.
-				targetComponent.getParameters().add(newParameter);
-
-			}
-		}
-		return newRootComponent;
-	}
-
-	/**
 	 * The method tries to find the component which contains the given EObject. If there is no container component, the
 	 * method returns null. If the given EObject is of type Component, the object will be returned.
 	 * 
@@ -698,52 +526,4 @@ public final class ModelHelper {
 		return getComponentByEObject(obj.eContainer());
 	}
 
-	/**
-	 * This method creates a Component object with a given name.
-	 * 
-	 * @param componentName the name of the Component object.
-	 * @return the created Component object.
-	 */
-	public static Component createComponent(String componentName) {
-		Component newComponent = ModelFactory.eINSTANCE.createComponent();
-		if (componentName != null) {
-			newComponent.setName(componentName);
-		}
-		return newComponent;
-	}
-
-	/**
-	 * This method creates a Parameter object from a given datatype.
-	 * 
-	 * @param name the name of the Parameter object.
-	 * @param datatype the datatype of the Parameter object
-	 * @return the created Parameter object.
-	 */
-	public static Parameter createParameter(String name, DataType datatype) {
-		Parameter resultParameter = ModelFactory.eINSTANCE.createParameter();
-		resultParameter.setName(name);
-		resultParameter.getValues().add(datatype);
-		// TODO if Datatype has unit infer Quantity
-		return resultParameter;
-	}
-
-	// /**
-	// * This method creates a Value object from a given datatype.
-	// *
-	// * @param datatype the datatype of the Parameter object
-	// * @return the created Value object.
-	// */
-	// public static Value createValue(DataType datatype) {
-	// Value newValue = ModelFactory.eINSTANCE.createValue();
-	// DataType newDataType = EcoreUtil.copy(datatype);
-	// newValue.getDatatypes().add(newDataType);
-	// if (newDataType instanceof MeasuredValue) {
-	// MeasuredValue measuredValue = (MeasuredValue) newDataType;
-	// if (measuredValue.getUnit() != null) {
-	// newValue.setUnit(measuredValue.getUnit());
-	// }
-	// newValue.setValue(measuredValue.getValue());
-	// }
-	// return newValue;
-	// }
 }

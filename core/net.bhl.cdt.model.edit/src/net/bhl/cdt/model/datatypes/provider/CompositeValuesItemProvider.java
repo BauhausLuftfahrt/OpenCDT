@@ -12,15 +12,11 @@ import java.util.List;
 import net.bhl.cdt.model.datatypes.CompositeValues;
 import net.bhl.cdt.model.datatypes.DatatypesFactory;
 import net.bhl.cdt.model.datatypes.DatatypesPackage;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -142,11 +138,6 @@ public class CompositeValuesItemProvider extends DataTypeItemProvider {
 		newChildDescriptors.add
 			(createChildParameter
 				(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
-				 DatatypesFactory.eINSTANCE.createMeasuredValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
 				 DatatypesFactory.eINSTANCE.createIntegerValue()));
 
 		newChildDescriptors.add
@@ -173,6 +164,11 @@ public class CompositeValuesItemProvider extends DataTypeItemProvider {
 			(createChildParameter
 				(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
 				 DatatypesFactory.eINSTANCE.createCells()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
+				 DatatypesFactory.eINSTANCE.createMeasuredValue()));
 	}
 
 }

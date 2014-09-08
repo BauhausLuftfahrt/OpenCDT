@@ -34,11 +34,12 @@ public final class DatatypesHelper {
 	 * @param unit The Unit attribute of the MeasuredValue object
 	 * @return the created MeasuredValue object
 	 */
-	public static MeasuredValue createMeasuredValue(String name, Double value, Unit unit) {
+	public static MeasuredValue createMeasuredValue(String name, Double value, Unit<?> unit) {
 		MeasuredValue resultMeasuredValue = DatatypesFactory.eINSTANCE.createMeasuredValue();
 		resultMeasuredValue.setName(name);
 		resultMeasuredValue.setValue(value);
 		resultMeasuredValue.setUnit(unit);
+
 		return resultMeasuredValue;
 	}
 

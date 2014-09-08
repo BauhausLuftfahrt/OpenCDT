@@ -9,6 +9,7 @@ package net.bhl.cdt.model.datatypes.impl;
 import net.bhl.cdt.model.datatypes.DataType;
 import net.bhl.cdt.model.datatypes.DatatypesPackage;
 
+import net.bhl.cdt.model.impl.NamedElementImpl;
 import org.eclipse.emf.ecore.EClass;
 
 /**

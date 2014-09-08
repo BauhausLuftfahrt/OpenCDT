@@ -345,13 +345,13 @@ public class DatatypesItemProviderAdapterFactory extends DatatypesAdapterFactory
 	 */
 	public void dispose() {
 		if (floatPointValueItemProvider != null) floatPointValueItemProvider.dispose();
-		if (measuredValueItemProvider != null) measuredValueItemProvider.dispose();
 		if (integerValueItemProvider != null) integerValueItemProvider.dispose();
 		if (stringValueItemProvider != null) stringValueItemProvider.dispose();
 		if (formulaItemProvider != null) formulaItemProvider.dispose();
 		if (compositeValuesItemProvider != null) compositeValuesItemProvider.dispose();
 		if (arrayItemProvider != null) arrayItemProvider.dispose();
 		if (cellsItemProvider != null) cellsItemProvider.dispose();
+		if (measuredValueItemProvider != null) measuredValueItemProvider.dispose();
 	}
 
 }

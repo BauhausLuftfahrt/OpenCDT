@@ -5,9 +5,7 @@
  ******************************************************************************/
 package net.bhl.cdt.ui.command;
 
-
 import net.bhl.cdt.commands.CDTCommand;
-import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.ui.dialogs.CreateProjectDialog;
 
 import org.eclipse.emf.emfstore.client.ESLocalProject;
@@ -56,8 +54,6 @@ public class NewProjectCommand extends CDTCommand {
 	}
 
 	private void initNewProject(ESLocalProject localProject) {
-		localProject.getModelElements().add(ModelFactory.eINSTANCE.createModel());
-		
 
 	}
 

@@ -1,7 +1,7 @@
 /*******************************************************************************
  * <copyright> Copyright (c) 2009-2014 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
- *  materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
- *  and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
+ * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
+ * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
 package net.bhl.cdt.connector.io.util;
 
@@ -25,10 +25,8 @@ public final class ImportFileUtil {
 	/**
 	 * Finds out the file extension format of a given file.
 	 * 
-	 * @param file
-	 *            which should be analyzed for its extension format
-	 * @return The extension format. For file "example.txt" the returned
-	 *         extension format is "txt".
+	 * @param file which should be analyzed for its extension format
+	 * @return The extension format. For file "example.txt" the returned extension format is "txt".
 	 */
 	public static String getFileType(File file) {
 		String fileName = file.getName();
@@ -41,13 +39,11 @@ public final class ImportFileUtil {
 	/**
 	 * Finds out the Unit of a given string.
 	 * 
-	 * @param s
-	 *            The string format of a unit e.g. kg, m, kg/J and so on
+	 * @param s The string format of a unit e.g. kg, m, kg/J and so on
 	 * @return The Unit object which represents the given unit string type
 	 */
-	public static Unit getUnitFromString(String s) {
-		return (Unit) UnitsFactory.eINSTANCE.createFromString(
-				UnitsPackage.eINSTANCE.getUnit(), s);
+	public static Unit<?> getUnitFromString(String s) {
+		return (Unit<?>) UnitsFactory.eINSTANCE.createFromString(UnitsPackage.eINSTANCE.getUnit(), s);
 	}
 
 	// /**

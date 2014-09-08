@@ -6,6 +6,7 @@
 
 package net.bhl.cdt.model.datatypes.impl;
 
+import net.bhl.cdt.model.ModelPackage;
 import net.bhl.cdt.model.datatypes.Array;
 import net.bhl.cdt.model.datatypes.Cells;
 import net.bhl.cdt.model.datatypes.CompositeValues;
@@ -17,11 +18,10 @@ import net.bhl.cdt.model.datatypes.Formula;
 import net.bhl.cdt.model.datatypes.IntegerValue;
 import net.bhl.cdt.model.datatypes.LeafValue;
 import net.bhl.cdt.model.datatypes.MeasuredValue;
-import net.bhl.cdt.model.datatypes.NamedElement;
 import net.bhl.cdt.model.datatypes.Scalar;
 import net.bhl.cdt.model.datatypes.StringValue;
-import net.bhl.cdt.model.units.UnitsPackage;
 
+import net.bhl.cdt.model.units.UnitsPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
@@ -58,12 +58,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * @generated
 	 */
 	private EClass floatPointValueEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass measuredValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -106,7 +100,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass namedElementEClass = null;
+	private EClass measuredValueEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
@@ -152,7 +146,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		isInited = true;
 
 		// Initialize simple dependencies
-		UnitsPackage.eINSTANCE.eClass();
+		ModelPackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theDatatypesPackage.createPackageContents();
@@ -207,22 +201,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 */
 	public EAttribute getFloatPointValue_Value() {
 		return (EAttribute)floatPointValueEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getMeasuredValue() {
-		return measuredValueEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getMeasuredValue_Unit() {
-		return (EAttribute)measuredValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -302,8 +280,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getNamedElement() {
-		return namedElementEClass;
+	public EClass getMeasuredValue() {
+		return measuredValueEClass;
 	}
 
 	/**
@@ -311,8 +289,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getNamedElement_Name() {
-		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
+	public EAttribute getMeasuredValue_Unit() {
+		return (EAttribute)measuredValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -349,9 +327,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		floatPointValueEClass = createEClass(FLOAT_POINT_VALUE);
 		createEAttribute(floatPointValueEClass, FLOAT_POINT_VALUE__VALUE);
 
-		measuredValueEClass = createEClass(MEASURED_VALUE);
-		createEAttribute(measuredValueEClass, MEASURED_VALUE__UNIT);
-
 		integerValueEClass = createEClass(INTEGER_VALUE);
 		createEAttribute(integerValueEClass, INTEGER_VALUE__VALUE);
 
@@ -367,8 +342,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 
 		cellsEClass = createEClass(CELLS);
 
-		namedElementEClass = createEClass(NAMED_ELEMENT);
-		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
+		measuredValueEClass = createEClass(MEASURED_VALUE);
+		createEAttribute(measuredValueEClass, MEASURED_VALUE__UNIT);
 	}
 
 	/**
@@ -393,6 +368,7 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		ModelPackage theModelPackage = (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
 		UnitsPackage theUnitsPackage = (UnitsPackage)EPackage.Registry.INSTANCE.getEPackage(UnitsPackage.eNS_URI);
 
 		// Create type parameters
@@ -400,17 +376,17 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		dataTypeEClass.getESuperTypes().add(this.getNamedElement());
+		dataTypeEClass.getESuperTypes().add(theModelPackage.getNamedElement());
 		leafValueEClass.getESuperTypes().add(this.getDataType());
 		scalarEClass.getESuperTypes().add(this.getLeafValue());
 		floatPointValueEClass.getESuperTypes().add(this.getScalar());
-		measuredValueEClass.getESuperTypes().add(this.getFloatPointValue());
 		integerValueEClass.getESuperTypes().add(this.getScalar());
 		stringValueEClass.getESuperTypes().add(this.getLeafValue());
 		formulaEClass.getESuperTypes().add(this.getStringValue());
 		compositeValuesEClass.getESuperTypes().add(this.getDataType());
 		arrayEClass.getESuperTypes().add(this.getCompositeValues());
 		cellsEClass.getESuperTypes().add(this.getCompositeValues());
+		measuredValueEClass.getESuperTypes().add(this.getFloatPointValue());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(dataTypeEClass, DataType.class, "DataType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -421,12 +397,6 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 
 		initEClass(floatPointValueEClass, FloatPointValue.class, "FloatPointValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFloatPointValue_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, FloatPointValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(measuredValueEClass, MeasuredValue.class, "MeasuredValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		EGenericType g1 = createEGenericType(theUnitsPackage.getUnit());
-		EGenericType g2 = createEGenericType();
-		g1.getETypeArguments().add(g2);
-		initEAttribute(getMeasuredValue_Unit(), g1, "unit", null, 0, 1, MeasuredValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(integerValueEClass, IntegerValue.class, "IntegerValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIntegerValue_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -440,8 +410,8 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 		initEReference(getCompositeValues_Datatypes(), this.getDataType(), null, "datatypes", null, 0, -1, CompositeValues.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(compositeValuesEClass, null, "getDimensions", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEEList());
-		g2 = createEGenericType();
+		EGenericType g1 = createEGenericType(ecorePackage.getEEList());
+		EGenericType g2 = createEGenericType();
 		g1.getETypeArguments().add(g2);
 		initEOperation(op, g1);
 
@@ -449,8 +419,11 @@ public class DatatypesPackageImpl extends EPackageImpl implements DatatypesPacka
 
 		initEClass(cellsEClass, Cells.class, "Cells", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(measuredValueEClass, MeasuredValue.class, "MeasuredValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		g1 = createEGenericType(theUnitsPackage.getUnit());
+		g2 = createEGenericType();
+		g1.getETypeArguments().add(g2);
+		initEAttribute(getMeasuredValue_Unit(), g1, "unit", null, 0, 1, MeasuredValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

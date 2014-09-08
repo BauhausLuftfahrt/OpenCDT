@@ -1,31 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/net.bhl.cdt.model/src" modelPluginID="net.bhl.cdt.model"
-    redirection="" modelName="Model" nonNLSMarkers="true" importerID="org.eclipse.emf.importer.ecore"
-    containmentProxies="true" complianceLevel="6.0" copyrightFields="false" providerRootExtendsClass=""
-    usedGenPackages="../../net.bhl.cdt.model/model/datatypes.genmodel#//datatypes ../../net.bhl.cdt.model/model/units.genmodel#//units">
+    modelName="Model" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    usedGenPackages="units.genmodel#//units" operationReflection="true" importOrganizing="true">
   <foreignModel>model.ecore</foreignModel>
   <genPackages prefix="Model" basePackage="net.bhl.cdt" disposableProviderFactory="true"
       extensibleProviderFactory="true" ecorePackage="model.ecore#/">
-    <genClasses ecoreClass="model.ecore#//Component">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Component/subComponents"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Component/parameters"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//Component/connectedComponents"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Component/states"/>
+    <genDataTypes ecoreDataType="model.ecore#//URL"/>
+    <genDataTypes ecoreDataType="model.ecore#//OperationStrategy"/>
+    <genClasses image="false" ecoreClass="model.ecore#//OperationWithInput">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//OperationWithInput/processedElements"/>
     </genClasses>
-    <genClasses ecoreClass="model.ecore#//Configuration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Configuration/components"/>
+    <genClasses image="false" ecoreClass="model.ecore#//OperationWithOutput">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//OperationWithOutput/generatedElements"/>
     </genClasses>
-    <genClasses ecoreClass="model.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Model/configurations"/>
+    <genClasses image="false" ecoreClass="model.ecore#//GeneratableElement">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//GeneratableElement/sourceOperation"/>
     </genClasses>
-    <genClasses ecoreClass="model.ecore#//Parameter">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//Parameter/values"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//Parameter/defaultUnit"/>
+    <genClasses image="false" ecoreClass="model.ecore#//ProcessableElement"/>
+    <genClasses image="false" ecoreClass="model.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//NamedElement/name"/>
     </genClasses>
-    <genClasses ecoreClass="model.ecore#//StructuralElement"/>
-    <genClasses ecoreClass="model.ecore#//State">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference model.ecore#//State/values"/>
-    </genClasses>
+    <nestedGenPackages prefix="Process" basePackage="net.bhl.cdt.model" disposableProviderFactory="true"
+        extensibleProviderFactory="true" ecorePackage="model.ecore#//process">
+      <genClasses image="false" ecoreClass="model.ecore#//process/DesignOperation">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//process/DesignOperation/superprocess"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="model.ecore#//process/ProcessElement">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//process/ProcessElement/busy"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//process/ProcessElement/timeStamp"/>
+        <genOperations ecoreOperation="model.ecore#//process/ProcessElement/start"/>
+        <genOperations ecoreOperation="model.ecore#//process/ProcessElement/isStartable"/>
+        <genOperations ecoreOperation="model.ecore#//process/ProcessElement/getStrategy">
+          <genParameters ecoreParameter="model.ecore#//process/ProcessElement/getStrategy/eClass"/>
+        </genOperations>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//process/DesignProcess">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//process/DesignProcess/designProcessElements"/>
+      </genClasses>
+      <nestedGenPackages prefix="Designoperations" basePackage="net.bhl.cdt.model.process"
+          disposableProviderFactory="true" extensibleProviderFactory="true" ecorePackage="model.ecore#//process/designoperations">
+        <genClasses image="false" ecoreClass="model.ecore#//process/designoperations/DisciplineTool"/>
+        <genClasses ecoreClass="model.ecore#//process/designoperations/Formula">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//process/designoperations/Formula/formula"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference model.ecore#//process/designoperations/Formula/parameter"/>
+        </genClasses>
+        <genClasses ecoreClass="model.ecore#//process/designoperations/Assumption"/>
+        <genClasses image="false" ecoreClass="model.ecore#//process/designoperations/DisciplineToolService">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//process/designoperations/DisciplineToolService/serviceURL"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="model.ecore#//process/designoperations/LocalDisciplineTool"/>
+        <genClasses image="false" ecoreClass="model.ecore#//process/designoperations/CalculatedValue">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//process/designoperations/CalculatedValue/expression"/>
+        </genClasses>
+        <genClasses ecoreClass="model.ecore#//process/designoperations/CalculatedDecimalNumber"/>
+        <genClasses ecoreClass="model.ecore#//process/designoperations/Calculations"/>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Selection" basePackage="net.bhl.cdt.model.process"
+          disposableProviderFactory="true" extensibleProviderFactory="true" ecorePackage="model.ecore#//process/selection">
+        <genClasses ecoreClass="model.ecore#//process/selection/ValueSelectionArgument">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference model.ecore#//process/selection/ValueSelectionArgument/supportedCriteria"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference model.ecore#//process/selection/ValueSelectionArgument/opposedCriteria"/>
+        </genClasses>
+        <genClasses image="false" ecoreClass="model.ecore#//process/selection/ValueSelectionCriterion"/>
+        <genClasses ecoreClass="model.ecore#//process/selection/ValueSelection">
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//process/selection/ValueSelection/criteria"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//process/selection/ValueSelection/selectedValues"/>
+        </genClasses>
+        <genClasses ecoreClass="model.ecore#//process/selection/SelectedValue">
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference model.ecore#//process/selection/SelectedValue/appliedCriteria"/>
+          <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//process/selection/SelectedValue/arguments"/>
+          <genFeatures notify="false" createChild="false" propertySortChoices="true"
+              ecoreFeature="ecore:EReference model.ecore#//process/selection/SelectedValue/selectedValues"/>
+        </genClasses>
+        <genClasses ecoreClass="model.ecore#//process/selection/SelectedMeasuredValue"/>
+        <genClasses image="false" ecoreClass="model.ecore#//process/selection/Rationale">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//process/selection/Rationale/rationaleDescription"/>
+        </genClasses>
+        <genClasses ecoreClass="model.ecore#//process/selection/NameCriterion">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//process/selection/NameCriterion/valueName"/>
+        </genClasses>
+        <genClasses ecoreClass="model.ecore#//process/selection/PartOfCriterion"/>
+        <genClasses ecoreClass="model.ecore#//process/selection/HighestValueCriterion"/>
+        <genClasses ecoreClass="model.ecore#//process/selection/PreferLatestCriterion"/>
+        <genClasses ecoreClass="model.ecore#//process/selection/PreferGeneratedCriterion"/>
+        <genClasses ecoreClass="model.ecore#//process/selection/PreferAuthorCriterion"/>
+      </nestedGenPackages>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="System" basePackage="net.bhl.cdt.model" disposableProviderFactory="true"
+        extensibleProviderFactory="true" ecorePackage="model.ecore#//system">
+      <genClasses ecoreClass="model.ecore#//system/State">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//system/State/values"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="model.ecore#//system/Value">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//system/Value/states"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//system/Value/parameter"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="model.ecore#//system/SystemModelElement"/>
+      <genClasses ecoreClass="model.ecore#//system/QuantityKind">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//system/QuantityKind/values"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//system/DecimalNumber">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//system/DecimalNumber/value"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//system/Parameter">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//system/Parameter/quantityKind"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model.ecore#//system/Parameter/values"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//system/Counter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//system/Counter/value"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//system/StringValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//system/StringValue/value"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//system/MeasuredValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//system/MeasuredValue/unit"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//system/MeasuredParameter">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//system/MeasuredParameter/defaultUnit"/>
+      </genClasses>
+      <genClasses ecoreClass="model.ecore#//system/Component">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//system/Component/states"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//system/Component/subcomponents"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//system/Component/parameters"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Geometry" basePackage="net.bhl.cdt.model" disposableProviderFactory="true"
+        extensibleProviderFactory="true" ecorePackage="model.ecore#//geometry">
+      <genClasses ecoreClass="model.ecore#//geometry/SpaceVector">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//geometry/SpaceVector/x"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//geometry/SpaceVector/y"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model.ecore#//geometry/SpaceVector/z"/>
+      </genClasses>
+    </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>

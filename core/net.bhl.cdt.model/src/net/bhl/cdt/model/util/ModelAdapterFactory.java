@@ -6,15 +6,12 @@
 
 package net.bhl.cdt.model.util;
 
-import net.bhl.cdt.model.Component;
-import net.bhl.cdt.model.Configuration;
-import net.bhl.cdt.model.Model;
+import net.bhl.cdt.model.GeneratableElement;
 import net.bhl.cdt.model.ModelPackage;
-import net.bhl.cdt.model.Parameter;
-import net.bhl.cdt.model.State;
-import net.bhl.cdt.model.StructuralElement;
-import net.bhl.cdt.model.datatypes.NamedElement;
-
+import net.bhl.cdt.model.NamedElement;
+import net.bhl.cdt.model.OperationWithInput;
+import net.bhl.cdt.model.OperationWithOutput;
+import net.bhl.cdt.model.ProcessableElement;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -71,28 +68,20 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	 */
 	protected ModelSwitch<Adapter> modelSwitch = new ModelSwitch<Adapter>() {
 			@Override
-			public Adapter caseComponent(Component object) {
-				return createComponentAdapter();
+			public Adapter caseOperationWithInput(OperationWithInput object) {
+				return createOperationWithInputAdapter();
 			}
 			@Override
-			public Adapter caseConfiguration(Configuration object) {
-				return createConfigurationAdapter();
+			public Adapter caseOperationWithOutput(OperationWithOutput object) {
+				return createOperationWithOutputAdapter();
 			}
 			@Override
-			public Adapter caseModel(Model object) {
-				return createModelAdapter();
+			public Adapter caseGeneratableElement(GeneratableElement object) {
+				return createGeneratableElementAdapter();
 			}
 			@Override
-			public Adapter caseParameter(Parameter object) {
-				return createParameterAdapter();
-			}
-			@Override
-			public Adapter caseStructuralElement(StructuralElement object) {
-				return createStructuralElementAdapter();
-			}
-			@Override
-			public Adapter caseState(State object) {
-				return createStateAdapter();
+			public Adapter caseProcessableElement(ProcessableElement object) {
+				return createProcessableElementAdapter();
 			}
 			@Override
 			public Adapter caseNamedElement(NamedElement object) {
@@ -117,90 +106,69 @@ public class ModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.Component <em>Component</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.OperationWithInput <em>Operation With Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see net.bhl.cdt.model.Component
+	 * @see net.bhl.cdt.model.OperationWithInput
 	 * @generated
 	 */
-	public Adapter createComponentAdapter() {
+	public Adapter createOperationWithInputAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.Configuration <em>Configuration</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
-	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.OperationWithOutput <em>Operation With Output</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see net.bhl.cdt.model.Configuration
+	 * @see net.bhl.cdt.model.OperationWithOutput
 	 * @generated
 	 */
-	public Adapter createConfigurationAdapter() {
+	public Adapter createOperationWithOutputAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.Model <em>Model</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.GeneratableElement <em>Generatable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see net.bhl.cdt.model.Model
+	 * @see net.bhl.cdt.model.GeneratableElement
 	 * @generated
 	 */
-	public Adapter createModelAdapter() {
+	public Adapter createGeneratableElementAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.Parameter <em>Parameter</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.ProcessableElement <em>Processable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see net.bhl.cdt.model.Parameter
+	 * @see net.bhl.cdt.model.ProcessableElement
 	 * @generated
 	 */
-	public Adapter createParameterAdapter() {
+	public Adapter createProcessableElementAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.StructuralElement <em>Structural Element</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can
-	 * easily ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!--
-	 * end-user-doc -->
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see net.bhl.cdt.model.StructuralElement
-	 * @generated
-	 */
-	public Adapter createStructuralElementAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.State <em>State</em>}'. <!--
-	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
-	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
-	 * 
-	 * @return the new adapter.
-	 * @see net.bhl.cdt.model.State
-	 * @generated
-	 */
-	public Adapter createStateAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.datatypes.NamedElement
-	 * <em>Named Element</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 * 
-	 * @return the new adapter.
-	 * @see net.bhl.cdt.datatypes.NamedElement
+	 * @see net.bhl.cdt.model.NamedElement
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {
