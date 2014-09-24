@@ -12,13 +12,13 @@ import net.bhl.cdt.model.process.designoperations.DesignoperationsFactory;
 import net.bhl.cdt.model.process.designoperations.DesignoperationsPackage;
 import net.bhl.cdt.model.process.designoperations.Formula;
 import net.bhl.cdt.model.process.selection.SelectionFactory;
-import net.bhl.cdt.model.provider.ModelEditPlugin;
 import net.bhl.cdt.model.system.SystemFactory;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -395,7 +395,7 @@ public class FormulaItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return ModelEditPlugin.INSTANCE;
+		return ((IChildCreationExtender)adapterFactory).getResourceLocator();
 	}
 
 }

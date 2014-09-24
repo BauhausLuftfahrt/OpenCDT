@@ -6,13 +6,13 @@ package net.bhl.cdt.model.system.provider;
 import java.util.Collection;
 import java.util.List;
 import net.bhl.cdt.model.ModelPackage;
-import net.bhl.cdt.model.provider.ModelEditPlugin;
 import net.bhl.cdt.model.system.SystemModelElement;
 import net.bhl.cdt.model.system.SystemPackage;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -162,7 +162,7 @@ public class SystemModelElementItemProvider
 	 */
 	@Override
 	public ResourceLocator getResourceLocator() {
-		return ModelEditPlugin.INSTANCE;
+		return ((IChildCreationExtender)adapterFactory).getResourceLocator();
 	}
 
 }

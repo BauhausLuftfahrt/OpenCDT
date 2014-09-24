@@ -9,11 +9,9 @@ import net.bhl.cdt.model.process.ProcessPackage;
 import net.bhl.cdt.model.process.selection.SelectedValue;
 import net.bhl.cdt.model.process.selection.SelectionFactory;
 import net.bhl.cdt.model.process.selection.SelectionPackage;
-import net.bhl.cdt.model.provider.ModelEditPlugin;
 import net.bhl.cdt.model.system.provider.ValueItemProvider;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -238,17 +236,6 @@ public class SelectedValueItemProvider extends ValueItemProvider {
 			(createChildParameter
 				(SelectionPackage.Literals.SELECTED_VALUE__ARGUMENTS,
 				 SelectionFactory.eINSTANCE.createValueSelectionArgument()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ModelEditPlugin.INSTANCE;
 	}
 
 }

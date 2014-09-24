@@ -31,12 +31,12 @@ public class CDTPreferencePage extends FieldEditorPreferencePage implements IWor
 	 * This method creates the editor fields for the OpenCDT file path.
 	 */
 	public void createFieldEditors() {
-		addField(new DirectoryFieldEditor("CODAPATH", "&URL:", getFieldEditorParent()));
+		addField(new DirectoryFieldEditor("CDTPATH", "&URL:", getFieldEditorParent()));
 	}
 
 	@Override
 	public void init(IWorkbench workbench) {
 		setPreferenceStore(Activator.getDefault().getPreferenceStore());
-		setDescription("CODA file repository");
+		setDescription("OpenCDT file repository");
 	}
 }

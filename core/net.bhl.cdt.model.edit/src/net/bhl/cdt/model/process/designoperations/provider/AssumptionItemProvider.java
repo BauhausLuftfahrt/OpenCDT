@@ -5,7 +5,6 @@ package net.bhl.cdt.model.process.designoperations.provider;
 
 import java.util.Collection;
 import java.util.List;
-
 import net.bhl.cdt.model.ModelPackage;
 import net.bhl.cdt.model.geometry.GeometryFactory;
 import net.bhl.cdt.model.process.designoperations.Assumption;
@@ -13,12 +12,9 @@ import net.bhl.cdt.model.process.designoperations.DesignoperationsFactory;
 import net.bhl.cdt.model.process.designoperations.DesignoperationsPackage;
 import net.bhl.cdt.model.process.provider.DesignOperationItemProvider;
 import net.bhl.cdt.model.process.selection.SelectionFactory;
-import net.bhl.cdt.model.provider.ModelEditPlugin;
 import net.bhl.cdt.model.system.SystemFactory;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
@@ -205,17 +201,6 @@ public class AssumptionItemProvider extends DesignOperationItemProvider {
 			(createChildParameter
 				(ModelPackage.Literals.OPERATION_WITH_OUTPUT__GENERATED_ELEMENTS,
 				 GeometryFactory.eINSTANCE.createSpaceVector()));
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ModelEditPlugin.INSTANCE;
 	}
 
 }

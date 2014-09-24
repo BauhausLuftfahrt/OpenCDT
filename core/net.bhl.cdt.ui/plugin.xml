@@ -37,19 +37,6 @@
                </and>
             </visibleWhen>
          </command>
-         <command
-               commandId="net.bhl.cdt.ui.ExecuteProcessElement"
-               label="Execute Design Operation"
-               style="push">
-            <visibleWhen
-                  checkEnabled="false">
-               <iterate>
-                  <instanceof
-                        value="net.bhl.cdt.model.ProcessableElement">
-                  </instanceof>
-               </iterate>
-            </visibleWhen>
-         </command>
       </menuContribution>
       <menuContribution
             locationURI="toolbar:org.eclipse.emf.ecp.ui.ModelExplorerView">
@@ -72,6 +59,23 @@
                commandId="org.eclipse.emf.ecp.ui.addrepository"
                label="addRepository"
                style="push">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.emf.ecp.ui.ModelExplorerView">
+         <command
+               commandId="net.bhl.cdt.ui.ExecuteProcessElement"
+               label="Execute Design Operation"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <iterate>
+                  <instanceof
+                        value="net.bhl.cdt.model.process.ProcessElement">
+                  </instanceof>
+               </iterate>
+            </visibleWhen>
          </command>
       </menuContribution>
    </extension>

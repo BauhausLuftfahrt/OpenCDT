@@ -41,11 +41,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- * <li>{@link net.bhl.cdt.model.process.selection.impl.SelectedValueImpl#isBusy <em>Busy</em>}</li>
- * <li>{@link net.bhl.cdt.model.process.selection.impl.SelectedValueImpl#getTimeStamp <em>Time Stamp</em>}</li>
- * <li>{@link net.bhl.cdt.model.process.selection.impl.SelectedValueImpl#getAppliedCriteria <em>Applied Criteria</em>}</li>
- * <li>{@link net.bhl.cdt.model.process.selection.impl.SelectedValueImpl#getArguments <em>Arguments</em>}</li>
- * <li>{@link net.bhl.cdt.model.process.selection.impl.SelectedValueImpl#getSelectedValues <em>Selected Values</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.process.selection.impl.SelectedValueImpl#isBusy <em>Busy</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.process.selection.impl.SelectedValueImpl#getTimeStamp <em>Time Stamp</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.process.selection.impl.SelectedValueImpl#getAppliedCriteria <em>Applied Criteria</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.process.selection.impl.SelectedValueImpl#getArguments <em>Arguments</em>}</li>
+ *   <li>{@link net.bhl.cdt.model.process.selection.impl.SelectedValueImpl#getSelectedValues <em>Selected Values</em>}</li>
  * </ul>
  * </p>
  *
@@ -73,9 +73,9 @@ public class SelectedValueImpl extends ValueImpl implements SelectedValue {
 	protected boolean busy = BUSY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getTimeStamp() <em>Time Stamp</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The default value of the '{@link #getTimeStamp() <em>Time Stamp</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getTimeStamp()
 	 * @generated
 	 * @ordered
@@ -83,9 +83,9 @@ public class SelectedValueImpl extends ValueImpl implements SelectedValue {
 	protected static final String TIME_STAMP_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getTimeStamp() <em>Time Stamp</em>}' attribute. <!-- begin-user-doc --> <!--
+	 * The cached value of the '{@link #getTimeStamp() <em>Time Stamp</em>}' attribute.
+	 * <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
-	 * 
 	 * @see #getTimeStamp()
 	 * @generated
 	 * @ordered
@@ -124,7 +124,6 @@ public class SelectedValueImpl extends ValueImpl implements SelectedValue {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	protected SelectedValueImpl() {
@@ -133,7 +132,6 @@ public class SelectedValueImpl extends ValueImpl implements SelectedValue {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
@@ -143,7 +141,6 @@ public class SelectedValueImpl extends ValueImpl implements SelectedValue {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isBusy() {
@@ -152,7 +149,6 @@ public class SelectedValueImpl extends ValueImpl implements SelectedValue {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setBusy(boolean newBusy) {
@@ -164,7 +160,6 @@ public class SelectedValueImpl extends ValueImpl implements SelectedValue {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public String getTimeStamp() {
@@ -173,109 +168,99 @@ public class SelectedValueImpl extends ValueImpl implements SelectedValue {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void setTimeStamp(String newTimeStamp) {
 		String oldTimeStamp = timeStamp;
 		timeStamp = newTimeStamp;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SelectionPackage.SELECTED_VALUE__TIME_STAMP,
-				oldTimeStamp, timeStamp));
+			eNotify(new ENotificationImpl(this, Notification.SET, SelectionPackage.SELECTED_VALUE__TIME_STAMP, oldTimeStamp, timeStamp));
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<ValueSelectionCriterion> getAppliedCriteria() {
 		if (appliedCriteria == null) {
-			appliedCriteria = new EObjectResolvingEList<ValueSelectionCriterion>(ValueSelectionCriterion.class, this,
-				SelectionPackage.SELECTED_VALUE__APPLIED_CRITERIA);
+			appliedCriteria = new EObjectResolvingEList<ValueSelectionCriterion>(ValueSelectionCriterion.class, this, SelectionPackage.SELECTED_VALUE__APPLIED_CRITERIA);
 		}
 		return appliedCriteria;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<ValueSelectionArgument> getArguments() {
 		if (arguments == null) {
-			arguments = new EObjectContainmentEList<ValueSelectionArgument>(ValueSelectionArgument.class, this,
-				SelectionPackage.SELECTED_VALUE__ARGUMENTS);
+			arguments = new EObjectContainmentEList<ValueSelectionArgument>(ValueSelectionArgument.class, this, SelectionPackage.SELECTED_VALUE__ARGUMENTS);
 		}
 		return arguments;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public EList<Value> getSelectedValues() {
 		if (selectedValues == null) {
-			selectedValues = new EObjectResolvingEList<Value>(Value.class, this,
-				SelectionPackage.SELECTED_VALUE__SELECTED_VALUES);
+			selectedValues = new EObjectResolvingEList<Value>(Value.class, this, SelectionPackage.SELECTED_VALUE__SELECTED_VALUES);
 		}
 		return selectedValues;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public void start() {
 		setBusy(true);
-
+		
 		OperationStrategy executable = null;
 		OperationStrategy strategy = getStrategy(this.eClass());
-		if (strategy != null) {
-			if (strategy.isStartable(this)) {
+		if(strategy != null){
+			if (strategy.isStartable(this)){
 				executable = strategy;
 			}
 		}
 		if (executable == null && !this.eClass().getEAllSuperTypes().isEmpty()) {
 			for (EClass superClass : this.eClass().getEAllSuperTypes()) {
 				strategy = getStrategy(superClass);
-				if (strategy != null) {
-					if (strategy.isStartable(this)) {
+				if(strategy != null){
+					if (strategy.isStartable(this)){
 						executable = strategy;
 						break;
 					}
 				}
 			}
 		}
-
-		if (executable == null) {
+		
+		if (executable == null){
 			System.out.println("No Strategy found!");
 			return;
 		}
-
+		
 		final OperationStrategy execute = executable;
 		final ProcessElement self = this;
 		ISafeRunnable runnable = new ISafeRunnable() {
 			@Override
-			public void handleException(Throwable e) {
-				System.out.println("Exception in Strategy");
-			}
-
-			@Override
-			public void run() throws Exception {
-				execute.start(self);
-			}
+		      public void handleException(Throwable e) {
+		        	System.out.println("Exception in Strategy");
+		      }
+		
+		      @Override
+		      public void run() throws Exception {
+		        	execute.start(self);
+		      }
 		};
 		SafeRunner.run(runnable);
-
+		
 		setBusy(false);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public boolean isStartable() {
@@ -308,23 +293,21 @@ public class SelectedValueImpl extends ValueImpl implements SelectedValue {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	public OperationStrategy getStrategy(final EClass eClass) {
 		IExtensionRegistry registry = Platform.getExtensionRegistry();
-		IConfigurationElement[] config = registry
-			.getConfigurationElementsFor("net.bhl.cdt.model.design_operation_strategy");
+		IConfigurationElement[] config = registry.getConfigurationElementsFor("net.bhl.cdt.model.design_operation_strategy");
 		try {
 			for (IConfigurationElement e : config) {
-				final Object o = e.createExecutableExtension("class");
-				OperationStrategy strategy = ((OperationStrategy) o);
-				if (strategy.getEClass().equals(eClass)) {
-					// if (strategy.isStartable(this)){
-					return strategy;
-					// } else {
-					// return null;
-					// }
+		       	final Object o = e.createExecutableExtension("class");
+				OperationStrategy strategy = ((OperationStrategy)o);
+		       	if(strategy.getEClass().equals(eClass)){
+					//if (strategy.isStartable(this)){
+						return strategy;
+					//} else {
+					//	return null;
+					//}
 				}
 			}
 		} catch (CoreException ex) {
@@ -335,135 +318,126 @@ public class SelectedValueImpl extends ValueImpl implements SelectedValue {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-		case SelectionPackage.SELECTED_VALUE__ARGUMENTS:
-			return ((InternalEList<?>) getArguments()).basicRemove(otherEnd, msgs);
+			case SelectionPackage.SELECTED_VALUE__ARGUMENTS:
+				return ((InternalEList<?>)getArguments()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case SelectionPackage.SELECTED_VALUE__BUSY:
-			return isBusy();
-		case SelectionPackage.SELECTED_VALUE__TIME_STAMP:
-			return getTimeStamp();
-		case SelectionPackage.SELECTED_VALUE__APPLIED_CRITERIA:
-			return getAppliedCriteria();
-		case SelectionPackage.SELECTED_VALUE__ARGUMENTS:
-			return getArguments();
-		case SelectionPackage.SELECTED_VALUE__SELECTED_VALUES:
-			return getSelectedValues();
+			case SelectionPackage.SELECTED_VALUE__BUSY:
+				return isBusy();
+			case SelectionPackage.SELECTED_VALUE__TIME_STAMP:
+				return getTimeStamp();
+			case SelectionPackage.SELECTED_VALUE__APPLIED_CRITERIA:
+				return getAppliedCriteria();
+			case SelectionPackage.SELECTED_VALUE__ARGUMENTS:
+				return getArguments();
+			case SelectionPackage.SELECTED_VALUE__SELECTED_VALUES:
+				return getSelectedValues();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case SelectionPackage.SELECTED_VALUE__BUSY:
-			setBusy((Boolean) newValue);
-			return;
-		case SelectionPackage.SELECTED_VALUE__TIME_STAMP:
-			setTimeStamp((String) newValue);
-			return;
-		case SelectionPackage.SELECTED_VALUE__APPLIED_CRITERIA:
-			getAppliedCriteria().clear();
-			getAppliedCriteria().addAll((Collection<? extends ValueSelectionCriterion>) newValue);
-			return;
-		case SelectionPackage.SELECTED_VALUE__ARGUMENTS:
-			getArguments().clear();
-			getArguments().addAll((Collection<? extends ValueSelectionArgument>) newValue);
-			return;
-		case SelectionPackage.SELECTED_VALUE__SELECTED_VALUES:
-			getSelectedValues().clear();
-			getSelectedValues().addAll((Collection<? extends Value>) newValue);
-			return;
+			case SelectionPackage.SELECTED_VALUE__BUSY:
+				setBusy((Boolean)newValue);
+				return;
+			case SelectionPackage.SELECTED_VALUE__TIME_STAMP:
+				setTimeStamp((String)newValue);
+				return;
+			case SelectionPackage.SELECTED_VALUE__APPLIED_CRITERIA:
+				getAppliedCriteria().clear();
+				getAppliedCriteria().addAll((Collection<? extends ValueSelectionCriterion>)newValue);
+				return;
+			case SelectionPackage.SELECTED_VALUE__ARGUMENTS:
+				getArguments().clear();
+				getArguments().addAll((Collection<? extends ValueSelectionArgument>)newValue);
+				return;
+			case SelectionPackage.SELECTED_VALUE__SELECTED_VALUES:
+				getSelectedValues().clear();
+				getSelectedValues().addAll((Collection<? extends Value>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case SelectionPackage.SELECTED_VALUE__BUSY:
-			setBusy(BUSY_EDEFAULT);
-			return;
-		case SelectionPackage.SELECTED_VALUE__TIME_STAMP:
-			setTimeStamp(TIME_STAMP_EDEFAULT);
-			return;
-		case SelectionPackage.SELECTED_VALUE__APPLIED_CRITERIA:
-			getAppliedCriteria().clear();
-			return;
-		case SelectionPackage.SELECTED_VALUE__ARGUMENTS:
-			getArguments().clear();
-			return;
-		case SelectionPackage.SELECTED_VALUE__SELECTED_VALUES:
-			getSelectedValues().clear();
-			return;
+			case SelectionPackage.SELECTED_VALUE__BUSY:
+				setBusy(BUSY_EDEFAULT);
+				return;
+			case SelectionPackage.SELECTED_VALUE__TIME_STAMP:
+				setTimeStamp(TIME_STAMP_EDEFAULT);
+				return;
+			case SelectionPackage.SELECTED_VALUE__APPLIED_CRITERIA:
+				getAppliedCriteria().clear();
+				return;
+			case SelectionPackage.SELECTED_VALUE__ARGUMENTS:
+				getArguments().clear();
+				return;
+			case SelectionPackage.SELECTED_VALUE__SELECTED_VALUES:
+				getSelectedValues().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case SelectionPackage.SELECTED_VALUE__BUSY:
-			return busy != BUSY_EDEFAULT;
-		case SelectionPackage.SELECTED_VALUE__TIME_STAMP:
-			return TIME_STAMP_EDEFAULT == null ? timeStamp != null : !TIME_STAMP_EDEFAULT.equals(timeStamp);
-		case SelectionPackage.SELECTED_VALUE__APPLIED_CRITERIA:
-			return appliedCriteria != null && !appliedCriteria.isEmpty();
-		case SelectionPackage.SELECTED_VALUE__ARGUMENTS:
-			return arguments != null && !arguments.isEmpty();
-		case SelectionPackage.SELECTED_VALUE__SELECTED_VALUES:
-			return selectedValues != null && !selectedValues.isEmpty();
+			case SelectionPackage.SELECTED_VALUE__BUSY:
+				return busy != BUSY_EDEFAULT;
+			case SelectionPackage.SELECTED_VALUE__TIME_STAMP:
+				return TIME_STAMP_EDEFAULT == null ? timeStamp != null : !TIME_STAMP_EDEFAULT.equals(timeStamp);
+			case SelectionPackage.SELECTED_VALUE__APPLIED_CRITERIA:
+				return appliedCriteria != null && !appliedCriteria.isEmpty();
+			case SelectionPackage.SELECTED_VALUE__ARGUMENTS:
+				return arguments != null && !arguments.isEmpty();
+			case SelectionPackage.SELECTED_VALUE__SELECTED_VALUES:
+				return selectedValues != null && !selectedValues.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
 		if (baseClass == ProcessElement.class) {
 			switch (derivedFeatureID) {
-			case SelectionPackage.SELECTED_VALUE__BUSY:
-				return ProcessPackage.PROCESS_ELEMENT__BUSY;
-			case SelectionPackage.SELECTED_VALUE__TIME_STAMP:
-				return ProcessPackage.PROCESS_ELEMENT__TIME_STAMP;
-			default:
-				return -1;
+				case SelectionPackage.SELECTED_VALUE__BUSY: return ProcessPackage.PROCESS_ELEMENT__BUSY;
+				case SelectionPackage.SELECTED_VALUE__TIME_STAMP: return ProcessPackage.PROCESS_ELEMENT__TIME_STAMP;
+				default: return -1;
 			}
 		}
 		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
@@ -471,19 +445,15 @@ public class SelectedValueImpl extends ValueImpl implements SelectedValue {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
 		if (baseClass == ProcessElement.class) {
 			switch (baseFeatureID) {
-			case ProcessPackage.PROCESS_ELEMENT__BUSY:
-				return SelectionPackage.SELECTED_VALUE__BUSY;
-			case ProcessPackage.PROCESS_ELEMENT__TIME_STAMP:
-				return SelectionPackage.SELECTED_VALUE__TIME_STAMP;
-			default:
-				return -1;
+				case ProcessPackage.PROCESS_ELEMENT__BUSY: return SelectionPackage.SELECTED_VALUE__BUSY;
+				case ProcessPackage.PROCESS_ELEMENT__TIME_STAMP: return SelectionPackage.SELECTED_VALUE__TIME_STAMP;
+				default: return -1;
 			}
 		}
 		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
@@ -491,21 +461,16 @@ public class SelectedValueImpl extends ValueImpl implements SelectedValue {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public int eDerivedOperationID(int baseOperationID, Class<?> baseClass) {
 		if (baseClass == ProcessElement.class) {
 			switch (baseOperationID) {
-			case ProcessPackage.PROCESS_ELEMENT___START:
-				return SelectionPackage.SELECTED_VALUE___START;
-			case ProcessPackage.PROCESS_ELEMENT___IS_STARTABLE:
-				return SelectionPackage.SELECTED_VALUE___IS_STARTABLE;
-			case ProcessPackage.PROCESS_ELEMENT___GET_STRATEGY__ECLASS:
-				return SelectionPackage.SELECTED_VALUE___GET_STRATEGY__ECLASS;
-			default:
-				return -1;
+				case ProcessPackage.PROCESS_ELEMENT___START: return SelectionPackage.SELECTED_VALUE___START;
+				case ProcessPackage.PROCESS_ELEMENT___IS_STARTABLE: return SelectionPackage.SELECTED_VALUE___IS_STARTABLE;
+				case ProcessPackage.PROCESS_ELEMENT___GET_STRATEGY__ECLASS: return SelectionPackage.SELECTED_VALUE___GET_STRATEGY__ECLASS;
+				default: return -1;
 			}
 		}
 		return super.eDerivedOperationID(baseOperationID, baseClass);
@@ -513,32 +478,29 @@ public class SelectedValueImpl extends ValueImpl implements SelectedValue {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
 		switch (operationID) {
-		case SelectionPackage.SELECTED_VALUE___START:
-			start();
-			return null;
-		case SelectionPackage.SELECTED_VALUE___IS_STARTABLE:
-			return isStartable();
-		case SelectionPackage.SELECTED_VALUE___GET_STRATEGY__ECLASS:
-			return getStrategy((EClass) arguments.get(0));
+			case SelectionPackage.SELECTED_VALUE___START:
+				start();
+				return null;
+			case SelectionPackage.SELECTED_VALUE___IS_STARTABLE:
+				return isStartable();
+			case SelectionPackage.SELECTED_VALUE___GET_STRATEGY__ECLASS:
+				return getStrategy((EClass)arguments.get(0));
 		}
 		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy())
-			return super.toString();
+		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (busy: ");
