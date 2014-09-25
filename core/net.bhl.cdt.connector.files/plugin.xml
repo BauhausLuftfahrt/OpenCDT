@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated files -->
+      <package
+            uri="http://bhl.net/cdt/connector/files"
+            class="net.bhl.cdt.connector.files.FilesPackage"
+            genModel="model/files.genmodel"/>
+   </extension>
+   <extension
+         point="net.bhl.cdt.model.design_operation_strategy">
+      <strategy
+            class="net.bhl.cdt.connector.files.strategies.GeometryImporterStrategy">
+      </strategy>
+      <strategy
+            class="net.bhl.cdt.connector.files.strategies.RequirementsImporterStrategy">
+      </strategy>
+      <strategy
+            class="net.bhl.cdt.connector.files.strategies.FileGeneratorStrategy">
+      </strategy>
+      <strategy
+            class="net.bhl.cdt.connector.files.strategies.FileParserStrategy">
+      </strategy>
+   </extension>
+
+</plugin>
