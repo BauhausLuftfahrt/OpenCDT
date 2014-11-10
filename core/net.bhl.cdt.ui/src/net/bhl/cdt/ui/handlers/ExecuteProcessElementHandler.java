@@ -3,7 +3,7 @@
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  *******************************************************************************/
-package net.bhl.cdt.coda.ui.handlers;
+package net.bhl.cdt.ui.handlers;
 
 import net.bhl.cdt.commands.ExecuteProcessElementCommand;
 import net.bhl.cdt.model.process.ProcessElement;

@@ -87,7 +87,7 @@
             name="New Project">
       </command>
       <command
-            defaultHandler="net.bhl.cdt.coda.ui.handlers.ExecuteProcessElementHandler"
+            defaultHandler="net.bhl.cdt.ui.handlers.ExecuteProcessElementHandler"
             id="net.bhl.cdt.ui.ExecuteProcessElement"
             name="ExecuteProcess">
       </command>
