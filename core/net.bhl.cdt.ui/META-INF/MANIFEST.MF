@@ -14,7 +14,8 @@ Require-Bundle:
  org.eclipse.emf.edit.ui;bundle-version="2.9.0";visibility:=reexport,
  org.eclipse.emf.ecp.explorereditorbridge;bundle-version="1.1.0",
  org.eclipse.emf.ecp.emfstore.ui;bundle-version="1.1.0",
- org.eclipse.emf.ecp.edit.swt;bundle-version="1.1.1"
+ org.eclipse.emf.ecp.edit.swt;bundle-version="1.1.1",
+ org.eclipse.emf.ecp.emfstore.ui.search;bundle-version="1.1.1"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: net.bhl.cdt.commands,
