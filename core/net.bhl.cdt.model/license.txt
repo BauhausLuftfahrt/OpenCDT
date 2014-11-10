@@ -5,3 +5,4 @@ Version 0.9.1
 
 This plug-in uses the following third party libaries:
 * jscience which is available under the BSD license at http://java.net/projects/jscience/
+* exp4j which is available under the Apache license, Version 2.0, available at https://www.apache.org/licenses/LICENSE-2.0
