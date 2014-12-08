@@ -16,7 +16,9 @@ Require-Bundle: org.eclipse.emf.emfstore.client;bundle-version="1.1.0";visibilit
  net.bhl.cdt.model;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Export-Package: de.congrace.exp4j,
+ javax.measure,
  javax.measure.converter,
+ javax.measure.quantity,
  javax.measure.unit,
  net.bhl.cdt.exceptions,
  net.bhl.cdt.model;uses:="org.eclipse.emf.ecore,  org.eclipse.core.runtime,  net.bhl.cdt.utilities.units,  org.eclipse.emf.common.util,  javax.units,  org.osgi.framework",
@@ -40,8 +42,12 @@ Export-Package: de.congrace.exp4j,
  net.bhl.cdt.model.process.util,
  net.bhl.cdt.model.system,
  net.bhl.cdt.model.system.impl,
+ net.bhl.cdt.model.system.quantities,
+ net.bhl.cdt.model.system.quantities.impl,
+ net.bhl.cdt.model.system.quantities.util,
  net.bhl.cdt.model.system.util,
  net.bhl.cdt.model.units;uses:=org.eclipse.emf.ecore,
  net.bhl.cdt.model.units.impl;uses:="org.eclipse.emf.ecore,org.eclipse.emf.ecore.impl",
- net.bhl.cdt.model.util;uses:="org.eclipse.emf.ecore.util,  org.eclipse.emf.ecore,  org.eclipse.emf.common.notify.impl,  net.bhl.cdt.model,  javax.units,  org.eclipse.emf.common.notify"
+ net.bhl.cdt.model.util;uses:="org.eclipse.emf.ecore.util,  org.eclipse.emf.ecore,  org.eclipse.emf.common.notify.impl,  net.bhl.cdt.model,  javax.units,  org.eclipse.emf.common.notify",
+ org.jscience.physics.amount
 

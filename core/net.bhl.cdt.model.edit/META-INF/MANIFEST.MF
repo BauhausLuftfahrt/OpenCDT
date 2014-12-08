@@ -15,6 +15,7 @@ Export-Package: net.bhl.cdt.model.datatypes.provider,
  net.bhl.cdt.model.process.selection.provider,
  net.bhl.cdt.model.provider,
  net.bhl.cdt.model.system.provider,
+ net.bhl.cdt.model.system.quantities.provider,
  net.bhl.cdt.model.units.provider
 Require-Bundle: org.eclipse.core.runtime,
  net.bhl.cdt.model;bundle-version="0.9.1";visibility:=reexport,

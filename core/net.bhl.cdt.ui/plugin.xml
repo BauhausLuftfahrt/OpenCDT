@@ -155,6 +155,15 @@
                supportedClassType="javax.measure.unit.Unit">
          </staticTest>
       </control>
+      <control
+            class="net.bhl.cdt.ui.AmountControl"
+            id="net.bhl.cdt.ui.amountcontrol">
+         <staticTest
+               priority="4"
+               singleValue="true"
+               supportedClassType="org.jscience.physics.amount.Amount">
+         </staticTest>
+      </control>
    </extension>
    <extension
          point="org.eclipse.ui.preferencePages">

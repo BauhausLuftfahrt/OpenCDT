@@ -30,6 +30,8 @@ import net.bhl.cdt.model.system.SystemFactory;
 import net.bhl.cdt.model.system.SystemModelElement;
 import net.bhl.cdt.model.system.SystemPackage;
 import net.bhl.cdt.model.system.Value;
+import net.bhl.cdt.model.system.quantities.QuantitiesPackage;
+import net.bhl.cdt.model.system.quantities.impl.QuantitiesPackageImpl;
 import net.bhl.cdt.model.units.UnitsPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -168,14 +170,12 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 
 		isInited = true;
 
-		// Initialize simple dependencies
-		UnitsPackage.eINSTANCE.eClass();
-
 		// Obtain or create and register interdependencies
 		ModelPackageImpl theModelPackage = (ModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI) instanceof ModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI) : ModelPackage.eINSTANCE);
 		ProcessPackageImpl theProcessPackage = (ProcessPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProcessPackage.eNS_URI) instanceof ProcessPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProcessPackage.eNS_URI) : ProcessPackage.eINSTANCE);
 		DesignoperationsPackageImpl theDesignoperationsPackage = (DesignoperationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DesignoperationsPackage.eNS_URI) instanceof DesignoperationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DesignoperationsPackage.eNS_URI) : DesignoperationsPackage.eINSTANCE);
 		SelectionPackageImpl theSelectionPackage = (SelectionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SelectionPackage.eNS_URI) instanceof SelectionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SelectionPackage.eNS_URI) : SelectionPackage.eINSTANCE);
+		QuantitiesPackageImpl theQuantitiesPackage = (QuantitiesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QuantitiesPackage.eNS_URI) instanceof QuantitiesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QuantitiesPackage.eNS_URI) : QuantitiesPackage.eINSTANCE);
 		GeometryPackageImpl theGeometryPackage = (GeometryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GeometryPackage.eNS_URI) instanceof GeometryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GeometryPackage.eNS_URI) : GeometryPackage.eINSTANCE);
 
 		// Create package meta-data objects
@@ -184,6 +184,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		theProcessPackage.createPackageContents();
 		theDesignoperationsPackage.createPackageContents();
 		theSelectionPackage.createPackageContents();
+		theQuantitiesPackage.createPackageContents();
 		theGeometryPackage.createPackageContents();
 
 		// Initialize created meta-data
@@ -192,6 +193,7 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		theProcessPackage.initializePackageContents();
 		theDesignoperationsPackage.initializePackageContents();
 		theSelectionPackage.initializePackageContents();
+		theQuantitiesPackage.initializePackageContents();
 		theGeometryPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
@@ -517,8 +519,12 @@ public class SystemPackageImpl extends EPackageImpl implements SystemPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
+		QuantitiesPackage theQuantitiesPackage = (QuantitiesPackage)EPackage.Registry.INSTANCE.getEPackage(QuantitiesPackage.eNS_URI);
 		ModelPackage theModelPackage = (ModelPackage)EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI);
 		UnitsPackage theUnitsPackage = (UnitsPackage)EPackage.Registry.INSTANCE.getEPackage(UnitsPackage.eNS_URI);
+
+		// Add subpackages
+		getESubpackages().add(theQuantitiesPackage);
 
 		// Create type parameters
 

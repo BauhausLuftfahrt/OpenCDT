@@ -163,6 +163,22 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
           eType="#//system/Parameter" containment="true"/>
     </eClassifiers>
+    <eSubpackages name="quantities" nsURI="http://bhl.net/cdt/model/system/quantities"
+        nsPrefix="net.bhl.cdt.model.system">
+      <eClassifiers xsi:type="ecore:EClass" name="LengthValue" eSuperTypes="#//system/Value">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
+          <eGenericType eClassifier="#//system/quantities/Amount">
+            <eTypeArguments eClassifier="#//system/quantities/Length"/>
+          </eGenericType>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EDataType" name="Length" instanceClassName="javax.measure.quantity.Length"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="Amount" instanceClassName="org.jscience.physics.amount.Amount">
+        <eTypeParameters name="Q">
+          <eBounds eClassifier="ecore:EDataType units.ecore#//Quantity"/>
+        </eTypeParameters>
+      </eClassifiers>
+    </eSubpackages>
   </eSubpackages>
   <eSubpackages name="geometry" nsURI="http://bhl.net/cdt/model/geometry" nsPrefix="net.bhl.cdt.model">
     <eClassifiers xsi:type="ecore:EClass" name="SpaceVector" eSuperTypes="#//system/Value">

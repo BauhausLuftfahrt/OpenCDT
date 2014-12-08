@@ -53,6 +53,14 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated model -->
       <package
+            uri="http://bhl.net/cdt/model/system/quantities"
+            class="net.bhl.cdt.model.system.quantities.QuantitiesPackage"
+            genModel="model/model.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model -->
+      <package
             uri="http://bhl.net/cdt/model/geometry"
             class="net.bhl.cdt.model.geometry.GeometryPackage"
             genModel="model/model.genmodel"/>

@@ -13,6 +13,7 @@ import net.bhl.cdt.model.process.designoperations.DesignoperationsPackage;
 import net.bhl.cdt.model.process.designoperations.Formula;
 import net.bhl.cdt.model.process.selection.SelectionFactory;
 import net.bhl.cdt.model.system.SystemFactory;
+import net.bhl.cdt.model.system.quantities.QuantitiesFactory;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.util.ResourceLocator;
@@ -384,7 +385,34 @@ public class FormulaItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(ModelPackage.Literals.OPERATION_WITH_OUTPUT__GENERATED_ELEMENTS,
+				 QuantitiesFactory.eINSTANCE.createLengthValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ModelPackage.Literals.OPERATION_WITH_OUTPUT__GENERATED_ELEMENTS,
 				 GeometryFactory.eINSTANCE.createSpaceVector()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == ModelPackage.Literals.OPERATION_WITH_OUTPUT__GENERATED_ELEMENTS;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 	/**

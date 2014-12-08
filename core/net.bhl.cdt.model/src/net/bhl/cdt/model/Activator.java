@@ -5,7 +5,11 @@
  ******************************************************************************/
 package net.bhl.cdt.model;
 
+import javax.measure.quantity.Length;
+import javax.measure.unit.SI;
+
 import org.eclipse.core.runtime.Plugin;
+import org.jscience.physics.amount.Amount;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -25,6 +29,8 @@ public class Activator extends Plugin {
 	 * The constructor.
 	 */
 	public Activator() {
+		Amount<Length> length = Amount.valueOf("5m").to(SI.METER);
+
 	}
 
 	/*
