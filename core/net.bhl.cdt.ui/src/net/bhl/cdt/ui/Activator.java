@@ -5,6 +5,8 @@
  ******************************************************************************/
 package net.bhl.cdt.ui;
 
+import java.util.Calendar;
+
 import org.eclipse.core.runtime.ILogListener;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
@@ -52,9 +54,9 @@ public class Activator extends AbstractUIPlugin {
 			@Override
 			public void logging(IStatus status, String plugin) {
 				if (status.getPlugin().startsWith("net.bhl.cdt")) {
-					java.util.Date date = new java.util.Date();
 
-					cabinMessageStream.println("[" + date.getTime() + "] Cabin " + ": " + status.getMessage());
+					cabinMessageStream.println("[" + Calendar.getInstance().getTime() + "] OpenCDT: "
+						+ status.getMessage());
 
 				}
 
