@@ -46,7 +46,7 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
-		cabinConsole = new MessageConsole("My Console", null);
+		cabinConsole = new MessageConsole("OpenCDT Console", null);
 		ConsolePlugin.getDefault().getConsoleManager().addConsoles(new IConsole[] { cabinConsole });
 		cabinMessageStream = cabinConsole.newMessageStream();
 		Platform.addLogListener(new ILogListener() {
