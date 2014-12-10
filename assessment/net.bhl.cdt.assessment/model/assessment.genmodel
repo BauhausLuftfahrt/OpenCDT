@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/net.bhl.cdt.assessment/src" modelPluginID="net.bhl.cdt.assessment"
+    modelName="Assessment" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>assessment.ecore</foreignModel>
+  <genPackages prefix="Assessment" basePackage="net.bhl.cdt" disposableProviderFactory="true"
+      ecorePackage="assessment.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="assessment.ecore#//TechnologyReadinessLevel">
+      <genEnumLiterals ecoreEnumLiteral="assessment.ecore#//TechnologyReadinessLevel/TRL1"/>
+      <genEnumLiterals ecoreEnumLiteral="assessment.ecore#//TechnologyReadinessLevel/TRL2"/>
+      <genEnumLiterals ecoreEnumLiteral="assessment.ecore#//TechnologyReadinessLevel/TRL3"/>
+      <genEnumLiterals ecoreEnumLiteral="assessment.ecore#//TechnologyReadinessLevel/TRL4"/>
+      <genEnumLiterals ecoreEnumLiteral="assessment.ecore#//TechnologyReadinessLevel/TRL5"/>
+      <genEnumLiterals ecoreEnumLiteral="assessment.ecore#//TechnologyReadinessLevel/TRL6"/>
+      <genEnumLiterals ecoreEnumLiteral="assessment.ecore#//TechnologyReadinessLevel/TRL7"/>
+      <genEnumLiterals ecoreEnumLiteral="assessment.ecore#//TechnologyReadinessLevel/TLR8"/>
+      <genEnumLiterals ecoreEnumLiteral="assessment.ecore#//TechnologyReadinessLevel/TRL9"/>
+      <genEnumLiterals ecoreEnumLiteral="assessment.ecore#//TechnologyReadinessLevel/TRL0"/>
+    </genEnums>
+    <genDataTypes ecoreDataType="assessment.ecore#//EUrl"/>
+    <genClasses ecoreClass="assessment.ecore#//Technology">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assessment.ecore#//Technology/requires"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assessment.ecore#//Technology/provides"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assessment.ecore#//Technology/readinessAssessments"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assessment.ecore#//Technology/criticalReadinessLevelAssessments"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assessment.ecore#//Technology/criticalTechnologyReadynessLevel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assessment.ecore#//Technology/drivenBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assessment.ecore#//Technology/excludes"/>
+      <genOperations ecoreOperation="assessment.ecore#//Technology/updateCriticalTechnologyReadynessAssessments"/>
+      <genOperations ecoreOperation="assessment.ecore#//Technology/updateRequiredTechnologies"/>
+    </genClasses>
+    <genClasses ecoreClass="assessment.ecore#//Capability">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assessment.ecore#//Capability/providedBy"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assessment.ecore#//Capability/requiredBy"/>
+    </genClasses>
+    <genClasses ecoreClass="assessment.ecore#//Industry">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference assessment.ecore#//Industry/drives"/>
+    </genClasses>
+    <genClasses ecoreClass="assessment.ecore#//Technologies">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assessment.ecore#//Technologies/technologies"/>
+    </genClasses>
+    <genClasses ecoreClass="assessment.ecore#//Capabilities">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference assessment.ecore#//Capabilities/capabilities"/>
+    </genClasses>
+    <genClasses ecoreClass="assessment.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assessment.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="assessment.ecore#//TechnologyElement"/>
+    <genClasses image="false" ecoreClass="assessment.ecore#//CapabilityElement"/>
+    <genClasses image="false" ecoreClass="assessment.ecore#//ReadinessLevelAssessment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assessment.ecore#//ReadinessLevelAssessment/readinessLevel"/>
+    </genClasses>
+    <genClasses ecoreClass="assessment.ecore#//DerivedReadinessAssessment"/>
+    <genClasses ecoreClass="assessment.ecore#//DefaultReadinessLevelAssessment"/>
+    <genClasses ecoreClass="assessment.ecore#//SubstantiatedReadinessAssessement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute assessment.ecore#//SubstantiatedReadinessAssessement/source"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
