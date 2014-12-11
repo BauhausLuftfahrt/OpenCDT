@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ui
+Bundle-SymbolicName: net.bhl.cdt.connector.matlab.tornado.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: net.bhl.cdt.connector.matlab.torando.ui.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ net.bhl.cdt.connector.matlab.tornado;visibility:=reexport,
+ net.bhl.cdt.ui
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: net.bhl.cdt.coda.tornado.ui.commands

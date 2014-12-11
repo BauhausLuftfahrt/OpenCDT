@@ -1,0 +1,3 @@
+This plug-in uses icons from the following icon sets:
+* Freecns Cumulus by Yannick Lung. This collection is free for commercial use.
+* Typicons by Stephen Hutchings - http://typicons.com/. This collection is released under the  	Creative Commons (Attribution-Share Alike 3.0 Unported)

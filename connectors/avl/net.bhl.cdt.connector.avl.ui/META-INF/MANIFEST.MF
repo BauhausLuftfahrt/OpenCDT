@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ui
+Bundle-SymbolicName: net.bhl.cdt.connector.avl.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: net.bhl.cdt.connector.avl.ui.Activator
+Require-Bundle: net.bhl.cdt.connector.avl;bundle-version="1.0.0",
+ net.bhl.cdt.model
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: net.bhl.cdt.connector.avl.ui,
+ net.bhl.cdt.connector.avl.ui.cheat,
+ net.bhl.cdt.connector.avl.ui.cheat.commands,
+ net.bhl.cdt.connector.avl.ui.cheat.handlers

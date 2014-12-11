@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Ui
+Bundle-SymbolicName: net.bhl.cdt.trace.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: net.bhl.cdt.trace.ui.Activator
+Require-Bundle: net.bhl.cdt.connector.avl,
+ net.bhl.cdt.connector.matlab.tornado
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.emf.emfstore.internal.client.ui.common;version="1.1.0",
+ org.eclipse.emf.emfstore.internal.client.ui.controller

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension
+         point="net.bhl.cdt.model.design_operation_strategy">
+      <strategy
+            class="net.bhl.cdt.connector.avl.strategies.AVLStrategy">
+      </strategy>
+      <strategy
+            class="net.bhl.cdt.connector.avl.strategies.AVLModelGeneratorStrategy">
+      </strategy>
+      <strategy
+            class="net.bhl.cdt.connector.avl.strategies.AVLProcessGeneratorStrategy">
+      </strategy>
+      <strategy
+            class="net.bhl.cdt.connector.avl.strategies.AVLResultImporterStrategy">
+      </strategy>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated avl -->
+      <package
+            uri="http://bhl.net/cdt/connector/avl"
+            class="net.bhl.cdt.connector.avl.AvlPackage"
+            genModel="model/avl.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated avl -->
+      <package
+            uri="http://bhl.net/cdt/connector/avl/avlmodel"
+            class="net.bhl.cdt.connector.avl.avlmodel.AvlmodelPackage"
+            genModel="model/avl.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated avl -->
+      <package
+            uri="http://bhl.net/cdt/connector/avl/avlprocess"
+            class="net.bhl.cdt.connector.avl.avlprocess.AvlprocessPackage"
+            genModel="model/avl.genmodel"/>
+   </extension>
+
+</plugin>

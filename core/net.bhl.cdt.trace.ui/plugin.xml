@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="net.bhl.cdt.trace.ui.handlers.GetContributingUsersHandler"
+            id="net.bhl.cdt.trace.ui.GetContributingUsers"
+            name="GetContributingUsers">
+      </command>
+      <command
+            defaultHandler="net.bhl.cdt.trace.ui.handlers.GetUltimateSourceHandler"
+            id="net.bhl.cdt.trace.ui.GetUltimateSource"
+            name="GetUltimateSource">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.emf.ecp.ui.ModelExplorerView">
+         <command
+               commandId="net.bhl.cdt.trace.ui.GetUltimateSource"
+               label="Get ultimate Source"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <iterate>
+                  <or>
+                     <instanceof
+                           value="net.bhl.cdt.model.GeneratableElement">
+                     </instanceof>
+                     <instanceof
+                           value="net.bhl.cdt.connector.avl.avlprocess.VariableSweep">
+                     </instanceof>
+                     <instanceof
+                           value="net.bhl.cdt.connector.avl.avlmodel.YDuplicate">
+                     </instanceof>
+                     <instanceof
+                           value="net.bhl.cdt.connector.avl.avlmodel.AVLSection">
+                     </instanceof>
+                     <instanceof
+                           value="net.bhl.cdt.connector.avl.avlmodel.SufaceAngle">
+                     </instanceof>
+                  </or>
+               </iterate>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="net.bhl.cdt.trace.ui.GetContributingUsers"
+               label="Get contributing users"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <iterate>
+               	  <or>
+                  	<instanceof
+                        value="net.bhl.cdt.model.GeneratableElement">
+                  	</instanceof>
+                  	<instanceof
+                        value="net.bhl.cdt.model.process.ProcessElement">
+                  	</instanceof>
+                  </or>
+               </iterate>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>

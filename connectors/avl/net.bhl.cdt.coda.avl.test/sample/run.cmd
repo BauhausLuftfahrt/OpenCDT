@@ -1,0 +1,17 @@
+OPER
+1
+X
+W
+avl_run1.out
+2
+X
+W
+avl_run2.out
+3
+X
+W
+avl_run3.out
+4
+X
+W
+avl_run4.out
