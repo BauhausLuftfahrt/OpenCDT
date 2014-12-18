@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Test
-Bundle-SymbolicName: net.bhl.cdt.coda.avl.test
+Bundle-SymbolicName: net.bhl.cdt.connector.avl.test
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: net.bhl.cdt.connector.avl.test.Activator
 Require-Bundle: org.eclipse.ui,

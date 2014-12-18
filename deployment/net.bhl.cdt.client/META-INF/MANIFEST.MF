@@ -2,13 +2,13 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Client
 Bundle-SymbolicName: net.bhl.cdt.client; singleton:=true
-Bundle-Version: 0.9.1.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: net.bhl.cdt.client.Activator
 Require-Bundle: org.eclipse.jface;bundle-version="3.9.0";visibility:=reexport,
  org.eclipse.emf.ecp.view.model.provider.generator;bundle-version="1.1.0",
  org.eclipse.emf.ecp.view.model.provider.xmi;bundle-version="1.1.0",
  org.eclipse.core.net;bundle-version="1.2.200",
  org.eclipse.ui.net;bundle-version="1.2.200",
- net.bhl.cdt.ui;bundle-version="0.9.1"
+ net.bhl.cdt.ui;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

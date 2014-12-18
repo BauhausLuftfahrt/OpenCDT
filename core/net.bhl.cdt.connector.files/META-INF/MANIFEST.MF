@@ -9,8 +9,8 @@ Bundle-Localization: plugin
 Bundle-Activator: net.bhl.cdt.connector.files.Activator
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- net.bhl.cdt.model;bundle-version="0.9.1";visibility:=reexport,
- net.bhl.cdt.ui;bundle-version="0.9.1";visibility:=reexport
+ net.bhl.cdt.model;bundle-version="0.1.0";visibility:=reexport,
+ net.bhl.cdt.ui;bundle-version="0.1.0";visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: net.bhl.cdt.connector.files,
