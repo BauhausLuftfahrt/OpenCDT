@@ -6,6 +6,7 @@
 
 package net.bhl.cdt.model.datatypes.util;
 
+import net.bhl.cdt.model.NamedElement;
 import net.bhl.cdt.model.datatypes.*;
 import net.bhl.cdt.model.datatypes.Array;
 import net.bhl.cdt.model.datatypes.Cells;
@@ -16,8 +17,6 @@ import net.bhl.cdt.model.datatypes.FloatPointValue;
 import net.bhl.cdt.model.datatypes.Formula;
 import net.bhl.cdt.model.datatypes.IntegerValue;
 import net.bhl.cdt.model.datatypes.LeafValue;
-import net.bhl.cdt.model.datatypes.MeasuredValue;
-import net.bhl.cdt.model.datatypes.NamedElement;
 import net.bhl.cdt.model.datatypes.Scalar;
 import net.bhl.cdt.model.datatypes.StringValue;
 
@@ -93,10 +92,6 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 				return createFloatPointValueAdapter();
 			}
 			@Override
-			public Adapter caseMeasuredValue(MeasuredValue object) {
-				return createMeasuredValueAdapter();
-			}
-			@Override
 			public Adapter caseIntegerValue(IntegerValue object) {
 				return createIntegerValueAdapter();
 			}
@@ -119,6 +114,10 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseCells(Cells object) {
 				return createCellsAdapter();
+			}
+			@Override
+			public Adapter caseMeasuredValue(MeasuredValue object) {
+				return createMeasuredValueAdapter();
 			}
 			@Override
 			public Adapter caseNamedElement(NamedElement object) {
@@ -144,8 +143,8 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 
 	/**
 	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.datatypes.DataType <em>Data Type</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's
-	 * useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
+	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.model.datatypes.DataType
 	 * @generated
@@ -155,10 +154,9 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.datatypes.LeafValue
-	 * <em>Leaf Value</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.datatypes.LeafValue <em>Leaf Value</em>}'. <!--
+	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
+	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.datatypes.LeafValue
@@ -169,9 +167,10 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.datatypes.Scalar <em>Scalar</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
-	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.datatypes.Scalar <em>Scalar</em>}'. <!--
+	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
+	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.model.datatypes.Scalar
 	 * @generated
@@ -194,27 +193,11 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.datatypes.MeasuredValue
-	 * <em>Measured Value</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 * 
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.datatypes.IntegerValue <em>Integer Value</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
+	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see net.bhl.cdt.datatypes.MeasuredValue
-	 * @generated
-	 */
-	public Adapter createMeasuredValueAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.datatypes.IntegerValue
-	 * <em>Integer Value</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 * 
-	 * @return the new adapter.
-	 * @see net.bhl.cdt.datatypes.IntegerValue
+	 * @see net.bhl.cdt.model.datatypes.IntegerValue
 	 * @generated
 	 */
 	public Adapter createIntegerValueAdapter() {
@@ -222,13 +205,11 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.datatypes.StringValue
-	 * <em>String Value</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
-	 * 
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.datatypes.StringValue <em>String Value</em>}'.
+	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
+	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see net.bhl.cdt.datatypes.StringValue
+	 * @see net.bhl.cdt.model.datatypes.StringValue
 	 * @generated
 	 */
 	public Adapter createStringValueAdapter() {
@@ -236,9 +217,10 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.datatypes.Formula <em>Formula</em>}'.
-	 * <!-- begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful
-	 * to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.datatypes.Formula <em>Formula</em>}'. <!--
+	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
+	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
+	 * 
 	 * @return the new adapter.
 	 * @see net.bhl.cdt.model.datatypes.Formula
 	 * @generated
@@ -287,13 +269,26 @@ public class DatatypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.datatypes.NamedElement
-	 * <em>Named Element</em>}'. <!-- begin-user-doc --> This default implementation returns null so that we can easily
-	 * ignore cases; it's useful to ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc
-	 * -->
+	 * Creates a new adapter for an object of class '{@link net.bhl.cdt.model.datatypes.MeasuredValue <em>Measured Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see net.bhl.cdt.model.datatypes.MeasuredValue
+	 * @generated
+	 */
+	public Adapter createMeasuredValueAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link model.NamedElement <em>Named Element</em>}'. <!--
+	 * begin-user-doc --> This default implementation returns null so that we can easily ignore cases; it's useful to
+	 * ignore a case when inheritance will catch all the cases anyway. <!-- end-user-doc -->
 	 * 
 	 * @return the new adapter.
-	 * @see net.bhl.cdt.datatypes.NamedElement
+	 * @see model.NamedElement
 	 * @generated
 	 */
 	public Adapter createNamedElementAdapter() {

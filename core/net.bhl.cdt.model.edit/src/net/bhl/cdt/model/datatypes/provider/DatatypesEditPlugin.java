@@ -6,7 +6,9 @@
 
 package net.bhl.cdt.model.datatypes.provider;
 
+import net.bhl.cdt.model.provider.ModelEditPlugin;
 import net.bhl.cdt.model.units.provider.UnitsEditPlugin;
+
 import org.eclipse.emf.common.EMFPlugin;
 import org.eclipse.emf.common.util.ResourceLocator;
 
@@ -38,6 +40,7 @@ public final class DatatypesEditPlugin extends EMFPlugin {
 	public DatatypesEditPlugin() {
 		super
 		  (new ResourceLocator [] {
+		     ModelEditPlugin.INSTANCE,
 		     UnitsEditPlugin.INSTANCE,
 		   });
 	}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="assessment" nsURI="http://bhl.net/cdt/assessement" nsPrefix="net.bhl.cdt">
+  <eClassifiers xsi:type="ecore:EClass" name="Technology" eSuperTypes="#//TechnologyElement">
+    <eOperations name="updateCriticalTechnologyReadynessAssessments"/>
+    <eOperations name="updateRequiredTechnologies"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requires" upperBound="-1"
+        eType="#//Capability" eOpposite="#//Capability/requiredBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="provides" upperBound="-1"
+        eType="#//Capability" eOpposite="#//Capability/providedBy"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="readinessAssessments" upperBound="-1"
+        eType="#//ReadinessLevelAssessment" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="criticalReadinessLevelAssessments"
+        upperBound="-1" eType="#//ReadinessLevelAssessment"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="criticalTechnologyReadynessLevel"
+        eType="#//TechnologyReadinessLevel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="drivenBy" upperBound="-1"
+        eType="#//Industry" eOpposite="#//Industry/drives"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="excludes" upperBound="-1"
+        eType="#//Technology"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EDataType" name="EUrl" instanceClassName="java.net.URL"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Capability" eSuperTypes="#//CapabilityElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providedBy" upperBound="-1"
+        eType="#//Technology" eOpposite="#//Technology/provides"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredBy" upperBound="-1"
+        eType="#//Technology" eOpposite="#//Technology/requires"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TechnologyReadinessLevel">
+    <eLiterals name="TRL1" value="1" literal="Basic Principles Observed AndReported"/>
+    <eLiterals name="TRL2" value="2"/>
+    <eLiterals name="TRL3" value="3" literal="TRL3"/>
+    <eLiterals name="TRL4" value="4"/>
+    <eLiterals name="TRL5" value="5"/>
+    <eLiterals name="TRL6" value="6"/>
+    <eLiterals name="TRL7" value="7"/>
+    <eLiterals name="TLR8" value="8"/>
+    <eLiterals name="TRL9" value="9"/>
+    <eLiterals name="TRL0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Industry" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="drives" upperBound="-1"
+        eType="#//Technology" eOpposite="#//Technology/drivenBy"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Technologies" eSuperTypes="#//TechnologyElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="technologies" upperBound="-1"
+        eType="#//TechnologyElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Capabilities" eSuperTypes="#//CapabilityElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="capabilities" upperBound="-1"
+        eType="#//CapabilityElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TechnologyElement" abstract="true" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CapabilityElement" abstract="true" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ReadinessLevelAssessment" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="readinessLevel" eType="#//TechnologyReadinessLevel"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DerivedReadinessAssessment" eSuperTypes="#//ReadinessLevelAssessment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DefaultReadinessLevelAssessment" eSuperTypes="#//ReadinessLevelAssessment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SubstantiatedReadinessAssessement" eSuperTypes="#//ReadinessLevelAssessment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

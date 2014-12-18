@@ -3,7 +3,6 @@
 package net.bhl.cdt.model;
 
 import net.bhl.cdt.model.datatypes.DataType;
-import net.bhl.cdt.model.datatypes.NamedElement;
 
 import org.eclipse.emf.common.util.EList;
 

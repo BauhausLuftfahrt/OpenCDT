@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated assessment -->
+      <package
+            uri="http://bhl.net/cdt/assessement"
+            class="net.bhl.cdt.assessment.AssessmentPackage"
+            genModel="model/assessment.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="net.bhl.cdt.assessment.handlers.CalculateTRLsHandler"
+            id="net.bhl.cdt.assessment.calculateTRL"
+            name="Calculate TRL">
+      </command>
+      <command
+            defaultHandler="net.bhl.cdt.assessment.handlers.ExportTechnologyGraphToCSVHandler"
+            id="net.bhl.cdt.assessment.exporttechnologygraphtocsv"
+            name="Export Technolgy Graph to CSV">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.emf.ecp.ui.ModelExplorerView">
+         <command
+               commandId="net.bhl.cdt.assessment.calculateTRL"
+               label="Calculate TRL"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <iterate>
+                  <instanceof
+                        value="net.bhl.cdt.assessment.Technology">
+                  </instanceof>
+               </iterate>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="net.bhl.cdt.assessment.exporttechnologygraphtocsv"
+               label="Export Technology Graph to CSV"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <iterate>
+                  <instanceof
+                        value="net.bhl.cdt.assessment.Technology">
+                  </instanceof>
+               </iterate>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>

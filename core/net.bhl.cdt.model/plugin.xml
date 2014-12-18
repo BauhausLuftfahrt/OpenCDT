@@ -9,6 +9,7 @@
 -->
 
 <plugin>
+   <extension-point id="design_operation_strategy" name="design operation strategy" schema="schema/operation_strategy.exsd"/>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
       <package
@@ -16,7 +17,55 @@
             class="net.bhl.cdt.model.ModelPackage"
             genModel="model/model.genmodel"/>
    </extension>
-   
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model -->
+      <package
+            uri="http://bhl.net/cdt/model/process"
+            class="net.bhl.cdt.model.process.ProcessPackage"
+            genModel="model/model.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model -->
+      <package
+            uri="http://bhl.net/cdt/model/process/designoperations"
+            class="net.bhl.cdt.model.process.designoperations.DesignoperationsPackage"
+            genModel="model/model.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model -->
+      <package
+            uri="http://bhl.net/cdt/model/process/selection"
+            class="net.bhl.cdt.model.process.selection.SelectionPackage"
+            genModel="model/model.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model -->
+      <package
+            uri="http://bhl.net/cdt/model/system"
+            class="net.bhl.cdt.model.system.SystemPackage"
+            genModel="model/model.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model -->
+      <package
+            uri="http://bhl.net/cdt/model/system/quantities"
+            class="net.bhl.cdt.model.system.quantities.QuantitiesPackage"
+            genModel="model/model.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model -->
+      <package
+            uri="http://bhl.net/cdt/model/geometry"
+            class="net.bhl.cdt.model.geometry.GeometryPackage"
+            genModel="model/model.genmodel"/>
+   </extension>
+
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated units -->
       <package
@@ -31,6 +80,25 @@
             uri="http://bhl.net/cdt/model/datatypes/"
             class="net.bhl.cdt.model.datatypes.DatatypesPackage"
             genModel="model/datatypes.genmodel"/>
+   </extension>
+
+   <extension
+         point="net.bhl.cdt.model.design_operation_strategy">
+      <strategy
+            class="net.bhl.cdt.model.process.designoperations.strategies.DesignProcessStrategy">
+      </strategy>
+      <strategy
+            class="net.bhl.cdt.model.process.designoperations.strategies.AssumptionStrategy">
+      </strategy>
+      <strategy
+            class="net.bhl.cdt.model.process.designoperations.strategies.CalculatedDecimalNumberStrategy">
+      </strategy>
+      <strategy
+            class="net.bhl.cdt.model.process.selection.strategies.ValueSelectionStrategy">
+      </strategy>
+      <strategy
+            class="net.bhl.cdt.model.process.selection.strategies.SelectedMeasuredValueStrategy">
+      </strategy>
    </extension>
 
 </plugin>

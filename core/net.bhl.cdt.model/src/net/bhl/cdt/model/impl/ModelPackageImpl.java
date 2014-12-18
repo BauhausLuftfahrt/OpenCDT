@@ -6,19 +6,29 @@
 
 package net.bhl.cdt.model.impl;
 
-import net.bhl.cdt.model.Component;
-import net.bhl.cdt.model.Configuration;
-import net.bhl.cdt.model.Model;
+import net.bhl.cdt.model.GeneratableElement;
 import net.bhl.cdt.model.ModelFactory;
 import net.bhl.cdt.model.ModelPackage;
-import net.bhl.cdt.model.Parameter;
-import net.bhl.cdt.model.State;
-import net.bhl.cdt.model.StructuralElement;
-import net.bhl.cdt.model.datatypes.DatatypesPackage;
-import net.bhl.cdt.model.units.UnitsPackage;
-
+import net.bhl.cdt.model.NamedElement;
+import net.bhl.cdt.model.OperationWithInput;
+import net.bhl.cdt.model.OperationWithOutput;
+import net.bhl.cdt.model.ProcessableElement;
+import net.bhl.cdt.model.geometry.GeometryPackage;
+import net.bhl.cdt.model.geometry.impl.GeometryPackageImpl;
+import net.bhl.cdt.model.process.OperationStrategy;
+import net.bhl.cdt.model.process.ProcessPackage;
+import net.bhl.cdt.model.process.designoperations.DesignoperationsPackage;
+import net.bhl.cdt.model.process.designoperations.impl.DesignoperationsPackageImpl;
+import net.bhl.cdt.model.process.impl.ProcessPackageImpl;
+import net.bhl.cdt.model.process.selection.SelectionPackage;
+import net.bhl.cdt.model.process.selection.impl.SelectionPackageImpl;
+import net.bhl.cdt.model.system.SystemPackage;
+import net.bhl.cdt.model.system.impl.SystemPackageImpl;
+import net.bhl.cdt.model.system.quantities.QuantitiesPackage;
+import net.bhl.cdt.model.system.quantities.impl.QuantitiesPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
@@ -32,38 +42,44 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass componentEClass = null;
+	private EClass operationWithInputEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass configurationEClass = null;
+	private EClass operationWithOutputEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass modelEClass = null;
+	private EClass generatableElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass parameterEClass = null;
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass structuralElementEClass = null;
+	private EClass processableElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass stateEClass = null;
+	private EClass namedElementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType urlEDataType = null;
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EDataType operationStrategyEDataType = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with {@link org.eclipse.emf.ecore.EPackage.Registry
@@ -108,14 +124,31 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 
 		isInited = true;
 
-		// Initialize simple dependencies
-		DatatypesPackage.eINSTANCE.eClass();
+		// Obtain or create and register interdependencies
+		ProcessPackageImpl theProcessPackage = (ProcessPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProcessPackage.eNS_URI) instanceof ProcessPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProcessPackage.eNS_URI) : ProcessPackage.eINSTANCE);
+		DesignoperationsPackageImpl theDesignoperationsPackage = (DesignoperationsPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DesignoperationsPackage.eNS_URI) instanceof DesignoperationsPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DesignoperationsPackage.eNS_URI) : DesignoperationsPackage.eINSTANCE);
+		SelectionPackageImpl theSelectionPackage = (SelectionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SelectionPackage.eNS_URI) instanceof SelectionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SelectionPackage.eNS_URI) : SelectionPackage.eINSTANCE);
+		SystemPackageImpl theSystemPackage = (SystemPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) instanceof SystemPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI) : SystemPackage.eINSTANCE);
+		QuantitiesPackageImpl theQuantitiesPackage = (QuantitiesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QuantitiesPackage.eNS_URI) instanceof QuantitiesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QuantitiesPackage.eNS_URI) : QuantitiesPackage.eINSTANCE);
+		GeometryPackageImpl theGeometryPackage = (GeometryPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(GeometryPackage.eNS_URI) instanceof GeometryPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(GeometryPackage.eNS_URI) : GeometryPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theModelPackage.createPackageContents();
+		theProcessPackage.createPackageContents();
+		theDesignoperationsPackage.createPackageContents();
+		theSelectionPackage.createPackageContents();
+		theSystemPackage.createPackageContents();
+		theQuantitiesPackage.createPackageContents();
+		theGeometryPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theModelPackage.initializePackageContents();
+		theProcessPackage.initializePackageContents();
+		theDesignoperationsPackage.initializePackageContents();
+		theSelectionPackage.initializePackageContents();
+		theSystemPackage.initializePackageContents();
+		theQuantitiesPackage.initializePackageContents();
+		theGeometryPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theModelPackage.freeze();
@@ -130,32 +163,56 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getComponent() {
-		return componentEClass;
+	public EClass getOperationWithInput() {
+		return operationWithInputEClass;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_SubComponents() {
-		return (EReference)componentEClass.getEStructuralFeatures().get(0);
+	public EReference getOperationWithInput_ProcessedElements() {
+		return (EReference)operationWithInputEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_Parameters() {
-		return (EReference)componentEClass.getEStructuralFeatures().get(1);
+	public EClass getOperationWithOutput() {
+		return operationWithOutputEClass;
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_ConnectedComponents() {
-		return (EReference)componentEClass.getEStructuralFeatures().get(2);
+	public EReference getOperationWithOutput_GeneratedElements() {
+		return (EReference)operationWithOutputEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGeneratableElement() {
+		return generatableElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGeneratableElement_SourceOperation() {
+		return (EReference)generatableElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProcessableElement() {
+		return processableElementEClass;
 	}
 
 	/**
@@ -163,56 +220,8 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getComponent_States() {
-		return (EReference)componentEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getConfiguration() {
-		return configurationEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getConfiguration_Components() {
-		return (EReference)configurationEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getModel() {
-		return modelEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getModel_Configurations() {
-		return (EReference)modelEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getParameter() {
-		return parameterEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getParameter_Values() {
-		return (EReference)parameterEClass.getEStructuralFeatures().get(0);
+	public EClass getNamedElement() {
+		return namedElementEClass;
 	}
 
 	/**
@@ -220,34 +229,24 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getParameter_DefaultUnit() {
-		return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
+	public EAttribute getNamedElement_Name() {
+		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getStructuralElement() {
-		return structuralElementEClass;
+	public EDataType getURL() {
+		return urlEDataType;
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getState() {
-		return stateEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getState_Values() {
-		return (EReference)stateEClass.getEStructuralFeatures().get(0);
+	public EDataType getOperationStrategy() {
+		return operationStrategyEDataType;
 	}
 
 	/**
@@ -275,26 +274,23 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		isCreated = true;
 
 		// Create classes and their features
-		componentEClass = createEClass(COMPONENT);
-		createEReference(componentEClass, COMPONENT__SUB_COMPONENTS);
-		createEReference(componentEClass, COMPONENT__PARAMETERS);
-		createEReference(componentEClass, COMPONENT__CONNECTED_COMPONENTS);
-		createEReference(componentEClass, COMPONENT__STATES);
+		operationWithInputEClass = createEClass(OPERATION_WITH_INPUT);
+		createEReference(operationWithInputEClass, OPERATION_WITH_INPUT__PROCESSED_ELEMENTS);
 
-		configurationEClass = createEClass(CONFIGURATION);
-		createEReference(configurationEClass, CONFIGURATION__COMPONENTS);
+		operationWithOutputEClass = createEClass(OPERATION_WITH_OUTPUT);
+		createEReference(operationWithOutputEClass, OPERATION_WITH_OUTPUT__GENERATED_ELEMENTS);
 
-		modelEClass = createEClass(MODEL);
-		createEReference(modelEClass, MODEL__CONFIGURATIONS);
+		generatableElementEClass = createEClass(GENERATABLE_ELEMENT);
+		createEReference(generatableElementEClass, GENERATABLE_ELEMENT__SOURCE_OPERATION);
 
-		parameterEClass = createEClass(PARAMETER);
-		createEReference(parameterEClass, PARAMETER__VALUES);
-		createEAttribute(parameterEClass, PARAMETER__DEFAULT_UNIT);
+		processableElementEClass = createEClass(PROCESSABLE_ELEMENT);
 
-		structuralElementEClass = createEClass(STRUCTURAL_ELEMENT);
+		namedElementEClass = createEClass(NAMED_ELEMENT);
+		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
-		stateEClass = createEClass(STATE);
-		createEReference(stateEClass, STATE__VALUES);
+		// Create data types
+		urlEDataType = createEDataType(URL);
+		operationStrategyEDataType = createEDataType(OPERATION_STRATEGY);
 	}
 
 	/**
@@ -319,42 +315,39 @@ public class ModelPackageImpl extends EPackageImpl implements ModelPackage {
 		setNsURI(eNS_URI);
 
 		// Obtain other dependent packages
-		DatatypesPackage theDatatypesPackage = (DatatypesPackage)EPackage.Registry.INSTANCE.getEPackage(DatatypesPackage.eNS_URI);
-		UnitsPackage theUnitsPackage = (UnitsPackage)EPackage.Registry.INSTANCE.getEPackage(UnitsPackage.eNS_URI);
+		ProcessPackage theProcessPackage = (ProcessPackage)EPackage.Registry.INSTANCE.getEPackage(ProcessPackage.eNS_URI);
+		SystemPackage theSystemPackage = (SystemPackage)EPackage.Registry.INSTANCE.getEPackage(SystemPackage.eNS_URI);
+		GeometryPackage theGeometryPackage = (GeometryPackage)EPackage.Registry.INSTANCE.getEPackage(GeometryPackage.eNS_URI);
+
+		// Add subpackages
+		getESubpackages().add(theProcessPackage);
+		getESubpackages().add(theSystemPackage);
+		getESubpackages().add(theGeometryPackage);
 
 		// Create type parameters
 
 		// Set bounds for type parameters
 
 		// Add supertypes to classes
-		componentEClass.getESuperTypes().add(this.getStructuralElement());
-		configurationEClass.getESuperTypes().add(this.getStructuralElement());
-		modelEClass.getESuperTypes().add(theDatatypesPackage.getNamedElement());
-		parameterEClass.getESuperTypes().add(this.getStructuralElement());
-		structuralElementEClass.getESuperTypes().add(theDatatypesPackage.getNamedElement());
-		stateEClass.getESuperTypes().add(theDatatypesPackage.getNamedElement());
 
-		// Initialize classes and features; add operations and parameters
-		initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getComponent_SubComponents(), this.getComponent(), null, "subComponents", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getComponent_Parameters(), this.getParameter(), null, "parameters", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getComponent_ConnectedComponents(), this.getComponent(), null, "connectedComponents", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEReference(getComponent_States(), this.getState(), null, "states", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		// Initialize classes, features, and operations; add parameters
+		initEClass(operationWithInputEClass, OperationWithInput.class, "OperationWithInput", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOperationWithInput_ProcessedElements(), this.getProcessableElement(), null, "processedElements", null, 0, -1, OperationWithInput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(configurationEClass, Configuration.class, "Configuration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getConfiguration_Components(), this.getComponent(), null, "components", null, 0, -1, Configuration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(operationWithOutputEClass, OperationWithOutput.class, "OperationWithOutput", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getOperationWithOutput_GeneratedElements(), this.getGeneratableElement(), null, "generatedElements", null, 0, -1, OperationWithOutput.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getModel_Configurations(), this.getConfiguration(), null, "configurations", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(generatableElementEClass, GeneratableElement.class, "GeneratableElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGeneratableElement_SourceOperation(), this.getOperationWithOutput(), null, "sourceOperation", null, 0, 1, GeneratableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getParameter_Values(), theDatatypesPackage.getDataType(), null, "values", null, 0, -1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
-		initEAttribute(getParameter_DefaultUnit(), theUnitsPackage.getUnit(), "defaultUnit", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		initEClass(processableElementEClass, ProcessableElement.class, "ProcessableElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(structuralElementEClass, StructuralElement.class, "StructuralElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
+		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(stateEClass, State.class, "State", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS); //$NON-NLS-1$
-		initEReference(getState_Values(), theDatatypesPackage.getDataType(), null, "values", null, 0, -1, State.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED); //$NON-NLS-1$
+		// Initialize data types
+		initEDataType(urlEDataType, java.net.URL.class, "URL", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+		initEDataType(operationStrategyEDataType, OperationStrategy.class, "OperationStrategy", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

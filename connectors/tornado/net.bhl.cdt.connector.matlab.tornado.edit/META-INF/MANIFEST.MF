@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: net.bhl.cdt.connector.matlab.tornado.edit;singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Bundle-ClassPath: .
+Bundle-Activator: net.bhl.cdt.connector.matlab.tornado.provider.TornadoEditPlugin$Implementation
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Export-Package: net.bhl.cdt.connector.matlab.tornado.provider
+Require-Bundle: org.eclipse.core.runtime,
+ net.bhl.cdt.connector.matlab.tornado;visibility:=reexport,
+ org.eclipse.emf.edit;visibility:=reexport,
+ net.bhl.cdt.model;visibility:=reexport,
+ net.bhl.cdt.model.edit;visibility:=reexport
+Bundle-ActivationPolicy: lazy

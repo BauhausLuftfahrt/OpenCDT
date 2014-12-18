@@ -1,9 +1,5 @@
-/*******************************************************************************
- * <copyright> Copyright (c) 2009-2014 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
- * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
- * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
- ******************************************************************************/
-
+/**
+ */
 package net.bhl.cdt.model.datatypes.impl;
 
 import javax.measure.unit.Unit;
@@ -12,11 +8,15 @@ import net.bhl.cdt.model.datatypes.DatatypesPackage;
 import net.bhl.cdt.model.datatypes.MeasuredValue;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
- * <!-- begin-user-doc --> An implementation of the model object '<em><b>Measured Value</b></em>'. <!-- end-user-doc -->
+ * <!-- begin-user-doc -->
+ * An implementation of the model object '<em><b>Measured Value</b></em>'.
+ * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
@@ -28,9 +28,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredValue {
 	/**
-	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
+	 * The cached value of the '{@link #getUnit() <em>Unit</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @see #getUnit()
 	 * @generated
 	 * @ordered
@@ -38,7 +38,8 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 	protected Unit<?> unit;
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected MeasuredValueImpl() {
@@ -46,7 +47,8 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -55,7 +57,8 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public Unit<?> getUnit() {
@@ -63,7 +66,8 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public void setUnit(Unit<?> newUnit) {
@@ -74,7 +78,8 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -87,7 +92,8 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -101,7 +107,8 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -115,7 +122,8 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -128,7 +136,8 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 	}
 
 	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
@@ -142,4 +151,4 @@ public class MeasuredValueImpl extends FloatPointValueImpl implements MeasuredVa
 		return result.toString();
 	}
 
-} // MeasuredValueImpl
+} //MeasuredValueImpl

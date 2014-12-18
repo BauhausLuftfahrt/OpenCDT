@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="net.bhl.cdt.model.design_operation_strategy">
+      <strategy
+            class="net.bhl.cdt.connector.matlab.tornado.client.strategies.TornadoStrategy">
+      </strategy>
+   </extension>
+
+</plugin>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated tornado -->
+      <package
+            uri="http://bhl.net/cdt/connector/matlab/tornado"
+            class="net.bhl.cdt.connector.matlab.tornado.TornadoPackage"
+            genModel="model/tornado.genmodel"/>
+   </extension>
+
+</plugin>

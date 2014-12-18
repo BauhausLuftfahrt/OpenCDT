@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="datatypes" nsURI="http://bhl.net/cdt/model/datatypes/" nsPrefix="net.bhl.cdt.model">
-  <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" eSuperTypes="model.ecore#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="LeafValue" abstract="true" eSuperTypes="#//DataType"/>
   <eClassifiers xsi:type="ecore:EClass" name="Scalar" abstract="true" eSuperTypes="#//LeafValue"/>
   <eClassifiers xsi:type="ecore:EClass" name="FloatPointValue" eSuperTypes="#//Scalar">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MeasuredValue" eSuperTypes="#//FloatPointValue">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit">
-      <eGenericType eClassifier="ecore:EDataType units.ecore#//Unit">
-        <eTypeArguments/>
-      </eGenericType>
-    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IntegerValue" eSuperTypes="#//Scalar">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
@@ -32,7 +25,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Array" eSuperTypes="#//CompositeValues"/>
   <eClassifiers xsi:type="ecore:EClass" name="Cells" eSuperTypes="#//CompositeValues"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MeasuredValue" eSuperTypes="#//FloatPointValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit">
+      <eGenericType eClassifier="ecore:EDataType units.ecore#//Unit">
+        <eTypeArguments/>
+      </eGenericType>
+    </eStructuralFeatures>
   </eClassifiers>
 </ecore:EPackage>

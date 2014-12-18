@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="avl" nsURI="http://bhl.net/cdt/connector/avl" nsPrefix="net.bhl.cdt.connector">
+  <eClassifiers xsi:type="ecore:EClass" name="AVL" eSuperTypes="../../net.bhl.cdt.model/model/model.ecore#//process/designoperations/LocalDisciplineTool"/>
+  <eSubpackages name="avlmodel" nsURI="http://bhl.net/cdt/connector/avl/avlmodel"
+      nsPrefix="net.bhl.cdt.connector.avl.avlmodel">
+    <eClassifiers xsi:type="ecore:EEnum" name="SymmetryType">
+      <eLiterals name="symmetric" value="1" literal="symmetric"/>
+      <eLiterals name="antisymmetric" value="-1"/>
+      <eLiterals name="noSymmetry" literal="noSymmetry"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AVLModelGenerator" eSuperTypes="../../net.bhl.cdt.connector.files/model/files.ecore#//FileGenerator">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="surfaces" upperBound="-1"
+          eType="#//avlmodel/AVLSurface" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="mach" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="zsym" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sref" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cref" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="bref" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xref" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="yref" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="zref" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="iYsym" eType="#//avlmodel/SymmetryType"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="iZSym" eType="#//avlmodel/SymmetryType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="YDuplicate">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="yDupl" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AVLSurface">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="yDuplicate" eType="#//avlmodel/YDuplicate"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sections" upperBound="-1"
+          eType="#//avlmodel/AVLSection" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="angle" eType="#//avlmodel/SufaceAngle"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="nchordwise" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="nspanwise" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sspace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="cspace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AVLSection">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="controlSurfaces" upperBound="-1"
+          eType="#//avlmodel/AVLControlSurface" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xle" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="yle" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="zle" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="chord" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ainc" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="nspanwise" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sspace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AVLControlSurface">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cgain" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="xhinge" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="hingeVector" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//geometry/SpaceVector"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="sgnDup" eType="#//avlmodel/SignOfDeflection"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SufaceAngle">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="angle" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="SignOfDeflection">
+      <eLiterals name="elevator" value="1"/>
+      <eLiterals name="aileron" value="-1"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="avlprocess" nsURI="http://bhl.net/cdt/connector/avl/avlprocess"
+      nsPrefix="net.bhl.cdt.connector.avl.avlprocess">
+    <eClassifiers xsi:type="ecore:EClass" name="AVLProcessGenerator" eSuperTypes="../../net.bhl.cdt.connector.files/model/files.ecore#//FileGenerator">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableSweeps" upperBound="-1"
+          eType="#//avlprocess/VariableSweep" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="commandFileName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="runcaseCounter" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="avlResultImporters" upperBound="-1"
+          eType="#//avlprocess/AVLResultImporter" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableSweep" eSuperTypes="../../net.bhl.cdt.model/model/model.ecore#//NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableStart" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableEnd" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableDelta" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/DecimalNumber"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AVLResultImporter" eSuperTypes="../../net.bhl.cdt.connector.files/model/files.ecore#//FileParser"/>
+  </eSubpackages>
+</ecore:EPackage>

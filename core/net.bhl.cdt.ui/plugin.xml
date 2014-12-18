@@ -10,16 +10,7 @@
             name="CDT Perspective">
       </perspective>
    </extension>
-   <extension
-         point="org.eclipse.ui.views">
-      <view
-            class="net.bhl.cdt.ui.views.ConfigurationView"
-            icon="icons/configuration.gif"
-            id="net.bhl.cdt.ui.views.ConfigurationView"
-            name="ConfigurationView"
-            restorable="true">
-      </view>
-   </extension>
+   
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
@@ -70,6 +61,23 @@
                style="push">
          </command>
       </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.emf.ecp.ui.ModelExplorerView">
+         <command
+               commandId="net.bhl.cdt.ui.ExecuteProcessElement"
+               label="Execute Design Operation"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <iterate>
+                  <instanceof
+                        value="net.bhl.cdt.model.process.ProcessElement">
+                  </instanceof>
+               </iterate>
+            </visibleWhen>
+         </command>
+      </menuContribution>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
@@ -77,6 +85,11 @@
             defaultHandler="net.bhl.cdt.ui.handler.NewProjectHandler"
             id="net.bhl.cdt.ui.NewProjectHandler"
             name="New Project">
+      </command>
+      <command
+            defaultHandler="net.bhl.cdt.ui.handlers.ExecuteProcessElementHandler"
+            id="net.bhl.cdt.ui.ExecuteProcessElement"
+            name="ExecuteProcess">
       </command>
    </extension>
    <extension
@@ -130,6 +143,51 @@
                type="org.eclipse.ui.views.properties.IPropertySheetPage">
          </adapter>
       </factory>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecp.edit.controls">
+      <control
+            class="net.bhl.cdt.ui.UnitControl"
+            id="net.bhl.cdt.unitcontrol">
+         <staticTest
+               priority="1"
+               singleValue="true"
+               supportedClassType="javax.measure.unit.Unit">
+         </staticTest>
+      </control>
+      <control
+            class="net.bhl.cdt.ui.AmountControl"
+            id="net.bhl.cdt.ui.amountcontrol">
+         <staticTest
+               priority="4"
+               singleValue="true"
+               supportedClassType="org.jscience.physics.amount.Amount">
+         </staticTest>
+      </control>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="net.bhl.cdt.ui.preferences.CDTPreferencePage"
+            id="net.bhl.cdt.ui.CDTPreferencePage"
+            name="CDT">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.ui.decorators">
+      <decorator
+            adaptable="true"
+            class="net.bhl.cdt.ui.decorators.IsStartableDecorator"
+            id="net.bhl.cdt.ui.IsStartableDecorator"
+            label="IsStartableDecorator"
+            lightweight="true"
+            state="true">
+         <enablement>
+            <objectClass
+                  name="net.bhl.cdt.model.process.ProcessElement">
+            </objectClass>
+         </enablement>
+      </decorator>
    </extension>
 
 </plugin>

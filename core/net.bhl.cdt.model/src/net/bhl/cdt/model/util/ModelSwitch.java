@@ -6,15 +6,12 @@
 
 package net.bhl.cdt.model.util;
 
-import net.bhl.cdt.model.Component;
-import net.bhl.cdt.model.Configuration;
-import net.bhl.cdt.model.Model;
+import net.bhl.cdt.model.GeneratableElement;
 import net.bhl.cdt.model.ModelPackage;
-import net.bhl.cdt.model.Parameter;
-import net.bhl.cdt.model.State;
-import net.bhl.cdt.model.StructuralElement;
-import net.bhl.cdt.model.datatypes.NamedElement;
-
+import net.bhl.cdt.model.NamedElement;
+import net.bhl.cdt.model.OperationWithInput;
+import net.bhl.cdt.model.OperationWithOutput;
+import net.bhl.cdt.model.ProcessableElement;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
@@ -67,48 +64,33 @@ public class ModelSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ModelPackage.COMPONENT: {
-				Component component = (Component)theEObject;
-				T result = caseComponent(component);
-				if (result == null) result = caseStructuralElement(component);
-				if (result == null) result = caseNamedElement(component);
+			case ModelPackage.OPERATION_WITH_INPUT: {
+				OperationWithInput operationWithInput = (OperationWithInput)theEObject;
+				T result = caseOperationWithInput(operationWithInput);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.CONFIGURATION: {
-				Configuration configuration = (Configuration)theEObject;
-				T result = caseConfiguration(configuration);
-				if (result == null) result = caseStructuralElement(configuration);
-				if (result == null) result = caseNamedElement(configuration);
+			case ModelPackage.OPERATION_WITH_OUTPUT: {
+				OperationWithOutput operationWithOutput = (OperationWithOutput)theEObject;
+				T result = caseOperationWithOutput(operationWithOutput);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.MODEL: {
-				Model model = (Model)theEObject;
-				T result = caseModel(model);
-				if (result == null) result = caseNamedElement(model);
+			case ModelPackage.GENERATABLE_ELEMENT: {
+				GeneratableElement generatableElement = (GeneratableElement)theEObject;
+				T result = caseGeneratableElement(generatableElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.PARAMETER: {
-				Parameter parameter = (Parameter)theEObject;
-				T result = caseParameter(parameter);
-				if (result == null) result = caseStructuralElement(parameter);
-				if (result == null) result = caseNamedElement(parameter);
+			case ModelPackage.PROCESSABLE_ELEMENT: {
+				ProcessableElement processableElement = (ProcessableElement)theEObject;
+				T result = caseProcessableElement(processableElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ModelPackage.STRUCTURAL_ELEMENT: {
-				StructuralElement structuralElement = (StructuralElement)theEObject;
-				T result = caseStructuralElement(structuralElement);
-				if (result == null) result = caseNamedElement(structuralElement);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ModelPackage.STATE: {
-				State state = (State)theEObject;
-				T result = caseState(state);
-				if (result == null) result = caseNamedElement(state);
+			case ModelPackage.NAMED_ELEMENT: {
+				NamedElement namedElement = (NamedElement)theEObject;
+				T result = caseNamedElement(namedElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -117,88 +99,71 @@ public class ModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Component</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Operation With Input</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Component</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Operation With Input</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseComponent(Component object) {
+	public T caseOperationWithInput(OperationWithInput object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Configuration</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Operation With Output</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Configuration</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Operation With Output</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseConfiguration(Configuration object) {
+	public T caseOperationWithOutput(OperationWithOutput object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Model</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseModel(Model object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Generatable Element</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Generatable Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseParameter(Parameter object) {
+	public T caseGeneratableElement(GeneratableElement object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Structural Element</em>'. <!--
-	 * begin-user-doc --> This implementation returns null; returning a non-null result will terminate the switch. <!--
-	 * end-user-doc -->
-	 * 
+	 * Returns the result of interpreting the object as an instance of '<em>Processable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Structural Element</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Processable Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseStructuralElement(StructuralElement object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>State</em>'.
-	 * <!-- begin-user-doc --> This
-	 * implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>State</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseState(State object) {
+	public T caseProcessableElement(ProcessableElement object) {
 		return null;
 	}
 
 	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
 	 * <!-- begin-user-doc -->
-	 * This implementation returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
 	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)

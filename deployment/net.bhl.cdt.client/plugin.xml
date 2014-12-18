@@ -16,10 +16,10 @@
          point="org.eclipse.core.runtime.products">
       <product
             application="net.bhl.cdt.client.application"
-            name="CODAClient">
+            name="AssessmentClient">
          <property
                name="appName"
-               value="CODAClient">
+               value="AssessmentClient">
          </property>
          <property
                name="startupForegroundColor"

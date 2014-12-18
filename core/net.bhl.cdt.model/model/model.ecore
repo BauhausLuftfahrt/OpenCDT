@@ -1,32 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="http://bhl.net/cdt/model" nsPrefix="net.bhl.cdt.model">
-  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//StructuralElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subComponents" upperBound="-1"
-        eType="#//Component" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="connectedComponents" upperBound="-1"
-        eType="#//Component"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
-        eType="#//State" containment="true"/>
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="http://bhl.net/cdt/model" nsPrefix="net.bhl.cdt">
+  <eClassifiers xsi:type="ecore:EClass" name="OperationWithInput" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processedElements" upperBound="-1"
+        eType="#//ProcessableElement"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Configuration" eSuperTypes="#//StructuralElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
-        eType="#//Component" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OperationWithOutput" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="generatedElements" upperBound="-1"
+        eType="#//GeneratableElement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="datatypes.ecore#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
-        eType="#//Configuration" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GeneratableElement" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceOperation" eType="#//OperationWithOutput"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//StructuralElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
-        eType="ecore:EClass datatypes.ecore#//DataType" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultUnit" eType="ecore:EDataType units.ecore#//Unit"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ProcessableElement" abstract="true"
+      interface="true"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="URL" instanceClassName="java.net.URL"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="OperationStrategy" instanceClassName="net.bhl.cdt.model.process.OperationStrategy"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StructuralElement" abstract="true" eSuperTypes="datatypes.ecore#//NamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="datatypes.ecore#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
-        eType="ecore:EClass datatypes.ecore#//DataType"/>
-  </eClassifiers>
+  <eSubpackages name="process" nsURI="http://bhl.net/cdt/model/process" nsPrefix="net.bhl.cdt.model">
+    <eClassifiers xsi:type="ecore:EClass" name="DesignOperation" abstract="true" eSuperTypes="#//process/ProcessElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="superprocess" eType="#//process/DesignProcess"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessElement" abstract="true" eSuperTypes="#//NamedElement">
+      <eOperations name="start">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="setBusy(true);&#xD;&#xA;&#xD;&#xA;OperationStrategy executable = null;&#xD;&#xA;OperationStrategy strategy = getStrategy(this.eClass());&#xD;&#xA;if(strategy != null){&#xD;&#xA;&#x9;if (strategy.isStartable(this)){&#xD;&#xA;&#x9;&#x9;executable = strategy;&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;if (executable == null &amp;&amp; !this.eClass().getEAllSuperTypes().isEmpty()) {&#xD;&#xA;&#x9;for (EClass superClass : this.eClass().getEAllSuperTypes()) {&#xD;&#xA;&#x9;&#x9;strategy = getStrategy(superClass);&#xD;&#xA;&#x9;&#x9;if(strategy != null){&#xD;&#xA;&#x9;&#x9;&#x9;if (strategy.isStartable(this)){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;executable = strategy;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;break;&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;if (executable == null){&#xD;&#xA;&#x9;System.out.println(&quot;No Strategy found!&quot;);&#xD;&#xA;&#x9;return;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;final OperationStrategy execute = executable;&#xD;&#xA;final ProcessElement self = this;&#xD;&#xA;ISafeRunnable runnable = new ISafeRunnable() {&#xD;&#xA;&#x9;@Override&#xD;&#xA;      public void handleException(Throwable e) {&#xD;&#xA;        &#x9;System.out.println(&quot;Exception in Strategy&quot;);&#xD;&#xA;      }&#xD;&#xA;&#xD;&#xA;      @Override&#xD;&#xA;      public void run() throws Exception {&#xD;&#xA;        &#x9;execute.start(self);&#xD;&#xA;      }&#xD;&#xA;};&#xD;&#xA;SafeRunner.run(runnable);&#xD;&#xA;&#xD;&#xA;setBusy(false);"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="isStartable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="OperationStrategy strategy = getStrategy(this.eClass());&#xD;&#xA;try {&#xD;&#xA;&#x9;if (strategy != null) {&#xD;&#xA;&#x9;&#x9;if (strategy.isStartable(this)) {&#xD;&#xA;&#x9;&#x9;&#x9;return true;&#xD;&#xA;&#x9;&#x9;} else {&#xD;&#xA;&#x9;&#x9;&#x9;return false;&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;if (!this.eClass().getEAllSuperTypes().isEmpty()) {&#xD;&#xA;&#x9;&#x9;for (EClass superClass : this.eClass().getEAllSuperTypes()) {&#xD;&#xA;&#x9;&#x9;&#x9;strategy = getStrategy(superClass);&#xD;&#xA;&#x9;&#x9;&#x9;if (strategy != null) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;if (strategy.isStartable(this)) {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;return true;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;} else {&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;return false;&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;&#x9;}&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;} catch (NullPointerException e) {&#xD;&#xA;&#x9;e.printStackTrace();&#xD;&#xA;}&#xD;&#xA;return false;"/>
+        </eAnnotations>
+      </eOperations>
+      <eOperations name="getStrategy" eType="#//OperationStrategy">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="body" value="IExtensionRegistry registry = Platform.getExtensionRegistry();&#xD;&#xA;IConfigurationElement[] config = registry.getConfigurationElementsFor(&quot;net.bhl.cdt.model.design_operation_strategy&quot;);&#xD;&#xA;try {&#xD;&#xA;&#x9;for (IConfigurationElement e : config) {&#xD;&#xA;       &#x9;final Object o = e.createExecutableExtension(&quot;class&quot;);&#xD;&#xA;&#x9;&#x9;OperationStrategy strategy = ((OperationStrategy)o);&#xD;&#xA;       &#x9;if(strategy.getEClass().equals(eClass)){&#xD;&#xA;&#x9;&#x9;&#x9;//if (strategy.isStartable(this)){&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;return strategy;&#xD;&#xA;&#x9;&#x9;&#x9;//} else {&#xD;&#xA;&#x9;&#x9;&#x9;//&#x9;return null;&#xD;&#xA;&#x9;&#x9;&#x9;//}&#xD;&#xA;&#x9;&#x9;}&#xD;&#xA;&#x9;}&#xD;&#xA;} catch (CoreException ex) {&#xD;&#xA;&#x9;System.out.println(ex.getMessage());&#xD;&#xA;}&#xD;&#xA;return null;"/>
+        </eAnnotations>
+        <eParameters name="eClass" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="busy" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="timeStamp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DesignProcess" eSuperTypes="#//process/ProcessElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="designProcessElements"
+          upperBound="-1" eType="#//process/ProcessElement" containment="true"/>
+    </eClassifiers>
+    <eSubpackages name="designoperations" nsURI="http://bhl.net/cdt/model/process/designoperations"
+        nsPrefix="net.bhl.cdt.model.process">
+      <eClassifiers xsi:type="ecore:EClass" name="DisciplineTool" abstract="true"
+          eSuperTypes="#//process/DesignProcess"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Formula" eSuperTypes="#//OperationWithInput #//OperationWithOutput #//process/DesignOperation">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="formula" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//system/Parameter"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="Assumption" eSuperTypes="#//process/DesignOperation #//OperationWithOutput"/>
+      <eClassifiers xsi:type="ecore:EClass" name="DisciplineToolService" abstract="true"
+          eSuperTypes="#//process/designoperations/DisciplineTool">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="serviceURL" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="LocalDisciplineTool" abstract="true"
+          eSuperTypes="#//process/designoperations/DisciplineTool"/>
+      <eClassifiers xsi:type="ecore:EClass" name="CalculatedValue" abstract="true"
+          eSuperTypes="#//process/DesignOperation #//system/Value #//OperationWithInput">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="expression" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="CalculatedDecimalNumber" eSuperTypes="#//process/designoperations/CalculatedValue #//system/DecimalNumber"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Calculations" eSuperTypes="#//process/DesignProcess"/>
+    </eSubpackages>
+    <eSubpackages name="selection" nsURI="http://bhl.net/cdt/model/process/selection"
+        nsPrefix="net.bhl.cdt.model.process.selection">
+      <eClassifiers xsi:type="ecore:EClass" name="ValueSelectionArgument" eSuperTypes="#//process/selection/Rationale">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="supportedCriteria"
+            upperBound="-1" eType="#//process/selection/ValueSelectionCriterion"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="opposedCriteria" upperBound="-1"
+            eType="#//process/selection/ValueSelectionCriterion"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="ValueSelectionCriterion" abstract="true"
+          interface="true" eSuperTypes="#//process/selection/Rationale"/>
+      <eClassifiers xsi:type="ecore:EClass" name="ValueSelection" eSuperTypes="#//process/ProcessElement">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="criteria" upperBound="-1"
+            eType="#//process/selection/ValueSelectionCriterion" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="selectedValues" upperBound="-1"
+            eType="#//process/selection/SelectedValue" containment="true"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="SelectedValue" eSuperTypes="#//system/Value #//process/ProcessElement">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="appliedCriteria" upperBound="-1"
+            eType="#//process/selection/ValueSelectionCriterion"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
+            eType="#//process/selection/ValueSelectionArgument" containment="true"/>
+        <eStructuralFeatures xsi:type="ecore:EReference" name="selectedValues" upperBound="-1"
+            eType="#//system/Value"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="SelectedMeasuredValue" eSuperTypes="#//process/selection/SelectedValue #//system/MeasuredValue"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Rationale" abstract="true" eSuperTypes="#//NamedElement">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="rationaleDescription"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="NameCriterion" eSuperTypes="#//process/selection/ValueSelectionCriterion">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="valueName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="PartOfCriterion" eSuperTypes="#//process/selection/ValueSelectionCriterion"/>
+      <eClassifiers xsi:type="ecore:EClass" name="HighestValueCriterion" eSuperTypes="#//process/selection/ValueSelectionCriterion"/>
+      <eClassifiers xsi:type="ecore:EClass" name="PreferLatestCriterion" eSuperTypes="#//process/selection/ValueSelectionCriterion"/>
+      <eClassifiers xsi:type="ecore:EClass" name="PreferGeneratedCriterion" eSuperTypes="#//process/selection/ValueSelectionCriterion"/>
+      <eClassifiers xsi:type="ecore:EClass" name="PreferAuthorCriterion" eSuperTypes="#//process/selection/ValueSelectionCriterion"/>
+    </eSubpackages>
+  </eSubpackages>
+  <eSubpackages name="system" nsURI="http://bhl.net/cdt/model/system" nsPrefix="net.bhl.cdt.model">
+    <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//system/SystemModelElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+          eType="#//system/Value"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Value" abstract="true" eSuperTypes="#//system/SystemModelElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+          eType="#//system/State"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//system/Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SystemModelElement" abstract="true"
+        eSuperTypes="#//GeneratableElement #//ProcessableElement #//NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="QuantityKind" eSuperTypes="#//system/SystemModelElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+          eType="#//system/Value"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DecimalNumber" eSuperTypes="#//system/Value">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//system/SystemModelElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="quantityKind" eType="#//system/QuantityKind"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+          eType="#//system/Value"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Counter" eSuperTypes="#//system/Value">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StringValue" eSuperTypes="#//system/Value">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MeasuredValue" eSuperTypes="#//system/DecimalNumber">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit">
+        <eGenericType eClassifier="ecore:EDataType units.ecore#//Unit">
+          <eTypeArguments/>
+        </eGenericType>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MeasuredParameter" eSuperTypes="#//system/SystemModelElement #//system/Parameter">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultUnit">
+        <eGenericType eClassifier="ecore:EDataType units.ecore#//Unit">
+          <eTypeArguments/>
+        </eGenericType>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//system/SystemModelElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="states" upperBound="-1"
+          eType="#//system/State" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subcomponents" upperBound="-1"
+          eType="#//system/Component" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//system/Parameter" containment="true"/>
+    </eClassifiers>
+    <eSubpackages name="quantities" nsURI="http://bhl.net/cdt/model/system/quantities"
+        nsPrefix="net.bhl.cdt.model.system">
+      <eClassifiers xsi:type="ecore:EClass" name="LengthValue" eSuperTypes="#//system/Value">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
+          <eGenericType eClassifier="#//system/quantities/Amount">
+            <eTypeArguments eClassifier="#//system/quantities/Length"/>
+          </eGenericType>
+        </eStructuralFeatures>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EDataType" name="Length" instanceClassName="javax.measure.quantity.Length"/>
+      <eClassifiers xsi:type="ecore:EDataType" name="Amount" instanceClassName="org.jscience.physics.amount.Amount">
+        <eTypeParameters name="Q">
+          <eBounds eClassifier="ecore:EDataType units.ecore#//Quantity"/>
+        </eTypeParameters>
+      </eClassifiers>
+    </eSubpackages>
+  </eSubpackages>
+  <eSubpackages name="geometry" nsURI="http://bhl.net/cdt/model/geometry" nsPrefix="net.bhl.cdt.model">
+    <eClassifiers xsi:type="ecore:EClass" name="SpaceVector" eSuperTypes="#//system/Value">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="z" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigDecimal"/>
+    </eClassifiers>
+  </eSubpackages>
 </ecore:EPackage>

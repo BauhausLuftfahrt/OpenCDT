@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test
+Bundle-SymbolicName: net.bhl.cdt.connector.avl.test
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: net.bhl.cdt.connector.avl.test.Activator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.junit,
+ net.bhl.cdt.connector.avl;bundle-version="0.1.0",
+ org.eclipse.emf.common,
+ net.bhl.cdt.connector.avl.ui,
+ org.eclipse.emf.emfstore.client,
+ net.bhl.cdt.connector.files,
+ net.bhl.cdt.model
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy

@@ -5,12 +5,12 @@
  ******************************************************************************/
 package net.bhl.cdt.ui;
 
-
 import org.eclipse.emf.ecp.ui.views.ModelExplorerView;
 import org.eclipse.emf.ecp.ui.views.ModelRepositoriesView;
 import org.eclipse.ui.IFolderLayout;
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
+import org.eclipse.ui.console.IConsoleConstants;
 
 /**
  * Creates the CDTPerspective. Called by implemented extension point.
@@ -34,11 +34,19 @@ public class CDTPerspectiveFactory implements IPerspectiveFactory {
 		left.addView(ModelExplorerView.ID);
 
 		IFolderLayout right = layout.createFolder("right", IPageLayout.RIGHT, 0.70f, layout.getEditorArea());
-		
+
 		right.addView(ModelRepositoriesView.ID);
 
 		IFolderLayout bottom = layout.createFolder("bottom", IPageLayout.BOTTOM, 0.70f, layout.getEditorArea());
-		bottom.addView(IPageLayout.ID_PROP_SHEET);
+		// bottom.addView(IPageLayout.ID_PROP_SHEET);
+		//
+		// String editorArea = layout.getEditorArea();
+		//
+		// layout.setEditorAreaVisible(true);
+		// layout.setFixed(false);
+		//
+		// layout.addStandaloneView("testRCPView.views.SampleView", true, IPageLayout.LEFT, .35f, editorArea);
+		bottom.addView(IConsoleConstants.ID_CONSOLE_VIEW);
 	}
 
 }

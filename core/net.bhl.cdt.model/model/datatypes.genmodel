@@ -3,7 +3,7 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/net.bhl.cdt.model/src" editDirectory="/net.bhl.cdt.model.edit/src"
     modelPluginID="net.bhl.cdt.model" modelName="Datatypes" importerID="org.eclipse.emf.importer.ecore"
     complianceLevel="6.0" copyrightFields="false" editPluginID="net.bhl.cdt.model.edit"
-    usedGenPackages="units.genmodel#//units">
+    usedGenPackages="model.genmodel#//model units.genmodel#//units">
   <foreignModel>datatypes.ecore</foreignModel>
   <genPackages prefix="Datatypes" basePackage="net.bhl.cdt.model" disposableProviderFactory="true"
       ecorePackage="datatypes.ecore#/">
@@ -12,9 +12,6 @@
     <genClasses image="false" ecoreClass="datatypes.ecore#//Scalar"/>
     <genClasses ecoreClass="datatypes.ecore#//FloatPointValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatypes.ecore#//FloatPointValue/value"/>
-    </genClasses>
-    <genClasses ecoreClass="datatypes.ecore#//MeasuredValue">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatypes.ecore#//MeasuredValue/unit"/>
     </genClasses>
     <genClasses ecoreClass="datatypes.ecore#//IntegerValue">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatypes.ecore#//IntegerValue/value"/>
@@ -29,8 +26,5 @@
     </genClasses>
     <genClasses ecoreClass="datatypes.ecore#//Array"/>
     <genClasses ecoreClass="datatypes.ecore#//Cells"/>
-    <genClasses image="false" ecoreClass="datatypes.ecore#//NamedElement">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute datatypes.ecore#//NamedElement/name"/>
-    </genClasses>
   </genPackages>
 </genmodel:GenModel>

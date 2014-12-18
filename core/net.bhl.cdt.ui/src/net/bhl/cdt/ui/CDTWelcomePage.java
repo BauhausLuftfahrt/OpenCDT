@@ -5,6 +5,7 @@
  ******************************************************************************/
 package net.bhl.cdt.ui;
 
+import org.eclipse.emf.ecp.spi.ui.util.ECPHandlerHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
@@ -17,8 +18,6 @@ import org.eclipse.ui.intro.IIntroPart;
 import org.eclipse.ui.part.IntroPart;
 
 // import net.bhl.cdt.ui.command.NewProjectCommand;
-
-
 
 /**
  * CDTWelcome page which will be shown at the first start.
@@ -51,8 +50,8 @@ public class CDTWelcomePage extends IntroPart implements IIntroPart {
 			public void widgetSelected(SelectionEvent e) {
 				dispose();
 				// new NewProjectCommand().execute();
-				org.eclipse.emf.ecp.internal.ui.util.ECPHandlerHelper.createProject(PlatformUI.getWorkbench()
-					.getDisplay().getActiveShell());
+
+				ECPHandlerHelper.createProject(PlatformUI.getWorkbench().getDisplay().getActiveShell());
 			}
 
 			@Override

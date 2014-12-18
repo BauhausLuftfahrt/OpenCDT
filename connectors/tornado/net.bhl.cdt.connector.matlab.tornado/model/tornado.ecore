@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tornado" nsURI="http://bhl.net/cdt/connector/matlab/tornado"
+    nsPrefix="net.bhl.cdt.connector.matlab">
+  <eClassifiers xsi:type="ecore:EClass" name="TornadoGeometry">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sweepAngle" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/MeasuredValue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TornadoState">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="altitude" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/MeasuredValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rho" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/MeasuredValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="airSpeed" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/MeasuredValue"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alpha" eType="ecore:EClass ../../net.bhl.cdt.model/model/model.ecore#//system/MeasuredValue"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tornado" eSuperTypes="../../net.bhl.cdt.model/model/model.ecore#//process/designoperations/DisciplineToolService ../../net.bhl.cdt.model/model/model.ecore#//OperationWithOutput">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tornadoGeometry" eType="#//TornadoGeometry"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tornadoState" eType="#//TornadoState"
+        containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

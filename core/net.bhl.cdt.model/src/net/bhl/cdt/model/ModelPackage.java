@@ -5,10 +5,9 @@
  ******************************************************************************/
 package net.bhl.cdt.model;
 
-import net.bhl.cdt.model.datatypes.DatatypesPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -21,441 +20,354 @@ import org.eclipse.emf.ecore.EReference;
  * <li>and each data type</li>
  * </ul>
  * <!-- end-user-doc -->
- * 
  * @see net.bhl.cdt.model.ModelFactory
  * @model kind="package"
  * @generated
  */
 public interface ModelPackage extends EPackage {
 	/**
-	 * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The package name.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	String eNAME = "model";
 
 	/**
-	 * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The package namespace URI.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	String eNS_URI = "http://bhl.net/cdt/model";
 
 	/**
-	 * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The package namespace name.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "net.bhl.cdt.model";
+	String eNS_PREFIX = "net.bhl.cdt";
 
 	/**
-	 * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The singleton instance of the package.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
 	ModelPackage eINSTANCE = net.bhl.cdt.model.impl.ModelPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.impl.StructuralElementImpl <em>Structural Element</em>}'
-	 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see net.bhl.cdt.model.impl.StructuralElementImpl
-	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getStructuralElement()
+	 * The meta object id for the '{@link net.bhl.cdt.model.OperationWithInput <em>Operation With Input</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see net.bhl.cdt.model.OperationWithInput
+	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getOperationWithInput()
 	 * @generated
 	 */
-	int STRUCTURAL_ELEMENT = 4;
+	int OPERATION_WITH_INPUT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int STRUCTURAL_ELEMENT__NAME = DatatypesPackage.NAMED_ELEMENT__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Structural Element</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
+	 * The feature id for the '<em><b>Processed Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRUCTURAL_ELEMENT_FEATURE_COUNT = DatatypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int OPERATION_WITH_INPUT__PROCESSED_ELEMENTS = 0;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.impl.ComponentImpl <em>Component</em>}' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see net.bhl.cdt.model.impl.ComponentImpl
-	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getComponent()
-	 * @generated
-	 */
-	int COMPONENT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The number of structural features of the '<em>Operation With Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__NAME = STRUCTURAL_ELEMENT__NAME;
+	int OPERATION_WITH_INPUT_FEATURE_COUNT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Sub Components</b></em>' containment reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
+	 * The number of operations of the '<em>Operation With Input</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__SUB_COMPONENTS = STRUCTURAL_ELEMENT_FEATURE_COUNT + 0;
+	int OPERATION_WITH_INPUT_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Parameters</b></em>' containment reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
+	 * The meta object id for the '{@link net.bhl.cdt.model.OperationWithOutput <em>Operation With Output</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see net.bhl.cdt.model.OperationWithOutput
+	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getOperationWithOutput()
+	 * @generated
+	 */
+	int OPERATION_WITH_OUTPUT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Generated Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__PARAMETERS = STRUCTURAL_ELEMENT_FEATURE_COUNT + 1;
+	int OPERATION_WITH_OUTPUT__GENERATED_ELEMENTS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Connected Components</b></em>' reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
+	 * The number of structural features of the '<em>Operation With Output</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__CONNECTED_COMPONENTS = STRUCTURAL_ELEMENT_FEATURE_COUNT + 2;
+	int OPERATION_WITH_OUTPUT_FEATURE_COUNT = 1;
 
 	/**
-	 * The feature id for the '<em><b>States</b></em>' containment reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
+	 * The number of operations of the '<em>Operation With Output</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT__STATES = STRUCTURAL_ELEMENT_FEATURE_COUNT + 3;
+	int OPERATION_WITH_OUTPUT_OPERATION_COUNT = 0;
 
 	/**
-	 * The number of structural features of the '<em>Component</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
+	 * The meta object id for the '{@link net.bhl.cdt.model.GeneratableElement <em>Generatable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see net.bhl.cdt.model.GeneratableElement
+	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getGeneratableElement()
+	 * @generated
+	 */
+	int GENERATABLE_ELEMENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Source Operation</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_FEATURE_COUNT = STRUCTURAL_ELEMENT_FEATURE_COUNT + 4;
+	int GENERATABLE_ELEMENT__SOURCE_OPERATION = 0;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.impl.ConfigurationImpl <em>Configuration</em>}' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see net.bhl.cdt.model.impl.ConfigurationImpl
-	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getConfiguration()
-	 * @generated
-	 */
-	int CONFIGURATION = 1;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The number of structural features of the '<em>Generatable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION__NAME = STRUCTURAL_ELEMENT__NAME;
+	int GENERATABLE_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
-	 * The feature id for the '<em><b>Components</b></em>' containment reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
+	 * The number of operations of the '<em>Generatable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION__COMPONENTS = STRUCTURAL_ELEMENT_FEATURE_COUNT + 0;
+	int GENERATABLE_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The number of structural features of the '<em>Configuration</em>' class. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
+	 * The meta object id for the '{@link net.bhl.cdt.model.ProcessableElement <em>Processable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see net.bhl.cdt.model.ProcessableElement
+	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getProcessableElement()
+	 * @generated
+	 */
+	int PROCESSABLE_ELEMENT = 3;
+
+	/**
+	 * The number of structural features of the '<em>Processable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFIGURATION_FEATURE_COUNT = STRUCTURAL_ELEMENT_FEATURE_COUNT + 1;
+	int PROCESSABLE_ELEMENT_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.impl.ModelImpl <em>Model</em>}' class. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * 
-	 * @see net.bhl.cdt.model.impl.ModelImpl
-	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getModel()
-	 * @generated
-	 */
-	int MODEL = 2;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The number of operations of the '<em>Processable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__NAME = DatatypesPackage.NAMED_ELEMENT__NAME;
+	int PROCESSABLE_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Configurations</b></em>' containment reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
+	 * The meta object id for the '{@link net.bhl.cdt.model.impl.NamedElementImpl <em>Named Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see net.bhl.cdt.model.impl.NamedElementImpl
+	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getNamedElement()
+	 * @generated
+	 */
+	int NAMED_ELEMENT = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__CONFIGURATIONS = DatatypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int NAMED_ELEMENT__NAME = 0;
 
 	/**
-	 * The number of structural features of the '<em>Model</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The number of structural features of the '<em>Named Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = DatatypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int NAMED_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.impl.ParameterImpl <em>Parameter</em>}' class. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @see net.bhl.cdt.model.impl.ParameterImpl
-	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getParameter()
-	 * @generated
-	 */
-	int PARAMETER = 3;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * The number of operations of the '<em>Named Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__NAME = STRUCTURAL_ELEMENT__NAME;
+	int NAMED_ELEMENT_OPERATION_COUNT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Values</b></em>' containment reference list. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER__VALUES = STRUCTURAL_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Default Unit</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER__DEFAULT_UNIT = STRUCTURAL_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>Parameter</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
-	 * -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int PARAMETER_FEATURE_COUNT = STRUCTURAL_ELEMENT_FEATURE_COUNT + 2;
-
-	/**
-	 * The meta object id for the '{@link net.bhl.cdt.model.impl.StateImpl <em>State</em>}' class. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * 
-	 * @see net.bhl.cdt.model.impl.StateImpl
-	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getState()
+	 * The meta object id for the '<em>URL</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see java.net.URL
+	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getURL()
 	 * @generated
 	 */
-	int STATE = 5;
+	int URL = 5;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int STATE__NAME = DatatypesPackage.NAMED_ELEMENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Values</b></em>' reference list. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int STATE__VALUES = DatatypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>State</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @generated
-	 * @ordered
-	 */
-	int STATE_FEATURE_COUNT = DatatypesPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.Component <em>Component</em>}'. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Component</em>'.
-	 * @see net.bhl.cdt.model.Component
+	 * The meta object id for the '<em>Operation Strategy</em>' data type.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see net.bhl.cdt.model.process.OperationStrategy
+	 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getOperationStrategy()
 	 * @generated
 	 */
-	EClass getComponent();
+	int OPERATION_STRATEGY = 6;
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.Component#getSubComponents
-	 * <em>Sub Components</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Sub Components</em>'.
-	 * @see net.bhl.cdt.model.Component#getSubComponents()
-	 * @see #getComponent()
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.OperationWithInput <em>Operation With Input</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operation With Input</em>'.
+	 * @see net.bhl.cdt.model.OperationWithInput
 	 * @generated
 	 */
-	EReference getComponent_SubComponents();
+	EClass getOperationWithInput();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.Component#getParameters
-	 * <em>Parameters</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Parameters</em>'.
-	 * @see net.bhl.cdt.model.Component#getParameters()
-	 * @see #getComponent()
+	 * Returns the meta object for the reference list '{@link net.bhl.cdt.model.OperationWithInput#getProcessedElements <em>Processed Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Processed Elements</em>'.
+	 * @see net.bhl.cdt.model.OperationWithInput#getProcessedElements()
+	 * @see #getOperationWithInput()
 	 * @generated
 	 */
-	EReference getComponent_Parameters();
+	EReference getOperationWithInput_ProcessedElements();
 
 	/**
-	 * Returns the meta object for the reference list '{@link net.bhl.cdt.model.Component#getConnectedComponents
-	 * <em>Connected Components</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the reference list '<em>Connected Components</em>'.
-	 * @see net.bhl.cdt.model.Component#getConnectedComponents()
-	 * @see #getComponent()
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.OperationWithOutput <em>Operation With Output</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Operation With Output</em>'.
+	 * @see net.bhl.cdt.model.OperationWithOutput
 	 * @generated
 	 */
-	EReference getComponent_ConnectedComponents();
+	EClass getOperationWithOutput();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.Component#getStates
-	 * <em>States</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>States</em>'.
-	 * @see net.bhl.cdt.model.Component#getStates()
-	 * @see #getComponent()
+	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.OperationWithOutput#getGeneratedElements <em>Generated Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Generated Elements</em>'.
+	 * @see net.bhl.cdt.model.OperationWithOutput#getGeneratedElements()
+	 * @see #getOperationWithOutput()
 	 * @generated
 	 */
-	EReference getComponent_States();
+	EReference getOperationWithOutput_GeneratedElements();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.Configuration <em>Configuration</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Configuration</em>'.
-	 * @see net.bhl.cdt.model.Configuration
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.GeneratableElement <em>Generatable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Generatable Element</em>'.
+	 * @see net.bhl.cdt.model.GeneratableElement
 	 * @generated
 	 */
-	EClass getConfiguration();
+	EClass getGeneratableElement();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.Configuration#getComponents
-	 * <em>Components</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Components</em>'.
-	 * @see net.bhl.cdt.model.Configuration#getComponents()
-	 * @see #getConfiguration()
+	 * Returns the meta object for the reference '{@link net.bhl.cdt.model.GeneratableElement#getSourceOperation <em>Source Operation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Source Operation</em>'.
+	 * @see net.bhl.cdt.model.GeneratableElement#getSourceOperation()
+	 * @see #getGeneratableElement()
 	 * @generated
 	 */
-	EReference getConfiguration_Components();
+	EReference getGeneratableElement_SourceOperation();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.Model <em>Model</em>}'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Model</em>'.
-	 * @see net.bhl.cdt.model.Model
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.ProcessableElement <em>Processable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Processable Element</em>'.
+	 * @see net.bhl.cdt.model.ProcessableElement
 	 * @generated
 	 */
-	EClass getModel();
+	EClass getProcessableElement();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.Model#getConfigurations
-	 * <em>Configurations</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Configurations</em>'.
-	 * @see net.bhl.cdt.model.Model#getConfigurations()
-	 * @see #getModel()
+	 * Returns the meta object for class '{@link net.bhl.cdt.model.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Named Element</em>'.
+	 * @see net.bhl.cdt.model.NamedElement
 	 * @generated
 	 */
-	EReference getModel_Configurations();
+	EClass getNamedElement();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.Parameter <em>Parameter</em>}'. <!-- begin-user-doc
-	 * --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Parameter</em>'.
-	 * @see net.bhl.cdt.model.Parameter
+	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.NamedElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see net.bhl.cdt.model.NamedElement#getName()
+	 * @see #getNamedElement()
 	 * @generated
 	 */
-	EClass getParameter();
+	EAttribute getNamedElement_Name();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link net.bhl.cdt.model.Parameter#getValues
-	 * <em>Values</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the containment reference list '<em>Values</em>'.
-	 * @see net.bhl.cdt.model.Parameter#getValues()
-	 * @see #getParameter()
+	 * Returns the meta object for data type '{@link java.net.URL <em>URL</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>URL</em>'.
+	 * @see java.net.URL
+	 * @model instanceClass="java.net.URL"
 	 * @generated
 	 */
-	EReference getParameter_Values();
+	EDataType getURL();
 
 	/**
-	 * Returns the meta object for the attribute '{@link net.bhl.cdt.model.Parameter#getDefaultUnit
-	 * <em>Default Unit</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the attribute '<em>Default Unit</em>'.
-	 * @see net.bhl.cdt.model.Parameter#getDefaultUnit()
-	 * @see #getParameter()
+	 * Returns the meta object for data type '{@link net.bhl.cdt.model.process.OperationStrategy <em>Operation Strategy</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for data type '<em>Operation Strategy</em>'.
+	 * @see net.bhl.cdt.model.process.OperationStrategy
+	 * @model instanceClass="net.bhl.cdt.model.process.OperationStrategy"
 	 * @generated
 	 */
-	EAttribute getParameter_DefaultUnit();
+	EDataType getOperationStrategy();
 
 	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.StructuralElement <em>Structural Element</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>Structural Element</em>'.
-	 * @see net.bhl.cdt.model.StructuralElement
-	 * @generated
-	 */
-	EClass getStructuralElement();
-
-	/**
-	 * Returns the meta object for class '{@link net.bhl.cdt.model.State <em>State</em>}'. <!-- begin-user-doc --> <!--
-	 * end-user-doc -->
-	 * 
-	 * @return the meta object for class '<em>State</em>'.
-	 * @see net.bhl.cdt.model.State
-	 * @generated
-	 */
-	EClass getState();
-
-	/**
-	 * Returns the meta object for the reference list '{@link net.bhl.cdt.model.State#getValues <em>Values</em>}'. <!--
-	 * begin-user-doc --> <!-- end-user-doc -->
-	 * 
-	 * @return the meta object for the reference list '<em>Values</em>'.
-	 * @see net.bhl.cdt.model.State#getValues()
-	 * @see #getState()
-	 * @generated
-	 */
-	EReference getState_Values();
-
-	/**
-	 * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * 
+	 * Returns the factory that creates the instances of the model.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @return the factory that creates the instances of the model.
 	 * @generated
 	 */
@@ -470,141 +382,110 @@ public interface ModelPackage extends EPackage {
 	 * <li>and each data type</li>
 	 * </ul>
 	 * <!-- end-user-doc -->
-	 * 
 	 * @generated
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.ComponentImpl <em>Component</em>}' class. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @see net.bhl.cdt.model.impl.ComponentImpl
-		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getComponent()
-		 * @generated
-		 */
-		EClass COMPONENT = eINSTANCE.getComponent();
-
-		/**
-		 * The meta object literal for the '<em><b>Sub Components</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference COMPONENT__SUB_COMPONENTS = eINSTANCE.getComponent_SubComponents();
-
-		/**
-		 * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference COMPONENT__PARAMETERS = eINSTANCE.getComponent_Parameters();
-
-		/**
-		 * The meta object literal for the '<em><b>Connected Components</b></em>' reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference COMPONENT__CONNECTED_COMPONENTS = eINSTANCE.getComponent_ConnectedComponents();
-
-		/**
-		 * The meta object literal for the '<em><b>States</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference COMPONENT__STATES = eINSTANCE.getComponent_States();
-
-		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.ConfigurationImpl <em>Configuration</em>}'
-		 * class. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @see net.bhl.cdt.model.impl.ConfigurationImpl
-		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getConfiguration()
-		 * @generated
-		 */
-		EClass CONFIGURATION = eINSTANCE.getConfiguration();
-
-		/**
-		 * The meta object literal for the '<em><b>Components</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference CONFIGURATION__COMPONENTS = eINSTANCE.getConfiguration_Components();
-
-		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.ModelImpl <em>Model</em>}' class. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @see net.bhl.cdt.model.impl.ModelImpl
-		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getModel()
-		 * @generated
-		 */
-		EClass MODEL = eINSTANCE.getModel();
-
-		/**
-		 * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference MODEL__CONFIGURATIONS = eINSTANCE.getModel_Configurations();
-
-		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.ParameterImpl <em>Parameter</em>}' class. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @see net.bhl.cdt.model.impl.ParameterImpl
-		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getParameter()
-		 * @generated
-		 */
-		EClass PARAMETER = eINSTANCE.getParameter();
-
-		/**
-		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @generated
-		 */
-		EReference PARAMETER__VALUES = eINSTANCE.getParameter_Values();
-
-		/**
-		 * The meta object literal for the '<em><b>Default Unit</b></em>' attribute feature. <!-- begin-user-doc -->
+		 * The meta object literal for the '{@link net.bhl.cdt.model.OperationWithInput <em>Operation With Input</em>}' class.
+		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * 
+		 * @see net.bhl.cdt.model.OperationWithInput
+		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getOperationWithInput()
 		 * @generated
 		 */
-		EAttribute PARAMETER__DEFAULT_UNIT = eINSTANCE.getParameter_DefaultUnit();
+		EClass OPERATION_WITH_INPUT = eINSTANCE.getOperationWithInput();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.StructuralElementImpl
-		 * <em>Structural Element</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @see net.bhl.cdt.model.impl.StructuralElementImpl
-		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getStructuralElement()
+		 * The meta object literal for the '<em><b>Processed Elements</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EClass STRUCTURAL_ELEMENT = eINSTANCE.getStructuralElement();
+		EReference OPERATION_WITH_INPUT__PROCESSED_ELEMENTS = eINSTANCE.getOperationWithInput_ProcessedElements();
 
 		/**
-		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.StateImpl <em>State</em>}' class. <!--
-		 * begin-user-doc --> <!-- end-user-doc -->
-		 * 
-		 * @see net.bhl.cdt.model.impl.StateImpl
-		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getState()
+		 * The meta object literal for the '{@link net.bhl.cdt.model.OperationWithOutput <em>Operation With Output</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see net.bhl.cdt.model.OperationWithOutput
+		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getOperationWithOutput()
 		 * @generated
 		 */
-		EClass STATE = eINSTANCE.getState();
+		EClass OPERATION_WITH_OUTPUT = eINSTANCE.getOperationWithOutput();
 
 		/**
-		 * The meta object literal for the '<em><b>Values</b></em>' reference list feature. <!-- begin-user-doc --> <!--
-		 * end-user-doc -->
-		 * 
+		 * The meta object literal for the '<em><b>Generated Elements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference STATE__VALUES = eINSTANCE.getState_Values();
+		EReference OPERATION_WITH_OUTPUT__GENERATED_ELEMENTS = eINSTANCE.getOperationWithOutput_GeneratedElements();
+
+		/**
+		 * The meta object literal for the '{@link net.bhl.cdt.model.GeneratableElement <em>Generatable Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see net.bhl.cdt.model.GeneratableElement
+		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getGeneratableElement()
+		 * @generated
+		 */
+		EClass GENERATABLE_ELEMENT = eINSTANCE.getGeneratableElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Source Operation</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference GENERATABLE_ELEMENT__SOURCE_OPERATION = eINSTANCE.getGeneratableElement_SourceOperation();
+
+		/**
+		 * The meta object literal for the '{@link net.bhl.cdt.model.ProcessableElement <em>Processable Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see net.bhl.cdt.model.ProcessableElement
+		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getProcessableElement()
+		 * @generated
+		 */
+		EClass PROCESSABLE_ELEMENT = eINSTANCE.getProcessableElement();
+
+		/**
+		 * The meta object literal for the '{@link net.bhl.cdt.model.impl.NamedElementImpl <em>Named Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see net.bhl.cdt.model.impl.NamedElementImpl
+		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getNamedElement()
+		 * @generated
+		 */
+		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
+
+		/**
+		 * The meta object literal for the '<em>URL</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see java.net.URL
+		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getURL()
+		 * @generated
+		 */
+		EDataType URL = eINSTANCE.getURL();
+
+		/**
+		 * The meta object literal for the '<em>Operation Strategy</em>' data type.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see net.bhl.cdt.model.process.OperationStrategy
+		 * @see net.bhl.cdt.model.impl.ModelPackageImpl#getOperationStrategy()
+		 * @generated
+		 */
+		EDataType OPERATION_STRATEGY = eINSTANCE.getOperationStrategy();
 
 	}
 

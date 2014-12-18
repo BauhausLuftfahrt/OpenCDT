@@ -2,10 +2,11 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: net.bhl.cdt.model;singleton:=true
-Bundle-Version: 0.9.1.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .,
  lib/javolution-5.2.3.jar,
- lib/jscience-4.3.1.jar
+ lib/jscience-4.3.1.jar,
+ lib/exp4j-0.3.11.jar
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
@@ -14,15 +15,39 @@ Require-Bundle: org.eclipse.emf.emfstore.client;bundle-version="1.1.0";visibilit
  org.eclipse.emf.ecore;visibility:=reexport,
  net.bhl.cdt.model;visibility:=reexport
 Bundle-ActivationPolicy: lazy
-Export-Package: javax.measure.converter,
+Export-Package: de.congrace.exp4j,
+ javax.measure,
+ javax.measure.converter,
+ javax.measure.quantity,
  javax.measure.unit,
  net.bhl.cdt.exceptions,
  net.bhl.cdt.model;uses:="org.eclipse.emf.ecore,  org.eclipse.core.runtime,  net.bhl.cdt.utilities.units,  org.eclipse.emf.common.util,  javax.units,  org.osgi.framework",
  net.bhl.cdt.model.datatypes,
  net.bhl.cdt.model.datatypes.impl,
  net.bhl.cdt.model.datatypes.util,
+ net.bhl.cdt.model.geometry,
+ net.bhl.cdt.model.geometry.impl,
+ net.bhl.cdt.model.geometry.util,
  net.bhl.cdt.model.impl;uses:="org.eclipse.emf.ecore,  org.eclipse.emf.common.util,  net.bhl.cdt.model,  org.eclipse.emf.ecore.impl,  org.eclipse.emf.common.notify",
+ net.bhl.cdt.model.process,
+ net.bhl.cdt.model.process.designoperations,
+ net.bhl.cdt.model.process.designoperations.impl,
+ net.bhl.cdt.model.process.designoperations.strategies,
+ net.bhl.cdt.model.process.designoperations.util,
+ net.bhl.cdt.model.process.impl,
+ net.bhl.cdt.model.process.registry,
+ net.bhl.cdt.model.process.selection,
+ net.bhl.cdt.model.process.selection.impl,
+ net.bhl.cdt.model.process.selection.util,
+ net.bhl.cdt.model.process.util,
+ net.bhl.cdt.model.system,
+ net.bhl.cdt.model.system.impl,
+ net.bhl.cdt.model.system.quantities,
+ net.bhl.cdt.model.system.quantities.impl,
+ net.bhl.cdt.model.system.quantities.util,
+ net.bhl.cdt.model.system.util,
  net.bhl.cdt.model.units;uses:=org.eclipse.emf.ecore,
  net.bhl.cdt.model.units.impl;uses:="org.eclipse.emf.ecore,org.eclipse.emf.ecore.impl",
- net.bhl.cdt.model.util;uses:="org.eclipse.emf.ecore.util,  org.eclipse.emf.ecore,  org.eclipse.emf.common.notify.impl,  net.bhl.cdt.model,  javax.units,  org.eclipse.emf.common.notify"
+ net.bhl.cdt.model.util;uses:="org.eclipse.emf.ecore.util,  org.eclipse.emf.ecore,  org.eclipse.emf.common.notify.impl,  net.bhl.cdt.model,  javax.units,  org.eclipse.emf.common.notify",
+ org.jscience.physics.amount
 

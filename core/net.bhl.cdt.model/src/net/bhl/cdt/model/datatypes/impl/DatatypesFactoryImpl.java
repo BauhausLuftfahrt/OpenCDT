@@ -15,7 +15,6 @@ import net.bhl.cdt.model.datatypes.DatatypesPackage;
 import net.bhl.cdt.model.datatypes.FloatPointValue;
 import net.bhl.cdt.model.datatypes.Formula;
 import net.bhl.cdt.model.datatypes.IntegerValue;
-import net.bhl.cdt.model.datatypes.MeasuredValue;
 import net.bhl.cdt.model.datatypes.StringValue;
 
 import org.eclipse.emf.ecore.EClass;
@@ -64,13 +63,13 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case DatatypesPackage.FLOAT_POINT_VALUE: return createFloatPointValue();
-			case DatatypesPackage.MEASURED_VALUE: return createMeasuredValue();
 			case DatatypesPackage.INTEGER_VALUE: return createIntegerValue();
 			case DatatypesPackage.STRING_VALUE: return createStringValue();
 			case DatatypesPackage.FORMULA: return createFormula();
 			case DatatypesPackage.COMPOSITE_VALUES: return createCompositeValues();
 			case DatatypesPackage.ARRAY: return createArray();
 			case DatatypesPackage.CELLS: return createCells();
+			case DatatypesPackage.MEASURED_VALUE: return createMeasuredValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -83,15 +82,6 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	public FloatPointValue createFloatPointValue() {
 		FloatPointValueImpl floatPointValue = new FloatPointValueImpl();
 		return floatPointValue;
-	}
-
-	/**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MeasuredValue createMeasuredValue() {
-		MeasuredValueImpl measuredValue = new MeasuredValueImpl();
-		return measuredValue;
 	}
 
 	/**
@@ -146,6 +136,16 @@ public class DatatypesFactoryImpl extends EFactoryImpl implements DatatypesFacto
 	public Cells createCells() {
 		CellsImpl cells = new CellsImpl();
 		return cells;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MeasuredValue createMeasuredValue() {
+		MeasuredValueImpl measuredValue = new MeasuredValueImpl();
+		return measuredValue;
 	}
 
 	/**
