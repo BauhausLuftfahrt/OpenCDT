@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Ui
 Bundle-SymbolicName: net.bhl.cdt.trace.ui;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: net.bhl.cdt.trace.ui.Activator
 Require-Bundle: net.bhl.cdt.connector.avl,
  net.bhl.cdt.connector.matlab.tornado

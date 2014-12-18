@@ -5,7 +5,7 @@ Bundle-SymbolicName: net.bhl.cdt.ui;singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Bundle-Activator: net.bhl.cdt.ui.Activator
 Require-Bundle: 
- net.bhl.cdt.model;bundle-version="0.1.0";visibility:=reexport,
+ net.bhl.cdt.model;visibility:=reexport,
  org.eclipse.emf.ecp.ui;bundle-version="1.1.0";visibility:=reexport,
  org.eclipse.emf.ecp.ui.view.swt;bundle-version="1.1.0";visibility:=reexport,
  org.eclipse.ui;bundle-version="3.105.0";visibility:=reexport,

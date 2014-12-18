@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
 Bundle-SymbolicName: net.bhl.cdt.connector.avl.edit;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Activator: net.bhl.cdt.connector.avl.provider.AvlEditPlugin$Implementation
 Bundle-Vendor: %providerName
