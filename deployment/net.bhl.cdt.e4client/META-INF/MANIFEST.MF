@@ -33,5 +33,6 @@ Require-Bundle: javax.inject;bundle-version="1.0.0",
  org.eclipse.emf.ecp.view.model.provider.xmi;bundle-version="1.7.0",
  org.eclipse.emf.ecp.view.model.editor;bundle-version="1.7.0",
  org.eclipse.emf.ecp.view.context.locale;bundle-version="1.7.0",
- org.eclipse.emf.ecp.view.swt.layout;bundle-version="1.7.0"
+ org.eclipse.emf.ecp.view.swt.layout;bundle-version="1.7.0",
+ net.bhl.cdt.model;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8

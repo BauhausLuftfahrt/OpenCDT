@@ -40,7 +40,6 @@ public final class ModelEditPlugin extends EMFPlugin {
 		super
 		  (new ResourceLocator [] {
 		     UnitsEditPlugin.INSTANCE,
-		     ModelEditPlugin.INSTANCE,
 		   });
 	}
 
