@@ -1,11 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Client
-Bundle-SymbolicName: net.bhl.cdt.e4client;singleton:=true
+Bundle-Name: OpenCDT
+Bundle-SymbolicName: net.bhl.cdt.e4.client;singleton:=true
 Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: net.bhl.cdt.e4.client.Activator
 Require-Bundle: javax.inject;bundle-version="1.0.0",
- org.eclipse.core.runtime;bundle-version="3.11.0",
- org.eclipse.swt;bundle-version="3.104.0",
+ org.eclipse.core.runtime;bundle-version="3.11.1",
+ org.eclipse.swt;bundle-version="3.104.1",
  org.eclipse.e4.ui.model.workbench;bundle-version="1.1.100",
  org.eclipse.jface;bundle-version="3.11.0",
  org.eclipse.e4.ui.services;bundle-version="1.2.0",
@@ -13,26 +14,32 @@ Require-Bundle: javax.inject;bundle-version="1.0.0",
  org.eclipse.e4.core.di;bundle-version="1.5.0",
  org.eclipse.e4.ui.di;bundle-version="1.1.0",
  org.eclipse.e4.core.contexts;bundle-version="1.4.0",
- org.eclipse.emf.ecp.emfstore.core;bundle-version="1.7.0",
- org.eclipse.emf.ecp.emfstore.ui;bundle-version="1.7.0",
- org.eclipse.emf.ecp.core;bundle-version="1.7.0",
- org.eclipse.emf.ecp.common;bundle-version="1.7.0",
- org.eclipse.emf.ecp.workspace.ui;bundle-version="1.7.0",
- org.eclipse.emf.ecp.workspace.core;bundle-version="1.7.0",
  org.eclipse.emf.ecp.ui.e4;bundle-version="1.7.0",
- org.eclipse.emf.ecp.core.emffilter;bundle-version="1.7.0",
- org.eclipse.emf.ecp.ui;bundle-version="1.7.0",
+ org.eclipse.emf.ecp.emfstore.core;bundle-version="1.7.0",
+ org.eclipse.emf.ecp.emfstore.ui.e4;bundle-version="1.7.0",
+ org.eclipse.emf.ecp.common;bundle-version="1.7.0",
+ org.eclipse.emf.ecp.emfstore.ui.search;bundle-version="1.7.0",
  org.eclipse.emf.ecp.explorereditorbridge;bundle-version="1.7.0",
+ org.eclipse.emf.ecp.cdo.core;bundle-version="1.7.0",
+ org.eclipse.emf.ecp.cdo.ui;bundle-version="1.7.0",
+ org.eclipse.emf.ecp.view.model;bundle-version="1.7.0",
+ org.eclipse.emf.ecp.ui.view.editor.controls;bundle-version="1.7.0",
+ org.eclipse.emf.ecp.view.model.editor;bundle-version="1.7.0",
+ org.eclipse.emf.ecp.common.ui;bundle-version="1.7.0",
+ org.eclipse.emf.ecp.core.emffilter;bundle-version="1.7.0",
  org.eclipse.emf.ecp.edit;bundle-version="1.7.0",
+ org.eclipse.emf.ecp.emfstore.ui;bundle-version="1.7.0",
  org.eclipse.emf.ecp.edit.swt;bundle-version="1.7.0",
+ org.eclipse.emf.ecp.ui;bundle-version="1.7.0",
  org.eclipse.emf.ecp.ui.view;bundle-version="1.7.0",
  org.eclipse.emf.ecp.ui.view.swt;bundle-version="1.7.0",
+ org.eclipse.emf.ecp.view.context.locale;bundle-version="1.7.0",
  org.eclipse.emf.ecp.view.core.swt;bundle-version="1.7.0",
  org.eclipse.emf.ecp.view.model.edit;bundle-version="1.7.0",
  org.eclipse.emf.ecp.view.model.provider.generator;bundle-version="1.7.0",
  org.eclipse.emf.ecp.view.model.provider.xmi;bundle-version="1.7.0",
- org.eclipse.emf.ecp.view.model.editor;bundle-version="1.7.0",
- org.eclipse.emf.ecp.view.context.locale;bundle-version="1.7.0",
- org.eclipse.emf.ecp.view.swt.layout;bundle-version="1.7.0",
- net.bhl.cdt.model;bundle-version="0.1.0"
+ net.bhl.cdt.exampleModel;bundle-version="0.1.0",
+ org.eclipse.emf.ecp.ui.rcp;bundle-version="1.7.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.osgi.framework;version="1.3.0"
+Bundle-ActivationPolicy: lazy
