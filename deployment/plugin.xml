@@ -13,5 +13,11 @@
          </property>
       </product>
    </extension>
+   <extension
+         point="org.eclipse.emf.emfstore.server.locationProvider">
+      <LocationProvider
+            providerClass="net.bhl.cdt.e4.client.EMFStoreLocationProvider">
+      </LocationProvider>
+   </extension>
 
 </plugin>
