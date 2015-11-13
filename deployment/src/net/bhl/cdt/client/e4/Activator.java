@@ -1,4 +1,4 @@
-package net.bhl.cdt.e4.client;
+package net.bhl.cdt.client.e4;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -17,6 +17,7 @@ public class Activator implements BundleActivator {
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
 		Activator.context = bundleContext;
+		System.out.println("Client started!");
 	}
 
 	/*
@@ -25,6 +26,6 @@ public class Activator implements BundleActivator {
 	 */
 	public void stop(BundleContext bundleContext) throws Exception {
 		Activator.context = null;
+		System.out.println("Client closed!");
 	}
-
 }

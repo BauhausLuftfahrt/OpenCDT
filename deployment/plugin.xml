@@ -5,19 +5,26 @@
          id="product"
          point="org.eclipse.core.runtime.products">
       <product
-            name="net.bhl.cdt.e4.client"
+            name="net.bhl.cdt.client.e4"
             application="org.eclipse.e4.ui.workbench.swt.E4Application">
          <property
+               name="lifeCycleURI"
+               value="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.E4LifeCycle">
+         </property>
+         <property
                name="applicationCSS"
-               value="platform:/plugin/net.bhl.cdt.e4.client/css/default.css">
+               value="platform:/plugin/net.bhl.cdt.client.e4/css/default.css">
          </property>
       </product>
    </extension>
    <extension
-         point="org.eclipse.emf.emfstore.server.locationProvider">
-      <LocationProvider
-            providerClass="net.bhl.cdt.e4.client.EMFStoreLocationProvider">
-      </LocationProvider>
+         point="org.eclipse.emf.ecp.ui.modelElementOpener">
+      <modelElementOpener
+            class="net.bhl.cdt.client.e4.editor.E4ModelElementOpener">
+            <staticTester
+            	modelElement="org.eclipse.emf.ecore.EObject"
+               	priority="2">
+         	</staticTester>
+      </modelElementOpener>
    </extension>
-
 </plugin>
