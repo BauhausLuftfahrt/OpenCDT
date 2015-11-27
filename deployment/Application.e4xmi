@@ -10,7 +10,7 @@
               <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_k3UXcIerEeW5CsdusLtMwg" coreExpressionId="org.eclipse.emf.ecp.application.e4.isSingleProjectOrModelElementSelected"/>
             </children>
             <children xsi:type="menu:HandledToolItem" xmi:id="_XSf8AIe1EeW5CsdusLtMwg" elementId="net.bhl.cdt.client.e4.handledtoolitem.saveproject" label="Save Project" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/save_edit.gif" command="_ZXi88Ie1EeW5CsdusLtMwg"/>
-            <children xsi:type="menu:HandledToolItem" xmi:id="_5vpssIe1EeW5CsdusLtMwg" elementId="net.bhl.cdt.client.e4.handledtoolitem.link" label="Link" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/link_with_editor.gif" tooltip="Link With Editor" selected="true" type="Check" command="_-Qn9gIe1EeW5CsdusLtMwg"/>
+            <children xsi:type="menu:HandledToolItem" xmi:id="_5vpssIe1EeW5CsdusLtMwg" elementId="net.bhl.cdt.client.e4.handledtoolitem.link" label="Link With Editor" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/link_with_editor.gif" tooltip="Link With Editor" selected="true" type="Check" command="_-Qn9gIe1EeW5CsdusLtMwg"/>
           </toolbar>
         </children>
       </children>
