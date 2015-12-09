@@ -3,29 +3,39 @@ package net.bhl.cdt.client.e4;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
+/**
+ * Controls the starting and stopping of the client bundle.
+ * 
+ * @author raoul.rothfeld
+ *
+ */
 public class Activator implements BundleActivator {
 
-	private static BundleContext context;
+	/** Shared singleton instance */
+	private static BundleContext CONTEXT;
 
+	/**
+	 * Retrieve bundle context instance.
+	 * 
+	 * @return shared singleton instance
+	 */
 	static BundleContext getContext() {
-		return context;
+		return CONTEXT;
 	}
 
 	/*
-	 * (non-Javadoc)
-	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
+	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.
+	 * BundleContext)
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
-		Activator.context = bundleContext;
-		System.out.println("Client started!");
+		Activator.CONTEXT = bundleContext;
 	}
 
 	/*
-	 * (non-Javadoc)
-	 * @see org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
+	 * @see
+	 * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
 	 */
 	public void stop(BundleContext bundleContext) throws Exception {
-		Activator.context = null;
-		System.out.println("Client closed!");
+		Activator.CONTEXT = null;
 	}
 }

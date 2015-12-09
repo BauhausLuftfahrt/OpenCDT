@@ -5,15 +5,15 @@
          id="product"
          point="org.eclipse.core.runtime.products">
       <product
-            name="net.bhl.cdt.client.e4"
+      		name="appName"
             application="org.eclipse.e4.ui.workbench.swt.E4Application">
          <property
                name="lifeCycleURI"
                value="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.E4LifeCycle">
          </property>
          <property
-               name="applicationCSS"
-               value="platform:/plugin/net.bhl.cdt.client.e4/css/default.css">
+               name="appName"
+               value="org.eclipse.e4.ui.workbench.swt.E4Application">
          </property>
       </product>
    </extension>
