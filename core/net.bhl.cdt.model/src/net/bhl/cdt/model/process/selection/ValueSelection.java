@@ -18,11 +18,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.selection.ValueSelection#getCriteria <em>Criteria</em>}</li>
  *   <li>{@link net.bhl.cdt.model.process.selection.ValueSelection#getSelectedValues <em>Selected Values</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.process.selection.SelectionPackage#getValueSelection()
  * @model

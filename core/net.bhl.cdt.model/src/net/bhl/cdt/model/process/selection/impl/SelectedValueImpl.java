@@ -40,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Selected Value</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.selection.impl.SelectedValueImpl#isBusy <em>Busy</em>}</li>
  *   <li>{@link net.bhl.cdt.model.process.selection.impl.SelectedValueImpl#getTimeStamp <em>Time Stamp</em>}</li>
@@ -47,7 +48,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link net.bhl.cdt.model.process.selection.impl.SelectedValueImpl#getArguments <em>Arguments</em>}</li>
  *   <li>{@link net.bhl.cdt.model.process.selection.impl.SelectedValueImpl#getSelectedValues <em>Selected Values</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

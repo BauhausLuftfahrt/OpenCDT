@@ -10,10 +10,10 @@ package net.bhl.cdt.model.datatypes;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.datatypes.IntegerValue#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.datatypes.DatatypesPackage#getIntegerValue()
  * @model

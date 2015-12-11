@@ -16,11 +16,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.system.Value#getStates <em>States</em>}</li>
  *   <li>{@link net.bhl.cdt.model.system.Value#getParameter <em>Parameter</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.system.SystemPackage#getValue()
  * @model abstract="true"

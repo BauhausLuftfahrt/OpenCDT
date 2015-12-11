@@ -15,10 +15,10 @@ package net.bhl.cdt.model.process.selection;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.selection.NameCriterion#getValueName <em>Value Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.process.selection.SelectionPackage#getNameCriterion()
  * @model

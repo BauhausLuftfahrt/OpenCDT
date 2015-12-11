@@ -19,12 +19,12 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.selection.SelectedValue#getAppliedCriteria <em>Applied Criteria</em>}</li>
  *   <li>{@link net.bhl.cdt.model.process.selection.SelectedValue#getArguments <em>Arguments</em>}</li>
  *   <li>{@link net.bhl.cdt.model.process.selection.SelectedValue#getSelectedValues <em>Selected Values</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.process.selection.SelectionPackage#getSelectedValue()
  * @model

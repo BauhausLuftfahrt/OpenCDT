@@ -16,10 +16,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.DesignProcess#getDesignProcessElements <em>Design Process Elements</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.process.ProcessPackage#getDesignProcess()
  * @model

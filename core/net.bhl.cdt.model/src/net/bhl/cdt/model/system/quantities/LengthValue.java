@@ -15,10 +15,10 @@ import org.jscience.physics.amount.Amount;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.system.quantities.LengthValue#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.system.quantities.QuantitiesPackage#getLengthValue()
  * @model

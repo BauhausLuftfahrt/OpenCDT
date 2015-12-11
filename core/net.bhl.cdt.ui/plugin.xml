@@ -2,14 +2,6 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension-point id="net.bhl.cdt.ui.configurationview.filter" name="Configuration View filter" schema="schema/net.bhl.cdt.ui.configurationview.filter.exsd"/>
-   <extension
-         point="org.eclipse.ui.perspectives">
-      <perspective
-            class="net.bhl.cdt.ui.CDTPerspectiveFactory"
-            id="net.bhl.cdt.ui.CDTPerspective"
-            name="CDT Perspective">
-      </perspective>
-   </extension>
    
    <extension
          point="org.eclipse.ui.menus">
@@ -93,30 +85,12 @@
       </command>
    </extension>
    <extension
-         point="org.eclipse.ui.intro">
-      <intro
-            class="net.bhl.cdt.ui.CDTWelcomePage"
-            id="net.bhl.cdt.ui.intro"
-            label="CDT Welcome Page">
-      </intro>
-      <introProductBinding
-            introId="net.bhl.cdt.ui.intro"
-            productId="net.bhl.cdt.client.product">
-      </introProductBinding>
-   </extension>
-   <extension
          point="org.eclipse.ui.editors">
       <editor
             class="net.bhl.cdt.ui.editors.ArrayEditor"
             id="net.bhl.cdt.ui.editors.ArrayEditor"
             name="Array Editor">
       </editor>
-   </extension>
-   <extension
-         point="org.eclipse.emf.emfstore.client.workspaceLocationProvider">
-      <LocationProvider
-            providerClass="net.bhl.cdt.ui.WorkspaceLocationProvider">
-      </LocationProvider>
    </extension>
    <extension
          point="org.eclipse.emf.ecp.ui.modelElementOpener">
@@ -127,12 +101,6 @@
                priority="1">
          </staticTester>
       </modelElementOpener>
-   </extension>
-   <extension
-         point="org.eclipse.emf.ecp.core.filters">
-      <FilterProvider
-            class="net.bhl.cdt.ui.CDTDefaultFilterProvider">
-      </FilterProvider>
    </extension>
    <extension
          point="org.eclipse.core.runtime.adapters">

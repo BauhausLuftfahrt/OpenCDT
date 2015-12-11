@@ -22,11 +22,11 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.selection.impl.ValueSelectionArgumentImpl#getSupportedCriteria <em>Supported Criteria</em>}</li>
  *   <li>{@link net.bhl.cdt.model.process.selection.impl.ValueSelectionArgumentImpl#getOpposedCriteria <em>Opposed Criteria</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

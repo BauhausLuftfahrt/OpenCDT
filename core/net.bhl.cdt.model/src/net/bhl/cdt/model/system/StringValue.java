@@ -15,10 +15,10 @@ package net.bhl.cdt.model.system;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.system.StringValue#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.system.SystemPackage#getStringValue()
  * @model

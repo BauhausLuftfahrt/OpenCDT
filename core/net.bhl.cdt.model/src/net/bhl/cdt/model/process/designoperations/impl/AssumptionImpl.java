@@ -27,10 +27,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Assumption</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.designoperations.impl.AssumptionImpl#getGeneratedElements <em>Generated Elements</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.designoperations.impl.CalculatedValueImpl#getSourceOperation <em>Source Operation</em>}</li>
  *   <li>{@link net.bhl.cdt.model.process.designoperations.impl.CalculatedValueImpl#getStates <em>States</em>}</li>
@@ -43,7 +44,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link net.bhl.cdt.model.process.designoperations.impl.CalculatedValueImpl#getProcessedElements <em>Processed Elements</em>}</li>
  *   <li>{@link net.bhl.cdt.model.process.designoperations.impl.CalculatedValueImpl#getExpression <em>Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

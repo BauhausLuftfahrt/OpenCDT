@@ -21,12 +21,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Space Vector</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.geometry.impl.SpaceVectorImpl#getX <em>X</em>}</li>
  *   <li>{@link net.bhl.cdt.model.geometry.impl.SpaceVectorImpl#getY <em>Y</em>}</li>
  *   <li>{@link net.bhl.cdt.model.geometry.impl.SpaceVectorImpl#getZ <em>Z</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

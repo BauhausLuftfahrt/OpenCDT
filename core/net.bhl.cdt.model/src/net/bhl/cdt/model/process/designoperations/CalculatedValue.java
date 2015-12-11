@@ -18,10 +18,10 @@ import net.bhl.cdt.model.system.Value;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.designoperations.CalculatedValue#getExpression <em>Expression</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.process.designoperations.DesignoperationsPackage#getCalculatedValue()
  * @model abstract="true"

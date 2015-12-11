@@ -16,10 +16,10 @@ import javax.measure.unit.Unit;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.system.MeasuredValue#getUnit <em>Unit</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.system.SystemPackage#getMeasuredValue()
  * @model

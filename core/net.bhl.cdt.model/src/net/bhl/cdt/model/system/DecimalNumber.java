@@ -16,10 +16,10 @@ import java.math.BigDecimal;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.system.DecimalNumber#getValue <em>Value</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.system.SystemPackage#getDecimalNumber()
  * @model

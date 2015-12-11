@@ -15,10 +15,10 @@ import net.bhl.cdt.model.NamedElement;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.selection.Rationale#getRationaleDescription <em>Rationale Description</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.process.selection.SelectionPackage#getRationale()
  * @model abstract="true"

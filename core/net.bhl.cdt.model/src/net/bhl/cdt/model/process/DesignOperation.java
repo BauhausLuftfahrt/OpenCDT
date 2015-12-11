@@ -15,10 +15,10 @@ package net.bhl.cdt.model.process;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.DesignOperation#getSuperprocess <em>Superprocess</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.process.ProcessPackage#getDesignOperation()
  * @model abstract="true"

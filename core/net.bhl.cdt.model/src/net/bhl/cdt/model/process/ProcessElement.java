@@ -16,11 +16,11 @@ import org.eclipse.emf.ecore.EClass;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.ProcessElement#isBusy <em>Busy</em>}</li>
  *   <li>{@link net.bhl.cdt.model.process.ProcessElement#getTimeStamp <em>Time Stamp</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.process.ProcessPackage#getProcessElement()
  * @model abstract="true"

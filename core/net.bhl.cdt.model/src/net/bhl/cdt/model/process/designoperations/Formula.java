@@ -19,11 +19,11 @@ import net.bhl.cdt.model.system.Parameter;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.designoperations.Formula#getFormula <em>Formula</em>}</li>
  *   <li>{@link net.bhl.cdt.model.process.designoperations.Formula#getParameter <em>Parameter</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.process.designoperations.DesignoperationsPackage#getFormula()
  * @model

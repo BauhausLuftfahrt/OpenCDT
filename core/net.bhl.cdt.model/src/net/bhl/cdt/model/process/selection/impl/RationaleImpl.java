@@ -19,10 +19,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Rationale</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.selection.impl.RationaleImpl#getRationaleDescription <em>Rationale Description</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

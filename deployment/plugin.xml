@@ -2,22 +2,6 @@
 <plugin>
 
    <extension
-         id="product"
-         point="org.eclipse.core.runtime.products">
-      <product
-            name="net.bhl.cdt.client.e4"
-            application="org.eclipse.e4.ui.workbench.swt.E4Application">
-         <property
-               name="lifeCycleURI"
-               value="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.E4LifeCycle">
-         </property>
-         <property
-               name="applicationCSS"
-               value="platform:/plugin/net.bhl.cdt.client.e4/css/default.css">
-         </property>
-      </product>
-   </extension>
-   <extension
          point="org.eclipse.emf.ecp.ui.modelElementOpener">
       <modelElementOpener
             class="net.bhl.cdt.client.e4.editor.E4ModelElementOpener">
@@ -26,5 +10,25 @@
                	priority="2">
          	</staticTester>
       </modelElementOpener>
+   </extension>
+   <extension
+         id="OpenCDT"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.e4.ui.workbench.swt.E4Application"
+            name="net.bhl.cdt.client.e4">
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.emf.emfstore.server.locationProvider">
+      <LocationProvider
+            providerClass="net.bhl.cdt.client.e4.emfstore.LocationProvider">
+      </LocationProvider>
+   </extension>
+   <extension
+         point="org.eclipse.emf.emfstore.client.workspaceLocationProvider">
+      <LocationProvider
+            providerClass="net.bhl.cdt.client.e4.emfstore.LocationProvider">
+      </LocationProvider>
    </extension>
 </plugin>

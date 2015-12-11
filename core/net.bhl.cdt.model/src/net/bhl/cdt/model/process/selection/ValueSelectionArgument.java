@@ -16,11 +16,11 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.selection.ValueSelectionArgument#getSupportedCriteria <em>Supported Criteria</em>}</li>
  *   <li>{@link net.bhl.cdt.model.process.selection.ValueSelectionArgument#getOpposedCriteria <em>Opposed Criteria</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.process.selection.SelectionPackage#getValueSelectionArgument()
  * @model

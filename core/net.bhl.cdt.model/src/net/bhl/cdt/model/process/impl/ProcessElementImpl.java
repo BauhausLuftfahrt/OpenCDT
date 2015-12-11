@@ -29,11 +29,11 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Element</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.impl.ProcessElementImpl#isBusy <em>Busy</em>}</li>
  *   <li>{@link net.bhl.cdt.model.process.impl.ProcessElementImpl#getTimeStamp <em>Time Stamp</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

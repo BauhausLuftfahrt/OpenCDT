@@ -11,10 +11,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.datatypes.CompositeValues#getDatatypes <em>Datatypes</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.datatypes.DatatypesPackage#getCompositeValues()
  * @model

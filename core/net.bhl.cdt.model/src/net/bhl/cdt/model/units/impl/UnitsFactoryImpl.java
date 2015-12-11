@@ -9,6 +9,7 @@ package net.bhl.cdt.model.units.impl;
 import javax.measure.quantity.Quantity;
 import javax.measure.unit.Unit;
 
+import net.bhl.cdt.model.units.*;
 import net.bhl.cdt.model.units.UnitsFactory;
 import net.bhl.cdt.model.units.UnitsPackage;
 

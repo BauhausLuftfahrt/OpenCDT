@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Name Criterion</b></em>'. <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.selection.impl.NameCriterionImpl#getValueName <em>Value Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

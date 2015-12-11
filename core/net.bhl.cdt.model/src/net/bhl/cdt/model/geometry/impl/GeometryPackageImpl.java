@@ -22,6 +22,7 @@ import net.bhl.cdt.model.system.SystemPackage;
 import net.bhl.cdt.model.system.impl.SystemPackageImpl;
 import net.bhl.cdt.model.system.quantities.QuantitiesPackage;
 import net.bhl.cdt.model.system.quantities.impl.QuantitiesPackageImpl;
+import net.bhl.cdt.model.units.UnitsPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -80,6 +81,9 @@ public class GeometryPackageImpl extends EPackageImpl implements GeometryPackage
 		GeometryPackageImpl theGeometryPackage = (GeometryPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof GeometryPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new GeometryPackageImpl());
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		UnitsPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		ModelPackageImpl theModelPackage = (ModelPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI) instanceof ModelPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ModelPackage.eNS_URI) : ModelPackage.eINSTANCE);

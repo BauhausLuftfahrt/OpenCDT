@@ -11,10 +11,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.NamedElement#getName <em>Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.ModelPackage#getNamedElement()
  * @model abstract="true"

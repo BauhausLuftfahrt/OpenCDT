@@ -20,10 +20,10 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.process.designoperations.impl.DisciplineToolServiceImpl#getServiceURL <em>Service URL</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */

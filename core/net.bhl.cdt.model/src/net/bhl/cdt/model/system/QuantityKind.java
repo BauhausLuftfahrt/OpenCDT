@@ -16,10 +16,10 @@ import org.eclipse.emf.common.util.EList;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.system.QuantityKind#getValues <em>Values</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.system.SystemPackage#getQuantityKind()
  * @model

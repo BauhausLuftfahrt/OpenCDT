@@ -17,10 +17,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.OperationWithInput#getProcessedElements <em>Processed Elements</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.ModelPackage#getOperationWithInput()
  * @model interface="true" abstract="true"

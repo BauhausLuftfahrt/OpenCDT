@@ -18,12 +18,12 @@ import net.bhl.cdt.model.system.Value;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link net.bhl.cdt.model.geometry.SpaceVector#getX <em>X</em>}</li>
  *   <li>{@link net.bhl.cdt.model.geometry.SpaceVector#getY <em>Y</em>}</li>
  *   <li>{@link net.bhl.cdt.model.geometry.SpaceVector#getZ <em>Z</em>}</li>
  * </ul>
- * </p>
  *
  * @see net.bhl.cdt.model.geometry.GeometryPackage#getSpaceVector()
  * @model
