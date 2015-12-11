@@ -208,7 +208,7 @@ public class GetContributingUsersCommand {
 		if (projectSpace != null) {
 			// TODO: add a feature "hide local revision"
 			HistoryInfo localHistoryInfo = VersioningFactory.eINSTANCE.createHistoryInfo();
-			ChangePackage changePackage = projectSpace.getLocalChangePackage(false);
+			ChangePackage changePackage = (ChangePackage) projectSpace.getLocalChangePackage(false);
 			// filter for modelelement, do additional sanity check as the
 			// project space could've been also selected
 			if (modelElement != null && projectSpace.getProject().contains(modelElement)) {
