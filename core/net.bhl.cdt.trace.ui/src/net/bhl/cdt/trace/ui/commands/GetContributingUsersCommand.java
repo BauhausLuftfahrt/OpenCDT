@@ -208,7 +208,7 @@ public class GetContributingUsersCommand {
 		if (projectSpace != null) {
 			// TODO: add a feature "hide local revision"
 			HistoryInfo localHistoryInfo = VersioningFactory.eINSTANCE.createHistoryInfo();
-			ChangePackage changePackage = projectSpace.getLocalChangePackage(false);
+			ChangePackage changePackage = (ChangePackage) projectSpace.getLocalChangePackage(false);
 			// filter for modelelement, do additional sanity check as the
 			// project space could've been also selected
 			if (modelElement != null && projectSpace.getProject().contains(modelElement)) {
@@ -242,7 +242,7 @@ public class GetContributingUsersCommand {
 
 	private List<ESHistoryInfo> rangeQuery() throws ESException {
 		@SuppressWarnings("unchecked")
-		RangeQuery<ESRangeQuery<ESRangeQuery<?>>> rangeQuery = HistoryQueryBuilder.rangeQuery(centerVersion,
+		RangeQuery<ESRangeQuery<ESRangeQuery<?>>> rangeQuery = (RangeQuery<ESRangeQuery<ESRangeQuery<?>>>) HistoryQueryBuilder.rangeQuery(centerVersion,
 			UPPER_LIMIT, LOWER_LIMIT, showAllVersions, true, true, true);
 		List<ESHistoryInfo> infos = projectSpace.toAPI().getHistoryInfos(rangeQuery.toAPI(), new NullProgressMonitor());
 		return infos;
