@@ -36,8 +36,6 @@ Export-Package: net.bhl.cdt.commands,
    org.eclipse.swt.widgets,
    org.eclipse.emf.emfstore.internal.client.model.util",
  net.bhl.cdt.ui.adapter;uses:="org.eclipse.core.runtime,org.eclipse.ui.views.properties",
- net.bhl.cdt.ui.command;
- net.bhl.cdt.ui.dialogs;uses:="org.eclipse.swt.widgets,org.eclipse.jface.dialogs",
  net.bhl.cdt.ui.editors;
   uses:="org.eclipse.core.runtime,
    org.eclipse.ui,

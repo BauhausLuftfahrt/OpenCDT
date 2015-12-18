@@ -11,24 +11,6 @@
                name="net.bhl.cdt.gui.MEDeleteCommand"
                visible="true">
          </separator>
-         <command
-               commandId="org.eclipse.emf.ecp.ui.workbench.deleteModelElement"
-               icon="icons/delete.gif"
-               label="Delete Model Element"
-               style="push">
-            <visibleWhen
-                  checkEnabled="false">
-               <and>
-                  <iterate
-                        ifEmpty="false"
-                        operator="and">
-                     <instanceof
-                           value="org.eclipse.emf.ecore.EObject">
-                     </instanceof>
-                  </iterate>
-               </and>
-            </visibleWhen>
-         </command>
       </menuContribution>
       <menuContribution
             locationURI="toolbar:org.eclipse.emf.ecp.ui.ModelExplorerView">
@@ -73,11 +55,6 @@
    </extension>
    <extension
          point="org.eclipse.ui.commands">
-      <command
-            defaultHandler="net.bhl.cdt.ui.handler.NewProjectHandler"
-            id="net.bhl.cdt.ui.NewProjectHandler"
-            name="New Project">
-      </command>
       <command
             defaultHandler="net.bhl.cdt.ui.handlers.ExecuteProcessElementHandler"
             id="net.bhl.cdt.ui.ExecuteProcessElement"

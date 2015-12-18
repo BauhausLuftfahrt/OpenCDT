@@ -23,7 +23,6 @@
    <vm>
    </vm>
 
-
    <plugins>
       <plugin id="com.ibm.icu"/>
       <plugin id="javax.annotation"/>
@@ -175,15 +174,21 @@
       <plugin id="org.eclipse.emf.edit.ui"/>
       <plugin id="org.eclipse.emf.emfstore.client"/>
       <plugin id="org.eclipse.emf.emfstore.client.model.edit"/>
+      <plugin id="org.eclipse.emf.emfstore.client.transaction"/>
       <plugin id="org.eclipse.emf.emfstore.client.ui"/>
+      <plugin id="org.eclipse.emf.emfstore.client.ui.rap" fragment="true"/>
       <plugin id="org.eclipse.emf.emfstore.client.ui.rcp" fragment="true"/>
+      <plugin id="org.eclipse.emf.emfstore.client.ui.transaction"/>
       <plugin id="org.eclipse.emf.emfstore.common"/>
       <plugin id="org.eclipse.emf.emfstore.common.model"/>
       <plugin id="org.eclipse.emf.emfstore.common.model.edit"/>
+      <plugin id="org.eclipse.emf.emfstore.ecore"/>
       <plugin id="org.eclipse.emf.emfstore.migration"/>
       <plugin id="org.eclipse.emf.emfstore.server"/>
       <plugin id="org.eclipse.emf.emfstore.server.model"/>
       <plugin id="org.eclipse.emf.emfstore.server.model.edit"/>
+      <plugin id="org.eclipse.emf.transaction"/>
+      <plugin id="org.eclipse.emf.validation"/>
       <plugin id="org.eclipse.emfforms.common"/>
       <plugin id="org.eclipse.emfforms.common.source"/>
       <plugin id="org.eclipse.emfforms.core.services"/>
