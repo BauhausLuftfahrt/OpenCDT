@@ -120,5 +120,6 @@ Require-Bundle: javax.inject;bundle-version="1.0.0",
  org.eclipse.emf.emfstore.migration;bundle-version="1.6.2",
  org.eclipse.emf.emfstore.server.model.edit;bundle-version="1.6.2",
  org.eclipse.emf.emfstore.client.transaction;bundle-version="1.6.2",
- org.eclipse.emf.emfstore.client.ui.transaction;bundle-version="1.6.2"
+ org.eclipse.emf.emfstore.client.ui.transaction;bundle-version="1.6.2",
+ org.eclipse.e4.ui.workbench.addons.swt;bundle-version="1.2.0"
 Bundle-Activator: net.bhl.cdt.client.e4.Activator

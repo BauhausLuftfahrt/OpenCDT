@@ -24,6 +24,7 @@ import org.eclipse.emf.ecp.view.spi.context.ViewModelContextFactory;
 import org.eclipse.emf.ecp.view.spi.provider.ViewProviderHelper;
 import org.eclipse.emf.edit.provider.ComposedImage;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
+import org.eclipse.emfforms.spi.common.locale.EMFFormsLocaleProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.widgets.Composite;
@@ -68,7 +69,7 @@ public class E4ModelEditor {
 	 * @param part the corresponding {@link MPart}
 	 */
 	@Inject
-	public void setInput(@Optional @Named(INPUT) EObject modelElement, @Optional ECPProject ecpProject, MPart part) {
+	public void setInput(@Optional @Named(INPUT) EObject modelElement, @Optional ECPProject ecpProject, @Optional EMFFormsLocaleProvider localeProvider, MPart part) {
 		if (modelElement == null) {
 			return;
 		}
