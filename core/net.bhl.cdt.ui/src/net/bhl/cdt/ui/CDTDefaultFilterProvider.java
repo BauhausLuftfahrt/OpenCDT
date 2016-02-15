@@ -25,15 +25,18 @@ public class CDTDefaultFilterProvider implements ECPFilterProvider {
 	public Set<String> getHiddenPackages() {
 		String temp = null;
 		Set<String> hiddenElements = new HashSet<String>();
-		//All URIs
-		Set<String> relevantURIs = new HashSet<String>(Registry.INSTANCE.keySet());
-		Iterator<String> iterator = relevantURIs.iterator();
-		while (iterator.hasNext()){
-			temp = iterator.next();
-			if (!temp.contains("bhl.net") && !temp.contains("ADDAM.org") && !temp.contains("PAWAT")) {
-				hiddenElements.add(temp);
-			}
-		}
+		
+		// DO NOT FILTER OUT RESULTS IN OPENCDT (PAXELERATE ITEMS GET HIDDEN)
+		
+//		//All URIs
+//		Set<String> relevantURIs = new HashSet<String>(Registry.INSTANCE.keySet());
+//		Iterator<String> iterator = relevantURIs.iterator();
+//		while (iterator.hasNext()){
+//			temp = iterator.next();
+////			if (!temp.contains("bhl.net") && !temp.contains("ADDAM.org") && !temp.contains("PAWAT")) {
+////				hiddenElements.add(temp);
+////			}
+//		}
 		return hiddenElements;
 	}
 
