@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_qBLh0Hy2EeWEFNthbMra0A" elementId="org.eclipse.e4.ide.application" bindingContexts="_qBMI4Hy2EeWEFNthbMra0A">
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_qBLh0Xy2EeWEFNthbMra0A" label="OpenCDT - Mars Edition" width="1280" height="900">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_qBLh0Xy2EeWEFNthbMra0A" label="OpenCDT" width="1280" height="900">
     <children xsi:type="basic:PartSashContainer" xmi:id="_-au04Hy2EeWEFNthbMra0A" elementId="net.bhl.cdt.client.e4.partsashcontainer.maincontainer" horizontal="true">
       <children xsi:type="basic:PartStack" xmi:id="_BTX18Hy3EeWEFNthbMra0A" elementId="net.bhl.cdt.client.e4.partstack.modelexplorer" containerData="30">
         <children xsi:type="basic:Part" xmi:id="_B1o1gHy3EeWEFNthbMra0A" elementId="org.eclipse.emf.ecp.e4.application.part.navigator" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.view.ECPModelView" label="Model Explorer">
@@ -44,12 +44,20 @@
         <children xsi:type="basic:PartStack" xmi:id="_AjU4MIngEeWxkYoMkAW61w" elementId="net.bhl.cdt.client.e4.partstack.emfstore" containerData="20"/>
         <children xsi:type="basic:PartStack" xmi:id="_HH2WAHy3EeWEFNthbMra0A" elementId="net.bhl.cdt.client.e4.partstack.editor" containerData="80">
           <tags>editorPart</tags>
-          <children xsi:type="basic:Part" xmi:id="_U8y5cKJPEeWSUdd5v0HyMg" elementId="org.eclipse.emf.ecp.e4.application.part.repository" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.view.ECPRepositoryView" label="Model Repositories" iconURI="platform:/plugin/org.eclipse.emf.ecp.application.e4/icons/repositories.gif">
-            <menus xsi:type="menu:PopupMenu" xmi:id="_jqL68KJPEeWSUdd5v0HyMg" elementId="org.eclipse.emf.ecp.e4.application.popupmenu.repository"/>
-          </children>
         </children>
       </children>
     </children>
+    <mainMenu xmi:id="_ili2wNZHEeWUPIsZ6l2_rA" elementId="net.bhl.cdt.client.e4.menu.0">
+      <children xsi:type="menu:Menu" xmi:id="_qjLbsNZHEeWUPIsZ6l2_rA" elementId="net.bhl.cdt.client.e4.menu.file" label="File">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_02HEENZHEeWUPIsZ6l2_rA" elementId="net.bhl.cdt.client.e4.handledmenuitem.exit" label="Exit" command="_65zr4NZHEeWUPIsZ6l2_rA"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_rhgsMNZHEeWUPIsZ6l2_rA" elementId="net.bhl.cdt.client.e4.menu.edit" label="Edit"/>
+    </mainMenu>
+    <trimBars xmi:id="_gy6YENbiEeWKsr-nB--LJQ" elementId="net.bhl.cdt.client.e4.trimbar.statusbar" side="Bottom">
+      <children xsi:type="menu:ToolBar" xmi:id="_G7mhMNb1EeWEPoIJ-PA9jg" elementId="net.bhl.cdt.client.e4.toolbar.1">
+        <children xsi:type="menu:ToolControl" xmi:id="_ubiJ4NbiEeWKsr-nB--LJQ" elementId="net.bhl.cdt.client.e4.toolcontrol.0" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.control.ToolbarLabel"/>
+      </children>
+    </trimBars>
   </children>
   <handlers xmi:id="_ddWYYHy3EeWEFNthbMra0A" elementId="net.bhl.cdt.client.e4.handler.newproject" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.handlers.NewProjectHandler" command="_bfsY4Hy3EeWEFNthbMra0A"/>
   <handlers xmi:id="_OKtNYHy6EeWEFNthbMra0A" elementId="net.bhl.cdt.client.e4.handler.newmodelelement" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.handlers.NewModelElementHandler" command="_-vJeUHy5EeWEFNthbMra0A"/>
@@ -59,6 +67,7 @@
   <handlers xmi:id="_xCMzMKAFEeWXiZU3DCoE0Q" elementId="net.bhl.cdt.client.e4.handler.1" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.handlers.FilterPackagesHandler" command="_7BjYQKAFEeWXiZU3DCoE0Q"/>
   <handlers xmi:id="_lVnfMKAkEeWA56MIB5bY4A" elementId="net.bhl.cdt.client.e4.handler.2" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.handlers.CloseProjectHandler" command="_icDREKAkEeWA56MIB5bY4A"/>
   <handlers xmi:id="_qhGFkKAkEeWA56MIB5bY4A" elementId="net.bhl.cdt.client.e4.handler.3" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.handlers.OpenProjectHandler" command="_jv3pYKAkEeWA56MIB5bY4A"/>
+  <handlers xmi:id="_4_nQENZHEeWUPIsZ6l2_rA" elementId="net.bhl.cdt.client.e4.handler.exitopencdt" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.handler.ExitOpenCDTHandler" command="_65zr4NZHEeWUPIsZ6l2_rA"/>
   <rootContext xmi:id="_qBMI4Hy2EeWEFNthbMra0A" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_qBMI4Xy2EeWEFNthbMra0A" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_qBMI4ny2EeWEFNthbMra0A" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
@@ -72,6 +81,7 @@
   <commands xmi:id="_7BjYQKAFEeWXiZU3DCoE0Q" elementId="net.bhl.cdt.client.e4.command.filterpackages" commandName="Filter Packages"/>
   <commands xmi:id="_icDREKAkEeWA56MIB5bY4A" elementId="net.bhl.cdt.client.e4.command.closeproject" commandName="Close Project"/>
   <commands xmi:id="_jv3pYKAkEeWA56MIB5bY4A" elementId="net.bhl.cdt.client.e4.command.openproject" commandName="Open Project"/>
+  <commands xmi:id="_65zr4NZHEeWUPIsZ6l2_rA" elementId="net.bhl.cdt.client.e4.command.exitopencdt" commandName="Exit OpenCDT"/>
   <addons xmi:id="_qBLh0ny2EeWEFNthbMra0A" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_qBLh03y2EeWEFNthbMra0A" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_qBLh1Hy2EeWEFNthbMra0A" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

@@ -3,6 +3,7 @@
 	<name>net.bhl.cdt.client.e4</name>
 	<comment></comment>
 	<projects>
+		<project>net.bhl.cdt.common</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
