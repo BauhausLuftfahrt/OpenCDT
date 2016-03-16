@@ -152,6 +152,10 @@
       <product
             application="org.eclipse.e4.ui.workbench.swt.E4Application"
             name="net.bhl.cdt.client.e4">
+         <property
+               name="lifeCycleURI"
+               value="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.E4LifeCycle">
+         </property>
       </product>
    </extension>
    <extension
