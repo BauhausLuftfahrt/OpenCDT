@@ -44,6 +44,7 @@
         <children xsi:type="basic:PartStack" xmi:id="_AjU4MIngEeWxkYoMkAW61w" elementId="net.bhl.cdt.client.e4.partstack.emfstore" containerData="20"/>
         <children xsi:type="basic:PartStack" xmi:id="_HH2WAHy3EeWEFNthbMra0A" elementId="net.bhl.cdt.client.e4.partstack.editor" containerData="80">
           <tags>editorPart</tags>
+          <children xsi:type="basic:Part" xmi:id="_EsBaYOwhEeWVEf1m53ZIRQ" elementId="net.bhl.cdt.client.e4.part.logconsole" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.log.CDTLogView" label="CDT Log"/>
         </children>
       </children>
     </children>

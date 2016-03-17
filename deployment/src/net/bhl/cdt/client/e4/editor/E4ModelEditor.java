@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.core.services.log.Logger;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
@@ -53,12 +54,16 @@ public class E4ModelEditor {
 	 * @param composite the parent composite.
 	 * @param shell to retrieve the display from. Used to retrieve the system colors.
 	 */
+	@SuppressWarnings("restriction")
 	@Inject
-	public E4ModelEditor(Composite composite, Shell shell) {
+	public E4ModelEditor(Composite composite, Shell shell, @Optional Logger logger) {
 		parent = new ScrolledComposite(composite, SWT.V_SCROLL
 			| SWT.H_SCROLL);
 		parent.setBackground(shell.getDisplay().getSystemColor(SWT.COLOR_WHITE));
 		parent.setBackgroundMode(SWT.INHERIT_FORCE);
+		
+		if (logger == null)
+			logger.info("Im a fat logger!!!");
 	}
 
 	/**
