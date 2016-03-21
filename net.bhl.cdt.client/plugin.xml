@@ -2,7 +2,7 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         id="id1"
+         id="net.bhl.cdt.client.application"
          point="org.eclipse.core.runtime.applications">
       <application
             cardinality="singleton-global"
@@ -20,6 +20,15 @@
             id="net.bhl.cdt.client.perspective1"
             name="name">
       </perspective>
+   </extension>
+   <extension
+         id="net.bhl.cdt.client.products"
+         name="OpenCDT Products"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="net.bhl.cdt.client.application"
+            name="OpenCDT">
+      </product>
    </extension>
 
 </plugin>
