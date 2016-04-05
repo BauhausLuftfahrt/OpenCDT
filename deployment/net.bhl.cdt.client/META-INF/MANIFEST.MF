@@ -36,4 +36,5 @@ Require-Bundle: org.eclipse.ui;bundle-version="3.107.0",
  org.eclipse.emf.ecp.emfstore.core;bundle-version="1.8.0",
  org.eclipse.emf.ecp.emfstore.ui;bundle-version="1.8.0"
 Import-Package: javax.annotation;version="1.1.0",
- javax.inject;version="1.0.0"
+ javax.inject;version="1.0.0",
+ org.eclipse.emf.emfstore.server;version="1.7.0"
