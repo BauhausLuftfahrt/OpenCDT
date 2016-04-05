@@ -14,20 +14,17 @@
       </application>
    </extension>
    <extension
-         point="org.eclipse.ui.perspectives">
-      <perspective
-            class="net.bhl.cdt.client.ui.PerspectiveFactory"
-            id="net.bhl.cdt.client.perspective1"
-            name="name">
-      </perspective>
-   </extension>
-   <extension
          id="net.bhl.cdt.client.products"
          name="OpenCDT Products"
          point="org.eclipse.core.runtime.products">
       <product
             application="net.bhl.cdt.client.application"
             name="OpenCDT">
+            <property name="appName" value="My App"></property>
+            <property
+               name="applicationXMI"
+               value="net.bhl.cdt.client/Application.e4xmi">
+         </property>
       </product>
    </extension>
 
