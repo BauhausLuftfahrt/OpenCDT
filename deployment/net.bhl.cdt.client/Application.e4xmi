@@ -23,6 +23,7 @@
         </children>
       </children>
     </children>
+    <mainMenu xmi:id="_uyFmIPsoEeWKgcukPGVzvQ" elementId="net.bhl.cdt.client.menu.0"/>
     <sharedElements xsi:type="advanced:Area" xmi:id="_Hmg4kNSjEeGwXp2p959l3w" elementId="org.eclipse.ui.editorss">
       <children xsi:type="basic:PartStack" xmi:id="_HmhfoNSjEeGwXp2p959l3w" elementId="org.eclipse.e4.primaryDataStack">
         <tags>newtablook</tags>

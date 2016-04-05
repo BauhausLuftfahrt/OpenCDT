@@ -13,7 +13,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 	public void preWindowOpen() {
 		IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
 		configurer.setInitialSize(new Point(1024, 768));
-		configurer.setShowStatusLine(false);
+		configurer.setShowStatusLine(true);
 		configurer.setTitle("OpenCDT");
 		configurer.setShowPerspectiveBar(true);
 	}
