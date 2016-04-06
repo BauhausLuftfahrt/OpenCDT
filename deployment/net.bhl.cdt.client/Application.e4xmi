@@ -12,7 +12,9 @@
             <children xsi:type="advanced:Placeholder" xmi:id="_QR29cNS2EeGBn6dQ9VPexA" elementId="net.bhl.cdt.client.placeholder.modelexplorer" ref="_5b33APsiEeW7XsWqCXP8fA"/>
           </children>
           <children xsi:type="basic:PartSashContainer" xmi:id="_bTQ1YNS2EeGBn6dQ9VPexA" elementId="" containerData="10000">
-            <children xsi:type="advanced:Placeholder" xmi:id="_hP-EYNS2EeGBn6dQ9VPexA" elementId="org.eclipse.ui.editorss" ref="_Hmg4kNSjEeGwXp2p959l3w"/>
+            <children xsi:type="basic:PartStack" xmi:id="_sG1gwPvsEeWCco3rLDpcmQ" elementId="net.bhl.cdt.client.partstack.0">
+              <children xsi:type="basic:Part" xmi:id="_QBHWwPvtEeWCco3rLDpcmQ" elementId="net.bhl.cdt.client.part.ospart" contributionURI="bundleclass://net.bhl.cdt.client/net.bhl.cdt.client.parts.OSPart" label="OSPart" closeable="true"/>
+            </children>
             <children xsi:type="basic:PartStack" xmi:id="_qAHrYNS2EeGBn6dQ9VPexA" elementId="org.eclipse.ui.views.PropertySheetMStack" containerData="3400" selectedElement="_soNH8NS2EeGBn6dQ9VPexA">
               <tags>newtablook</tags>
               <tags>org.eclipse.e4.secondaryDataStack</tags>
@@ -87,6 +89,8 @@
   </descriptors>
   <descriptors xmi:id="_V1KdQPsiEeW7XsWqCXP8fA" elementId="org.eclipse.emf.ecp.ui.ModelExplorerView" label="Model Explorer" category="org.eclipse.e4.primaryNavigationStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView"/>
   <descriptors xmi:id="_YGbYcPsmEeWKvKvzdRLMzg" elementId="org.eclipse.emf.ecp.ui.ModelRepositoriesView" label="EMF Store" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView"/>
+  <descriptors xmi:id="_6ykVYPvsEeWCco3rLDpcmQ" elementId="net.bhl.cdt.client.partdescriptor.ospart" label="OSPart" closeable="true" contributionURI="bundleclass://net.bhl.cdt.client/net.bhl.cdt.client.parts.OSPart"/>
+  <descriptors xmi:id="_GVTlgPv9EeWCco3rLDpcmQ" elementId="net.bhl.cdt.client.partdescriptor.editor" label="Model Editor" contributionURI="bundleclass://net.bhl.cdt.client/net.bhl.cdt.client.e4.parts.E4ModelEditor"/>
   <addons xmi:id="_VnmadNSzEeGBn6dQ9VPexA" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_VnmaddSzEeGBn6dQ9VPexA" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_VnmadtSzEeGBn6dQ9VPexA" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

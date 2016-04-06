@@ -1,4 +1,4 @@
-package net.bhl.cdt.client.e4.log;
+package net.bhl.cdt.client.log;
 
 import java.util.LinkedList;
 import java.util.Observable;

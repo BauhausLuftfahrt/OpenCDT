@@ -27,4 +27,10 @@
    <extension point="org.eclipse.emf.emfstore.server.locationProvider">
       <LocationProvider providerClass="net.bhl.cdt.client.emfstore.LocationProvider"></LocationProvider>
    </extension>
+   <extension
+         point="org.eclipse.emf.emfstore.client.workspaceLocationProvider">
+      <LocationProvider
+            providerClass="net.bhl.cdt.client.emfstore.LocationProvider">
+      </LocationProvider>
+   </extension>
 </plugin>

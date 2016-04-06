@@ -10,7 +10,7 @@
  * Eugen Neufeld - initial API and implementation
  *
  *******************************************************************************/
-package net.bhl.cdt.client.e4.editor;
+package net.bhl.cdt.client.parts;
 
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
@@ -29,7 +29,7 @@ import org.eclipse.emf.ecp.ui.util.ECPModelElementOpener;
 @SuppressWarnings("restriction")
 public class E4ModelElementOpener implements ECPModelElementOpener {
 
-	private final String partId = "net.bhl.cdt.client.e4.partdescriptor.editor"; //$NON-NLS-1$
+	private final String partId = "net.bhl.cdt.client.partdescriptor.editor"; //$NON-NLS-1$
 
 	@Override
 	public void openModelElement(Object modelElement, @Optional ECPProject ecpProject) {
