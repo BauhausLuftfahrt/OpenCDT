@@ -13,11 +13,7 @@
 package net.bhl.cdt.client.parts;
 
 import org.eclipse.e4.core.di.annotations.Optional;
-import org.eclipse.e4.ui.model.application.ui.basic.MPart;
-import org.eclipse.e4.ui.workbench.modeling.EPartService;
-import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.emf.ecp.core.ECPProject;
-import org.eclipse.emf.ecp.ui.e4.util.EPartServiceHelper;
 import org.eclipse.emf.ecp.ui.util.ECPModelElementOpener;
 
 /**
@@ -33,7 +29,7 @@ public class E4ModelElementOpener implements ECPModelElementOpener {
 
 	@Override
 	public void openModelElement(Object modelElement, @Optional ECPProject ecpProject) {
-		final EPartService partService = EPartServiceHelper.getEPartService();
+		/*final EPartService partService = EPartServiceHelper.getEPartService();
 		for (final MPart existingPart : partService.getParts()) {
 			if (!partId.equals(existingPart.getElementId())) {
 				continue;
@@ -53,6 +49,6 @@ public class E4ModelElementOpener implements ECPModelElementOpener {
 
 		final MPart part = partService.createPart(partId);
 		partService.showPart(part, PartState.ACTIVATE);
-		part.getContext().set(E4ModelEditor.INPUT, modelElement);
+		part.getContext().set(E4ModelEditor.INPUT, modelElement);*/
 	}
 }
