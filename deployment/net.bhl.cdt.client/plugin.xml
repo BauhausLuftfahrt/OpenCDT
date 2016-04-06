@@ -8,30 +8,23 @@
             cardinality="singleton-global"
             thread="main"
             visible="true">
-         <run
-               class="net.bhl.cdt.client.Application">
-         </run>
+         <run class="net.bhl.cdt.client.Application"></run>
       </application>
    </extension>
    <extension
          id="net.bhl.cdt.client.products"
          name="OpenCDT Products"
          point="org.eclipse.core.runtime.products">
-      <product
-            application="net.bhl.cdt.client.application"
-            name="OpenCDT">
-            <property name="appName" value="My App"></property>
-            <property
-               name="applicationXMI"
-               value="net.bhl.cdt.client/Application.e4xmi">
-         </property>
+      <product application="net.bhl.cdt.client.application" name="OpenCDT">
+            <property name="applicationXMI" value="net.bhl.cdt.client/Application.e4xmi"></property>
+			<property name="appName" value="OpenCDT"></property>
+			<property name="preferenceCustomization" value="plugin_customization.ini"></property>
+			<property name="startupProgressRect" value="5,190,440,15"/>
+            <property name="startupForegroundColor" value="0A3A5A"/>
+            <property name="startupMessageRect" value="7,170,440,20"/>
       </product>
    </extension>
-   <extension
-         point="org.eclipse.emf.emfstore.server.locationProvider">
-      <LocationProvider
-            providerClass="net.bhl.cdt.client.emfstore.LocationProvider">
-      </LocationProvider>
+   <extension point="org.eclipse.emf.emfstore.server.locationProvider">
+      <LocationProvider providerClass="net.bhl.cdt.client.emfstore.LocationProvider"></LocationProvider>
    </extension>
-
 </plugin>
