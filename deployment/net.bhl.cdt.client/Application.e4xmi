@@ -12,9 +12,7 @@
             <children xsi:type="advanced:Placeholder" xmi:id="_QR29cNS2EeGBn6dQ9VPexA" elementId="net.bhl.cdt.client.placeholder.modelexplorer" ref="_5b33APsiEeW7XsWqCXP8fA"/>
           </children>
           <children xsi:type="basic:PartSashContainer" xmi:id="_bTQ1YNS2EeGBn6dQ9VPexA" elementId="" containerData="10000">
-            <children xsi:type="basic:PartStack" xmi:id="_sG1gwPvsEeWCco3rLDpcmQ" elementId="net.bhl.cdt.client.partstack.0">
-              <children xsi:type="basic:Part" xmi:id="_QBHWwPvtEeWCco3rLDpcmQ" elementId="net.bhl.cdt.client.part.ospart" contributionURI="bundleclass://net.bhl.cdt.client/net.bhl.cdt.client.parts.OSPart" label="OSPart" closeable="true"/>
-            </children>
+            <children xsi:type="advanced:Placeholder" xmi:id="_-s3TsP2MEeWzNOl6S1BbDg" elementId="org.eclipse.ui.editorss" ref="_Hmg4kNSjEeGwXp2p959l3w"/>
             <children xsi:type="basic:PartStack" xmi:id="_qAHrYNS2EeGBn6dQ9VPexA" elementId="org.eclipse.ui.views.PropertySheetMStack" containerData="3400" selectedElement="_soNH8NS2EeGBn6dQ9VPexA">
               <tags>newtablook</tags>
               <tags>org.eclipse.e4.secondaryDataStack</tags>
