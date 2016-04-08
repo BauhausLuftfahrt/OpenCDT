@@ -16,6 +16,7 @@
             <children xsi:type="basic:PartStack" xmi:id="_qAHrYNS2EeGBn6dQ9VPexA" elementId="org.eclipse.ui.views.PropertySheetMStack" containerData="3400" selectedElement="_soNH8NS2EeGBn6dQ9VPexA">
               <tags>newtablook</tags>
               <tags>org.eclipse.e4.secondaryDataStack</tags>
+              <children xsi:type="advanced:Placeholder" xmi:id="_NmHxgP2OEeWzNOl6S1BbDg" elementId="net.bhl.cdt.client.placeholder.console" ref="_FBjvcP2OEeWzNOl6S1BbDg"/>
               <children xsi:type="advanced:Placeholder" xmi:id="_soNH8NS2EeGBn6dQ9VPexA" elementId="org.eclipse.ui.views.PropertySheet" ref="_WqRGcNS1EeGBn6dQ9VPexA"/>
               <children xsi:type="advanced:Placeholder" xmi:id="_jLVQUPsmEeWKvKvzdRLMzg" elementId="net.bhl.cdt.client.placeholder.emfstore" ref="_T7-KMPsmEeWKvKvzdRLMzg"/>
             </children>
@@ -54,6 +55,7 @@
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_5b33APsiEeW7XsWqCXP8fA" elementId="org.eclipse.emf.ecp.ui.ModelExplorerView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Model Explorer" iconURI=""/>
     <sharedElements xsi:type="basic:Part" xmi:id="_T7-KMPsmEeWKvKvzdRLMzg" elementId="org.eclipse.emf.ecp.ui.ModelRepositoriesView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="EMF Store"/>
+    <sharedElements xsi:type="basic:Part" xmi:id="_FBjvcP2OEeWzNOl6S1BbDg" elementId="org.eclipse.ui.console.ConsoleView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Console" iconURI="platform:/plugin/org.eclipse.ui.console//icons/full/cview16/console_view.gif"/>
     <trimBars xmi:id="_VOV6ANTAEeGTY-uOtVc6Mg" elementId="org.eclipse.ui.main.toolbar"/>
     <trimBars xmi:id="_VP1HwNTAEeGTY-uOtVc6Mg" elementId="org.eclipse.ui.trim.status" side="Bottom">
       <children xsi:type="menu:ToolControl" xmi:id="_VP1u0NTAEeGTY-uOtVc6Mg" elementId="org.eclipse.ui.StatusLine" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.StandardTrim">
@@ -87,7 +89,6 @@
   <descriptors xmi:id="_V1KdQPsiEeW7XsWqCXP8fA" elementId="org.eclipse.emf.ecp.ui.ModelExplorerView" label="Model Explorer" category="org.eclipse.e4.primaryNavigationStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView"/>
   <descriptors xmi:id="_YGbYcPsmEeWKvKvzdRLMzg" elementId="org.eclipse.emf.ecp.ui.ModelRepositoriesView" label="EMF Store" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView"/>
   <descriptors xmi:id="_6ykVYPvsEeWCco3rLDpcmQ" elementId="net.bhl.cdt.client.partdescriptor.ospart" label="OSPart" closeable="true" contributionURI="bundleclass://net.bhl.cdt.client/net.bhl.cdt.client.parts.OSPart"/>
-  <descriptors xmi:id="_GVTlgPv9EeWCco3rLDpcmQ" elementId="net.bhl.cdt.client.partdescriptor.editor" label="Model Editor" contributionURI="bundleclass://net.bhl.cdt.client/net.bhl.cdt.client.e4.parts.E4ModelEditor"/>
   <addons xmi:id="_VnmadNSzEeGBn6dQ9VPexA" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_VnmaddSzEeGBn6dQ9VPexA" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_VnmadtSzEeGBn6dQ9VPexA" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
