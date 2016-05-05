@@ -271,6 +271,16 @@ Full-Width Styles
   margin: 0 auto;
 }
 
+#cdtlogo {
+  display: block;
+  position: absolute;
+  top: 164px;
+  left: 15px;
+  z-index: 10;
+  border: 0px;
+  box-shadow: 0 0 0 0;
+}
+
 #forkme_banner {
   display: block;
   position: absolute;
