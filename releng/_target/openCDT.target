@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="OpenCDT Target Platform" sequenceNumber="255">
+<?pde version="3.8"?><target name="OpenCDT Target Platform" sequenceNumber="257">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.equinox.sdk.feature.group" version="0.0.0"/>
@@ -129,5 +129,19 @@
 <unit id="org.eclipse.emf.ecp.view.compoundcontrol.feature.source.feature.group" version="1.8.0.20160216-1319"/>
 <repository location="http://download.eclipse.org/ecp/releases/releases_target_18/"/>
 </location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.birt.example.feature.group" version="4.4.2.v201410272105-7T7R7DDZRDKeKDRz-RKDl"/>
+<unit id="org.eclipse.birt.doc.isv.feature.group" version="4.4.2.v201410272105-5317w31252229232A"/>
+<unit id="org.eclipse.birt.chart.source.feature.group" version="4.4.2.v201410272105-829B7QFQCnvK6GVLVWBZS"/>
+<unit id="org.eclipse.birt.chart.cshelp.feature.group" version="4.4.2.v201410272105-5317w312521383216"/>
+<unit id="org.eclipse.birt.chart.doc.isv.feature.group" version="4.4.2.v201410272105-5317w312521383216"/>
+<unit id="org.eclipse.birt.chart.feature.group" version="4.4.2.v201410272105-829B7QFQCnvK6GVLVWBZS"/>
+<unit id="org.eclipse.birt.cshelp.feature.group" version="4.4.2.v201410272105-5317w312521383216"/>
+<unit id="org.eclipse.birt.feature.group" version="4.4.2.v201410272105-DPEqA5GixAot9yUGgiE15dZgVpeZ"/>
+<unit id="org.eclipse.birt.doc.feature.group" version="4.4.2.v201410272105-5317w31252229232A"/>
+<unit id="org.eclipse.birt.source.feature.group" version="4.4.2.v201410272105-DPEqA5GixAot9yUGgiE15dZgVpeZ"/>
+<repository location="http://download.eclipse.org/birt/update-site/4.4"/>
+</location>
+<location path="D:\Development\Git\OpenCDT E4Update\deployment\net.bhl.cdt.client.e4\lib" type="Directory"/>
 </locations>
 </target>

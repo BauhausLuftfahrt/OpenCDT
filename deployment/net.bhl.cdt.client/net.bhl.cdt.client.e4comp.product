@@ -3,6 +3,7 @@
 
 <product name="OpenCDT" uid="net.bhl.cdt.client.e4comp" id="net.bhl.cdt.client.products" application="net.bhl.cdt.client.application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
 
+
    <configIni use="default">
    </configIni>
 
@@ -16,7 +17,10 @@
    <windowImages/>
 
    <splash
-      location="net.bhl.cdt.client" />
+      location="net.bhl.cdt.client"
+      startupProgressRect="5,275,445,15"
+      startupMessageRect="7,252,445,20"
+      startupForegroundColor="000000" />
    <launcher>
       <solaris/>
       <win useIco="false">
@@ -24,8 +28,10 @@
       </win>
    </launcher>
 
+
    <vm>
    </vm>
+
 
    <plugins>
       <plugin id="com.ibm.icu"/>
@@ -43,7 +49,6 @@
       <plugin id="org.apache.commons.codec"/>
       <plugin id="org.apache.commons.jxpath"/>
       <plugin id="org.apache.commons.logging"/>
-      <plugin id="org.apache.poi"/>
       <plugin id="org.eclipse.ant.core"/>
       <plugin id="org.eclipse.ant.launching"/>
       <plugin id="org.eclipse.ant.ui"/>
@@ -229,6 +234,7 @@
       <plugin id="org.eclipse.emf.emfstore.client"/>
       <plugin id="org.eclipse.emf.emfstore.client.model.edit"/>
       <plugin id="org.eclipse.emf.emfstore.client.ui"/>
+      <plugin id="org.eclipse.emf.emfstore.client.ui.rap" fragment="true"/>
       <plugin id="org.eclipse.emf.emfstore.client.ui.rcp" fragment="true"/>
       <plugin id="org.eclipse.emf.emfstore.common"/>
       <plugin id="org.eclipse.emf.emfstore.common.model"/>
@@ -263,14 +269,6 @@
       <plugin id="org.eclipse.emfforms.editor.genmodel"/>
       <plugin id="org.eclipse.emfforms.localization"/>
       <plugin id="org.eclipse.emfforms.setup.base"/>
-      <plugin id="org.eclipse.emfforms.spreadsheet.core"/>
-      <plugin id="org.eclipse.emfforms.spreadsheet.core.error.model"/>
-      <plugin id="org.eclipse.emfforms.spreadsheet.core.error.model.edit"/>
-      <plugin id="org.eclipse.emfforms.spreadsheet.core.renderer"/>
-      <plugin id="org.eclipse.emfforms.spreadsheet.core.renderer.categorization"/>
-      <plugin id="org.eclipse.emfforms.spreadsheet.core.renderer.table"/>
-      <plugin id="org.eclipse.emfforms.spreadsheet.file"/>
-      <plugin id="org.eclipse.emfforms.spreadsheet.stream"/>
       <plugin id="org.eclipse.emfforms.swt.control.multiattribute"/>
       <plugin id="org.eclipse.emfforms.swt.control.text.autocomplete"/>
       <plugin id="org.eclipse.emfforms.swt.controlgrid"/>
@@ -309,13 +307,16 @@
       <plugin id="org.eclipse.equinox.p2.touchpoint.eclipse"/>
       <plugin id="org.eclipse.equinox.p2.ui"/>
       <plugin id="org.eclipse.equinox.preferences"/>
+      <plugin id="org.eclipse.equinox.region" fragment="true"/>
       <plugin id="org.eclipse.equinox.registry"/>
       <plugin id="org.eclipse.equinox.security"/>
       <plugin id="org.eclipse.equinox.security.ui"/>
       <plugin id="org.eclipse.equinox.security.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.equinox.simpleconfigurator"/>
       <plugin id="org.eclipse.equinox.simpleconfigurator.manipulator"/>
+      <plugin id="org.eclipse.equinox.transforms.hook" fragment="true"/>
       <plugin id="org.eclipse.equinox.util"/>
+      <plugin id="org.eclipse.equinox.weaving.hook" fragment="true"/>
       <plugin id="org.eclipse.help"/>
       <plugin id="org.eclipse.jdt.compiler.apt" fragment="true"/>
       <plugin id="org.eclipse.jdt.compiler.tool" fragment="true"/>

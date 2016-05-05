@@ -9,6 +9,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.InvalidSyntaxException;
 import org.osgi.framework.ServiceEvent;
 import org.osgi.framework.ServiceListener;
+import org.osgi.service.log.LogListener;
 import org.osgi.service.log.LogReaderService;
 import org.osgi.util.tracker.ServiceTracker;
 
@@ -18,7 +19,7 @@ public class Activator implements BundleActivator {
 
 	private static BundleContext context;
 
-	private ConsoleOSGILogger logger = new ConsoleOSGILogger();
+	private LogListener logger = new ConsoleOSGILogger();
 	
 	private LinkedList<LogReaderService> m_readers = new LinkedList<LogReaderService>();
 	
@@ -51,25 +52,25 @@ public class Activator implements BundleActivator {
 		Locale.setDefault(Locale.US);
 		
 		// Move to E4 LifeCycle Manager later/sometime?
-		@SuppressWarnings({ "rawtypes", "unchecked" })
-		ServiceTracker logReaderTracker = new ServiceTracker(context, org.osgi.service.log.LogReaderService.class.getName(), null);
-		logReaderTracker.open();
-		Object[] readers = logReaderTracker.getServices();
-		if (readers != null) {
-			for (int i = 0; i < readers.length; i++) {
-				LogReaderService lrs = (LogReaderService)readers[i];
-				m_readers.add(lrs);
-				lrs.addLogListener(logger);
-			}
-		}
-
-		// Add the ServiceListener, but with a filter so that we only receive events related to LogReaderService:
-		String filter = "(objectclass=" + LogReaderService.class.getName() + ")";
-		try {
-			context.addServiceListener(m_servlistener, filter);
-		} catch (InvalidSyntaxException e) {
-			e.printStackTrace();
-		}
+//		@SuppressWarnings({ "rawtypes", "unchecked" })
+//		ServiceTracker logReaderTracker = new ServiceTracker(context, org.osgi.service.log.LogReaderService.class.getName(), null);
+//		logReaderTracker.open();
+//		Object[] readers = logReaderTracker.getServices();
+//		if (readers != null) {
+//			for (int i = 0; i < readers.length; i++) {
+//				LogReaderService lrs = (LogReaderService)readers[i];
+//				m_readers.add(lrs);
+//				lrs.addLogListener(logger);
+//			}
+//		}
+//
+//		// Add the ServiceListener, but with a filter so that we only receive events related to LogReaderService:
+//		String filter = "(objectclass=" + LogReaderService.class.getName() + ")";
+//		try {
+//			context.addServiceListener(m_servlistener, filter);
+//		} catch (InvalidSyntaxException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 	/*
@@ -79,11 +80,11 @@ public class Activator implements BundleActivator {
 	public void stop(BundleContext bundleContext) throws Exception {
 		Activator.context = null;
 		
-		for (Iterator<LogReaderService> i = m_readers.iterator(); i.hasNext(); )
-		{
-			LogReaderService lrs = i.next();
-			lrs.removeLogListener(logger);
-			i.remove();
-		}
+//		for (Iterator<LogReaderService> i = m_readers.iterator(); i.hasNext(); )
+//		{
+//			LogReaderService lrs = i.next();
+//			lrs.removeLogListener(logger);
+//			i.remove();
+//		}
 	}
 }

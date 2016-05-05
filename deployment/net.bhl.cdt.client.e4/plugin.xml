@@ -12,8 +12,24 @@
                value="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.E4LifeCycle">
          </property>
          <property
-               name="applicationCSS"
-               value="platform:/plugin/net.bhl.cdt.client.e4/css/default.css">
+               name="appName"
+               value="net.bhl.cdt.client.e4">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="000000">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="7,252,445,20">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="5,275,445,15">
+         </property>
+         <property
+               name="preferenceCustomization"
+               value="plugin_customization.ini">
          </property>
       </product>
    </extension>

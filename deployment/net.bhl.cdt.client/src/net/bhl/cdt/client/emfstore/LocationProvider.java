@@ -2,9 +2,8 @@ package net.bhl.cdt.client.emfstore;
 
 import java.io.File;
 
-import org.eclipse.emf.emfstore.server.ESLocationProvider;
-
-public class LocationProvider implements ESLocationProvider {
+public class LocationProvider
+{} /*implements ESLocationProvider {
 	public static final Object CDT_FOLDERNAME = ".cdt";
 	
 	public LocationProvider() {
@@ -19,4 +18,4 @@ public class LocationProvider implements ESLocationProvider {
 
 		return sb.toString();
 	}
-}
+}*/
