@@ -16,6 +16,8 @@ import org.eclipse.e4.ui.workbench.lifecycle.PreSave;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessAdditions;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessRemovals;
 
+import net.bhl.cdt.client.e4.log.CDTLogManager;
+
 /**
  * This is a stub implementation containing e4 LifeCycle annotated methods.<br />
  * There is a corresponding entry in <em>plugin.xml</em> (under the
@@ -27,6 +29,7 @@ public class E4LifeCycle {
 
 	@PostContextCreate
 	void postContextCreate(IEclipseContext workbenchContext) {
+		workbenchContext.set(CDTLogManager.class, new CDTLogManager());
 	}
 
 	@PreSave

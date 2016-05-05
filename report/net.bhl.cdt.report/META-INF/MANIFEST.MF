@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: OpenCDT Reporting
+Bundle-SymbolicName: net.bhl.cdt.report
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: net.bhl.cdt.report.Activator
+Bundle-Vendor: Bauhaus Luftfahrt e.V.
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: org.osgi.framework;version="1.3.0"
+Bundle-ActivationPolicy: lazy
