@@ -7,10 +7,12 @@ Bundle-Activator: net.bhl.cdt.client.e4.Activator
 Bundle-Vendor: Bauhaus Luftfahrt e.V.
 Require-Bundle: net.bhl.cdt.model;bundle-version="0.1.0",
  net.bhl.cdt.model.edit;bundle-version="0.1.0",
- org.eclipse.core.expressions;bundle-version="3.5.0",
+ org.eclipse.osgi.services;bundle-version="3.5.0",
  org.eclipse.equinox.event;bundle-version="1.3.100",
+ org.eclipse.equinox.cm;bundle-version="1.1.100",
  org.eclipse.equinox.ds;bundle-version="1.4.300",
  org.eclipse.equinox.util;bundle-version="1.0.500",
+ org.eclipse.core.expressions;bundle-version="3.5.0",
  org.eclipse.e4.ui.workbench;bundle-version="1.3.1",
  org.eclipse.e4.ui.model.workbench;bundle-version="1.1.100",
  org.eclipse.e4.core.contexts;bundle-version="1.4.0",
@@ -20,7 +22,6 @@ Require-Bundle: net.bhl.cdt.model;bundle-version="0.1.0",
  org.eclipse.emf.ecp.ui.e4;bundle-version="1.8.0",
  org.eclipse.emf.ecp.application.e4;bundle-version="1.8.0",
  org.eclipse.emf.ecp.emfstore.ui;bundle-version="1.8.0",
- org.eclipse.osgi.services;bundle-version="3.5.0",
  org.eclipse.emf.ecp.emfstore.ui.search;bundle-version="1.8.0",
  org.eclipse.emf.ecp.explorereditorbridge;bundle-version="1.8.0",
  org.eclipse.emf.ecp.view.model.provider.generator;bundle-version="1.8.0",
@@ -169,10 +170,9 @@ Require-Bundle: net.bhl.cdt.model;bundle-version="0.1.0",
  org.eclipse.emf.ecp.view.workspace.migrator;bundle-version="1.8.0",
  org.eclipse.emf.ecp.view.template.service;bundle-version="1.8.0",
  org.eclipse.emf.emfstore.migration;bundle-version="1.7.0",
- org.eclipse.equinox.cm;bundle-version="1.1.100",
- org.ops4j.pax.configmanager;bundle-version="0.2.3",
- org.ops4j.pax.logging.pax-logging-api;bundle-version="1.2.1",
- org.ops4j.pax.logging.pax-logging-service;bundle-version="1.2.1"
+ org.eclipse.e4.core.di;bundle-version="1.5.0",
+ org.eclipse.e4.core.di.annotations;bundle-version="1.4.0",
+ org.eclipse.e4.ui.di;bundle-version="1.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.eclipse.swt,
  org.eclipse.swt.custom,
@@ -180,7 +180,3 @@ Import-Package: org.eclipse.swt,
  org.eclipse.swt.widgets,
  org.osgi.framework;version="1.3.0"
 Bundle-ActivationPolicy: lazy
-Bundle-ClassPath: lib/pax-logging-api-1.2.1.jar,
- lib/pax-logging-service-1.2.1.jar,
- lib/pax-confman-propsloader-0.2.3.jar,
- .

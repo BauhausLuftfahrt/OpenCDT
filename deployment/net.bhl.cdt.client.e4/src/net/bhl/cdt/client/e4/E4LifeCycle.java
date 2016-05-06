@@ -15,6 +15,7 @@ import org.eclipse.e4.ui.workbench.lifecycle.PostContextCreate;
 import org.eclipse.e4.ui.workbench.lifecycle.PreSave;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessAdditions;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessRemovals;
+import org.osgi.service.log.LogService;
 
 import net.bhl.cdt.client.e4.log.CDTLogManager;
 
@@ -30,6 +31,7 @@ public class E4LifeCycle {
 	@PostContextCreate
 	void postContextCreate(IEclipseContext workbenchContext) {
 		workbenchContext.set(CDTLogManager.class, new CDTLogManager());
+		workbenchContext.set(LogService.class, Activator.getLogService());
 	}
 
 	@PreSave

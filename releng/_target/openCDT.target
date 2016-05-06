@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="OpenCDT Target Platform" sequenceNumber="257">
+<?pde version="3.8"?><target name="OpenCDT Target Platform" sequenceNumber="258">
 <locations>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.equinox.sdk.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.platform.ide" version="0.0.0"/>
-<repository location="http://download.eclipse.org/eclipse/updates/4.5/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.mockito.mockito-all" version="0.0.0"/>
-<repository location="http://build.eclipse.org/rt/rap/base-platforms/2.3/extra-dependencies/"/>
-</location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.apache.log4j.source" version="0.0.0"/>
 <unit id="org.objenesis.source" version="0.0.0"/>
@@ -20,23 +11,6 @@
 <unit id="javax.validation" version="0.0.0"/>
 <unit id="javax.validation.source" version="0.0.0"/>
 <repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20151221205849/repository/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.edapt.runtime.feature.feature.group" version="0.0.0"/>
-<repository location="http://download.eclipse.org/edapt/releases/11x"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.hamcrest.core.source" version="0.0.0"/>
-<unit id="org.hamcrest.library.source" version="0.0.0"/>
-<unit id="org.eclipse.swtbot.eclipse.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.swtbot.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.swtbot.eclipse.gef.feature.group" version="0.0.0"/>
-<unit id="org.hamcrest.core" version="0.0.0"/>
-<unit id="org.apache.log4j.source" version="0.0.0"/>
-<unit id="org.apache.log4j" version="0.0.0"/>
-<unit id="org.eclipse.swtbot.forms.feature.group" version="0.0.0"/>
-<unit id="org.hamcrest.library" version="0.0.0"/>
-<repository location="http://download.eclipse.org/technology/swtbot/releases/latest/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.jdt.feature.group" version="3.11.2.v20160212-1500"/>
@@ -54,24 +28,21 @@
 <repository location="http://download.eclipse.org/releases/mars"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.emfstore.ecore.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.common.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.client.ui.historybrowsercomparator.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.example.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.sdk.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.fuzzy.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.client.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.server.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.modelmutator.feature.feature.group" version="2.0.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.license.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.migration.edapt.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.fuzzy.test.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.client.transaction.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.client.ui.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.client.ui.rap.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.mongodb.server.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.mongodb.client.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<repository location="http://download.eclipse.org/emfstore/releases_18"/>
+<unit id="org.eclipse.emf.edapt.runtime.feature.feature.group" version="0.0.0"/>
+<repository location="http://download.eclipse.org/edapt/releases/11x"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.hamcrest.core.source" version="0.0.0"/>
+<unit id="org.hamcrest.library.source" version="0.0.0"/>
+<unit id="org.eclipse.swtbot.eclipse.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.swtbot.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.swtbot.eclipse.gef.feature.group" version="0.0.0"/>
+<unit id="org.hamcrest.core" version="0.0.0"/>
+<unit id="org.apache.log4j.source" version="0.0.0"/>
+<unit id="org.apache.log4j" version="0.0.0"/>
+<unit id="org.eclipse.swtbot.forms.feature.group" version="0.0.0"/>
+<unit id="org.hamcrest.library" version="0.0.0"/>
+<repository location="http://download.eclipse.org/technology/swtbot/releases/latest/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.ecp.e3.feature.source.feature.group" version="1.8.0.20160216-1319"/>
@@ -130,6 +101,15 @@
 <repository location="http://download.eclipse.org/ecp/releases/releases_target_18/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.equinox.sdk.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.platform.ide" version="0.0.0"/>
+<repository location="http://download.eclipse.org/eclipse/updates/4.5/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.mockito.mockito-all" version="0.0.0"/>
+<repository location="http://build.eclipse.org/rt/rap/base-platforms/2.3/extra-dependencies/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.birt.example.feature.group" version="4.4.2.v201410272105-7T7R7DDZRDKeKDRz-RKDl"/>
 <unit id="org.eclipse.birt.doc.isv.feature.group" version="4.4.2.v201410272105-5317w31252229232A"/>
 <unit id="org.eclipse.birt.chart.source.feature.group" version="4.4.2.v201410272105-829B7QFQCnvK6GVLVWBZS"/>
@@ -142,6 +122,25 @@
 <unit id="org.eclipse.birt.source.feature.group" version="4.4.2.v201410272105-DPEqA5GixAot9yUGgiE15dZgVpeZ"/>
 <repository location="http://download.eclipse.org/birt/update-site/4.4"/>
 </location>
-<location path="D:\Development\Git\OpenCDT E4Update\deployment\net.bhl.cdt.client.e4\lib" type="Directory"/>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.emfstore.ecore.feature.feature.group" version="1.8.0.v20160428-1515"/>
+<unit id="org.eclipse.emf.emfstore.common.feature.feature.group" version="1.8.0.v20160428-1515"/>
+<unit id="org.eclipse.emf.emfstore.client.ui.historybrowsercomparator.feature.feature.group" version="1.8.0.v20160428-1515"/>
+<unit id="org.eclipse.emf.emfstore.example.feature.feature.group" version="1.8.0.v20160428-1515"/>
+<unit id="org.eclipse.emf.emfstore.sdk.feature.feature.group" version="1.8.0.v20160428-1515"/>
+<unit id="org.eclipse.emf.emfstore.fuzzy.feature.feature.group" version="1.8.0.v20160428-1515"/>
+<unit id="org.eclipse.emf.emfstore.client.feature.feature.group" version="1.8.0.v20160428-1515"/>
+<unit id="org.eclipse.emf.emfstore.server.feature.feature.group" version="1.8.0.v20160428-1515"/>
+<unit id="org.eclipse.emf.emfstore.modelmutator.feature.feature.group" version="2.0.0.v20160428-1515"/>
+<unit id="org.eclipse.emf.emfstore.license.feature.feature.group" version="1.8.0.v20160428-1515"/>
+<unit id="org.eclipse.emf.emfstore.migration.edapt.feature.feature.group" version="1.8.0.v20160428-1515"/>
+<unit id="org.eclipse.emf.emfstore.fuzzy.test.feature.feature.group" version="1.8.0.v20160428-1515"/>
+<unit id="org.eclipse.emf.emfstore.client.transaction.feature.feature.group" version="1.8.0.v20160428-1515"/>
+<unit id="org.eclipse.emf.emfstore.client.ui.feature.feature.group" version="1.8.0.v20160428-1515"/>
+<unit id="org.eclipse.emf.emfstore.client.ui.rap.feature.feature.group" version="1.8.0.v20160428-1515"/>
+<unit id="org.eclipse.emf.emfstore.mongodb.server.feature.feature.group" version="1.8.0.v20160428-1515"/>
+<unit id="org.eclipse.emf.emfstore.mongodb.client.feature.feature.group" version="1.8.0.v20160428-1515"/>
+<repository location="http://download.eclipse.org/emfstore/releases_18"/>
+</location>
 </locations>
 </target>
