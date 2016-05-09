@@ -10,10 +10,10 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 	}
 	
 	public void preWindowOpen() {
-		//IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
+		IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
 		//configurer.setInitialSize(new Point(1024, 768));
 		//configurer.setShowStatusLine(true);
 		//configurer.setTitle("OpenCDT - E4 Compatible");
-		//configurer.setShowPerspectiveBar(true);
+		configurer.setShowPerspectiveBar(true);
 	}
 }

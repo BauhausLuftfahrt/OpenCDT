@@ -23,6 +23,9 @@
           </children>
         </children>
       </children>
+      <children xsi:type="advanced:Perspective" xmi:id="_mcF34AlHEeacj7mBRkXtEQ" elementId="net.bhl.cdt.client.perspective.cdtmodeling" label="CDT Modeling">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_q5pBQAlHEeacj7mBRkXtEQ" elementId="net.bhl.cdt.client.partsashcontainer.0"/>
+      </children>
     </children>
     <sharedElements xsi:type="advanced:Area" xmi:id="_Hmg4kNSjEeGwXp2p959l3w" elementId="org.eclipse.ui.editorss">
       <children xsi:type="basic:PartStack" xmi:id="_HmhfoNSjEeGwXp2p959l3w" elementId="org.eclipse.e4.primaryDataStack">
