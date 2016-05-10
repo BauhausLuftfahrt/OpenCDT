@@ -1,4 +1,6 @@
-package net.bhl.cdt.client.sys;
+package net.bhl.cdt.client.e4.sys;
+
+import java.net.UnknownHostException;
 
 /**
  * Contains information about the operating system and the user logged in.
@@ -14,7 +16,6 @@ public class SystemInformationService {
 		Windows, MacOS, Linux, Solaris, Other
 	}
 	
-	
 	private OSType operatingSystem;
 	
 	public OSType getOperatingSystem() {
@@ -22,6 +23,29 @@ public class SystemInformationService {
 			operatingSystem = getActiveOS();
 		
 		return operatingSystem;
+	}
+	
+	
+	private String systemUsername;
+	
+	public String getSystemUsername() {
+		if (systemUsername == null)
+			systemUsername = System.getProperty("user.name");
+		
+		return systemUsername;
+	}
+	
+	private String localMachineName;
+	
+	public String getLocalMachineName() {
+		if (localMachineName == null)
+			try {
+				localMachineName = java.net.InetAddress.getLocalHost().getHostName();
+			} catch (UnknownHostException e) {
+				localMachineName = "";
+			}
+		
+		return localMachineName;
 	}
 	
 	public SystemInformationService() {

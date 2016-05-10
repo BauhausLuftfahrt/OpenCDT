@@ -172,7 +172,8 @@ Require-Bundle: net.bhl.cdt.model;bundle-version="0.1.0",
  org.eclipse.emf.emfstore.migration;bundle-version="1.7.0",
  org.eclipse.e4.core.di;bundle-version="1.5.0",
  org.eclipse.e4.core.di.annotations;bundle-version="1.4.0",
- org.eclipse.e4.ui.di;bundle-version="1.1.0"
+ org.eclipse.e4.ui.di;bundle-version="1.1.0",
+ org.eclipse.e4.ui.workbench.perspectiveswitcher;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.eclipse.swt,
  org.eclipse.swt.custom,

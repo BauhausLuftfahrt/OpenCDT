@@ -20,7 +20,7 @@
   <eClassifiers xsi:type="ecore:EDataType" name="URL" instanceClassName="java.net.URL"/>
   <eClassifiers xsi:type="ecore:EDataType" name="OperationStrategy" instanceClassName="net.bhl.cdt.model.process.OperationStrategy"/>
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eSubpackages name="process" nsURI="http://bhl.net/cdt/model/process" nsPrefix="net.bhl.cdt.model">
     <eClassifiers xsi:type="ecore:EClass" name="DesignOperation" abstract="true" eSuperTypes="#//process/ProcessElement">

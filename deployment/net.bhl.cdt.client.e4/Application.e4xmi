@@ -2,7 +2,7 @@
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_GlqaEArBEeaJ2Y3tZdi01w" elementId="org.eclipse.e4.ide.application" bindingContexts="_GlrBIArBEeaJ2Y3tZdi01w">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_GlqaEQrBEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.mainwindow" selectedElement="_Y7B88ArDEeaJ2Y3tZdi01w" label="OpenCDT" iconURI="platform:/plugin/net.bhl.cdt.client.e4/res/OpenCDT_Symbol_0016.png" width="1280" height="800">
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_Y7B88ArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.perspectivestack">
-      <children xsi:type="advanced:Perspective" xmi:id="_Z2zBoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.perspective.cdt" label="CDT">
+      <children xsi:type="advanced:Perspective" xmi:id="_Z2zBoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.perspective.cdt" label="Modelling" iconURI="platform:/plugin/net.bhl.cdt.client.e4/res/OpenCDT_Symbol_0016.png">
         <children xsi:type="basic:PartSashContainer" xmi:id="_c39FgArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.partsashcontainer.0" horizontal="true">
           <children xsi:type="basic:PartSashContainer" xmi:id="_PP2rUAt3EeaTQKclQUz8Eg" elementId="net.bhl.cdt.client.e4.partsashcontainer.2" containerData="15">
             <children xsi:type="basic:PartStack" xmi:id="__MeeoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.partstack.0" containerData="70">
@@ -61,9 +61,18 @@
           </children>
         </children>
       </children>
+      <children xsi:type="advanced:Perspective" xmi:id="_ROa7cBXYEeagnLNaja9bdg" elementId="net.bhl.cdt.client.e4.perspective.design" label="Design" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/bricks.png"/>
     </children>
     <mainMenu xmi:id="_y35uoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.menu.0"/>
-    <trimBars xmi:id="_2c62kBNgEeamkaCC9IhXbQ" elementId="net.bhl.cdt.client.e4.trimbar.0"/>
+    <trimBars xmi:id="_2c62kBNgEeamkaCC9IhXbQ" elementId="net.bhl.cdt.client.e4.trimbar.0">
+      <children xsi:type="menu:ToolControl" xmi:id="_qM7t0BXgEeagnLNaja9bdg" elementId="net.bhl.cdt.client.e4.toolcontrol.spacer" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
+        <tags>stretch</tags>
+      </children>
+      <children xsi:type="menu:ToolControl" xmi:id="_qfju4BXgEeagnLNaja9bdg" elementId="net.bhl.cdt.client.e4.toolcontrol.spacerglue" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
+        <tags>glue</tags>
+      </children>
+      <children xsi:type="menu:ToolControl" xmi:id="_YhR9sBXbEeagnLNaja9bdg" elementId="net.bhl.cdt.client.e4.toolcontrol.perspectiveswitcher" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.perspectiveswitcher/org.eclipse.e4.ui.workbench.perspectiveswitcher.tools.PerspectiveSwitcherSwtTrim"/>
+    </trimBars>
   </children>
   <handlers xmi:id="_q5IcYJgZEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.handler.newProject" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.handlers.NewProjectHandler" command="_ogB3AJgZEeKJoJcmiy2C6w"/>
   <handlers xmi:id="_fb0kMJgcEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.handler.checkoutProject" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.handlers.CheckoutProjectHandler" command="_eOWrgJgcEeKJoJcmiy2C6w"/>

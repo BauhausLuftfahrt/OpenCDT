@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tagbase" nsURI="net.bhl.cdt" nsPrefix="http://bhl.net/cdt/tagbase/model">
+  <eClassifiers xsi:type="ecore:EClass" name="Tagbase" eSuperTypes="#//AbstractLoggedItem ../../net.bhl.cdt.model/model/model.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Tables" upperBound="-1"
+        eType="#//TagableSet"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TagableSet" eSuperTypes="#//AbstractLoggedItem ../../net.bhl.cdt.model/model/model.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DataItems" upperBound="-1"
+        eType="#//ITagable"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ITagable" abstract="true" interface="true"
+      eSuperTypes="#//AbstractLoggedItem">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Tags" upperBound="-1" eType="#//Tag"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tag" eSuperTypes="#//AbstractLoggedItem">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedTag" eSuperTypes="#//Tag ../../net.bhl.cdt.model/model/model.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TagDefinition" lowerBound="1"
+        eType="#//NamedTagDefinition"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractLoggedItem" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Creator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="CreationDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastChanger" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="LastChangeDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedTagDefinition" eSuperTypes="#//AbstractLoggedItem ../../net.bhl.cdt.model/model/model.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataItem" eSuperTypes="#//ITagable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Fields" upperBound="-1"/>
+  </eClassifiers>
+</ecore:EPackage>

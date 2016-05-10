@@ -8,3 +8,8 @@ Bundle-Vendor: Bauhaus Luftfahrt e.V.
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: org.osgi.framework;version="1.3.0"
 Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.swt,
+ org.eclipse.birt.core;bundle-version="4.4.2",
+ org.eclipse.birt.chart;bundle-version="4.4.2",
+ org.eclipse.birt.chart.engine;bundle-version="4.4.2",
+ org.eclipse.birt.chart.engine.extension;bundle-version="4.4.2"
