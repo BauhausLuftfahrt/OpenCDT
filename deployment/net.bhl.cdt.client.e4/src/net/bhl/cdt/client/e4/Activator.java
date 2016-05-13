@@ -12,26 +12,6 @@ public class Activator implements BundleActivator {
 	private static BundleContext context;
 	private static LogService logService;
 	
-//	private LogListener logger = new ConsoleOSGILogger();
-//	
-//	private LinkedList<LogReaderService> m_readers = new LinkedList<LogReaderService>();
-//	
-//	private ServiceListener m_servlistener = new ServiceListener() {
-//		public void serviceChanged(ServiceEvent event) {
-//			BundleContext bc = event.getServiceReference().getBundle().getBundleContext();
-//			LogReaderService lrs = (LogReaderService)bc.getService(event.getServiceReference());
-//			if (lrs != null) {
-//				if (event.getType() == ServiceEvent.REGISTERED) {
-//					m_readers.add(lrs);
-//					lrs.addLogListener(logger);
-//				} else if (event.getType() == ServiceEvent.UNREGISTERING) {
-//					lrs.removeLogListener(logger);
-//					m_readers.remove(lrs);
-//				}
-//			}
-//		}
-//	};
-	
 	public static BundleContext getContext() {
 		return context;
 	}
@@ -54,38 +34,13 @@ public class Activator implements BundleActivator {
         {
         	logService = (LogService)context.getService(ref);
         }
-
-//		ServiceTracker logReaderTracker = new ServiceTracker(context, org.osgi.service.log.LogReaderService.class.getName(), null);
-//		logReaderTracker.open();
-//		Object[] readers = logReaderTracker.getServices();
-//		if (readers != null) {
-//			for (int i = 0; i < readers.length; i++) {
-//				LogReaderService lrs = (LogReaderService)readers[i];
-//				m_readers.add(lrs);
-//				lrs.addLogListener(logger);
-//			}
-//		}
-
-		// Add the ServiceListener, but with a filter so that we only receive events related to LogReaderService:
-//		String filter = "(objectclass=" + LogReaderService.class.getName() + ")";
-//		try {
-//			context.addServiceListener(m_servlistener, filter);
-//		} catch (InvalidSyntaxException e) {
-//			e.printStackTrace();
-//		}
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * @see org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
 	 */
 	public void stop(BundleContext bundleContext) throws Exception {
 		Activator.context = null;	
-//		for (Iterator<LogReaderService> i = m_readers.iterator(); i.hasNext(); )
-//		{
-//			LogReaderService lrs = i.next();
-//			lrs.removeLogListener(logger);
-//			i.remove();
-//		}
 	}
 }
