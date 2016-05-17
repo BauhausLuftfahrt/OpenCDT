@@ -40,6 +40,13 @@
       <plugin id="net.bhl.cdt.client.e4"/>
       <plugin id="net.bhl.cdt.model"/>
       <plugin id="net.bhl.cdt.model.edit"/>
+      <plugin id="oida.model.integration.evolution"/>
+      <plugin id="oida.model.integration.matching"/>
+      <plugin id="oida.model.integration.merge"/>
+      <plugin id="oida.model.integration.modelprovider"/>
+      <plugin id="oida.model.integration.transformation"/>
+      <plugin id="oida.model.integration.ui"/>
+      <plugin id="oida.ontology"/>
       <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.util"/>
       <plugin id="org.apache.batik.util.gui"/>
@@ -49,6 +56,7 @@
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.databinding"/>
+      <plugin id="org.eclipse.core.databinding.beans"/>
       <plugin id="org.eclipse.core.databinding.observable"/>
       <plugin id="org.eclipse.core.databinding.property"/>
       <plugin id="org.eclipse.core.expressions"/>

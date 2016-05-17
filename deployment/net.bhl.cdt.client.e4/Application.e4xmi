@@ -54,6 +54,7 @@
           <children xsi:type="basic:PartSashContainer" xmi:id="_F-MisArHEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.partsashcontainer.1" containerData="85">
             <children xsi:type="basic:PartStack" xmi:id="_G7JTIArHEeaJ2Y3tZdi01w" elementId="org.eclipse.emf.ecp.e4.application.partstack.editor" containerData="70">
               <tags>editorPart</tags>
+              <children xsi:type="basic:Part" xmi:id="_t9hIgBqLEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.part.oidamatching" contributionURI="bundleclass://oida.model.integration.ui/oida.model.integration.ui.editors.MatchingEditor" label="OIDA Matching"/>
             </children>
             <children xsi:type="basic:PartStack" xmi:id="_yMj_oAuUEeaU6bN0NO_FuA" elementId="net.bhl.cdt.client.e4.partstack.1" containerData="30">
               <children xsi:type="basic:Part" xmi:id="_zBte8AuUEeaU6bN0NO_FuA" elementId="net.bhl.cdt.client.e4.part.console" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.view.CDTConsole" label="Console" iconURI="platform:/plugin/net.bhl.cdt.client.e4/res/OpenCDT_Symbol_0016.png"/>
@@ -63,7 +64,11 @@
       </children>
       <children xsi:type="advanced:Perspective" xmi:id="_ROa7cBXYEeagnLNaja9bdg" elementId="net.bhl.cdt.client.e4.perspective.design" label="Design" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/bricks.png"/>
     </children>
-    <mainMenu xmi:id="_y35uoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.menu.0"/>
+    <mainMenu xmi:id="_y35uoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.menu.0">
+      <children xsi:type="menu:Menu" xmi:id="_WWyncBqOEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.menu.file" label="File">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_XoxMsBqOEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.handledmenuitem.exit" label="Exit" command="_cSFhMBqOEeaW3cdp9dOVbQ"/>
+      </children>
+    </mainMenu>
     <trimBars xmi:id="_2c62kBNgEeamkaCC9IhXbQ" elementId="net.bhl.cdt.client.e4.trimbar.0">
       <children xsi:type="menu:ToolControl" xmi:id="_qM7t0BXgEeagnLNaja9bdg" elementId="net.bhl.cdt.client.e4.toolcontrol.spacer" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
         <tags>stretch</tags>
@@ -86,11 +91,13 @@
   <handlers xmi:id="_1s3OcH3IEeOH4sahiLvWWw" elementId="org.eclipse.emf.ecp.e4.application.handler.project.filterPackages" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.handlers.FilterPackagesHandler" command="_v4zlIH3IEeOH4sahiLvWWw"/>
   <handlers xmi:id="_DlNB0H3KEeOH4sahiLvWWw" elementId="org.eclipse.emf.ecp.application.e4.handler.0" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.handlers.ExportHandler" command="_AbdpsH3KEeOH4sahiLvWWw"/>
   <handlers xmi:id="_UOExMH3NEeOH4sahiLvWWw" elementId="org.eclipse.emf.ecp.e4.application.handler.import" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.handlers.ImportHandler" command="_Q7bUsH3NEeOH4sahiLvWWw"/>
+  <handlers xmi:id="_ewL7UBqOEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.handler.0" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.handler.ExitHandler" command="_cSFhMBqOEeaW3cdp9dOVbQ"/>
   <rootContext xmi:id="_GlrBIArBEeaJ2Y3tZdi01w" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_GlrBIQrBEeaJ2Y3tZdi01w" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_GlrBIgrBEeaJ2Y3tZdi01w" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
   <descriptors xmi:id="_5aBzoJgREeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.partdescriptor.editor" label="" tooltip="" allowMultiple="true" category="editorPart" closeable="true" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.editor.ECPE4Editor"/>
+  <descriptors xmi:id="_jke4IBqLEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.partdescriptor.oidamatching" label="OIDA Matching" category="editorPart" closeable="true" contributionURI="bundleclass://oida.model.integration.ui/oida.model.integration.ui.editors.MatchingEditor"/>
   <commands xmi:id="_ogB3AJgZEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.command.newProject" commandName="New Project"/>
   <commands xmi:id="_eOWrgJgcEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.command.checkoutProject" commandName="Checkout"/>
   <commands xmi:id="_StwzEJoSEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.command.project.newModelElement" commandName="New Model element"/>
@@ -103,6 +110,7 @@
   <commands xmi:id="_v4zlIH3IEeOH4sahiLvWWw" elementId="org.eclipse.emf.ecp.e4.application.command.project.filterPackages" commandName="Filter Packages"/>
   <commands xmi:id="_AbdpsH3KEeOH4sahiLvWWw" elementId="org.eclipse.emf.ecp.e4.application.command.export" commandName="Export"/>
   <commands xmi:id="_Q7bUsH3NEeOH4sahiLvWWw" elementId="org.eclipse.emf.ecp.e4.application.command.import" commandName="Import"/>
+  <commands xmi:id="_cSFhMBqOEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.command.exitopencdt" commandName="Exit OpenCDT"/>
   <addons xmi:id="_0JoRApgREeKJoJcmiy2C6w" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_0JoRA5gREeKJoJcmiy2C6w" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_0JoRBJgREeKJoJcmiy2C6w" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
