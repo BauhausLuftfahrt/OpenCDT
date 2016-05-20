@@ -1,68 +1,69 @@
+/*******************************************************************************
+ * <copyright> Copyright (c) 2009-2016 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
+ * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
+ *******************************************************************************/
 package net.bhl.cdt.client.e4.log;
 
-import java.util.LinkedList;
-
+import org.osgi.framework.Bundle;
 import org.osgi.framework.ServiceReference;
-import org.osgi.service.log.LogEntry;
 import org.osgi.service.log.LogService;
 
+/**
+ * Implementation of the OGSI LogService.
+ * 
+ * @author Michael.Shamiyeh
+ *
+ */
 public class CDTLogService implements LogService {
-	private LinkedList<LogEntry> entries;
 	
-	public CDTLogService() {
-		entries = new LinkedList<LogEntry>();
+	private Bundle bundle;
+	
+	private CDTLogManager entryManager = new CDTLogManager();
+
+	public CDTLogService(Bundle bundle) {
+		this.bundle = bundle;
 	}
-	
-	public LogEntry[] getAllEntries() {
-		return entries.toArray(new LogEntry[entries.size()]);
-	}
-	
-	public LogEntry getLatestEntry() {
-		return entries.getLast();
-	}
-	
+
 	@Override
 	public void log(int level, String message) {
-		// TODO Auto-generated method stub
-		
+		log(null, level, message, null);
 	}
 
 	@Override
 	public void log(int level, String message, Throwable exception) {
-		// TODO Auto-generated method stub
-		
+		log(null, level, message, exception);
 	}
 
 	@SuppressWarnings("rawtypes")
 	@Override
 	public void log(ServiceReference sr, int level, String message) {
-		// TODO Auto-generated method stub
+		log(sr, level, message, null);
 	}
 
 	@SuppressWarnings("rawtypes")
 	@Override
 	public void log(ServiceReference sr, int level, String message, Throwable exception) {
-		// TODO Auto-generated method stub
-		
+		entryManager.addEntry(new CDTLogEntry((sr != null) ? sr.getBundle() : bundle, sr, level, message, exception));
 	}
-	
+
 	public void info(String message) {
-		
+		log(LogService.LOG_INFO, message);
 	}
-	
+
 	public void warning(String message) {
-		
+		log(LogService.LOG_WARNING, message);
 	}
-	
+
 	public void warning(String message, Throwable exception) {
-		
+		log(null, LogService.LOG_WARNING, message, exception);
 	}
-	
+
 	public void error(String message) {
-		
+		log(LogService.LOG_ERROR, message);
 	}
-	
+
 	public void error(String message, Throwable exception) {
-		
+		log(null, LogService.LOG_ERROR, message, exception);
 	}
 }

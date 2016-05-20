@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_GlqaEArBEeaJ2Y3tZdi01w" elementId="org.eclipse.e4.ide.application" bindingContexts="_GlrBIArBEeaJ2Y3tZdi01w">
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_GlqaEArBEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.application" bindingContexts="_GlrBIArBEeaJ2Y3tZdi01w">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_GlqaEQrBEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.mainwindow" selectedElement="_Y7B88ArDEeaJ2Y3tZdi01w" label="OpenCDT" iconURI="platform:/plugin/net.bhl.cdt.client.e4/res/OpenCDT_Symbol_0016.png" width="1280" height="800">
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_Y7B88ArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.perspectivestack">
       <children xsi:type="advanced:Perspective" xmi:id="_Z2zBoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.perspective.cdt" label="Modelling" iconURI="platform:/plugin/net.bhl.cdt.client.e4/res/OpenCDT_Symbol_0016.png">
         <children xsi:type="basic:PartSashContainer" xmi:id="_c39FgArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.partsashcontainer.0" horizontal="true">
-          <children xsi:type="basic:PartSashContainer" xmi:id="_PP2rUAt3EeaTQKclQUz8Eg" elementId="net.bhl.cdt.client.e4.partsashcontainer.2" containerData="15">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_PP2rUAt3EeaTQKclQUz8Eg" elementId="net.bhl.cdt.client.e4.partsashcontainer.2" containerData="20">
             <children xsi:type="basic:PartStack" xmi:id="__MeeoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.partstack.0" containerData="70">
               <children xsi:type="basic:Part" xmi:id="__il4kArDEeaJ2Y3tZdi01w" elementId="org.eclipse.emf.ecp.e4.application.part.navigator" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.view.ECPModelView" label="Model Explorer" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/folder_brick.png">
                 <menus xsi:type="menu:PopupMenu" xmi:id="_dAsF4JgZEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.popupmenu.navigator" label="Navigator menu">
@@ -51,10 +51,10 @@
               </children>
             </children>
           </children>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_F-MisArHEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.partsashcontainer.1" containerData="85">
+          <children xsi:type="basic:PartSashContainer" xmi:id="_DWfy4BzqEeaR45oFjt34qg" elementId="net.bhl.cdt.client.e4.partsashcontainer.1" containerData="80">
             <children xsi:type="basic:PartStack" xmi:id="_G7JTIArHEeaJ2Y3tZdi01w" elementId="org.eclipse.emf.ecp.e4.application.partstack.editor" containerData="70">
               <tags>editorPart</tags>
-              <children xsi:type="basic:Part" xmi:id="_t9hIgBqLEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.part.oidamatching" contributionURI="bundleclass://oida.model.integration.ui/oida.model.integration.ui.editors.MatchingEditor" label="OIDA Matching"/>
+              <tags>NoAutoCollapse</tags>
             </children>
             <children xsi:type="basic:PartStack" xmi:id="_yMj_oAuUEeaU6bN0NO_FuA" elementId="net.bhl.cdt.client.e4.partstack.1" containerData="30">
               <children xsi:type="basic:Part" xmi:id="_zBte8AuUEeaU6bN0NO_FuA" elementId="net.bhl.cdt.client.e4.part.console" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.view.CDTConsole" label="Console" iconURI="platform:/plugin/net.bhl.cdt.client.e4/res/OpenCDT_Symbol_0016.png"/>
@@ -70,6 +70,7 @@
       </children>
     </mainMenu>
     <trimBars xmi:id="_2c62kBNgEeamkaCC9IhXbQ" elementId="net.bhl.cdt.client.e4.trimbar.0">
+      <children xsi:type="menu:ToolBar" xmi:id="_jmIHoBzgEeaR45oFjt34qg" elementId="toolbar:net.bhl.cdt.client.e4.toolbar"/>
       <children xsi:type="menu:ToolControl" xmi:id="_qM7t0BXgEeagnLNaja9bdg" elementId="net.bhl.cdt.client.e4.toolcontrol.spacer" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
         <tags>stretch</tags>
       </children>
@@ -97,7 +98,6 @@
     <children xmi:id="_GlrBIgrBEeaJ2Y3tZdi01w" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
   <descriptors xmi:id="_5aBzoJgREeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.partdescriptor.editor" label="" tooltip="" allowMultiple="true" category="editorPart" closeable="true" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.editor.ECPE4Editor"/>
-  <descriptors xmi:id="_jke4IBqLEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.partdescriptor.oidamatching" label="OIDA Matching" category="editorPart" closeable="true" contributionURI="bundleclass://oida.model.integration.ui/oida.model.integration.ui.editors.MatchingEditor"/>
   <commands xmi:id="_ogB3AJgZEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.command.newProject" commandName="New Project"/>
   <commands xmi:id="_eOWrgJgcEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.command.checkoutProject" commandName="Checkout"/>
   <commands xmi:id="_StwzEJoSEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.command.project.newModelElement" commandName="New Model element"/>
