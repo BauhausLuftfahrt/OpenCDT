@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated model -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="net.bhl.cdt.model.process.presentation.ProcessModelWizardID"
+            name="%_UI_ProcessModelWizard_label"
+            class="net.bhl.cdt.model.process.presentation.ProcessModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ProcessModelFile.gif">
+         <description>%_UI_ProcessModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated model -->
+      <editor
+            id="net.bhl.cdt.model.process.presentation.ProcessEditorID"
+            name="%_UI_ProcessEditor_label"
+            icon="icons/full/obj16/ProcessModelFile.gif"
+            extensions="process"
+            class="net.bhl.cdt.model.process.presentation.ProcessEditor"
+            contributorClass="net.bhl.cdt.model.process.presentation.ProcessActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated model -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="net.bhl.cdt.model.process.designoperations.presentation.DesignoperationsModelWizardID"
+            name="%_UI_DesignoperationsModelWizard_label"
+            class="net.bhl.cdt.model.process.designoperations.presentation.DesignoperationsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/DesignoperationsModelFile.gif">
+         <description>%_UI_DesignoperationsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated model -->
+      <editor
+            id="net.bhl.cdt.model.process.designoperations.presentation.DesignoperationsEditorID"
+            name="%_UI_DesignoperationsEditor_label"
+            icon="icons/full/obj16/DesignoperationsModelFile.gif"
+            extensions="designoperations"
+            class="net.bhl.cdt.model.process.designoperations.presentation.DesignoperationsEditor"
+            contributorClass="net.bhl.cdt.model.process.designoperations.presentation.DesignoperationsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated model -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="net.bhl.cdt.model.process.selection.presentation.SelectionModelWizardID"
+            name="%_UI_SelectionModelWizard_label"
+            class="net.bhl.cdt.model.process.selection.presentation.SelectionModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SelectionModelFile.gif">
+         <description>%_UI_SelectionModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated model -->
+      <editor
+            id="net.bhl.cdt.model.process.selection.presentation.SelectionEditorID"
+            name="%_UI_SelectionEditor_label"
+            icon="icons/full/obj16/SelectionModelFile.gif"
+            extensions="selection"
+            class="net.bhl.cdt.model.process.selection.presentation.SelectionEditor"
+            contributorClass="net.bhl.cdt.model.process.selection.presentation.SelectionActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated model -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="net.bhl.cdt.model.system.presentation.SystemModelWizardID"
+            name="%_UI_SystemModelWizard_label"
+            class="net.bhl.cdt.model.system.presentation.SystemModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/SystemModelFile.gif">
+         <description>%_UI_SystemModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated model -->
+      <editor
+            id="net.bhl.cdt.model.system.presentation.SystemEditorID"
+            name="%_UI_SystemEditor_label"
+            icon="icons/full/obj16/SystemModelFile.gif"
+            extensions="system"
+            class="net.bhl.cdt.model.system.presentation.SystemEditor"
+            contributorClass="net.bhl.cdt.model.system.presentation.SystemActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated model -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="net.bhl.cdt.model.system.quantities.presentation.QuantitiesModelWizardID"
+            name="%_UI_QuantitiesModelWizard_label"
+            class="net.bhl.cdt.model.system.quantities.presentation.QuantitiesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/QuantitiesModelFile.gif">
+         <description>%_UI_QuantitiesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated model -->
+      <editor
+            id="net.bhl.cdt.model.system.quantities.presentation.QuantitiesEditorID"
+            name="%_UI_QuantitiesEditor_label"
+            icon="icons/full/obj16/QuantitiesModelFile.gif"
+            extensions="quantities"
+            class="net.bhl.cdt.model.system.quantities.presentation.QuantitiesEditor"
+            contributorClass="net.bhl.cdt.model.system.quantities.presentation.QuantitiesActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated model -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="net.bhl.cdt.model.geometry.presentation.GeometryModelWizardID"
+            name="%_UI_GeometryModelWizard_label"
+            class="net.bhl.cdt.model.geometry.presentation.GeometryModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/GeometryModelFile.gif">
+         <description>%_UI_GeometryModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated model -->
+      <editor
+            id="net.bhl.cdt.model.geometry.presentation.GeometryEditorID"
+            name="%_UI_GeometryEditor_label"
+            icon="icons/full/obj16/GeometryModelFile.gif"
+            extensions="geometry"
+            class="net.bhl.cdt.model.geometry.presentation.GeometryEditor"
+            contributorClass="net.bhl.cdt.model.geometry.presentation.GeometryActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
