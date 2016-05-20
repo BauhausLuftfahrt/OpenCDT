@@ -1,12 +1,19 @@
+/*******************************************************************************
+ * <copyright> Copyright (c) 2009-2016 Bauhaus Luftfahrt e.V.. All rights reserved. This program and the accompanying
+ * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
+ * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
+ *******************************************************************************/
 package net.bhl.cdt.client.e4.emfstore;
 
 import java.io.File;
 
 import org.eclipse.emf.emfstore.server.ESLocationProvider;
-import org.osgi.service.log.LogService;
 
-import net.bhl.cdt.client.e4.Activator;
-
+/**
+ * 
+ * @author Michael.Shamiyeh
+ *
+ */
 public class LocationProvider implements ESLocationProvider {
 	public static final Object CDT_FOLDERNAME = "cdt";
 	
@@ -35,7 +42,7 @@ public class LocationProvider implements ESLocationProvider {
 		//if (logService != null)
 		//	logService.log(LogService.LOG_INFO, "CDT Working Folder: " + sb.toString());
 		
-		Activator.getLogService().log(LogService.LOG_INFO, "CDT Working Folder: " + sb.toString());
+		//Activator.getLogService().log(LogService.LOG_INFO, "CDT Working Folder: " + sb.toString());
 		
 		return sb.toString();
 	}
