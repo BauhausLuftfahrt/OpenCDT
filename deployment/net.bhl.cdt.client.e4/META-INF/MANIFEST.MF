@@ -174,7 +174,9 @@ Require-Bundle: net.bhl.cdt.model;bundle-version="0.1.0",
  org.eclipse.e4.core.di.annotations;bundle-version="1.4.0",
  org.eclipse.e4.ui.di;bundle-version="1.1.0",
  org.eclipse.e4.ui.workbench.perspectiveswitcher;bundle-version="1.0.0",
- oida.model.integration.ui;bundle-version="1.0.0"
+ oida.model.integration.ui;bundle-version="1.0.0",
+ net.bhl.cdt.log,
+ org.eclipse.jface
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.inject;version="1.0.0",
  org.eclipse.swt,

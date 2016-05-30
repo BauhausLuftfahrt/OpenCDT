@@ -3,26 +3,18 @@
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  *******************************************************************************/
-package net.bhl.cdt.client.e4.log;
+package net.bhl.cdt.log.model;
 
 import org.osgi.framework.Bundle;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.log.LogEntry;
 
 /**
- * Implementation of the OSGi {@link LogEntry} interface.
- * <p>
- * Provides methods to access the information contained in an individual Log
- * Service log entry.
- * <p>
- * A LogEntry object may be acquired from the
- * {@link org.osgi.service.log.LogReaderService#getLog()} method or by
- * registering a {@link org.osgi.service.log.LogListener} object.
  * 
- * @see org.osgi.service.log.LogReaderService#getLog()
- * @see org.osgi.service.log.LogListener
+ * @author Michael Shamiyeh
+ *
  */
-final class CDTLogEntry implements LogEntry {
+public final class LogEntryImpl implements LogEntry {
 	
 	private final long logTime;
 	private final String message;
@@ -46,7 +38,7 @@ final class CDTLogEntry implements LogEntry {
 	 * @param exception
 	 *            the exception to associate with this LogEntry object
 	 */
-	CDTLogEntry(final Bundle bundle, final ServiceReference sr, final int level, final String message, final Throwable exception) {
+	public LogEntryImpl(final Bundle bundle, final ServiceReference sr, final int level, final String message, final Throwable exception) {
 		this.loggingBundle = bundle;
 		this.exception = LogException.getException(exception);
 		this.level = level;

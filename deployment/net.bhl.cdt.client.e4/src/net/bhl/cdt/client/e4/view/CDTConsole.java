@@ -1,49 +1,75 @@
 package net.bhl.cdt.client.e4.view;
 
+import java.util.Date;
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.StyledText;
-import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.log.LogEntry;
 import org.osgi.service.log.LogListener;
-import org.osgi.service.log.LogReaderService;
-import org.osgi.service.log.LogService;
 
 import net.bhl.cdt.client.e4.Activator;
-import net.bhl.cdt.client.e4.log.CDTLogManager;
+import net.bhl.cdt.log.service.CDTLogReaderService;
 
 public class CDTConsole implements LogListener {
-	private StyledText text;
+	private TableViewer logTable;
+	
+	//private StyledText text;
+	
+	public CDTConsole() {
+		registerLogViewer();
+	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	@PostConstruct
-	public void createUI(Composite parent, CDTLogManager logManager, LogService logger) {
-		parent.setLayout(new FillLayout());
-		
-		text = new StyledText(parent, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
-	    text.setLayoutData(new GridData(GridData.FILL_BOTH));
-	    
-	    ServiceReference ref = Activator.getContext().getServiceReference(LogReaderService.class.getName());
+	public void registerLogViewer() {
+		ServiceReference ref = Activator.getContext().getServiceReference(CDTLogReaderService.class.getName());
 	    if (ref != null)
 	    {
-	        LogReaderService reader = (LogReaderService) Activator.getContext().getService(ref);
+	        CDTLogReaderService reader = (CDTLogReaderService)Activator.getContext().getService(ref);
 	        reader.addLogListener(this);
 	    }
-	    
-	    logger.log(LogService.LOG_INFO, "CDT Console initialized.");
+	}
+	
+//	@PostConstruct
+//	public void createUI(Composite parent, CDTLogService logger) {
+//		parent.setLayout(new FillLayout());
+//		
+//		text = new StyledText(parent, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
+//	    text.setLayoutData(new GridData(GridData.FILL_BOTH));
+//	    
+//	    logger.info("CDT Console initialized.");
+//	}
+	
+	@PostConstruct
+	public void createUI(Composite parent) {
+		parent.setLayout(new GridLayout(1, false));
+
+		logTable = new TableViewer(parent, SWT.NONE);
+		
+		// tableViewer.add("Sample item 5");
+
+		logTable.getTable().setLayoutData(new GridData(GridData.FILL_BOTH));
+	}
+
+	@Focus
+	public void setFocus() {
+		logTable.getTable().setFocus();
 	}
 
 	@Override
 	public void logged(LogEntry log) {
 		Display.getDefault().asyncExec(new Runnable() {
 			public void run() {
-				text.append("[" + log.getBundle().getSymbolicName() + "] " + log.getMessage() + System.getProperty("line.separator"));
+				logTable.add(new Date(log.getTime()).toString() + ": " + log.getMessage() + " [" + log.getBundle() + "]");
+				//text.append("[" + log.getBundle().getSymbolicName() + "] " + log.getMessage() + System.getProperty("line.separator"));
 			}
 		});
 	}
@@ -51,10 +77,10 @@ public class CDTConsole implements LogListener {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@PreDestroy
 	public void deRegisterLogListener() {
-		ServiceReference ref = Activator.getContext().getServiceReference(LogReaderService.class.getName());
+		ServiceReference ref = Activator.getContext().getServiceReference(CDTLogReaderService.class.getName());
 	    if (ref != null)
 	    {
-	        LogReaderService reader = (LogReaderService) Activator.getContext().getService(ref);
+	        CDTLogReaderService reader = (CDTLogReaderService) Activator.getContext().getService(ref);
 	        reader.removeLogListener(this);
 	    }
 	}

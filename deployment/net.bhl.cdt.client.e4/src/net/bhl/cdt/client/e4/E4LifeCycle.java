@@ -15,12 +15,14 @@ import org.eclipse.e4.ui.workbench.lifecycle.PostContextCreate;
 import org.eclipse.e4.ui.workbench.lifecycle.PreSave;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessAdditions;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessRemovals;
+import org.osgi.framework.ServiceReference;
 import org.osgi.service.log.LogService;
 
-import net.bhl.cdt.client.e4.log.CDTLogService;
+import net.bhl.cdt.log.service.CDTLogService;
 
 /**
- * This is a stub implementation containing e4 LifeCycle annotated methods.<br />
+ * This is a stub implementation containing e4 LifeCycle annotated methods.
+ * <br />
  * There is a corresponding entry in <em>plugin.xml</em> (under the
  * <em>org.eclipse.core.runtime.products' extension point</em>) that references
  * this class.
@@ -30,8 +32,11 @@ public class E4LifeCycle {
 
 	@PostContextCreate
 	void postContextCreate(IEclipseContext workbenchContext) {
-		//workbenchContext.set(CDTLogService.class, new CDTLogService());
-	//	workbenchContext.set(LogService.class, Activator.getLogService());
+		ServiceReference ref = Activator.getContext().getServiceReference(CDTLogService.class.getName());
+		if (ref != null) {
+			CDTLogService logService = (CDTLogService)Activator.getContext().getService(ref);
+			workbenchContext.set(CDTLogService.class, logService);
+		}
 	}
 
 	@PreSave

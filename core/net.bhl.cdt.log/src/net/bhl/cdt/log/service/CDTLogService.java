@@ -3,11 +3,14 @@
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  *******************************************************************************/
-package net.bhl.cdt.client.e4.log;
+package net.bhl.cdt.log.service;
 
 import org.osgi.framework.Bundle;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.log.LogService;
+
+import net.bhl.cdt.log.CDTLog;
+import net.bhl.cdt.log.model.LogEntryImpl;
 
 /**
  * Implementation of the OGSI LogService.
@@ -19,9 +22,10 @@ public class CDTLogService implements LogService {
 	
 	private Bundle bundle;
 	
-	private CDTLogManager entryManager = new CDTLogManager();
+	private CDTLog cdtLog;
 
-	public CDTLogService(Bundle bundle) {
+	public CDTLogService(CDTLog log, Bundle bundle) {
+		this.cdtLog = log;
 		this.bundle = bundle;
 	}
 
@@ -44,7 +48,7 @@ public class CDTLogService implements LogService {
 	@SuppressWarnings("rawtypes")
 	@Override
 	public void log(ServiceReference sr, int level, String message, Throwable exception) {
-		entryManager.addEntry(new CDTLogEntry((sr != null) ? sr.getBundle() : bundle, sr, level, message, exception));
+		cdtLog.addEntry(new LogEntryImpl((sr != null) ? sr.getBundle() : bundle, sr, level, message, exception));
 	}
 
 	public void info(String message) {

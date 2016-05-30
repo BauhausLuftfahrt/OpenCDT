@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package net.bhl.cdt.client.e4.log;
+package net.bhl.cdt.log.model;
 
 /**
  * Implementation dependent exception class used to avoid references to any
@@ -26,7 +26,7 @@ package net.bhl.cdt.client.e4.log;
  * class name) and the stack trace of both the exception thrown and any
  * embedded exceptions.
  */
-final class LogException extends Exception
+public final class LogException extends Exception
 {
     /** The class name of the original exception. */
     private final String m_className;
@@ -80,9 +80,9 @@ final class LogException extends Exception
     private static final String JAVA_PACKAGE_PREFIX = "java.";
 
     /**
-     * Returns the exception to store in the {@link LogEntry}.
+     * Returns the exception to store in the {@link LogEntryImpl}.
      * @param exception the exception that was originally thrown.
-     * @return the exception to store in the {@link LogEntry}
+     * @return the exception to store in the {@link LogEntryImpl}
      */
     static Throwable getException(final Throwable exception)
     {

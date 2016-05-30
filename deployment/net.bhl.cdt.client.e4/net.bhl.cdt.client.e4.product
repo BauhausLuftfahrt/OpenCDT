@@ -38,6 +38,7 @@
       <plugin id="javax.xml"/>
       <plugin id="lpg.runtime.java"/>
       <plugin id="net.bhl.cdt.client.e4"/>
+      <plugin id="net.bhl.cdt.log"/>
       <plugin id="net.bhl.cdt.model"/>
       <plugin id="net.bhl.cdt.model.edit"/>
       <plugin id="oida.model.integration.evolution"/>
@@ -337,6 +338,7 @@
    </plugins>
 
    <configurations>
+      <plugin id="net.bhl.cdt.log" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
