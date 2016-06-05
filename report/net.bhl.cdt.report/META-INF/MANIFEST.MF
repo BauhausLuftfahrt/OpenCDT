@@ -13,3 +13,4 @@ Require-Bundle: org.eclipse.swt,
  org.eclipse.birt.chart;bundle-version="4.4.2",
  org.eclipse.birt.chart.engine;bundle-version="4.4.2",
  org.eclipse.birt.chart.engine.extension;bundle-version="4.4.2"
+Export-Package: net.bhl.cdt.report.chart
