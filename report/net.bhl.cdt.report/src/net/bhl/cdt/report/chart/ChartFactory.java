@@ -58,4 +58,46 @@ public class ChartFactory {
 
 		return chart;
 	}
+	
+	public static ChartWithAxes createBubbleChart(String title, boolean legendVisible, float fontSize, String font) {
+		ChartWithAxes chart = ChartWithAxesImpl.create();
+		chart.setType("Bubble Chart"); //$NON-NLS-1$
+		chart.setSubType("Standard Bubble Chart"); //$NON-NLS-1$
+		// Plot
+		chart.getBlock().setBackground(ColorDefinitionImpl.WHITE());
+		chart.getBlock().getOutline().setVisible(false);
+		Plot p = chart.getPlot();
+		p.getClientArea().setBackground(ColorDefinitionImpl.WHITE());
+
+		// Title
+		chart.getTitle().getLabel().getCaption().setValue(title); // $NON-NLS-1$
+
+		// Legend
+		Legend lg = chart.getLegend( );
+		lg.setItemType( LegendItemType.SERIES_LITERAL );
+		lg.setVisible(legendVisible);
+
+		// X-Axis
+		Axis xAxisPrimary = chart.getPrimaryBaseAxes( )[0];
+		xAxisPrimary.setType( AxisType.TEXT_LITERAL );
+		xAxisPrimary.getMajorGrid( ).setTickStyle( TickStyle.BELOW_LITERAL );
+		xAxisPrimary.getOrigin( ).setType( IntersectionType.MIN_LITERAL );
+		xAxisPrimary.getLabel().getCaption().getFont().setSize(fontSize);
+		xAxisPrimary.getLabel().getCaption().getFont().setName(font);
+		
+		// Y-Axis
+		Axis yAxisPrimary = chart.getPrimaryOrthogonalAxis( xAxisPrimary );
+		yAxisPrimary.getMajorGrid( ).setTickStyle( TickStyle.LEFT_LITERAL );
+		yAxisPrimary.setType( AxisType.LINEAR_LITERAL );
+		//yAxisPrimary.getLabel( ).getCaption( ).getFont( ).setRotation( 90 );
+		yAxisPrimary.getLabel().getCaption().getFont().setSize(fontSize);
+		yAxisPrimary.getLabel().getCaption().getFont().setName(font);
+		yAxisPrimary.getTitle().getCaption().getFont().setSize(fontSize);
+		yAxisPrimary.getTitle().getCaption().getFont().setName(font);
+		yAxisPrimary.getTitle().getCaption().getFont().setBold(true);
+		yAxisPrimary.getTitle( ).getCaption( ).setValue( "Technology Level" );//$NON-NLS-1$
+		yAxisPrimary.getTitle().setVisible(true);
+
+		return chart;
+	}
 }
