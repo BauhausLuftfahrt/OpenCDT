@@ -3,6 +3,7 @@
 
 <product name="net.bhl.cdt.client.e4" uid="OpenCDT E4" id="net.bhl.cdt.client.e4.product" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="true">
 
+
    <configIni use="default">
    </configIni>
 
@@ -20,15 +21,17 @@
       startupProgressRect="5,275,445,15"
       startupMessageRect="7,252,445,20"
       startupForegroundColor="000000" />
-   <launcher>
+   <launcher name="airsideDB">
       <solaris/>
       <win useIco="false">
          <bmp/>
       </win>
    </launcher>
 
+
    <vm>
    </vm>
+
 
    <plugins>
       <plugin id="com.ibm.icu"/>
@@ -39,6 +42,7 @@
       <plugin id="lpg.runtime.java"/>
       <plugin id="net.bhl.cdt.airsidedb"/>
       <plugin id="net.bhl.cdt.airsidedb.model"/>
+      <plugin id="net.bhl.cdt.airsidedb.model.edit"/>
       <plugin id="net.bhl.cdt.airsidedb.viewmodel"/>
       <plugin id="net.bhl.cdt.client.e4"/>
       <plugin id="net.bhl.cdt.log"/>
@@ -341,6 +345,10 @@
 
    <configurations>
       <plugin id="net.bhl.cdt.log" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="1" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
    </configurations>
