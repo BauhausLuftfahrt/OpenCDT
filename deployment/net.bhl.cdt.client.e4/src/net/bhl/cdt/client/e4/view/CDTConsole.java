@@ -68,7 +68,10 @@ public class CDTConsole implements LogListener {
 	public void logged(LogEntry log) {
 		Display.getDefault().asyncExec(new Runnable() {
 			public void run() {
-				logTable.add(new Date(log.getTime()).toString() + ": " + log.getMessage() + " [" + log.getBundle() + "]");
+				Object newLine = new Date(log.getTime()).toString() + ": " + log.getMessage() + " [" + log.getBundle() + "]";
+				
+				logTable.add(newLine);
+				logTable.reveal(newLine);
 				//text.append("[" + log.getBundle().getSymbolicName() + "] " + log.getMessage() + System.getProperty("line.separator"));
 			}
 		});

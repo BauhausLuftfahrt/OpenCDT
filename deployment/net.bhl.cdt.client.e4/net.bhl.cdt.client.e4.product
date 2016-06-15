@@ -39,21 +39,14 @@
       <plugin id="lpg.runtime.java"/>
       <plugin id="net.bhl.cdt.airsidedb"/>
       <plugin id="net.bhl.cdt.airsidedb.model"/>
-      <plugin id="net.bhl.cdt.airsidedb.model.edit"/>
-      <plugin id="net.bhl.cdt.airsidedb.model.editor"/>
       <plugin id="net.bhl.cdt.airsidedb.viewmodel"/>
       <plugin id="net.bhl.cdt.client.e4"/>
       <plugin id="net.bhl.cdt.log"/>
       <plugin id="net.bhl.cdt.model"/>
       <plugin id="net.bhl.cdt.model.edit"/>
       <plugin id="net.bhl.cdt.report"/>
-      <plugin id="oida.model.integration.evolution"/>
-      <plugin id="oida.model.integration.matching"/>
-      <plugin id="oida.model.integration.merge"/>
-      <plugin id="oida.model.integration.modelprovider"/>
-      <plugin id="oida.model.integration.transformation"/>
-      <plugin id="oida.model.integration.ui"/>
-      <plugin id="oida.ontology"/>
+      <plugin id="net.bhl.cdt.tagbase.model"/>
+      <plugin id="net.bhl.cdt.tagbase.model.edit"/>
       <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.util"/>
       <plugin id="org.apache.batik.util.gui"/>
@@ -69,7 +62,6 @@
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.databinding"/>
-      <plugin id="org.eclipse.core.databinding.beans"/>
       <plugin id="org.eclipse.core.databinding.observable"/>
       <plugin id="org.eclipse.core.databinding.property"/>
       <plugin id="org.eclipse.core.expressions"/>
@@ -238,7 +230,6 @@
       <plugin id="org.eclipse.emf.ecp.view.viewproxy.model.edit"/>
       <plugin id="org.eclipse.emf.ecp.view.workspace.migrator"/>
       <plugin id="org.eclipse.emf.ecp.workspace.core"/>
-      <plugin id="org.eclipse.emf.ecp.workspace.ui"/>
       <plugin id="org.eclipse.emf.edapt.common"/>
       <plugin id="org.eclipse.emf.edapt.declaration"/>
       <plugin id="org.eclipse.emf.edapt.history"/>
@@ -340,8 +331,6 @@
       <plugin id="org.eclipse.ui.views"/>
       <plugin id="org.eclipse.ui.win32" fragment="true"/>
       <plugin id="org.eclipse.ui.workbench"/>
-      <plugin id="org.hamcrest.core"/>
-      <plugin id="org.junit"/>
       <plugin id="org.mozilla.javascript"/>
       <plugin id="org.tukaani.xz"/>
       <plugin id="org.w3c.css.sac"/>
@@ -352,10 +341,6 @@
 
    <configurations>
       <plugin id="net.bhl.cdt.log" autoStart="true" startLevel="0" />
-      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
-      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
-      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
-      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
    </configurations>

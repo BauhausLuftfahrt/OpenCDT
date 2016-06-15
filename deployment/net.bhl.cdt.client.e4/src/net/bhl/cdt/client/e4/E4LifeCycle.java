@@ -16,7 +16,6 @@ import org.eclipse.e4.ui.workbench.lifecycle.PreSave;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessAdditions;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessRemovals;
 import org.osgi.framework.ServiceReference;
-import org.osgi.service.log.LogService;
 
 import net.bhl.cdt.log.service.CDTLogService;
 
@@ -32,8 +31,10 @@ public class E4LifeCycle {
 
 	@PostContextCreate
 	void postContextCreate(IEclipseContext workbenchContext) {
+		@SuppressWarnings("rawtypes")
 		ServiceReference ref = Activator.getContext().getServiceReference(CDTLogService.class.getName());
 		if (ref != null) {
+			@SuppressWarnings("unchecked")
 			CDTLogService logService = (CDTLogService)Activator.getContext().getService(ref);
 			workbenchContext.set(CDTLogService.class, logService);
 		}

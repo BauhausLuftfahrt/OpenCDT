@@ -2,20 +2,15 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="tagbase" nsURI="http://bhl.net/cdt/tagbase.model" nsPrefix="net.bhl.cdt">
   <eClassifiers xsi:type="ecore:EClass" name="TagBase" eSuperTypes="#//AbstractLoggedItem ../../net.bhl.cdt.model/model/model.ecore#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Tables" upperBound="-1"
-        eType="#//TagableSet"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="TagDefinitions" upperBound="-1"
-        eType="#//NamedTagDefinition" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TagDefinitions" lowerBound="1"
+        eType="#//TagDefinitionSet" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="TagSets" upperBound="-1"
         eType="#//TagSet" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TagableSet" eSuperTypes="#//AbstractLoggedItem ../../net.bhl.cdt.model/model/model.ecore#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="DataItems" upperBound="-1"
-        eType="#//ITagable"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ITagable" abstract="true" interface="true"
       eSuperTypes="#//AbstractLoggedItem">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Tags" upperBound="-1" eType="#//Tag"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Tags" upperBound="-1" eType="#//Tag"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tag" eSuperTypes="#//AbstractLoggedItem">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -37,5 +32,9 @@
   <eClassifiers xsi:type="ecore:EClass" name="TagSet" eSuperTypes="../../net.bhl.cdt.model/model/model.ecore#//NamedElement #//AbstractLoggedItem">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Tags" upperBound="-1" eType="#//NamedTag"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TagDefinitionSet">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Items" upperBound="-1"
+        eType="#//NamedTagDefinition" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
