@@ -64,7 +64,7 @@
       </children>
       <children xsi:type="advanced:Perspective" xmi:id="_ROa7cBXYEeagnLNaja9bdg" elementId="net.bhl.cdt.client.e4.perspective.design" toBeRendered="false" visible="false" label="Design" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/bricks.png"/>
     </children>
-    <mainMenu xmi:id="_y35uoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.menu.0">
+    <mainMenu xmi:id="_y35uoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.menu.0" toBeRendered="false" visible="false">
       <children xsi:type="menu:Menu" xmi:id="_WWyncBqOEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.menu.file" label="File">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_XoxMsBqOEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.handledmenuitem.exit" label="Exit" command="_cSFhMBqOEeaW3cdp9dOVbQ"/>
       </children>
