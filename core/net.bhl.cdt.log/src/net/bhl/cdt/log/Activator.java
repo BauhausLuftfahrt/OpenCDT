@@ -5,13 +5,8 @@
  *******************************************************************************/
 package net.bhl.cdt.log;
 
-import java.util.Hashtable;
-
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
-import org.osgi.service.log.LogReaderService;
-import org.osgi.service.log.LogService;
-import org.osgi.util.tracker.ServiceTracker;
 
 import net.bhl.cdt.log.service.CDTLogReaderService;
 import net.bhl.cdt.log.service.CDTLogService;

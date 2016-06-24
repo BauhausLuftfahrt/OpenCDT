@@ -10,6 +10,12 @@ import java.util.Map;
 
 import javax.measure.unit.Unit;
 
+import org.eclipse.emf.ecore.EClass;
+
+import de.congrace.exp4j.Calculable;
+import de.congrace.exp4j.ExpressionBuilder;
+import de.congrace.exp4j.UnknownFunctionException;
+import de.congrace.exp4j.UnparsableExpressionException;
 import net.bhl.cdt.model.ProcessableElement;
 import net.bhl.cdt.model.process.OperationStrategy;
 import net.bhl.cdt.model.process.ProcessElement;
@@ -20,13 +26,6 @@ import net.bhl.cdt.model.system.DecimalNumber;
 import net.bhl.cdt.model.system.Value;
 import net.bhl.cdt.model.system.util.SystemHelper;
 import net.bhl.cdt.model.util.ModelHelper;
-
-import org.eclipse.emf.ecore.EClass;
-
-import de.congrace.exp4j.Calculable;
-import de.congrace.exp4j.ExpressionBuilder;
-import de.congrace.exp4j.UnknownFunctionException;
-import de.congrace.exp4j.UnparsableExpressionException;
 
 public class FormulaStrategy implements OperationStrategy {
 

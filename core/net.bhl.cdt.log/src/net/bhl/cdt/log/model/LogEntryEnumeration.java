@@ -8,12 +8,14 @@ package net.bhl.cdt.log.model;
 import java.util.Enumeration;
 import java.util.Iterator;
 
+import org.osgi.service.log.LogEntry;
+
 /**
  * 
  * @author Michael Shamiyeh
  *
  */
-public class LogEntryEnumeration implements Enumeration {	
+public class LogEntryEnumeration implements Enumeration<LogEntry> {	
 	private Iterator<LogEntryImpl> logEntryIterator;
 	
 	public LogEntryEnumeration(Iterator<LogEntryImpl> it) {
@@ -27,7 +29,7 @@ public class LogEntryEnumeration implements Enumeration {
 	}
 
 	@Override
-	public Object nextElement() {
+	public LogEntry nextElement() {
 		return logEntryIterator.next();
 	}
 }

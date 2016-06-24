@@ -13,7 +13,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: org.eclipse.emf.emfstore.client;bundle-version="1.1.0";visibility:=reexport,
  org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- net.bhl.cdt.model;visibility:=reexport
+ net.bhl.cdt.model;visibility:=reexport,
+ org.eclipse.equinox.registry
 Bundle-ActivationPolicy: lazy
 Export-Package: de.congrace.exp4j,
  javax.measure,

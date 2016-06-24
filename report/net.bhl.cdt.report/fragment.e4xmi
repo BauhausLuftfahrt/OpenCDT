@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/descriptor/basic" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_OqvhQDkYEeaYg4zqfjn7QA">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_QC_toDkYEeaYg4zqfjn7QA" featurename="children" parentElementId="net.bhl.cdt.client.e4.menu.0">
+    <elements xsi:type="menu:Menu" xmi:id="_V_tjsDkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.menu.reporting" label="Reporting">
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_ZQVm8DkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.handledmenuitem.createbarchart" label="Create Bar Chart" command="_dxT3wDkYEeaYg4zqfjn7QA"/>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_Zt9-IDkYEeaYg4zqfjn7QA" featurename="commands" parentElementId="net.bhl.cdt.application">
+    <elements xsi:type="commands:Command" xmi:id="_dxT3wDkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.command.createchart" commandName="createChart"/>
+    <elements xsi:type="commands:Command" xmi:id="_2dYv8DkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.command.refreshchart" commandName="refreshChart"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_Z--1oDkYEeaYg4zqfjn7QA" featurename="handlers" parentElementId="net.bhl.cdt.application">
+    <elements xsi:type="commands:Handler" xmi:id="_jV9zIDkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.handler.0" contributionURI="bundleclass://net.bhl.cdt.reporting/net.bhl.cdt.reporting.handler.CreateChartHandler" command="_dxT3wDkYEeaYg4zqfjn7QA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_6C-9oDkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.handler.1" contributionURI="bundleclass://net.bhl.cdt.reporting/net.bhl.cdt.reporting.handler.RefreshChartHandler" command="_2dYv8DkYEeaYg4zqfjn7QA"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_pk4McDkYEeaYg4zqfjn7QA" featurename="descriptors" parentElementId="net.bhl.cdt.application">
+    <elements xsi:type="basic:PartDescriptor" xmi:id="_tYtDYDkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.partdescriptor.barchart" label="Bar Chart" allowMultiple="true" category="editorPart" contributionURI="bundleclass://net.bhl.cdt.reporting/net.bhl.cdt.report.part.BarChartViewPart">
+      <toolbar xmi:id="_yNJCwDkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.toolbar.0">
+        <children xsi:type="menu:HandledToolItem" xmi:id="_zbRCwDkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.handledtoolitem.refresh" label="Refresh" command="_2dYv8DkYEeaYg4zqfjn7QA"/>
+      </toolbar>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>

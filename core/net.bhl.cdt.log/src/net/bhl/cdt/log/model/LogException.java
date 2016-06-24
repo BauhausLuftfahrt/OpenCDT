@@ -28,7 +28,9 @@ package net.bhl.cdt.log.model;
  */
 public final class LogException extends Exception
 {
-    /** The class name of the original exception. */
+	private static final long serialVersionUID = 227832707730544883L;
+	
+	/** The class name of the original exception. */
     private final String m_className;
     /** The message from the original exception. */
     private final String m_message;

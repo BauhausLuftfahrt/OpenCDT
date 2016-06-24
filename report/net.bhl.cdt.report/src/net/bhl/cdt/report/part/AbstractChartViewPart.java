@@ -23,12 +23,16 @@ import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 
+import net.bhl.cdt.log.service.CDTLogService;
+
 /**
  * 
  * @author Michael.Shamiyeh
  *
  */
 public abstract class AbstractChartViewPart {
+	
+	protected CDTLogService log;
 	
 	protected Canvas canvas;
 
@@ -58,9 +62,12 @@ public abstract class AbstractChartViewPart {
 	protected abstract Chart createChart();
 	
 	@PostConstruct
-	public void createUI(Composite parent) {
+	public void createUI(Composite parent, CDTLogService log) {
+		this.log = log;
+		
 		canvas = new Canvas(parent, SWT.NONE);
-
+		chart = createChart();
+		
 		try {
 			PluginSettings ps = PluginSettings.instance();
 			render = ps.getDevice("dv.SWT");
@@ -110,7 +117,7 @@ public abstract class AbstractChartViewPart {
 			Generator gr = Generator.instance();
 			state = gr.build(render.getDisplayServer(), chart, bo, null, null, null);
 		} catch (ChartException ex) {
-			ex.printStackTrace();
+			log.error("Error while building chart...", ex);
 		}
 	}
 
@@ -135,7 +142,7 @@ public abstract class AbstractChartViewPart {
 
 			gr.render(render, state);
 		} catch (ChartException ex) {
-			ex.printStackTrace();
+			log.error("Error while drawing chart to image...", ex);
 		} finally {
 			if (gc != null)
 				gc.dispose();

@@ -5,44 +5,38 @@ import org.eclipse.birt.chart.model.ChartWithAxes;
 import org.eclipse.birt.chart.model.attribute.ChartDimension;
 import org.eclipse.birt.chart.model.attribute.LegendItemType;
 import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
-import org.eclipse.birt.chart.model.component.Series;
-import org.eclipse.birt.chart.model.component.impl.SeriesImpl;
-import org.eclipse.birt.chart.model.data.NumberDataSet;
-import org.eclipse.birt.chart.model.data.SeriesDefinition;
-import org.eclipse.birt.chart.model.data.TextDataSet;
-import org.eclipse.birt.chart.model.data.impl.NumberDataSetImpl;
-import org.eclipse.birt.chart.model.data.impl.SeriesDefinitionImpl;
-import org.eclipse.birt.chart.model.data.impl.TextDataSetImpl;
+import org.eclipse.birt.chart.model.component.Axis;
 import org.eclipse.birt.chart.model.impl.ChartWithAxesImpl;
-import org.eclipse.birt.chart.model.type.BarSeries;
-import org.eclipse.birt.chart.model.type.impl.BarSeriesImpl;
 
 public class BarChartViewPart extends AbstractChartViewPart {
+	
+	private Axis xAxis;
+	private Axis yAxis;
 	
 	@Override
 	protected Chart createChart() {
 		chart = ChartWithAxesImpl.create();
 		chart.setDimension(ChartDimension.TWO_DIMENSIONAL_WITH_DEPTH_LITERAL);
 
-		chart.getPlot().setBackground(ColorDefinitionImpl.ORANGE());
-		chart.getPlot().getClientArea().setBackground(ColorDefinitionImpl.YELLOW());
+		chart.getPlot().setBackground(ColorDefinitionImpl.WHITE());
+		chart.getPlot().getClientArea().setBackground(ColorDefinitionImpl.WHITE());
 
 		chart.getLegend().setItemType(LegendItemType.CATEGORIES_LITERAL);
-		chart.getLegend().setVisible(true);
+		chart.getLegend().setVisible(false);
 
 		chart.getTitle().getLabel().getCaption().setValue("Chart Title");
 		chart.getTitle().getLabel().getCaption().getFont().setSize(14);
 		chart.getTitle().getLabel().getCaption().getFont().setName("Arial");
+		
+		xAxis = ((ChartWithAxes)chart).getPrimaryBaseAxes()[0];
+		xAxis.getTitle().setVisible(true);
 
-//		xAxis = ((ChartWithAxes)chart).getPrimaryBaseAxes()[0];
-//		xAxis.getTitle().setVisible(true);
-//
-//		xAxis.getTitle().getCaption().setValue(xTitle);
-//
-//		yAxis = ((ChartWithAxes)chart).getPrimaryOrthogonalAxis(xAxis);
-//		yAxis.getTitle().setVisible(true);
-//		yAxis.getTitle().getCaption().setValue(yTitle);
-//		yAxis.getScale().setStep(1.0);
+		xAxis.getTitle().getCaption().setValue("X-Axis Title");
+
+		yAxis = ((ChartWithAxes)chart).getPrimaryOrthogonalAxis(xAxis);
+		yAxis.getTitle().setVisible(true);
+		yAxis.getTitle().getCaption().setValue("Y-Axis Title");
+		yAxis.getScale().setStep(1.0);
 //
 //		TextDataSet categoryValues = TextDataSetImpl.create(dataSet.getCities());
 //

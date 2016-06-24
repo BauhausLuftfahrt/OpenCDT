@@ -1,16 +1,21 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: OpenCDT Reporting
-Bundle-SymbolicName: net.bhl.cdt.report
+Bundle-SymbolicName: net.bhl.cdt.reporting;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: net.bhl.cdt.report.Activator
 Bundle-Vendor: Bauhaus Luftfahrt e.V.
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: org.osgi.framework;version="1.3.0"
-Bundle-ActivationPolicy: lazy
+Export-Package: net.bhl.cdt.report.chart
 Require-Bundle: org.eclipse.swt,
  org.eclipse.birt.core;bundle-version="4.4.2",
  org.eclipse.birt.chart;bundle-version="4.4.2",
  org.eclipse.birt.chart.engine;bundle-version="4.4.2",
- org.eclipse.birt.chart.engine.extension;bundle-version="4.4.2"
-Export-Package: net.bhl.cdt.report.chart
+ org.eclipse.birt.chart.engine.extension;bundle-version="4.4.2",
+ org.eclipse.e4.ui.model.workbench;bundle-version="1.1.100.v20150407-1430",
+ org.eclipse.e4.core.di,
+ org.eclipse.e4.ui.workbench,
+ net.bhl.cdt.log
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Import-Package: javax.inject;version="1.0.0",
+ org.osgi.framework;version="1.3.0"
+Bundle-ActivationPolicy: lazy

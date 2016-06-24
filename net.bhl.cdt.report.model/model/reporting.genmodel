@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/net.bhl.cdt.reporting.model/src" modelPluginID="net.bhl.cdt.reporting.model"
+    modelName="Reporting" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../net.bhl.cdt.model/model/model.genmodel#//model ../../net.bhl.cdt.model/model/units.genmodel#//units"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>reporting.ecore</foreignModel>
+  <genPackages prefix="Reporting" disposableProviderFactory="true" ecorePackage="reporting.ecore#/">
+    <genClasses ecoreClass="reporting.ecore#//Report">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference reporting.ecore#//Report/Map"/>
+    </genClasses>
+    <genClasses ecoreClass="reporting.ecore#//ReportMap">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reporting.ecore#//ReportMap/Reports"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="reporting.ecore#//ReportElement"/>
+    <genClasses image="false" ecoreClass="reporting.ecore#//Chart">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reporting.ecore#//Chart/Title"/>
+    </genClasses>
+    <genClasses ecoreClass="reporting.ecore#//ChartWithAxis2D">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reporting.ecore#//ChartWithAxis2D/XAxis"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reporting.ecore#//ChartWithAxis2D/YAxis"/>
+    </genClasses>
+    <genClasses ecoreClass="reporting.ecore#//BarChart"/>
+    <genClasses ecoreClass="reporting.ecore#//Axis">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference reporting.ecore#//Axis/Title"/>
+    </genClasses>
+    <genClasses ecoreClass="reporting.ecore#//FontProperties">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reporting.ecore#//FontProperties/Family"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reporting.ecore#//FontProperties/Size"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reporting.ecore#//FontProperties/Bold"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reporting.ecore#//FontProperties/Italic"/>
+    </genClasses>
+    <genClasses ecoreClass="reporting.ecore#//TextElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute reporting.ecore#//TextElement/Text"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference reporting.ecore#//TextElement/Properties"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
