@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.eclipse.emf.ecp.view.model:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.emf.ecp.view.model="http://org/eclipse/emf/ecp/view/model/170" xmi:id="_3dvOkDsZEeaZb_0zY9ZEAw" name="GanttChart" ecorePath="/net.bhl.cdt.reporting.model/model/reporting.ecore">
+  <rootEClass href="http://net.bhl/cdt/reporting#//GanttChart"/>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_3d0HEDsZEeaZb_0zY9ZEAw" name="Control name">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_3d0HETsZEeaZb_0zY9ZEAw">
+      <domainModelEFeature xsi:type="ecore:EAttribute" href="http://bhl.net/cdt/model#//NamedElement/name"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_3d0HEjsZEeaZb_0zY9ZEAw" name="Control Title">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_3d0HEzsZEeaZb_0zY9ZEAw">
+      <domainModelEFeature xsi:type="ecore:EReference" href="http://net.bhl/cdt/reporting#//Chart/Title"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_3d0HFDsZEeaZb_0zY9ZEAw" name="Control Report">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_3d0HFTsZEeaZb_0zY9ZEAw">
+      <domainModelEFeature xsi:type="ecore:EReference" href="http://net.bhl/cdt/reporting#//Chart/Report"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_3d0HFjsZEeaZb_0zY9ZEAw" name="Control XAxis">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_3d0HFzsZEeaZb_0zY9ZEAw">
+      <domainModelEFeature xsi:type="ecore:EReference" href="http://net.bhl/cdt/reporting#//Chart2D/XAxis"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_3d0HGDsZEeaZb_0zY9ZEAw" name="Control YAxis">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_3d0HGTsZEeaZb_0zY9ZEAw">
+      <domainModelEFeature xsi:type="ecore:EReference" href="http://net.bhl/cdt/reporting#//Chart2D/YAxis"/>
+    </domainModelReference>
+  </children>
+</org.eclipse.emf.ecp.view.model:View>

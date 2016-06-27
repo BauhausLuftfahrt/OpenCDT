@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.eclipse.emf.ecp.view.model:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.emf.ecp.view.model="http://org/eclipse/emf/ecp/view/model/170" xmi:id="_3bfL0DsZEeaZb_0zY9ZEAw" name="Report" ecorePath="/net.bhl.cdt.reporting.model/model/reporting.ecore">
+  <rootEClass href="http://net.bhl/cdt/reporting#//Report"/>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_3ckw8DsZEeaZb_0zY9ZEAw" name="Control name">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_3ckw8TsZEeaZb_0zY9ZEAw">
+      <domainModelEFeature xsi:type="ecore:EAttribute" href="http://bhl.net/cdt/model#//NamedElement/name"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_3ckw8jsZEeaZb_0zY9ZEAw" name="Control Map">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_3ckw8zsZEeaZb_0zY9ZEAw">
+      <domainModelEFeature xsi:type="ecore:EReference" href="http://net.bhl/cdt/reporting#//Report/Map"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_3ckw9DsZEeaZb_0zY9ZEAw" name="Control Charts">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_3ckw9TsZEeaZb_0zY9ZEAw">
+      <domainModelEFeature xsi:type="ecore:EReference" href="http://net.bhl/cdt/reporting#//Report/Charts"/>
+    </domainModelReference>
+  </children>
+</org.eclipse.emf.ecp.view.model:View>

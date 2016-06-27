@@ -69,8 +69,10 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_XoxMsBqOEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.handledmenuitem.exit" label="Exit" command="_cSFhMBqOEeaW3cdp9dOVbQ"/>
       </children>
     </mainMenu>
-    <trimBars xmi:id="_2c62kBNgEeamkaCC9IhXbQ" elementId="net.bhl.cdt.client.e4.trimbar.0">
-      <children xsi:type="menu:ToolBar" xmi:id="_jmIHoBzgEeaR45oFjt34qg" elementId="toolbar:net.bhl.cdt.client.e4.toolbar"/>
+    <trimBars xmi:id="_2c62kBNgEeamkaCC9IhXbQ" elementId="net.bhl.cdt.client.e4.trimbar.top">
+      <children xsi:type="menu:ToolBar" xmi:id="_eRc8MDrgEeaZb_0zY9ZEAw" elementId="net.bhl.cdt.client.e4.toolbar.0">
+        <children xsi:type="menu:DirectToolItem" xmi:id="_fbS5IDrgEeaZb_0zY9ZEAw" elementId="net.bhl.cdt.client.e4.directtoolitem.test" label="Test"/>
+      </children>
       <children xsi:type="menu:ToolControl" xmi:id="_qM7t0BXgEeagnLNaja9bdg" elementId="net.bhl.cdt.client.e4.toolcontrol.spacer" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.LayoutModifierToolControl">
         <tags>stretch</tags>
       </children>

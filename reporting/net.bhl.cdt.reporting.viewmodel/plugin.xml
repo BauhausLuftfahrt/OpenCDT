@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.emf.ecp.view.model.provider.xmi.file">
+<file filePath="viewmodels/DataSource.view"/>
+
+<file filePath="viewmodels/DataDimension.view"/>
+
+<file filePath="viewmodels/GanttChart.view"/>
+
+<file filePath="viewmodels/Label.view"/>
+
+<file filePath="viewmodels/FontPropertyElement.view"/>
+
+<file filePath="viewmodels/Axis.view"/>
+
+<file filePath="viewmodels/BarChart.view"/>
+
+<file filePath="viewmodels/Chart3D.view"/>
+
+<file filePath="viewmodels/ReportMap.view"/>
+
+<file filePath="viewmodels/Report.view"/>
+
+   </extension>
+
+</plugin>

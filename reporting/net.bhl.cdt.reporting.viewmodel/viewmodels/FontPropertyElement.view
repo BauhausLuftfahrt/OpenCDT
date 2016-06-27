@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<org.eclipse.emf.ecp.view.model:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.emf.ecp.view.model="http://org/eclipse/emf/ecp/view/model/170" xmi:id="_3dcToDsZEeaZb_0zY9ZEAw" name="FontPropertyElement" ecorePath="/net.bhl.cdt.reporting.model/model/reporting.ecore">
+  <rootEClass href="http://net.bhl/cdt/reporting#//FontPropertyElement"/>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_3dfW8DsZEeaZb_0zY9ZEAw" name="Control Family">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_3dfW8TsZEeaZb_0zY9ZEAw">
+      <domainModelEFeature xsi:type="ecore:EAttribute" href="http://net.bhl/cdt/reporting#//FontPropertyElement/Family"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_3dfW8jsZEeaZb_0zY9ZEAw" name="Control Size">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_3dfW8zsZEeaZb_0zY9ZEAw">
+      <domainModelEFeature xsi:type="ecore:EAttribute" href="http://net.bhl/cdt/reporting#//FontPropertyElement/Size"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_3dfW9DsZEeaZb_0zY9ZEAw" name="Control Bold">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_3dfW9TsZEeaZb_0zY9ZEAw">
+      <domainModelEFeature xsi:type="ecore:EAttribute" href="http://net.bhl/cdt/reporting#//FontPropertyElement/Bold"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_3dfW9jsZEeaZb_0zY9ZEAw" name="Control Italic">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_3dfW9zsZEeaZb_0zY9ZEAw">
+      <domainModelEFeature xsi:type="ecore:EAttribute" href="http://net.bhl/cdt/reporting#//FontPropertyElement/Italic"/>
+    </domainModelReference>
+  </children>
+</org.eclipse.emf.ecp.view.model:View>
