@@ -2,22 +2,18 @@
  */
 package reporting.impl;
 
-import java.util.Collection;
+import net.bhl.cdt.model.impl.NamedElementImpl;
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
-import reporting.DataDimension;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import reporting.Chart;
 import reporting.DataSource;
+import reporting.DataSourceDefinition;
 import reporting.ReportingPackage;
 
 /**
@@ -28,14 +24,24 @@ import reporting.ReportingPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link reporting.impl.DataSourceImpl#getDefinition <em>Definition</em>}</li>
  *   <li>{@link reporting.impl.DataSourceImpl#getSourceObject <em>Source Object</em>}</li>
- *   <li>{@link reporting.impl.DataSourceImpl#getMember <em>Member</em>}</li>
- *   <li>{@link reporting.impl.DataSourceImpl#getDimensions <em>Dimensions</em>}</li>
+ *   <li>{@link reporting.impl.DataSourceImpl#getChart <em>Chart</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DataSourceImpl extends MinimalEObjectImpl.Container implements DataSource {
+public class DataSourceImpl extends NamedElementImpl implements DataSource {
+	/**
+	 * The cached value of the '{@link #getDefinition() <em>Definition</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDefinition()
+	 * @generated
+	 * @ordered
+	 */
+	protected DataSourceDefinition definition;
+
 	/**
 	 * The cached value of the '{@link #getSourceObject() <em>Source Object</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -45,26 +51,6 @@ public class DataSourceImpl extends MinimalEObjectImpl.Container implements Data
 	 * @ordered
 	 */
 	protected EObject sourceObject;
-
-	/**
-	 * The cached value of the '{@link #getMember() <em>Member</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMember()
-	 * @generated
-	 * @ordered
-	 */
-	protected EAttribute member;
-
-	/**
-	 * The cached value of the '{@link #getDimensions() <em>Dimensions</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDimensions()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<DataDimension> dimensions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -83,6 +69,44 @@ public class DataSourceImpl extends MinimalEObjectImpl.Container implements Data
 	@Override
 	protected EClass eStaticClass() {
 		return ReportingPackage.Literals.DATA_SOURCE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataSourceDefinition getDefinition() {
+		if (definition != null && definition.eIsProxy()) {
+			InternalEObject oldDefinition = (InternalEObject)definition;
+			definition = (DataSourceDefinition)eResolveProxy(oldDefinition);
+			if (definition != oldDefinition) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ReportingPackage.DATA_SOURCE__DEFINITION, oldDefinition, definition));
+			}
+		}
+		return definition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataSourceDefinition basicGetDefinition() {
+		return definition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDefinition(DataSourceDefinition newDefinition) {
+		DataSourceDefinition oldDefinition = definition;
+		definition = newDefinition;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ReportingPackage.DATA_SOURCE__DEFINITION, oldDefinition, definition));
 	}
 
 	/**
@@ -128,16 +152,40 @@ public class DataSourceImpl extends MinimalEObjectImpl.Container implements Data
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMember() {
-		if (member != null && member.eIsProxy()) {
-			InternalEObject oldMember = (InternalEObject)member;
-			member = (EAttribute)eResolveProxy(oldMember);
-			if (member != oldMember) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ReportingPackage.DATA_SOURCE__MEMBER, oldMember, member));
-			}
+	public Chart getChart() {
+		if (eContainerFeatureID() != ReportingPackage.DATA_SOURCE__CHART) return null;
+		return (Chart)eInternalContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetChart(Chart newChart, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newChart, ReportingPackage.DATA_SOURCE__CHART, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setChart(Chart newChart) {
+		if (newChart != eInternalContainer() || (eContainerFeatureID() != ReportingPackage.DATA_SOURCE__CHART && newChart != null)) {
+			if (EcoreUtil.isAncestor(this, newChart))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newChart != null)
+				msgs = ((InternalEObject)newChart).eInverseAdd(this, ReportingPackage.CHART__DATA_SOURCE, Chart.class, msgs);
+			msgs = basicSetChart(newChart, msgs);
+			if (msgs != null) msgs.dispatch();
 		}
-		return member;
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ReportingPackage.DATA_SOURCE__CHART, newChart, newChart));
 	}
 
 	/**
@@ -145,32 +193,44 @@ public class DataSourceImpl extends MinimalEObjectImpl.Container implements Data
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute basicGetMember() {
-		return member;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setMember(EAttribute newMember) {
-		EAttribute oldMember = member;
-		member = newMember;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReportingPackage.DATA_SOURCE__MEMBER, oldMember, member));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EList<DataDimension> getDimensions() {
-		if (dimensions == null) {
-			dimensions = new EObjectResolvingEList<DataDimension>(DataDimension.class, this, ReportingPackage.DATA_SOURCE__DIMENSIONS);
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ReportingPackage.DATA_SOURCE__CHART:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetChart((Chart)otherEnd, msgs);
 		}
-		return dimensions;
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ReportingPackage.DATA_SOURCE__CHART:
+				return basicSetChart(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case ReportingPackage.DATA_SOURCE__CHART:
+				return eInternalContainer().eInverseRemove(this, ReportingPackage.CHART__DATA_SOURCE, Chart.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -181,14 +241,14 @@ public class DataSourceImpl extends MinimalEObjectImpl.Container implements Data
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ReportingPackage.DATA_SOURCE__DEFINITION:
+				if (resolve) return getDefinition();
+				return basicGetDefinition();
 			case ReportingPackage.DATA_SOURCE__SOURCE_OBJECT:
 				if (resolve) return getSourceObject();
 				return basicGetSourceObject();
-			case ReportingPackage.DATA_SOURCE__MEMBER:
-				if (resolve) return getMember();
-				return basicGetMember();
-			case ReportingPackage.DATA_SOURCE__DIMENSIONS:
-				return getDimensions();
+			case ReportingPackage.DATA_SOURCE__CHART:
+				return getChart();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -202,15 +262,14 @@ public class DataSourceImpl extends MinimalEObjectImpl.Container implements Data
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ReportingPackage.DATA_SOURCE__DEFINITION:
+				setDefinition((DataSourceDefinition)newValue);
+				return;
 			case ReportingPackage.DATA_SOURCE__SOURCE_OBJECT:
 				setSourceObject((EObject)newValue);
 				return;
-			case ReportingPackage.DATA_SOURCE__MEMBER:
-				setMember((EAttribute)newValue);
-				return;
-			case ReportingPackage.DATA_SOURCE__DIMENSIONS:
-				getDimensions().clear();
-				getDimensions().addAll((Collection<? extends DataDimension>)newValue);
+			case ReportingPackage.DATA_SOURCE__CHART:
+				setChart((Chart)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -224,14 +283,14 @@ public class DataSourceImpl extends MinimalEObjectImpl.Container implements Data
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ReportingPackage.DATA_SOURCE__DEFINITION:
+				setDefinition((DataSourceDefinition)null);
+				return;
 			case ReportingPackage.DATA_SOURCE__SOURCE_OBJECT:
 				setSourceObject((EObject)null);
 				return;
-			case ReportingPackage.DATA_SOURCE__MEMBER:
-				setMember((EAttribute)null);
-				return;
-			case ReportingPackage.DATA_SOURCE__DIMENSIONS:
-				getDimensions().clear();
+			case ReportingPackage.DATA_SOURCE__CHART:
+				setChart((Chart)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -245,12 +304,12 @@ public class DataSourceImpl extends MinimalEObjectImpl.Container implements Data
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ReportingPackage.DATA_SOURCE__DEFINITION:
+				return definition != null;
 			case ReportingPackage.DATA_SOURCE__SOURCE_OBJECT:
 				return sourceObject != null;
-			case ReportingPackage.DATA_SOURCE__MEMBER:
-				return member != null;
-			case ReportingPackage.DATA_SOURCE__DIMENSIONS:
-				return dimensions != null && !dimensions.isEmpty();
+			case ReportingPackage.DATA_SOURCE__CHART:
+				return getChart() != null;
 		}
 		return super.eIsSet(featureID);
 	}

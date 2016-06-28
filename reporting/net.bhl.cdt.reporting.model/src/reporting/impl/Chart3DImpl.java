@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import reporting.Chart3D;
+import reporting.DataSource;
 import reporting.Label;
 import reporting.Report;
 import reporting.ReportingPackage;
@@ -30,6 +31,7 @@ import reporting.ReportingPackage;
  *   <li>{@link reporting.impl.Chart3DImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link reporting.impl.Chart3DImpl#getReport <em>Report</em>}</li>
  *   <li>{@link reporting.impl.Chart3DImpl#isShowLegend <em>Show Legend</em>}</li>
+ *   <li>{@link reporting.impl.Chart3DImpl#getDataSource <em>Data Source</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,6 +65,16 @@ public class Chart3DImpl extends NamedElementImpl implements Chart3D {
 	 * @ordered
 	 */
 	protected boolean showLegend = SHOW_LEGEND_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDataSource() <em>Data Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataSource()
+	 * @generated
+	 * @ordered
+	 */
+	protected DataSource dataSource;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -193,6 +205,49 @@ public class Chart3DImpl extends NamedElementImpl implements Chart3D {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DataSource getDataSource() {
+		return dataSource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDataSource(DataSource newDataSource, NotificationChain msgs) {
+		DataSource oldDataSource = dataSource;
+		dataSource = newDataSource;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ReportingPackage.CHART3_D__DATA_SOURCE, oldDataSource, newDataSource);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDataSource(DataSource newDataSource) {
+		if (newDataSource != dataSource) {
+			NotificationChain msgs = null;
+			if (dataSource != null)
+				msgs = ((InternalEObject)dataSource).eInverseRemove(this, ReportingPackage.DATA_SOURCE__CHART, DataSource.class, msgs);
+			if (newDataSource != null)
+				msgs = ((InternalEObject)newDataSource).eInverseAdd(this, ReportingPackage.DATA_SOURCE__CHART, DataSource.class, msgs);
+			msgs = basicSetDataSource(newDataSource, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ReportingPackage.CHART3_D__DATA_SOURCE, newDataSource, newDataSource));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -200,6 +255,10 @@ public class Chart3DImpl extends NamedElementImpl implements Chart3D {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetReport((Report)otherEnd, msgs);
+			case ReportingPackage.CHART3_D__DATA_SOURCE:
+				if (dataSource != null)
+					msgs = ((InternalEObject)dataSource).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReportingPackage.CHART3_D__DATA_SOURCE, null, msgs);
+				return basicSetDataSource((DataSource)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -216,6 +275,8 @@ public class Chart3DImpl extends NamedElementImpl implements Chart3D {
 				return basicSetTitle(null, msgs);
 			case ReportingPackage.CHART3_D__REPORT:
 				return basicSetReport(null, msgs);
+			case ReportingPackage.CHART3_D__DATA_SOURCE:
+				return basicSetDataSource(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -248,6 +309,8 @@ public class Chart3DImpl extends NamedElementImpl implements Chart3D {
 				return getReport();
 			case ReportingPackage.CHART3_D__SHOW_LEGEND:
 				return isShowLegend();
+			case ReportingPackage.CHART3_D__DATA_SOURCE:
+				return getDataSource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -268,6 +331,9 @@ public class Chart3DImpl extends NamedElementImpl implements Chart3D {
 				return;
 			case ReportingPackage.CHART3_D__SHOW_LEGEND:
 				setShowLegend((Boolean)newValue);
+				return;
+			case ReportingPackage.CHART3_D__DATA_SOURCE:
+				setDataSource((DataSource)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -290,6 +356,9 @@ public class Chart3DImpl extends NamedElementImpl implements Chart3D {
 			case ReportingPackage.CHART3_D__SHOW_LEGEND:
 				setShowLegend(SHOW_LEGEND_EDEFAULT);
 				return;
+			case ReportingPackage.CHART3_D__DATA_SOURCE:
+				setDataSource((DataSource)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -308,6 +377,8 @@ public class Chart3DImpl extends NamedElementImpl implements Chart3D {
 				return getReport() != null;
 			case ReportingPackage.CHART3_D__SHOW_LEGEND:
 				return showLegend != SHOW_LEGEND_EDEFAULT;
+			case ReportingPackage.CHART3_D__DATA_SOURCE:
+				return dataSource != null;
 		}
 		return super.eIsSet(featureID);
 	}

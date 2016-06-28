@@ -5,18 +5,14 @@ package reporting.provider;
 
 import java.util.Collection;
 import java.util.List;
+import net.bhl.cdt.model.provider.NamedElementItemProvider;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
+import reporting.DataSource;
 import reporting.ReportingPackage;
 
 /**
@@ -26,13 +22,7 @@ import reporting.ReportingPackage;
  * @generated
  */
 public class DataSourceItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends NamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -54,11 +44,32 @@ public class DataSourceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addDefinitionPropertyDescriptor(object);
 			addSourceObjectPropertyDescriptor(object);
-			addMemberPropertyDescriptor(object);
-			addDimensionsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Definition feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDefinitionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataSource_Definition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataSource_Definition_feature", "_UI_DataSource_type"),
+				 ReportingPackage.Literals.DATA_SOURCE__DEFINITION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
@@ -75,50 +86,6 @@ public class DataSourceItemProvider
 				 getString("_UI_DataSource_SourceObject_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_DataSource_SourceObject_feature", "_UI_DataSource_type"),
 				 ReportingPackage.Literals.DATA_SOURCE__SOURCE_OBJECT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Member feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addMemberPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataSource_Member_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataSource_Member_feature", "_UI_DataSource_type"),
-				 ReportingPackage.Literals.DATA_SOURCE__MEMBER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Dimensions feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDimensionsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataSource_Dimensions_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataSource_Dimensions_feature", "_UI_DataSource_type"),
-				 ReportingPackage.Literals.DATA_SOURCE__DIMENSIONS,
 				 true,
 				 false,
 				 true,
@@ -146,7 +113,10 @@ public class DataSourceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_DataSource_type");
+		String label = ((DataSource)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_DataSource_type") :
+			getString("_UI_DataSource_type") + " " + label;
 	}
 	
 

@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link reporting.Report#getMap <em>Map</em>}</li>
  *   <li>{@link reporting.Report#getCharts <em>Charts</em>}</li>
+ *   <li>{@link reporting.Report#getDataSources <em>Data Sources</em>}</li>
  * </ul>
  *
  * @see reporting.ReportingPackage#getReport()
@@ -69,5 +70,21 @@ public interface Report extends NamedElement {
 	 * @generated
 	 */
 	EList<Chart> getCharts();
+
+	/**
+	 * Returns the value of the '<em><b>Data Sources</b></em>' containment reference list.
+	 * The list contents are of type {@link reporting.DataSource}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Data Sources</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Data Sources</em>' containment reference list.
+	 * @see reporting.ReportingPackage#getReport_DataSources()
+	 * @model containment="true" keys="name"
+	 * @generated
+	 */
+	EList<DataSource> getDataSources();
 
 } // Report

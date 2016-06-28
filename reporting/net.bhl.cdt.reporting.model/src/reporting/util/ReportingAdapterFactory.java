@@ -102,6 +102,14 @@ public class ReportingAdapterFactory extends AdapterFactoryImpl {
 				return createAxisAdapter();
 			}
 			@Override
+			public Adapter caseDateAxis(DateAxis object) {
+				return createDateAxisAdapter();
+			}
+			@Override
+			public Adapter caseIntegerAxis(IntegerAxis object) {
+				return createIntegerAxisAdapter();
+			}
+			@Override
 			public Adapter caseFontPropertyElement(FontPropertyElement object) {
 				return createFontPropertyElementAdapter();
 			}
@@ -120,6 +128,14 @@ public class ReportingAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDataSource(DataSource object) {
 				return createDataSourceAdapter();
+			}
+			@Override
+			public Adapter caseDataSourceDefinition(DataSourceDefinition object) {
+				return createDataSourceDefinitionAdapter();
+			}
+			@Override
+			public Adapter caseGanttChartDataSource(GanttChartDataSource object) {
+				return createGanttChartDataSourceAdapter();
 			}
 			@Override
 			public Adapter caseNamedElement(NamedElement object) {
@@ -258,6 +274,34 @@ public class ReportingAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link reporting.DateAxis <em>Date Axis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see reporting.DateAxis
+	 * @generated
+	 */
+	public Adapter createDateAxisAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link reporting.IntegerAxis <em>Integer Axis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see reporting.IntegerAxis
+	 * @generated
+	 */
+	public Adapter createIntegerAxisAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link reporting.FontPropertyElement <em>Font Property Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -324,6 +368,34 @@ public class ReportingAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDataSourceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link reporting.DataSourceDefinition <em>Data Source Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see reporting.DataSourceDefinition
+	 * @generated
+	 */
+	public Adapter createDataSourceDefinitionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link reporting.GanttChartDataSource <em>Gantt Chart Data Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see reporting.GanttChartDataSource
+	 * @generated
+	 */
+	public Adapter createGanttChartDataSourceAdapter() {
 		return null;
 	}
 

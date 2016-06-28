@@ -67,6 +67,7 @@ public class ReportItemProvider extends NamedElementItemProvider {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(ReportingPackage.Literals.REPORT__CHARTS);
+			childrenFeatures.add(ReportingPackage.Literals.REPORT__DATA_SOURCES);
 		}
 		return childrenFeatures;
 	}
@@ -123,6 +124,7 @@ public class ReportItemProvider extends NamedElementItemProvider {
 
 		switch (notification.getFeatureID(Report.class)) {
 			case ReportingPackage.REPORT__CHARTS:
+			case ReportingPackage.REPORT__DATA_SOURCES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -154,6 +156,16 @@ public class ReportItemProvider extends NamedElementItemProvider {
 			(createChildParameter
 				(ReportingPackage.Literals.REPORT__CHARTS,
 				 ReportingFactory.eINSTANCE.createGanttChart()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReportingPackage.Literals.REPORT__DATA_SOURCES,
+				 ReportingFactory.eINSTANCE.createDataSource()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReportingPackage.Literals.REPORT__DATA_SOURCES,
+				 ReportingFactory.eINSTANCE.createGanttChartDataSource()));
 	}
 
 	/**

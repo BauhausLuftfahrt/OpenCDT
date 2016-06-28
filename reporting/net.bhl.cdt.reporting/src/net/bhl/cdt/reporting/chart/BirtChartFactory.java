@@ -12,10 +12,13 @@ import org.eclipse.birt.chart.model.attribute.TickStyle;
 import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
 import org.eclipse.birt.chart.model.attribute.impl.JavaDateFormatSpecifierImpl;
 import org.eclipse.birt.chart.model.component.Axis;
+import org.eclipse.birt.chart.model.data.impl.DateTimeDataElementImpl;
 import org.eclipse.birt.chart.model.impl.ChartWithAxesImpl;
 import org.eclipse.birt.chart.model.layout.Legend;
 import org.eclipse.birt.chart.model.layout.Plot;
+import org.eclipse.birt.chart.util.CDateTime;
 
+import reporting.DateAxis;
 import reporting.FontPropertyElement;
 import reporting.GanttChart;
 
@@ -56,13 +59,22 @@ public class BirtChartFactory {
 		yAxisPrimary.getOrigin().setType(IntersectionType.MIN_LITERAL);
 		copyCaptionStyle(yAxisPrimary.getLabel().getCaption().getFont(), chartModel.getYAxis());
 
+		DateAxis xAxisModel = (DateAxis)chartModel.getXAxis();
+		
 		// X-Axis
 		Axis xAxisPrimary = chart.getPrimaryOrthogonalAxis(yAxisPrimary);
 		xAxisPrimary.setType(AxisType.DATE_TIME_LITERAL);
 		xAxisPrimary.getMajorGrid().setTickStyle(TickStyle.LEFT_LITERAL);
 		xAxisPrimary.setInterval(1);
-		copyCaptionStyle(xAxisPrimary.getLabel().getCaption().getFont(), chartModel.getXAxis());
-				
+		
+		if (xAxisModel.getMinDate() != null)
+			xAxisPrimary.getScale().setMin(DateTimeDataElementImpl.create(new CDateTime(xAxisModel.getMinDate())));
+		
+		if (xAxisModel.getMaxDate() != null)
+			xAxisPrimary.getScale().setMax(DateTimeDataElementImpl.create(new CDateTime(xAxisModel.getMaxDate())));
+		
+		copyCaptionStyle(xAxisPrimary.getLabel().getCaption().getFont(), xAxisModel);
+	
 		JavaDateFormatSpecifier dfs = JavaDateFormatSpecifierImpl.create("yyyy");// AttributeFactory.eINSTANCE.createDateFormatSpecifier();
 		//dfs.setDetail(DateFormatDetail.DATE_LITERAL);
 		//dfs.setType(DateFormatType.SHORT_LITERAL);

@@ -15,6 +15,7 @@ package reporting;
  *   <li>{@link reporting.Chart#getTitle <em>Title</em>}</li>
  *   <li>{@link reporting.Chart#getReport <em>Report</em>}</li>
  *   <li>{@link reporting.Chart#isShowLegend <em>Show Legend</em>}</li>
+ *   <li>{@link reporting.Chart#getDataSource <em>Data Source</em>}</li>
  * </ul>
  *
  * @see reporting.ReportingPackage#getChart()
@@ -101,5 +102,33 @@ public interface Chart extends ReportElement {
 	 * @generated
 	 */
 	void setShowLegend(boolean value);
+
+	/**
+	 * Returns the value of the '<em><b>Data Source</b></em>' containment reference.
+	 * It is bidirectional and its opposite is '{@link reporting.DataSource#getChart <em>Chart</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Data Source</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Data Source</em>' containment reference.
+	 * @see #setDataSource(DataSource)
+	 * @see reporting.ReportingPackage#getChart_DataSource()
+	 * @see reporting.DataSource#getChart
+	 * @model opposite="Chart" containment="true" keys="name"
+	 * @generated
+	 */
+	DataSource getDataSource();
+
+	/**
+	 * Sets the value of the '{@link reporting.Chart#getDataSource <em>Data Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Data Source</em>' containment reference.
+	 * @see #getDataSource()
+	 * @generated
+	 */
+	void setDataSource(DataSource value);
 
 } // Chart

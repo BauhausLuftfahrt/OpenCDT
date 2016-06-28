@@ -24,7 +24,7 @@ import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 
-import reporting.DataSource;
+import reporting.DataSourceDefinition;
 
 public class SourcePropertyControlRenderer extends SimpleControlSWTControlSWTRenderer {
 
@@ -65,12 +65,12 @@ public class SourcePropertyControlRenderer extends SimpleControlSWTControlSWTRen
 	protected Control createSWTControl(Composite parent) throws DatabindingFailedException {
 		Combo c = new Combo(parent, SWT.NONE);
 		
-		DataSource sourceObject = (DataSource)getViewModelContext().getDomainModel();
+		DataSourceDefinition sourceDefinitionObject = (DataSourceDefinition)getViewModelContext().getDomainModel();
 
-		if (sourceObject.getSourceObject() == null)
+		if (sourceDefinitionObject.getSource() == null)
 			return c;
 		
-		EList<EReference> containments = sourceObject.getSourceObject().eClass().getEAllContainments();
+		EList<EReference> containments = sourceDefinitionObject.getSource().eClass().getEAllContainments();
 		
 		ArrayList<String> strings = new ArrayList<String>();
 		

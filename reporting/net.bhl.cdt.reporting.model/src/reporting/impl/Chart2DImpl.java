@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import reporting.Axis;
 import reporting.Chart2D;
+import reporting.DataSource;
 import reporting.Label;
 import reporting.Report;
 import reporting.ReportingPackage;
@@ -31,6 +32,7 @@ import reporting.ReportingPackage;
  *   <li>{@link reporting.impl.Chart2DImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link reporting.impl.Chart2DImpl#getReport <em>Report</em>}</li>
  *   <li>{@link reporting.impl.Chart2DImpl#isShowLegend <em>Show Legend</em>}</li>
+ *   <li>{@link reporting.impl.Chart2DImpl#getDataSource <em>Data Source</em>}</li>
  *   <li>{@link reporting.impl.Chart2DImpl#getXAxis <em>XAxis</em>}</li>
  *   <li>{@link reporting.impl.Chart2DImpl#getYAxis <em>YAxis</em>}</li>
  * </ul>
@@ -67,6 +69,16 @@ public abstract class Chart2DImpl extends NamedElementImpl implements Chart2D {
 	 * @ordered
 	 */
 	protected boolean showLegend = SHOW_LEGEND_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getDataSource() <em>Data Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataSource()
+	 * @generated
+	 * @ordered
+	 */
+	protected DataSource dataSource;
 
 	/**
 	 * The cached value of the '{@link #getXAxis() <em>XAxis</em>}' containment reference.
@@ -217,6 +229,49 @@ public abstract class Chart2DImpl extends NamedElementImpl implements Chart2D {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DataSource getDataSource() {
+		return dataSource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDataSource(DataSource newDataSource, NotificationChain msgs) {
+		DataSource oldDataSource = dataSource;
+		dataSource = newDataSource;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ReportingPackage.CHART2_D__DATA_SOURCE, oldDataSource, newDataSource);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDataSource(DataSource newDataSource) {
+		if (newDataSource != dataSource) {
+			NotificationChain msgs = null;
+			if (dataSource != null)
+				msgs = ((InternalEObject)dataSource).eInverseRemove(this, ReportingPackage.DATA_SOURCE__CHART, DataSource.class, msgs);
+			if (newDataSource != null)
+				msgs = ((InternalEObject)newDataSource).eInverseAdd(this, ReportingPackage.DATA_SOURCE__CHART, DataSource.class, msgs);
+			msgs = basicSetDataSource(newDataSource, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ReportingPackage.CHART2_D__DATA_SOURCE, newDataSource, newDataSource));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public Axis getXAxis() {
 		return xAxis;
 	}
@@ -310,6 +365,10 @@ public abstract class Chart2DImpl extends NamedElementImpl implements Chart2D {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetReport((Report)otherEnd, msgs);
+			case ReportingPackage.CHART2_D__DATA_SOURCE:
+				if (dataSource != null)
+					msgs = ((InternalEObject)dataSource).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReportingPackage.CHART2_D__DATA_SOURCE, null, msgs);
+				return basicSetDataSource((DataSource)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -326,6 +385,8 @@ public abstract class Chart2DImpl extends NamedElementImpl implements Chart2D {
 				return basicSetTitle(null, msgs);
 			case ReportingPackage.CHART2_D__REPORT:
 				return basicSetReport(null, msgs);
+			case ReportingPackage.CHART2_D__DATA_SOURCE:
+				return basicSetDataSource(null, msgs);
 			case ReportingPackage.CHART2_D__XAXIS:
 				return basicSetXAxis(null, msgs);
 			case ReportingPackage.CHART2_D__YAXIS:
@@ -362,6 +423,8 @@ public abstract class Chart2DImpl extends NamedElementImpl implements Chart2D {
 				return getReport();
 			case ReportingPackage.CHART2_D__SHOW_LEGEND:
 				return isShowLegend();
+			case ReportingPackage.CHART2_D__DATA_SOURCE:
+				return getDataSource();
 			case ReportingPackage.CHART2_D__XAXIS:
 				return getXAxis();
 			case ReportingPackage.CHART2_D__YAXIS:
@@ -386,6 +449,9 @@ public abstract class Chart2DImpl extends NamedElementImpl implements Chart2D {
 				return;
 			case ReportingPackage.CHART2_D__SHOW_LEGEND:
 				setShowLegend((Boolean)newValue);
+				return;
+			case ReportingPackage.CHART2_D__DATA_SOURCE:
+				setDataSource((DataSource)newValue);
 				return;
 			case ReportingPackage.CHART2_D__XAXIS:
 				setXAxis((Axis)newValue);
@@ -414,6 +480,9 @@ public abstract class Chart2DImpl extends NamedElementImpl implements Chart2D {
 			case ReportingPackage.CHART2_D__SHOW_LEGEND:
 				setShowLegend(SHOW_LEGEND_EDEFAULT);
 				return;
+			case ReportingPackage.CHART2_D__DATA_SOURCE:
+				setDataSource((DataSource)null);
+				return;
 			case ReportingPackage.CHART2_D__XAXIS:
 				setXAxis((Axis)null);
 				return;
@@ -438,6 +507,8 @@ public abstract class Chart2DImpl extends NamedElementImpl implements Chart2D {
 				return getReport() != null;
 			case ReportingPackage.CHART2_D__SHOW_LEGEND:
 				return showLegend != SHOW_LEGEND_EDEFAULT;
+			case ReportingPackage.CHART2_D__DATA_SOURCE:
+				return dataSource != null;
 			case ReportingPackage.CHART2_D__XAXIS:
 				return xAxis != null;
 			case ReportingPackage.CHART2_D__YAXIS:

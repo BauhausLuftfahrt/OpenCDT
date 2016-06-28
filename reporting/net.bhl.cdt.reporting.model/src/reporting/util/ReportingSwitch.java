@@ -132,6 +132,24 @@ public class ReportingSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case ReportingPackage.DATE_AXIS: {
+				DateAxis dateAxis = (DateAxis)theEObject;
+				T result = caseDateAxis(dateAxis);
+				if (result == null) result = caseAxis(dateAxis);
+				if (result == null) result = caseNamedElement(dateAxis);
+				if (result == null) result = caseFontPropertyElement(dateAxis);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ReportingPackage.INTEGER_AXIS: {
+				IntegerAxis integerAxis = (IntegerAxis)theEObject;
+				T result = caseIntegerAxis(integerAxis);
+				if (result == null) result = caseAxis(integerAxis);
+				if (result == null) result = caseNamedElement(integerAxis);
+				if (result == null) result = caseFontPropertyElement(integerAxis);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case ReportingPackage.FONT_PROPERTY_ELEMENT: {
 				FontPropertyElement fontPropertyElement = (FontPropertyElement)theEObject;
 				T result = caseFontPropertyElement(fontPropertyElement);
@@ -158,12 +176,29 @@ public class ReportingSwitch<T> extends Switch<T> {
 			case ReportingPackage.DATA_DIMENSION: {
 				DataDimension dataDimension = (DataDimension)theEObject;
 				T result = caseDataDimension(dataDimension);
+				if (result == null) result = caseNamedElement(dataDimension);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case ReportingPackage.DATA_SOURCE: {
 				DataSource dataSource = (DataSource)theEObject;
 				T result = caseDataSource(dataSource);
+				if (result == null) result = caseNamedElement(dataSource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ReportingPackage.DATA_SOURCE_DEFINITION: {
+				DataSourceDefinition dataSourceDefinition = (DataSourceDefinition)theEObject;
+				T result = caseDataSourceDefinition(dataSourceDefinition);
+				if (result == null) result = caseNamedElement(dataSourceDefinition);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ReportingPackage.GANTT_CHART_DATA_SOURCE: {
+				GanttChartDataSource ganttChartDataSource = (GanttChartDataSource)theEObject;
+				T result = caseGanttChartDataSource(ganttChartDataSource);
+				if (result == null) result = caseDataSource(ganttChartDataSource);
+				if (result == null) result = caseNamedElement(ganttChartDataSource);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -292,6 +327,36 @@ public class ReportingSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Date Axis</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Date Axis</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDateAxis(DateAxis object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Integer Axis</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Integer Axis</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseIntegerAxis(IntegerAxis object) {
+		return null;
+	}
+
+	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Font Property Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -363,6 +428,36 @@ public class ReportingSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseDataSource(DataSource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Data Source Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Data Source Definition</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDataSourceDefinition(DataSourceDefinition object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Gantt Chart Data Source</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Gantt Chart Data Source</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseGanttChartDataSource(GanttChartDataSource object) {
 		return null;
 	}
 

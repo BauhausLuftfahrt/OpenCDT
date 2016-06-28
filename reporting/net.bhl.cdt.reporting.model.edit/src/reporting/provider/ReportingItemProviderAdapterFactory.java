@@ -187,6 +187,52 @@ public class ReportingItemProviderAdapterFactory extends ReportingAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link reporting.DateAxis} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DateAxisItemProvider dateAxisItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link reporting.DateAxis}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDateAxisAdapter() {
+		if (dateAxisItemProvider == null) {
+			dateAxisItemProvider = new DateAxisItemProvider(this);
+		}
+
+		return dateAxisItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link reporting.IntegerAxis} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntegerAxisItemProvider integerAxisItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link reporting.IntegerAxis}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIntegerAxisAdapter() {
+		if (integerAxisItemProvider == null) {
+			integerAxisItemProvider = new IntegerAxisItemProvider(this);
+		}
+
+		return integerAxisItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link reporting.FontPropertyElement} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -302,6 +348,52 @@ public class ReportingItemProviderAdapterFactory extends ReportingAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link reporting.DataSourceDefinition} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataSourceDefinitionItemProvider dataSourceDefinitionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link reporting.DataSourceDefinition}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataSourceDefinitionAdapter() {
+		if (dataSourceDefinitionItemProvider == null) {
+			dataSourceDefinitionItemProvider = new DataSourceDefinitionItemProvider(this);
+		}
+
+		return dataSourceDefinitionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link reporting.GanttChartDataSource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected GanttChartDataSourceItemProvider ganttChartDataSourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link reporting.GanttChartDataSource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createGanttChartDataSourceAdapter() {
+		if (ganttChartDataSourceItemProvider == null) {
+			ganttChartDataSourceItemProvider = new GanttChartDataSourceItemProvider(this);
+		}
+
+		return ganttChartDataSourceItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -405,11 +497,15 @@ public class ReportingItemProviderAdapterFactory extends ReportingAdapterFactory
 		if (chart3DItemProvider != null) chart3DItemProvider.dispose();
 		if (barChartItemProvider != null) barChartItemProvider.dispose();
 		if (axisItemProvider != null) axisItemProvider.dispose();
+		if (dateAxisItemProvider != null) dateAxisItemProvider.dispose();
+		if (integerAxisItemProvider != null) integerAxisItemProvider.dispose();
 		if (fontPropertyElementItemProvider != null) fontPropertyElementItemProvider.dispose();
 		if (labelItemProvider != null) labelItemProvider.dispose();
 		if (ganttChartItemProvider != null) ganttChartItemProvider.dispose();
 		if (dataDimensionItemProvider != null) dataDimensionItemProvider.dispose();
 		if (dataSourceItemProvider != null) dataSourceItemProvider.dispose();
+		if (dataSourceDefinitionItemProvider != null) dataSourceDefinitionItemProvider.dispose();
+		if (ganttChartDataSourceItemProvider != null) ganttChartDataSourceItemProvider.dispose();
 	}
 
 }

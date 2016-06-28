@@ -114,6 +114,7 @@ public class Chart2DItemProvider extends NamedElementItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(ReportingPackage.Literals.CHART__DATA_SOURCE);
 			childrenFeatures.add(ReportingPackage.Literals.CHART2_D__XAXIS);
 			childrenFeatures.add(ReportingPackage.Literals.CHART2_D__YAXIS);
 		}
@@ -163,6 +164,7 @@ public class Chart2DItemProvider extends NamedElementItemProvider {
 			case ReportingPackage.CHART2_D__SHOW_LEGEND:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case ReportingPackage.CHART2_D__DATA_SOURCE:
 			case ReportingPackage.CHART2_D__XAXIS:
 			case ReportingPackage.CHART2_D__YAXIS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -184,13 +186,43 @@ public class Chart2DItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
+				(ReportingPackage.Literals.CHART__DATA_SOURCE,
+				 ReportingFactory.eINSTANCE.createDataSource()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReportingPackage.Literals.CHART__DATA_SOURCE,
+				 ReportingFactory.eINSTANCE.createGanttChartDataSource()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(ReportingPackage.Literals.CHART2_D__XAXIS,
 				 ReportingFactory.eINSTANCE.createAxis()));
 
 		newChildDescriptors.add
 			(createChildParameter
+				(ReportingPackage.Literals.CHART2_D__XAXIS,
+				 ReportingFactory.eINSTANCE.createDateAxis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReportingPackage.Literals.CHART2_D__XAXIS,
+				 ReportingFactory.eINSTANCE.createIntegerAxis()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(ReportingPackage.Literals.CHART2_D__YAXIS,
 				 ReportingFactory.eINSTANCE.createAxis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReportingPackage.Literals.CHART2_D__YAXIS,
+				 ReportingFactory.eINSTANCE.createDateAxis()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReportingPackage.Literals.CHART2_D__YAXIS,
+				 ReportingFactory.eINSTANCE.createIntegerAxis()));
 	}
 
 	/**

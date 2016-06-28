@@ -61,11 +61,15 @@ public class ReportingFactoryImpl extends EFactoryImpl implements ReportingFacto
 			case ReportingPackage.CHART3_D: return createChart3D();
 			case ReportingPackage.BAR_CHART: return createBarChart();
 			case ReportingPackage.AXIS: return createAxis();
+			case ReportingPackage.DATE_AXIS: return createDateAxis();
+			case ReportingPackage.INTEGER_AXIS: return createIntegerAxis();
 			case ReportingPackage.FONT_PROPERTY_ELEMENT: return createFontPropertyElement();
 			case ReportingPackage.LABEL: return createLabel();
 			case ReportingPackage.GANTT_CHART: return createGanttChart();
 			case ReportingPackage.DATA_DIMENSION: return createDataDimension();
 			case ReportingPackage.DATA_SOURCE: return createDataSource();
+			case ReportingPackage.DATA_SOURCE_DEFINITION: return createDataSourceDefinition();
+			case ReportingPackage.GANTT_CHART_DATA_SOURCE: return createGanttChartDataSource();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -126,6 +130,26 @@ public class ReportingFactoryImpl extends EFactoryImpl implements ReportingFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DateAxis createDateAxis() {
+		DateAxisImpl dateAxis = new DateAxisImpl();
+		return dateAxis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IntegerAxis createIntegerAxis() {
+		IntegerAxisImpl integerAxis = new IntegerAxisImpl();
+		return integerAxis;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public FontPropertyElement createFontPropertyElement() {
 		FontPropertyElementImpl fontPropertyElement = new FontPropertyElementImpl();
 		return fontPropertyElement;
@@ -169,6 +193,26 @@ public class ReportingFactoryImpl extends EFactoryImpl implements ReportingFacto
 	public DataSource createDataSource() {
 		DataSourceImpl dataSource = new DataSourceImpl();
 		return dataSource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataSourceDefinition createDataSourceDefinition() {
+		DataSourceDefinitionImpl dataSourceDefinition = new DataSourceDefinitionImpl();
+		return dataSourceDefinition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public GanttChartDataSource createGanttChartDataSource() {
+		GanttChartDataSourceImpl ganttChartDataSource = new GanttChartDataSourceImpl();
+		return ganttChartDataSource;
 	}
 
 	/**

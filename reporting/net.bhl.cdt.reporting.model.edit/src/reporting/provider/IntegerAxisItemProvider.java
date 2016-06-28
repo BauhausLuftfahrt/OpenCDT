@@ -6,34 +6,31 @@ package reporting.provider;
 import java.util.Collection;
 import java.util.List;
 
-import net.bhl.cdt.model.provider.NamedElementItemProvider;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
-import reporting.DataDimension;
+
+import reporting.IntegerAxis;
 import reporting.ReportingPackage;
 
 /**
- * This is the item provider adapter for a {@link reporting.DataDimension} object.
+ * This is the item provider adapter for a {@link reporting.IntegerAxis} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DataDimensionItemProvider 
-	extends NamedElementItemProvider {
+public class IntegerAxisItemProvider extends AxisItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataDimensionItemProvider(AdapterFactory adapterFactory) {
+	public IntegerAxisItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -48,88 +45,65 @@ public class DataDimensionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addFieldPropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
-			addDataSourcePropertyDescriptor(object);
+			addMinValuePropertyDescriptor(object);
+			addMaxValuePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Field feature.
+	 * This adds a property descriptor for the Min Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFieldPropertyDescriptor(Object object) {
+	protected void addMinValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataDimension_Field_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataDimension_Field_feature", "_UI_DataDimension_type"),
-				 ReportingPackage.Literals.DATA_DIMENSION__FIELD,
+				 getString("_UI_IntegerAxis_MinValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IntegerAxis_MinValue_feature", "_UI_IntegerAxis_type"),
+				 ReportingPackage.Literals.INTEGER_AXIS__MIN_VALUE,
 				 true,
 				 false,
-				 true,
-				 null,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This adds a property descriptor for the Max Value feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addMaxValuePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataDimension_Type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataDimension_Type_feature", "_UI_DataDimension_type"),
-				 ReportingPackage.Literals.DATA_DIMENSION__TYPE,
+				 getString("_UI_IntegerAxis_MaxValue_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_IntegerAxis_MaxValue_feature", "_UI_IntegerAxis_type"),
+				 ReportingPackage.Literals.INTEGER_AXIS__MAX_VALUE,
 				 true,
 				 false,
 				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This adds a property descriptor for the Data Source feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDataSourcePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataDimension_DataSource_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataDimension_DataSource_feature", "_UI_DataDimension_type"),
-				 ReportingPackage.Literals.DATA_DIMENSION__DATA_SOURCE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This returns DataDimension.gif.
+	 * This returns IntegerAxis.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataDimension"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/IntegerAxis"));
 	}
 
 	/**
@@ -140,10 +114,10 @@ public class DataDimensionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DataDimension)object).getName();
+		String label = ((IntegerAxis)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DataDimension_type") :
-			getString("_UI_DataDimension_type") + " " + label;
+			getString("_UI_IntegerAxis_type") :
+			getString("_UI_IntegerAxis_type") + " " + label;
 	}
 	
 
@@ -158,8 +132,9 @@ public class DataDimensionItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(DataDimension.class)) {
-			case ReportingPackage.DATA_DIMENSION__TYPE:
+		switch (notification.getFeatureID(IntegerAxis.class)) {
+			case ReportingPackage.INTEGER_AXIS__MIN_VALUE:
+			case ReportingPackage.INTEGER_AXIS__MAX_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -176,17 +151,6 @@ public class DataDimensionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return ReportingEditPlugin.INSTANCE;
 	}
 
 }

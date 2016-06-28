@@ -67,6 +67,24 @@ public interface ReportingFactory extends EFactory {
 	Axis createAxis();
 
 	/**
+	 * Returns a new object of class '<em>Date Axis</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Date Axis</em>'.
+	 * @generated
+	 */
+	DateAxis createDateAxis();
+
+	/**
+	 * Returns a new object of class '<em>Integer Axis</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Integer Axis</em>'.
+	 * @generated
+	 */
+	IntegerAxis createIntegerAxis();
+
+	/**
 	 * Returns a new object of class '<em>Font Property Element</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -110,6 +128,24 @@ public interface ReportingFactory extends EFactory {
 	 * @generated
 	 */
 	DataSource createDataSource();
+
+	/**
+	 * Returns a new object of class '<em>Data Source Definition</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Source Definition</em>'.
+	 * @generated
+	 */
+	DataSourceDefinition createDataSourceDefinition();
+
+	/**
+	 * Returns a new object of class '<em>Gantt Chart Data Source</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Gantt Chart Data Source</em>'.
+	 * @generated
+	 */
+	GanttChartDataSource createGanttChartDataSource();
 
 	/**
 	 * Returns the package supported by this factory.

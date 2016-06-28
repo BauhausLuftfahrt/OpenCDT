@@ -2,9 +2,7 @@
  */
 package reporting;
 
-import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EAttribute;
+import net.bhl.cdt.model.NamedElement;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,16 +14,42 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link reporting.DataSource#getDefinition <em>Definition</em>}</li>
  *   <li>{@link reporting.DataSource#getSourceObject <em>Source Object</em>}</li>
- *   <li>{@link reporting.DataSource#getMember <em>Member</em>}</li>
- *   <li>{@link reporting.DataSource#getDimensions <em>Dimensions</em>}</li>
+ *   <li>{@link reporting.DataSource#getChart <em>Chart</em>}</li>
  * </ul>
  *
  * @see reporting.ReportingPackage#getDataSource()
  * @model
  * @generated
  */
-public interface DataSource extends EObject {
+public interface DataSource extends NamedElement {
+	/**
+	 * Returns the value of the '<em><b>Definition</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Definition</em>' reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Definition</em>' reference.
+	 * @see #setDefinition(DataSourceDefinition)
+	 * @see reporting.ReportingPackage#getDataSource_Definition()
+	 * @model required="true"
+	 * @generated
+	 */
+	DataSourceDefinition getDefinition();
+
+	/**
+	 * Sets the value of the '{@link reporting.DataSource#getDefinition <em>Definition</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Definition</em>' reference.
+	 * @see #getDefinition()
+	 * @generated
+	 */
+	void setDefinition(DataSourceDefinition value);
+
 	/**
 	 * Returns the value of the '<em><b>Source Object</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -53,45 +77,31 @@ public interface DataSource extends EObject {
 	void setSourceObject(EObject value);
 
 	/**
-	 * Returns the value of the '<em><b>Member</b></em>' reference.
+	 * Returns the value of the '<em><b>Chart</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link reporting.Chart#getDataSource <em>Data Source</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Member</em>' reference isn't clear,
+	 * If the meaning of the '<em>Chart</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Member</em>' reference.
-	 * @see #setMember(EAttribute)
-	 * @see reporting.ReportingPackage#getDataSource_Member()
-	 * @model
+	 * @return the value of the '<em>Chart</em>' container reference.
+	 * @see #setChart(Chart)
+	 * @see reporting.ReportingPackage#getDataSource_Chart()
+	 * @see reporting.Chart#getDataSource
+	 * @model opposite="DataSource" transient="false"
 	 * @generated
 	 */
-	EAttribute getMember();
+	Chart getChart();
 
 	/**
-	 * Sets the value of the '{@link reporting.DataSource#getMember <em>Member</em>}' reference.
+	 * Sets the value of the '{@link reporting.DataSource#getChart <em>Chart</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Member</em>' reference.
-	 * @see #getMember()
+	 * @param value the new value of the '<em>Chart</em>' container reference.
+	 * @see #getChart()
 	 * @generated
 	 */
-	void setMember(EAttribute value);
-
-	/**
-	 * Returns the value of the '<em><b>Dimensions</b></em>' reference list.
-	 * The list contents are of type {@link reporting.DataDimension}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Dimensions</em>' reference list isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dimensions</em>' reference list.
-	 * @see reporting.ReportingPackage#getDataSource_Dimensions()
-	 * @model
-	 * @generated
-	 */
-	EList<DataDimension> getDimensions();
+	void setChart(Chart value);
 
 } // DataSource

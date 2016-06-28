@@ -9,46 +9,28 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
-
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import reporting.GanttChartDataSource;
 import reporting.ReportingFactory;
 import reporting.ReportingPackage;
-import reporting.TextElement;
 
 /**
- * This is the item provider adapter for a {@link reporting.TextElement} object.
+ * This is the item provider adapter for a {@link reporting.GanttChartDataSource} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class TextElementItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+public class GanttChartDataSourceItemProvider extends DataSourceItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TextElementItemProvider(AdapterFactory adapterFactory) {
+	public GanttChartDataSourceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -63,31 +45,8 @@ public class TextElementItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTextPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Text feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTextPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TextElement_Text_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TextElement_Text_feature", "_UI_TextElement_type"),
-				 ReportingPackage.Literals.TEXT_ELEMENT__TEXT,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -102,7 +61,10 @@ public class TextElementItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(ReportingPackage.Literals.TEXT_ELEMENT__PROPERTIES);
+			childrenFeatures.add(ReportingPackage.Literals.GANTT_CHART_DATA_SOURCE__PROJECT_PHASE_FIELD);
+			childrenFeatures.add(ReportingPackage.Literals.GANTT_CHART_DATA_SOURCE__TASK_NAME_FIELD);
+			childrenFeatures.add(ReportingPackage.Literals.GANTT_CHART_DATA_SOURCE__START_DATE_FIELD);
+			childrenFeatures.add(ReportingPackage.Literals.GANTT_CHART_DATA_SOURCE__END_DATE_FIELD);
 		}
 		return childrenFeatures;
 	}
@@ -121,14 +83,14 @@ public class TextElementItemProvider
 	}
 
 	/**
-	 * This returns TextElement.gif.
+	 * This returns GanttChartDataSource.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/TextElement"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/GanttChartDataSource"));
 	}
 
 	/**
@@ -139,10 +101,10 @@ public class TextElementItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((TextElement)object).getText();
+		String label = ((GanttChartDataSource)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_TextElement_type") :
-			getString("_UI_TextElement_type") + " " + label;
+			getString("_UI_GanttChartDataSource_type") :
+			getString("_UI_GanttChartDataSource_type") + " " + label;
 	}
 	
 
@@ -157,11 +119,11 @@ public class TextElementItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(TextElement.class)) {
-			case ReportingPackage.TEXT_ELEMENT__TEXT:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case ReportingPackage.TEXT_ELEMENT__PROPERTIES:
+		switch (notification.getFeatureID(GanttChartDataSource.class)) {
+			case ReportingPackage.GANTT_CHART_DATA_SOURCE__PROJECT_PHASE_FIELD:
+			case ReportingPackage.GANTT_CHART_DATA_SOURCE__TASK_NAME_FIELD:
+			case ReportingPackage.GANTT_CHART_DATA_SOURCE__START_DATE_FIELD:
+			case ReportingPackage.GANTT_CHART_DATA_SOURCE__END_DATE_FIELD:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -181,19 +143,48 @@ public class TextElementItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ReportingPackage.Literals.TEXT_ELEMENT__PROPERTIES,
-				 ReportingFactory.eINSTANCE.createFontProperties()));
+				(ReportingPackage.Literals.GANTT_CHART_DATA_SOURCE__PROJECT_PHASE_FIELD,
+				 ReportingFactory.eINSTANCE.createDataDimension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReportingPackage.Literals.GANTT_CHART_DATA_SOURCE__TASK_NAME_FIELD,
+				 ReportingFactory.eINSTANCE.createDataDimension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReportingPackage.Literals.GANTT_CHART_DATA_SOURCE__START_DATE_FIELD,
+				 ReportingFactory.eINSTANCE.createDataDimension()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReportingPackage.Literals.GANTT_CHART_DATA_SOURCE__END_DATE_FIELD,
+				 ReportingFactory.eINSTANCE.createDataDimension()));
 	}
 
 	/**
-	 * Return the resource locator for this item provider's resources.
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public ResourceLocator getResourceLocator() {
-		return ReportingEditPlugin.INSTANCE;
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify =
+			childFeature == ReportingPackage.Literals.GANTT_CHART_DATA_SOURCE__PROJECT_PHASE_FIELD ||
+			childFeature == ReportingPackage.Literals.GANTT_CHART_DATA_SOURCE__TASK_NAME_FIELD ||
+			childFeature == ReportingPackage.Literals.GANTT_CHART_DATA_SOURCE__START_DATE_FIELD ||
+			childFeature == ReportingPackage.Literals.GANTT_CHART_DATA_SOURCE__END_DATE_FIELD;
+
+		if (qualify) {
+			return getString
+				("_UI_CreateChild_text2",
+				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

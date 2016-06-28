@@ -16,11 +16,13 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import reporting.Chart;
+import reporting.DataSource;
 import reporting.Report;
 import reporting.ReportMap;
 import reporting.ReportingPackage;
@@ -35,6 +37,7 @@ import reporting.ReportingPackage;
  * <ul>
  *   <li>{@link reporting.impl.ReportImpl#getMap <em>Map</em>}</li>
  *   <li>{@link reporting.impl.ReportImpl#getCharts <em>Charts</em>}</li>
+ *   <li>{@link reporting.impl.ReportImpl#getDataSources <em>Data Sources</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,6 +52,16 @@ public class ReportImpl extends NamedElementImpl implements Report {
 	 * @ordered
 	 */
 	protected EList<Chart> charts;
+
+	/**
+	 * The cached value of the '{@link #getDataSources() <em>Data Sources</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDataSources()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DataSource> dataSources;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -127,6 +140,18 @@ public class ReportImpl extends NamedElementImpl implements Report {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<DataSource> getDataSources() {
+		if (dataSources == null) {
+			dataSources = new EObjectContainmentEList<DataSource>(DataSource.class, this, ReportingPackage.REPORT__DATA_SOURCES);
+		}
+		return dataSources;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -153,6 +178,8 @@ public class ReportImpl extends NamedElementImpl implements Report {
 				return basicSetMap(null, msgs);
 			case ReportingPackage.REPORT__CHARTS:
 				return ((InternalEList<?>)getCharts()).basicRemove(otherEnd, msgs);
+			case ReportingPackage.REPORT__DATA_SOURCES:
+				return ((InternalEList<?>)getDataSources()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -183,6 +210,8 @@ public class ReportImpl extends NamedElementImpl implements Report {
 				return getMap();
 			case ReportingPackage.REPORT__CHARTS:
 				return getCharts();
+			case ReportingPackage.REPORT__DATA_SOURCES:
+				return getDataSources();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -203,6 +232,10 @@ public class ReportImpl extends NamedElementImpl implements Report {
 				getCharts().clear();
 				getCharts().addAll((Collection<? extends Chart>)newValue);
 				return;
+			case ReportingPackage.REPORT__DATA_SOURCES:
+				getDataSources().clear();
+				getDataSources().addAll((Collection<? extends DataSource>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -221,6 +254,9 @@ public class ReportImpl extends NamedElementImpl implements Report {
 			case ReportingPackage.REPORT__CHARTS:
 				getCharts().clear();
 				return;
+			case ReportingPackage.REPORT__DATA_SOURCES:
+				getDataSources().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -237,6 +273,8 @@ public class ReportImpl extends NamedElementImpl implements Report {
 				return getMap() != null;
 			case ReportingPackage.REPORT__CHARTS:
 				return charts != null && !charts.isEmpty();
+			case ReportingPackage.REPORT__DATA_SOURCES:
+				return dataSources != null && !dataSources.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

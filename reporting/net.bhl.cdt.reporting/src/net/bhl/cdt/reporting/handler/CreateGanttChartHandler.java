@@ -8,10 +8,8 @@ import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.services.IServiceConstants;
 
-import reporting.Axis;
-import reporting.GanttChart;
+import net.bhl.cdt.reporting.chartmodel.ChartModelFactory;
 import reporting.Report;
-import reporting.ReportingFactory;
 
 public class CreateGanttChartHandler {
 	@Execute
@@ -20,21 +18,7 @@ public class CreateGanttChartHandler {
 			return;
 		
 		Report report = (Report)selection;
-		
-		GanttChart ganttChart = ReportingFactory.eINSTANCE.createGanttChart();
-		
-		Axis xAxis = ReportingFactory.eINSTANCE.createAxis();
-		xAxis.setLabel(ReportingFactory.eINSTANCE.createLabel());
-		
-		Axis yAxis = ReportingFactory.eINSTANCE.createAxis();
-		yAxis.setLabel(ReportingFactory.eINSTANCE.createLabel());
-		
-		ganttChart.setTitle(ReportingFactory.eINSTANCE.createLabel());
-		
-		ganttChart.setXAxis(xAxis);
-		ganttChart.setYAxis(yAxis);
-		
-		report.getCharts().add(ganttChart);
+		report.getCharts().add(ChartModelFactory.generateGanttChart());
 	}
 	
 	@CanExecute

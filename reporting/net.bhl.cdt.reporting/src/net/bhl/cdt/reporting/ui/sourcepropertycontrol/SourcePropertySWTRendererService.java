@@ -55,7 +55,7 @@ public class SourcePropertySWTRendererService implements EMFFormsDIRendererServi
 			return NOT_APPLICABLE;
 		}
 		final EStructuralFeature eStructuralFeature = EStructuralFeature.class.cast(valueProperty.getValueType());
-		if (ReportingPackage.eINSTANCE.getDataSource_Member().equals(eStructuralFeature)) {
+		if (ReportingPackage.eINSTANCE.getDataSourceDefinition_Member().equals(eStructuralFeature)) {
 			return 10;
 		}
 		return NOT_APPLICABLE;

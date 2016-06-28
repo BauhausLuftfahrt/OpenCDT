@@ -6,6 +6,8 @@
         eOpposite="#//ReportMap/Reports"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Charts" upperBound="-1"
         eType="#//Chart" containment="true" eOpposite="#//Chart/Report" eKeys="../../net.bhl.cdt.model/model/model.ecore#//NamedElement/name"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DataSources" upperBound="-1"
+        eType="#//DataSource" containment="true" eKeys="../../net.bhl.cdt.model/model/model.ecore#//NamedElement/name"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReportMap">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Reports" upperBound="-1"
@@ -20,6 +22,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Report" eType="#//Report"
         eOpposite="#//Report/Charts"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ShowLegend" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DataSource" eType="#//DataSource"
+        containment="true" eOpposite="#//DataSource/Chart" eKeys="../../net.bhl.cdt.model/model/model.ecore#//NamedElement/name"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Chart2D" abstract="true" eSuperTypes="#//Chart">
     <eStructuralFeatures xsi:type="ecore:EReference" name="XAxis" lowerBound="1" eType="#//Axis"
@@ -33,6 +37,15 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Label" lowerBound="1" eType="#//Label"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DateAxis" eSuperTypes="#//Axis">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="FormatString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxDate" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerAxis" eSuperTypes="#//Axis">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MinValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="MaxValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FontPropertyElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Family" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Size" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
@@ -43,11 +56,31 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GanttChart" eSuperTypes="#//Chart2D"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DataDimension"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DataSource">
+  <eClassifiers xsi:type="ecore:EClass" name="DataDimension" eSuperTypes="../../net.bhl.cdt.model/model/model.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Field" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        unsettable="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DataSource" eType="#//DataSource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSource" eSuperTypes="../../net.bhl.cdt.model/model/model.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Definition" lowerBound="1"
+        eType="#//DataSourceDefinition"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="SourceObject" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Member" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Dimensions" upperBound="-1"
-        eType="#//DataDimension"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Chart" eType="#//Chart"
+        eOpposite="#//Chart/DataSource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSourceDefinition" eSuperTypes="../../net.bhl.cdt.model/model/model.ecore#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Source" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Member" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GanttChartDataSource" eSuperTypes="#//DataSource">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ProjectPhaseField" eType="#//DataDimension"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="TaskNameField" eType="#//DataDimension"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="StartDateField" eType="#//DataDimension"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EndDateField" eType="#//DataDimension"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

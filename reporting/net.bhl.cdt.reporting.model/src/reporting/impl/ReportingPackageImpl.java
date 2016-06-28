@@ -18,8 +18,12 @@ import reporting.Chart2D;
 import reporting.Chart3D;
 import reporting.DataDimension;
 import reporting.DataSource;
+import reporting.DataSourceDefinition;
+import reporting.DateAxis;
 import reporting.FontPropertyElement;
 import reporting.GanttChart;
+import reporting.GanttChartDataSource;
+import reporting.IntegerAxis;
 import reporting.Label;
 import reporting.Report;
 import reporting.ReportElement;
@@ -95,6 +99,20 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass dateAxisEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass integerAxisEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EClass fontPropertyElementEClass = null;
 
 	/**
@@ -124,6 +142,20 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 	 * @generated
 	 */
 	private EClass dataSourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataSourceDefinitionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass ganttChartDataSourceEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -221,6 +253,15 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getReport_DataSources() {
+		return (EReference)reportEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getReportMap() {
 		return reportMapEClass;
 	}
@@ -284,6 +325,15 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getChart_DataSource() {
+		return (EReference)chartEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getChart2D() {
 		return chart2DEClass;
 	}
@@ -340,6 +390,69 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 	 */
 	public EReference getAxis_Label() {
 		return (EReference)axisEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDateAxis() {
+		return dateAxisEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDateAxis_FormatString() {
+		return (EAttribute)dateAxisEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDateAxis_MinDate() {
+		return (EAttribute)dateAxisEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDateAxis_MaxDate() {
+		return (EAttribute)dateAxisEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getIntegerAxis() {
+		return integerAxisEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntegerAxis_MinValue() {
+		return (EAttribute)integerAxisEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getIntegerAxis_MaxValue() {
+		return (EAttribute)integerAxisEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -428,6 +541,33 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDataDimension_Field() {
+		return (EReference)dataDimensionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDataDimension_Type() {
+		return (EAttribute)dataDimensionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataDimension_DataSource() {
+		return (EReference)dataDimensionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDataSource() {
 		return dataSourceEClass;
 	}
@@ -437,7 +577,7 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataSource_SourceObject() {
+	public EReference getDataSource_Definition() {
 		return (EReference)dataSourceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -446,7 +586,7 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataSource_Member() {
+	public EReference getDataSource_SourceObject() {
 		return (EReference)dataSourceEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -455,8 +595,80 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDataSource_Dimensions() {
+	public EReference getDataSource_Chart() {
 		return (EReference)dataSourceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDataSourceDefinition() {
+		return dataSourceDefinitionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataSourceDefinition_Source() {
+		return (EReference)dataSourceDefinitionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataSourceDefinition_Member() {
+		return (EReference)dataSourceDefinitionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getGanttChartDataSource() {
+		return ganttChartDataSourceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGanttChartDataSource_ProjectPhaseField() {
+		return (EReference)ganttChartDataSourceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGanttChartDataSource_TaskNameField() {
+		return (EReference)ganttChartDataSourceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGanttChartDataSource_StartDateField() {
+		return (EReference)ganttChartDataSourceEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getGanttChartDataSource_EndDateField() {
+		return (EReference)ganttChartDataSourceEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -490,6 +702,7 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 		reportEClass = createEClass(REPORT);
 		createEReference(reportEClass, REPORT__MAP);
 		createEReference(reportEClass, REPORT__CHARTS);
+		createEReference(reportEClass, REPORT__DATA_SOURCES);
 
 		reportMapEClass = createEClass(REPORT_MAP);
 		createEReference(reportMapEClass, REPORT_MAP__REPORTS);
@@ -500,6 +713,7 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 		createEReference(chartEClass, CHART__TITLE);
 		createEReference(chartEClass, CHART__REPORT);
 		createEAttribute(chartEClass, CHART__SHOW_LEGEND);
+		createEReference(chartEClass, CHART__DATA_SOURCE);
 
 		chart2DEClass = createEClass(CHART2_D);
 		createEReference(chart2DEClass, CHART2_D__XAXIS);
@@ -511,6 +725,15 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 
 		axisEClass = createEClass(AXIS);
 		createEReference(axisEClass, AXIS__LABEL);
+
+		dateAxisEClass = createEClass(DATE_AXIS);
+		createEAttribute(dateAxisEClass, DATE_AXIS__FORMAT_STRING);
+		createEAttribute(dateAxisEClass, DATE_AXIS__MIN_DATE);
+		createEAttribute(dateAxisEClass, DATE_AXIS__MAX_DATE);
+
+		integerAxisEClass = createEClass(INTEGER_AXIS);
+		createEAttribute(integerAxisEClass, INTEGER_AXIS__MIN_VALUE);
+		createEAttribute(integerAxisEClass, INTEGER_AXIS__MAX_VALUE);
 
 		fontPropertyElementEClass = createEClass(FONT_PROPERTY_ELEMENT);
 		createEAttribute(fontPropertyElementEClass, FONT_PROPERTY_ELEMENT__FAMILY);
@@ -524,11 +747,24 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 		ganttChartEClass = createEClass(GANTT_CHART);
 
 		dataDimensionEClass = createEClass(DATA_DIMENSION);
+		createEReference(dataDimensionEClass, DATA_DIMENSION__FIELD);
+		createEAttribute(dataDimensionEClass, DATA_DIMENSION__TYPE);
+		createEReference(dataDimensionEClass, DATA_DIMENSION__DATA_SOURCE);
 
 		dataSourceEClass = createEClass(DATA_SOURCE);
+		createEReference(dataSourceEClass, DATA_SOURCE__DEFINITION);
 		createEReference(dataSourceEClass, DATA_SOURCE__SOURCE_OBJECT);
-		createEReference(dataSourceEClass, DATA_SOURCE__MEMBER);
-		createEReference(dataSourceEClass, DATA_SOURCE__DIMENSIONS);
+		createEReference(dataSourceEClass, DATA_SOURCE__CHART);
+
+		dataSourceDefinitionEClass = createEClass(DATA_SOURCE_DEFINITION);
+		createEReference(dataSourceDefinitionEClass, DATA_SOURCE_DEFINITION__SOURCE);
+		createEReference(dataSourceDefinitionEClass, DATA_SOURCE_DEFINITION__MEMBER);
+
+		ganttChartDataSourceEClass = createEClass(GANTT_CHART_DATA_SOURCE);
+		createEReference(ganttChartDataSourceEClass, GANTT_CHART_DATA_SOURCE__PROJECT_PHASE_FIELD);
+		createEReference(ganttChartDataSourceEClass, GANTT_CHART_DATA_SOURCE__TASK_NAME_FIELD);
+		createEReference(ganttChartDataSourceEClass, GANTT_CHART_DATA_SOURCE__START_DATE_FIELD);
+		createEReference(ganttChartDataSourceEClass, GANTT_CHART_DATA_SOURCE__END_DATE_FIELD);
 	}
 
 	/**
@@ -570,14 +806,22 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 		barChartEClass.getESuperTypes().add(this.getChart2D());
 		axisEClass.getESuperTypes().add(theModelPackage.getNamedElement());
 		axisEClass.getESuperTypes().add(this.getFontPropertyElement());
+		dateAxisEClass.getESuperTypes().add(this.getAxis());
+		integerAxisEClass.getESuperTypes().add(this.getAxis());
 		labelEClass.getESuperTypes().add(this.getFontPropertyElement());
 		ganttChartEClass.getESuperTypes().add(this.getChart2D());
+		dataDimensionEClass.getESuperTypes().add(theModelPackage.getNamedElement());
+		dataSourceEClass.getESuperTypes().add(theModelPackage.getNamedElement());
+		dataSourceDefinitionEClass.getESuperTypes().add(theModelPackage.getNamedElement());
+		ganttChartDataSourceEClass.getESuperTypes().add(this.getDataSource());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(reportEClass, Report.class, "Report", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReport_Map(), this.getReportMap(), this.getReportMap_Reports(), "Map", null, 0, 1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReport_Charts(), this.getChart(), this.getChart_Report(), "Charts", null, 0, -1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getReport_Charts().getEKeys().add(theModelPackage.getNamedElement_Name());
+		initEReference(getReport_DataSources(), this.getDataSource(), null, "DataSources", null, 0, -1, Report.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getReport_DataSources().getEKeys().add(theModelPackage.getNamedElement_Name());
 
 		initEClass(reportMapEClass, ReportMap.class, "ReportMap", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReportMap_Reports(), this.getReport(), this.getReport_Map(), "Reports", null, 0, -1, ReportMap.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -589,6 +833,8 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 		initEReference(getChart_Title(), this.getLabel(), null, "Title", null, 1, 1, Chart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getChart_Report(), this.getReport(), this.getReport_Charts(), "Report", null, 0, 1, Chart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getChart_ShowLegend(), ecorePackage.getEBoolean(), "ShowLegend", null, 0, 1, Chart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getChart_DataSource(), this.getDataSource(), this.getDataSource_Chart(), "DataSource", null, 0, 1, Chart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		getChart_DataSource().getEKeys().add(theModelPackage.getNamedElement_Name());
 
 		initEClass(chart2DEClass, Chart2D.class, "Chart2D", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getChart2D_XAxis(), this.getAxis(), null, "XAxis", null, 1, 1, Chart2D.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -600,6 +846,15 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 
 		initEClass(axisEClass, Axis.class, "Axis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAxis_Label(), this.getLabel(), null, "Label", null, 1, 1, Axis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dateAxisEClass, DateAxis.class, "DateAxis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDateAxis_FormatString(), ecorePackage.getEString(), "FormatString", null, 0, 1, DateAxis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDateAxis_MinDate(), ecorePackage.getEDate(), "MinDate", null, 0, 1, DateAxis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDateAxis_MaxDate(), ecorePackage.getEDate(), "MaxDate", null, 0, 1, DateAxis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(integerAxisEClass, IntegerAxis.class, "IntegerAxis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getIntegerAxis_MinValue(), ecorePackage.getEInt(), "MinValue", null, 0, 1, IntegerAxis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getIntegerAxis_MaxValue(), ecorePackage.getEInt(), "MaxValue", null, 0, 1, IntegerAxis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(fontPropertyElementEClass, FontPropertyElement.class, "FontPropertyElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFontPropertyElement_Family(), ecorePackage.getEString(), "Family", null, 0, 1, FontPropertyElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -613,11 +868,24 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 		initEClass(ganttChartEClass, GanttChart.class, "GanttChart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(dataDimensionEClass, DataDimension.class, "DataDimension", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataDimension_Field(), ecorePackage.getEAttribute(), null, "Field", null, 0, 1, DataDimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDataDimension_Type(), ecorePackage.getEString(), "Type", null, 0, 1, DataDimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataDimension_DataSource(), this.getDataSource(), null, "DataSource", null, 0, 1, DataDimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataSourceEClass, DataSource.class, "DataSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataSource_Definition(), this.getDataSourceDefinition(), null, "Definition", null, 1, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataSource_SourceObject(), ecorePackage.getEObject(), null, "SourceObject", null, 0, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataSource_Member(), ecorePackage.getEAttribute(), null, "Member", null, 0, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataSource_Dimensions(), this.getDataDimension(), null, "Dimensions", null, 0, -1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataSource_Chart(), this.getChart(), this.getChart_DataSource(), "Chart", null, 0, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataSourceDefinitionEClass, DataSourceDefinition.class, "DataSourceDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDataSourceDefinition_Source(), ecorePackage.getEClass(), null, "Source", null, 0, 1, DataSourceDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataSourceDefinition_Member(), ecorePackage.getEReference(), null, "Member", null, 0, 1, DataSourceDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(ganttChartDataSourceEClass, GanttChartDataSource.class, "GanttChartDataSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getGanttChartDataSource_ProjectPhaseField(), this.getDataDimension(), null, "ProjectPhaseField", null, 0, 1, GanttChartDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGanttChartDataSource_TaskNameField(), this.getDataDimension(), null, "TaskNameField", null, 0, 1, GanttChartDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGanttChartDataSource_StartDateField(), this.getDataDimension(), null, "StartDateField", null, 0, 1, GanttChartDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGanttChartDataSource_EndDateField(), this.getDataDimension(), null, "EndDateField", null, 0, 1, GanttChartDataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -1,7 +1,6 @@
 package net.bhl.cdt.reporting.part;
 
 import javax.annotation.PostConstruct;
-import javax.inject.Inject;
 import javax.inject.Named;
 
 import org.eclipse.birt.chart.device.IDeviceRenderer;
@@ -13,7 +12,10 @@ import org.eclipse.birt.chart.model.attribute.Bounds;
 import org.eclipse.birt.chart.model.attribute.impl.BoundsImpl;
 import org.eclipse.birt.chart.util.PluginSettings;
 import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.ui.di.PersistState;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.IServiceConstants;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ControlAdapter;
 import org.eclipse.swt.events.ControlEvent;
@@ -29,6 +31,7 @@ import org.eclipse.swt.widgets.Display;
 
 import net.bhl.cdt.log.service.CDTLogService;
 import net.bhl.cdt.reporting.chart.BirtChartFactory;
+import net.bhl.cdt.reporting.data.DataSourceAnalyzer;
 
 /**
  * 
@@ -36,6 +39,7 @@ import net.bhl.cdt.reporting.chart.BirtChartFactory;
  *
  */
 public class ChartViewPart {
+	private final String CHARTMODEL_KEY = "chartModel";
 	
 	private CDTLogService log;
 	
@@ -70,14 +74,21 @@ public class ChartViewPart {
 	}
 	
 	@PostConstruct
-	public void createUI(Composite parent, @Named(IServiceConstants.ACTIVE_SELECTION) @Optional Object selection, CDTLogService log) {
+	public void createUI(Composite parent, CDTLogService log, MPart part, @Named(IServiceConstants.ACTIVE_SELECTION) @Optional Object selection) {
 		this.log = log;
 		
 		canvas = new Canvas(parent, SWT.NONE);
 		
-		chartModel = (reporting.Chart)selection;
-		
+		if (selection == null) {
+			String chartModelID = part.getPersistedState().get(CHARTMODEL_KEY);
+			chartModel = recoverChartModel(chartModelID);
+		}
+		else
+			chartModel = (reporting.Chart)selection;
+
 		chart = BirtChartFactory.createChart(chartModel);
+		
+		DataSourceAnalyzer.createChartData(chartModel, chart);
 		
 		try {
 			PluginSettings ps = PluginSettings.instance();
@@ -116,9 +127,13 @@ public class ChartViewPart {
 		});
 	}
 	
-	@Inject
-	public void setInput(@Optional Chart chart) {
-		
+	@PersistState
+	public void persistState(MPart part){
+		part.getPersistedState().put(CHARTMODEL_KEY, EcoreUtil.getID(chartModel));
+	}
+	
+	private reporting.Chart recoverChartModel(String id) {
+		return null;
 	}
 	
 	/**

@@ -7,6 +7,7 @@ import java.util.Collection;
 import java.util.List;
 
 import net.bhl.cdt.model.provider.NamedElementItemProvider;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -14,26 +15,24 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
-import reporting.DataDimension;
+
+import reporting.DataSourceDefinition;
 import reporting.ReportingPackage;
 
 /**
- * This is the item provider adapter for a {@link reporting.DataDimension} object.
+ * This is the item provider adapter for a {@link reporting.DataSourceDefinition} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DataDimensionItemProvider 
-	extends NamedElementItemProvider {
+public class DataSourceDefinitionItemProvider extends NamedElementItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataDimensionItemProvider(AdapterFactory adapterFactory) {
+	public DataSourceDefinitionItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -48,27 +47,26 @@ public class DataDimensionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addFieldPropertyDescriptor(object);
-			addTypePropertyDescriptor(object);
-			addDataSourcePropertyDescriptor(object);
+			addSourcePropertyDescriptor(object);
+			addMemberPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Field feature.
+	 * This adds a property descriptor for the Source feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFieldPropertyDescriptor(Object object) {
+	protected void addSourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataDimension_Field_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataDimension_Field_feature", "_UI_DataDimension_type"),
-				 ReportingPackage.Literals.DATA_DIMENSION__FIELD,
+				 getString("_UI_DataSourceDefinition_Source_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataSourceDefinition_Source_feature", "_UI_DataSourceDefinition_type"),
+				 ReportingPackage.Literals.DATA_SOURCE_DEFINITION__SOURCE,
 				 true,
 				 false,
 				 true,
@@ -78,41 +76,19 @@ public class DataDimensionItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Type feature.
+	 * This adds a property descriptor for the Member feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTypePropertyDescriptor(Object object) {
+	protected void addMemberPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_DataDimension_Type_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataDimension_Type_feature", "_UI_DataDimension_type"),
-				 ReportingPackage.Literals.DATA_DIMENSION__TYPE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Data Source feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDataSourcePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataDimension_DataSource_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataDimension_DataSource_feature", "_UI_DataDimension_type"),
-				 ReportingPackage.Literals.DATA_DIMENSION__DATA_SOURCE,
+				 getString("_UI_DataSourceDefinition_Member_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataSourceDefinition_Member_feature", "_UI_DataSourceDefinition_type"),
+				 ReportingPackage.Literals.DATA_SOURCE_DEFINITION__MEMBER,
 				 true,
 				 false,
 				 true,
@@ -122,14 +98,14 @@ public class DataDimensionItemProvider
 	}
 
 	/**
-	 * This returns DataDimension.gif.
+	 * This returns DataSourceDefinition.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataDimension"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataSourceDefinition"));
 	}
 
 	/**
@@ -140,10 +116,10 @@ public class DataDimensionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DataDimension)object).getName();
+		String label = ((DataSourceDefinition)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_DataDimension_type") :
-			getString("_UI_DataDimension_type") + " " + label;
+			getString("_UI_DataSourceDefinition_type") :
+			getString("_UI_DataSourceDefinition_type") + " " + label;
 	}
 	
 
@@ -157,12 +133,6 @@ public class DataDimensionItemProvider
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(DataDimension.class)) {
-			case ReportingPackage.DATA_DIMENSION__TYPE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
