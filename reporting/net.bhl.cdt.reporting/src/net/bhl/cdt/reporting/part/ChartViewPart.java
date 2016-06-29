@@ -76,9 +76,7 @@ public class ChartViewPart {
 	@PostConstruct
 	public void createUI(Composite parent, CDTLogService log, MPart part, @Named(IServiceConstants.ACTIVE_SELECTION) @Optional Object selection) {
 		this.log = log;
-		
-		canvas = new Canvas(parent, SWT.NONE);
-		
+				
 		if (selection == null) {
 			String chartModelID = part.getPersistedState().get(CHARTMODEL_KEY);
 			chartModel = recoverChartModel(chartModelID);
@@ -87,8 +85,9 @@ public class ChartViewPart {
 			chartModel = (reporting.Chart)selection;
 
 		chart = BirtChartFactory.createChart(chartModel);
-		
 		DataSourceAnalyzer.createChartData(chartModel, chart);
+		
+		canvas = new Canvas(parent, SWT.NONE);
 		
 		try {
 			PluginSettings ps = PluginSettings.instance();
@@ -96,7 +95,7 @@ public class ChartViewPart {
 		} catch (ChartException pex) {
 			pex.printStackTrace();
 		}
-
+		
 		canvas.addPaintListener(new PaintListener() {
 
 			public void paintControl(PaintEvent e) {
@@ -116,15 +115,24 @@ public class ChartViewPart {
 		});
 
 		canvas.addControlListener(new ControlAdapter() {
-
 			public void controlResized(ControlEvent e) {
-
 				render.setProperty(IDeviceRenderer.GRAPHICS_CONTEXT, new GC(canvas));
 
 				buildChart();
 				cachedImage = null;
 			}
 		});
+	}
+	
+	public void refresh() {
+		chart = BirtChartFactory.createChart(chartModel);		
+		DataSourceAnalyzer.createChartData(chartModel, chart);
+		
+		render.setProperty(IDeviceRenderer.GRAPHICS_CONTEXT, new GC(canvas));
+
+		buildChart();
+		cachedImage = null;	
+		canvas.redraw();
 	}
 	
 	@PersistState
@@ -149,6 +157,7 @@ public class ChartViewPart {
 			state = gr.build(render.getDisplayServer(), chart, bo, null, null, null);
 		} catch (ChartException ex) {
 			log.error("Error while building chart...", ex);
+			ex.printStackTrace();
 		}
 	}
 
@@ -174,6 +183,7 @@ public class ChartViewPart {
 			gr.render(render, state);
 		} catch (ChartException ex) {
 			log.error("Error while drawing chart to image...", ex);
+			ex.printStackTrace();
 		} finally {
 			if (gc != null)
 				gc.dispose();

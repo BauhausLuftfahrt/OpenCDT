@@ -191,11 +191,6 @@ public class Chart2DItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ReportingPackage.Literals.CHART__DATA_SOURCE,
-				 ReportingFactory.eINSTANCE.createGanttChartDataSource()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(ReportingPackage.Literals.CHART2_D__XAXIS,
 				 ReportingFactory.eINSTANCE.createAxis()));
 

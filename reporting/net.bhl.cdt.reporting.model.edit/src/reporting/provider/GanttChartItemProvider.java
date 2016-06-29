@@ -9,9 +9,13 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import reporting.GanttChart;
+import reporting.ReportingFactory;
 import reporting.ReportingPackage;
 
 /**
@@ -44,6 +48,38 @@ public class GanttChartItemProvider extends Chart2DItemProvider {
 
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(ReportingPackage.Literals.GANTT_CHART__TASK_NAME_FIELD);
+			childrenFeatures.add(ReportingPackage.Literals.GANTT_CHART__START_DATE_FIELD);
+			childrenFeatures.add(ReportingPackage.Literals.GANTT_CHART__END_DATE_FIELD);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -82,6 +118,14 @@ public class GanttChartItemProvider extends Chart2DItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(GanttChart.class)) {
+			case ReportingPackage.GANTT_CHART__TASK_NAME_FIELD:
+			case ReportingPackage.GANTT_CHART__START_DATE_FIELD:
+			case ReportingPackage.GANTT_CHART__END_DATE_FIELD:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -95,6 +139,21 @@ public class GanttChartItemProvider extends Chart2DItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReportingPackage.Literals.GANTT_CHART__TASK_NAME_FIELD,
+				 ReportingFactory.eINSTANCE.createDataField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReportingPackage.Literals.GANTT_CHART__START_DATE_FIELD,
+				 ReportingFactory.eINSTANCE.createDataField()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(ReportingPackage.Literals.GANTT_CHART__END_DATE_FIELD,
+				 ReportingFactory.eINSTANCE.createDataField()));
 	}
 
 	/**
@@ -110,7 +169,10 @@ public class GanttChartItemProvider extends Chart2DItemProvider {
 
 		boolean qualify =
 			childFeature == ReportingPackage.Literals.CHART2_D__XAXIS ||
-			childFeature == ReportingPackage.Literals.CHART2_D__YAXIS;
+			childFeature == ReportingPackage.Literals.CHART2_D__YAXIS ||
+			childFeature == ReportingPackage.Literals.GANTT_CHART__TASK_NAME_FIELD ||
+			childFeature == ReportingPackage.Literals.GANTT_CHART__START_DATE_FIELD ||
+			childFeature == ReportingPackage.Literals.GANTT_CHART__END_DATE_FIELD;
 
 		if (qualify) {
 			return getString

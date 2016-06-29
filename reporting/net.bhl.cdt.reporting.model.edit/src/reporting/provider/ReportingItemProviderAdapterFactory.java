@@ -302,49 +302,26 @@ public class ReportingItemProviderAdapterFactory extends ReportingAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link reporting.DataDimension} instances.
+	 * This keeps track of the one adapter used for all {@link reporting.DataField} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DataDimensionItemProvider dataDimensionItemProvider;
+	protected DataFieldItemProvider dataFieldItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link reporting.DataDimension}.
+	 * This creates an adapter for a {@link reporting.DataField}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createDataDimensionAdapter() {
-		if (dataDimensionItemProvider == null) {
-			dataDimensionItemProvider = new DataDimensionItemProvider(this);
+	public Adapter createDataFieldAdapter() {
+		if (dataFieldItemProvider == null) {
+			dataFieldItemProvider = new DataFieldItemProvider(this);
 		}
 
-		return dataDimensionItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link reporting.DataSource} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DataSourceItemProvider dataSourceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link reporting.DataSource}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDataSourceAdapter() {
-		if (dataSourceItemProvider == null) {
-			dataSourceItemProvider = new DataSourceItemProvider(this);
-		}
-
-		return dataSourceItemProvider;
+		return dataFieldItemProvider;
 	}
 
 	/**
@@ -371,26 +348,95 @@ public class ReportingItemProviderAdapterFactory extends ReportingAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link reporting.GanttChartDataSource} instances.
+	 * This keeps track of the one adapter used for all {@link reporting.DataSource} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GanttChartDataSourceItemProvider ganttChartDataSourceItemProvider;
+	protected DataSourceItemProvider dataSourceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link reporting.GanttChartDataSource}.
+	 * This creates an adapter for a {@link reporting.DataSource}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createGanttChartDataSourceAdapter() {
-		if (ganttChartDataSourceItemProvider == null) {
-			ganttChartDataSourceItemProvider = new GanttChartDataSourceItemProvider(this);
+	public Adapter createDataSourceAdapter() {
+		if (dataSourceItemProvider == null) {
+			dataSourceItemProvider = new DataSourceItemProvider(this);
 		}
 
-		return ganttChartDataSourceItemProvider;
+		return dataSourceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link reporting.DataSourceFilter} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataSourceFilterItemProvider dataSourceFilterItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link reporting.DataSourceFilter}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataSourceFilterAdapter() {
+		if (dataSourceFilterItemProvider == null) {
+			dataSourceFilterItemProvider = new DataSourceFilterItemProvider(this);
+		}
+
+		return dataSourceFilterItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link reporting.DataSourceGrouping} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataSourceGroupingItemProvider dataSourceGroupingItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link reporting.DataSourceGrouping}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataSourceGroupingAdapter() {
+		if (dataSourceGroupingItemProvider == null) {
+			dataSourceGroupingItemProvider = new DataSourceGroupingItemProvider(this);
+		}
+
+		return dataSourceGroupingItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link reporting.BubbleChart} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BubbleChartItemProvider bubbleChartItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link reporting.BubbleChart}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBubbleChartAdapter() {
+		if (bubbleChartItemProvider == null) {
+			bubbleChartItemProvider = new BubbleChartItemProvider(this);
+		}
+
+		return bubbleChartItemProvider;
 	}
 
 	/**
@@ -502,10 +548,12 @@ public class ReportingItemProviderAdapterFactory extends ReportingAdapterFactory
 		if (fontPropertyElementItemProvider != null) fontPropertyElementItemProvider.dispose();
 		if (labelItemProvider != null) labelItemProvider.dispose();
 		if (ganttChartItemProvider != null) ganttChartItemProvider.dispose();
-		if (dataDimensionItemProvider != null) dataDimensionItemProvider.dispose();
-		if (dataSourceItemProvider != null) dataSourceItemProvider.dispose();
+		if (dataFieldItemProvider != null) dataFieldItemProvider.dispose();
 		if (dataSourceDefinitionItemProvider != null) dataSourceDefinitionItemProvider.dispose();
-		if (ganttChartDataSourceItemProvider != null) ganttChartDataSourceItemProvider.dispose();
+		if (dataSourceItemProvider != null) dataSourceItemProvider.dispose();
+		if (dataSourceFilterItemProvider != null) dataSourceFilterItemProvider.dispose();
+		if (dataSourceGroupingItemProvider != null) dataSourceGroupingItemProvider.dispose();
+		if (bubbleChartItemProvider != null) bubbleChartItemProvider.dispose();
 	}
 
 }

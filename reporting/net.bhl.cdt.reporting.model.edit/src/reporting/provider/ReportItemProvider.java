@@ -159,13 +159,13 @@ public class ReportItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(ReportingPackage.Literals.REPORT__DATA_SOURCES,
-				 ReportingFactory.eINSTANCE.createDataSource()));
+				(ReportingPackage.Literals.REPORT__CHARTS,
+				 ReportingFactory.eINSTANCE.createBubbleChart()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(ReportingPackage.Literals.REPORT__DATA_SOURCES,
-				 ReportingFactory.eINSTANCE.createGanttChartDataSource()));
+				 ReportingFactory.eINSTANCE.createDataSource()));
 	}
 
 	/**

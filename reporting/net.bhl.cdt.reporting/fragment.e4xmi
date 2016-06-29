@@ -4,6 +4,7 @@
     <elements xsi:type="menu:Menu" xmi:id="_V_tjsDkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.menu.reporting" label="Reporting">
       <children xsi:type="menu:HandledMenuItem" xmi:id="_ZQVm8DkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.handledmenuitem.createbarchart" label="Create Bar-Chart" command="_dxT3wDkYEeaYg4zqfjn7QA"/>
       <children xsi:type="menu:HandledMenuItem" xmi:id="_lH8tIDuUEeaRXYQoHBnMmw" elementId="net.bhl.cdt.reporting.handledmenuitem.creategantt-chart" label="Create Gantt-Chart" command="_o4MEkDuUEeaRXYQoHBnMmw"/>
+      <children xsi:type="menu:HandledMenuItem" xmi:id="_RFc04D4VEeajIdZgblS3VQ" elementId="net.bhl.cdt.reporting.handledmenuitem.createbubble-chart" label="Create Bubble-Chart" command="_ulUosD4UEeajIdZgblS3VQ"/>
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_Zt9-IDkYEeaYg4zqfjn7QA" featurename="commands" parentElementId="net.bhl.cdt.application">
@@ -12,6 +13,7 @@
     <elements xsi:type="commands:Command" xmi:id="_o4MEkDuUEeaRXYQoHBnMmw" elementId="net.bhl.cdt.reporting.command.createganttchart" commandName="createGanttChart"/>
     <elements xsi:type="commands:Command" xmi:id="_NhnDEDuWEeaRXYQoHBnMmw" elementId="net.bhl.cdt.reporting.command.showganttchartpart" commandName="showGanttChartPart"/>
     <elements xsi:type="commands:Command" xmi:id="_5wkPkDuXEeaRXYQoHBnMmw" elementId="net.bhl.cdt.reporting.command.createbarchart" commandName="createBarChart"/>
+    <elements xsi:type="commands:Command" xmi:id="_ulUosD4UEeajIdZgblS3VQ" elementId="net.bhl.cdt.reporting.command.createbubblechart" commandName="createBubbleChart"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_Z--1oDkYEeaYg4zqfjn7QA" featurename="handlers" parentElementId="net.bhl.cdt.application">
     <elements xsi:type="commands:Handler" xmi:id="_jV9zIDkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.handler.createChart" contributionURI="bundleclass://net.bhl.cdt.reporting/net.bhl.cdt.reporting.handler.ViewChartHandler" command="_dxT3wDkYEeaYg4zqfjn7QA"/>
@@ -19,6 +21,7 @@
     <elements xsi:type="commands:Handler" xmi:id="_sCcaEDuUEeaRXYQoHBnMmw" elementId="net.bhl.cdt.reporting.handler.createGanttChart" contributionURI="bundleclass://net.bhl.cdt.reporting/net.bhl.cdt.reporting.handler.CreateGanttChartHandler" command="_o4MEkDuUEeaRXYQoHBnMmw"/>
     <elements xsi:type="commands:Handler" xmi:id="_L9-GEDuWEeaRXYQoHBnMmw" elementId="net.bhl.cdt.reporting.handler.showganttchartpart" contributionURI="bundleclass://net.bhl.cdt.reporting/net.bhl.cdt.reporting.handler.ShowGanttChartPartHandler" command="_NhnDEDuWEeaRXYQoHBnMmw"/>
     <elements xsi:type="commands:Handler" xmi:id="_7uTHkDuXEeaRXYQoHBnMmw" elementId="net.bhl.cdt.reporting.handler.createbarchart" contributionURI="bundleclass://net.bhl.cdt.reporting/net.bhl.cdt.reporting.handler.CreateBarChartHandler" command="_5wkPkDuXEeaRXYQoHBnMmw"/>
+    <elements xsi:type="commands:Handler" xmi:id="_w5Mv0D4UEeajIdZgblS3VQ" elementId="net.bhl.cdt.reporting.handler.0" contributionURI="bundleclass://net.bhl.cdt.reporting/net.bhl.cdt.reporting.handler.CreateBubbleChartHandler" command="_ulUosD4UEeajIdZgblS3VQ"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_pk4McDkYEeaYg4zqfjn7QA" featurename="descriptors" parentElementId="net.bhl.cdt.application">
     <elements xsi:type="basic:PartDescriptor" xmi:id="_tYtDYDkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.partdescriptor.chartviewpart" label="Chart" allowMultiple="true" category="editorPart" closeable="true" contributionURI="bundleclass://net.bhl.cdt.reporting/net.bhl.cdt.reporting.part.ChartViewPart">

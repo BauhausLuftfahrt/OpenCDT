@@ -6,38 +6,46 @@ package reporting.provider;
 import java.util.Collection;
 import java.util.List;
 
-import net.bhl.cdt.model.provider.NamedElementItemProvider;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
-import reporting.Chart3D;
-import reporting.ReportingFactory;
+import reporting.DataField;
 import reporting.ReportingPackage;
 
 /**
- * This is the item provider adapter for a {@link reporting.Chart3D} object.
+ * This is the item provider adapter for a {@link reporting.DataField} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class Chart3DItemProvider extends NamedElementItemProvider {
+public class DataFieldItemProvider 
+	extends ItemProviderAdapter
+	implements
+		IEditingDomainItemProvider,
+		IStructuredItemContentProvider,
+		ITreeItemContentProvider,
+		IItemLabelProvider,
+		IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Chart3DItemProvider(AdapterFactory adapterFactory) {
+	public DataFieldItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -52,26 +60,27 @@ public class Chart3DItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addTitlePropertyDescriptor(object);
-			addShowLegendPropertyDescriptor(object);
+			addDataSourcePropertyDescriptor(object);
+			addFieldPropertyDescriptor(object);
+			addTypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Title feature.
+	 * This adds a property descriptor for the Data Source feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addTitlePropertyDescriptor(Object object) {
+	protected void addDataSourcePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Chart_Title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Chart_Title_feature", "_UI_Chart_type"),
-				 ReportingPackage.Literals.CHART__TITLE,
+				 getString("_UI_DataField_DataSource_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataField_DataSource_feature", "_UI_DataField_type"),
+				 ReportingPackage.Literals.DATA_FIELD__DATA_SOURCE,
 				 true,
 				 false,
 				 true,
@@ -81,66 +90,58 @@ public class Chart3DItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Show Legend feature.
+	 * This adds a property descriptor for the Field feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addShowLegendPropertyDescriptor(Object object) {
+	protected void addFieldPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Chart_ShowLegend_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Chart_ShowLegend_feature", "_UI_Chart_type"),
-				 ReportingPackage.Literals.CHART__SHOW_LEGEND,
+				 getString("_UI_DataField_Field_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataField_Field_feature", "_UI_DataField_type"),
+				 ReportingPackage.Literals.DATA_FIELD__FIELD,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(ReportingPackage.Literals.CHART__DATA_SOURCE);
-		}
-		return childrenFeatures;
+	protected void addTypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DataField_Type_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DataField_Type_feature", "_UI_DataField_type"),
+				 ReportingPackage.Literals.DATA_FIELD__TYPE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns Chart3D.gif.
+	 * This returns DataField.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Chart3D"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataField"));
 	}
 
 	/**
@@ -151,10 +152,10 @@ public class Chart3DItemProvider extends NamedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Chart3D)object).getName();
+		String label = ((DataField)object).getType();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Chart3D_type") :
-			getString("_UI_Chart3D_type") + " " + label;
+			getString("_UI_DataField_type") :
+			getString("_UI_DataField_type") + " " + label;
 	}
 	
 
@@ -169,12 +170,9 @@ public class Chart3DItemProvider extends NamedElementItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Chart3D.class)) {
-			case ReportingPackage.CHART3_D__SHOW_LEGEND:
+		switch (notification.getFeatureID(DataField.class)) {
+			case ReportingPackage.DATA_FIELD__TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case ReportingPackage.CHART3_D__DATA_SOURCE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -190,11 +188,6 @@ public class Chart3DItemProvider extends NamedElementItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(ReportingPackage.Literals.CHART__DATA_SOURCE,
-				 ReportingFactory.eINSTANCE.createDataSource()));
 	}
 
 	/**
