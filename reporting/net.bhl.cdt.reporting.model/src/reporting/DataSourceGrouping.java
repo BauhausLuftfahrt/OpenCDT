@@ -25,26 +25,28 @@ import org.eclipse.emf.ecore.EAttribute;
  */
 public interface DataSourceGrouping extends NamedElement {
 	/**
-	 * Returns the value of the '<em><b>Data Source</b></em>' reference.
+	 * Returns the value of the '<em><b>Data Source</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link reporting.DataSource#getGroupings <em>Groupings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Data Source</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Data Source</em>' reference.
+	 * @return the value of the '<em>Data Source</em>' container reference.
 	 * @see #setDataSource(DataSource)
 	 * @see reporting.ReportingPackage#getDataSourceGrouping_DataSource()
-	 * @model
+	 * @see reporting.DataSource#getGroupings
+	 * @model opposite="Groupings" transient="false"
 	 * @generated
 	 */
 	DataSource getDataSource();
 
 	/**
-	 * Sets the value of the '{@link reporting.DataSourceGrouping#getDataSource <em>Data Source</em>}' reference.
+	 * Sets the value of the '{@link reporting.DataSourceGrouping#getDataSource <em>Data Source</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Data Source</em>' reference.
+	 * @param value the new value of the '<em>Data Source</em>' container reference.
 	 * @see #getDataSource()
 	 * @generated
 	 */

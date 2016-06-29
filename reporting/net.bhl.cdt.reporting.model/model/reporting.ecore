@@ -6,8 +6,9 @@
         eOpposite="#//ReportMap/Reports"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Charts" upperBound="-1"
         eType="#//Chart" containment="true" eOpposite="#//Chart/Report" eKeys="../../net.bhl.cdt.model/model/model.ecore#//NamedElement/name"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="DataSources" upperBound="-1"
-        eType="#//DataSource" containment="true" eKeys="../../net.bhl.cdt.model/model/model.ecore#//NamedElement/name"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DataSourceDefinitions"
+        upperBound="-1" eType="#//DataSourceDefinition" containment="true" eOpposite="#//DataSourceDefinition/Report"
+        eKeys="../../net.bhl.cdt.model/model/model.ecore#//NamedElement/name"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ReportMap">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Reports" upperBound="-1"
@@ -23,7 +24,7 @@
         eOpposite="#//Report/Charts"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ShowLegend" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DataSource" eType="#//DataSource"
-        containment="true" eOpposite="#//DataSource/Chart" eKeys="../../net.bhl.cdt.model/model/model.ecore#//NamedElement/name"/>
+        containment="true" eOpposite="#//DataSource/Chart"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Chart2D" abstract="true" eSuperTypes="#//Chart">
     <eStructuralFeatures xsi:type="ecore:EReference" name="XAxis" lowerBound="1" eType="#//Axis"
@@ -72,8 +73,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="DataSourceDefinition" eSuperTypes="../../net.bhl.cdt.model/model/model.ecore#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Source" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Member" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EReference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Report" eType="#//Report"
+        eOpposite="#//Report/DataSourceDefinitions"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataSource" eSuperTypes="../../net.bhl.cdt.model/model/model.ecore#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DataSource">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Definition" lowerBound="1"
         eType="#//DataSourceDefinition"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Chart" eType="#//Chart"
@@ -84,7 +87,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Filter" upperBound="-1"
         eType="#//DataSourceFilter" containment="true" eOpposite="#//DataSourceFilter/DataSource"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Groupings" upperBound="-1"
-        eType="#//DataSourceGrouping" containment="true"/>
+        eType="#//DataSourceGrouping" containment="true" eOpposite="#//DataSourceGrouping/DataSource"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSourceFilter" eSuperTypes="../../net.bhl.cdt.model/model/model.ecore#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="DataSource" eType="#//DataSource"
@@ -95,7 +98,8 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSourceGrouping" eSuperTypes="../../net.bhl.cdt.model/model/model.ecore#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="DataSource" eType="#//DataSource"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DataSource" eType="#//DataSource"
+        eOpposite="#//DataSource/Groupings"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="GroupingField" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EAttribute"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BubbleChart" eSuperTypes="#//Chart2D">

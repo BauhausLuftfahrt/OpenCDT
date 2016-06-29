@@ -6,12 +6,14 @@ import net.bhl.cdt.model.impl.NamedElementImpl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import reporting.DataSource;
 import reporting.DataSourceGrouping;
 import reporting.ReportingPackage;
@@ -31,16 +33,6 @@ import reporting.ReportingPackage;
  * @generated
  */
 public class DataSourceGroupingImpl extends NamedElementImpl implements DataSourceGrouping {
-	/**
-	 * The cached value of the '{@link #getDataSource() <em>Data Source</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDataSource()
-	 * @generated
-	 * @ordered
-	 */
-	protected DataSource dataSource;
-
 	/**
 	 * The cached value of the '{@link #getGroupingField() <em>Grouping Field</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -76,15 +68,8 @@ public class DataSourceGroupingImpl extends NamedElementImpl implements DataSour
 	 * @generated
 	 */
 	public DataSource getDataSource() {
-		if (dataSource != null && dataSource.eIsProxy()) {
-			InternalEObject oldDataSource = (InternalEObject)dataSource;
-			dataSource = (DataSource)eResolveProxy(oldDataSource);
-			if (dataSource != oldDataSource) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ReportingPackage.DATA_SOURCE_GROUPING__DATA_SOURCE, oldDataSource, dataSource));
-			}
-		}
-		return dataSource;
+		if (eContainerFeatureID() != ReportingPackage.DATA_SOURCE_GROUPING__DATA_SOURCE) return null;
+		return (DataSource)eInternalContainer();
 	}
 
 	/**
@@ -92,8 +77,9 @@ public class DataSourceGroupingImpl extends NamedElementImpl implements DataSour
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataSource basicGetDataSource() {
-		return dataSource;
+	public NotificationChain basicSetDataSource(DataSource newDataSource, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newDataSource, ReportingPackage.DATA_SOURCE_GROUPING__DATA_SOURCE, msgs);
+		return msgs;
 	}
 
 	/**
@@ -102,10 +88,19 @@ public class DataSourceGroupingImpl extends NamedElementImpl implements DataSour
 	 * @generated
 	 */
 	public void setDataSource(DataSource newDataSource) {
-		DataSource oldDataSource = dataSource;
-		dataSource = newDataSource;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ReportingPackage.DATA_SOURCE_GROUPING__DATA_SOURCE, oldDataSource, dataSource));
+		if (newDataSource != eInternalContainer() || (eContainerFeatureID() != ReportingPackage.DATA_SOURCE_GROUPING__DATA_SOURCE && newDataSource != null)) {
+			if (EcoreUtil.isAncestor(this, newDataSource))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newDataSource != null)
+				msgs = ((InternalEObject)newDataSource).eInverseAdd(this, ReportingPackage.DATA_SOURCE__GROUPINGS, DataSource.class, msgs);
+			msgs = basicSetDataSource(newDataSource, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ReportingPackage.DATA_SOURCE_GROUPING__DATA_SOURCE, newDataSource, newDataSource));
 	}
 
 	/**
@@ -152,11 +147,54 @@ public class DataSourceGroupingImpl extends NamedElementImpl implements DataSour
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ReportingPackage.DATA_SOURCE_GROUPING__DATA_SOURCE:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetDataSource((DataSource)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case ReportingPackage.DATA_SOURCE_GROUPING__DATA_SOURCE:
+				return basicSetDataSource(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case ReportingPackage.DATA_SOURCE_GROUPING__DATA_SOURCE:
+				return eInternalContainer().eInverseRemove(this, ReportingPackage.DATA_SOURCE__GROUPINGS, DataSource.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case ReportingPackage.DATA_SOURCE_GROUPING__DATA_SOURCE:
-				if (resolve) return getDataSource();
-				return basicGetDataSource();
+				return getDataSource();
 			case ReportingPackage.DATA_SOURCE_GROUPING__GROUPING_FIELD:
 				if (resolve) return getGroupingField();
 				return basicGetGroupingField();
@@ -209,7 +247,7 @@ public class DataSourceGroupingImpl extends NamedElementImpl implements DataSour
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ReportingPackage.DATA_SOURCE_GROUPING__DATA_SOURCE:
-				return dataSource != null;
+				return getDataSource() != null;
 			case ReportingPackage.DATA_SOURCE_GROUPING__GROUPING_FIELD:
 				return groupingField != null;
 		}

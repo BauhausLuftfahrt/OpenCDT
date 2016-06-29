@@ -12,10 +12,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-
 import reporting.DataSourceGrouping;
 import reporting.ReportingPackage;
 
@@ -47,32 +45,9 @@ public class DataSourceGroupingItemProvider extends NamedElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addDataSourcePropertyDescriptor(object);
 			addGroupingFieldPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Data Source feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDataSourcePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_DataSourceGrouping_DataSource_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_DataSourceGrouping_DataSource_feature", "_UI_DataSourceGrouping_type"),
-				 ReportingPackage.Literals.DATA_SOURCE_GROUPING__DATA_SOURCE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
