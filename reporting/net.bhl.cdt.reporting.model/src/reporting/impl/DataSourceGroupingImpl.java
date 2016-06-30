@@ -28,6 +28,7 @@ import reporting.ReportingPackage;
  * <ul>
  *   <li>{@link reporting.impl.DataSourceGroupingImpl#getDataSource <em>Data Source</em>}</li>
  *   <li>{@link reporting.impl.DataSourceGroupingImpl#getGroupingField <em>Grouping Field</em>}</li>
+ *   <li>{@link reporting.impl.DataSourceGroupingImpl#getSubSource <em>Sub Source</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,6 +43,16 @@ public class DataSourceGroupingImpl extends NamedElementImpl implements DataSour
 	 * @ordered
 	 */
 	protected EAttribute groupingField;
+
+	/**
+	 * The cached value of the '{@link #getSubSource() <em>Sub Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubSource()
+	 * @generated
+	 * @ordered
+	 */
+	protected DataSource subSource;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -146,6 +157,49 @@ public class DataSourceGroupingImpl extends NamedElementImpl implements DataSour
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public DataSource getSubSource() {
+		return subSource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSubSource(DataSource newSubSource, NotificationChain msgs) {
+		DataSource oldSubSource = subSource;
+		subSource = newSubSource;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ReportingPackage.DATA_SOURCE_GROUPING__SUB_SOURCE, oldSubSource, newSubSource);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSubSource(DataSource newSubSource) {
+		if (newSubSource != subSource) {
+			NotificationChain msgs = null;
+			if (subSource != null)
+				msgs = ((InternalEObject)subSource).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ReportingPackage.DATA_SOURCE_GROUPING__SUB_SOURCE, null, msgs);
+			if (newSubSource != null)
+				msgs = ((InternalEObject)newSubSource).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ReportingPackage.DATA_SOURCE_GROUPING__SUB_SOURCE, null, msgs);
+			msgs = basicSetSubSource(newSubSource, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ReportingPackage.DATA_SOURCE_GROUPING__SUB_SOURCE, newSubSource, newSubSource));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -167,6 +221,8 @@ public class DataSourceGroupingImpl extends NamedElementImpl implements DataSour
 		switch (featureID) {
 			case ReportingPackage.DATA_SOURCE_GROUPING__DATA_SOURCE:
 				return basicSetDataSource(null, msgs);
+			case ReportingPackage.DATA_SOURCE_GROUPING__SUB_SOURCE:
+				return basicSetSubSource(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -198,6 +254,8 @@ public class DataSourceGroupingImpl extends NamedElementImpl implements DataSour
 			case ReportingPackage.DATA_SOURCE_GROUPING__GROUPING_FIELD:
 				if (resolve) return getGroupingField();
 				return basicGetGroupingField();
+			case ReportingPackage.DATA_SOURCE_GROUPING__SUB_SOURCE:
+				return getSubSource();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -215,6 +273,9 @@ public class DataSourceGroupingImpl extends NamedElementImpl implements DataSour
 				return;
 			case ReportingPackage.DATA_SOURCE_GROUPING__GROUPING_FIELD:
 				setGroupingField((EAttribute)newValue);
+				return;
+			case ReportingPackage.DATA_SOURCE_GROUPING__SUB_SOURCE:
+				setSubSource((DataSource)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -234,6 +295,9 @@ public class DataSourceGroupingImpl extends NamedElementImpl implements DataSour
 			case ReportingPackage.DATA_SOURCE_GROUPING__GROUPING_FIELD:
 				setGroupingField((EAttribute)null);
 				return;
+			case ReportingPackage.DATA_SOURCE_GROUPING__SUB_SOURCE:
+				setSubSource((DataSource)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -250,6 +314,8 @@ public class DataSourceGroupingImpl extends NamedElementImpl implements DataSour
 				return getDataSource() != null;
 			case ReportingPackage.DATA_SOURCE_GROUPING__GROUPING_FIELD:
 				return groupingField != null;
+			case ReportingPackage.DATA_SOURCE_GROUPING__SUB_SOURCE:
+				return subSource != null;
 		}
 		return super.eIsSet(featureID);
 	}

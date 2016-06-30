@@ -1382,13 +1382,22 @@ public interface ReportingPackage extends EPackage {
 	int DATA_SOURCE_GROUPING__GROUPING_FIELD = ModelPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Sub Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_SOURCE_GROUPING__SUB_SOURCE = ModelPackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Data Source Grouping</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_SOURCE_GROUPING_FEATURE_COUNT = ModelPackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int DATA_SOURCE_GROUPING_FEATURE_COUNT = ModelPackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Data Source Grouping</em>' class.
@@ -2161,6 +2170,17 @@ public interface ReportingPackage extends EPackage {
 	EReference getDataSourceGrouping_GroupingField();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link reporting.DataSourceGrouping#getSubSource <em>Sub Source</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Sub Source</em>'.
+	 * @see reporting.DataSourceGrouping#getSubSource()
+	 * @see #getDataSourceGrouping()
+	 * @generated
+	 */
+	EReference getDataSourceGrouping_SubSource();
+
+	/**
 	 * Returns the meta object for class '{@link reporting.BubbleChart <em>Bubble Chart</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2741,6 +2761,14 @@ public interface ReportingPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DATA_SOURCE_GROUPING__GROUPING_FIELD = eINSTANCE.getDataSourceGrouping_GroupingField();
+
+		/**
+		 * The meta object literal for the '<em><b>Sub Source</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_SOURCE_GROUPING__SUB_SOURCE = eINSTANCE.getDataSourceGrouping_SubSource();
 
 		/**
 		 * The meta object literal for the '{@link reporting.impl.BubbleChartImpl <em>Bubble Chart</em>}' class.

@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EAttribute;
  * <ul>
  *   <li>{@link reporting.DataSourceGrouping#getDataSource <em>Data Source</em>}</li>
  *   <li>{@link reporting.DataSourceGrouping#getGroupingField <em>Grouping Field</em>}</li>
+ *   <li>{@link reporting.DataSourceGrouping#getSubSource <em>Sub Source</em>}</li>
  * </ul>
  *
  * @see reporting.ReportingPackage#getDataSourceGrouping()
@@ -77,5 +78,31 @@ public interface DataSourceGrouping extends NamedElement {
 	 * @generated
 	 */
 	void setGroupingField(EAttribute value);
+
+	/**
+	 * Returns the value of the '<em><b>Sub Source</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Sub Source</em>' containment reference isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Sub Source</em>' containment reference.
+	 * @see #setSubSource(DataSource)
+	 * @see reporting.ReportingPackage#getDataSourceGrouping_SubSource()
+	 * @model containment="true"
+	 * @generated
+	 */
+	DataSource getSubSource();
+
+	/**
+	 * Sets the value of the '{@link reporting.DataSourceGrouping#getSubSource <em>Sub Source</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Sub Source</em>' containment reference.
+	 * @see #getSubSource()
+	 * @generated
+	 */
+	void setSubSource(DataSource value);
 
 } // DataSourceGrouping

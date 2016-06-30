@@ -782,6 +782,15 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getDataSourceGrouping_SubSource() {
+		return (EReference)dataSourceGroupingEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getBubbleChart() {
 		return bubbleChartEClass;
 	}
@@ -918,6 +927,7 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 		dataSourceGroupingEClass = createEClass(DATA_SOURCE_GROUPING);
 		createEReference(dataSourceGroupingEClass, DATA_SOURCE_GROUPING__DATA_SOURCE);
 		createEReference(dataSourceGroupingEClass, DATA_SOURCE_GROUPING__GROUPING_FIELD);
+		createEReference(dataSourceGroupingEClass, DATA_SOURCE_GROUPING__SUB_SOURCE);
 
 		bubbleChartEClass = createEClass(BUBBLE_CHART);
 		createEReference(bubbleChartEClass, BUBBLE_CHART__XCOORDINATE_FIELD);
@@ -1054,6 +1064,7 @@ public class ReportingPackageImpl extends EPackageImpl implements ReportingPacka
 		initEClass(dataSourceGroupingEClass, DataSourceGrouping.class, "DataSourceGrouping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDataSourceGrouping_DataSource(), this.getDataSource(), this.getDataSource_Groupings(), "DataSource", null, 0, 1, DataSourceGrouping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataSourceGrouping_GroupingField(), ecorePackage.getEAttribute(), null, "GroupingField", null, 0, 1, DataSourceGrouping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataSourceGrouping_SubSource(), this.getDataSource(), null, "SubSource", null, 0, 1, DataSourceGrouping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(bubbleChartEClass, BubbleChart.class, "BubbleChart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBubbleChart_XCoordinateField(), this.getDataField(), null, "XCoordinateField", null, 0, 1, BubbleChart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
