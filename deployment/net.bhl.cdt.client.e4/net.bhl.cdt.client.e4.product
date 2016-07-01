@@ -38,9 +38,11 @@
       <plugin id="javax.xml"/>
       <plugin id="lpg.runtime.java"/>
       <plugin id="net.bhl.cdt.client.e4"/>
+      <plugin id="net.bhl.cdt.core"/>
       <plugin id="net.bhl.cdt.log"/>
       <plugin id="net.bhl.cdt.model"/>
       <plugin id="net.bhl.cdt.model.edit"/>
+      <plugin id="net.bhl.cdt.ontology"/>
       <plugin id="net.bhl.cdt.reporting"/>
       <plugin id="net.bhl.cdt.reporting.model"/>
       <plugin id="net.bhl.cdt.reporting.model.edit"/>

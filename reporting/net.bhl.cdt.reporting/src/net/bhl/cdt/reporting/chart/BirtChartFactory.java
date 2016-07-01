@@ -46,6 +46,7 @@ public class BirtChartFactory {
 		// Legend
 		Legend lg = cwaBubble.getLegend();
 		lg.setItemType(LegendItemType.SERIES_LITERAL);
+		cwaBubble.getLegend().setVisible(false);
 
 		// X-Axis
 		Axis xAxisPrimary = cwaBubble.getPrimaryBaseAxes()[0];
@@ -59,8 +60,8 @@ public class BirtChartFactory {
 		yAxisPrimary.setType(AxisType.LINEAR_LITERAL);
 		yAxisPrimary.getLabel().getCaption().getFont().setRotation(90);
 		copyCaptionStyle(yAxisPrimary.getLabel().getCaption().getFont(), chartModel.getYAxis());
-
-				return cwaBubble;
+		
+		return cwaBubble;
 	}
 
 	public static ChartWithAxes createGanttChart(reporting.GanttChart chartModel) {

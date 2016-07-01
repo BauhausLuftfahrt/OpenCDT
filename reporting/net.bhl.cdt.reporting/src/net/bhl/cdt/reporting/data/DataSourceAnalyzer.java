@@ -132,32 +132,6 @@ public class DataSourceAnalyzer {
 			
 			bubbleDataSets.add(BubbleDataSetImpl.create(bubbleArray));
 		}
-		
-//		// Data Set
-//		NumberDataSet categoryValues = NumberDataSetImpl.create(new double[] { 20, 45, 70, 100, 120, 130 });
-//		BubbleDataSet values1 = BubbleDataSetImpl
-//				.create(new BubbleEntry[] { null, new BubbleEntry(Integer.valueOf(15), Integer.valueOf(100)),
-//						new BubbleEntry(Integer.valueOf(18), Integer.valueOf(80)), null,
-//						new BubbleEntry(Integer.valueOf(23), Integer.valueOf(100)), null });
-//		BubbleDataSet values2 = BubbleDataSetImpl
-//				.create(new BubbleEntry[] { new BubbleEntry(Integer.valueOf(50), Integer.valueOf(60)), null, null,
-//						new BubbleEntry(Integer.valueOf(43), Integer.valueOf(80)),
-//						new BubbleEntry(Integer.valueOf(12), Integer.valueOf(100)), null });
-//		BubbleDataSet values3 = BubbleDataSetImpl
-//				.create(new BubbleEntry[] { null, null, new BubbleEntry(Integer.valueOf(43), Integer.valueOf(75)),
-//						new BubbleEntry(Integer.valueOf(31), Integer.valueOf(93)), null,
-//						new BubbleEntry(Integer.valueOf(25), Integer.valueOf(50)) });
-//		SampleData sd = DataFactory.eINSTANCE.createSampleData();
-//		BaseSampleData sdBase = DataFactory.eINSTANCE.createBaseSampleData();
-//		sdBase.setDataSetRepresentation("");//$NON-NLS-1$
-//		sd.getBaseSampleData().add(sdBase);
-//
-//		OrthogonalSampleData sdOrthogonal1 = DataFactory.eINSTANCE.createOrthogonalSampleData();
-//		sdOrthogonal1.setDataSetRepresentation("");//$NON-NLS-1$
-//		sdOrthogonal1.setSeriesDefinitionIndex(0);
-//		sd.getOrthogonalSampleData().add(sdOrthogonal1);
-//
-//		chart.setSampleData(sd);
 
 		// X-Series
 		Series seCategory = SeriesImpl.create();
@@ -170,14 +144,19 @@ public class DataSourceAnalyzer {
 
 		// Y-Series
 		SeriesDefinition sdY = SeriesDefinitionImpl.create();
-		sdY.getSeriesPalette().shift(-1);
+		sdY.getSeriesPalette().getEntries().clear();
+		//sdY.getSeriesPalette().shift(-1);
 		chart.getPrimaryOrthogonalAxis(chart.getPrimaryBaseAxes()[0]).getSeriesDefinitions().add(sdY);
 		
+		ArrayList<Fill> bhlColors = ColorPaletteFactory.createBHLPalette();
+		int colorIndex = 0;
 		for (BubbleDataSet ds : bubbleDataSets) {
 			BubbleSeries bs = (BubbleSeries) BubbleSeriesImpl.create();
 			bs.setDataSet(ds);
 			bs.getLabel().setVisible(false);
 			sdY.getSeries().add(bs);
+			sdY.getSeriesPalette().getEntries().add(bhlColors.get(colorIndex));
+			colorIndex = colorIndex + 1;
 		}
 	}
 
