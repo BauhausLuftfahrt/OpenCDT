@@ -12,12 +12,8 @@ import org.eclipse.birt.chart.model.attribute.Fill;
 import org.eclipse.birt.chart.model.attribute.SortOption;
 import org.eclipse.birt.chart.model.component.Series;
 import org.eclipse.birt.chart.model.component.impl.SeriesImpl;
-import org.eclipse.birt.chart.model.data.BaseSampleData;
 import org.eclipse.birt.chart.model.data.BubbleDataSet;
-import org.eclipse.birt.chart.model.data.DataFactory;
 import org.eclipse.birt.chart.model.data.GanttDataSet;
-import org.eclipse.birt.chart.model.data.OrthogonalSampleData;
-import org.eclipse.birt.chart.model.data.SampleData;
 import org.eclipse.birt.chart.model.data.SeriesDefinition;
 import org.eclipse.birt.chart.model.data.TextDataSet;
 import org.eclipse.birt.chart.model.data.impl.BubbleDataSetImpl;
@@ -53,107 +49,115 @@ public class DataSourceAnalyzer {
 
 	@SuppressWarnings("unchecked")
 	private static void createBubbleChart(BubbleChart chartModel, ChartWithAxes chart) {
-//		DataSource source = chartModel.getDataSource();
-//
-//		DataSourceDefinition sourceDefinition = source.getDefinition();
-//
-//		EObject obj = source.getSourceObject();
-//
-//		EObjectEList<EObject> dataList = (EObjectEList<EObject>) obj.eGet(sourceDefinition.getMember());
-//		
-//		DataSourceGrouping grouping = chartModel.getDataSource().getGroupings().get(0);
-//		DataSourceFilter filter = chartModel.getDataSource().getFilter().get(0);
-//		
-//		ArrayList<String> countries = new ArrayList<String>();
-//		ArrayList<String> levels = new ArrayList<String>();
-//		ArrayList<String> topic3 = new ArrayList<String>();
-//		
-//		for (EObject dataObj : dataList) {
-//			String level = (String)dataObj.eGet(chartModel.getYCoordinateField().getField());
-//			
-//			if (!levels.contains(level))
-//				levels.add(level);
-//			
-//			EObject organisation = (EObject)dataObj.eGet(grouping.getSubSource().getDefinition().getMember());
-//			String country = (String)organisation.eGet(chartModel.getXCoordinateField().getField());
-//			
-//			if (!countries.contains(country))
-//				countries.add(country);
-//			
-//			EObjectEList<EObject> filterObjectList = (EObjectEList<EObject>) dataObj.eGet(filter.getSubSource().getDefinition().getMember());
-//
-//			for (EObject fObj : filterObjectList) {
-//				if (!topic3.contains(fObj.eGet(filter.getFilterField())))
-//					topic3.add((String)fObj.eGet(filter.getFilterField()));
-//			}
-//		}
-//		
-//		int[][][] counts = new int[levels.size()][countries.size()][topic3.size()];
-//		
-//		for (int i = 0; i < levels.size(); i++)
-//			for (int j = 0; j < countries.size(); j++)
-//				for (int k = 0; k < topic3.size(); k++)
-//					counts[i][j][k] = 0;
-//		
-//		for (EObject dataObj : dataList) {
-//			String level = (String)dataObj.eGet(chartModel.getYCoordinateField().getField());
-//			int levelIndex = levels.indexOf(level);
-//			
-//			EObject organisation = (EObject)dataObj.eGet(grouping.getSubSource().getDefinition().getMember());
-//			String country = (String)organisation.eGet(chartModel.getXCoordinateField().getField());
-//			int countryIndex = countries.indexOf(country);
-//			
-//			EObjectEList<EObject> filterObjectList = (EObjectEList<EObject>) dataObj.eGet(filter.getSubSource().getDefinition().getMember());
-//
-//			for (EObject fObj : filterObjectList) {
-//				int topic3Index = topic3.indexOf(fObj.eGet(filter.getFilterField()));
-//				counts[levelIndex][countryIndex][topic3Index] = counts[levelIndex][countryIndex][topic3Index] + 1;
-//			}
-//		}
-//		
-//		String[] countryArray = new String[countries.size()];
-//		TextDataSet categoryValues = TextDataSetImpl.create(countries.toArray(countryArray));
-//		
-//		ArrayList<BubbleDataSet> bubbleDataSets = new ArrayList<BubbleDataSet>();
-//		for (int k = 0; k < topic3.size(); k++) {
-//			ArrayList<BubbleEntry> bubbles = new ArrayList<BubbleEntry>();
-//			for (int i = 0; i < levels.size(); i++) {
-//				for (int j = 0; j < countries.size(); j++) {
-//					bubbles.add(new BubbleEntry(levels.get(i), counts[i][j][k]));
-//				}
-//			}
-//			
-//			BubbleEntry[] bubbleArray = new BubbleEntry[bubbles.size()];
-//			bubbleArray = bubbles.toArray(bubbleArray);
-//			
-//			bubbleDataSets.add(BubbleDataSetImpl.create(bubbleArray));
-//		}
+		DataSource source = chartModel.getDataSource();
+
+		DataSourceDefinition sourceDefinition = source.getDefinition();
+
+		EObject obj = source.getSourceObject();
+
+		EObjectEList<EObject> dataList = (EObjectEList<EObject>) obj.eGet(sourceDefinition.getMember());
 		
-		// Data Set
-		NumberDataSet categoryValues = NumberDataSetImpl.create(new double[] { 20, 45, 70, 100, 120, 130 });
-		BubbleDataSet values1 = BubbleDataSetImpl
-				.create(new BubbleEntry[] { null, new BubbleEntry(Integer.valueOf(15), Integer.valueOf(100)),
-						new BubbleEntry(Integer.valueOf(18), Integer.valueOf(80)), null,
-						new BubbleEntry(Integer.valueOf(23), Integer.valueOf(100)), null });
-		BubbleDataSet values2 = BubbleDataSetImpl
-				.create(new BubbleEntry[] { new BubbleEntry(Integer.valueOf(50), Integer.valueOf(60)), null, null,
-						new BubbleEntry(Integer.valueOf(43), Integer.valueOf(80)),
-						new BubbleEntry(Integer.valueOf(12), Integer.valueOf(100)), null });
-		BubbleDataSet values3 = BubbleDataSetImpl
-				.create(new BubbleEntry[] { null, null, new BubbleEntry(Integer.valueOf(43), Integer.valueOf(75)),
-						new BubbleEntry(Integer.valueOf(31), Integer.valueOf(93)), null,
-						new BubbleEntry(Integer.valueOf(25), Integer.valueOf(50)) });
-		SampleData sd = DataFactory.eINSTANCE.createSampleData();
-		BaseSampleData sdBase = DataFactory.eINSTANCE.createBaseSampleData();
-		sdBase.setDataSetRepresentation("");//$NON-NLS-1$
-		sd.getBaseSampleData().add(sdBase);
+		DataSourceGrouping grouping = chartModel.getDataSource().getGroupings().get(0);
+		
+		ArrayList<String> countries = new ArrayList<String>();
+		ArrayList<Integer> levels = new ArrayList<Integer>();
+		ArrayList<EObject> projects = new ArrayList<EObject>();
+		for (EObject dataObj : dataList) {
+			boolean filtersPassed = true;
+			for (DataSourceFilter filter : source.getFilter()) {
+				boolean filterPassed = false;
+				EObjectEList<EObject> filterObjectList = (EObjectEList<EObject>) dataObj
+						.eGet(filter.getSubSource().getDefinition().getMember());
 
-		OrthogonalSampleData sdOrthogonal1 = DataFactory.eINSTANCE.createOrthogonalSampleData();
-		sdOrthogonal1.setDataSetRepresentation("");//$NON-NLS-1$
-		sdOrthogonal1.setSeriesDefinitionIndex(0);
-		sd.getOrthogonalSampleData().add(sdOrthogonal1);
+				for (EObject fObj : filterObjectList) {
+					if (fObj.eGet(filter.getFilterField()).equals(filter.getFilterValue())) {
+						filterPassed = true;
+						break;
+					}
+				}
 
-		chart.setSampleData(sd);
+				if (!filterPassed) {
+					filtersPassed = false;
+					break;
+				}
+			}
+
+			if (filtersPassed) {
+				String level = (String) dataObj.eGet(chartModel.getYCoordinateField().getField());
+				try {
+					int levInt = Integer.parseInt(level);
+
+					if (!levels.contains(levInt))
+						levels.add(levInt);
+
+					EObject organisation = (EObject) dataObj.eGet(grouping.getSubSource().getDefinition().getMember());
+					String country = (String) organisation.eGet(chartModel.getXCoordinateField().getField());
+					if (!countries.contains(country))
+						countries.add(country);
+
+					projects.add(dataObj);
+				} catch (NumberFormatException ex) {
+				}
+			}
+		}
+		
+		int[][] count = new int[countries.size()][levels.size()];
+		for(int i = 0; i < countries.size(); i++)
+			for(int j = 0; j < levels.size(); j++)
+				count[i][j] = 0;
+		
+		for (EObject dataObj : projects) {
+			EObject organisation = (EObject)dataObj.eGet(grouping.getSubSource().getDefinition().getMember());
+			String country = (String)organisation.eGet(chartModel.getXCoordinateField().getField());
+			String level = (String)dataObj.eGet(chartModel.getYCoordinateField().getField());
+			
+			int countryIndex = countries.indexOf(country);
+			int levelIndex = levels.indexOf(Integer.parseInt(level));
+			
+			count[countryIndex][levelIndex] = count[countryIndex][levelIndex] + 1;
+		}
+		
+		String[] countryArray = new String[countries.size()];
+		TextDataSet categoryValues = TextDataSetImpl.create(countries.toArray(countryArray));
+		
+		ArrayList<BubbleDataSet> bubbleDataSets = new ArrayList<BubbleDataSet>();
+		for (int j = 0; j < levels.size(); j++) {
+			ArrayList<BubbleEntry> bubbles = new ArrayList<BubbleEntry>();
+			for (int i = 0; i < countries.size(); i++) {
+					bubbles.add(new BubbleEntry(levels.get(j), count[i][j]));
+			}
+			
+			BubbleEntry[] bubbleArray = new BubbleEntry[bubbles.size()];
+			bubbleArray = bubbles.toArray(bubbleArray);
+			
+			bubbleDataSets.add(BubbleDataSetImpl.create(bubbleArray));
+		}
+		
+//		// Data Set
+//		NumberDataSet categoryValues = NumberDataSetImpl.create(new double[] { 20, 45, 70, 100, 120, 130 });
+//		BubbleDataSet values1 = BubbleDataSetImpl
+//				.create(new BubbleEntry[] { null, new BubbleEntry(Integer.valueOf(15), Integer.valueOf(100)),
+//						new BubbleEntry(Integer.valueOf(18), Integer.valueOf(80)), null,
+//						new BubbleEntry(Integer.valueOf(23), Integer.valueOf(100)), null });
+//		BubbleDataSet values2 = BubbleDataSetImpl
+//				.create(new BubbleEntry[] { new BubbleEntry(Integer.valueOf(50), Integer.valueOf(60)), null, null,
+//						new BubbleEntry(Integer.valueOf(43), Integer.valueOf(80)),
+//						new BubbleEntry(Integer.valueOf(12), Integer.valueOf(100)), null });
+//		BubbleDataSet values3 = BubbleDataSetImpl
+//				.create(new BubbleEntry[] { null, null, new BubbleEntry(Integer.valueOf(43), Integer.valueOf(75)),
+//						new BubbleEntry(Integer.valueOf(31), Integer.valueOf(93)), null,
+//						new BubbleEntry(Integer.valueOf(25), Integer.valueOf(50)) });
+//		SampleData sd = DataFactory.eINSTANCE.createSampleData();
+//		BaseSampleData sdBase = DataFactory.eINSTANCE.createBaseSampleData();
+//		sdBase.setDataSetRepresentation("");//$NON-NLS-1$
+//		sd.getBaseSampleData().add(sdBase);
+//
+//		OrthogonalSampleData sdOrthogonal1 = DataFactory.eINSTANCE.createOrthogonalSampleData();
+//		sdOrthogonal1.setDataSetRepresentation("");//$NON-NLS-1$
+//		sdOrthogonal1.setSeriesDefinitionIndex(0);
+//		sd.getOrthogonalSampleData().add(sdOrthogonal1);
+//
+//		chart.setSampleData(sd);
 
 		// X-Series
 		Series seCategory = SeriesImpl.create();
@@ -169,12 +173,12 @@ public class DataSourceAnalyzer {
 		sdY.getSeriesPalette().shift(-1);
 		chart.getPrimaryOrthogonalAxis(chart.getPrimaryBaseAxes()[0]).getSeriesDefinitions().add(sdY);
 		
-//		for (BubbleDataSet ds : bubbleDataSets) {
-//			BubbleSeries bs = (BubbleSeries) BubbleSeriesImpl.create();
-//			bs.setDataSet(ds);
-//			bs.getLabel().setVisible(false);
-//			sdY.getSeries().add(bs);
-//		}
+		for (BubbleDataSet ds : bubbleDataSets) {
+			BubbleSeries bs = (BubbleSeries) BubbleSeriesImpl.create();
+			bs.setDataSet(ds);
+			bs.getLabel().setVisible(false);
+			sdY.getSeries().add(bs);
+		}
 	}
 
 	@SuppressWarnings("unchecked")

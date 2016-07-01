@@ -13,7 +13,6 @@ import org.eclipse.birt.chart.model.attribute.impl.ColorDefinitionImpl;
 import org.eclipse.birt.chart.model.attribute.impl.JavaDateFormatSpecifierImpl;
 import org.eclipse.birt.chart.model.component.Axis;
 import org.eclipse.birt.chart.model.data.impl.DateTimeDataElementImpl;
-import org.eclipse.birt.chart.model.data.impl.NumberDataElementImpl;
 import org.eclipse.birt.chart.model.impl.ChartWithAxesImpl;
 import org.eclipse.birt.chart.model.layout.Legend;
 import org.eclipse.birt.chart.model.layout.Plot;
@@ -50,11 +49,8 @@ public class BirtChartFactory {
 
 		// X-Axis
 		Axis xAxisPrimary = cwaBubble.getPrimaryBaseAxes()[0];
-		xAxisPrimary.setType(AxisType.LINEAR_LITERAL);
-		xAxisPrimary.getMajorGrid().setTickStyle(TickStyle.BELOW_LITERAL);
+		xAxisPrimary.setType(AxisType.TEXT_LITERAL);
 		xAxisPrimary.getOrigin().setType(IntersectionType.MIN_LITERAL);
-		xAxisPrimary.getScale().setMin(NumberDataElementImpl.create(0));
-		xAxisPrimary.getScale().setMax(NumberDataElementImpl.create(140));
 		copyCaptionStyle(xAxisPrimary.getLabel().getCaption().getFont(), chartModel.getXAxis());
 
 		// Y-Axis
