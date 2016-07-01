@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/descriptor/basic" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_BxaXACerEeWxCPrV0pAZQQ">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_EI7oACerEeWxCPrV0pAZQQ" featurename="descriptors" parentElementId="net.bhl.cdt.application">
+    <elements xsi:type="basic:PartDescriptor" xmi:id="_KMklcCerEeWxCPrV0pAZQQ" elementId="net.bhl.cdt.ontology.manager" label="Ontology Management" iconURI="platform:/plugin/net.bhl.cdt.ontology/icons/Sample.png" tooltip="" category="OpenCDT Ontology" contributionURI="bundleclass://net.bhl.cdt.ontology/net.bhl.cdt.ontology.parts.OntologyManagementView">
+      <tags>View</tags>
+      <tags>categoryTag:OpenCDT Ontology</tags>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_vxCFMD-FEeaWab4NhmwVJA" featurename="children" parentElementId="net.bhl.cdt.client.e4.menu.file">
+    <elements xsi:type="menu:DirectMenuItem" xmi:id="_0o82YD-FEeaWab4NhmwVJA" elementId="net.bhl.cdt.ontology.directmenuitem.showontology-manager" label="Show Ontology-Manager" contributionURI="bundleclass://net.bhl.cdt.ontology/net.bhl.cdt.ontology.handler.ShowOntologyManagerHandler"/>
+  </fragments>
+</fragment:ModelFragments>
