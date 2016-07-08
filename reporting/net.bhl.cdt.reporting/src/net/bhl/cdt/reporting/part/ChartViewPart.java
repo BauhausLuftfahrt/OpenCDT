@@ -110,7 +110,6 @@ public class ChartViewPart {
 					drawToCachedImage(rect);
 				}
 				e.gc.drawImage(cachedImage, 0, 0, cachedImage.getBounds().width, cachedImage.getBounds().height, 0, 0, rect.width, rect.height);
-
 			}
 		});
 
