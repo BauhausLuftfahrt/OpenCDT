@@ -14,6 +14,7 @@
     <elements xsi:type="commands:Command" xmi:id="_NhnDEDuWEeaRXYQoHBnMmw" elementId="net.bhl.cdt.reporting.command.showganttchartpart" commandName="showGanttChartPart"/>
     <elements xsi:type="commands:Command" xmi:id="_5wkPkDuXEeaRXYQoHBnMmw" elementId="net.bhl.cdt.reporting.command.createbarchart" commandName="createBarChart"/>
     <elements xsi:type="commands:Command" xmi:id="_ulUosD4UEeajIdZgblS3VQ" elementId="net.bhl.cdt.reporting.command.createbubblechart" commandName="createBubbleChart"/>
+    <elements xsi:type="commands:Command" xmi:id="_OIQGQEjREeaAF6xKje_NpQ" elementId="net.bhl.cdt.reporting.command.savechartas" commandName="saveChartAs"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_Z--1oDkYEeaYg4zqfjn7QA" featurename="handlers" parentElementId="net.bhl.cdt.application">
     <elements xsi:type="commands:Handler" xmi:id="_jV9zIDkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.handler.createChart" contributionURI="bundleclass://net.bhl.cdt.reporting/net.bhl.cdt.reporting.handler.ViewChartHandler" command="_dxT3wDkYEeaYg4zqfjn7QA"/>
@@ -22,11 +23,13 @@
     <elements xsi:type="commands:Handler" xmi:id="_L9-GEDuWEeaRXYQoHBnMmw" elementId="net.bhl.cdt.reporting.handler.showganttchartpart" contributionURI="bundleclass://net.bhl.cdt.reporting/net.bhl.cdt.reporting.handler.ShowGanttChartPartHandler" command="_NhnDEDuWEeaRXYQoHBnMmw"/>
     <elements xsi:type="commands:Handler" xmi:id="_7uTHkDuXEeaRXYQoHBnMmw" elementId="net.bhl.cdt.reporting.handler.createbarchart" contributionURI="bundleclass://net.bhl.cdt.reporting/net.bhl.cdt.reporting.handler.CreateBarChartHandler" command="_5wkPkDuXEeaRXYQoHBnMmw"/>
     <elements xsi:type="commands:Handler" xmi:id="_w5Mv0D4UEeajIdZgblS3VQ" elementId="net.bhl.cdt.reporting.handler.0" contributionURI="bundleclass://net.bhl.cdt.reporting/net.bhl.cdt.reporting.handler.CreateBubbleChartHandler" command="_ulUosD4UEeajIdZgblS3VQ"/>
+    <elements xsi:type="commands:Handler" xmi:id="_Qex4wEjREeaAF6xKje_NpQ" elementId="net.bhl.cdt.reporting.handler.1" contributionURI="bundleclass://net.bhl.cdt.reporting/net.bhl.cdt.reporting.handler.SaveChartAsHandler" command="_OIQGQEjREeaAF6xKje_NpQ"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_pk4McDkYEeaYg4zqfjn7QA" featurename="descriptors" parentElementId="net.bhl.cdt.application">
     <elements xsi:type="basic:PartDescriptor" xmi:id="_tYtDYDkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.partdescriptor.chartviewpart" label="Chart" allowMultiple="true" category="editorPart" closeable="true" contributionURI="bundleclass://net.bhl.cdt.reporting/net.bhl.cdt.reporting.part.ChartViewPart">
       <toolbar xmi:id="_yNJCwDkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.toolbar.0">
         <children xsi:type="menu:HandledToolItem" xmi:id="_zbRCwDkYEeaYg4zqfjn7QA" elementId="net.bhl.cdt.reporting.handledtoolitem.refresh" label="Refresh" command="_2dYv8DkYEeaYg4zqfjn7QA"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_LJcy0EjREeaAF6xKje_NpQ" elementId="net.bhl.cdt.reporting.handledtoolitem.saveas" label="Save as..." command="_OIQGQEjREeaAF6xKje_NpQ"/>
       </toolbar>
     </elements>
   </fragments>

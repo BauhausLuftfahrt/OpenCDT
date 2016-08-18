@@ -17,7 +17,23 @@ public class UIHelper {
 	}
 
 	public static String showSelectFileDialog(Shell shell, String title, String[] filters) {
-		FileDialog fd = new FileDialog(shell, SWT.OPEN);
+		return showFileDialog(shell, title, filters, SWT.OPEN);
+	}
+	
+	public static String showSaveFileDialog(Shell shell) {
+		return showSaveFileDialog(shell, SHOWFILE_TITLE);
+	}
+
+	public static String showSaveFileDialog(Shell shell, String title) {
+		return showSaveFileDialog(shell, title, new String[] { SHOWFILE_FILTER_DEFAULT });
+	}
+	
+	public static String showSaveFileDialog(Shell shell, String title, String[] filters) {
+		return showFileDialog(shell, title, filters, SWT.SAVE);
+	}
+	
+	private static String showFileDialog(Shell shell, String title, String[] filters, int openSelect) {
+		FileDialog fd = new FileDialog(shell, openSelect);
 		fd.setText(title);
 		fd.setFilterExtensions(filters);
 		return fd.open();

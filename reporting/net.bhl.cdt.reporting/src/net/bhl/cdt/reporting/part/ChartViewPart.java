@@ -134,6 +134,10 @@ public class ChartViewPart {
 		canvas.redraw();
 	}
 	
+	public Image getImage() {
+		return cachedImage;
+	}
+	
 	@PersistState
 	public void persistState(MPart part){
 		part.getPersistedState().put(CHARTMODEL_KEY, EcoreUtil.getID(chartModel));
