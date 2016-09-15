@@ -11,12 +11,19 @@
 package net.bhl.cdt.client.e4;
 
 import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.e4.core.services.events.IEventBroker;
+import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.workbench.UIEvents;
 import org.eclipse.e4.ui.workbench.lifecycle.PostContextCreate;
 import org.eclipse.e4.ui.workbench.lifecycle.PreSave;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessAdditions;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessRemovals;
+import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.osgi.framework.ServiceReference;
+import org.osgi.service.event.Event;
+import org.osgi.service.event.EventHandler;
 
+import net.bhl.cdt.client.ui.CDTUIManager;
 import net.bhl.cdt.log.service.CDTLogService;
 
 /**
@@ -30,7 +37,7 @@ import net.bhl.cdt.log.service.CDTLogService;
 public class E4LifeCycle {
 
 	@PostContextCreate
-	void postContextCreate(IEclipseContext workbenchContext) {
+	void postContextCreate(IEclipseContext workbenchContext, final IEventBroker eventBroker) {
 		@SuppressWarnings("rawtypes")
 		ServiceReference ref = Activator.getContext().getServiceReference(CDTLogService.class.getName());
 		if (ref != null) {
@@ -38,6 +45,14 @@ public class E4LifeCycle {
 			CDTLogService logService = (CDTLogService)Activator.getContext().getService(ref);
 			workbenchContext.set(CDTLogService.class, logService);
 		}
+
+		// register for startup completed event and close the shell
+		eventBroker.subscribe(UIEvents.UILifeCycle.APP_STARTUP_COMPLETE, new EventHandler() {
+			@Override
+			public void handleEvent(Event event) {
+				workbenchContext.set(CDTUIManager.class, new CDTUIManager((MApplication)workbenchContext.get(MApplication.class.getName()), (EModelService)workbenchContext.get(EModelService.class.getName())));
+			}
+		});
 	}
 
 	@PreSave

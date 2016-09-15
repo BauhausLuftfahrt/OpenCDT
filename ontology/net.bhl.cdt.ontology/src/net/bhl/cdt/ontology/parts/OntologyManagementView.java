@@ -14,7 +14,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 
-import net.bhl.cdt.core.ui.e4.UIHelper;
+import net.bhl.cdt.core.ui.UIHelper;
 import net.bhl.cdt.log.service.CDTLogService;
 import net.bhl.cdt.ontology.management.OntologyManager;
 

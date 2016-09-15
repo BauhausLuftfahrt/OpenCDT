@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="OpenCDT Target Platform" sequenceNumber="259">
+<?pde version="3.8"?><target name="OpenCDT Target Platform" sequenceNumber="261">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.apache.log4j.source" version="0.0.0"/>
@@ -88,11 +88,6 @@
 <repository location="http://download.eclipse.org/ecp/releases/releases_target_18/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.equinox.sdk.feature.group" version="0.0.0"/>
-<unit id="org.eclipse.platform.ide" version="0.0.0"/>
-<repository location="http://download.eclipse.org/eclipse/updates/4.5/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.mockito.mockito-all" version="0.0.0"/>
 <repository location="http://build.eclipse.org/rt/rap/base-platforms/2.3/extra-dependencies/"/>
 </location>
@@ -128,6 +123,29 @@
 <unit id="org.eclipse.emf.emfstore.mongodb.server.feature.feature.group" version="1.8.0.v20160428-1515"/>
 <unit id="org.eclipse.emf.emfstore.mongodb.client.feature.feature.group" version="1.8.0.v20160428-1515"/>
 <repository location="http://download.eclipse.org/emfstore/releases_18"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.cvs.feature.group" version="1.4.300.v20160606-1100"/>
+<unit id="org.eclipse.equinox.sdk.feature.group" version="3.12.0.v20160606-1311"/>
+<unit id="org.eclipse.jdt.feature.group" version="3.12.0.v20160606-1100"/>
+<unit id="org.eclipse.sdk.examples.source.feature.group" version="3.5.600.v20160606-1100"/>
+<unit id="org.eclipse.swt.tools.feature.feature.group" version="3.105.0.v20160402-1532"/>
+<unit id="org.eclipse.pde.source.feature.group" version="3.12.0.v20160606-1100"/>
+<unit id="org.eclipse.pde.api.tools.ee.feature.feature.group" version="1.0.1.v20160419-1303"/>
+<unit id="org.eclipse.osgi.compatibility.plugins.feature.feature.group" version="1.0.0.v20150202-1328"/>
+<unit id="org.eclipse.test.feature.group" version="3.7.100.v20160503-1715"/>
+<unit id="org.eclipse.rcp.source.feature.group" version="4.6.0.v20160606-1342"/>
+<unit id="org.eclipse.cvs.source.feature.group" version="1.4.300.v20160606-1100"/>
+<unit id="org.eclipse.platform.sdk" version="4.6.0.I20160606-1100"/>
+<unit id="org.eclipse.sdk.ide" version="4.6.0.I20160606-1100"/>
+<unit id="org.eclipse.releng.tools.feature.group" version="3.9.0.v20160424-1559"/>
+<unit id="org.eclipse.platform.ide" version="4.6.0.I20160606-1100"/>
+<unit id="org.eclipse.sdk.tests.feature.group" version="4.6.0.v20160606-1100"/>
+<unit id="org.eclipse.pde.feature.group" version="3.12.0.v20160606-1100"/>
+<unit id="org.eclipse.jdt.source.feature.group" version="3.12.0.v20160606-1100"/>
+<unit id="org.eclipse.e4.core.tools.feature.source.feature.group" version="4.5.100.v20160503-0947"/>
+<unit id="org.eclipse.rcp.feature.group" version="4.6.0.v20160606-1342"/>
+<repository location="http://download.eclipse.org/eclipse/updates/4.6"/>
 </location>
 </locations>
 </target>
