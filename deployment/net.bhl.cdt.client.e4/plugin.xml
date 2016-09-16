@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin>
+   <extension-point id="uimanager" name="CDTUIManager" schema="schema/net.bhl.cdt.client.e4.uimanager.exsd"/>
 
    <extension
          id="product"

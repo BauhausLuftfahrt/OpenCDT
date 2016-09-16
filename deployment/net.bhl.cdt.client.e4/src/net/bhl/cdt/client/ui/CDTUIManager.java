@@ -5,7 +5,7 @@ import org.eclipse.e4.ui.model.application.ui.MUIElement;
 import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 
-public class CDTUIManager {
+public abstract class CDTUIManager implements ICDTUIManager {
 	public static String MAINWINDOW = "net.bhl.cdt.client.e4.mainwindow";
 	
 	public static String ID_CDTPERSPECTIVE = "net.bhl.cdt.client.e4.perspective.cdt";
@@ -14,7 +14,10 @@ public class CDTUIManager {
 	private MApplication app;
 	private EModelService service;
 	
-	public CDTUIManager(MApplication application, EModelService modelService) {
+	public CDTUIManager() {
+	}
+	
+	public void Initialize(MApplication application, EModelService modelService) {
 		app = application;
 		service = modelService;
 	}

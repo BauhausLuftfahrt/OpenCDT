@@ -6,14 +6,13 @@ import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.IServiceConstants;
-import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 
 import net.bhl.cdt.log.service.CDTLogService;
 
 public class ModelElementEditor {
-	private ScrolledComposite mainComposite;
+	//private ScrolledComposite mainComposite;
 	
 	@PostConstruct
 	public void createUI(Composite parent, Shell shell, CDTLogService log, MPart part, @Named(IServiceConstants.ACTIVE_SELECTION) @Optional Object selection) {
