@@ -1,9 +1,68 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="OpenCDT Target Platform" sequenceNumber="271">
+<?pde version="3.8"?><target name="OpenCDT Target Platform" sequenceNumber="278">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.edapt.runtime.feature.feature.group" version="0.0.0"/>
 <repository location="http://download.eclipse.org/edapt/releases/11x"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.ecp.emfforms.idetooling.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.rule.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.custom.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.makeithappen.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.group.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.sdk.e4.feature.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.diffmerge.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.emfstore.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.changebroker.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emfforms.view.annotation.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.ecore.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.viewmodel.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.template.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emfforms.rulerepository.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.treemasterdetail.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.compoundcontrol.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emfforms.swt.control.multiattribute.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.mappingdmr.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.stack.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.validation.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.viewproxy.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.demo.e4.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.edapt.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.vertical.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emfforms.swt.control.text.autocomplete.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.keyattributedmr.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.table.ui.swt.persistedstate.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.group.swt.collapsible.pgroup.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.table.ui.rcp.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.e4.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.table.celleditor.rcp.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.table.ui.nebula.grid.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.validation.bean.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.di.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emfforms.editor.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.emfforms.runtime.feature.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.table.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.e3.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.cdo.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.unset.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.section.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.categorization.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emfforms.editor.genmodel.util.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.demo.e3.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.horizontal.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.model.editor.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.label.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.workspace.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emfforms.swt.controlgrid.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.validation.view.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emfforms.swt.control.text.richtext.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.validation.initial.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.model.controls.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.view.indexdmr.feature.source.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.ecp.emfforms.sdk.feature.feature.group" version="1.10.0.20160912-1709"/>
+<repository location="http://download.eclipse.org/ecp/releases/releases_target_110/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.equinox.sdk.feature.group" version="3.12.0.v20160606-1311"/>
@@ -11,41 +70,15 @@
 <repository location="http://download.eclipse.org/eclipse/updates/4.6"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.emfstore.ecore.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.common.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.client.ui.historybrowsercomparator.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.example.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.sdk.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.fuzzy.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.client.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.server.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.modelmutator.feature.feature.group" version="2.0.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.license.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.migration.edapt.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.fuzzy.test.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.client.transaction.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.client.ui.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.client.ui.rap.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.mongodb.server.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<unit id="org.eclipse.emf.emfstore.mongodb.client.feature.feature.group" version="1.8.0.v20160428-1515"/>
-<repository location="http://download.eclipse.org/emfstore/releases_18"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.parsley.sdk.feature.group" version="1.0.1.v20160706-1123"/>
 <unit id="org.eclipse.emf.validation.sdk.feature.group" version="1.10.0.201606071713"/>
 <unit id="org.eclipse.emf.sdk.feature.group" version="2.12.0.v20160526-0356"/>
 <unit id="org.eclipse.net4j.sdk.feature.group" version="4.5.0.v20160607-1511"/>
 <unit id="org.eclipse.birt.feature.group" version="4.6.0.v201606072122"/>
-<unit id="org.eclipse.emf.emfstore.sdk.feature.feature.group" version="1.8.0.v20160606-1028"/>
+<unit id="org.eclipse.emf.cdo.sdk.feature.group" version="4.5.0.v20160607-1511"/>
 <unit id="org.eclipse.emf.parsley.sdk.source.feature.group" version="1.0.1.v20160706-1123"/>
-<unit id="org.eclipse.emf.ecp.emfforms.sdk.feature.feature.group" version="1.10.0.20160912-1709"/>
+<unit id="org.eclipse.emf.emfstore.sdk.feature.feature.group" version="1.8.0.v20160606-1028"/>
 <repository location="http://download.eclipse.org/releases/neon"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.ecp.demo.e4.feature.source.feature.group" version="1.9.0.20160606-1526"/>
-<unit id="org.eclipse.emf.ecp.e4.feature.source.feature.group" version="1.9.0.20160606-1526"/>
-<unit id="org.eclipse.emf.ecp.sdk.e4.feature.feature.group" version="1.9.0.20160606-1526"/>
-<repository location="http://download.eclipse.org/ecp/releases/releases_target_19/"/>
 </location>
 </locations>
 </target>
