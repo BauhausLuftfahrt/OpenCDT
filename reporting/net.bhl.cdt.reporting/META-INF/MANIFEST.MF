@@ -9,7 +9,6 @@ Export-Package: net.bhl.cdt.reporting.chart,
  net.bhl.cdt.reporting.chartmodel
 Require-Bundle: org.eclipse.swt,
  org.eclipse.birt.core;bundle-version="4.4.2",
- org.eclipse.birt.chart;bundle-version="4.4.2",
  org.eclipse.birt.chart.engine;bundle-version="4.4.2",
  org.eclipse.birt.chart.engine.extension;bundle-version="4.4.2",
  org.eclipse.e4.ui.model.workbench;bundle-version="1.1.100.v20150407-1430",
@@ -39,7 +38,7 @@ Service-Component: OSGI-INF/sourcePropertyRendererService.xml
 Bundle-ActivationPolicy: lazy
 Import-Package: com.ibm.icu.util;version="54.1.1",
  javax.inject;version="1.0.0",
- net.bhl.cdt.core.ui.e4,
+ net.bhl.cdt.core.ui,
  org.eclipse.core.databinding,
  org.eclipse.e4.core.contexts,
  org.eclipse.e4.ui.di,
