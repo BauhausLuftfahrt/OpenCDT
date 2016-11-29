@@ -62,7 +62,7 @@ public class CDTConsole implements LogListener {
 	private static String errorChecked = "false", infoChecked = "false", warningChecked = "false",
 			debugChecked = "false";
 	private Button errorCheckbox, warningCheckbox, infoCheckbox, debugCheckbox;
-	private int errFlag = 0;
+	private int errFlag = 0, warFlag = 0, infoFlag = 0, debugFlag = 0;
 
 	public CDTConsole() {
 		registerLogViewer();
@@ -282,9 +282,54 @@ public class CDTConsole implements LogListener {
 	// logTable.getTable().setFocus();
 	// }
 
+	public void getList() {
+		selectedLogList.clear();
+		propertiesExist(propertiesFile);
+		System.out.println("errorChecked Value : " + errorChecked);
+		if (errorChecked.equalsIgnoreCase("false") && warningChecked.equalsIgnoreCase("false")
+				&& infoChecked.equalsIgnoreCase("false") && debugChecked.equalsIgnoreCase("false")) {
+			// selectedLogList = logList;
+			for (int i = 0; i < logList.size(); i++) {
+				selectedLogList.add(logList.get(i));
+			}
+		} else {
+			for (int i = 0; i < logList.size(); i++) {
+				if (errorChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 1) {
+					// System.out.println("err Value : " + i);
+
+					selectedLogList.add(logList.get(i));
+
+				}
+				if (warningChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 2) {
+					// System.out.println("war Value : " + i);
+
+					selectedLogList.add(logList.get(i));
+
+				}
+				if (infoChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 3) {
+					// System.out.println("info Value : " + i);
+
+					selectedLogList.add(logList.get(i));
+
+				}
+				if (debugChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 4) {
+					// System.out.println("deb Value : " + i);
+
+					selectedLogList.add(logList.get(i));
+
+				}
+
+			}
+		}
+
+		System.out.println("End Array : " + selectedLogList.size());
+	}
+
 	@Override
 	public void logged(LogEntry log) {
 		logList.add(log);
+		getList();
+
 		Display.getDefault().asyncExec(new Runnable() {
 
 			public void run() {
@@ -297,154 +342,98 @@ public class CDTConsole implements LogListener {
 
 						if (button.getSelection()) {
 							setProperties("errorChecked", "true");
-							System.out.println("True Condition");
-							// if (log.getLevel() == 1) {
-							//
-							// if (errFlag == 0) {
-							// selectedLogList.clear();
-							// System.out.println(
-							// "Array Size True : " + logList.size() + " " +
-							// selectedLogList.size());
-							//
-							// run();
-							// errFlag = 1;
-							// }
-							// }
+							getList();
+
+							if (errFlag == 0) {
+								run();
+								errFlag = 1;
+							}
 
 						} else {
 							setProperties("errorChecked", "false");
+							getList();
 
-							System.out.println("False Condition" );
-							//
-							// System.out.println("Array Size false : " +
-							// logList.size() + " " + selectedLogList.size());
-							// if (log.getLevel() == 1) {
-							//
-							// if (errFlag == 1) {
-							// selectedLogList.clear();
-							// run();
-							// errFlag = 0;
-							//
-							// }
-							//
-							// }
+							if (errFlag == 1) {
+								run();
+								errFlag = 0;
+							}
+						}
+
+					}
+				});
+
+				warningCheckbox.addSelectionListener(new SelectionAdapter() {
+					@Override
+					public void widgetSelected(SelectionEvent e) {
+						Button button = (Button) e.widget;
+						if (button.getSelection()) {
+							setProperties("warningChecked", "true");
+							getList();
+
+							if (warFlag == 0) {
+								run();
+								warFlag = 1;
+							}
+
+						} else {
+							setProperties("warningChecked", "false");
+							getList();
+							if (warFlag == 1) {
+								run();
+								warFlag = 0;
+							}
+
 						}
 					}
 				});
-				//
-				// warningCheckbox.addSelectionListener(new SelectionAdapter() {
-				// @Override
-				// public void widgetSelected(SelectionEvent e) {
-				// Button button = (Button) e.widget;
-				// if (button.getSelection()) {
-				// setProperties("warningChecked", "true");
-				// if (log.getLevel() == 2) {
-				// // System.out.println("True Condition");
-				// if (flag == 0) {
-				// // selectedLogList.clear();
-				// run();
-				// }
-				// }
-				// } else {
-				// setProperties("warningChecked", "false");
-				// if (flag == 0) {
-				// // selectedLogList.clear();
-				// System.out
-				// .println("Array Size false : " + logList.size() + " " +
-				// selectedLogList.size());
-				// run();
-				// }
-				// }
-				// }
-				// });
 
-				// infoCheckbox.addSelectionListener(new SelectionAdapter() {
-				// @Override
-				// public void widgetSelected(SelectionEvent e) {
-				// Button button = (Button) e.widget;
-				// if (button.getSelection()) {
-				// setProperties("infoChecked", "true");
-				// if (log.getLevel() == 3) {
-				// if (flag == 0) {
-				// // selectedLogList.clear();
-				// run();
-				// }
-				// }
-				// } else {
-				// setProperties("infoChecked", "false");
-				// if (flag == 0) {
-				// // selectedLogList.clear();
-				// System.out
-				// .println("Array Size false : " + logList.size() + " " +
-				// selectedLogList.size());
-				// run();
-				// }
-				// }
-				// }
-				// });
-				//
-				// debugCheckbox.addSelectionListener(new SelectionAdapter() {
-				// @Override
-				// public void widgetSelected(SelectionEvent e) {
-				// Button button = (Button) e.widget;
-				// if (button.getSelection()) {
-				// setProperties("debugChecked", "true");
-				// if (log.getLevel() == 4) {
-				// if (flag == 0) {
-				// // selectedLogList.clear();
-				// run();
-				// }
-				// }
-				// } else {
-				// setProperties("debugChecked", "false");
-				// if (flag == 0) {
-				// // selectedLogList.clear();
-				// System.out
-				// .println("Array Size false : " + logList.size() + " " +
-				// selectedLogList.size());
-				// run();
-				// }
-				// }
-				// }
-				// });
+				infoCheckbox.addSelectionListener(new SelectionAdapter() {
+					@Override
+					public void widgetSelected(SelectionEvent e) {
+						Button button = (Button) e.widget;
+						if (button.getSelection()) {
+							setProperties("infoChecked", "true");
+							getList();
+							if (infoFlag == 0) {
+								run();
+								infoFlag = 1;
+							}
 
-				selectedLogList.clear();
+						} else {
+							setProperties("infoChecked", "false");
+							getList();
+							if (infoFlag == 1) {
+								run();
+								infoFlag = 0;
+							}
 
-				if (errorChecked.equalsIgnoreCase("false") && warningChecked.equalsIgnoreCase("false")
-						&& infoChecked.equalsIgnoreCase("false") && debugChecked.equalsIgnoreCase("false")) {
-					System.out.println("Array Size IF : " + logList.size() + " " + selectedLogList.size());
-					// selectedLogList = logList;
-					for (int i = 0; i < logList.size(); i++) {
-						selectedLogList.add(logList.get(i));
+						}
 					}
-				} else {
-					for (int i = 0; i < logList.size(); i++) {
-						if (errorChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 1) {
-							// System.out.println("err Value : " + i);
+				});
 
-							selectedLogList.add(logList.get(i));
-						}
-						if (warningChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 2) {
-							// System.out.println("war Value : " + i);
+				debugCheckbox.addSelectionListener(new SelectionAdapter() {
+					@Override
+					public void widgetSelected(SelectionEvent e) {
+						Button button = (Button) e.widget;
+						if (button.getSelection()) {
+							setProperties("debugChecked", "true");
+							getList();
+							if (debugFlag == 0) {
+								run();
+								debugFlag = 1;
+							}
 
-							selectedLogList.add(logList.get(i));
-
-						}
-						if (infoChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 3) {
-							// System.out.println("info Value : " + i);
-
-							selectedLogList.add(logList.get(i));
-
-						}
-						if (debugChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 4) {
-							// System.out.println("deb Value : " + i);
-
-							selectedLogList.add(logList.get(i));
+						} else {
+							setProperties("debugChecked", "false");
+							getList();
+							if (debugFlag == 1) {
+								run();
+								debugFlag = 0;
+							}
 
 						}
-
 					}
-				}
+				});
 
 				System.out.println("Array Size : " + logList.size() + " " + selectedLogList.size());
 
