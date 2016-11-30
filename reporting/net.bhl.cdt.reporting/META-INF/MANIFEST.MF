@@ -39,7 +39,7 @@ Service-Component: OSGI-INF/sourcePropertyRendererService.xml
 Bundle-ActivationPolicy: lazy
 Import-Package: com.ibm.icu.util;version="54.1.1",
  javax.inject;version="1.0.0",
- net.bhl.cdt.core.ui.e4,
+ net.bhl.cdt.core.ui,
  org.eclipse.core.databinding,
  org.eclipse.e4.core.contexts,
  org.eclipse.e4.ui.di,
