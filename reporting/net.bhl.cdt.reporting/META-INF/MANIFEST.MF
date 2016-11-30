@@ -9,7 +9,6 @@ Export-Package: net.bhl.cdt.reporting.chart,
  net.bhl.cdt.reporting.chartmodel
 Require-Bundle: org.eclipse.swt,
  org.eclipse.birt.core;bundle-version="4.4.2",
- org.eclipse.birt.chart;bundle-version="4.4.2",
  org.eclipse.birt.chart.engine;bundle-version="4.4.2",
  org.eclipse.birt.chart.engine.extension;bundle-version="4.4.2",
  org.eclipse.e4.ui.model.workbench;bundle-version="1.1.100.v20150407-1430",
