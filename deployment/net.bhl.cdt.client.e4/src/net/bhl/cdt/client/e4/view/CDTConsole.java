@@ -4,10 +4,12 @@ import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 import java.text.SimpleDateFormat;
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,6 +21,7 @@ import java.io.OutputStream;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import org.apache.commons.lang.ArrayUtils;
 import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -41,28 +44,32 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.osgi.framework.Bundle;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.log.LogEntry;
 import org.osgi.service.log.LogListener;
+
+import com.google.common.collect.ContiguousSet;
 
 import net.bhl.cdt.client.e4.Activator;
 import net.bhl.cdt.log.service.CDTLogReaderService;
 import net.bhl.cdt.log.service.CDTLogService;
 
-public class CDTConsole implements LogListener {
+public class CDTConsole implements LogListener, Runnable {
 	// private StyledText text;
 	private TableViewer logTableViewer;
 	private String[] COLUMN_NAMES = new String[] { " ", "Type", "Bundle", "Description", "Date-Time" };
 	private int[] COLUMN_WIDTHS = new int[] { 50, 100, 200, 500, 200 };
 	private static Map<String, String> msgTypeMap;
 	private static Map<String, String> msgTypeIconMap;
+	private static Set<String> msgBundleSet = new HashSet<String>();
 	private List<LogEntry> logList = new ArrayList<LogEntry>();
 	private List<LogEntry> selectedLogList = new ArrayList<LogEntry>();
 	private static File propertiesFile = new File("msgConfig.properties");
 	private static String errorChecked = "false", infoChecked = "false", warningChecked = "false",
-			debugChecked = "false";
+			debugChecked = "false", bundleSeected = "ALL";
+	private Combo comboBundle;
 	private Button errorCheckbox, warningCheckbox, infoCheckbox, debugCheckbox;
-	private int errFlag = 0, warFlag = 0, infoFlag = 0, debugFlag = 0;
 
 	public CDTConsole() {
 		registerLogViewer();
@@ -78,6 +85,9 @@ public class CDTConsole implements LogListener {
 
 	}
 
+	/*
+	 * Check Property file is exist or not If not then create Else just read
+	 */
 	public static boolean propertiesExist(File propertiesFile) {
 		Properties prop = new Properties();
 		InputStream input = null;
@@ -89,14 +99,17 @@ public class CDTConsole implements LogListener {
 			prop.load(input);
 
 			exists = prop.getProperty("errorChecked") != null && prop.getProperty("warningChecked") != null
-					&& prop.getProperty("infoChecked") != null && prop.getProperty("debugChecked") != null;
+					&& prop.getProperty("infoChecked") != null && prop.getProperty("debugChecked") != null
+					&& prop.getProperty("bundleSeected") != null;
 
 			if (prop.getProperty("errorChecked") != null && prop.getProperty("warningChecked") != null
-					&& prop.getProperty("infoChecked") != null && prop.getProperty("debugChecked") != null) {
+					&& prop.getProperty("infoChecked") != null && prop.getProperty("debugChecked") != null
+					&& prop.getProperty("bundleSeected") != null) {
 				errorChecked = prop.getProperty("errorChecked");
 				warningChecked = prop.getProperty("warningChecked");
 				infoChecked = prop.getProperty("infoChecked");
 				debugChecked = prop.getProperty("debugChecked");
+				bundleSeected = prop.getProperty("bundleSeected");
 			}
 
 		} catch (IOException ex) {
@@ -114,6 +127,10 @@ public class CDTConsole implements LogListener {
 		return exists;
 	}
 
+	/*
+	 * Create properties and property file
+	 */
+
 	public static void createProperties(File propertiesFile) {
 		Properties prop = new Properties();
 		OutputStream output = null;
@@ -126,6 +143,7 @@ public class CDTConsole implements LogListener {
 			prop.setProperty("warningChecked", "false");
 			prop.setProperty("infoChecked", "false");
 			prop.setProperty("debugChecked", "false");
+			prop.setProperty("bundleSeected", "ALL");
 
 			// save properties to project root folder
 			prop.store(output, null);
@@ -143,6 +161,10 @@ public class CDTConsole implements LogListener {
 
 		}
 	}
+
+	/*
+	 * Set property by the action
+	 */
 
 	public static void setProperties(String checkedItem, String checkedValue) {
 
@@ -192,6 +214,7 @@ public class CDTConsole implements LogListener {
 	@PostConstruct
 	public void createUI(Composite parent, CDTLogService logger) {
 		propertiesExist(propertiesFile);
+
 		ExpandBar msgTypeActionBar = new ExpandBar(parent, SWT.NONE);
 		Composite composite = new Composite(msgTypeActionBar, SWT.NONE);
 		GridLayout layout = new GridLayout(6, true);
@@ -204,11 +227,48 @@ public class CDTConsole implements LogListener {
 		if (errorChecked.equalsIgnoreCase("true"))
 			errorCheckbox.setSelection(true);
 
+		errorCheckbox.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				Button button = (Button) e.widget;
+
+				if (button.getSelection()) {
+					setProperties("errorChecked", "true");
+					getList();
+					// run();
+
+				} else {
+					setProperties("errorChecked", "false");
+					getList();
+					// run();
+				}
+
+			}
+		});
+
 		warningCheckbox = new Button(composite, SWT.CHECK | SWT.NULL);
 		warningCheckbox.setText("Warning Log");
 
 		if (warningChecked.equalsIgnoreCase("true"))
 			warningCheckbox.setSelection(true);
+
+		warningCheckbox.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				Button button = (Button) e.widget;
+				if (button.getSelection()) {
+					setProperties("warningChecked", "true");
+					getList();
+					// run();
+
+				} else {
+					setProperties("warningChecked", "false");
+					getList();
+					// run();
+
+				}
+			}
+		});
 
 		infoCheckbox = new Button(composite, SWT.CHECK | SWT.NULL);
 		infoCheckbox.setText("Info Log");
@@ -216,18 +276,63 @@ public class CDTConsole implements LogListener {
 		if (infoChecked.equalsIgnoreCase("true"))
 			infoCheckbox.setSelection(true);
 
+		infoCheckbox.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				Button button = (Button) e.widget;
+				if (button.getSelection()) {
+					setProperties("infoChecked", "true");
+					getList();
+					// run();
+
+				} else {
+					setProperties("infoChecked", "false");
+					getList();
+					// run();
+
+				}
+			}
+		});
+
 		debugCheckbox = new Button(composite, SWT.CHECK | SWT.NULL);
 		debugCheckbox.setText("Debug Log");
 
 		if (debugChecked.equalsIgnoreCase("true"))
 			debugCheckbox.setSelection(true);
 
+		debugCheckbox.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				Button button = (Button) e.widget;
+				if (button.getSelection()) {
+					setProperties("debugChecked", "true");
+					getList();
+					// run();
+
+				} else {
+					setProperties("debugChecked", "false");
+					getList();
+					// run();
+
+				}
+			}
+		});
+
 		Label label = new Label(composite, SWT.NULL);
 		label.setText("Select Bundle: ");
-		final Combo comboBundle = new Combo(composite, SWT.READ_ONLY);
-		comboBundle.setBounds(50, 50, 150, 65);
-		String bundleItems[] = { "Item One", "Item Two", "Item Three", "Item Four", "Item Five" };
-		comboBundle.setItems(bundleItems);
+		comboBundle = new Combo(composite, SWT.READ_ONLY | SWT.DROP_DOWN);
+		comboBundle.setBounds(50, 50, 150, 50);
+		// String bundleItems[] = { "Item One", "Item Two", "Item Three", "Item
+		// Four", "Item Five" };
+		// comboBundle.setItems(bundleItems);
+
+		comboBundle.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				setProperties("bundleSeected", comboBundle.getText());
+				getList();
+				run();
+			}
+		});
 
 		ExpandItem items = new ExpandItem(msgTypeActionBar, SWT.NONE, 0);
 		items.setText("Message Types Action");
@@ -246,7 +351,6 @@ public class CDTConsole implements LogListener {
 			TableColumn tableColumn = new TableColumn(table, SWT.LEFT);
 			tableColumn.setText(COLUMN_NAMES[i]);
 			tableColumn.setWidth(COLUMN_WIDTHS[i]);
-
 		}
 
 		table.addListener(SWT.SetData, new Listener() {
@@ -261,12 +365,13 @@ public class CDTConsole implements LogListener {
 		 * text = new StyledText(parent, SWT.MULTI | SWT.BORDER | SWT.WRAP |
 		 * SWT.V_SCROLL); text.setLayoutData(new GridData(GridData.FILL_BOTH));
 		 */
-
 		logger.info("CDT Console initialized.");
 		logger.error("This is a sample Error Msg");
 		logger.error("This is a sample Error Msg 1");
 		logger.error("This is a sample Error Msg 2");
 		logger.warning("This is a sample Warning Msg");
+		
+
 	}
 
 	// @PostConstruct
@@ -285,185 +390,149 @@ public class CDTConsole implements LogListener {
 	public void getList() {
 		selectedLogList.clear();
 		propertiesExist(propertiesFile);
-		System.out.println("errorChecked Value : " + errorChecked);
+
 		if (errorChecked.equalsIgnoreCase("false") && warningChecked.equalsIgnoreCase("false")
 				&& infoChecked.equalsIgnoreCase("false") && debugChecked.equalsIgnoreCase("false")) {
 			// selectedLogList = logList;
+
 			for (int i = 0; i < logList.size(); i++) {
-				selectedLogList.add(logList.get(i));
+				if (bundleSeected.equalsIgnoreCase("ALL")) {
+					selectedLogList.add(logList.get(i));
+				} else {
+					if (bundleSeected.equals(logList.get(i).getBundle().getSymbolicName())) {
+						selectedLogList.add(logList.get(i));
+					} else {
+						continue;
+					}
+				}
 			}
 		} else {
 			for (int i = 0; i < logList.size(); i++) {
-				if (errorChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 1) {
-					// System.out.println("err Value : " + i);
+				if (bundleSeected.equalsIgnoreCase("ALL")) {
+					if (errorChecked.equals("true") && logList.get(i).getLevel() == 1) {
+						// System.out.println("err Value : " + i);
 
-					selectedLogList.add(logList.get(i));
+						selectedLogList.add(logList.get(i));
+
+					}
+					if (warningChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 2) {
+						// System.out.println("war Value : " + i);
+
+						selectedLogList.add(logList.get(i));
+
+					}
+					if (infoChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 3) {
+						// System.out.println("info Value : " + i);
+
+						selectedLogList.add(logList.get(i));
+
+					}
+					if (debugChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 4) {
+						// System.out.println("deb Value : " + i);
+
+						selectedLogList.add(logList.get(i));
+
+					}
+
+				} else {
+					if (errorChecked.equals("true") && logList.get(i).getLevel() == 1
+							&& bundleSeected.equals(logList.get(i).getBundle().getSymbolicName())) {
+						// System.out.println("err Value : " + i);
+
+						selectedLogList.add(logList.get(i));
+
+					}
+					if (warningChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 2
+							&& bundleSeected.equals(logList.get(i).getBundle().getSymbolicName())) {
+						// System.out.println("war Value : " + i);
+
+						selectedLogList.add(logList.get(i));
+
+					}
+					if (infoChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 3
+							&& bundleSeected.equals(logList.get(i).getBundle().getSymbolicName())) {
+						// System.out.println("info Value : " + i);
+
+						selectedLogList.add(logList.get(i));
+
+					}
+					if (debugChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 4
+							&& bundleSeected.equals(logList.get(i).getBundle().getSymbolicName())) {
+						// System.out.println("deb Value : " + i);
+
+						selectedLogList.add(logList.get(i));
+
+					}
 
 				}
-				if (warningChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 2) {
-					// System.out.println("war Value : " + i);
-
-					selectedLogList.add(logList.get(i));
-
-				}
-				if (infoChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 3) {
-					// System.out.println("info Value : " + i);
-
-					selectedLogList.add(logList.get(i));
-
-				}
-				if (debugChecked.equalsIgnoreCase("true") && logList.get(i).getLevel() == 4) {
-					// System.out.println("deb Value : " + i);
-
-					selectedLogList.add(logList.get(i));
-
-				}
-
 			}
 		}
+		run();
+		// System.out.println("End Array : " + selectedLogList.size());
 
-		System.out.println("End Array : " + selectedLogList.size());
 	}
 
 	@Override
 	public void logged(LogEntry log) {
 		logList.add(log);
+		msgBundleSet.add("ALL");
+		msgBundleSet.add(log.getBundle().getSymbolicName());
 		getList();
-
-		Display.getDefault().asyncExec(new Runnable() {
-
-			public void run() {
-				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-				errorCheckbox.addSelectionListener(new SelectionAdapter() {
-					@Override
-					public void widgetSelected(SelectionEvent e) {
-						Button button = (Button) e.widget;
-
-						if (button.getSelection()) {
-							setProperties("errorChecked", "true");
-							getList();
-
-							if (errFlag == 0) {
-								run();
-								errFlag = 1;
-							}
-
-						} else {
-							setProperties("errorChecked", "false");
-							getList();
-
-							if (errFlag == 1) {
-								run();
-								errFlag = 0;
-							}
-						}
-
-					}
-				});
-
-				warningCheckbox.addSelectionListener(new SelectionAdapter() {
-					@Override
-					public void widgetSelected(SelectionEvent e) {
-						Button button = (Button) e.widget;
-						if (button.getSelection()) {
-							setProperties("warningChecked", "true");
-							getList();
-
-							if (warFlag == 0) {
-								run();
-								warFlag = 1;
-							}
-
-						} else {
-							setProperties("warningChecked", "false");
-							getList();
-							if (warFlag == 1) {
-								run();
-								warFlag = 0;
-							}
-
-						}
-					}
-				});
-
-				infoCheckbox.addSelectionListener(new SelectionAdapter() {
-					@Override
-					public void widgetSelected(SelectionEvent e) {
-						Button button = (Button) e.widget;
-						if (button.getSelection()) {
-							setProperties("infoChecked", "true");
-							getList();
-							if (infoFlag == 0) {
-								run();
-								infoFlag = 1;
-							}
-
-						} else {
-							setProperties("infoChecked", "false");
-							getList();
-							if (infoFlag == 1) {
-								run();
-								infoFlag = 0;
-							}
-
-						}
-					}
-				});
-
-				debugCheckbox.addSelectionListener(new SelectionAdapter() {
-					@Override
-					public void widgetSelected(SelectionEvent e) {
-						Button button = (Button) e.widget;
-						if (button.getSelection()) {
-							setProperties("debugChecked", "true");
-							getList();
-							if (debugFlag == 0) {
-								run();
-								debugFlag = 1;
-							}
-
-						} else {
-							setProperties("debugChecked", "false");
-							getList();
-							if (debugFlag == 1) {
-								run();
-								debugFlag = 0;
-							}
-
-						}
-					}
-				});
-
-				System.out.println("Array Size : " + logList.size() + " " + selectedLogList.size());
-
-				final List<Model> models = new ArrayList<Model>();
-
-				// for (int i = 0; i < logList.size(); i++) {
-				//
-				// models.add(new
-				// Model(String.valueOf(logList.get(i).getLevel()),
-				// String.valueOf(logList.get(i).getLevel()),
-				// logList.get(i).getBundle().getSymbolicName(),
-				// logList.get(i).getMessage(),
-				// dateFormat.format(new
-				// Date(logList.get(i).getTime())).toString()));
-				// }
-
-				for (int i = 0; i < selectedLogList.size(); i++) {
-
-					models.add(new Model(String.valueOf(selectedLogList.get(i).getLevel()),
-							String.valueOf(selectedLogList.get(i).getLevel()),
-							selectedLogList.get(i).getBundle().getSymbolicName(), selectedLogList.get(i).getMessage(),
-							dateFormat.format(new Date(selectedLogList.get(i).getTime())).toString()));
-				}
-
-				logTableViewer.setContentProvider(new ModelContentProvider());
-				logTableViewer.setLabelProvider(new ModelLabelProvider());
-				logTableViewer.setInput(models);
-
-			}
-		});
+		// Display.getDefault().asyncExec(new Runnable() {
+		//
+		// public void run() {
+		// DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		//
+		// String bundleItems[] = msgBundleSet.toArray(new
+		// String[msgBundleSet.size()]);
+		// comboBundle.setItems(bundleItems);
+		// comboBundle.select(ArrayUtils.indexOf(bundleItems, bundleSeected));
+		//
+		// if (errorChecked.equalsIgnoreCase("true"))
+		// errFlag = 1;
+		// if (warningChecked.equalsIgnoreCase("true"))
+		// warFlag = 1;
+		// if (infoChecked.equalsIgnoreCase("true"))
+		// infoFlag = 1;
+		// if (debugChecked.equalsIgnoreCase("true"))
+		// debugFlag = 1;
+		//
+		// // System.out.println("Array : " + bundleSeected + " " +
+		// // ArrayUtils.indexOf(bundleItems, bundleSeected));
+		//
+		// // System.out.println("Array Size : " + logList.size() + " " +
+		// // selectedLogList.size());
+		//
+		// final List<Model> models = new ArrayList<Model>();
+		//
+		// // for (int i = 0; i < logList.size(); i++) {
+		// //
+		// // models.add(new
+		// // Model(String.valueOf(logList.get(i).getLevel()),
+		// // String.valueOf(logList.get(i).getLevel()),
+		// // logList.get(i).getBundle().getSymbolicName(),
+		// // logList.get(i).getMessage(),
+		// // dateFormat.format(new
+		// // Date(logList.get(i).getTime())).toString()));
+		// // }
+		//
+		// for (int i = 0; i < selectedLogList.size(); i++) {
+		//
+		// models.add(new
+		// Model(String.valueOf(selectedLogList.get(i).getLevel()),
+		// String.valueOf(selectedLogList.get(i).getLevel()),
+		// selectedLogList.get(i).getBundle().getSymbolicName(),
+		// selectedLogList.get(i).getMessage(),
+		// dateFormat.format(new
+		// Date(selectedLogList.get(i).getTime())).toString()));
+		// }
+		//
+		// logTableViewer.setContentProvider(new ModelContentProvider());
+		// logTableViewer.setLabelProvider(new ModelLabelProvider());
+		// logTableViewer.setInput(models);
+		//
+		// }
+		// });
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -660,6 +729,34 @@ public class CDTConsole implements LogListener {
 		public void setMsgDateTime(String msgDateTime) {
 			this.msgDateTime = msgDateTime;
 		}
+
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+		String bundleItems[] = msgBundleSet.toArray(new String[msgBundleSet.size()]);
+		comboBundle.setItems(bundleItems);
+		comboBundle.select(ArrayUtils.indexOf(bundleItems, bundleSeected));
+
+		System.out.println("Array Size : " + logList.size() + " " + selectedLogList.size());
+
+		final List<Model> models = new ArrayList<Model>();
+
+		for (int i = 0; i < selectedLogList.size(); i++) {
+
+			models.add(new Model(String.valueOf(selectedLogList.get(i).getLevel()),
+					String.valueOf(selectedLogList.get(i).getLevel()),
+					selectedLogList.get(i).getBundle().getSymbolicName(), selectedLogList.get(i).getMessage(),
+					dateFormat.format(new Date(selectedLogList.get(i).getTime())).toString()));
+		}
+
+		logTableViewer.setContentProvider(new ModelContentProvider());
+		logTableViewer.setLabelProvider(new ModelLabelProvider());
+		logTableViewer.setInput(models);
 
 	}
 
