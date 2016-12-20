@@ -1,5 +1,5 @@
  
-package net.bhl.cdt.client.handler;
+package net.bhl.cdt.client.e4.handler;
 
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.ui.menu.MHandledItem;

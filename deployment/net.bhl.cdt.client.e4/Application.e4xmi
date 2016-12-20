@@ -101,9 +101,8 @@
   <handlers xmi:id="_DlNB0H3KEeOH4sahiLvWWw" elementId="org.eclipse.emf.ecp.application.e4.handler.0" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.handlers.ExportHandler" command="_AbdpsH3KEeOH4sahiLvWWw"/>
   <handlers xmi:id="_UOExMH3NEeOH4sahiLvWWw" elementId="org.eclipse.emf.ecp.e4.application.handler.import" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.handlers.ImportHandler" command="_Q7bUsH3NEeOH4sahiLvWWw"/>
   <handlers xmi:id="_ewL7UBqOEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.handler.0" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.handler.ExitHandler" command="_cSFhMBqOEeaW3cdp9dOVbQ"/>
-  <handlers xmi:id="_TQ4_oHtIEeaQY-NEtbcVNg" elementId="net.bhl.cdt.client.e4.handler.1" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.handler.ShowPerspectiveSwitcherHandler" command="_PNUcgHtIEeaQY-NEtbcVNg"/>
+  <handlers xmi:id="_TQ4_oHtIEeaQY-NEtbcVNg" elementId="net.bhl.cdt.client.e4.handler.showperspectiveswitcher" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.handler.ShowPerspectiveSwitcherHandler" command="_PNUcgHtIEeaQY-NEtbcVNg"/>
   <handlers xmi:id="_K7H6MHvaEeazv-wP_fp_cw" elementId="net.bhl.cdt.client.e4.handler.2" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.handler.AboutHandler" command="_IlT5YHvaEeazv-wP_fp_cw"/>
-  <handlers xmi:id="_1B-RwIb_EeapQ8NRxL7giQ" elementId="net.bhl.cdt.client.e4.handler.3" contributionURI="bundleclass://org.eclipse.emf.ecp.emfstore.ui.e4/org.eclipse.emf.ecp.e4.emfstore.StartLocalServerHandler"/>
   <rootContext xmi:id="_GlrBIArBEeaJ2Y3tZdi01w" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_GlrBIQrBEeaJ2Y3tZdi01w" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_GlrBIgrBEeaJ2Y3tZdi01w" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
