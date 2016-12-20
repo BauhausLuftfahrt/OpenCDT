@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commands="http://www.eclipse.org/ui/2010/UIModel/application/commands" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_U7RGIMacEeae-Lsq2hS8PA">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_dxop4MacEeae-Lsq2hS8PA" featurename="handlers" parentElementId="net.bhl.cdt.application">
+    <elements xsi:type="commands:Handler" xmi:id="_gZRagMacEeae-Lsq2hS8PA" elementId="net.bhl.cdt.connector.cpacs.ui.handler.importCPACSFile" contributionURI="bundleclass://net.bhl.cdt.connector.cpacs.ui/net.bhl.cdt.connector.cpacs.ui.handler.ImportCPACSFileHandler" command="_jekXgMacEeae-Lsq2hS8PA"/>
+    <elements xsi:type="commands:Handler" xmi:id="_wx_8cMacEeae-Lsq2hS8PA" elementId="net.bhl.cdt.connector.cpacs.ui.handler.exportToCPACSFile" contributionURI="bundleclass://net.bhl.cdt.connector.cpacs.ui/net.bhl.cdt.connector.cpacs.ui.handler.ExportToCPACSFileHandler" command="_uU4ZwMacEeae-Lsq2hS8PA"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_hCG8IMacEeae-Lsq2hS8PA" featurename="commands" parentElementId="net.bhl.cdt.application">
+    <elements xsi:type="commands:Command" xmi:id="_jekXgMacEeae-Lsq2hS8PA" elementId="net.bhl.cdt.connector.cpacs.ui.command.importcpacsfile" commandName="importCPACSFile"/>
+    <elements xsi:type="commands:Command" xmi:id="_uU4ZwMacEeae-Lsq2hS8PA" elementId="net.bhl.cdt.connector.cpacs.ui.command.exporttocpacsfile" commandName="exportToCPACSFile"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_4KkFcMacEeae-Lsq2hS8PA" featurename="children" parentElementId="net.bhl.cdt.client.e4.menu.file">
+    <elements xsi:type="menu:MenuSeparator" xmi:id="_Ft2rUMadEeae-Lsq2hS8PA" elementId="net.bhl.cdt.connector.cpacs.ui.menuseparator.0"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="__sSxgMacEeae-Lsq2hS8PA" elementId="net.bhl.cdt.connector.cpacs.ui.handledmenuitem.importcpacsfile" label="Import CPACS File..." command="_jekXgMacEeae-Lsq2hS8PA"/>
+    <elements xsi:type="menu:HandledMenuItem" xmi:id="_CzaTcMadEeae-Lsq2hS8PA" elementId="net.bhl.cdt.connector.cpacs.ui.handledmenuitem.exporttocpacsfile" label="Export to CPACS File..." command="_uU4ZwMacEeae-Lsq2hS8PA"/>
+  </fragments>
+</fragment:ModelFragments>

@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Util
+Bundle-SymbolicName: net.bhl.cdt.util
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: net.bhl.cdt.util.Activator
+Bundle-Vendor: Bauhaus Luftfahrt e.V.
+Require-Bundle: org.eclipse.core.runtime
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Export-Package: net.bhl.cdt.util.xml

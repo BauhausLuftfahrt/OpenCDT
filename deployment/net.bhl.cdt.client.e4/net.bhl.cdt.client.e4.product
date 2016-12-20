@@ -37,9 +37,12 @@
       <plugin id="javax.servlet"/>
       <plugin id="javax.xml"/>
       <plugin id="net.bhl.cdt.client.e4"/>
+      <plugin id="net.bhl.cdt.connector.cpacs"/>
+      <plugin id="net.bhl.cdt.connector.cpacs.ui"/>
       <plugin id="net.bhl.cdt.log"/>
       <plugin id="net.bhl.cdt.model"/>
       <plugin id="net.bhl.cdt.model.edit"/>
+      <plugin id="net.bhl.cdt.util"/>
       <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.util"/>
       <plugin id="org.apache.batik.util.gui"/>

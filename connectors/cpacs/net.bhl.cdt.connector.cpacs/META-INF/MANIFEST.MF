@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: CPACS Support
+Bundle-SymbolicName: net.bhl.cdt.connector.cpacs
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: net.bhl.cdt.connector.cpacs.Activator
+Bundle-Vendor: Bauhaus Luftfahrt e.V.
+Require-Bundle: org.eclipse.core.runtime,
+ net.bhl.cdt.model;bundle-version="0.1.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Import-Package: net.bhl.cdt.util.xml
