@@ -5,7 +5,7 @@ import org.eclipse.e4.ui.model.application.ui.MUIElement;
 import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 
-public abstract class CDTUIManager implements ICDTUIManager {
+public class CDTUIManager implements ICDTUIManager {
 	public static String MAINWINDOW = "net.bhl.cdt.client.e4.mainwindow";
 	
 	public static String ID_CDTPERSPECTIVE = "net.bhl.cdt.client.e4.perspective.cdt";
@@ -15,6 +15,10 @@ public abstract class CDTUIManager implements ICDTUIManager {
 	private EModelService service;
 	
 	public CDTUIManager() {
+	}
+	
+	public CDTUIManager(MApplication application, EModelService modelService) {
+		Initialize(application, modelService);
 	}
 	
 	public void Initialize(MApplication application, EModelService modelService) {
@@ -52,5 +56,11 @@ public abstract class CDTUIManager implements ICDTUIManager {
 			window.setIconURI("platform:/plugin/net.bhl.cdt.client.e4/res/OpenCDT_Symbol_0016.png");
 		else
 			window.setIconURI(iconURI);
+	}
+
+	@Override
+	public void AdaptUI() {
+		// TODO Auto-generated method stub
+		
 	}
 }
