@@ -5,7 +5,11 @@ Bundle-SymbolicName: net.bhl.cdt.util
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: net.bhl.cdt.util.Activator
 Bundle-Vendor: Bauhaus Luftfahrt e.V.
-Require-Bundle: org.eclipse.core.runtime
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.swt,
+ net.bhl.cdt.log
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Export-Package: net.bhl.cdt.util.xml
+Export-Package: net.bhl.cdt.util,
+ net.bhl.cdt.util.xml,
+ ui
