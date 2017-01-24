@@ -1,18 +1,12 @@
 package net.bhl.cdt.connector.cpacs.ui.handler;
 
 import javax.xml.stream.XMLEventReader;
+import javax.xml.stream.XMLStreamException;
 
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.layout.FillLayout;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 
-import net.bhl.cdt.model.ModelFactory;
-import net.bhl.cdt.model.datatypes.DatatypesFactory;
-import net.bhl.cdt.model.datatypes.FloatPointValue;
 import net.bhl.cdt.util.CPACSXmlParser;
 import ui.CenteredFileDialog;
 
@@ -28,7 +22,12 @@ public class ImportCPACSFileHandler {
 		if (fileLocation != null) {
 			CPACSXmlParser xmlParser = new CPACSXmlParser();
 			XMLEventReader xmlEventReader = xmlParser.getXmlFile(fileLocation);
-			System.out.println(xmlEventReader);
+			try {
+				xmlParser.readXMLFile(xmlEventReader);
+			} catch (XMLStreamException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			// String filePath = saveDialog.dialog.getFilterPath();
 			// System.out.println("Name : " + fileLocation );
 		}
