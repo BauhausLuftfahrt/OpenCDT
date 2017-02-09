@@ -13,9 +13,8 @@
         eType="#//FormulaRepository" eOpposite="#//FormulaRepository/formulas"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="latexString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputParameter" upperBound="-1"
-        eType="#//Parameter" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outputParameter" eType="#//Parameter"
-        containment="true"/>
+        eType="#//Parameter"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputParameter" eType="#//Parameter"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Parameter">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

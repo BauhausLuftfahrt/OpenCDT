@@ -140,7 +140,7 @@ public interface FormulaPackage extends EPackage {
 	int FORMULA__LATEX_STRING = 2;
 
 	/**
-	 * The feature id for the '<em><b>Input Parameter</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Input Parameter</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -149,7 +149,7 @@ public interface FormulaPackage extends EPackage {
 	int FORMULA__INPUT_PARAMETER = 3;
 
 	/**
-	 * The feature id for the '<em><b>Output Parameter</b></em>' containment reference.
+	 * The feature id for the '<em><b>Output Parameter</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -307,10 +307,10 @@ public interface FormulaPackage extends EPackage {
 	EAttribute getFormula_LatexString();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link formula.Formula#getInputParameter <em>Input Parameter</em>}'.
+	 * Returns the meta object for the reference list '{@link formula.Formula#getInputParameter <em>Input Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Input Parameter</em>'.
+	 * @return the meta object for the reference list '<em>Input Parameter</em>'.
 	 * @see formula.Formula#getInputParameter()
 	 * @see #getFormula()
 	 * @generated
@@ -318,10 +318,10 @@ public interface FormulaPackage extends EPackage {
 	EReference getFormula_InputParameter();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link formula.Formula#getOutputParameter <em>Output Parameter</em>}'.
+	 * Returns the meta object for the reference '{@link formula.Formula#getOutputParameter <em>Output Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Output Parameter</em>'.
+	 * @return the meta object for the reference '<em>Output Parameter</em>'.
 	 * @see formula.Formula#getOutputParameter()
 	 * @see #getFormula()
 	 * @generated
@@ -455,7 +455,7 @@ public interface FormulaPackage extends EPackage {
 		EAttribute FORMULA__LATEX_STRING = eINSTANCE.getFormula_LatexString();
 
 		/**
-		 * The meta object literal for the '<em><b>Input Parameter</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Input Parameter</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -463,7 +463,7 @@ public interface FormulaPackage extends EPackage {
 		EReference FORMULA__INPUT_PARAMETER = eINSTANCE.getFormula_InputParameter();
 
 		/**
-		 * The meta object literal for the '<em><b>Output Parameter</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Output Parameter</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

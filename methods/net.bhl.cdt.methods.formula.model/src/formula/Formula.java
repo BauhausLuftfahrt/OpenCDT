@@ -108,7 +108,7 @@ public interface Formula extends EObject {
 	void setLatexString(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Input Parameter</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Input Parameter</b></em>' reference list.
 	 * The list contents are of type {@link formula.Parameter}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -116,34 +116,34 @@ public interface Formula extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Input Parameter</em>' containment reference list.
+	 * @return the value of the '<em>Input Parameter</em>' reference list.
 	 * @see formula.FormulaPackage#getFormula_InputParameter()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	EList<Parameter> getInputParameter();
 
 	/**
-	 * Returns the value of the '<em><b>Output Parameter</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Output Parameter</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Output Parameter</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Output Parameter</em>' containment reference.
+	 * @return the value of the '<em>Output Parameter</em>' reference.
 	 * @see #setOutputParameter(Parameter)
 	 * @see formula.FormulaPackage#getFormula_OutputParameter()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
 	Parameter getOutputParameter();
 
 	/**
-	 * Sets the value of the '{@link formula.Formula#getOutputParameter <em>Output Parameter</em>}' containment reference.
+	 * Sets the value of the '{@link formula.Formula#getOutputParameter <em>Output Parameter</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Output Parameter</em>' containment reference.
+	 * @param value the new value of the '<em>Output Parameter</em>' reference.
 	 * @see #getOutputParameter()
 	 * @generated
 	 */

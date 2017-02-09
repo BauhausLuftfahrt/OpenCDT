@@ -19,10 +19,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -83,7 +81,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	protected String latexString = LATEX_STRING_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getInputParameter() <em>Input Parameter</em>}' containment reference list.
+	 * The cached value of the '{@link #getInputParameter() <em>Input Parameter</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getInputParameter()
@@ -93,7 +91,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	protected EList<Parameter> inputParameter;
 
 	/**
-	 * The cached value of the '{@link #getOutputParameter() <em>Output Parameter</em>}' containment reference.
+	 * The cached value of the '{@link #getOutputParameter() <em>Output Parameter</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOutputParameter()
@@ -211,7 +209,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 */
 	public EList<Parameter> getInputParameter() {
 		if (inputParameter == null) {
-			inputParameter = new EObjectContainmentEList<Parameter>(Parameter.class, this, FormulaPackage.FORMULA__INPUT_PARAMETER);
+			inputParameter = new EObjectResolvingEList<Parameter>(Parameter.class, this, FormulaPackage.FORMULA__INPUT_PARAMETER);
 		}
 		return inputParameter;
 	}
@@ -222,6 +220,14 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * @generated
 	 */
 	public Parameter getOutputParameter() {
+		if (outputParameter != null && outputParameter.eIsProxy()) {
+			InternalEObject oldOutputParameter = (InternalEObject)outputParameter;
+			outputParameter = (Parameter)eResolveProxy(oldOutputParameter);
+			if (outputParameter != oldOutputParameter) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FormulaPackage.FORMULA__OUTPUT_PARAMETER, oldOutputParameter, outputParameter));
+			}
+		}
 		return outputParameter;
 	}
 
@@ -230,14 +236,8 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetOutputParameter(Parameter newOutputParameter, NotificationChain msgs) {
-		Parameter oldOutputParameter = outputParameter;
-		outputParameter = newOutputParameter;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FormulaPackage.FORMULA__OUTPUT_PARAMETER, oldOutputParameter, newOutputParameter);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
+	public Parameter basicGetOutputParameter() {
+		return outputParameter;
 	}
 
 	/**
@@ -246,17 +246,10 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * @generated
 	 */
 	public void setOutputParameter(Parameter newOutputParameter) {
-		if (newOutputParameter != outputParameter) {
-			NotificationChain msgs = null;
-			if (outputParameter != null)
-				msgs = ((InternalEObject)outputParameter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FormulaPackage.FORMULA__OUTPUT_PARAMETER, null, msgs);
-			if (newOutputParameter != null)
-				msgs = ((InternalEObject)newOutputParameter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FormulaPackage.FORMULA__OUTPUT_PARAMETER, null, msgs);
-			msgs = basicSetOutputParameter(newOutputParameter, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FormulaPackage.FORMULA__OUTPUT_PARAMETER, newOutputParameter, newOutputParameter));
+		Parameter oldOutputParameter = outputParameter;
+		outputParameter = newOutputParameter;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormulaPackage.FORMULA__OUTPUT_PARAMETER, oldOutputParameter, outputParameter));
 	}
 
 	/**
@@ -285,10 +278,6 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 		switch (featureID) {
 			case FormulaPackage.FORMULA__REPOSITORY:
 				return basicSetRepository(null, msgs);
-			case FormulaPackage.FORMULA__INPUT_PARAMETER:
-				return ((InternalEList<?>)getInputParameter()).basicRemove(otherEnd, msgs);
-			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
-				return basicSetOutputParameter(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -324,7 +313,8 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 			case FormulaPackage.FORMULA__INPUT_PARAMETER:
 				return getInputParameter();
 			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
-				return getOutputParameter();
+				if (resolve) return getOutputParameter();
+				return basicGetOutputParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
