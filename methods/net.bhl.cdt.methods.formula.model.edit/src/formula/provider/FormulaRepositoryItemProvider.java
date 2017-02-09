@@ -103,6 +103,7 @@ public class FormulaRepositoryItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(FormulaPackage.Literals.FORMULA_REPOSITORY__FORMULAS);
+			childrenFeatures.add(FormulaPackage.Literals.FORMULA_REPOSITORY__QUANTITIES);
 		}
 		return childrenFeatures;
 	}
@@ -162,6 +163,7 @@ public class FormulaRepositoryItemProvider
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case FormulaPackage.FORMULA_REPOSITORY__FORMULAS:
+			case FormulaPackage.FORMULA_REPOSITORY__QUANTITIES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -183,6 +185,11 @@ public class FormulaRepositoryItemProvider
 			(createChildParameter
 				(FormulaPackage.Literals.FORMULA_REPOSITORY__FORMULAS,
 				 FormulaFactory.eINSTANCE.createFormula()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(FormulaPackage.Literals.FORMULA_REPOSITORY__QUANTITIES,
+				 FormulaFactory.eINSTANCE.createQuantity()));
 	}
 
 	/**

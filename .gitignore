@@ -1,1 +1,7 @@
 bin
+/methods/net.bhl.cdt.methods.formula.model.edit/*.classpath
+/methods/net.bhl.cdt.methods.formula.model.edit/*.project
+/methods/net.bhl.cdt.methods.formula.model/*.classpath
+/methods/net.bhl.cdt.methods.formula.model/*.project
+/methods/net.bhl.cdt.methods.formula/*.classpath
+/methods/net.bhl.cdt.methods.formula/*.project

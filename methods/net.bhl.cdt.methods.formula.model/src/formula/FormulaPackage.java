@@ -85,13 +85,22 @@ public interface FormulaPackage extends EPackage {
 	int FORMULA_REPOSITORY__FORMULAS = 1;
 
 	/**
+	 * The feature id for the '<em><b>Quantities</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA_REPOSITORY__QUANTITIES = 2;
+
+	/**
 	 * The number of structural features of the '<em>Repository</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA_REPOSITORY_FEATURE_COUNT = 2;
+	int FORMULA_REPOSITORY_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Repository</em>' class.
@@ -122,22 +131,13 @@ public interface FormulaPackage extends EPackage {
 	int FORMULA__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Repository</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA__REPOSITORY = 1;
-
-	/**
 	 * The feature id for the '<em><b>Latex String</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA__LATEX_STRING = 2;
+	int FORMULA__LATEX_STRING = 1;
 
 	/**
 	 * The feature id for the '<em><b>Input Parameter</b></em>' reference list.
@@ -146,7 +146,7 @@ public interface FormulaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA__INPUT_PARAMETER = 3;
+	int FORMULA__INPUT_PARAMETER = 2;
 
 	/**
 	 * The feature id for the '<em><b>Output Parameter</b></em>' reference.
@@ -155,7 +155,16 @@ public interface FormulaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA__OUTPUT_PARAMETER = 4;
+	int FORMULA__OUTPUT_PARAMETER = 3;
+
+	/**
+	 * The feature id for the '<em><b>Repository</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA__REPOSITORY = 4;
 
 	/**
 	 * The number of structural features of the '<em>Formula</em>' class.
@@ -176,14 +185,14 @@ public interface FormulaPackage extends EPackage {
 	int FORMULA_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link formula.impl.ParameterImpl <em>Parameter</em>}' class.
+	 * The meta object id for the '{@link formula.impl.QuantityImpl <em>Quantity</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see formula.impl.ParameterImpl
-	 * @see formula.impl.FormulaPackageImpl#getParameter()
+	 * @see formula.impl.QuantityImpl
+	 * @see formula.impl.FormulaPackageImpl#getQuantity()
 	 * @generated
 	 */
-	int PARAMETER = 2;
+	int QUANTITY = 2;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -192,7 +201,7 @@ public interface FormulaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__NAME = 0;
+	int QUANTITY__NAME = 0;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -201,7 +210,7 @@ public interface FormulaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__DESCRIPTION = 1;
+	int QUANTITY__DESCRIPTION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Unit</b></em>' attribute.
@@ -210,25 +219,34 @@ public interface FormulaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER__UNIT = 2;
+	int QUANTITY__UNIT = 2;
 
 	/**
-	 * The number of structural features of the '<em>Parameter</em>' class.
+	 * The feature id for the '<em><b>Repository</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_FEATURE_COUNT = 3;
+	int QUANTITY__REPOSITORY = 3;
 
 	/**
-	 * The number of operations of the '<em>Parameter</em>' class.
+	 * The number of structural features of the '<em>Quantity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_OPERATION_COUNT = 0;
+	int QUANTITY_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Quantity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTITY_OPERATION_COUNT = 0;
 
 
 	/**
@@ -264,6 +282,17 @@ public interface FormulaPackage extends EPackage {
 	EReference getFormulaRepository_Formulas();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link formula.FormulaRepository#getQuantities <em>Quantities</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Quantities</em>'.
+	 * @see formula.FormulaRepository#getQuantities()
+	 * @see #getFormulaRepository()
+	 * @generated
+	 */
+	EReference getFormulaRepository_Quantities();
+
+	/**
 	 * Returns the meta object for class '{@link formula.Formula <em>Formula</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -283,17 +312,6 @@ public interface FormulaPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getFormula_Name();
-
-	/**
-	 * Returns the meta object for the container reference '{@link formula.Formula#getRepository <em>Repository</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Repository</em>'.
-	 * @see formula.Formula#getRepository()
-	 * @see #getFormula()
-	 * @generated
-	 */
-	EReference getFormula_Repository();
 
 	/**
 	 * Returns the meta object for the attribute '{@link formula.Formula#getLatexString <em>Latex String</em>}'.
@@ -329,47 +347,69 @@ public interface FormulaPackage extends EPackage {
 	EReference getFormula_OutputParameter();
 
 	/**
-	 * Returns the meta object for class '{@link formula.Parameter <em>Parameter</em>}'.
+	 * Returns the meta object for the container reference '{@link formula.Formula#getRepository <em>Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Parameter</em>'.
-	 * @see formula.Parameter
+	 * @return the meta object for the container reference '<em>Repository</em>'.
+	 * @see formula.Formula#getRepository()
+	 * @see #getFormula()
 	 * @generated
 	 */
-	EClass getParameter();
+	EReference getFormula_Repository();
 
 	/**
-	 * Returns the meta object for the attribute '{@link formula.Parameter#getName <em>Name</em>}'.
+	 * Returns the meta object for class '{@link formula.Quantity <em>Quantity</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Quantity</em>'.
+	 * @see formula.Quantity
+	 * @generated
+	 */
+	EClass getQuantity();
+
+	/**
+	 * Returns the meta object for the attribute '{@link formula.Quantity#getName <em>Name</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see formula.Parameter#getName()
-	 * @see #getParameter()
+	 * @see formula.Quantity#getName()
+	 * @see #getQuantity()
 	 * @generated
 	 */
-	EAttribute getParameter_Name();
+	EAttribute getQuantity_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link formula.Parameter#getDescription <em>Description</em>}'.
+	 * Returns the meta object for the attribute '{@link formula.Quantity#getDescription <em>Description</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see formula.Parameter#getDescription()
-	 * @see #getParameter()
+	 * @see formula.Quantity#getDescription()
+	 * @see #getQuantity()
 	 * @generated
 	 */
-	EAttribute getParameter_Description();
+	EAttribute getQuantity_Description();
 
 	/**
-	 * Returns the meta object for the attribute '{@link formula.Parameter#getUnit <em>Unit</em>}'.
+	 * Returns the meta object for the attribute '{@link formula.Quantity#getUnit <em>Unit</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Unit</em>'.
-	 * @see formula.Parameter#getUnit()
-	 * @see #getParameter()
+	 * @see formula.Quantity#getUnit()
+	 * @see #getQuantity()
 	 * @generated
 	 */
-	EAttribute getParameter_Unit();
+	EAttribute getQuantity_Unit();
+
+	/**
+	 * Returns the meta object for the container reference '{@link formula.Quantity#getRepository <em>Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Repository</em>'.
+	 * @see formula.Quantity#getRepository()
+	 * @see #getQuantity()
+	 * @generated
+	 */
+	EReference getQuantity_Repository();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -421,6 +461,14 @@ public interface FormulaPackage extends EPackage {
 		EReference FORMULA_REPOSITORY__FORMULAS = eINSTANCE.getFormulaRepository_Formulas();
 
 		/**
+		 * The meta object literal for the '<em><b>Quantities</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FORMULA_REPOSITORY__QUANTITIES = eINSTANCE.getFormulaRepository_Quantities();
+
+		/**
 		 * The meta object literal for the '{@link formula.impl.FormulaImpl <em>Formula</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -437,14 +485,6 @@ public interface FormulaPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute FORMULA__NAME = eINSTANCE.getFormula_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Repository</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FORMULA__REPOSITORY = eINSTANCE.getFormula_Repository();
 
 		/**
 		 * The meta object literal for the '<em><b>Latex String</b></em>' attribute feature.
@@ -471,14 +511,22 @@ public interface FormulaPackage extends EPackage {
 		EReference FORMULA__OUTPUT_PARAMETER = eINSTANCE.getFormula_OutputParameter();
 
 		/**
-		 * The meta object literal for the '{@link formula.impl.ParameterImpl <em>Parameter</em>}' class.
+		 * The meta object literal for the '<em><b>Repository</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see formula.impl.ParameterImpl
-		 * @see formula.impl.FormulaPackageImpl#getParameter()
 		 * @generated
 		 */
-		EClass PARAMETER = eINSTANCE.getParameter();
+		EReference FORMULA__REPOSITORY = eINSTANCE.getFormula_Repository();
+
+		/**
+		 * The meta object literal for the '{@link formula.impl.QuantityImpl <em>Quantity</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see formula.impl.QuantityImpl
+		 * @see formula.impl.FormulaPackageImpl#getQuantity()
+		 * @generated
+		 */
+		EClass QUANTITY = eINSTANCE.getQuantity();
 
 		/**
 		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
@@ -486,7 +534,7 @@ public interface FormulaPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
+		EAttribute QUANTITY__NAME = eINSTANCE.getQuantity_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
@@ -494,7 +542,7 @@ public interface FormulaPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER__DESCRIPTION = eINSTANCE.getParameter_Description();
+		EAttribute QUANTITY__DESCRIPTION = eINSTANCE.getQuantity_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Unit</b></em>' attribute feature.
@@ -502,7 +550,15 @@ public interface FormulaPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PARAMETER__UNIT = eINSTANCE.getParameter_Unit();
+		EAttribute QUANTITY__UNIT = eINSTANCE.getQuantity_Unit();
+
+		/**
+		 * The meta object literal for the '<em><b>Repository</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUANTITY__REPOSITORY = eINSTANCE.getQuantity_Repository();
 
 	}
 

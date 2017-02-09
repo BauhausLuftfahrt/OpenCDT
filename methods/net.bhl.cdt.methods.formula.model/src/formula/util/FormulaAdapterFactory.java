@@ -76,8 +76,8 @@ public class FormulaAdapterFactory extends AdapterFactoryImpl {
 				return createFormulaAdapter();
 			}
 			@Override
-			public Adapter caseParameter(Parameter object) {
-				return createParameterAdapter();
+			public Adapter caseQuantity(Quantity object) {
+				return createQuantityAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -128,16 +128,16 @@ public class FormulaAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link formula.Parameter <em>Parameter</em>}'.
+	 * Creates a new adapter for an object of class '{@link formula.Quantity <em>Quantity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see formula.Parameter
+	 * @see formula.Quantity
 	 * @generated
 	 */
-	public Adapter createParameterAdapter() {
+	public Adapter createQuantityAdapter() {
 		return null;
 	}
 

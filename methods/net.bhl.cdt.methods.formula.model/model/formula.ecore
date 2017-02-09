@@ -6,19 +6,23 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="formulas" upperBound="-1"
         eType="#//Formula" containment="true" eOpposite="#//Formula/repository"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="quantities" upperBound="-1"
+        eType="#//Quantity" containment="true" eOpposite="#//Quantity/repository"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Formula">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="repository" lowerBound="1"
-        eType="#//FormulaRepository" eOpposite="#//FormulaRepository/formulas"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="latexString" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="inputParameter" upperBound="-1"
-        eType="#//Parameter"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outputParameter" eType="#//Parameter"/>
+        eType="#//Quantity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputParameter" eType="#//Quantity"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repository" lowerBound="1"
+        eType="#//FormulaRepository" eOpposite="#//FormulaRepository/formulas"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+  <eClassifiers xsi:type="ecore:EClass" name="Quantity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="repository" lowerBound="1"
+        eType="#//FormulaRepository" eOpposite="#//FormulaRepository/quantities"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -40,13 +40,13 @@ public interface FormulaFactory extends EFactory {
 	Formula createFormula();
 
 	/**
-	 * Returns a new object of class '<em>Parameter</em>'.
+	 * Returns a new object of class '<em>Quantity</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter</em>'.
+	 * @return a new object of class '<em>Quantity</em>'.
 	 * @generated
 	 */
-	Parameter createParameter();
+	Quantity createQuantity();
 
 	/**
 	 * Returns the package supported by this factory.

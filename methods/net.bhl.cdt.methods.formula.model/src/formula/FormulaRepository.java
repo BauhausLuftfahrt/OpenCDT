@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link formula.FormulaRepository#getName <em>Name</em>}</li>
  *   <li>{@link formula.FormulaRepository#getFormulas <em>Formulas</em>}</li>
+ *   <li>{@link formula.FormulaRepository#getQuantities <em>Quantities</em>}</li>
  * </ul>
  *
  * @see formula.FormulaPackage#getFormulaRepository()
@@ -67,5 +68,23 @@ public interface FormulaRepository extends EObject {
 	 * @generated
 	 */
 	EList<Formula> getFormulas();
+
+	/**
+	 * Returns the value of the '<em><b>Quantities</b></em>' containment reference list.
+	 * The list contents are of type {@link formula.Quantity}.
+	 * It is bidirectional and its opposite is '{@link formula.Quantity#getRepository <em>Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Quantities</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Quantities</em>' containment reference list.
+	 * @see formula.FormulaPackage#getFormulaRepository_Quantities()
+	 * @see formula.Quantity#getRepository
+	 * @model opposite="repository" containment="true"
+	 * @generated
+	 */
+	EList<Quantity> getQuantities();
 
 } // FormulaRepository

@@ -78,9 +78,9 @@ public class FormulaSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case FormulaPackage.PARAMETER: {
-				Parameter parameter = (Parameter)theEObject;
-				T result = caseParameter(parameter);
+			case FormulaPackage.QUANTITY: {
+				Quantity quantity = (Quantity)theEObject;
+				T result = caseQuantity(quantity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -119,17 +119,17 @@ public class FormulaSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Quantity</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Quantity</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseParameter(Parameter object) {
+	public T caseQuantity(Quantity object) {
 		return null;
 	}
 

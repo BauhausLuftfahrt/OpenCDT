@@ -5,6 +5,7 @@ package formula.impl;
 import formula.Formula;
 import formula.FormulaPackage;
 import formula.FormulaRepository;
+import formula.Quantity;
 
 import java.util.Collection;
 
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link formula.impl.FormulaRepositoryImpl#getName <em>Name</em>}</li>
  *   <li>{@link formula.impl.FormulaRepositoryImpl#getFormulas <em>Formulas</em>}</li>
+ *   <li>{@link formula.impl.FormulaRepositoryImpl#getQuantities <em>Quantities</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,6 +48,7 @@ public class FormulaRepositoryImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -55,6 +58,7 @@ public class FormulaRepositoryImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * The cached value of the '{@link #getFormulas() <em>Formulas</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -64,6 +68,16 @@ public class FormulaRepositoryImpl extends MinimalEObjectImpl.Container implemen
 	 * @ordered
 	 */
 	protected EList<Formula> formulas;
+
+	/**
+	 * The cached value of the '{@link #getQuantities() <em>Quantities</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQuantities()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Quantity> quantities;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -122,12 +136,26 @@ public class FormulaRepositoryImpl extends MinimalEObjectImpl.Container implemen
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Quantity> getQuantities() {
+		if (quantities == null) {
+			quantities = new EObjectContainmentWithInverseEList<Quantity>(Quantity.class, this, FormulaPackage.FORMULA_REPOSITORY__QUANTITIES, FormulaPackage.QUANTITY__REPOSITORY);
+		}
+		return quantities;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case FormulaPackage.FORMULA_REPOSITORY__FORMULAS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFormulas()).basicAdd(otherEnd, msgs);
+			case FormulaPackage.FORMULA_REPOSITORY__QUANTITIES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getQuantities()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -142,6 +170,8 @@ public class FormulaRepositoryImpl extends MinimalEObjectImpl.Container implemen
 		switch (featureID) {
 			case FormulaPackage.FORMULA_REPOSITORY__FORMULAS:
 				return ((InternalEList<?>)getFormulas()).basicRemove(otherEnd, msgs);
+			case FormulaPackage.FORMULA_REPOSITORY__QUANTITIES:
+				return ((InternalEList<?>)getQuantities()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -158,6 +188,8 @@ public class FormulaRepositoryImpl extends MinimalEObjectImpl.Container implemen
 				return getName();
 			case FormulaPackage.FORMULA_REPOSITORY__FORMULAS:
 				return getFormulas();
+			case FormulaPackage.FORMULA_REPOSITORY__QUANTITIES:
+				return getQuantities();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -178,6 +210,10 @@ public class FormulaRepositoryImpl extends MinimalEObjectImpl.Container implemen
 				getFormulas().clear();
 				getFormulas().addAll((Collection<? extends Formula>)newValue);
 				return;
+			case FormulaPackage.FORMULA_REPOSITORY__QUANTITIES:
+				getQuantities().clear();
+				getQuantities().addAll((Collection<? extends Quantity>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -196,6 +232,9 @@ public class FormulaRepositoryImpl extends MinimalEObjectImpl.Container implemen
 			case FormulaPackage.FORMULA_REPOSITORY__FORMULAS:
 				getFormulas().clear();
 				return;
+			case FormulaPackage.FORMULA_REPOSITORY__QUANTITIES:
+				getQuantities().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -212,6 +251,8 @@ public class FormulaRepositoryImpl extends MinimalEObjectImpl.Container implemen
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case FormulaPackage.FORMULA_REPOSITORY__FORMULAS:
 				return formulas != null && !formulas.isEmpty();
+			case FormulaPackage.FORMULA_REPOSITORY__QUANTITIES:
+				return quantities != null && !quantities.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

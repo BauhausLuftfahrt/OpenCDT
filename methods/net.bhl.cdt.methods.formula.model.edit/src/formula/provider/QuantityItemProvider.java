@@ -4,7 +4,7 @@ package formula.provider;
 
 
 import formula.FormulaPackage;
-import formula.Parameter;
+import formula.Quantity;
 
 import java.util.Collection;
 import java.util.List;
@@ -26,12 +26,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link formula.Parameter} object.
+ * This is the item provider adapter for a {@link formula.Quantity} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ParameterItemProvider 
+public class QuantityItemProvider 
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -45,7 +45,7 @@ public class ParameterItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ParameterItemProvider(AdapterFactory adapterFactory) {
+	public QuantityItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -78,9 +78,9 @@ public class ParameterItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_name_feature", "_UI_Parameter_type"),
-				 FormulaPackage.Literals.PARAMETER__NAME,
+				 getString("_UI_Quantity_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Quantity_name_feature", "_UI_Quantity_type"),
+				 FormulaPackage.Literals.QUANTITY__NAME,
 				 true,
 				 false,
 				 false,
@@ -100,9 +100,9 @@ public class ParameterItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_description_feature", "_UI_Parameter_type"),
-				 FormulaPackage.Literals.PARAMETER__DESCRIPTION,
+				 getString("_UI_Quantity_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Quantity_description_feature", "_UI_Quantity_type"),
+				 FormulaPackage.Literals.QUANTITY__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -122,9 +122,9 @@ public class ParameterItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Parameter_unit_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Parameter_unit_feature", "_UI_Parameter_type"),
-				 FormulaPackage.Literals.PARAMETER__UNIT,
+				 getString("_UI_Quantity_unit_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Quantity_unit_feature", "_UI_Quantity_type"),
+				 FormulaPackage.Literals.QUANTITY__UNIT,
 				 true,
 				 false,
 				 false,
@@ -134,14 +134,14 @@ public class ParameterItemProvider
 	}
 
 	/**
-	 * This returns Parameter.gif.
+	 * This returns Quantity.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Parameter"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/Quantity"));
 	}
 
 	/**
@@ -152,10 +152,10 @@ public class ParameterItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Parameter)object).getName();
+		String label = ((Quantity)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Parameter_type") :
-			getString("_UI_Parameter_type") + " " + label;
+			getString("_UI_Quantity_type") :
+			getString("_UI_Quantity_type") + " " + label;
 	}
 	
 
@@ -170,10 +170,10 @@ public class ParameterItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Parameter.class)) {
-			case FormulaPackage.PARAMETER__NAME:
-			case FormulaPackage.PARAMETER__DESCRIPTION:
-			case FormulaPackage.PARAMETER__UNIT:
+		switch (notification.getFeatureID(Quantity.class)) {
+			case FormulaPackage.QUANTITY__NAME:
+			case FormulaPackage.QUANTITY__DESCRIPTION:
+			case FormulaPackage.QUANTITY__UNIT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -118,26 +118,26 @@ public class FormulaItemProviderAdapterFactory extends FormulaAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link formula.Parameter} instances.
+	 * This keeps track of the one adapter used for all {@link formula.Quantity} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ParameterItemProvider parameterItemProvider;
+	protected QuantityItemProvider quantityItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link formula.Parameter}.
+	 * This creates an adapter for a {@link formula.Quantity}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createParameterAdapter() {
-		if (parameterItemProvider == null) {
-			parameterItemProvider = new ParameterItemProvider(this);
+	public Adapter createQuantityAdapter() {
+		if (quantityItemProvider == null) {
+			quantityItemProvider = new QuantityItemProvider(this);
 		}
 
-		return parameterItemProvider;
+		return quantityItemProvider;
 	}
 
 	/**
@@ -241,7 +241,7 @@ public class FormulaItemProviderAdapterFactory extends FormulaAdapterFactory imp
 	public void dispose() {
 		if (formulaRepositoryItemProvider != null) formulaRepositoryItemProvider.dispose();
 		if (formulaItemProvider != null) formulaItemProvider.dispose();
-		if (parameterItemProvider != null) parameterItemProvider.dispose();
+		if (quantityItemProvider != null) quantityItemProvider.dispose();
 	}
 
 }
