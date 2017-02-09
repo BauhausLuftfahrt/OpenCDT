@@ -38,6 +38,9 @@
       <plugin id="javax.xml"/>
       <plugin id="net.bhl.cdt.client.e4"/>
       <plugin id="net.bhl.cdt.log"/>
+      <plugin id="net.bhl.cdt.methods.formula"/>
+      <plugin id="net.bhl.cdt.methods.formula.model"/>
+      <plugin id="net.bhl.cdt.methods.formula.model.edit"/>
       <plugin id="net.bhl.cdt.model"/>
       <plugin id="net.bhl.cdt.model.edit"/>
       <plugin id="org.apache.batik.css"/>

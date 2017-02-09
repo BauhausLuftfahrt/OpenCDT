@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: OpenCDT Formula Framework
+Bundle-SymbolicName: net.bhl.cdt.methods.formula
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Bauhaus Luftfahrt e.V.
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: net.bhl.cdt.methods.formula.model;bundle-version="0.1.0",
+ net.bhl.cdt.methods.formula.model.edit;bundle-version="1.0.0"
