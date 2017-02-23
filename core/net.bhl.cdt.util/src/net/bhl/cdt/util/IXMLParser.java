@@ -1,3 +1,9 @@
+/*
+ * 
+ * @author rushdi
+ *
+ */
+
 package net.bhl.cdt.util;
 
 import javax.xml.stream.XMLEventReader;

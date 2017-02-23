@@ -7,7 +7,8 @@ Bundle-Activator: net.bhl.cdt.util.Activator
 Bundle-Vendor: Bauhaus Luftfahrt e.V.
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.swt,
- net.bhl.cdt.log
+ net.bhl.cdt.log,
+ net.bhl.cdt.model
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: net.bhl.cdt.util,
