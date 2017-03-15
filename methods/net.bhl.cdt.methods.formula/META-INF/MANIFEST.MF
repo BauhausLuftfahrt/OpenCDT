@@ -1,9 +1,29 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: OpenCDT Formula Framework
-Bundle-SymbolicName: net.bhl.cdt.methods.formula
+Bundle-SymbolicName: net.bhl.cdt.methods.formula;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Bauhaus Luftfahrt e.V.
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Require-Bundle: net.bhl.cdt.methods.formula.model;bundle-version="0.1.0",
- net.bhl.cdt.methods.formula.model.edit;bundle-version="1.0.0"
+ net.bhl.cdt.methods.formula.model.edit;bundle-version="1.0.0",
+ org.eclipse.emf.ecp.view.custom.ui.swt;bundle-version="1.10.0",
+ org.eclipse.emf.ecp.view.custom.model;bundle-version="1.10.0",
+ org.eclipse.emf.ecp.ui.view.swt;bundle-version="1.10.0",
+ org.eclipse.swt,
+ org.eclipse.emf.ecp.view.model,
+ org.eclipse.emfforms.swt.core,
+ org.eclipse.emfforms.swt.core.di,
+ org.eclipse.emf.ecp.view.context,
+ org.eclipse.emfforms.common,
+ org.eclipse.emfforms.core.services,
+ org.eclipse.emf.ecp.view.template.model,
+ org.eclipse.emfforms.core.services.editsupport,
+ javax.inject,
+ org.eclipse.jface,
+ org.eclipse.emf.ecp.view.core.swt
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.emf.databinding,
+ org.eclipse.emf.ecp.view.spi.core.swt.renderer;version="1.10.0",
+ org.eclipse.emfforms.spi.core.services.databinding.emf;version="1.10.0"
+Service-Component: src/component.xml

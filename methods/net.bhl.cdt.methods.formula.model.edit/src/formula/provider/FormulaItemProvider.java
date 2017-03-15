@@ -64,6 +64,7 @@ public class FormulaItemProvider
 			addLatexStringPropertyDescriptor(object);
 			addInputParameterPropertyDescriptor(object);
 			addOutputParameterPropertyDescriptor(object);
+			addRepositoryPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -151,6 +152,28 @@ public class FormulaItemProvider
 				 true,
 				 false,
 				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Repository feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRepositoryPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Formula_repository_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Formula_repository_feature", "_UI_Formula_type"),
+				 FormulaPackage.Literals.FORMULA__REPOSITORY,
+				 true,
+				 false,
+				 false,
 				 null,
 				 null,
 				 null));

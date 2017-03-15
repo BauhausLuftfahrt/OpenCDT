@@ -92,6 +92,7 @@
       <plugin id="org.eclipse.emf.databinding.edit"/>
       <plugin id="org.eclipse.emf.ecore"/>
       <plugin id="org.eclipse.emf.ecore.change"/>
+      <plugin id="org.eclipse.emf.ecore.edit"/>
       <plugin id="org.eclipse.emf.ecore.xmi"/>
       <plugin id="org.eclipse.emf.ecp.application.e4"/>
       <plugin id="org.eclipse.emf.ecp.common"/>
@@ -113,6 +114,8 @@
       <plugin id="org.eclipse.emf.ecp.view.context"/>
       <plugin id="org.eclipse.emf.ecp.view.control.multireference"/>
       <plugin id="org.eclipse.emf.ecp.view.core.swt"/>
+      <plugin id="org.eclipse.emf.ecp.view.custom.model"/>
+      <plugin id="org.eclipse.emf.ecp.view.custom.ui.swt"/>
       <plugin id="org.eclipse.emf.ecp.view.group.model"/>
       <plugin id="org.eclipse.emf.ecp.view.group.ui.swt"/>
       <plugin id="org.eclipse.emf.ecp.view.horizontal.model"/>
@@ -122,6 +125,7 @@
       <plugin id="org.eclipse.emf.ecp.view.migrator"/>
       <plugin id="org.eclipse.emf.ecp.view.model"/>
       <plugin id="org.eclipse.emf.ecp.view.model.common"/>
+      <plugin id="org.eclipse.emf.ecp.view.model.edit"/>
       <plugin id="org.eclipse.emf.ecp.view.model.provider.generator"/>
       <plugin id="org.eclipse.emf.ecp.view.model.provider.xmi"/>
       <plugin id="org.eclipse.emf.ecp.view.swt.layout"/>
@@ -153,6 +157,7 @@
       <plugin id="org.eclipse.emfforms.common"/>
       <plugin id="org.eclipse.emfforms.core.services"/>
       <plugin id="org.eclipse.emfforms.core.services.databinding.featurepath"/>
+      <plugin id="org.eclipse.emfforms.core.services.databinding.featurepath.source"/>
       <plugin id="org.eclipse.emfforms.core.services.databinding.index"/>
       <plugin id="org.eclipse.emfforms.core.services.databinding.mapping"/>
       <plugin id="org.eclipse.emfforms.core.services.domainexpander.default"/>
@@ -181,6 +186,7 @@
       <plugin id="org.eclipse.emfforms.swt.table"/>
       <plugin id="org.eclipse.emfforms.swt.treemasterdetail"/>
       <plugin id="org.eclipse.emfforms.view.model.localization"/>
+      <plugin id="org.eclipse.emfforms.view.model.localization.source"/>
       <plugin id="org.eclipse.equinox.app"/>
       <plugin id="org.eclipse.equinox.bidi"/>
       <plugin id="org.eclipse.equinox.common"/>
