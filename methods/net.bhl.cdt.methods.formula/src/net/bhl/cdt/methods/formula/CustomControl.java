@@ -1,4 +1,4 @@
-/*package net.bhl.cdt.methods.formula;
+package net.bhl.cdt.methods.formula;
 
 import org.eclipse.emf.ecp.edit.internal.swt.util.SWTControl;
 import org.eclipse.emf.ecp.view.spi.custom.swt.ECPAbstractCustomControlSWT;
@@ -61,4 +61,3 @@ public class CustomControl extends ECPAbstractCustomControlSWT {
 	}
 
 }
-*/

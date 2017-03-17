@@ -44,6 +44,7 @@ public class ControlSWTRendererService implements EMFFormsDIRendererService<VCon
 
 	@Override
 	public double isApplicable(VElement vElement, ViewModelContext viewModelContext) {
+		
 		if (!VControl.class.isInstance(vElement)) {
 			return NOT_APPLICABLE;
 		}
