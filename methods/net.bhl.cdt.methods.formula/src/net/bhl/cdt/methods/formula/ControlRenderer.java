@@ -46,12 +46,8 @@ import formula.impl.FormulaImpl;
 public class ControlRenderer extends TextControlSWTRenderer {
 
 	ViewModelContext viewContext;
-	VControl vElement;
-	EMFFormsDatabinding databinding;
-	DataBindingContext dataBindingContext;
-	IObservableValue modelValue;
 	
-	private Text latexString;
+	
 
 
 	@Inject
@@ -64,7 +60,6 @@ public class ControlRenderer extends TextControlSWTRenderer {
 			emfFormsEditSupport);
 		
 		this.viewContext = viewContext;
-		this.vElement = vElement;
 		
 	}
 	
@@ -72,7 +67,7 @@ public class ControlRenderer extends TextControlSWTRenderer {
 	@Override
 	protected Control createSWTControl(Composite parent) {
 		
-		final FormulaRepository formulaRepository = createFormulaRepository();
+		
 		
 		final Composite main = new Composite(parent, SWT.NONE);
 		
@@ -80,94 +75,21 @@ public class ControlRenderer extends TextControlSWTRenderer {
 		
 		GridDataFactory.fillDefaults().grab(true, false)
 			.align(SWT.FILL, SWT.BEGINNING).applyTo(main);
-		
-		latexString = new Text(parent, SWT.NONE);
-
-		
+				
 		final Control control = super.createSWTControl(main);
-
-		
-		/*DataBindingContext bindingContext = new DataBindingContext();
-        bindingContext.bindValue(
-                        WidgetProperties.text(SWT.Modify).observe(latexString),
-                        EMFProperties.value(FormulaPackage.Literals.FORMULA__LATEX_STRING).observe(formulaRepository));
-*/
         
 		final Button button = new Button(main, SWT.PUSH);
 		button.setText("Show"); 
 		button.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				
-				
-				/*FormulaPackage.eINSTANCE.eClass();
-				FormulaFactory factory = FormulaFactory.eINSTANCE;
-				FormulaRepository repo = factory.createFormulaRepository();
-				repo.setName("sanghun");*/
-				
-				/*VDomainModelReference dmr=vElement.getDomainModelReference();
-				//Text textControl = new Text(parent, SWT.SINGLE);
-				final IObservableValue value = SWTObservables.observeText(control, SWT.FocusOut);
-				
-				try {
-					modelValue = databinding.getObservableValue(dmr,viewContext.getDomainModel());
-				} catch (DatabindingFailedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				final Binding binding = dataBindingContext.bindValue(value, modelValue, null, null);*/
-				
-				
-				
-				//final Formula formula = factory.eGet(feature);
-				
-				
-				//System.out.println("sanghun : "+ repo.getName()  );
-				System.out.println("sanghun : "+ FormulaPackage.eINSTANCE.getNsPrefix());
-				System.out.println("sanghun : "+ FormulaPackage.eINSTANCE.toString());
-				System.out.println("sanghun : "+ FormulaPackage.eINSTANCE.getFormula_Name());
-				System.out.println("sanghun : "+ FormulaPackage.eINSTANCE.getFormulaFactory());
-				System.out.println("sanghun : "+ FormulaPackage.eINSTANCE.getFormulaRepository_Formulas());
-				System.out.println("sanghun : "+ FormulaPackage.eINSTANCE.getFormulaRepository_Name());
-				System.out.println("sanghun : "+ viewContext.getDomainModel());
+			
 				System.out.println("sanghun : "+ viewContext.getDomainModel().eGet(FormulaPackage.Literals.FORMULA__LATEX_STRING));
 
-				//System.out.println("sanghun : "+ viewContext.getDomainModel());
-				
-
-
-
-
-
-				//FormulaPackage.eINSTANCE.getFormula_LatexString().toString()
-			/*	try {
-					Desktop.getDesktop().mail(
-						URI.create("mailto:" //$NON-NLS-1$
-							+ getModelValue().getValue()));
-					
-					//System.out.println("sanghun");
-				} catch (final IOException e1) {
-					// ignore failure to open mailto
-				} catch (final DatabindingFailedException ex) {
-					getReportService().report(new DatabindingFailedReport(ex));
-					// ignore failure to open mailto
-				}*/
 			}
 		});
 		return control;
 	}
-	
-	private FormulaRepository createFormulaRepository(){
-		
-		FormulaPackage.eINSTANCE.eClass();
-		
-		FormulaFactory factory = FormulaFactory.eINSTANCE;
 
-        final FormulaRepository formulaRepository = factory.createFormulaRepository();
-
-		return formulaRepository;
-		
-	}
-	
 
 }
