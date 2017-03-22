@@ -9,6 +9,8 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.transform.TransformerException;
 
 import org.eclipse.e4.core.di.annotations.Execute;
+import org.eclipse.emf.ecp.core.ECPProject;
+import org.eclipse.emf.ecp.spi.ui.util.ECPHandlerHelper;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Shell;
 import org.xml.sax.SAXException;
@@ -31,6 +33,9 @@ public class ImportCPACSFileHandler {
 			try {
 				xmlParser.readXMLFile(xmlEventReader);
 				xmlParser.readXMLByNode(fileLocation);
+				
+				ECPProject project = ECPHandlerHelper.createProject(shell);
+				project.getContents().add(xmlParser.getVehiclesComponent());
 			} catch (XMLStreamException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

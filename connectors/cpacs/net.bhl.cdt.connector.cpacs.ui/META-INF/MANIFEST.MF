@@ -11,7 +11,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.e4.core.di,
  net.bhl.cdt.model,
  org.eclipse.swt,
- net.bhl.cdt.util
+ net.bhl.cdt.util,
+ org.eclipse.emf.ecp.ui,
+ org.eclipse.emf.ecp.core
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.inject;version="1.0.0",
  net.bhl.cdt.util
