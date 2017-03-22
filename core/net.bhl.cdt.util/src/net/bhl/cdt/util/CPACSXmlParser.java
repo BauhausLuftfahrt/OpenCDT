@@ -9,6 +9,7 @@ package net.bhl.cdt.util;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.ParseException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -104,7 +105,6 @@ public class CPACSXmlParser implements IXMLParser {
 				printTags((Node) nl.item(k), vehiclesComponent);
 			}
 		}
-
 	}
 
 	public static void printTags(Node nodes, Component rootNode) {
@@ -113,6 +113,7 @@ public class CPACSXmlParser implements IXMLParser {
 			// System.out.println("nole : " + nl.getLength());
 			for (int j = 0; j < nl.getLength(); j++) {
 				if (!nl.item(j).getNodeName().equalsIgnoreCase("#text")) {
+					// if the node has just one child, and this is #text you create a parameter:
 					if (nl.item(j).getChildNodes().getLength() == 1 && nl.item(j).getFirstChild().getNodeName().equalsIgnoreCase("#text")) {
 						Parameter p = SystemFactory.eINSTANCE.createParameter();
 						p.setName(nl.item(j).getNodeName());
@@ -120,7 +121,7 @@ public class CPACSXmlParser implements IXMLParser {
 						if(nl.item(j).getTextContent().isEmpty() || nl.item(j).getTextContent() != null){
 							if(isNumeric(nl.item(j).getTextContent())){
 								DecimalNumber numberValue = SystemFactory.eINSTANCE.createDecimalNumber();
-								Double.parseDouble(nl.item(j).getTextContent());
+								numberValue.setValue(new BigDecimal(Double.parseDouble(nl.item(j).getTextContent())));
 								p.getValues().add(numberValue);
 							} else {
 								StringValue stringValue = SystemFactory.eINSTANCE.createStringValue();
@@ -130,6 +131,7 @@ public class CPACSXmlParser implements IXMLParser {
 						}
 						
 						rootNode.getParameters().add(p);
+						// if you don't create a parameter, you create a subcomponent:
 					} else {
 						Component c = SystemFactory.eINSTANCE.createComponent();
 						c.setName(nl.item(j).getNodeName());
