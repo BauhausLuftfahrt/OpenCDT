@@ -9,7 +9,6 @@ package net.bhl.cdt.util;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.text.ParseException;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -27,12 +26,22 @@ import org.xml.sax.SAXException;
 
 import net.bhl.cdt.model.system.Component;
 import net.bhl.cdt.model.system.DecimalNumber;
+import net.bhl.cdt.model.system.Parameter;
 import net.bhl.cdt.model.system.StringValue;
 import net.bhl.cdt.model.system.SystemFactory;
 
 public class CPACSXmlParser implements IXMLParser {
 
 	public final String startNode = "<vehicles>";
+	
+	private Component vehiclesComponent;
+	
+	/**
+	 * @return The component representing the vehicles node of the CPACS-File.
+	 */
+	public Component getVehiclesComponent() {
+		return vehiclesComponent;
+	}
 
 	public CPACSXmlParser() {
 
@@ -49,7 +58,6 @@ public class CPACSXmlParser implements IXMLParser {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
 	}
 
 	@Override
@@ -90,9 +98,10 @@ public class CPACSXmlParser implements IXMLParser {
 			// Node node = (Node) nl.item(k);
 
 			if (nl.item(k).getNodeName().equalsIgnoreCase("vehicles")) {
-				Component vehicles = SystemFactory.eINSTANCE.createComponent();
+				vehiclesComponent = SystemFactory.eINSTANCE.createComponent();
+				vehiclesComponent.setName("Vehicles");
 
-				printTags((Node) nl.item(k), vehicles);
+				printTags((Node) nl.item(k), vehiclesComponent);
 			}
 		}
 
@@ -103,26 +112,33 @@ public class CPACSXmlParser implements IXMLParser {
 			NodeList nl = nodes.getChildNodes();
 			// System.out.println("nole : " + nl.getLength());
 			for (int j = 0; j < nl.getLength(); j++) {
-				if (!nl.item(j).getNodeName().equalsIgnoreCase("#text") && !nl.item(j).getTextContent().isEmpty()) {
-					Component c = SystemFactory.eINSTANCE.createComponent();
-					c.setName(nl.item(j).getNodeName());
-					
-					if(nl.item(j).getTextContent().isEmpty() || nl.item(j).getTextContent() != null){
-						if(isNumeric(nl.item(j).getTextContent())){
-							DecimalNumber numberValue = SystemFactory.eINSTANCE.createDecimalNumber();
-							Double.parseDouble(nl.item(j).getTextContent());
-							//c.getSubcomponents().add(numberValue);
-						}else{
-							StringValue stringValue = SystemFactory.eINSTANCE.createStringValue();
-							stringValue.setValue(nl.item(j).getTextContent());
-							//c.getSubcomponents().add(stringValue);
+				if (!nl.item(j).getNodeName().equalsIgnoreCase("#text")) {
+					if (nl.item(j).getChildNodes().getLength() == 1 && nl.item(j).getFirstChild().getNodeName().equalsIgnoreCase("#text")) {
+						Parameter p = SystemFactory.eINSTANCE.createParameter();
+						p.setName(nl.item(j).getNodeName());
+						
+						if(nl.item(j).getTextContent().isEmpty() || nl.item(j).getTextContent() != null){
+							if(isNumeric(nl.item(j).getTextContent())){
+								DecimalNumber numberValue = SystemFactory.eINSTANCE.createDecimalNumber();
+								Double.parseDouble(nl.item(j).getTextContent());
+								p.getValues().add(numberValue);
+							} else {
+								StringValue stringValue = SystemFactory.eINSTANCE.createStringValue();
+								stringValue.setValue(nl.item(j).getTextContent());
+								p.getValues().add(stringValue);
+							}
 						}
+						
+						rootNode.getParameters().add(p);
+					} else {
+						Component c = SystemFactory.eINSTANCE.createComponent();
+						c.setName(nl.item(j).getNodeName());
+						
+						rootNode.getSubcomponents().add(c);
+						printTags(nl.item(j), c);
 					}
 					
-					
-					rootNode.getSubcomponents().add(c);
 					System.out.println(nl.item(j).getNodeName() + " : " + nl.item(j).getTextContent());
-					printTags(nl.item(j), c);
 				}
 			}
 		}
