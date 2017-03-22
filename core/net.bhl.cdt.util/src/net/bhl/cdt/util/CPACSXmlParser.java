@@ -9,18 +9,15 @@ package net.bhl.cdt.util;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.ParseException;
-import java.util.Iterator;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
-import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
-import javax.xml.stream.events.StartElement;
-import javax.xml.stream.events.XMLEvent;
 import javax.xml.transform.TransformerException;
 
 import org.w3c.dom.Document;
@@ -28,12 +25,10 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import net.bhl.cdt.model.ModelFactory;
+import net.bhl.cdt.model.system.Component;
+import net.bhl.cdt.model.system.DecimalNumber;
+import net.bhl.cdt.model.system.StringValue;
 import net.bhl.cdt.model.system.SystemFactory;
-
-import javax.xml.stream.events.Attribute;
-import javax.xml.stream.events.Characters;
-import javax.xml.stream.events.EndElement;
 
 public class CPACSXmlParser implements IXMLParser {
 
@@ -72,59 +67,11 @@ public class CPACSXmlParser implements IXMLParser {
 		return null;
 	}
 
-	// SystemFactory.eINSTANCE.createComponent()
 	@Override
 	public void readXMLFile(XMLEventReader eventReader) throws XMLStreamException {
 		// TODO Auto-generated method stub
 		;
-		// while (eventReader.hasNext()) {
-		// XMLEvent event = eventReader.nextEvent();
-		//
-		// if (event.isStartElement()){
-		// StartElement startElement = event.asStartElement();
-		//
-		// if(startElement.getName().getLocalPart().equals(startNode)){
-		// System.out.println("startElement : " + event);
-		//
-		//
-		// }
-		// }
-		//
-		// if(event.isEndElement()){
-		// EndElement endElement = event.asEndElement();
-		// if(endElement.getName().getLocalPart().equals(startNode)){
-		// System.out.println("EndElement : " + event);
-		// }
-		// }
 
-		// switch (event.getEventType()) {
-		// case XMLStreamConstants.START_ELEMENT:
-		// StartElement startElement = event.asStartElement();
-		// String startElementName = startElement.getName().getLocalPart();
-		// if (startElementName.equalsIgnoreCase(startNode)) {
-		// // @SuppressWarnings("unchecked")
-		// // Iterator<Attribute> attribute =
-		// // startElement.getAttributes();
-		//
-		// System.out.println("startElement : " + startElementName);
-		// }
-		//
-		// break;
-		// case XMLStreamConstants.CHARACTERS:
-		// Characters characters = event.asCharacters();
-		// System.out.println("characters : " + characters);
-		// break;
-		// case XMLStreamConstants.END_ELEMENT:
-		// EndElement endElement = event.asEndElement();
-		// if (endElement.getName().getLocalPart().equalsIgnoreCase(startNode))
-		// {
-		// System.out.println("End Element :" + startNode);
-		// System.out.println();
-		// }
-		// break;
-		// }
-		// }
-		//
 	}
 
 	@Override
@@ -137,23 +84,56 @@ public class CPACSXmlParser implements IXMLParser {
 		Document document = (Document) docBuilder.parse(new File(filePath));
 
 		NodeList nl = document.getDocumentElement().getChildNodes();
+		// System.out.println("nole : " + nl.getLength());
 
 		for (int k = 0; k < nl.getLength(); k++) {
-			Node node = (Node) nl.item(k);
-			if (node.getNodeName().equalsIgnoreCase("vehicles")) {
-				printTags((Node) nl.item(k));
+			// Node node = (Node) nl.item(k);
+
+			if (nl.item(k).getNodeName().equalsIgnoreCase("vehicles")) {
+				Component vehicles = SystemFactory.eINSTANCE.createComponent();
+
+				printTags((Node) nl.item(k), vehicles);
 			}
 		}
 
 	}
 
-	public static void printTags(Node nodes) {
+	public static void printTags(Node nodes, Component rootNode) {
 		if (nodes.hasChildNodes()) {
-			System.out.println(nodes.getNodeName() + " : " + nodes.getTextContent());
 			NodeList nl = nodes.getChildNodes();
+			// System.out.println("nole : " + nl.getLength());
 			for (int j = 0; j < nl.getLength(); j++) {
-				printTags(nl.item(j));
+				if (!nl.item(j).getNodeName().equalsIgnoreCase("#text") && !nl.item(j).getTextContent().isEmpty()) {
+					Component c = SystemFactory.eINSTANCE.createComponent();
+					c.setName(nl.item(j).getNodeName());
+					
+					if(nl.item(j).getTextContent().isEmpty() || nl.item(j).getTextContent() != null){
+						if(isNumeric(nl.item(j).getTextContent())){
+							DecimalNumber numberValue = SystemFactory.eINSTANCE.createDecimalNumber();
+							Double.parseDouble(nl.item(j).getTextContent());
+							//c.getSubcomponents().add(numberValue);
+						}else{
+							StringValue stringValue = SystemFactory.eINSTANCE.createStringValue();
+							stringValue.setValue(nl.item(j).getTextContent());
+							//c.getSubcomponents().add(stringValue);
+						}
+					}
+					
+					
+					rootNode.getSubcomponents().add(c);
+					System.out.println(nl.item(j).getNodeName() + " : " + nl.item(j).getTextContent());
+					printTags(nl.item(j), c);
+				}
 			}
 		}
+	}
+
+	public static boolean isNumeric(String str) {
+		try {
+			double d = Double.parseDouble(str);
+		} catch (NumberFormatException nfe) {
+			return false;
+		}
+		return true;
 	}
 }
