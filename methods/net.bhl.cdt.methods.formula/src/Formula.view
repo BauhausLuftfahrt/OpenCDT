@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<org.eclipse.emf.ecp.view.model:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.emf.ecp.view.custom.model="http://org/eclipse/emf/ecp/view/custom/model" xmlns:org.eclipse.emf.ecp.view.model="http://org/eclipse/emf/ecp/view/model/170" xmi:id="_xfyHYAWFEee7AZFnADaSpA" name="Formula" ecorePath="/net.bhl.cdt.methods.formula.model/model/formula.ecore">
+<org.eclipse.emf.ecp.view.model:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.emf.ecp.view.model="http://org/eclipse/emf/ecp/view/model/170" xmi:id="_xfyHYAWFEee7AZFnADaSpA" name="Formula" ecorePath="/net.bhl.cdt.methods.formula.model/model/formula.ecore">
   <rootEClass href="http://bauhaus-luftfahrt.net/cdt/methods/formula#//Formula"/>
   <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_Ke1U4Al2EeevqIioi89NYw" name="Control name">
     <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_Ke1U4Ql2EeevqIioi89NYw">
@@ -24,11 +24,6 @@
   <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_JPKrkAsdEeeU0YaYJSMUIw" name="Control repository">
     <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_JPKrkQsdEeeU0YaYJSMUIw">
       <domainModelEFeature xsi:type="ecore:EReference" href="http://bauhaus-luftfahrt.net/cdt/methods/formula#//Formula/repository"/>
-    </domainModelReference>
-  </children>
-  <children xsi:type="org.eclipse.emf.ecp.view.custom.model:CustomControl" xmi:id="_2wYJEAl8EeevqIioi89NYw" bundleName="net.bhl.cdt.methods.formula" className="CustomControl">
-    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_4m8pIAl8EeevqIioi89NYw">
-      <domainModelEFeature xsi:type="ecore:EAttribute" href="http://bauhaus-luftfahrt.net/cdt/methods/formula#//Formula/latexString"/>
     </domainModelReference>
   </children>
 </org.eclipse.emf.ecp.view.model:View>

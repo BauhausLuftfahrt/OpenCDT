@@ -22,7 +22,9 @@ Require-Bundle: net.bhl.cdt.methods.formula.model;bundle-version="0.1.0",
  javax.inject,
  org.eclipse.jface,
  org.eclipse.emf.ecp.view.core.swt,
- org.eclipse.emf.common
+ org.eclipse.emf.common;resolution:=optional,
+ net.bhl.cdt.methods.formula.snuggle;bundle-version="1.0.0",
+ net.bhl.cdt.methods.formula.jeuklid;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.emf.databinding,
  org.eclipse.emf.ecp.view.spi.core.swt.renderer;version="1.10.0",

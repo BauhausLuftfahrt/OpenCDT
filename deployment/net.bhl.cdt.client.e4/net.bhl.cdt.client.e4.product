@@ -36,11 +36,16 @@
       <plugin id="javax.inject"/>
       <plugin id="javax.servlet"/>
       <plugin id="javax.xml"/>
+      <plugin id="javax.xml.rpc"/>
+      <plugin id="javax.xml.soap"/>
+      <plugin id="javax.xml.stream"/>
       <plugin id="net.bhl.cdt.client.e4"/>
       <plugin id="net.bhl.cdt.log"/>
       <plugin id="net.bhl.cdt.methods.formula"/>
+      <plugin id="net.bhl.cdt.methods.formula.jeuklid"/>
       <plugin id="net.bhl.cdt.methods.formula.model"/>
       <plugin id="net.bhl.cdt.methods.formula.model.edit"/>
+      <plugin id="net.bhl.cdt.methods.formula.snuggle"/>
       <plugin id="net.bhl.cdt.model"/>
       <plugin id="net.bhl.cdt.model.edit"/>
       <plugin id="org.apache.batik.css"/>
@@ -49,6 +54,9 @@
       <plugin id="org.apache.commons.codec"/>
       <plugin id="org.apache.commons.jxpath"/>
       <plugin id="org.apache.commons.logging"/>
+      <plugin id="org.apache.xerces"/>
+      <plugin id="org.apache.xml.resolver"/>
+      <plugin id="org.apache.xml.serializer"/>
       <plugin id="org.eclipse.ant.core"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
