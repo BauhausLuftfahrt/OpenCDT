@@ -6,8 +6,8 @@
       <domainModelEFeature xsi:type="ecore:EAttribute" href="http://bauhaus-luftfahrt.net/cdt/methods/formula#//Formula/name"/>
     </domainModelReference>
   </children>
-  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_Ke-e0Al2EeevqIioi89NYw" name="Control latexString">
-    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_Ke-e0Ql2EeevqIioi89NYw">
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_DimxgBqsEeeBCflL9DnxAQ" name="Control latexString" labelAlignment="Top">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_DimxgRqsEeeBCflL9DnxAQ">
       <domainModelEFeature xsi:type="ecore:EAttribute" href="http://bauhaus-luftfahrt.net/cdt/methods/formula#//Formula/latexString"/>
     </domainModelReference>
   </children>

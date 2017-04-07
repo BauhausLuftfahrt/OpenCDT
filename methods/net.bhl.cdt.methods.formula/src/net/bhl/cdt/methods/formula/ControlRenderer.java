@@ -1,6 +1,8 @@
 package net.bhl.cdt.methods.formula;
 
+import java.awt.Component;
 import java.awt.Desktop;
+import java.awt.TextField;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -21,6 +23,8 @@ import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature.Setting;
+import org.eclipse.emf.ecp.edit.internal.swt.util.SWTControl;
 import org.eclipse.emf.ecp.view.spi.context.ViewModelContext;
 import org.eclipse.emf.ecp.view.spi.core.swt.renderer.TextControlSWTRenderer;
 import org.eclipse.emf.ecp.view.spi.model.VControl;
@@ -32,13 +36,17 @@ import org.eclipse.emfforms.spi.core.services.databinding.DatabindingFailedRepor
 import org.eclipse.emfforms.spi.core.services.databinding.EMFFormsDatabinding;
 import org.eclipse.emfforms.spi.core.services.editsupport.EMFFormsEditSupport;
 import org.eclipse.emfforms.spi.core.services.label.EMFFormsLabelProvider;
+import org.eclipse.emfforms.spi.core.services.label.NoLabelFoundException;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.FocusEvent;
+import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.widgets.Button;
@@ -49,6 +57,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Widget;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -68,14 +77,12 @@ import uk.ac.ed.ph.snuggletex.SnuggleInput;
 import uk.ac.ed.ph.snuggletex.SnuggleSession;
 
 
-
-
-
-
-public class ControlRenderer extends TextControlSWTRenderer {
+public class ControlRenderer extends TextControlSWTRenderer{
 
 	private ViewModelContext viewContext;
 	private Label photoLabel;
+	private VControl vElement;
+	private Text text;
 
 	@Inject
 	public ControlRenderer(VControl vElement, ViewModelContext viewContext,
@@ -87,118 +94,96 @@ public class ControlRenderer extends TextControlSWTRenderer {
 			emfFormsEditSupport);
 		
 		this.viewContext = viewContext;
+		this.vElement = vElement;
 		
 	}
 	
 	
-	@Override
 	protected Control createSWTControl(Composite parent) {
 		
 		final Composite main = new Composite(parent, SWT.NONE);
 	
 		GridLayoutFactory.fillDefaults().numColumns(2).applyTo(main);
-		
+	
 		GridDataFactory.fillDefaults().grab(true, false)
 			.align(SWT.FILL, SWT.BEGINNING).applyTo(main);
 				
 		final Control control = super.createSWTControl(main);
-        
+		
+		Control[] controlList = ((Composite) control).getChildren();
+				
+		try {
+			System.out.println("text :  " + getEMFFormsLabelProvider().
+					getDisplayName(vElement.getDomainModelReference(), viewContext.getDomainModel()).getValue());			
+			System.out.println("main : " + controlList[0]);
+
+			
+		} catch (NoLabelFoundException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
+		      
 		final Button button = new Button(main, SWT.PUSH);
 		button.setText("Show");
 		
-		//this.photoLabel = new Label(main, SWT.BORDER);
 		this.photoLabel = new Label(main, SWT.NONE);
-		//Image image = new Image(Display.getCurrent(),"C://Users/sanghun.cho/Desktop/whiteboard.jpg");
-		//Image image = new Image(Display.getCurrent(),"C://Users/sanghun.cho/Desktop/snuggle tex error.jpg");
-		Image image = new Image(Display.getCurrent(),300,30);
+		Image image = new Image(Display.getCurrent(), 600, 100);	
 		this.photoLabel.setImage(image);
-		button.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
 				
+		FocusListener listener = new FocusListener() {
+        	
+            public void focusGained(FocusEvent event) {
+                   	
+            	System.out.println("get Focus");      	
+            }
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				
+				System.out.println("lost Focus");
 				
 				try {
 					createNewImage();
-				} catch (IOException | ParserConfigurationException e1) {
+				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (SAXException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+				} catch (ParserConfigurationException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+		};
+		
+		controlList[0].addFocusListener(listener);
+		
+		
+		
+		
+		button.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+		
+				try {
+					createNewImage();
+				} catch (IOException | SAXException | ParserConfigurationException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
 					
-				System.out.println("sanghun : "+ viewContext.getDomainModel().eGet(FormulaPackage.Literals.FORMULA__LATEX_STRING));
-
 			}
 		});
 		
 
 		return control;
 	}
-	
-	/*private void createNewImage() throws IOException, ParserConfigurationException, SAXException {
-		
-		String message = viewContext.getDomainModel().eGet(FormulaPackage.Literals.FORMULA__LATEX_STRING).toString();
-		System.out.println("message : " + message);
 
-		SnuggleEngine engine  = new SnuggleEngine();		
-		SnuggleSession session = engine.createSession();  
-		SnuggleInput input = new SnuggleInput(message);
-		session.getConfiguration().setFailingFast(true);
-		
-		session.parseInput(input);
-				
-		String xmlString = session.buildXMLString();
-		System.out.println("xlmString : " + xmlString);
-		
- 			
-		final Document doc = MathMLParserSupport.parseString(xmlString);
- 	   
- 		final File outFile = new File("test1.png");
- 	      
- 		final MutableLayoutContext params = new LayoutContextImpl(LayoutContextImpl.getDefaultLayoutContext());
- 	     
- 		params.setParameter(Parameter.MATHSIZE, 25f);
- 	      
- 	    Converter.getInstance().convert(doc, outFile, "image/" + "png", params);
- 	    
- 		 byte[] uploadedImg = null;
- 		 
-	 		try {
-	 			
-	
-	 			double fileLen = outFile.length();
-	 		    uploadedImg = new byte[(int) fileLen];
-	 		    FileInputStream inputStream = new FileInputStream(outFile);
-
-	 		    int nRead = 0;
-	 		    
-	 		    while ((nRead = inputStream.read(uploadedImg)) != -1) {
-	 		    }
-	 		    
-	 		    inputStream.close();
-
-	 		} catch (Exception e2) {
-	 		    // TODO: handle exception
-	 		}
-	 		
-	 		BufferedInputStream inputStreamReader = new BufferedInputStream(new ByteArrayInputStream(uploadedImg));
-	 		ImageData imageData = new ImageData(inputStreamReader);
-	 	
-	 		//Image newimage = new Image(Display.getCurrent(),"C://Users/sanghun.cho/Desktop/snuggle tex error.jpg");
-	 		Image newimage = new Image(Display.getCurrent(),imageData);
-	 		this.photoLabel.setImage(newimage);
-		
-		
-		
-	}*/
-
-	
 	private void createNewImage() throws IOException, SAXException, ParserConfigurationException {
 		
 		String message = viewContext.getDomainModel().eGet(FormulaPackage.Literals.FORMULA__LATEX_STRING).toString();
-		System.out.println("message : " + message);
-		
 		
 		SnuggleEngine engine  = new SnuggleEngine();		
 		SnuggleSession session = engine.createSession();  
@@ -213,29 +198,27 @@ public class ControlRenderer extends TextControlSWTRenderer {
 	        messageBox.setMessage(session.getErrors().toString());
 	        messageBox.open();
 	        
-	        //setImageRemove();
+	        setImageRemove();
 			
 			System.out.println("Error : " + session.getErrors().toString());
 		}
 		else{
-			
- 	    String xmlString = session.buildXMLString();
-			
- 	    
- 	    
- 	  System.out.println("xlmString : " + xmlString);
-
- 	 final Document doc = MathMLParserSupport.parseString(xmlString);
- 	   
- 	 final File outFile = new File("test1.png");
- 	      
- 	 final MutableLayoutContext params = new LayoutContextImpl(LayoutContextImpl.getDefaultLayoutContext());
- 	     
- 	     params.setParameter(Parameter.MATHSIZE, 25f);
- 	      
- 	     Converter.getInstance().convert(doc, outFile, "image/" + "png", params);
- 	    
- 		 byte[] uploadedImg = null;
+				
+	 	    String xmlString = session.buildXMLString();
+				
+	 	    //System.out.println("xlmString : " + xmlString);
+	
+	 	    final Document document = MathMLParserSupport.parseString(xmlString);
+	 	   
+	 	    final File outFile = new File("test.png");
+	 	    
+	 	    final MutableLayoutContext params = new LayoutContextImpl(LayoutContextImpl.getDefaultLayoutContext());
+	 	     
+	 	    params.setParameter(Parameter.MATHSIZE, 25f);
+	 	      
+	 	    Converter.getInstance().convert(document, outFile, "image/" + "png", params);
+	 	    
+	 		byte[] uploadedImg = null;
  		 
 	 		try {
 	 			
@@ -257,14 +240,22 @@ public class ControlRenderer extends TextControlSWTRenderer {
 	 		
 	 		BufferedInputStream inputStreamReader = new BufferedInputStream(new ByteArrayInputStream(uploadedImg));
 	 		ImageData imageData = new ImageData(inputStreamReader);
-	 	
-	 		//Image newimage = new Image(Display.getCurrent(),"C://Users/sanghun.cho/Desktop/snuggle tex error.jpg");
 	 		Image newimage = new Image(Display.getCurrent(),imageData);
+	 		
+	 		//Image newImage  = resize(newimage,300,30);
 	 		this.photoLabel.setImage(newimage);
+	 		
 		
 		}
 		
 	}
+	
+ 	private void setImageRemove(){
+ 		
+ 		photoLabel.setImage(null);
+ 		
+ 	}
+ 
 }
 
 

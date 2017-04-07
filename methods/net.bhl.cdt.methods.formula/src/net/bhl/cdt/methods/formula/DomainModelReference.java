@@ -1,4 +1,4 @@
-/*package net.bhl.cdt.methods.formula;
+package net.bhl.cdt.methods.formula;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -15,7 +15,7 @@ public class DomainModelReference implements ECPHardcodedReferences {
 	public DomainModelReference() {
 		// TODO Auto-generated constructor stub
 	}
-
+	
 	@Override
 	public Set<VDomainModelReference> getNeededDomainModelReferences() {
 		
@@ -29,4 +29,3 @@ public class DomainModelReference implements ECPHardcodedReferences {
 	}
 
 }
-*/

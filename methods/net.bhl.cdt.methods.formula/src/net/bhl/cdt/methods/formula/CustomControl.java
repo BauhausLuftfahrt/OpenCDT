@@ -1,4 +1,4 @@
-/*package net.bhl.cdt.methods.formula;
+package net.bhl.cdt.methods.formula;
 
 import org.eclipse.emf.ecp.edit.internal.swt.util.SWTControl;
 import org.eclipse.emf.ecp.view.spi.custom.swt.ECPAbstractCustomControlSWT;
@@ -44,16 +44,17 @@ public class CustomControl extends ECPAbstractCustomControlSWT {
 	public Control renderControl(SWTGridCell cell, Composite composite)
 			throws NoRendererFoundException, NoPropertyDescriptorFoundExeption {
 		
-		Composite parent=new Composite(composite, SWT.NONE);
-        parent.setLayout(new FillLayout(SWT.VERTICAL));
+		Composite parent = new Composite(composite, SWT.NONE);
+        //parent.setLayout(new FillLayout(SWT.VERTICAL));
         
-        Label userAttributes=new Label(parent, SWT.NONE);
+        /*Label userAttributes=new Label(parent, SWT.NONE);
         userAttributes.setText("User Attributes");
-        userAttributes.setAlignment(SWT.CENTER);
+        userAttributes.setAlignment(SWT.None);*/
+		
+		System.out.println("run render control");  
         
         VDomainModelReference domainModelRefLatexString = getResolvedDomainModelReference(FormulaPackage.eINSTANCE.getFormula_LatexString()); 
 
-        
         getControl(SWTControl.class,domainModelRefLatexString).createControl(parent);
         
         return parent;
@@ -61,4 +62,3 @@ public class CustomControl extends ECPAbstractCustomControlSWT {
 	}
 
 }
-*/
