@@ -118,7 +118,7 @@ public class ControlRenderer extends TextControlSWTRenderer{
 			System.out.println("text :  " + getEMFFormsLabelProvider().
 					getDisplayName(vElement.getDomainModelReference(), viewContext.getDomainModel()).getValue());			
 			System.out.println("main : " + controlList[0]);
-
+			
 			
 		} catch (NoLabelFoundException e2) {
 			// TODO Auto-generated catch block
@@ -185,9 +185,7 @@ public class ControlRenderer extends TextControlSWTRenderer{
 			}
 		};	
 		controlList[0].addFocusListener(listener);
-		
-		
-		
+	
 
 		return control;
 	}
@@ -261,7 +259,6 @@ public class ControlRenderer extends TextControlSWTRenderer{
 	 		if(( newimage.getBounds().width >= 600 ) || ( newimage.getBounds().height >= 100 )){
 	 			
 	 			int scale = ( newWidth / width );
-	 			//int scaleHeight = height / scale;
 	 			
 	 			final Image scaled = new Image(Display.getCurrent(),imageData.scaledTo(600,20/scale));
 	 			this.photoLabel.setImage(scaled);
@@ -275,9 +272,6 @@ public class ControlRenderer extends TextControlSWTRenderer{
 	 			
 	 		}
 	 		
-	 		//Image newImage  = resize(newimage,600,100);
-	 		//this.photoLabel.setImage(newimage);
-	 		//this.photoLabel.setImage(scaled);
 		
 		}
 		

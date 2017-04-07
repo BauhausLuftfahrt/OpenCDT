@@ -9,22 +9,22 @@ package net.bhl.cdt.model.datatypes.provider;
 import java.util.Collection;
 import java.util.List;
 
-import net.bhl.cdt.model.datatypes.Cells;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import net.bhl.cdt.model.datatypes.Cells;
+
 /**
- * This is the item provider adapter for a {@link net.bhl.cdt.model.datatypes.Cells} object.
- * <!-- begin-user-doc -->
+ * This is the item provider adapter for a {@link net.bhl.cdt.model.datatypes.Cells} object. <!-- begin-user-doc -->
  * <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class CellsItemProvider extends CompositeValuesItemProvider {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public CellsItemProvider(AdapterFactory adapterFactory) {
@@ -32,8 +32,8 @@ public class CellsItemProvider extends CompositeValuesItemProvider {
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -46,8 +46,8 @@ public class CellsItemProvider extends CompositeValuesItemProvider {
 	}
 
 	/**
-	 * This returns Cells.gif.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns Cells.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -56,16 +56,15 @@ public class CellsItemProvider extends CompositeValuesItemProvider {
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Cells)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_Cells_type") :
-			getString("_UI_Cells_type") + " " + label;
+		String label = ((Cells) object).getName();
+		return label == null || label.length() == 0 ? getString("_UI_Cells_type")
+			: getString("_UI_Cells_type") + " " + label;
 	}
 
 	/**
@@ -82,9 +81,9 @@ public class CellsItemProvider extends CompositeValuesItemProvider {
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
