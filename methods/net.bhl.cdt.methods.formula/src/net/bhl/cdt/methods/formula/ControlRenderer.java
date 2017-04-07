@@ -49,6 +49,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -82,7 +83,8 @@ public class ControlRenderer extends TextControlSWTRenderer{
 	private ViewModelContext viewContext;
 	private Label photoLabel;
 	private VControl vElement;
-	private Text text;
+	int width;
+	int height;
 
 	@Inject
 	public ControlRenderer(VControl vElement, ViewModelContext viewContext,
@@ -126,10 +128,35 @@ public class ControlRenderer extends TextControlSWTRenderer{
 		      
 		final Button button = new Button(main, SWT.PUSH);
 		button.setText("Show");
+		button.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+		
+				try {
+					createNewImage();
+				} catch (IOException | SAXException | ParserConfigurationException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+					
+			}
+		});
+		
+		
+		
 		
 		this.photoLabel = new Label(main, SWT.NONE);
-		Image image = new Image(Display.getCurrent(), 600, 100);	
+		Image image = new Image(Display.getCurrent(), 600, 100);		
 		this.photoLabel.setImage(image);
+		System.out.println("image data size : " +  image.getBounds().width + " + " 
+		+  image.getBounds().height );
+		width = image.getBounds().width;
+ 		height = image.getBounds().height;
+
+		
+		
+		
+		
 				
 		FocusListener listener = new FocusListener() {
         	
@@ -156,26 +183,10 @@ public class ControlRenderer extends TextControlSWTRenderer{
 					e1.printStackTrace();
 				}
 			}
-		};
-		
+		};	
 		controlList[0].addFocusListener(listener);
 		
 		
-		
-		
-		button.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-		
-				try {
-					createNewImage();
-				} catch (IOException | SAXException | ParserConfigurationException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-					
-			}
-		});
 		
 
 		return control;
@@ -205,9 +216,7 @@ public class ControlRenderer extends TextControlSWTRenderer{
 		else{
 				
 	 	    String xmlString = session.buildXMLString();
-				
-	 	    //System.out.println("xlmString : " + xmlString);
-	
+					
 	 	    final Document document = MathMLParserSupport.parseString(xmlString);
 	 	   
 	 	    final File outFile = new File("test.png");
@@ -242,9 +251,33 @@ public class ControlRenderer extends TextControlSWTRenderer{
 	 		ImageData imageData = new ImageData(inputStreamReader);
 	 		Image newimage = new Image(Display.getCurrent(),imageData);
 	 		
-	 		//Image newImage  = resize(newimage,300,30);
-	 		this.photoLabel.setImage(newimage);
+	 		System.out.println("newimage data size : " +  newimage.getBounds().width + " + " 
+	 				+  newimage.getBounds().height );
 	 		
+	 		
+	 		int newWidth = newimage.getBounds().width;
+	 		int newHeight = newimage.getBounds().height;
+	 		
+	 		if(( newimage.getBounds().width >= 600 ) || ( newimage.getBounds().height >= 100 )){
+	 			
+	 			int scale = ( newWidth / width );
+	 			//int scaleHeight = height / scale;
+	 			
+	 			final Image scaled = new Image(Display.getCurrent(),imageData.scaledTo(600,20/scale));
+	 			this.photoLabel.setImage(scaled);
+	 			
+	 			System.out.println("newimage data size : " +  scaled.getBounds().width + " + " 
+		 				+  scaled.getBounds().height );
+	 		}
+	 		else{
+	 			
+	 			this.photoLabel.setImage(newimage);
+	 			
+	 		}
+	 		
+	 		//Image newImage  = resize(newimage,600,100);
+	 		//this.photoLabel.setImage(newimage);
+	 		//this.photoLabel.setImage(scaled);
 		
 		}
 		
