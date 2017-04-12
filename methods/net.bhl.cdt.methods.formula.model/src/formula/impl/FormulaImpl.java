@@ -7,11 +7,17 @@ import formula.FormulaPackage;
 import formula.FormulaRepository;
 import formula.Quantity;
 
+import formula.util.FormulaValidator;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
 
+import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -20,7 +26,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -258,6 +266,31 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	/*public boolean hasName(DiagnosticChain chain, Map<?, ?> context) {
+		// TODO: implement this method
+		// -> specify the condition that violates the invariant
+		// -> verify the details of the diagnostic, including severity and message
+		// Ensure that you remove @generated or mark it @generated NOT
+		if (false) {
+			if (chain != null) {
+				chain.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 FormulaValidator.DIAGNOSTIC_SOURCE,
+						 FormulaValidator.FORMULA__HAS_NAME,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "hasName", EObjectValidator.getObjectLabel(this, (Map<Object, Object>) context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}*/
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -404,6 +437,20 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * @generated
 	 */
 	@Override
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
+			case FormulaPackage.FORMULA___HAS_NAME__DIAGNOSTICCHAIN_MAP:
+				return hasName((DiagnosticChain)arguments.get(0), (Map<?, ?>)arguments.get(1));
+		}
+		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
@@ -415,5 +462,51 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 		result.append(')');
 		return result.toString();
 	}
+	
+	/**
+	* 
+	 * 
+	 * @generated NOT
+	 */
+	public boolean hasName(DiagnosticChain chain, Map<?, ?> context) {
+		if (getName() == null|| 
+				getName().equals("")) {
+			if (chain != null) {
+				chain.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 FormulaValidator.DIAGNOSTIC_SOURCE,
+						 FormulaValidator.FORMULA__HAS_NAME,
+						 "Task needs to have a name",
+						 new Object [] { this, FormulaPackage.eINSTANCE.getFormula_Name() }));
+			}
+			return false;
+		}
+		return true;
+	}
+	
+	/**
+	* 
+	 * 
+	 * @generated NOT
+	 */
+	public boolean hasLatexString(DiagnosticChain chain, Map<?, ?> context) {
+		if (getLatexString() == null|| 
+				getLatexString().equals("")) {
+			if (chain != null) {
+				chain.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 FormulaValidator.DIAGNOSTIC_SOURCE,
+						 FormulaValidator.FORMULA__HAS_NAME,
+						 "Task needs to have a name",
+						 new Object [] { this, FormulaPackage.eINSTANCE.getFormula_LatexString() }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	
 
 } //FormulaImpl

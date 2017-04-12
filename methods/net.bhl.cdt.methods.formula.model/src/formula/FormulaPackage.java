@@ -4,6 +4,7 @@ package formula;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -176,13 +177,22 @@ public interface FormulaPackage extends EPackage {
 	int FORMULA_FEATURE_COUNT = 5;
 
 	/**
+	 * The operation id for the '<em>Has Name</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA___HAS_NAME__DIAGNOSTICCHAIN_MAP = 0;
+
+	/**
 	 * The number of operations of the '<em>Formula</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA_OPERATION_COUNT = 0;
+	int FORMULA_OPERATION_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link formula.impl.QuantityImpl <em>Quantity</em>}' class.
@@ -358,6 +368,16 @@ public interface FormulaPackage extends EPackage {
 	EReference getFormula_Repository();
 
 	/**
+	 * Returns the meta object for the '{@link formula.Formula#hasName(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Has Name</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Has Name</em>' operation.
+	 * @see formula.Formula#hasName(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getFormula__HasName__DiagnosticChain_Map();
+
+	/**
 	 * Returns the meta object for class '{@link formula.Quantity <em>Quantity</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -517,6 +537,14 @@ public interface FormulaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FORMULA__REPOSITORY = eINSTANCE.getFormula_Repository();
+
+		/**
+		 * The meta object literal for the '<em><b>Has Name</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation FORMULA___HAS_NAME__DIAGNOSTICCHAIN_MAP = eINSTANCE.getFormula__HasName__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link formula.impl.QuantityImpl <em>Quantity</em>}' class.

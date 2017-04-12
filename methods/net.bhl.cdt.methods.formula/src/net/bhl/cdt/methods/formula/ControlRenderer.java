@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URI;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.xml.parsers.DocumentBuilder;
@@ -18,6 +19,9 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.eclipse.core.databinding.Binding;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.databinding.EMFProperties;
 import org.eclipse.emf.ecore.EAttribute;
@@ -46,10 +50,8 @@ import org.eclipse.swt.events.FocusEvent;
 import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
-import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
@@ -67,6 +69,7 @@ import formula.FormulaFactory;
 import formula.FormulaPackage;
 import formula.FormulaRepository;
 import formula.impl.FormulaImpl;
+import formula.util.FormulaValidator;
 import net.sourceforge.jeuclid.MathMLParserSupport;
 import net.sourceforge.jeuclid.MutableLayoutContext;
 import net.sourceforge.jeuclid.context.LayoutContextImpl;
@@ -82,9 +85,11 @@ public class ControlRenderer extends TextControlSWTRenderer{
 
 	private ViewModelContext viewContext;
 	private Label photoLabel;
-	private VControl vElement;
+	private Boolean assignName;
+	private Boolean assignLatex;
 	int width;
 	int height;
+	String message;
 
 	@Inject
 	public ControlRenderer(VControl vElement, ViewModelContext viewContext,
@@ -96,7 +101,6 @@ public class ControlRenderer extends TextControlSWTRenderer{
 			emfFormsEditSupport);
 		
 		this.viewContext = viewContext;
-		this.vElement = vElement;
 		
 	}
 	
@@ -114,50 +118,64 @@ public class ControlRenderer extends TextControlSWTRenderer{
 		
 		Control[] controlList = ((Composite) control).getChildren();
 				
-		try {
+		/*try {
 			System.out.println("text :  " + getEMFFormsLabelProvider().
 					getDisplayName(vElement.getDomainModelReference(), viewContext.getDomainModel()).getValue());			
-			System.out.println("main : " + controlList[0]);
+			System.out.println("main : " + controlList[0].toString());
 			
 			
 		} catch (NoLabelFoundException e2) {
 			// TODO Auto-generated catch block
 			e2.printStackTrace();
-		}
+		}*/
 		
-		      
+		
+		checkTextBoxEmpty();
+	
 		final Button button = new Button(main, SWT.PUSH);
 		button.setText("Show");
 		button.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-		
-				try {
-					createNewImage();
-				} catch (IOException | SAXException | ParserConfigurationException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				
+				assignLatex = viewContext.getDomainModel().eIsSet(FormulaPackage.Literals.FORMULA__LATEX_STRING);
+				
+				if(assignLatex == false){
+					
+					openLatexMessageBox();
+
 				}
+				else{
+					
+					try {
+						createNewImage();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (SAXException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ParserConfigurationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					
+				}
+		
 					
 			}
 		});
-		
-		
-		
-		
-		this.photoLabel = new Label(main, SWT.NONE);
+	
+		//this.photoLabel = new Label(main, SWT.NONE);
+		this.photoLabel = new Label(main, SWT.BORDER);
+
 		Image image = new Image(Display.getCurrent(), 600, 100);		
 		this.photoLabel.setImage(image);
-		System.out.println("image data size : " +  image.getBounds().width + " + " 
-		+  image.getBounds().height );
+		/*System.out.println("image data size : " +  image.getBounds().width + " + " 
+		+  image.getBounds().height );*/
 		width = image.getBounds().width;
  		height = image.getBounds().height;
-
 		
-		
-		
-		
-				
 		FocusListener listener = new FocusListener() {
         	
             public void focusGained(FocusEvent event) {
@@ -167,32 +185,41 @@ public class ControlRenderer extends TextControlSWTRenderer{
 
 			@Override
 			public void focusLost(FocusEvent e) {
+
+				assignLatex = viewContext.getDomainModel().eIsSet(FormulaPackage.Literals.FORMULA__LATEX_STRING);
 				
-				System.out.println("lost Focus");
-				
-				try {
-					createNewImage();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (SAXException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (ParserConfigurationException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				if(assignLatex == true){
+					try {
+						createNewImage();
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (SAXException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ParserConfigurationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}else{
+					
+					Image image = new Image(Display.getCurrent(), 600, 100);		
+					photoLabel.setImage(image);
+					
 				}
 			}
 		};	
 		controlList[0].addFocusListener(listener);
-	
+		
+		
+		
 
 		return control;
 	}
 
 	private void createNewImage() throws IOException, SAXException, ParserConfigurationException {
 		
-		String message = viewContext.getDomainModel().eGet(FormulaPackage.Literals.FORMULA__LATEX_STRING).toString();
+		message = viewContext.getDomainModel().eGet(FormulaPackage.Literals.FORMULA__LATEX_STRING).toString();
 		
 		SnuggleEngine engine  = new SnuggleEngine();		
 		SnuggleSession session = engine.createSession();  
@@ -274,6 +301,51 @@ public class ControlRenderer extends TextControlSWTRenderer{
 	 		
 		
 		}
+		
+	}
+	
+	private void checkTextBoxEmpty(){
+		
+		Boolean isFormelEmpty = viewContext.getDomainModel().eIsSet(FormulaPackage.Literals.FORMULA__LATEX_STRING);
+		Boolean isNameEmpty = viewContext.getDomainModel().eIsSet(FormulaPackage.Literals.FORMULA__NAME);
+		
+		MessageBox messageBox_empty = new MessageBox(new Shell(), SWT.ICON_WARNING | SWT.RETRY);
+		messageBox_empty.setText("Warning");
+		
+		if( (isFormelEmpty == false) && (isNameEmpty == false)){
+			
+	        messageBox_empty.setMessage("Name & Latex String are empty");
+	        messageBox_empty.open();
+	        
+
+		}
+		else if( isNameEmpty == false ){
+			
+	        messageBox_empty.setMessage("Name is empty");
+	        messageBox_empty.open();
+	       
+			
+		}
+		else if( isFormelEmpty == false ){
+			
+	        messageBox_empty.setMessage("Latex String is empty");
+	        messageBox_empty.open();
+	       
+		}
+		else{
+			
+			
+		}
+		
+		
+	}
+	
+	private void openLatexMessageBox(){
+		
+		MessageBox messageBox_empty = new MessageBox(new Shell(), SWT.ICON_WARNING | SWT.RETRY);
+		messageBox_empty.setText("Warning");
+		messageBox_empty.setMessage("Latex String is empty");
+        messageBox_empty.open();
 		
 	}
 	

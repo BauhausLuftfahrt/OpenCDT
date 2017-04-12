@@ -2,6 +2,8 @@
  */
 package formula;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EObject;
@@ -148,5 +150,15 @@ public interface Formula extends EObject {
 	 * @generated
 	 */
 	void setRepository(FormulaRepository value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model
+	 * @generated
+	 */
+	boolean hasName(DiagnosticChain chain, Map<?, ?> context);
+	
+	boolean hasLatexString(DiagnosticChain chain, Map<?, ?> context);
 
 } // Formula
