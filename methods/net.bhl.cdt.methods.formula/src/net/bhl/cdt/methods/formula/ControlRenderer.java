@@ -84,70 +84,62 @@ import uk.ac.ed.ph.snuggletex.SnuggleSession;
 public class ControlRenderer extends TextControlSWTRenderer{
 
 	private ViewModelContext viewContext;
-	private Label photoLabel;
+	
+	private Label imageLabel;
 	private Boolean assignName;
 	private Boolean assignLatex;
-	int width;
-	int height;
-	String message;
-
+	private int width;
+	private int height;
+	
 	@Inject
 	public ControlRenderer(VControl vElement, ViewModelContext viewContext,
 		ReportService reportService,
 		EMFFormsDatabinding emfFormsDatabinding, EMFFormsLabelProvider emfFormsLabelProvider,
-		VTViewTemplateProvider vtViewTemplateProvider, EMFFormsEditSupport emfFormsEditSupport) {
-		
+		VTViewTemplateProvider vtViewTemplateProvider, EMFFormsEditSupport emfFormsEditSupport) {	
 		super(vElement, viewContext, reportService, emfFormsDatabinding, emfFormsLabelProvider, vtViewTemplateProvider,
-			emfFormsEditSupport);
-		
+			emfFormsEditSupport);	
 		this.viewContext = viewContext;
 		
 	}
-	
 	
 	protected Control createSWTControl(Composite parent) {
 		
 		final Composite main = new Composite(parent, SWT.NONE);
 	
 		GridLayoutFactory.fillDefaults().numColumns(2).applyTo(main);
-	
 		GridDataFactory.fillDefaults().grab(true, false)
 			.align(SWT.FILL, SWT.BEGINNING).applyTo(main);
 				
 		final Control control = super.createSWTControl(main);
 		
 		Control[] controlList = ((Composite) control).getChildren();
-				
-		/*try {
-			System.out.println("text :  " + getEMFFormsLabelProvider().
-					getDisplayName(vElement.getDomainModelReference(), viewContext.getDomainModel()).getValue());			
-			System.out.println("main : " + controlList[0].toString());
-			
-			
-		} catch (NoLabelFoundException e2) {
-			// TODO Auto-generated catch block
-			e2.printStackTrace();
-		}*/
 		
-		
-		checkTextBoxEmpty();
+		//checkTextBoxEmpty();
 	
+		/*if user clicks on the show-button, then the latexformel-string is transformed 
+		 * into the image and this image is shown underneath the latexformel*/
 		final Button button = new Button(main, SWT.PUSH);
 		button.setText("Show");
 		button.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				
+				/*check,whether the textbox of the latexformel is empty*/
 				assignLatex = viewContext.getDomainModel().eIsSet(FormulaPackage.Literals.FORMULA__LATEX_STRING);
 				
 				if(assignLatex == false){
 					
+					/*when the latexformel-string is empty, 
+					 * then the message-box pops up to warn*/
 					openLatexMessageBox();
 
 				}
+				/*the latex-formel string exists as input value in textbox*/ 
 				else{
 					
 					try {
+						/*it starts that latex-formel is 
+						 * transformed into the image data*/
 						createNewImage();
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
@@ -166,16 +158,19 @@ public class ControlRenderer extends TextControlSWTRenderer{
 			}
 		});
 	
-		//this.photoLabel = new Label(main, SWT.NONE);
-		this.photoLabel = new Label(main, SWT.BORDER);
+		//this.iamgeLabel = new Label(main, SWT.NONE);
+		this.imageLabel = new Label(main, SWT.BORDER);
 
+		/*the size of the image can be modified*/
 		Image image = new Image(Display.getCurrent(), 600, 100);		
-		this.photoLabel.setImage(image);
-		/*System.out.println("image data size : " +  image.getBounds().width + " + " 
-		+  image.getBounds().height );*/
+		this.imageLabel.setImage(image);
+		
 		width = image.getBounds().width;
  		height = image.getBounds().height;
 		
+ 		/*this focus-function works at frst that if a user clicks the textbox of latex-formel,
+ 		 * then textbox of latex-formel gets the focus. After that the focus gets lost,
+ 		 * if a user clicks other object out of the textbox of latex-formel*/
 		FocusListener listener = new FocusListener() {
         	
             public void focusGained(FocusEvent event) {
@@ -189,7 +184,8 @@ public class ControlRenderer extends TextControlSWTRenderer{
 				assignLatex = viewContext.getDomainModel().eIsSet(FormulaPackage.Literals.FORMULA__LATEX_STRING);
 				
 				if(assignLatex == true){
-					try {
+					try {				
+						
 						createNewImage();
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
@@ -202,28 +198,26 @@ public class ControlRenderer extends TextControlSWTRenderer{
 						e1.printStackTrace();
 					}
 				}else{
-					
-					Image image = new Image(Display.getCurrent(), 600, 100);		
-					photoLabel.setImage(image);
+					/*the image is removed, 
+					 * if the textbox is of latex-formelempty*/ 
+					setImageRemove();
 					
 				}
 			}
-		};	
+		};
+		/*the textbox of latex-formel is pointed out as controlList[0]*/ 
 		controlList[0].addFocusListener(listener);
 		
-		
-		
-
 		return control;
 	}
 
 	private void createNewImage() throws IOException, SAXException, ParserConfigurationException {
 		
-		message = viewContext.getDomainModel().eGet(FormulaPackage.Literals.FORMULA__LATEX_STRING).toString();
+		String latexFormel = viewContext.getDomainModel().eGet(FormulaPackage.Literals.FORMULA__LATEX_STRING).toString();
 		
 		SnuggleEngine engine  = new SnuggleEngine();		
 		SnuggleSession session = engine.createSession();  
-		SnuggleInput input = new SnuggleInput(message);
+		SnuggleInput input = new SnuggleInput(latexFormel);
 		session.getConfiguration().setFailingFast(true);
  	   
  	   if (session.parseInput(input) == false){
@@ -276,26 +270,21 @@ public class ControlRenderer extends TextControlSWTRenderer{
 	 		ImageData imageData = new ImageData(inputStreamReader);
 	 		Image newimage = new Image(Display.getCurrent(),imageData);
 	 		
-	 		System.out.println("newimage data size : " +  newimage.getBounds().width + " + " 
-	 				+  newimage.getBounds().height );
-	 		
-	 		
 	 		int newWidth = newimage.getBounds().width;
 	 		int newHeight = newimage.getBounds().height;
 	 		
+	 		/*the size of the image gets scaled down  */
 	 		if(( newimage.getBounds().width >= 600 ) || ( newimage.getBounds().height >= 100 )){
 	 			
 	 			int scale = ( newWidth / width );
 	 			
 	 			final Image scaled = new Image(Display.getCurrent(),imageData.scaledTo(600,20/scale));
-	 			this.photoLabel.setImage(scaled);
-	 			
-	 			System.out.println("newimage data size : " +  scaled.getBounds().width + " + " 
-		 				+  scaled.getBounds().height );
+	 			this.imageLabel.setImage(scaled);
+	 		
 	 		}
 	 		else{
 	 			
-	 			this.photoLabel.setImage(newimage);
+	 			this.imageLabel.setImage(newimage);
 	 			
 	 		}
 	 		
@@ -304,37 +293,40 @@ public class ControlRenderer extends TextControlSWTRenderer{
 		
 	}
 	
+	/*this method checks both textBox of name and latexformel, whether these are empty
+	 * if both or one of them is empty, warning message window pops up*/
 	private void checkTextBoxEmpty(){
 		
-		Boolean isFormelEmpty = viewContext.getDomainModel().eIsSet(FormulaPackage.Literals.FORMULA__LATEX_STRING);
-		Boolean isNameEmpty = viewContext.getDomainModel().eIsSet(FormulaPackage.Literals.FORMULA__NAME);
+		/*if a textbox is empty,then this variable is assighned as false*/
+		Boolean isName = viewContext.getDomainModel().eIsSet(FormulaPackage.Literals.FORMULA__NAME);
+		Boolean isFormel = viewContext.getDomainModel().eIsSet(FormulaPackage.Literals.FORMULA__LATEX_STRING);
+		
 		
 		MessageBox messageBox_empty = new MessageBox(new Shell(), SWT.ICON_WARNING | SWT.RETRY);
 		messageBox_empty.setText("Warning");
 		
-		if( (isFormelEmpty == false) && (isNameEmpty == false)){
+		if( (isFormel == false) && (isName == false)){
 			
 	        messageBox_empty.setMessage("Name & Latex String are empty");
 	        messageBox_empty.open();
 	        
 
 		}
-		else if( isNameEmpty == false ){
+		else if( isName == false ){
 			
 	        messageBox_empty.setMessage("Name is empty");
 	        messageBox_empty.open();
 	       
 			
 		}
-		else if( isFormelEmpty == false ){
+		else if( isFormel == false ){
 			
 	        messageBox_empty.setMessage("Latex String is empty");
 	        messageBox_empty.open();
 	       
 		}
 		else{
-			
-			
+					
 		}
 		
 		
@@ -349,9 +341,10 @@ public class ControlRenderer extends TextControlSWTRenderer{
 		
 	}
 	
+	/*this method deletes the image of the latexformel*/
  	private void setImageRemove(){
  		
- 		photoLabel.setImage(null);
+ 		imageLabel.setImage(null);
  		
  	}
  

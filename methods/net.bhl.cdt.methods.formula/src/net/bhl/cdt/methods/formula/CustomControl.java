@@ -1,4 +1,4 @@
-package net.bhl.cdt.methods.formula;
+/*package net.bhl.cdt.methods.formula;
 
 import org.eclipse.emf.ecp.edit.internal.swt.util.SWTControl;
 import org.eclipse.emf.ecp.view.spi.custom.swt.ECPAbstractCustomControlSWT;
@@ -47,9 +47,9 @@ public class CustomControl extends ECPAbstractCustomControlSWT {
 		Composite parent = new Composite(composite, SWT.NONE);
         //parent.setLayout(new FillLayout(SWT.VERTICAL));
         
-        /*Label userAttributes=new Label(parent, SWT.NONE);
+        Label userAttributes=new Label(parent, SWT.NONE);
         userAttributes.setText("User Attributes");
-        userAttributes.setAlignment(SWT.None);*/
+        userAttributes.setAlignment(SWT.None);
 		
 		System.out.println("run render control");  
         
@@ -62,3 +62,4 @@ public class CustomControl extends ECPAbstractCustomControlSWT {
 	}
 
 }
+*/
