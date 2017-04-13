@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Literature Base UI
+Bundle-SymbolicName: net.bhl.cdt.literature.ui.e4;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Bauhaus Luftfahrt e.V.
+Require-Bundle: org.eclipse.e4.ui.model.workbench;bundle-version="1.2.0.v20160229-1459"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
