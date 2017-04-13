@@ -31,6 +31,8 @@
    </vm>
 
    <plugins>
+      <plugin id="com.google.guava"/>
+      <plugin id="com.google.inject"/>
       <plugin id="com.ibm.icu"/>
       <plugin id="javax.annotation"/>
       <plugin id="javax.inject"/>
@@ -41,12 +43,25 @@
       <plugin id="net.bhl.cdt.log"/>
       <plugin id="net.bhl.cdt.model"/>
       <plugin id="net.bhl.cdt.model.edit"/>
+      <plugin id="net.bhl.cdt.oida.strategies"/>
+      <plugin id="oida.bridge"/>
+      <plugin id="oida.bridge.model"/>
+      <plugin id="oida.bridge.model.edit"/>
+      <plugin id="oida.bridge.recommender.name"/>
+      <plugin id="oida.bridge.ui.e4"/>
+      <plugin id="oida.ontology"/>
+      <plugin id="oida.ontology.model"/>
+      <plugin id="oida.ontology.model.edit"/>
+      <plugin id="oida.ontology.owl"/>
+      <plugin id="oida.ontology.ui.e4"/>
+      <plugin id="oida.util"/>
       <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.util"/>
       <plugin id="org.apache.batik.util.gui"/>
       <plugin id="org.apache.commons.codec"/>
       <plugin id="org.apache.commons.jxpath"/>
       <plugin id="org.apache.commons.logging"/>
+      <plugin id="org.apache.log4j"/>
       <plugin id="org.eclipse.ant.core"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
@@ -92,6 +107,7 @@
       <plugin id="org.eclipse.emf.databinding.edit"/>
       <plugin id="org.eclipse.emf.ecore"/>
       <plugin id="org.eclipse.emf.ecore.change"/>
+      <plugin id="org.eclipse.emf.ecore.edit"/>
       <plugin id="org.eclipse.emf.ecore.xmi"/>
       <plugin id="org.eclipse.emf.ecp.application.e4"/>
       <plugin id="org.eclipse.emf.ecp.common"/>
@@ -150,6 +166,12 @@
       <plugin id="org.eclipse.emf.emfstore.server"/>
       <plugin id="org.eclipse.emf.emfstore.server.model"/>
       <plugin id="org.eclipse.emf.emfstore.server.model.edit"/>
+      <plugin id="org.eclipse.emf.parsley"/>
+      <plugin id="org.eclipse.emf.parsley.common"/>
+      <plugin id="org.eclipse.emf.parsley.runtime"/>
+      <plugin id="org.eclipse.emf.parsley.runtime.common"/>
+      <plugin id="org.eclipse.emf.parsley.views"/>
+      <plugin id="org.eclipse.emf.parsley.views.common"/>
       <plugin id="org.eclipse.emfforms.common"/>
       <plugin id="org.eclipse.emfforms.core.services"/>
       <plugin id="org.eclipse.emfforms.core.services.databinding.featurepath"/>
@@ -217,6 +239,10 @@
       <plugin id="org.eclipse.ui.views"/>
       <plugin id="org.eclipse.ui.win32" fragment="true"/>
       <plugin id="org.eclipse.ui.workbench"/>
+      <plugin id="org.eclipse.xtext.logging" fragment="true"/>
+      <plugin id="org.eclipse.xtext.xbase.lib"/>
+      <plugin id="org.hamcrest.core"/>
+      <plugin id="org.junit"/>
       <plugin id="org.tukaani.xz"/>
       <plugin id="org.w3c.css.sac"/>
       <plugin id="org.w3c.dom.events"/>
@@ -225,7 +251,6 @@
    </plugins>
 
    <configurations>
-      <plugin id="net.bhl.cdt.log" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />

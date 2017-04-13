@@ -9,26 +9,26 @@ package net.bhl.cdt.model.datatypes.provider;
 import java.util.Collection;
 import java.util.List;
 
-import net.bhl.cdt.model.datatypes.CompositeValues;
-import net.bhl.cdt.model.datatypes.DatatypesFactory;
-import net.bhl.cdt.model.datatypes.DatatypesPackage;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
+import net.bhl.cdt.model.datatypes.CompositeValues;
+import net.bhl.cdt.model.datatypes.DatatypesFactory;
+import net.bhl.cdt.model.datatypes.DatatypesPackage;
+
 /**
- * This is the item provider adapter for a {@link net.bhl.cdt.datatypes.CompositeValues} object. <!--
- * begin-user-doc --> <!-- end-user-doc -->
+ * This is the item provider adapter for a {@link net.bhl.cdt.datatypes.CompositeValues} object. <!-- begin-user-doc -->
+ * <!-- end-user-doc -->
  * 
  * @generated
  */
 public class CompositeValuesItemProvider extends DataTypeItemProvider {
 	/**
-	 * This constructs an instance from a factory and a notifier.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This constructs an instance from a factory and a notifier. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	public CompositeValuesItemProvider(AdapterFactory adapterFactory) {
@@ -36,8 +36,8 @@ public class CompositeValuesItemProvider extends DataTypeItemProvider {
 	}
 
 	/**
-	 * This returns the property descriptors for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the property descriptors for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -52,9 +52,9 @@ public class CompositeValuesItemProvider extends DataTypeItemProvider {
 	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc --> <!--
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}. <!-- begin-user-doc --> <!--
 	 * end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -68,6 +68,7 @@ public class CompositeValuesItemProvider extends DataTypeItemProvider {
 
 	/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -79,8 +80,8 @@ public class CompositeValuesItemProvider extends DataTypeItemProvider {
 	}
 
 	/**
-	 * This returns CompositeValues.gif.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns CompositeValues.gif. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
@@ -89,16 +90,13 @@ public class CompositeValuesItemProvider extends DataTypeItemProvider {
 	}
 
 	/**
-	 * This returns the label text for the adapted class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This returns the label text for the adapted class. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((CompositeValues)object).getName();
-		return label == null || label.length() == 0 ?
-			getString("_UI_CompositeValues_type") :
-			getString("_UI_CompositeValues_type") + " " + label;
+		return ((CompositeValues) object).getName();
 	}
 
 	/**
@@ -113,62 +111,46 @@ public class CompositeValuesItemProvider extends DataTypeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(CompositeValues.class)) {
-			case DatatypesPackage.COMPOSITE_VALUES__DATATYPES:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
+		case DatatypesPackage.COMPOSITE_VALUES__DATATYPES:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
 		}
 		super.notifyChanged(notification);
 	}
 
 	/**
-	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children
-	 * that can be created under this object.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * This adds {@link org.eclipse.emf.edit.command.CommandParameter}s describing the children that can be created
+	 * under this object. <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * 
 	 * @generated
 	 */
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
-				 DatatypesFactory.eINSTANCE.createFloatPointValue()));
+		newChildDescriptors.add(createChildParameter(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
+			DatatypesFactory.eINSTANCE.createFloatPointValue()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
-				 DatatypesFactory.eINSTANCE.createIntegerValue()));
+		newChildDescriptors.add(createChildParameter(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
+			DatatypesFactory.eINSTANCE.createIntegerValue()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
-				 DatatypesFactory.eINSTANCE.createStringValue()));
+		newChildDescriptors.add(createChildParameter(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
+			DatatypesFactory.eINSTANCE.createStringValue()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
-				 DatatypesFactory.eINSTANCE.createFormula()));
+		newChildDescriptors.add(createChildParameter(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
+			DatatypesFactory.eINSTANCE.createFormula()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
-				 DatatypesFactory.eINSTANCE.createCompositeValues()));
+		newChildDescriptors.add(createChildParameter(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
+			DatatypesFactory.eINSTANCE.createCompositeValues()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
-				 DatatypesFactory.eINSTANCE.createArray()));
+		newChildDescriptors.add(createChildParameter(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
+			DatatypesFactory.eINSTANCE.createArray()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
-				 DatatypesFactory.eINSTANCE.createCells()));
+		newChildDescriptors.add(createChildParameter(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
+			DatatypesFactory.eINSTANCE.createCells()));
 
-		newChildDescriptors.add
-			(createChildParameter
-				(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
-				 DatatypesFactory.eINSTANCE.createMeasuredValue()));
+		newChildDescriptors.add(createChildParameter(DatatypesPackage.Literals.COMPOSITE_VALUES__DATATYPES,
+			DatatypesFactory.eINSTANCE.createMeasuredValue()));
 	}
 
 }

@@ -40,7 +40,6 @@ public class ImportMatFileHandler {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-	        
 //				
 //				ECPProject project = ECPHandlerHelper.createProject(shell);
 //				project.getContents().add(xmlParser.getVehiclesComponent());

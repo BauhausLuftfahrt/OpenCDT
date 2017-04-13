@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cdt" nsURI="http://www.bauhaus-luftfahrt.net/cdt" nsPrefix="cdt">
-  <eClassifiers xsi:type="ecore:EClass" name="ANamedElement" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//ANamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subComponents" upperBound="-1"
-        eType="#//Component" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-        eType="#//Parameter"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//ANamedElement"/>
+  <eSubpackages name="base">
+    <eClassifiers xsi:type="ecore:EClass" name="ANamedElement" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="operation">
+    <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//base/ANamedElement"/>
+  </eSubpackages>
+  <eSubpackages name="system">
+    <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//base/ANamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subComponents" upperBound="-1"
+          eType="#//system/Component" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//system/Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//base/ANamedElement"/>
+  </eSubpackages>
 </ecore:EPackage>

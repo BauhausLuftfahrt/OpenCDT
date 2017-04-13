@@ -49,9 +49,7 @@
               <tags>editorPart</tags>
               <tags>NoAutoCollapse</tags>
             </children>
-            <children xsi:type="basic:PartStack" xmi:id="_yMj_oAuUEeaU6bN0NO_FuA" elementId="net.bhl.cdt.client.e4.partstack.1" containerData="30">
-              <children xsi:type="basic:Part" xmi:id="_zBte8AuUEeaU6bN0NO_FuA" elementId="net.bhl.cdt.client.e4.part.console" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.view.CDTConsole" label="Console" iconURI="platform:/plugin/net.bhl.cdt.client.e4/res/OpenCDT_Symbol_0016.png"/>
-            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_yMj_oAuUEeaU6bN0NO_FuA" elementId="net.bhl.cdt.client.e4.partstack.bottom" containerData="30"/>
           </children>
         </children>
       </children>

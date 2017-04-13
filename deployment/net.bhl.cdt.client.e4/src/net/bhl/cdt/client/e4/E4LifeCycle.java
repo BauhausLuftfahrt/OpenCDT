@@ -7,12 +7,17 @@ import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.workbench.UIEvents;
 import org.eclipse.e4.ui.workbench.lifecycle.PostContextCreate;
 import org.eclipse.e4.ui.workbench.lifecycle.PreSave;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessAdditions;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessRemovals;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
+import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
+import org.eclipse.e4.ui.workbench.modeling.ISelectionListener;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
@@ -20,6 +25,7 @@ import org.osgi.service.event.EventHandler;
 import net.bhl.cdt.client.e4.auth.CDTAuthService;
 import net.bhl.cdt.client.ui.CDTUIManager;
 import net.bhl.cdt.log.service.CDTLogService;
+import oida.bridge.service.IOIDABridge;
 
 @SuppressWarnings("restriction")
 public class E4LifeCycle {
@@ -72,5 +78,7 @@ public class E4LifeCycle {
 		} catch (CoreException ex) {
 			System.out.println(ex.getMessage());
 		}
+		
+		
 	}
 }
