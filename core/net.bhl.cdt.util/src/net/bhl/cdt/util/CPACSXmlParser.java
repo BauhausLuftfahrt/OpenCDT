@@ -33,10 +33,8 @@ import net.bhl.cdt.model.system.SystemFactory;
 
 public class CPACSXmlParser implements IXMLParser {
 
-	public final String startNode = "<vehicles>";
-	
-	private Component vehiclesComponent;
-	
+	private Component vehiclesComponent, missionsComponent, airportsComponent, fleetsComponent, toolspecificComponent;
+
 	/**
 	 * @return The component representing the vehicles node of the CPACS-File.
 	 */
@@ -92,55 +90,96 @@ public class CPACSXmlParser implements IXMLParser {
 		DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
 		Document document = (Document) docBuilder.parse(new File(filePath));
 
-		NodeList nl = document.getDocumentElement().getChildNodes();
-		// System.out.println("nole : " + nl.getLength());
+		NodeList nodeList = document.getDocumentElement().getChildNodes();
+		// System.out.println("nole : " + nodeList.getLength());
 
-		for (int k = 0; k < nl.getLength(); k++) {
-			// Node node = (Node) nl.item(k);
+		for (int k = 0; k < nodeList.getLength(); k++) {
+			// Node node = (Node) nodeList.item(k);
 
-			if (nl.item(k).getNodeName().equalsIgnoreCase("vehicles")) {
+			if (nodeList.item(k).getNodeName().equalsIgnoreCase("vehicles")) {
 				vehiclesComponent = SystemFactory.eINSTANCE.createComponent();
 				vehiclesComponent.setName("Vehicles");
 
-				printTags((Node) nl.item(k), vehiclesComponent);
+				printTags((Node) nodeList.item(k), vehiclesComponent);
+			}
+
+			if (nodeList.item(k).getNodeName().equalsIgnoreCase("missions")) {
+				missionsComponent = SystemFactory.eINSTANCE.createComponent();
+				missionsComponent.setName("missions");
+
+				printTags((Node) nodeList.item(k), missionsComponent);
+
+			}
+
+			if (nodeList.item(k).getNodeName().equalsIgnoreCase("airports")) {
+				airportsComponent = SystemFactory.eINSTANCE.createComponent();
+				airportsComponent.setName("airports");
+
+				printTags((Node) nodeList.item(k), airportsComponent);
+
+			}
+
+			if (nodeList.item(k).getNodeName().equalsIgnoreCase("fleets")) {
+				fleetsComponent = SystemFactory.eINSTANCE.createComponent();
+				fleetsComponent.setName("fleets");
+
+				printTags((Node) nodeList.item(k), fleetsComponent);
+
+			}
+
+			if (nodeList.item(k).getNodeName().equalsIgnoreCase("toolspecific")) {
+				toolspecificComponent = SystemFactory.eINSTANCE.createComponent();
+				toolspecificComponent.setName("toolspecific");
+
+				printTags((Node) nodeList.item(k), toolspecificComponent);
+
 			}
 		}
 	}
 
 	public static void printTags(Node nodes, Component rootNode) {
 		if (nodes.hasChildNodes()) {
-			NodeList nl = nodes.getChildNodes();
-			// System.out.println("nole : " + nl.getLength());
-			for (int j = 0; j < nl.getLength(); j++) {
-				if (!nl.item(j).getNodeName().equalsIgnoreCase("#text")) {
-					// if the node has just one child, and this is #text you create a parameter:
-					if (nl.item(j).getChildNodes().getLength() == 1 && nl.item(j).getFirstChild().getNodeName().equalsIgnoreCase("#text")) {
+			NodeList childNodeList = nodes.getChildNodes();
+			// System.out.println("nole : " + childNodeList.getLength());
+			
+			for (int j = 0; j < childNodeList.getLength(); j++) {
+				// if the node has just one child, and this is #text 
+				// Then create a parameter:
+				
+				if (!childNodeList.item(j).getNodeName().equalsIgnoreCase("#text")) {
+					
+					if (childNodeList.item(j).getChildNodes().getLength() == 1
+							&& childNodeList.item(j).getFirstChild().getNodeName().equalsIgnoreCase("#text")) {
 						Parameter p = SystemFactory.eINSTANCE.createParameter();
-						p.setName(nl.item(j).getNodeName());
-						
-						if(nl.item(j).getTextContent().isEmpty() || nl.item(j).getTextContent() != null){
-							if(isNumeric(nl.item(j).getTextContent())){
+						p.setName(childNodeList.item(j).getNodeName());
+
+						if (childNodeList.item(j).getTextContent().isEmpty()
+								|| childNodeList.item(j).getTextContent() != null) {
+							if (isNumeric(childNodeList.item(j).getTextContent())) {
 								DecimalNumber numberValue = SystemFactory.eINSTANCE.createDecimalNumber();
-								numberValue.setValue(new BigDecimal(Double.parseDouble(nl.item(j).getTextContent())));
+								numberValue.setValue(
+										new BigDecimal(Double.parseDouble(childNodeList.item(j).getTextContent())));
 								p.getValues().add(numberValue);
 							} else {
 								StringValue stringValue = SystemFactory.eINSTANCE.createStringValue();
-								stringValue.setValue(nl.item(j).getTextContent());
+								stringValue.setValue(childNodeList.item(j).getTextContent());
 								p.getValues().add(stringValue);
 							}
 						}
-						
+
 						rootNode.getParameters().add(p);
-						// if you don't create a parameter, you create a subcomponent:
+						// if you don't create a parameter, you create a
+						// subcomponent:
 					} else {
 						Component c = SystemFactory.eINSTANCE.createComponent();
-						c.setName(nl.item(j).getNodeName());
-						
+						c.setName(childNodeList.item(j).getNodeName());
+
 						rootNode.getSubcomponents().add(c);
-						printTags(nl.item(j), c);
+						printTags(childNodeList.item(j), c);
 					}
-					
-					System.out.println(nl.item(j).getNodeName() + " : " + nl.item(j).getTextContent());
+
+					// System.out.println(childNodeList.item(j).getNodeName() +
+					// " : " + childNodeList.item(j).getTextContent());
 				}
 			}
 		}
