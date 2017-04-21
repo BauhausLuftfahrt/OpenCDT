@@ -114,8 +114,7 @@ public class ControlRenderer extends TextControlSWTRenderer implements Component
 	private Image image;
 	static JFrame frame;
 	private Composite main;
-	
-		
+
 	
 	@Inject
 	public ControlRenderer(VControl vElement, ViewModelContext viewContext,
@@ -131,7 +130,6 @@ public class ControlRenderer extends TextControlSWTRenderer implements Component
 		
 	protected Control createSWTControl(Composite parent) {
 	
-		//final Composite main = new Composite(parent, SWT.NONE);
 		main = new Composite(parent, SWT.NONE);
 		GridLayoutFactory.fillDefaults().numColumns(2).applyTo(main);
 		GridDataFactory.fillDefaults().grab(false, false)
@@ -203,9 +201,7 @@ public class ControlRenderer extends TextControlSWTRenderer implements Component
  		height = image.getBounds().height;
 		imageLabelC.setImage(image);
 		
-		
-		
-		
+
  		/**
  		 * this focus-function works at first that if a user clicks the textbox of latex-formel, 
  		 * then textbox of latex-formel gets the focus. After that the focus gets lost,
@@ -215,7 +211,7 @@ public class ControlRenderer extends TextControlSWTRenderer implements Component
         	
             public void focusGained(FocusEvent event) {
                    	
-            	System.out.println("get Focus");      	
+            	//System.out.println("get Focus");      	
             }
 
 			@Override
@@ -255,16 +251,14 @@ public class ControlRenderer extends TextControlSWTRenderer implements Component
 		 */
 		controlList[0].addFocusListener(listener);
 		
-		
-		
-		
+
 		/**
 		 * this function is implemented for resizing.
 		 */
 		main.addListener(SWT.Resize,  new Listener () {
 			
 	        public void handleEvent (Event e) {
-	        System.out.println("resize");
+	        //System.out.println("resize");
 	         
 	    }});
 		
@@ -273,8 +267,6 @@ public class ControlRenderer extends TextControlSWTRenderer implements Component
 	}
 	
 
-	
-	
 	/**
 	 * @throws IOException
 	 * @throws SAXException
@@ -358,14 +350,12 @@ public class ControlRenderer extends TextControlSWTRenderer implements Component
 	 			
 	 			imageLabelC.setBounds(0, 60, newWidth+10, newHeight+10);
 	 			this.imageLabelC.setImage(newimage);
-	 			System.out.println("create new label image  ");
 	 		}
 	 		else if(( newWidth >= 1200 ) && ( newHeight <= 100  )){
 	 			int scaledWidth = ( newWidth / width );
 	 			final Image scaled = new Image(Display.getDefault(),imageData.scaledTo(1200,20/scaledWidth));
 	 			imageLabelC.setBounds(0, 60, newWidth+10, newHeight+10);
 	 			this.imageLabelC.setImage(scaled);
-	 			System.out.println("create new width scaled image  ");
 	 				
 	 		}
 	 		else if(( newWidth < 1200 ) && ( newHeight > 100  )){
@@ -373,16 +363,11 @@ public class ControlRenderer extends TextControlSWTRenderer implements Component
 	 			final Image scaled = new Image(Display.getDefault(),imageData.scaledTo(newWidth/scaleHeight,100));
 	 			imageLabelC.setBounds(0, 30, newWidth+10, newHeight+10);
 	 			this.imageLabelC.setImage(scaled);
-	 			System.out.println("create new height scaled image  ");
 	 		}
 	 		else{
-	 			//imageLabelC.setBounds(0, 40, newWidth+10, newHeight+10);
 	 			this.imageLabelC.setImage(newimage);
-	 			System.out.println("create normal image  ");
 	 			
 	 		}
-	 		
-	 		
 		
 		}
 		
