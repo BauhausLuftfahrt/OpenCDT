@@ -14,6 +14,10 @@ import org.eclipse.emfforms.spi.swt.core.di.EMFFormsDIRendererService;
 
 import formula.FormulaPackage;
 
+/**
+ * @author sanghun.cho
+ *
+ */
 public class ControlSWTRendererService implements EMFFormsDIRendererService<VControl> {
 
 	private EMFFormsDatabinding databindingService;
@@ -42,6 +46,7 @@ public class ControlSWTRendererService implements EMFFormsDIRendererService<VCon
 	}
 
 
+	
 	@Override
 	public double isApplicable(VElement vElement, ViewModelContext viewModelContext) {
 		
@@ -68,6 +73,7 @@ public class ControlSWTRendererService implements EMFFormsDIRendererService<VCon
 		return NOT_APPLICABLE;
 	}
 
+	
 	@Override
 	public Class<? extends AbstractSWTRenderer<VControl>> getRendererClass() {
 		return ControlRenderer.class;

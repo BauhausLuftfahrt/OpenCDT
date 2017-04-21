@@ -131,7 +131,7 @@ public class FormulaValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(formula, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(formula, diagnostics, context);
 		if (result || diagnostics != null) result &= validateFormula_hasName(formula, diagnostics, context);
-		if (result || diagnostics != null) result &= validateFormula_hasLatexString(formula, diagnostics, context);
+		//if (result || diagnostics != null) result &= validateFormula_hasLatexString(formula, diagnostics, context);
 		return result;
 	}
 
@@ -151,9 +151,10 @@ public class FormulaValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	/*
 	public boolean validateFormula_hasLatexString(Formula formula, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return formula.hasLatexString(diagnostics, context);
-	}
+	}*/
 
 	/**
 	 * <!-- begin-user-doc -->

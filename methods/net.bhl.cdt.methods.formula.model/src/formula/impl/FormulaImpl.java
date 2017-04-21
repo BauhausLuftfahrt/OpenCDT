@@ -265,8 +265,8 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
-	 */
-	/*public boolean hasName(DiagnosticChain chain, Map<?, ?> context) {
+	 *//*
+	public boolean hasName(DiagnosticChain chain, Map<?, ?> context) {
 		// TODO: implement this method
 		// -> specify the condition that violates the invariant
 		// -> verify the details of the diagnostic, including severity and message
@@ -484,13 +484,19 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 		}
 		return true;
 	}
+
+	@Override
+	public boolean hasLatexString(DiagnosticChain chain, Map<?, ?> context) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	/**
 	* 
 	 * 
 	 * @generated NOT
 	 */
-	public boolean hasLatexString(DiagnosticChain chain, Map<?, ?> context) {
+	/*public boolean hasLatexString(DiagnosticChain chain, Map<?, ?> context) {
 		if (getLatexString() == null|| 
 				getLatexString().equals("")) {
 			if (chain != null) {
@@ -505,7 +511,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 			return false;
 		}
 		return true;
-	}
+	}*/
 
 	
 
