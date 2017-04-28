@@ -36,6 +36,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.ExpandBar;
 import org.eclipse.swt.widgets.ExpandItem;
@@ -43,9 +44,12 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
+import org.osgi.framework.Bundle;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.log.LogEntry;
 import org.osgi.service.log.LogListener;
+
+import com.google.common.collect.ContiguousSet;
 
 import net.bhl.cdt.client.e4.Activator;
 import net.bhl.cdt.log.service.CDTLogReaderService;
@@ -56,18 +60,14 @@ public class CDTConsole implements LogListener, Runnable {
 	private TableViewer logTableViewer;
 	private String[] COLUMN_NAMES = new String[] { " ", "Type", "Bundle", "Description", "Date-Time" };
 	private int[] COLUMN_WIDTHS = new int[] { 50, 100, 200, 500, 200 };
-
 	private static Map<String, String> msgTypeMap;
 	private static Map<String, String> msgTypeIconMap;
 	private static Set<String> msgBundleSet = new HashSet<String>();
 	private List<LogEntry> logList = new ArrayList<LogEntry>();
 	private List<LogEntry> selectedLogList = new ArrayList<LogEntry>();
-
 	private static File propertiesFile = new File("msgConfig.properties");
-
 	private static String errorChecked = "false", infoChecked = "false", warningChecked = "false",
 			debugChecked = "false", bundleSeected = "ALL";
-
 	private Combo comboBundle;
 	private Button errorCheckbox, warningCheckbox, infoCheckbox, debugCheckbox;
 
@@ -217,7 +217,7 @@ public class CDTConsole implements LogListener, Runnable {
 
 		ExpandBar msgTypeActionBar = new ExpandBar(parent, SWT.NONE);
 		Composite composite = new Composite(msgTypeActionBar, SWT.NONE);
-		GridLayout layout = new GridLayout(6, false);
+		GridLayout layout = new GridLayout(6, true);
 		layout.verticalSpacing = 10;
 		composite.setLayout(layout);
 
@@ -235,12 +235,12 @@ public class CDTConsole implements LogListener, Runnable {
 				if (button.getSelection()) {
 					setProperties("errorChecked", "true");
 					getList();
-					run();
+					// run();
 
 				} else {
 					setProperties("errorChecked", "false");
 					getList();
-					run();
+					// run();
 				}
 
 			}
@@ -259,12 +259,12 @@ public class CDTConsole implements LogListener, Runnable {
 				if (button.getSelection()) {
 					setProperties("warningChecked", "true");
 					getList();
-					run();
+					// run();
 
 				} else {
 					setProperties("warningChecked", "false");
 					getList();
-					run();
+					// run();
 
 				}
 			}
@@ -283,12 +283,12 @@ public class CDTConsole implements LogListener, Runnable {
 				if (button.getSelection()) {
 					setProperties("infoChecked", "true");
 					getList();
-					run();
+					// run();
 
 				} else {
 					setProperties("infoChecked", "false");
 					getList();
-					run();
+					// run();
 
 				}
 			}
@@ -307,30 +307,24 @@ public class CDTConsole implements LogListener, Runnable {
 				if (button.getSelection()) {
 					setProperties("debugChecked", "true");
 					getList();
-					run();
+					// run();
 
 				} else {
 					setProperties("debugChecked", "false");
 					getList();
-					run();
+					// run();
 
 				}
 			}
 		});
 
 		Label label = new Label(composite, SWT.NULL);
-		label.setText("  Select Bundle: ");
+		label.setText("Select Bundle: ");
 		comboBundle = new Combo(composite, SWT.READ_ONLY | SWT.DROP_DOWN);
-		//comboBundle.setBounds(50, 50, 150, 50);
-		comboBundle.setSize(200, 30);
-		if (bundleSeected != null) {
-			System.out.println("bundleSeected : " + bundleSeected);
-			comboBundle.setItems(bundleSeected);
-		}
+		comboBundle.setBounds(50, 50, 150, 50);
 		// String bundleItems[] = { "Item One", "Item Two", "Item Three", "Item
 		// Four", "Item Five" };
 		// comboBundle.setItems(bundleItems);
-		// comboBundle.select(2);
 
 		comboBundle.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
@@ -376,8 +370,7 @@ public class CDTConsole implements LogListener, Runnable {
 		logger.error("This is a sample Error Msg 1");
 		logger.error("This is a sample Error Msg 2");
 		logger.warning("This is a sample Warning Msg");
-
-		// run();
+		
 
 	}
 
@@ -474,7 +467,7 @@ public class CDTConsole implements LogListener, Runnable {
 				}
 			}
 		}
-
+		run();
 		// System.out.println("End Array : " + selectedLogList.size());
 
 	}
@@ -485,6 +478,61 @@ public class CDTConsole implements LogListener, Runnable {
 		msgBundleSet.add("ALL");
 		msgBundleSet.add(log.getBundle().getSymbolicName());
 		getList();
+		// Display.getDefault().asyncExec(new Runnable() {
+		//
+		// public void run() {
+		// DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		//
+		// String bundleItems[] = msgBundleSet.toArray(new
+		// String[msgBundleSet.size()]);
+		// comboBundle.setItems(bundleItems);
+		// comboBundle.select(ArrayUtils.indexOf(bundleItems, bundleSeected));
+		//
+		// if (errorChecked.equalsIgnoreCase("true"))
+		// errFlag = 1;
+		// if (warningChecked.equalsIgnoreCase("true"))
+		// warFlag = 1;
+		// if (infoChecked.equalsIgnoreCase("true"))
+		// infoFlag = 1;
+		// if (debugChecked.equalsIgnoreCase("true"))
+		// debugFlag = 1;
+		//
+		// // System.out.println("Array : " + bundleSeected + " " +
+		// // ArrayUtils.indexOf(bundleItems, bundleSeected));
+		//
+		// // System.out.println("Array Size : " + logList.size() + " " +
+		// // selectedLogList.size());
+		//
+		// final List<Model> models = new ArrayList<Model>();
+		//
+		// // for (int i = 0; i < logList.size(); i++) {
+		// //
+		// // models.add(new
+		// // Model(String.valueOf(logList.get(i).getLevel()),
+		// // String.valueOf(logList.get(i).getLevel()),
+		// // logList.get(i).getBundle().getSymbolicName(),
+		// // logList.get(i).getMessage(),
+		// // dateFormat.format(new
+		// // Date(logList.get(i).getTime())).toString()));
+		// // }
+		//
+		// for (int i = 0; i < selectedLogList.size(); i++) {
+		//
+		// models.add(new
+		// Model(String.valueOf(selectedLogList.get(i).getLevel()),
+		// String.valueOf(selectedLogList.get(i).getLevel()),
+		// selectedLogList.get(i).getBundle().getSymbolicName(),
+		// selectedLogList.get(i).getMessage(),
+		// dateFormat.format(new
+		// Date(selectedLogList.get(i).getTime())).toString()));
+		// }
+		//
+		// logTableViewer.setContentProvider(new ModelContentProvider());
+		// logTableViewer.setLabelProvider(new ModelLabelProvider());
+		// logTableViewer.setInput(models);
+		//
+		// }
+		// });
 	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
@@ -495,39 +543,6 @@ public class CDTConsole implements LogListener, Runnable {
 			CDTLogReaderService reader = (CDTLogReaderService) Activator.getContext().getService(ref);
 			reader.removeLogListener(this);
 		}
-
-	}
-
-	@PostConstruct
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
-
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-		String bundleItems[] = msgBundleSet.toArray(new String[msgBundleSet.size()]);
-		comboBundle.setItems(bundleItems);
-		System.out.println("bundle : " + bundleSeected + " " + ArrayUtils.indexOf(bundleItems, bundleSeected) + " "
-				+ msgBundleSet.size());
-		comboBundle.setSize(200, 30);
-		comboBundle.select(ArrayUtils.indexOf(bundleItems, bundleSeected));
-
-		System.out.println("Array Size : " + logList.size() + " " + selectedLogList.size());
-
-		final List<Model> models = new ArrayList<Model>();
-
-		for (int i = 0; i < selectedLogList.size(); i++) {
-
-			models.add(new Model(String.valueOf(selectedLogList.get(i).getLevel()),
-					String.valueOf(selectedLogList.get(i).getLevel()),
-					selectedLogList.get(i).getBundle().getSymbolicName(), selectedLogList.get(i).getMessage(),
-					dateFormat.format(new Date(selectedLogList.get(i).getTime())).toString()));
-		}
-
-		logTableViewer.setContentProvider(new ModelContentProvider());
-		logTableViewer.setLabelProvider(new ModelLabelProvider());
-		logTableViewer.setInput(models);
-
 	}
 
 	/*
@@ -714,6 +729,34 @@ public class CDTConsole implements LogListener, Runnable {
 		public void setMsgDateTime(String msgDateTime) {
 			this.msgDateTime = msgDateTime;
 		}
+
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+		String bundleItems[] = msgBundleSet.toArray(new String[msgBundleSet.size()]);
+		comboBundle.setItems(bundleItems);
+		comboBundle.select(ArrayUtils.indexOf(bundleItems, bundleSeected));
+
+		System.out.println("Array Size : " + logList.size() + " " + selectedLogList.size());
+
+		final List<Model> models = new ArrayList<Model>();
+
+		for (int i = 0; i < selectedLogList.size(); i++) {
+
+			models.add(new Model(String.valueOf(selectedLogList.get(i).getLevel()),
+					String.valueOf(selectedLogList.get(i).getLevel()),
+					selectedLogList.get(i).getBundle().getSymbolicName(), selectedLogList.get(i).getMessage(),
+					dateFormat.format(new Date(selectedLogList.get(i).getTime())).toString()));
+		}
+
+		logTableViewer.setContentProvider(new ModelContentProvider());
+		logTableViewer.setLabelProvider(new ModelLabelProvider());
+		logTableViewer.setInput(models);
 
 	}
 

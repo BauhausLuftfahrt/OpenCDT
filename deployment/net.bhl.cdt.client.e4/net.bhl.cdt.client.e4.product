@@ -36,9 +36,10 @@
       <plugin id="javax.inject"/>
       <plugin id="javax.servlet"/>
       <plugin id="javax.xml"/>
+      <plugin id="javax.xml.rpc"/>
+      <plugin id="javax.xml.soap"/>
+      <plugin id="javax.xml.stream"/>
       <plugin id="net.bhl.cdt.client.e4"/>
-      <plugin id="net.bhl.cdt.literature.model"/>
-      <plugin id="net.bhl.cdt.literature.ui.e4"/>
       <plugin id="net.bhl.cdt.log"/>
       <plugin id="net.bhl.cdt.model"/>
       <plugin id="net.bhl.cdt.model.edit"/>
@@ -48,6 +49,9 @@
       <plugin id="org.apache.commons.codec"/>
       <plugin id="org.apache.commons.jxpath"/>
       <plugin id="org.apache.commons.logging"/>
+      <plugin id="org.apache.xerces"/>
+      <plugin id="org.apache.xml.resolver"/>
+      <plugin id="org.apache.xml.serializer"/>
       <plugin id="org.eclipse.ant.core"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
@@ -56,7 +60,6 @@
       <plugin id="org.eclipse.core.databinding.property"/>
       <plugin id="org.eclipse.core.expressions"/>
       <plugin id="org.eclipse.core.filesystem"/>
-      <plugin id="org.eclipse.core.filesystem.linux.x86_64" fragment="true"/>
       <plugin id="org.eclipse.core.filesystem.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.core.jobs"/>
       <plugin id="org.eclipse.core.resources"/>
@@ -77,7 +80,6 @@
       <plugin id="org.eclipse.e4.ui.di"/>
       <plugin id="org.eclipse.e4.ui.model.workbench"/>
       <plugin id="org.eclipse.e4.ui.services"/>
-      <plugin id="org.eclipse.e4.ui.swt.gtk" fragment="true"/>
       <plugin id="org.eclipse.e4.ui.widgets"/>
       <plugin id="org.eclipse.e4.ui.workbench"/>
       <plugin id="org.eclipse.e4.ui.workbench.addons.swt"/>
@@ -93,6 +95,7 @@
       <plugin id="org.eclipse.emf.databinding.edit"/>
       <plugin id="org.eclipse.emf.ecore"/>
       <plugin id="org.eclipse.emf.ecore.change"/>
+      <plugin id="org.eclipse.emf.ecore.edit"/>
       <plugin id="org.eclipse.emf.ecore.xmi"/>
       <plugin id="org.eclipse.emf.ecp.application.e4"/>
       <plugin id="org.eclipse.emf.ecp.common"/>
@@ -101,6 +104,7 @@
       <plugin id="org.eclipse.emf.ecp.core.emffilter"/>
       <plugin id="org.eclipse.emf.ecp.edit"/>
       <plugin id="org.eclipse.emf.ecp.edit.swt"/>
+      <plugin id="org.eclipse.emf.ecp.edit.swt.source"/>
       <plugin id="org.eclipse.emf.ecp.emfstore.core"/>
       <plugin id="org.eclipse.emf.ecp.emfstore.ui"/>
       <plugin id="org.eclipse.emf.ecp.emfstore.ui.e4"/>
@@ -114,6 +118,8 @@
       <plugin id="org.eclipse.emf.ecp.view.context"/>
       <plugin id="org.eclipse.emf.ecp.view.control.multireference"/>
       <plugin id="org.eclipse.emf.ecp.view.core.swt"/>
+      <plugin id="org.eclipse.emf.ecp.view.custom.model"/>
+      <plugin id="org.eclipse.emf.ecp.view.custom.ui.swt"/>
       <plugin id="org.eclipse.emf.ecp.view.group.model"/>
       <plugin id="org.eclipse.emf.ecp.view.group.ui.swt"/>
       <plugin id="org.eclipse.emf.ecp.view.horizontal.model"/>
@@ -123,6 +129,7 @@
       <plugin id="org.eclipse.emf.ecp.view.migrator"/>
       <plugin id="org.eclipse.emf.ecp.view.model"/>
       <plugin id="org.eclipse.emf.ecp.view.model.common"/>
+      <plugin id="org.eclipse.emf.ecp.view.model.edit"/>
       <plugin id="org.eclipse.emf.ecp.view.model.provider.generator"/>
       <plugin id="org.eclipse.emf.ecp.view.model.provider.xmi"/>
       <plugin id="org.eclipse.emf.ecp.view.swt.layout"/>
@@ -154,6 +161,7 @@
       <plugin id="org.eclipse.emfforms.common"/>
       <plugin id="org.eclipse.emfforms.core.services"/>
       <plugin id="org.eclipse.emfforms.core.services.databinding.featurepath"/>
+      <plugin id="org.eclipse.emfforms.core.services.databinding.featurepath.source"/>
       <plugin id="org.eclipse.emfforms.core.services.databinding.index"/>
       <plugin id="org.eclipse.emfforms.core.services.databinding.mapping"/>
       <plugin id="org.eclipse.emfforms.core.services.domainexpander.default"/>
@@ -182,6 +190,7 @@
       <plugin id="org.eclipse.emfforms.swt.table"/>
       <plugin id="org.eclipse.emfforms.swt.treemasterdetail"/>
       <plugin id="org.eclipse.emfforms.view.model.localization"/>
+      <plugin id="org.eclipse.emfforms.view.model.localization.source"/>
       <plugin id="org.eclipse.equinox.app"/>
       <plugin id="org.eclipse.equinox.bidi"/>
       <plugin id="org.eclipse.equinox.common"/>
@@ -209,7 +218,6 @@
       <plugin id="org.eclipse.osgi.compatibility.state" fragment="true"/>
       <plugin id="org.eclipse.osgi.services"/>
       <plugin id="org.eclipse.swt"/>
-      <plugin id="org.eclipse.swt.gtk.linux.x86_64" fragment="true"/>
       <plugin id="org.eclipse.swt.win32.win32.x86_64" fragment="true"/>
       <plugin id="org.eclipse.text"/>
       <plugin id="org.eclipse.ui"/>

@@ -1,4 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    name="cdtliterature" nsURI="http://www.bauhaus-luftfahrt.net/cdt/literature"
-    nsPrefix="cdtliterature"/>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cdtliterature" nsURI="http://www.bauhaus-luftfahrt.net/cdt/literature"
+    nsPrefix="cdtliterature">
+  <eClassifiers xsi:type="ecore:EClass" name="ALiteratureBase" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
+        eType="#//ALiteratureBase"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Article" eSuperTypes="#//ALiteratureBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="journal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Book" eSuperTypes="#//ALiteratureBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publisher" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isbn" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Inbook" eSuperTypes="#//ALiteratureBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pages" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publisher" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="book" eType="#//Book"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Conference" eSuperTypes="#//ALiteratureBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="booktitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Incollection" eSuperTypes="#//ALiteratureBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="booktitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="publisher" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="books" eType="#//Book"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Inproceedings" eSuperTypes="#//ALiteratureBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="booktitle" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="articles" eType="#//Article"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Proceedings" eSuperTypes="#//ALiteratureBase"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Techreport" eSuperTypes="#//ALiteratureBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="institution" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Phdthesis" eSuperTypes="#//ALiteratureBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="school" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Masterthesis" eSuperTypes="#//ALiteratureBase">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="school" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Unpublished">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="note" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
+        eType="#//ALiteratureBase"/>
+  </eClassifiers>
+</ecore:EPackage>

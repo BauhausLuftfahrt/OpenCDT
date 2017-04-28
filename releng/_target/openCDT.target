@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="OpenCDT Target Platform" sequenceNumber="284">
+<?pde version="3.8"?><target name="OpenCDT Target Platform" sequenceNumber="283">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.edapt.runtime.feature.feature.group" version="0.0.0"/>
@@ -125,7 +125,14 @@
 <repository location="http://download.eclipse.org/datatools/updates/1.12/"/>
 </location>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.parsley.sdk.feature.group" version="1.0.2.v20161121-1235"/>
+<unit id="org.eclipse.emf.parsley.sdk.feature.group" version="1.0.1.v20160706-1123"/>
+<unit id="org.eclipse.emf.validation.sdk.feature.group" version="1.10.0.201606071713"/>
+<unit id="org.eclipse.emf.sdk.feature.group" version="2.12.0.v20160526-0356"/>
+<unit id="org.eclipse.net4j.sdk.feature.group" version="4.5.0.v20160607-1511"/>
+<unit id="org.eclipse.birt.feature.group" version="4.6.0.v201606072122"/>
+<unit id="org.eclipse.emf.cdo.sdk.feature.group" version="4.5.0.v20160607-1511"/>
+<unit id="org.eclipse.emf.parsley.sdk.source.feature.group" version="1.0.1.v20160706-1123"/>
+<unit id="org.eclipse.emf.emfstore.sdk.feature.feature.group" version="1.8.0.v20160606-1028"/>
 <repository location="http://download.eclipse.org/releases/neon"/>
 </location>
 </locations>
