@@ -45,6 +45,7 @@
       <plugin id="net.bhl.cdt.model.edit"/>
       <plugin id="net.bhl.cdt.oida.strategies"/>
       <plugin id="oida.bridge"/>
+      <plugin id="oida.bridge.emf"/>
       <plugin id="oida.bridge.model"/>
       <plugin id="oida.bridge.model.edit"/>
       <plugin id="oida.bridge.recommender.name"/>

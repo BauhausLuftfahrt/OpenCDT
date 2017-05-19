@@ -2,20 +2,29 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cdt" nsURI="http://www.bauhaus-luftfahrt.net/cdt" nsPrefix="cdt">
   <eSubpackages name="base">
-    <eClassifiers xsi:type="ecore:EClass" name="ANamedElement" abstract="true">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ANamedItem" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AIdentifiableItem" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="operation">
-    <eClassifiers xsi:type="ecore:EClass" name="Operation" eSuperTypes="#//base/ANamedElement"/>
-  </eSubpackages>
-  <eSubpackages name="system">
-    <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//base/ANamedElement">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="subComponents" upperBound="-1"
-          eType="#//system/Component" containment="true"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
-          eType="#//system/Parameter"/>
+  <eSubpackages name="data">
+    <eClassifiers xsi:type="ecore:EClass" name="AUnit" eSuperTypes="#//base/ANamedItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
+          eType="#//data/IParameter"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//base/ANamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AValue">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
+          eType="#//data/IParameter" eOpposite="#//data/IParameter/value"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IParameter" abstract="true" interface="true"
+        eSuperTypes="#//base/ANamedItem #//base/AIdentifiableItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//data/AValue"
+          eOpposite="#//data/AValue/parameter"/>
+    </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

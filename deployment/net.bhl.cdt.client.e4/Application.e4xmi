@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_GlqaEArBEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.application" bindingContexts="_GlrBIArBEeaJ2Y3tZdi01w">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_GlqaEQrBEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.mainwindow" selectedElement="_Y7B88ArDEeaJ2Y3tZdi01w" label="OpenCDT" iconURI="platform:/plugin/net.bhl.cdt.client.e4/res/OpenCDT_Symbol_0064.png" width="1280" height="800">
-    <children xsi:type="advanced:PerspectiveStack" xmi:id="_Y7B88ArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.perspectivestack">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_Y7B88ArDEeaJ2Y3tZdi01w" elementId="de.symo.application.mainwindow.perspectivestack">
       <children xsi:type="advanced:Perspective" xmi:id="_Z2zBoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.perspective.cdt" label="Modelling" iconURI="platform:/plugin/net.bhl.cdt.client.e4/res/OpenCDT_Symbol_0016.png">
         <children xsi:type="basic:PartSashContainer" xmi:id="_c39FgArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.partsashcontainer.0" horizontal="true">
           <children xsi:type="basic:PartSashContainer" xmi:id="_PP2rUAt3EeaTQKclQUz8Eg" elementId="net.bhl.cdt.client.e4.partsashcontainer.2" containerData="20">
@@ -58,6 +58,7 @@
     <mainMenu xmi:id="_y35uoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.menu.0">
       <children xsi:type="menu:Menu" xmi:id="_WWyncBqOEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.menu.file" label="File">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_XoxMsBqOEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.handledmenuitem.exit" label="Exit" command="_cSFhMBqOEeaW3cdp9dOVbQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_NuLi0C_jEeeawMHSYSsmQw" elementId="net.bhl.cdt.client.e4.handledmenuitem.startoidabridge" label="Start OIDA Bridge" command="_QYEWMC_jEeeawMHSYSsmQw"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_I8dicHtIEeaQY-NEtbcVNg" elementId="net.bhl.cdt.client.e4.menu.window" label="Window">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_KU9mcHtIEeaQY-NEtbcVNg" elementId="net.bhl.cdt.client.e4.handledmenuitem.showperspectiveswitcher" label="Show Perspective Switcher" selected="true" type="Check" command="_PNUcgHtIEeaQY-NEtbcVNg"/>
@@ -101,6 +102,7 @@
   <handlers xmi:id="_ewL7UBqOEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.handler.0" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.handler.ExitHandler" command="_cSFhMBqOEeaW3cdp9dOVbQ"/>
   <handlers xmi:id="_TQ4_oHtIEeaQY-NEtbcVNg" elementId="net.bhl.cdt.client.e4.handler.showperspectiveswitcher" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.handler.ShowPerspectiveSwitcherHandler" command="_PNUcgHtIEeaQY-NEtbcVNg"/>
   <handlers xmi:id="_K7H6MHvaEeazv-wP_fp_cw" elementId="net.bhl.cdt.client.e4.handler.2" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.handler.AboutHandler" command="_IlT5YHvaEeazv-wP_fp_cw"/>
+  <handlers xmi:id="_R0TDoC_jEeeawMHSYSsmQw" elementId="net.bhl.cdt.client.e4.handler.1" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.handler.StartOIDABridgeHandler" command="_QYEWMC_jEeeawMHSYSsmQw"/>
   <rootContext xmi:id="_GlrBIArBEeaJ2Y3tZdi01w" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
     <children xmi:id="_GlrBIQrBEeaJ2Y3tZdi01w" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_GlrBIgrBEeaJ2Y3tZdi01w" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
@@ -121,6 +123,7 @@
   <commands xmi:id="_cSFhMBqOEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.command.exitopencdt" commandName="Exit OpenCDT"/>
   <commands xmi:id="_PNUcgHtIEeaQY-NEtbcVNg" elementId="net.bhl.cdt.client.e4.command.showperspectiveswitcher" commandName="ShowPerspectiveSwitcher"/>
   <commands xmi:id="_IlT5YHvaEeazv-wP_fp_cw" elementId="net.bhl.cdt.client.e4.command.aboutopencdt" commandName="About OpenCDT"/>
+  <commands xmi:id="_QYEWMC_jEeeawMHSYSsmQw" elementId="net.bhl.cdt.client.e4.command.startoidabridge" commandName="Start OIDA Bridge"/>
   <addons xmi:id="_0JoRApgREeKJoJcmiy2C6w" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_0JoRA5gREeKJoJcmiy2C6w" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_0JoRBJgREeKJoJcmiy2C6w" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
