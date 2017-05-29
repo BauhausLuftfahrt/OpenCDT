@@ -1,4 +1,4 @@
-package net.bhl.cdt.core.ui;
+package net.bhl.cdt.util.ui;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;

@@ -1,4 +1,4 @@
-package net.bhl.cdt.core;
+package net.bhl.cdt.util;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;

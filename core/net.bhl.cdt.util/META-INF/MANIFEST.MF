@@ -1,12 +1,12 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: OpenCDT Core
-Bundle-SymbolicName: net.bhl.cdt.core
+Bundle-SymbolicName: net.bhl.cdt.util
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: net.bhl.cdt.core.Activator
+Bundle-Activator: net.bhl.cdt.util.Activator
 Bundle-Vendor: Bauhaus Luftfahrt e.V.
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.swt
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Export-Package: net.bhl.cdt.core.ui
+Export-Package: net.bhl.cdt.util.ui
