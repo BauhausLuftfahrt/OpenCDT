@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/net.bhl.cdt.model.v2/src" modelPluginID="net.bhl.cdt.model.v2"
-    modelName="Cdt" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
-    usedGenPackages="#//cdt/base" operationReflection="true" importOrganizing="true">
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/net.bhl.cdt.model.v2/src-gen" editDirectory="/net.bhl.cdt.model.v2.edit/src-gen"
+    editorDirectory="/net.bhl.cdt.model.v2.editor/src-gen" modelPluginID="net.bhl.cdt.model.v2"
+    modelName="CDT" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/net.bhl.cdt.model.v2.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>cdt.ecore</foreignModel>
-  <genPackages prefix="Cdt" disposableProviderFactory="true" ecorePackage="cdt.ecore#/">
-    <nestedGenPackages prefix="NewPackage1" disposableProviderFactory="true" ecorePackage="cdt.ecore#//base">
+  <genPackages prefix="model" disposableProviderFactory="true" ecorePackage="cdt.ecore#/">
+    <nestedGenPackages prefix="Base" disposableProviderFactory="true" ecorePackage="cdt.ecore#//base">
       <genClasses image="false" ecoreClass="cdt.ecore#//base/ANamedItem">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//base/ANamedItem/name"/>
       </genClasses>
@@ -14,7 +15,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//base/AIdentifiableItem/id"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="NewPackage2" disposableProviderFactory="true" ecorePackage="cdt.ecore#//data">
+    <nestedGenPackages prefix="Data" disposableProviderFactory="true" ecorePackage="cdt.ecore#//data">
       <genClasses ecoreClass="cdt.ecore#//data/AUnit">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference cdt.ecore#//data/AUnit/parameter"/>
@@ -27,6 +28,16 @@
       <genClasses image="false" ecoreClass="cdt.ecore#//data/IParameter">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference cdt.ecore#//data/IParameter/value"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Quantities" disposableProviderFactory="true" ecorePackage="cdt.ecore#//quantities">
+      <genDataTypes ecoreDataType="cdt.ecore#//quantities/Length"/>
+      <genDataTypes ecoreDataType="cdt.ecore#//quantities/Amount">
+        <genTypeParameters ecoreTypeParameter="cdt.ecore#//quantities/Amount/Q"/>
+      </genDataTypes>
+      <genDataTypes ecoreDataType="cdt.ecore#//quantities/Quantity"/>
+      <genClasses ecoreClass="cdt.ecore#//quantities/LengthValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//quantities/LengthValue/value"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

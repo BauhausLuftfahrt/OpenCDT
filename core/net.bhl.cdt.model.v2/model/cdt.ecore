@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cdt" nsURI="http://www.bauhaus-luftfahrt.net/cdt" nsPrefix="cdt">
-  <eSubpackages name="base">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="http://www.bauhaus-luftfahrt.net/cdt" nsPrefix="net.bhl.cdt">
+  <eSubpackages name="base" nsURI="http://www.bauhaus-luftfahrt.net/cdt/base" nsPrefix="net.bhl.cdt.model">
     <eClassifiers xsi:type="ecore:EClass" name="ANamedItem" abstract="true">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -11,7 +11,7 @@
           iD="true"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="data">
+  <eSubpackages name="data" nsURI="http://www.bauhaus-luftfahrt.net/cdt/data" nsPrefix="net.bhl.cdt.model">
     <eClassifiers xsi:type="ecore:EClass" name="AUnit" eSuperTypes="#//base/ANamedItem">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
           eType="#//data/IParameter"/>
@@ -19,12 +19,40 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AValue">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
-          eType="#//data/IParameter" eOpposite="#//data/IParameter/value"/>
+          eType="#//data/IParameter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IParameter" abstract="true" interface="true"
-        eSuperTypes="#//base/ANamedItem #//base/AIdentifiableItem">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//data/AValue"
-          eOpposite="#//data/AValue/parameter"/>
+        eSuperTypes="#//base/ANamedItem #//base/AIdentifiableItem"/>
+  </eSubpackages>
+  <eSubpackages name="quantities" nsURI="http://www.bauhaus-luftfahrt.net/cdt/quantities"
+      nsPrefix="net.bhl.cdt.model">
+    <eClassifiers xsi:type="ecore:EDataType" name="Length" instanceClassName="javax.measure.quantity.Length"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Amount" instanceClassName="org.jscience.physics.amount.Amount">
+      <eTypeParameters name="Q">
+        <eBounds eClassifier="#//quantities/Quantity"/>
+      </eTypeParameters>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="Unit" instanceClassName="javax.measure.unit.Unit">
+      <eTypeParameters name="Q">
+        <eBounds eClassifier="#//quantities/Quantity"/>
+      </eTypeParameters>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="Quantity" instanceClassName="javax.measure.quantity.Quantity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StringParameter" eSuperTypes="#//data/IParameter">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NumberParameter" eSuperTypes="#//data/IParameter"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LengthParamenter" eSuperTypes="#//quantities/NumberParameter">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
+        <eGenericType eClassifier="#//quantities/Amount">
+          <eTypeArguments eClassifier="#//quantities/Length"/>
+        </eGenericType>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit">
+        <eGenericType eClassifier="#//quantities/Unit">
+          <eTypeArguments eClassifier="#//quantities/Length"/>
+        </eGenericType>
+      </eStructuralFeatures>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>
