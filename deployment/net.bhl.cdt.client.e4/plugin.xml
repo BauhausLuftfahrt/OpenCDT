@@ -17,6 +17,22 @@
                value="net.bhl.cdt.client.e4">
          </property>
          <property
+               name="windowImages"
+               value="res/OpenCDT_Symbol_0016.png,res/OpenCDT_Symbol_0032.png,res/OpenCDT_Symbol_0064.png,res/OpenCDT_Symbol_0128.png">
+         </property>
+         <property
+               name="startupForegroundColor"
+               value="000000">
+         </property>
+         <property
+               name="startupMessageRect"
+               value="7,252,445,20">
+         </property>
+         <property
+               name="startupProgressRect"
+               value="5,275,445,15">
+         </property>
+         <property
                name="startupForegroundColor"
                value="000000">
          </property>

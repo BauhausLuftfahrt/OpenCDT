@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * <ul>
  *   <li>{@link cdtliterature.impl.ALiteratureBaseImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link cdtliterature.impl.ALiteratureBaseImpl#getAuthor <em>Author</em>}</li>
+ *   <li>{@link cdtliterature.impl.ALiteratureBaseImpl#getYear <em>Year</em>}</li>
  *   <li>{@link cdtliterature.impl.ALiteratureBaseImpl#getReferences <em>References</em>}</li>
  * </ul>
  *
@@ -73,6 +74,26 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 	 * @ordered
 	 */
 	protected String author = AUTHOR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getYear() <em>Year</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getYear()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final int YEAR_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getYear() <em>Year</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getYear()
+	 * @generated
+	 * @ordered
+	 */
+	protected int year = YEAR_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
@@ -150,6 +171,27 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public int getYear() {
+		return year;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setYear(int newYear) {
+		int oldYear = year;
+		year = newYear;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CdtliteraturePackage.ALITERATURE_BASE__YEAR, oldYear, year));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<ALiteratureBase> getReferences() {
 		if (references == null) {
 			references = new EObjectResolvingEList<ALiteratureBase>(ALiteratureBase.class, this, CdtliteraturePackage.ALITERATURE_BASE__REFERENCES);
@@ -169,6 +211,8 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 				return getTitle();
 			case CdtliteraturePackage.ALITERATURE_BASE__AUTHOR:
 				return getAuthor();
+			case CdtliteraturePackage.ALITERATURE_BASE__YEAR:
+				return getYear();
 			case CdtliteraturePackage.ALITERATURE_BASE__REFERENCES:
 				return getReferences();
 		}
@@ -189,6 +233,9 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 				return;
 			case CdtliteraturePackage.ALITERATURE_BASE__AUTHOR:
 				setAuthor((String)newValue);
+				return;
+			case CdtliteraturePackage.ALITERATURE_BASE__YEAR:
+				setYear((Integer)newValue);
 				return;
 			case CdtliteraturePackage.ALITERATURE_BASE__REFERENCES:
 				getReferences().clear();
@@ -212,6 +259,9 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 			case CdtliteraturePackage.ALITERATURE_BASE__AUTHOR:
 				setAuthor(AUTHOR_EDEFAULT);
 				return;
+			case CdtliteraturePackage.ALITERATURE_BASE__YEAR:
+				setYear(YEAR_EDEFAULT);
+				return;
 			case CdtliteraturePackage.ALITERATURE_BASE__REFERENCES:
 				getReferences().clear();
 				return;
@@ -231,6 +281,8 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 			case CdtliteraturePackage.ALITERATURE_BASE__AUTHOR:
 				return AUTHOR_EDEFAULT == null ? author != null : !AUTHOR_EDEFAULT.equals(author);
+			case CdtliteraturePackage.ALITERATURE_BASE__YEAR:
+				return year != YEAR_EDEFAULT;
 			case CdtliteraturePackage.ALITERATURE_BASE__REFERENCES:
 				return references != null && !references.isEmpty();
 		}
@@ -251,6 +303,8 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 		result.append(title);
 		result.append(", author: ");
 		result.append(author);
+		result.append(", year: ");
+		result.append(year);
 		result.append(')');
 		return result.toString();
 	}

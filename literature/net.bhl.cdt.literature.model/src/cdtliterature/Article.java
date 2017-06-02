@@ -12,7 +12,6 @@ package cdtliterature;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link cdtliterature.Article#getYear <em>Year</em>}</li>
  *   <li>{@link cdtliterature.Article#getJournal <em>Journal</em>}</li>
  * </ul>
  *
@@ -21,32 +20,6 @@ package cdtliterature;
  * @generated
  */
 public interface Article extends ALiteratureBase {
-	/**
-	 * Returns the value of the '<em><b>Year</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Year</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Year</em>' attribute.
-	 * @see #setYear(int)
-	 * @see cdtliterature.CdtliteraturePackage#getArticle_Year()
-	 * @model
-	 * @generated
-	 */
-	int getYear();
-
-	/**
-	 * Sets the value of the '{@link cdtliterature.Article#getYear <em>Year</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Year</em>' attribute.
-	 * @see #getYear()
-	 * @generated
-	 */
-	void setYear(int value);
-
 	/**
 	 * Returns the value of the '<em><b>Journal</b></em>' attribute.
 	 * <!-- begin-user-doc -->

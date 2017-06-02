@@ -19,33 +19,12 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link cdtliterature.impl.ArticleImpl#getYear <em>Year</em>}</li>
  *   <li>{@link cdtliterature.impl.ArticleImpl#getJournal <em>Journal</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ArticleImpl extends ALiteratureBaseImpl implements Article {
-	/**
-	 * The default value of the '{@link #getYear() <em>Year</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getYear()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int YEAR_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getYear() <em>Year</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getYear()
-	 * @generated
-	 * @ordered
-	 */
-	protected int year = YEAR_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getJournal() <em>Journal</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -90,27 +69,6 @@ public class ArticleImpl extends ALiteratureBaseImpl implements Article {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getYear() {
-		return year;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setYear(int newYear) {
-		int oldYear = year;
-		year = newYear;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CdtliteraturePackage.ARTICLE__YEAR, oldYear, year));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public String getJournal() {
 		return journal;
 	}
@@ -135,8 +93,6 @@ public class ArticleImpl extends ALiteratureBaseImpl implements Article {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case CdtliteraturePackage.ARTICLE__YEAR:
-				return getYear();
 			case CdtliteraturePackage.ARTICLE__JOURNAL:
 				return getJournal();
 		}
@@ -151,9 +107,6 @@ public class ArticleImpl extends ALiteratureBaseImpl implements Article {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case CdtliteraturePackage.ARTICLE__YEAR:
-				setYear((Integer)newValue);
-				return;
 			case CdtliteraturePackage.ARTICLE__JOURNAL:
 				setJournal((String)newValue);
 				return;
@@ -169,9 +122,6 @@ public class ArticleImpl extends ALiteratureBaseImpl implements Article {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case CdtliteraturePackage.ARTICLE__YEAR:
-				setYear(YEAR_EDEFAULT);
-				return;
 			case CdtliteraturePackage.ARTICLE__JOURNAL:
 				setJournal(JOURNAL_EDEFAULT);
 				return;
@@ -187,8 +137,6 @@ public class ArticleImpl extends ALiteratureBaseImpl implements Article {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case CdtliteraturePackage.ARTICLE__YEAR:
-				return year != YEAR_EDEFAULT;
 			case CdtliteraturePackage.ARTICLE__JOURNAL:
 				return JOURNAL_EDEFAULT == null ? journal != null : !JOURNAL_EDEFAULT.equals(journal);
 		}
@@ -205,9 +153,7 @@ public class ArticleImpl extends ALiteratureBaseImpl implements Article {
 		if (eIsProxy()) return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (year: ");
-		result.append(year);
-		result.append(", journal: ");
+		result.append(" (journal: ");
 		result.append(journal);
 		result.append(')');
 		return result.toString();

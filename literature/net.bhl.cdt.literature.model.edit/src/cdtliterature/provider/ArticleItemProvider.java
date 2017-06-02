@@ -45,32 +45,9 @@ public class ArticleItemProvider extends ALiteratureBaseItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addYearPropertyDescriptor(object);
 			addJournalPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Year feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addYearPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Article_year_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Article_year_feature", "_UI_Article_type"),
-				 CdtliteraturePackage.Literals.ARTICLE__YEAR,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -133,7 +110,6 @@ public class ArticleItemProvider extends ALiteratureBaseItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Article.class)) {
-			case CdtliteraturePackage.ARTICLE__YEAR:
 			case CdtliteraturePackage.ARTICLE__JOURNAL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

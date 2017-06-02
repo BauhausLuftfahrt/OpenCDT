@@ -44,3 +44,5 @@ Export-Package: net.bhl.cdt.commands,
    org.eclipse.swt.widgets",
  net.bhl.cdt.ui.handler;uses:="org.eclipse.emf.ecore,org.eclipse.core.commands,org.eclipse.swt.widgets"
 Bundle-ClassPath: .
+Import-Package: org.eclipse.core.runtime,
+ org.osgi.framework;version="1.8.0"

@@ -11,18 +11,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -32,13 +23,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ConferenceItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ALiteratureBaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -60,56 +45,9 @@ public class ConferenceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAuthorPropertyDescriptor(object);
-			addTitlePropertyDescriptor(object);
 			addBooktitlePropertyDescriptor(object);
-			addYearPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Author feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAuthorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Conference_author_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Conference_author_feature", "_UI_Conference_type"),
-				 CdtliteraturePackage.Literals.CONFERENCE__AUTHOR,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Title feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTitlePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Conference_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Conference_title_feature", "_UI_Conference_type"),
-				 CdtliteraturePackage.Literals.CONFERENCE__TITLE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -135,28 +73,6 @@ public class ConferenceItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Year feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addYearPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Conference_year_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Conference_year_feature", "_UI_Conference_type"),
-				 CdtliteraturePackage.Literals.CONFERENCE__YEAR,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns Conference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -175,7 +91,7 @@ public class ConferenceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Conference)object).getAuthor();
+		String label = ((Conference)object).getTitle();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Conference_type") :
 			getString("_UI_Conference_type") + " " + label;
@@ -194,10 +110,7 @@ public class ConferenceItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Conference.class)) {
-			case CdtliteraturePackage.CONFERENCE__AUTHOR:
-			case CdtliteraturePackage.CONFERENCE__TITLE:
 			case CdtliteraturePackage.CONFERENCE__BOOKTITLE:
-			case CdtliteraturePackage.CONFERENCE__YEAR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
@@ -214,17 +127,6 @@ public class ConferenceItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return CdtliteratureEditPlugin.INSTANCE;
 	}
 
 }

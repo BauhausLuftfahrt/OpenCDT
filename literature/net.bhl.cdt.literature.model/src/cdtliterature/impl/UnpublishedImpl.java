@@ -2,15 +2,19 @@
  */
 package cdtliterature.impl;
 
+import cdtliterature.ALiteratureBase;
 import cdtliterature.CdtliteraturePackage;
 import cdtliterature.Unpublished;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -23,6 +27,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link cdtliterature.impl.UnpublishedImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link cdtliterature.impl.UnpublishedImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link cdtliterature.impl.UnpublishedImpl#getNote <em>Note</em>}</li>
+ *   <li>{@link cdtliterature.impl.UnpublishedImpl#getReferences <em>References</em>}</li>
  * </ul>
  *
  * @generated
@@ -87,6 +92,16 @@ public class UnpublishedImpl extends MinimalEObjectImpl.Container implements Unp
 	 * @ordered
 	 */
 	protected String note = NOTE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferences()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ALiteratureBase> references;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -175,6 +190,18 @@ public class UnpublishedImpl extends MinimalEObjectImpl.Container implements Unp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<ALiteratureBase> getReferences() {
+		if (references == null) {
+			references = new EObjectResolvingEList<ALiteratureBase>(ALiteratureBase.class, this, CdtliteraturePackage.UNPUBLISHED__REFERENCES);
+		}
+		return references;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -184,6 +211,8 @@ public class UnpublishedImpl extends MinimalEObjectImpl.Container implements Unp
 				return getTitle();
 			case CdtliteraturePackage.UNPUBLISHED__NOTE:
 				return getNote();
+			case CdtliteraturePackage.UNPUBLISHED__REFERENCES:
+				return getReferences();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -193,6 +222,7 @@ public class UnpublishedImpl extends MinimalEObjectImpl.Container implements Unp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -204,6 +234,10 @@ public class UnpublishedImpl extends MinimalEObjectImpl.Container implements Unp
 				return;
 			case CdtliteraturePackage.UNPUBLISHED__NOTE:
 				setNote((String)newValue);
+				return;
+			case CdtliteraturePackage.UNPUBLISHED__REFERENCES:
+				getReferences().clear();
+				getReferences().addAll((Collection<? extends ALiteratureBase>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -226,6 +260,9 @@ public class UnpublishedImpl extends MinimalEObjectImpl.Container implements Unp
 			case CdtliteraturePackage.UNPUBLISHED__NOTE:
 				setNote(NOTE_EDEFAULT);
 				return;
+			case CdtliteraturePackage.UNPUBLISHED__REFERENCES:
+				getReferences().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -244,6 +281,8 @@ public class UnpublishedImpl extends MinimalEObjectImpl.Container implements Unp
 				return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 			case CdtliteraturePackage.UNPUBLISHED__NOTE:
 				return NOTE_EDEFAULT == null ? note != null : !NOTE_EDEFAULT.equals(note);
+			case CdtliteraturePackage.UNPUBLISHED__REFERENCES:
+				return references != null && !references.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

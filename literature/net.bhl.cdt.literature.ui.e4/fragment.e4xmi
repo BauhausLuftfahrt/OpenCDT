@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmi:id="_HXzQcCBJEeeUAcVNmJCHDg">
-  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_NNf4gCBJEeeUAcVNmJCHDg" featurename="children" parentElementId="net.bhl.cdt.client.e4.perspectivestack">
-    <elements xsi:type="advanced:Perspective" xmi:id="_QVI-4CBJEeeUAcVNmJCHDg" elementId="net.bhl.cdt.literature.ui.e4.perspective.literature" label="Literature"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_ZvlHEDACEeeXfuKEcW0Xhw" featurename="children" parentElementId="net.bhl.cdt.client.e4.perspectivestack">
+    <elements xsi:type="advanced:Perspective" xmi:id="_ANISUDGIEeeZquaz1I49dA" elementId="net.bhl.cdt.literature.ui.e4.perspective.library" label="Library"/>
   </fragments>
 </fragment:ModelFragments>

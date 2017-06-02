@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link cdtliterature.ALiteratureBase#getTitle <em>Title</em>}</li>
  *   <li>{@link cdtliterature.ALiteratureBase#getAuthor <em>Author</em>}</li>
+ *   <li>{@link cdtliterature.ALiteratureBase#getYear <em>Year</em>}</li>
  *   <li>{@link cdtliterature.ALiteratureBase#getReferences <em>References</em>}</li>
  * </ul>
  *
@@ -76,6 +77,32 @@ public interface ALiteratureBase extends EObject {
 	 * @generated
 	 */
 	void setAuthor(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Year</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Year</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Year</em>' attribute.
+	 * @see #setYear(int)
+	 * @see cdtliterature.CdtliteraturePackage#getALiteratureBase_Year()
+	 * @model
+	 * @generated
+	 */
+	int getYear();
+
+	/**
+	 * Sets the value of the '{@link cdtliterature.ALiteratureBase#getYear <em>Year</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Year</em>' attribute.
+	 * @see #getYear()
+	 * @generated
+	 */
+	void setYear(int value);
 
 	/**
 	 * Returns the value of the '<em><b>References</b></em>' reference list.

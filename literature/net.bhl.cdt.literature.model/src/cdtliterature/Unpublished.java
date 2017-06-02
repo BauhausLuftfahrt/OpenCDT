@@ -2,6 +2,7 @@
  */
 package cdtliterature;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link cdtliterature.Unpublished#getAuthor <em>Author</em>}</li>
  *   <li>{@link cdtliterature.Unpublished#getTitle <em>Title</em>}</li>
  *   <li>{@link cdtliterature.Unpublished#getNote <em>Note</em>}</li>
+ *   <li>{@link cdtliterature.Unpublished#getReferences <em>References</em>}</li>
  * </ul>
  *
  * @see cdtliterature.CdtliteraturePackage#getUnpublished()
@@ -100,5 +102,21 @@ public interface Unpublished extends EObject {
 	 * @generated
 	 */
 	void setNote(String value);
+
+	/**
+	 * Returns the value of the '<em><b>References</b></em>' reference list.
+	 * The list contents are of type {@link cdtliterature.ALiteratureBase}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>References</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>References</em>' reference list.
+	 * @see cdtliterature.CdtliteraturePackage#getUnpublished_References()
+	 * @model
+	 * @generated
+	 */
+	EList<ALiteratureBase> getReferences();
 
 } // Unpublished

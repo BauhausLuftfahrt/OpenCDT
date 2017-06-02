@@ -85,13 +85,22 @@ public interface CdtliteraturePackage extends EPackage {
 	int ALITERATURE_BASE__AUTHOR = 1;
 
 	/**
+	 * The feature id for the '<em><b>Year</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALITERATURE_BASE__YEAR = 2;
+
+	/**
 	 * The feature id for the '<em><b>References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALITERATURE_BASE__REFERENCES = 2;
+	int ALITERATURE_BASE__REFERENCES = 3;
 
 	/**
 	 * The number of structural features of the '<em>ALiterature Base</em>' class.
@@ -100,7 +109,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ALITERATURE_BASE_FEATURE_COUNT = 3;
+	int ALITERATURE_BASE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>ALiterature Base</em>' class.
@@ -140,6 +149,15 @@ public interface CdtliteraturePackage extends EPackage {
 	int ARTICLE__AUTHOR = ALITERATURE_BASE__AUTHOR;
 
 	/**
+	 * The feature id for the '<em><b>Year</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTICLE__YEAR = ALITERATURE_BASE__YEAR;
+
+	/**
 	 * The feature id for the '<em><b>References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -149,22 +167,13 @@ public interface CdtliteraturePackage extends EPackage {
 	int ARTICLE__REFERENCES = ALITERATURE_BASE__REFERENCES;
 
 	/**
-	 * The feature id for the '<em><b>Year</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ARTICLE__YEAR = ALITERATURE_BASE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Journal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ARTICLE__JOURNAL = ALITERATURE_BASE_FEATURE_COUNT + 1;
+	int ARTICLE__JOURNAL = ALITERATURE_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Article</em>' class.
@@ -173,7 +182,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ARTICLE_FEATURE_COUNT = ALITERATURE_BASE_FEATURE_COUNT + 2;
+	int ARTICLE_FEATURE_COUNT = ALITERATURE_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Article</em>' class.
@@ -195,22 +204,22 @@ public interface CdtliteraturePackage extends EPackage {
 	int BOOK = 2;
 
 	/**
-	 * The feature id for the '<em><b>Author</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOOK__AUTHOR = 0;
-
-	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOK__TITLE = 1;
+	int BOOK__TITLE = ALITERATURE_BASE__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Author</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOK__AUTHOR = ALITERATURE_BASE__AUTHOR;
 
 	/**
 	 * The feature id for the '<em><b>Year</b></em>' attribute.
@@ -219,7 +228,16 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOK__YEAR = 2;
+	int BOOK__YEAR = ALITERATURE_BASE__YEAR;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOK__REFERENCES = ALITERATURE_BASE__REFERENCES;
 
 	/**
 	 * The feature id for the '<em><b>Publisher</b></em>' attribute.
@@ -228,7 +246,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOK__PUBLISHER = 3;
+	int BOOK__PUBLISHER = ALITERATURE_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Isbn</b></em>' attribute.
@@ -237,7 +255,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOK__ISBN = 4;
+	int BOOK__ISBN = ALITERATURE_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Book</em>' class.
@@ -246,7 +264,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOK_FEATURE_COUNT = 5;
+	int BOOK_FEATURE_COUNT = ALITERATURE_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Book</em>' class.
@@ -255,7 +273,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOK_OPERATION_COUNT = 0;
+	int BOOK_OPERATION_COUNT = ALITERATURE_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link cdtliterature.impl.InbookImpl <em>Inbook</em>}' class.
@@ -268,31 +286,22 @@ public interface CdtliteraturePackage extends EPackage {
 	int INBOOK = 3;
 
 	/**
-	 * The feature id for the '<em><b>Author</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INBOOK__AUTHOR = 0;
-
-	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INBOOK__TITLE = 1;
+	int INBOOK__TITLE = ALITERATURE_BASE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Pages</b></em>' attribute.
+	 * The feature id for the '<em><b>Author</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INBOOK__PAGES = 2;
+	int INBOOK__AUTHOR = ALITERATURE_BASE__AUTHOR;
 
 	/**
 	 * The feature id for the '<em><b>Year</b></em>' attribute.
@@ -301,7 +310,25 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INBOOK__YEAR = 3;
+	int INBOOK__YEAR = ALITERATURE_BASE__YEAR;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INBOOK__REFERENCES = ALITERATURE_BASE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Pages</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INBOOK__PAGES = ALITERATURE_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Publisher</b></em>' attribute.
@@ -310,16 +337,16 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INBOOK__PUBLISHER = 4;
+	int INBOOK__PUBLISHER = ALITERATURE_BASE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Books</b></em>' reference.
+	 * The feature id for the '<em><b>Book</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INBOOK__BOOKS = 5;
+	int INBOOK__BOOK = ALITERATURE_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Inbook</em>' class.
@@ -328,7 +355,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INBOOK_FEATURE_COUNT = 6;
+	int INBOOK_FEATURE_COUNT = ALITERATURE_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Inbook</em>' class.
@@ -337,7 +364,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INBOOK_OPERATION_COUNT = 0;
+	int INBOOK_OPERATION_COUNT = ALITERATURE_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link cdtliterature.impl.ConferenceImpl <em>Conference</em>}' class.
@@ -350,31 +377,22 @@ public interface CdtliteraturePackage extends EPackage {
 	int CONFERENCE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Author</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONFERENCE__AUTHOR = 0;
-
-	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFERENCE__TITLE = 1;
+	int CONFERENCE__TITLE = ALITERATURE_BASE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Booktitle</b></em>' attribute.
+	 * The feature id for the '<em><b>Author</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONFERENCE__BOOKTITLE = 2;
+	int CONFERENCE__AUTHOR = ALITERATURE_BASE__AUTHOR;
 
 	/**
 	 * The feature id for the '<em><b>Year</b></em>' attribute.
@@ -383,7 +401,25 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFERENCE__YEAR = 3;
+	int CONFERENCE__YEAR = ALITERATURE_BASE__YEAR;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFERENCE__REFERENCES = ALITERATURE_BASE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Booktitle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFERENCE__BOOKTITLE = ALITERATURE_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Conference</em>' class.
@@ -392,7 +428,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFERENCE_FEATURE_COUNT = 4;
+	int CONFERENCE_FEATURE_COUNT = ALITERATURE_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Conference</em>' class.
@@ -401,7 +437,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONFERENCE_OPERATION_COUNT = 0;
+	int CONFERENCE_OPERATION_COUNT = ALITERATURE_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link cdtliterature.impl.IncollectionImpl <em>Incollection</em>}' class.
@@ -414,31 +450,22 @@ public interface CdtliteraturePackage extends EPackage {
 	int INCOLLECTION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Author</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INCOLLECTION__AUTHOR = 0;
-
-	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INCOLLECTION__TITLE = 1;
+	int INCOLLECTION__TITLE = ALITERATURE_BASE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Booktitle</b></em>' attribute.
+	 * The feature id for the '<em><b>Author</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INCOLLECTION__BOOKTITLE = 2;
+	int INCOLLECTION__AUTHOR = ALITERATURE_BASE__AUTHOR;
 
 	/**
 	 * The feature id for the '<em><b>Year</b></em>' attribute.
@@ -447,7 +474,25 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INCOLLECTION__YEAR = 3;
+	int INCOLLECTION__YEAR = ALITERATURE_BASE__YEAR;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCOLLECTION__REFERENCES = ALITERATURE_BASE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Booktitle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCOLLECTION__BOOKTITLE = ALITERATURE_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Publisher</b></em>' attribute.
@@ -456,7 +501,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INCOLLECTION__PUBLISHER = 4;
+	int INCOLLECTION__PUBLISHER = ALITERATURE_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Books</b></em>' reference.
@@ -465,7 +510,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INCOLLECTION__BOOKS = 5;
+	int INCOLLECTION__BOOKS = ALITERATURE_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Incollection</em>' class.
@@ -474,7 +519,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INCOLLECTION_FEATURE_COUNT = 6;
+	int INCOLLECTION_FEATURE_COUNT = ALITERATURE_BASE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Incollection</em>' class.
@@ -483,7 +528,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INCOLLECTION_OPERATION_COUNT = 0;
+	int INCOLLECTION_OPERATION_COUNT = ALITERATURE_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link cdtliterature.impl.InproceedingsImpl <em>Inproceedings</em>}' class.
@@ -496,31 +541,22 @@ public interface CdtliteraturePackage extends EPackage {
 	int INPROCEEDINGS = 6;
 
 	/**
-	 * The feature id for the '<em><b>Author</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INPROCEEDINGS__AUTHOR = 0;
-
-	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPROCEEDINGS__TITLE = 1;
+	int INPROCEEDINGS__TITLE = ALITERATURE_BASE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Booktitle</b></em>' attribute.
+	 * The feature id for the '<em><b>Author</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INPROCEEDINGS__BOOKTITLE = 2;
+	int INPROCEEDINGS__AUTHOR = ALITERATURE_BASE__AUTHOR;
 
 	/**
 	 * The feature id for the '<em><b>Year</b></em>' attribute.
@@ -529,7 +565,25 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPROCEEDINGS__YEAR = 3;
+	int INPROCEEDINGS__YEAR = ALITERATURE_BASE__YEAR;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPROCEEDINGS__REFERENCES = ALITERATURE_BASE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Booktitle</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPROCEEDINGS__BOOKTITLE = ALITERATURE_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Articles</b></em>' reference.
@@ -538,7 +592,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPROCEEDINGS__ARTICLES = 4;
+	int INPROCEEDINGS__ARTICLES = ALITERATURE_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Inproceedings</em>' class.
@@ -547,7 +601,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPROCEEDINGS_FEATURE_COUNT = 5;
+	int INPROCEEDINGS_FEATURE_COUNT = ALITERATURE_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Inproceedings</em>' class.
@@ -556,7 +610,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int INPROCEEDINGS_OPERATION_COUNT = 0;
+	int INPROCEEDINGS_OPERATION_COUNT = ALITERATURE_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link cdtliterature.impl.ProceedingsImpl <em>Proceedings</em>}' class.
@@ -575,7 +629,16 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEEDINGS__TITLE = 0;
+	int PROCEEDINGS__TITLE = ALITERATURE_BASE__TITLE;
+
+	/**
+	 * The feature id for the '<em><b>Author</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCEEDINGS__AUTHOR = ALITERATURE_BASE__AUTHOR;
 
 	/**
 	 * The feature id for the '<em><b>Year</b></em>' attribute.
@@ -584,7 +647,16 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEEDINGS__YEAR = 1;
+	int PROCEEDINGS__YEAR = ALITERATURE_BASE__YEAR;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCEEDINGS__REFERENCES = ALITERATURE_BASE__REFERENCES;
 
 	/**
 	 * The number of structural features of the '<em>Proceedings</em>' class.
@@ -593,7 +665,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEEDINGS_FEATURE_COUNT = 2;
+	int PROCEEDINGS_FEATURE_COUNT = ALITERATURE_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Proceedings</em>' class.
@@ -602,7 +674,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PROCEEDINGS_OPERATION_COUNT = 0;
+	int PROCEEDINGS_OPERATION_COUNT = ALITERATURE_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link cdtliterature.impl.TechreportImpl <em>Techreport</em>}' class.
@@ -615,31 +687,22 @@ public interface CdtliteraturePackage extends EPackage {
 	int TECHREPORT = 8;
 
 	/**
-	 * The feature id for the '<em><b>Author</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TECHREPORT__AUTHOR = 0;
-
-	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TECHREPORT__TITLE = 1;
+	int TECHREPORT__TITLE = ALITERATURE_BASE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Institution</b></em>' attribute.
+	 * The feature id for the '<em><b>Author</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TECHREPORT__INSTITUTION = 2;
+	int TECHREPORT__AUTHOR = ALITERATURE_BASE__AUTHOR;
 
 	/**
 	 * The feature id for the '<em><b>Year</b></em>' attribute.
@@ -648,7 +711,25 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TECHREPORT__YEAR = 3;
+	int TECHREPORT__YEAR = ALITERATURE_BASE__YEAR;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECHREPORT__REFERENCES = ALITERATURE_BASE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Institution</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECHREPORT__INSTITUTION = ALITERATURE_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Techreport</em>' class.
@@ -657,7 +738,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TECHREPORT_FEATURE_COUNT = 4;
+	int TECHREPORT_FEATURE_COUNT = ALITERATURE_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Techreport</em>' class.
@@ -666,7 +747,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TECHREPORT_OPERATION_COUNT = 0;
+	int TECHREPORT_OPERATION_COUNT = ALITERATURE_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link cdtliterature.impl.PhdthesisImpl <em>Phdthesis</em>}' class.
@@ -679,31 +760,22 @@ public interface CdtliteraturePackage extends EPackage {
 	int PHDTHESIS = 9;
 
 	/**
-	 * The feature id for the '<em><b>Author</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PHDTHESIS__AUTHOR = 0;
-
-	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PHDTHESIS__TITLE = 1;
+	int PHDTHESIS__TITLE = ALITERATURE_BASE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>School</b></em>' attribute.
+	 * The feature id for the '<em><b>Author</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PHDTHESIS__SCHOOL = 2;
+	int PHDTHESIS__AUTHOR = ALITERATURE_BASE__AUTHOR;
 
 	/**
 	 * The feature id for the '<em><b>Year</b></em>' attribute.
@@ -712,7 +784,25 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHDTHESIS__YEAR = 3;
+	int PHDTHESIS__YEAR = ALITERATURE_BASE__YEAR;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHDTHESIS__REFERENCES = ALITERATURE_BASE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>School</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHDTHESIS__SCHOOL = ALITERATURE_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Phdthesis</em>' class.
@@ -721,7 +811,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHDTHESIS_FEATURE_COUNT = 4;
+	int PHDTHESIS_FEATURE_COUNT = ALITERATURE_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Phdthesis</em>' class.
@@ -730,7 +820,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PHDTHESIS_OPERATION_COUNT = 0;
+	int PHDTHESIS_OPERATION_COUNT = ALITERATURE_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link cdtliterature.impl.MasterthesisImpl <em>Masterthesis</em>}' class.
@@ -743,31 +833,22 @@ public interface CdtliteraturePackage extends EPackage {
 	int MASTERTHESIS = 10;
 
 	/**
-	 * The feature id for the '<em><b>Author</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MASTERTHESIS__AUTHOR = 0;
-
-	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MASTERTHESIS__TITLE = 1;
+	int MASTERTHESIS__TITLE = ALITERATURE_BASE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>School</b></em>' attribute.
+	 * The feature id for the '<em><b>Author</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MASTERTHESIS__SCHOOL = 2;
+	int MASTERTHESIS__AUTHOR = ALITERATURE_BASE__AUTHOR;
 
 	/**
 	 * The feature id for the '<em><b>Year</b></em>' attribute.
@@ -776,7 +857,25 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MASTERTHESIS__YEAR = 3;
+	int MASTERTHESIS__YEAR = ALITERATURE_BASE__YEAR;
+
+	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MASTERTHESIS__REFERENCES = ALITERATURE_BASE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>School</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MASTERTHESIS__SCHOOL = ALITERATURE_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Masterthesis</em>' class.
@@ -785,7 +884,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MASTERTHESIS_FEATURE_COUNT = 4;
+	int MASTERTHESIS_FEATURE_COUNT = ALITERATURE_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Masterthesis</em>' class.
@@ -794,7 +893,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MASTERTHESIS_OPERATION_COUNT = 0;
+	int MASTERTHESIS_OPERATION_COUNT = ALITERATURE_BASE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link cdtliterature.impl.UnpublishedImpl <em>Unpublished</em>}' class.
@@ -834,13 +933,22 @@ public interface CdtliteraturePackage extends EPackage {
 	int UNPUBLISHED__NOTE = 2;
 
 	/**
+	 * The feature id for the '<em><b>References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNPUBLISHED__REFERENCES = 3;
+
+	/**
 	 * The number of structural features of the '<em>Unpublished</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNPUBLISHED_FEATURE_COUNT = 3;
+	int UNPUBLISHED_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Unpublished</em>' class.
@@ -885,6 +993,17 @@ public interface CdtliteraturePackage extends EPackage {
 	EAttribute getALiteratureBase_Author();
 
 	/**
+	 * Returns the meta object for the attribute '{@link cdtliterature.ALiteratureBase#getYear <em>Year</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Year</em>'.
+	 * @see cdtliterature.ALiteratureBase#getYear()
+	 * @see #getALiteratureBase()
+	 * @generated
+	 */
+	EAttribute getALiteratureBase_Year();
+
+	/**
 	 * Returns the meta object for the reference list '{@link cdtliterature.ALiteratureBase#getReferences <em>References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -906,17 +1025,6 @@ public interface CdtliteraturePackage extends EPackage {
 	EClass getArticle();
 
 	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Article#getYear <em>Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Year</em>'.
-	 * @see cdtliterature.Article#getYear()
-	 * @see #getArticle()
-	 * @generated
-	 */
-	EAttribute getArticle_Year();
-
-	/**
 	 * Returns the meta object for the attribute '{@link cdtliterature.Article#getJournal <em>Journal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -936,39 +1044,6 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getBook();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Book#getAuthor <em>Author</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Author</em>'.
-	 * @see cdtliterature.Book#getAuthor()
-	 * @see #getBook()
-	 * @generated
-	 */
-	EAttribute getBook_Author();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Book#getTitle <em>Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see cdtliterature.Book#getTitle()
-	 * @see #getBook()
-	 * @generated
-	 */
-	EAttribute getBook_Title();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Book#getYear <em>Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Year</em>'.
-	 * @see cdtliterature.Book#getYear()
-	 * @see #getBook()
-	 * @generated
-	 */
-	EAttribute getBook_Year();
 
 	/**
 	 * Returns the meta object for the attribute '{@link cdtliterature.Book#getPublisher <em>Publisher</em>}'.
@@ -1003,28 +1078,6 @@ public interface CdtliteraturePackage extends EPackage {
 	EClass getInbook();
 
 	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Inbook#getAuthor <em>Author</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Author</em>'.
-	 * @see cdtliterature.Inbook#getAuthor()
-	 * @see #getInbook()
-	 * @generated
-	 */
-	EAttribute getInbook_Author();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Inbook#getTitle <em>Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see cdtliterature.Inbook#getTitle()
-	 * @see #getInbook()
-	 * @generated
-	 */
-	EAttribute getInbook_Title();
-
-	/**
 	 * Returns the meta object for the attribute '{@link cdtliterature.Inbook#getPages <em>Pages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1034,17 +1087,6 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getInbook_Pages();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Inbook#getYear <em>Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Year</em>'.
-	 * @see cdtliterature.Inbook#getYear()
-	 * @see #getInbook()
-	 * @generated
-	 */
-	EAttribute getInbook_Year();
 
 	/**
 	 * Returns the meta object for the attribute '{@link cdtliterature.Inbook#getPublisher <em>Publisher</em>}'.
@@ -1058,15 +1100,15 @@ public interface CdtliteraturePackage extends EPackage {
 	EAttribute getInbook_Publisher();
 
 	/**
-	 * Returns the meta object for the reference '{@link cdtliterature.Inbook#getBooks <em>Books</em>}'.
+	 * Returns the meta object for the reference '{@link cdtliterature.Inbook#getBook <em>Book</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Books</em>'.
-	 * @see cdtliterature.Inbook#getBooks()
+	 * @return the meta object for the reference '<em>Book</em>'.
+	 * @see cdtliterature.Inbook#getBook()
 	 * @see #getInbook()
 	 * @generated
 	 */
-	EReference getInbook_Books();
+	EReference getInbook_Book();
 
 	/**
 	 * Returns the meta object for class '{@link cdtliterature.Conference <em>Conference</em>}'.
@@ -1077,28 +1119,6 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getConference();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Conference#getAuthor <em>Author</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Author</em>'.
-	 * @see cdtliterature.Conference#getAuthor()
-	 * @see #getConference()
-	 * @generated
-	 */
-	EAttribute getConference_Author();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Conference#getTitle <em>Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see cdtliterature.Conference#getTitle()
-	 * @see #getConference()
-	 * @generated
-	 */
-	EAttribute getConference_Title();
 
 	/**
 	 * Returns the meta object for the attribute '{@link cdtliterature.Conference#getBooktitle <em>Booktitle</em>}'.
@@ -1112,17 +1132,6 @@ public interface CdtliteraturePackage extends EPackage {
 	EAttribute getConference_Booktitle();
 
 	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Conference#getYear <em>Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Year</em>'.
-	 * @see cdtliterature.Conference#getYear()
-	 * @see #getConference()
-	 * @generated
-	 */
-	EAttribute getConference_Year();
-
-	/**
 	 * Returns the meta object for class '{@link cdtliterature.Incollection <em>Incollection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1131,28 +1140,6 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getIncollection();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Incollection#getAuthor <em>Author</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Author</em>'.
-	 * @see cdtliterature.Incollection#getAuthor()
-	 * @see #getIncollection()
-	 * @generated
-	 */
-	EAttribute getIncollection_Author();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Incollection#getTitle <em>Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see cdtliterature.Incollection#getTitle()
-	 * @see #getIncollection()
-	 * @generated
-	 */
-	EAttribute getIncollection_Title();
 
 	/**
 	 * Returns the meta object for the attribute '{@link cdtliterature.Incollection#getBooktitle <em>Booktitle</em>}'.
@@ -1164,17 +1151,6 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getIncollection_Booktitle();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Incollection#getYear <em>Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Year</em>'.
-	 * @see cdtliterature.Incollection#getYear()
-	 * @see #getIncollection()
-	 * @generated
-	 */
-	EAttribute getIncollection_Year();
 
 	/**
 	 * Returns the meta object for the attribute '{@link cdtliterature.Incollection#getPublisher <em>Publisher</em>}'.
@@ -1209,28 +1185,6 @@ public interface CdtliteraturePackage extends EPackage {
 	EClass getInproceedings();
 
 	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Inproceedings#getAuthor <em>Author</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Author</em>'.
-	 * @see cdtliterature.Inproceedings#getAuthor()
-	 * @see #getInproceedings()
-	 * @generated
-	 */
-	EAttribute getInproceedings_Author();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Inproceedings#getTitle <em>Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see cdtliterature.Inproceedings#getTitle()
-	 * @see #getInproceedings()
-	 * @generated
-	 */
-	EAttribute getInproceedings_Title();
-
-	/**
 	 * Returns the meta object for the attribute '{@link cdtliterature.Inproceedings#getBooktitle <em>Booktitle</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1240,17 +1194,6 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getInproceedings_Booktitle();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Inproceedings#getYear <em>Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Year</em>'.
-	 * @see cdtliterature.Inproceedings#getYear()
-	 * @see #getInproceedings()
-	 * @generated
-	 */
-	EAttribute getInproceedings_Year();
 
 	/**
 	 * Returns the meta object for the reference '{@link cdtliterature.Inproceedings#getArticles <em>Articles</em>}'.
@@ -1274,28 +1217,6 @@ public interface CdtliteraturePackage extends EPackage {
 	EClass getProceedings();
 
 	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Proceedings#getTitle <em>Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see cdtliterature.Proceedings#getTitle()
-	 * @see #getProceedings()
-	 * @generated
-	 */
-	EAttribute getProceedings_Title();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Proceedings#getYear <em>Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Year</em>'.
-	 * @see cdtliterature.Proceedings#getYear()
-	 * @see #getProceedings()
-	 * @generated
-	 */
-	EAttribute getProceedings_Year();
-
-	/**
 	 * Returns the meta object for class '{@link cdtliterature.Techreport <em>Techreport</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1304,28 +1225,6 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getTechreport();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Techreport#getAuthor <em>Author</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Author</em>'.
-	 * @see cdtliterature.Techreport#getAuthor()
-	 * @see #getTechreport()
-	 * @generated
-	 */
-	EAttribute getTechreport_Author();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Techreport#getTitle <em>Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see cdtliterature.Techreport#getTitle()
-	 * @see #getTechreport()
-	 * @generated
-	 */
-	EAttribute getTechreport_Title();
 
 	/**
 	 * Returns the meta object for the attribute '{@link cdtliterature.Techreport#getInstitution <em>Institution</em>}'.
@@ -1339,17 +1238,6 @@ public interface CdtliteraturePackage extends EPackage {
 	EAttribute getTechreport_Institution();
 
 	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Techreport#getYear <em>Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Year</em>'.
-	 * @see cdtliterature.Techreport#getYear()
-	 * @see #getTechreport()
-	 * @generated
-	 */
-	EAttribute getTechreport_Year();
-
-	/**
 	 * Returns the meta object for class '{@link cdtliterature.Phdthesis <em>Phdthesis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1358,28 +1246,6 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPhdthesis();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Phdthesis#getAuthor <em>Author</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Author</em>'.
-	 * @see cdtliterature.Phdthesis#getAuthor()
-	 * @see #getPhdthesis()
-	 * @generated
-	 */
-	EAttribute getPhdthesis_Author();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Phdthesis#getTitle <em>Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see cdtliterature.Phdthesis#getTitle()
-	 * @see #getPhdthesis()
-	 * @generated
-	 */
-	EAttribute getPhdthesis_Title();
 
 	/**
 	 * Returns the meta object for the attribute '{@link cdtliterature.Phdthesis#getSchool <em>School</em>}'.
@@ -1393,17 +1259,6 @@ public interface CdtliteraturePackage extends EPackage {
 	EAttribute getPhdthesis_School();
 
 	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Phdthesis#getYear <em>Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Year</em>'.
-	 * @see cdtliterature.Phdthesis#getYear()
-	 * @see #getPhdthesis()
-	 * @generated
-	 */
-	EAttribute getPhdthesis_Year();
-
-	/**
 	 * Returns the meta object for class '{@link cdtliterature.Masterthesis <em>Masterthesis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1412,28 +1267,6 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 */
 	EClass getMasterthesis();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Masterthesis#getAuthor <em>Author</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Author</em>'.
-	 * @see cdtliterature.Masterthesis#getAuthor()
-	 * @see #getMasterthesis()
-	 * @generated
-	 */
-	EAttribute getMasterthesis_Author();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Masterthesis#getTitle <em>Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see cdtliterature.Masterthesis#getTitle()
-	 * @see #getMasterthesis()
-	 * @generated
-	 */
-	EAttribute getMasterthesis_Title();
 
 	/**
 	 * Returns the meta object for the attribute '{@link cdtliterature.Masterthesis#getSchool <em>School</em>}'.
@@ -1445,17 +1278,6 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMasterthesis_School();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Masterthesis#getYear <em>Year</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Year</em>'.
-	 * @see cdtliterature.Masterthesis#getYear()
-	 * @see #getMasterthesis()
-	 * @generated
-	 */
-	EAttribute getMasterthesis_Year();
 
 	/**
 	 * Returns the meta object for class '{@link cdtliterature.Unpublished <em>Unpublished</em>}'.
@@ -1499,6 +1321,17 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getUnpublished_Note();
+
+	/**
+	 * Returns the meta object for the reference list '{@link cdtliterature.Unpublished#getReferences <em>References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>References</em>'.
+	 * @see cdtliterature.Unpublished#getReferences()
+	 * @see #getUnpublished()
+	 * @generated
+	 */
+	EReference getUnpublished_References();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1550,6 +1383,14 @@ public interface CdtliteraturePackage extends EPackage {
 		EAttribute ALITERATURE_BASE__AUTHOR = eINSTANCE.getALiteratureBase_Author();
 
 		/**
+		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ALITERATURE_BASE__YEAR = eINSTANCE.getALiteratureBase_Year();
+
+		/**
 		 * The meta object literal for the '<em><b>References</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1568,14 +1409,6 @@ public interface CdtliteraturePackage extends EPackage {
 		EClass ARTICLE = eINSTANCE.getArticle();
 
 		/**
-		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ARTICLE__YEAR = eINSTANCE.getArticle_Year();
-
-		/**
 		 * The meta object literal for the '<em><b>Journal</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1592,30 +1425,6 @@ public interface CdtliteraturePackage extends EPackage {
 		 * @generated
 		 */
 		EClass BOOK = eINSTANCE.getBook();
-
-		/**
-		 * The meta object literal for the '<em><b>Author</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BOOK__AUTHOR = eINSTANCE.getBook_Author();
-
-		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BOOK__TITLE = eINSTANCE.getBook_Title();
-
-		/**
-		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute BOOK__YEAR = eINSTANCE.getBook_Year();
 
 		/**
 		 * The meta object literal for the '<em><b>Publisher</b></em>' attribute feature.
@@ -1644,36 +1453,12 @@ public interface CdtliteraturePackage extends EPackage {
 		EClass INBOOK = eINSTANCE.getInbook();
 
 		/**
-		 * The meta object literal for the '<em><b>Author</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INBOOK__AUTHOR = eINSTANCE.getInbook_Author();
-
-		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INBOOK__TITLE = eINSTANCE.getInbook_Title();
-
-		/**
 		 * The meta object literal for the '<em><b>Pages</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute INBOOK__PAGES = eINSTANCE.getInbook_Pages();
-
-		/**
-		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INBOOK__YEAR = eINSTANCE.getInbook_Year();
 
 		/**
 		 * The meta object literal for the '<em><b>Publisher</b></em>' attribute feature.
@@ -1684,12 +1469,12 @@ public interface CdtliteraturePackage extends EPackage {
 		EAttribute INBOOK__PUBLISHER = eINSTANCE.getInbook_Publisher();
 
 		/**
-		 * The meta object literal for the '<em><b>Books</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Book</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INBOOK__BOOKS = eINSTANCE.getInbook_Books();
+		EReference INBOOK__BOOK = eINSTANCE.getInbook_Book();
 
 		/**
 		 * The meta object literal for the '{@link cdtliterature.impl.ConferenceImpl <em>Conference</em>}' class.
@@ -1702,36 +1487,12 @@ public interface CdtliteraturePackage extends EPackage {
 		EClass CONFERENCE = eINSTANCE.getConference();
 
 		/**
-		 * The meta object literal for the '<em><b>Author</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONFERENCE__AUTHOR = eINSTANCE.getConference_Author();
-
-		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONFERENCE__TITLE = eINSTANCE.getConference_Title();
-
-		/**
 		 * The meta object literal for the '<em><b>Booktitle</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute CONFERENCE__BOOKTITLE = eINSTANCE.getConference_Booktitle();
-
-		/**
-		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONFERENCE__YEAR = eINSTANCE.getConference_Year();
 
 		/**
 		 * The meta object literal for the '{@link cdtliterature.impl.IncollectionImpl <em>Incollection</em>}' class.
@@ -1744,36 +1505,12 @@ public interface CdtliteraturePackage extends EPackage {
 		EClass INCOLLECTION = eINSTANCE.getIncollection();
 
 		/**
-		 * The meta object literal for the '<em><b>Author</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INCOLLECTION__AUTHOR = eINSTANCE.getIncollection_Author();
-
-		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INCOLLECTION__TITLE = eINSTANCE.getIncollection_Title();
-
-		/**
 		 * The meta object literal for the '<em><b>Booktitle</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute INCOLLECTION__BOOKTITLE = eINSTANCE.getIncollection_Booktitle();
-
-		/**
-		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INCOLLECTION__YEAR = eINSTANCE.getIncollection_Year();
 
 		/**
 		 * The meta object literal for the '<em><b>Publisher</b></em>' attribute feature.
@@ -1802,36 +1539,12 @@ public interface CdtliteraturePackage extends EPackage {
 		EClass INPROCEEDINGS = eINSTANCE.getInproceedings();
 
 		/**
-		 * The meta object literal for the '<em><b>Author</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INPROCEEDINGS__AUTHOR = eINSTANCE.getInproceedings_Author();
-
-		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INPROCEEDINGS__TITLE = eINSTANCE.getInproceedings_Title();
-
-		/**
 		 * The meta object literal for the '<em><b>Booktitle</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute INPROCEEDINGS__BOOKTITLE = eINSTANCE.getInproceedings_Booktitle();
-
-		/**
-		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute INPROCEEDINGS__YEAR = eINSTANCE.getInproceedings_Year();
 
 		/**
 		 * The meta object literal for the '<em><b>Articles</b></em>' reference feature.
@@ -1852,22 +1565,6 @@ public interface CdtliteraturePackage extends EPackage {
 		EClass PROCEEDINGS = eINSTANCE.getProceedings();
 
 		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROCEEDINGS__TITLE = eINSTANCE.getProceedings_Title();
-
-		/**
-		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PROCEEDINGS__YEAR = eINSTANCE.getProceedings_Year();
-
-		/**
 		 * The meta object literal for the '{@link cdtliterature.impl.TechreportImpl <em>Techreport</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1878,36 +1575,12 @@ public interface CdtliteraturePackage extends EPackage {
 		EClass TECHREPORT = eINSTANCE.getTechreport();
 
 		/**
-		 * The meta object literal for the '<em><b>Author</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TECHREPORT__AUTHOR = eINSTANCE.getTechreport_Author();
-
-		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TECHREPORT__TITLE = eINSTANCE.getTechreport_Title();
-
-		/**
 		 * The meta object literal for the '<em><b>Institution</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute TECHREPORT__INSTITUTION = eINSTANCE.getTechreport_Institution();
-
-		/**
-		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TECHREPORT__YEAR = eINSTANCE.getTechreport_Year();
 
 		/**
 		 * The meta object literal for the '{@link cdtliterature.impl.PhdthesisImpl <em>Phdthesis</em>}' class.
@@ -1920,36 +1593,12 @@ public interface CdtliteraturePackage extends EPackage {
 		EClass PHDTHESIS = eINSTANCE.getPhdthesis();
 
 		/**
-		 * The meta object literal for the '<em><b>Author</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PHDTHESIS__AUTHOR = eINSTANCE.getPhdthesis_Author();
-
-		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PHDTHESIS__TITLE = eINSTANCE.getPhdthesis_Title();
-
-		/**
 		 * The meta object literal for the '<em><b>School</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute PHDTHESIS__SCHOOL = eINSTANCE.getPhdthesis_School();
-
-		/**
-		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PHDTHESIS__YEAR = eINSTANCE.getPhdthesis_Year();
 
 		/**
 		 * The meta object literal for the '{@link cdtliterature.impl.MasterthesisImpl <em>Masterthesis</em>}' class.
@@ -1962,36 +1611,12 @@ public interface CdtliteraturePackage extends EPackage {
 		EClass MASTERTHESIS = eINSTANCE.getMasterthesis();
 
 		/**
-		 * The meta object literal for the '<em><b>Author</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MASTERTHESIS__AUTHOR = eINSTANCE.getMasterthesis_Author();
-
-		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MASTERTHESIS__TITLE = eINSTANCE.getMasterthesis_Title();
-
-		/**
 		 * The meta object literal for the '<em><b>School</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute MASTERTHESIS__SCHOOL = eINSTANCE.getMasterthesis_School();
-
-		/**
-		 * The meta object literal for the '<em><b>Year</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MASTERTHESIS__YEAR = eINSTANCE.getMasterthesis_Year();
 
 		/**
 		 * The meta object literal for the '{@link cdtliterature.impl.UnpublishedImpl <em>Unpublished</em>}' class.
@@ -2026,6 +1651,14 @@ public interface CdtliteraturePackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute UNPUBLISHED__NOTE = eINSTANCE.getUnpublished_Note();
+
+		/**
+		 * The meta object literal for the '<em><b>References</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference UNPUBLISHED__REFERENCES = eINSTANCE.getUnpublished_References();
 
 	}
 

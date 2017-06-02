@@ -82,54 +82,63 @@ public class CdtliteratureSwitch<T> extends Switch<T> {
 			case CdtliteraturePackage.BOOK: {
 				Book book = (Book)theEObject;
 				T result = caseBook(book);
+				if (result == null) result = caseALiteratureBase(book);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CdtliteraturePackage.INBOOK: {
 				Inbook inbook = (Inbook)theEObject;
 				T result = caseInbook(inbook);
+				if (result == null) result = caseALiteratureBase(inbook);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CdtliteraturePackage.CONFERENCE: {
 				Conference conference = (Conference)theEObject;
 				T result = caseConference(conference);
+				if (result == null) result = caseALiteratureBase(conference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CdtliteraturePackage.INCOLLECTION: {
 				Incollection incollection = (Incollection)theEObject;
 				T result = caseIncollection(incollection);
+				if (result == null) result = caseALiteratureBase(incollection);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CdtliteraturePackage.INPROCEEDINGS: {
 				Inproceedings inproceedings = (Inproceedings)theEObject;
 				T result = caseInproceedings(inproceedings);
+				if (result == null) result = caseALiteratureBase(inproceedings);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CdtliteraturePackage.PROCEEDINGS: {
 				Proceedings proceedings = (Proceedings)theEObject;
 				T result = caseProceedings(proceedings);
+				if (result == null) result = caseALiteratureBase(proceedings);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CdtliteraturePackage.TECHREPORT: {
 				Techreport techreport = (Techreport)theEObject;
 				T result = caseTechreport(techreport);
+				if (result == null) result = caseALiteratureBase(techreport);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CdtliteraturePackage.PHDTHESIS: {
 				Phdthesis phdthesis = (Phdthesis)theEObject;
 				T result = casePhdthesis(phdthesis);
+				if (result == null) result = caseALiteratureBase(phdthesis);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CdtliteraturePackage.MASTERTHESIS: {
 				Masterthesis masterthesis = (Masterthesis)theEObject;
 				T result = caseMasterthesis(masterthesis);
+				if (result == null) result = caseALiteratureBase(masterthesis);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

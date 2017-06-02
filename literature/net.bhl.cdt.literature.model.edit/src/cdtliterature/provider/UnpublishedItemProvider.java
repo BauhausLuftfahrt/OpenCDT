@@ -63,6 +63,7 @@ public class UnpublishedItemProvider
 			addAuthorPropertyDescriptor(object);
 			addTitlePropertyDescriptor(object);
 			addNotePropertyDescriptor(object);
+			addReferencesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -129,6 +130,28 @@ public class UnpublishedItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the References feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferencesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Unpublished_references_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Unpublished_references_feature", "_UI_Unpublished_type"),
+				 CdtliteraturePackage.Literals.UNPUBLISHED__REFERENCES,
+				 true,
+				 false,
+				 true,
+				 null,
 				 null,
 				 null));
 	}

@@ -11,18 +11,9 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
-import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
-import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.IItemPropertySource;
-import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
-import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -32,13 +23,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class IncollectionItemProvider 
-	extends ItemProviderAdapter
-	implements
-		IEditingDomainItemProvider,
-		IStructuredItemContentProvider,
-		ITreeItemContentProvider,
-		IItemLabelProvider,
-		IItemPropertySource {
+	extends ALiteratureBaseItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -60,58 +45,11 @@ public class IncollectionItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAuthorPropertyDescriptor(object);
-			addTitlePropertyDescriptor(object);
 			addBooktitlePropertyDescriptor(object);
-			addYearPropertyDescriptor(object);
 			addPublisherPropertyDescriptor(object);
 			addBooksPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Author feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAuthorPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Incollection_author_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Incollection_author_feature", "_UI_Incollection_type"),
-				 CdtliteraturePackage.Literals.INCOLLECTION__AUTHOR,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Title feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addTitlePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Incollection_title_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Incollection_title_feature", "_UI_Incollection_type"),
-				 CdtliteraturePackage.Literals.INCOLLECTION__TITLE,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -132,28 +70,6 @@ public class IncollectionItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Year feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addYearPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Incollection_year_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Incollection_year_feature", "_UI_Incollection_type"),
-				 CdtliteraturePackage.Literals.INCOLLECTION__YEAR,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -221,7 +137,7 @@ public class IncollectionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Incollection)object).getAuthor();
+		String label = ((Incollection)object).getTitle();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Incollection_type") :
 			getString("_UI_Incollection_type") + " " + label;
@@ -240,10 +156,7 @@ public class IncollectionItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Incollection.class)) {
-			case CdtliteraturePackage.INCOLLECTION__AUTHOR:
-			case CdtliteraturePackage.INCOLLECTION__TITLE:
 			case CdtliteraturePackage.INCOLLECTION__BOOKTITLE:
-			case CdtliteraturePackage.INCOLLECTION__YEAR:
 			case CdtliteraturePackage.INCOLLECTION__PUBLISHER:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
@@ -261,17 +174,6 @@ public class IncollectionItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-	}
-
-	/**
-	 * Return the resource locator for this item provider's resources.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public ResourceLocator getResourceLocator() {
-		return CdtliteratureEditPlugin.INSTANCE;
 	}
 
 }

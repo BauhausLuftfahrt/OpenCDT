@@ -62,6 +62,7 @@ public class ALiteratureBaseItemProvider
 
 			addTitlePropertyDescriptor(object);
 			addAuthorPropertyDescriptor(object);
+			addYearPropertyDescriptor(object);
 			addReferencesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -107,6 +108,28 @@ public class ALiteratureBaseItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Year feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addYearPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ALiteratureBase_year_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ALiteratureBase_year_feature", "_UI_ALiteratureBase_type"),
+				 CdtliteraturePackage.Literals.ALITERATURE_BASE__YEAR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -162,6 +185,7 @@ public class ALiteratureBaseItemProvider
 		switch (notification.getFeatureID(ALiteratureBase.class)) {
 			case CdtliteraturePackage.ALITERATURE_BASE__TITLE:
 			case CdtliteraturePackage.ALITERATURE_BASE__AUTHOR:
+			case CdtliteraturePackage.ALITERATURE_BASE__YEAR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
