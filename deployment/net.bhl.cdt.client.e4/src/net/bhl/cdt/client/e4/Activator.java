@@ -8,7 +8,7 @@ import javax.measure.unit.Unit;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
-import model.quantities.LengthValue;
+import model.quantities.LengthParamenter;
 import model.quantities.QuantitiesFactory;
 
 public class Activator implements BundleActivator {
@@ -28,7 +28,7 @@ public class Activator implements BundleActivator {
 		Activator.context = bundleContext;
 		Locale.setDefault(Locale.US);
 		
-		LengthValue lVal = QuantitiesFactory.eINSTANCE.createLengthValue();
+		LengthParamenter lVal = QuantitiesFactory.eINSTANCE.createLengthParamenter();
 		
 		lVal.setUnit(SI.METER);
 	

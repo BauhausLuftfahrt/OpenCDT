@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Standardunits
+Bundle-SymbolicName: net.bhl.cdt.model.v2.standardunits;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Bauhaus Luftfahrt e.V.
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: net.bhl.cdt.model.v2;bundle-version="0.1.0"
+Import-Package: javax.measure.quantity,
+ javax.measure.unit

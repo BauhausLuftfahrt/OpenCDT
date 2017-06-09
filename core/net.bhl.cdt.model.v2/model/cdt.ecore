@@ -23,10 +23,16 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IParameter" abstract="true" interface="true"
         eSuperTypes="#//base/ANamedItem #//base/AIdentifiableItem"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IDataEntity" abstract="true" interface="true"
+        eSuperTypes="#//base/AIdentifiableItem #//base/ANamedItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//data/IParameter" containment="true"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="quantities" nsURI="http://www.bauhaus-luftfahrt.net/cdt/quantities"
       nsPrefix="net.bhl.cdt.model">
     <eClassifiers xsi:type="ecore:EDataType" name="Length" instanceClassName="javax.measure.quantity.Length"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="Distance" instanceClassName="javax.measure.quantity.Length"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Amount" instanceClassName="org.jscience.physics.amount.Amount">
       <eTypeParameters name="Q">
         <eBounds eClassifier="#//quantities/Quantity"/>
@@ -41,8 +47,9 @@
     <eClassifiers xsi:type="ecore:EClass" name="StringParameter" eSuperTypes="#//data/IParameter">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NumberParameter" eSuperTypes="#//data/IParameter"/>
-    <eClassifiers xsi:type="ecore:EClass" name="LengthParamenter" eSuperTypes="#//quantities/NumberParameter">
+    <eClassifiers xsi:type="ecore:EClass" name="INumberParameter" abstract="true"
+        interface="true" eSuperTypes="#//data/IParameter"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LengthParamenter" eSuperTypes="#//quantities/INumberParameter">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
         <eGenericType eClassifier="#//quantities/Amount">
           <eTypeArguments eClassifier="#//quantities/Length"/>

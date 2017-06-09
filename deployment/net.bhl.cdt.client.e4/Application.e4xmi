@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_GlqaEArBEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.application" bindingContexts="_GlrBIArBEeaJ2Y3tZdi01w">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_GlqaEQrBEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.mainwindow" selectedElement="_Y7B88ArDEeaJ2Y3tZdi01w" label="OpenCDT" iconURI="platform:/plugin/net.bhl.cdt.client.e4/res/OpenCDT_Symbol_0064.png" width="1280" height="800">
-    <children xsi:type="advanced:PerspectiveStack" xmi:id="_Y7B88ArDEeaJ2Y3tZdi01w" elementId="de.symo.application.mainwindow.perspectivestack">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_Y7B88ArDEeaJ2Y3tZdi01w" elementId="cdt.mainwindow.perspectivestack">
       <children xsi:type="advanced:Perspective" xmi:id="_Z2zBoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.perspective.cdt" label="Modelling" iconURI="platform:/plugin/net.bhl.cdt.client.e4/res/OpenCDT_Symbol_0016.png">
         <children xsi:type="basic:PartSashContainer" xmi:id="_c39FgArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.partsashcontainer.0" horizontal="true">
           <children xsi:type="basic:PartSashContainer" xmi:id="_PP2rUAt3EeaTQKclQUz8Eg" elementId="net.bhl.cdt.client.e4.partsashcontainer.2" containerData="20">
