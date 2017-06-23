@@ -196,7 +196,6 @@ public interface DataPackage extends EPackage {
 	 */
 	int IPARAMETER_OPERATION_COUNT = BasePackage.ANAMED_ITEM_OPERATION_COUNT + 0;
 
-
 	/**
 	 * The meta object id for the '{@link model.data.IDataEntity <em>IData Entity</em>}' class.
 	 * <!-- begin-user-doc -->

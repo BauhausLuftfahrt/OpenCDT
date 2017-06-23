@@ -39,18 +39,6 @@
       </product>
    </extension>
    <extension
-         point="org.eclipse.emf.emfstore.client.workspaceLocationProvider">
-      <LocationProvider
-            providerClass="net.bhl.cdt.client.e4.emfstore.LocationProvider">
-      </LocationProvider>
-   </extension>
-   <extension
-         point="org.eclipse.emf.emfstore.server.locationProvider">
-      <LocationProvider
-            providerClass="net.bhl.cdt.client.e4.emfstore.LocationProvider">
-      </LocationProvider>
-   </extension>
-   <extension
          point="org.eclipse.emf.ecp.ui.modelElementOpener">
       <modelElementOpener
             class="net.bhl.cdt.client.ecp.CDTECPModelElementOpener">

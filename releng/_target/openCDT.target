@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="OpenCDT Target Platform" sequenceNumber="284">
+<?pde version="3.8"?><target name="OpenCDT Target Platform" sequenceNumber="303">
 <locations>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.e4.core.tools.feature.source.feature.group" version="4.5.100.v20170131-1452"/>
+<unit id="org.eclipse.equinox.sdk.feature.group" version="3.12.0.v20170209-1843"/>
+<unit id="org.eclipse.e4.rcp.feature.group" version="1.5.3.v20170228-0512"/>
+<unit id="org.eclipse.e4.core.tools.feature.feature.group" version="4.5.100.v20170131-1452"/>
+<unit id="org.eclipse.e4.rcp.source.feature.group" version="1.5.3.v20170228-0512"/>
+<unit id="org.eclipse.rcp.sdk.id" version="4.6.3.M20170301-0400"/>
+<repository location="http://download.eclipse.org/eclipse/updates/4.6"/>
+</location>
+<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.jgit.lfs.feature.group" version="4.7.1.201706071930-r"/>
+<unit id="org.eclipse.egit.source.feature.group" version="4.7.1.201706071930-r"/>
+<unit id="org.eclipse.jgit.feature.group" version="4.7.1.201706071930-r"/>
+<unit id="org.eclipse.egit.mylyn.feature.group" version="4.7.1.201706071930-r"/>
+<unit id="org.eclipse.jgit.pgm.feature.group" version="4.7.1.201706071930-r"/>
+<unit id="org.eclipse.jgit.http.apache.feature.group" version="4.7.1.201706071930-r"/>
+<unit id="org.eclipse.egit.feature.group" version="4.7.1.201706071930-r"/>
+<unit id="org.eclipse.jgit.pgm.source.feature.group" version="4.7.1.201706071930-r"/>
+<unit id="org.eclipse.jgit.source.feature.group" version="4.7.1.201706071930-r"/>
+<repository location="http://download.eclipse.org/egit/updates"/>
+</location>
+<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.edapt.runtime.feature.feature.group" version="0.0.0"/>
 <repository location="http://download.eclipse.org/edapt/releases/11x"/>
 </location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.ecp.emfforms.idetooling.feature.source.feature.group" version="1.10.0.20160912-1709"/>
 <unit id="org.eclipse.emf.ecp.view.rule.feature.source.feature.group" version="1.10.0.20160912-1709"/>
 <unit id="org.eclipse.emf.ecp.view.custom.feature.source.feature.group" version="1.10.0.20160912-1709"/>
@@ -64,68 +85,9 @@
 <unit id="org.eclipse.emf.ecp.emfforms.sdk.feature.feature.group" version="1.10.0.20160912-1709"/>
 <repository location="http://download.eclipse.org/ecp/releases/releases_target_110/"/>
 </location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.cdo.releng.tasks.feature.group" version="1.1.300.v20160301-1326"/>
-<unit id="org.eclipse.net4j.util.ui.feature.group" version="4.5.0.v20160607-1254"/>
-<unit id="org.gastro.feature.group" version="4.2.300.v20160519-1718"/>
-<unit id="org.eclipse.emf.cdo.releng.help.feature.group" version="4.2.300.v20160607-1511"/>
-<unit id="org.eclipse.emf.cdo.doc.feature.group" version="4.2.300.v20160607-1511"/>
-<unit id="org.eclipse.emf.cdo.dawn.feature.group" version="2.1.300.v20160301-1326"/>
-<unit id="org.eclipse.net4j.examples.feature.group" version="4.2.300.v20160301-1326"/>
-<unit id="org.eclipse.emf.cdo.dawn.codegen.feature.group" version="2.1.300.v20160505-0538"/>
-<unit id="org.eclipse.net4j.db.derby.feature.group" version="4.2.300.v20160301-1326"/>
-<unit id="org.eclipse.emf.cdo.dawn.codegen.gmf.feature.group" version="2.1.300.v20160505-0538"/>
-<unit id="org.eclipse.net4j.util.doc.feature.group" version="4.2.300.v20160607-1511"/>
-<unit id="org.eclipse.net4j.db.feature.group" version="4.5.0.v20160607-1254"/>
-<unit id="org.eclipse.net4j.db.mysql.feature.group" version="4.2.300.v20160301-1326"/>
-<unit id="org.eclipse.emf.cdo.releng.relativepaths.feature.group" version="1.1.300.v20160301-1326"/>
-<unit id="org.eclipse.net4j.ui.feature.group" version="4.2.300.v20160301-1326"/>
-<unit id="org.eclipse.net4j.db.hsqldb.feature.group" version="4.2.300.v20160301-1326"/>
-<unit id="org.eclipse.emf.cdo.dawn.ecoretools.diagram.dawn.feature.group" version="1.1.300.v20160301-1326"/>
-<unit id="org.eclipse.emf.cdo.releng.buildstamp.feature.group" version="1.1.300.v20160301-1326"/>
-<unit id="org.eclipse.net4j.db.doc.feature.group" version="4.2.300.v20160607-1511"/>
-<unit id="org.eclipse.emf.cdo.dawn.sdk.feature.group" version="2.1.100.v20160505-0538"/>
-<unit id="org.eclipse.net4j.feature.group" version="4.5.0.v20160607-1254"/>
-<unit id="org.eclipse.emf.cdo.server.feature.group" version="4.5.0.v20160607-1254"/>
-<unit id="org.eclipse.net4j.util.feature.group" version="4.5.0.v20160607-1254"/>
-<unit id="org.eclipse.emf.cdo.explorer.feature.group" version="4.4.0.v20160607-1254"/>
-<unit id="org.eclipse.emf.cdo.dawn.examples.feature.group" version="2.1.300.v20160301-1326"/>
-<unit id="org.eclipse.emf.cdo.migrator.feature.group" version="4.2.300.v20160301-1326"/>
-<unit id="org.eclipse.emf.cdo.server.db.feature.group" version="4.4.0.v20160607-1254"/>
-<unit id="org.eclipse.emf.cdo.server.lissome.feature.group" version="4.2.300.v20160301-1326"/>
-<unit id="org.eclipse.net4j.doc.feature.group" version="4.2.300.v20160607-1511"/>
-<unit id="org.eclipse.emf.cdo.compare.feature.group" version="4.4.0.v20160301-1326"/>
-<unit id="org.eclipse.emf.cdo.dawn.tests.feature.group" version="2.2.200.v20160301-1326"/>
-<unit id="org.eclipse.emf.cdo.releng.apireports.feature.group" version="1.0.300.v20160607-1254"/>
-<unit id="org.eclipse.emf.cdo.server.objectivity.feature.group" version="4.2.300.v20160301-1326"/>
-<unit id="org.eclipse.net4j.db.postgresql.feature.group" version="4.2.300.v20160301-1326"/>
-<unit id="org.eclipse.emf.cdo.tests.feature.group" version="4.2.300.v20160607-1254"/>
-<unit id="org.eclipse.emf.cdo.server.db4o.feature.group" version="4.2.300.v20160301-1326"/>
-<unit id="org.eclipse.net4j.tests.feature.group" version="4.2.300.v20160504-0528"/>
-<unit id="org.eclipse.emf.cdo.server.mongodb.feature.group" version="4.2.300.v20160301-1326"/>
-<unit id="org.eclipse.emf.cdo.examples.feature.group" version="4.2.300.v20160519-1811"/>
-<unit id="org.eclipse.emf.cdo.epp.feature.group" version="4.5.0.v20160607-1511"/>
-<unit id="org.eclipse.net4j.defs.feature.group" version="4.5.0.v20160607-1254"/>
-<unit id="org.eclipse.net4j.db.oracle.feature.group" version="1.1.200.v20160301-1326"/>
-<unit id="org.eclipse.net4j.sdk.feature.group" version="4.5.0.v20160607-1511"/>
-<unit id="org.eclipse.emf.cdo.feature.group" version="4.5.0.v20160607-1254"/>
-<unit id="org.eclipse.net4j.db.h2.feature.group" version="4.2.300.v20160301-1326"/>
-<unit id="org.eclipse.emf.cdo.sdk.feature.group" version="4.5.0.v20160607-1511"/>
-<unit id="org.eclipse.emf.cdo.defs.feature.group" version="4.5.0.v20160607-1254"/>
-<repository location="http://download.eclipse.org/modeling/emf/cdo/updates/releases/4.5"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.equinox.sdk.feature.group" version="3.12.0.v20160606-1311"/>
-<unit id="org.eclipse.platform.sdk" version="4.6.0.I20160606-1100"/>
-<repository location="http://download.eclipse.org/eclipse/updates/4.6"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.datatools.sdk.feature.feature.group" version="1.12.0.v201406061321-7PB21FEpPZQXdcX0z-_yMM0Hfz0w"/>
-<unit id="org.eclipse.datatools.enablement.sdk.feature.feature.group" version="1.12.0.v201406061321-7IAB-FE9JgeWjZZhMd-z0vb1ifD4"/>
-<repository location="http://download.eclipse.org/datatools/updates/1.12/"/>
-</location>
-<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.emf.parsley.sdk.feature.group" version="1.0.2.v20161121-1235"/>
+<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.parsley.sdk.feature.group" version="1.1.1.v20170221-1102"/>
+<unit id="org.eclipse.emf.parsley.sdk.source.feature.group" version="1.1.1.v20170221-1102"/>
 <repository location="http://download.eclipse.org/releases/neon"/>
 </location>
 </locations>

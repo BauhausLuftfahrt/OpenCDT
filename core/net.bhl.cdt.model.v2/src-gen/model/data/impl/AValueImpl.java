@@ -7,6 +7,7 @@ import model.data.DataPackage;
 import model.data.IParameter;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 

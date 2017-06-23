@@ -4,7 +4,9 @@ package model.quantities.util;
 
 import model.base.AIdentifiableItem;
 import model.base.ANamedItem;
+
 import model.data.IParameter;
+
 import model.quantities.*;
 
 import org.eclipse.emf.ecore.EObject;

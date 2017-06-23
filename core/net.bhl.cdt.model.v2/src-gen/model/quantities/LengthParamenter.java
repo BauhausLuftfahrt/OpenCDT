@@ -3,7 +3,9 @@
 package model.quantities;
 
 import javax.measure.quantity.Length;
+
 import javax.measure.unit.Unit;
+
 import org.jscience.physics.amount.Amount;
 
 /**
@@ -24,12 +26,11 @@ import org.jscience.physics.amount.Amount;
  * @generated
  */
 public interface LengthParamenter extends INumberParameter {
-
 	/**
 	 * Returns the value of the '<em><b>Value</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Value</em>' reference isn't clear,
+	 * If the meaning of the '<em>Value</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
@@ -76,4 +77,5 @@ public interface LengthParamenter extends INumberParameter {
 	 * @generated
 	 */
 	void setUnit(Unit<Length> value);
+
 } // LengthParamenter

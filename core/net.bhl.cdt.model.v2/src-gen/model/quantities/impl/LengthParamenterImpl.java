@@ -3,16 +3,23 @@
 package model.quantities.impl;
 
 import javax.measure.quantity.Length;
+
 import javax.measure.unit.Unit;
+
 import model.base.AIdentifiableItem;
 import model.base.BasePackage;
+
 import model.base.impl.ANamedItemImpl;
+
 import model.quantities.LengthParamenter;
 import model.quantities.QuantitiesPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.jscience.physics.amount.Amount;
 
 /**

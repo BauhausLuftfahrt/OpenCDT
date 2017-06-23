@@ -16,5 +16,4 @@ import model.base.ANamedItem;
  * @generated
  */
 public interface IParameter extends ANamedItem, AIdentifiableItem {
-
 } // IParameter

@@ -6,6 +6,7 @@ import javax.measure.quantity.Length;
 import javax.measure.quantity.Quantity;
 
 import javax.measure.unit.Unit;
+
 import model.base.BasePackage;
 
 import model.base.impl.BasePackageImpl;
@@ -18,8 +19,8 @@ import model.quantities.INumberParameter;
 import model.quantities.LengthParamenter;
 import model.quantities.QuantitiesFactory;
 import model.quantities.QuantitiesPackage;
-
 import model.quantities.StringParameter;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
