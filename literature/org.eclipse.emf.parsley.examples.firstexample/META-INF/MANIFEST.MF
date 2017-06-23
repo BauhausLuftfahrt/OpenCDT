@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.eclipse.emf.parsley.examples.firstexample
+Bundle-Vendor: Eclipse Modeling Project
+Bundle-Version: 1.1.1.qualifier
+Bundle-SymbolicName: org.eclipse.emf.parsley.examples.firstexample; singleton:=true
+Bundle-Activator: org.eclipse.emf.parsley.examples.firstexample.FirstexampleActivator
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.ui,
+ org.eclipse.emf.parsley.views,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.emf.examples.library
+Import-Package: org.apache.commons.logging,
+ org.apache.log4j,
+ org.eclipse.core.databinding.property.value,
+ org.eclipse.e4.core.di.annotations,
+ org.eclipse.emf.ecp.view.spi.context;version="1.12.0",
+ org.eclipse.emf.ecp.view.spi.core.swt.renderer;version="1.12.0",
+ org.eclipse.emf.ecp.view.spi.model;version="1.12.0",
+ org.eclipse.emf.ecp.view.template.model;version="1.12.0",
+ org.eclipse.emfforms.spi.common.report;version="1.12.0",
+ org.eclipse.emfforms.spi.core.services.databinding;version="1.12.0",
+ org.eclipse.emfforms.spi.core.services.editsupport;version="1.12.0",
+ org.eclipse.emfforms.spi.core.services.label;version="1.12.0",
+ org.eclipse.emfforms.spi.swt.core;version="1.12.0",
+ org.eclipse.emfforms.spi.swt.core.di;version="1.12.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.eclipse.emf.parsley.examples.firstexample
