@@ -1,5 +1,6 @@
 package org.eclipse.emf.parsley.examples.firstexample;
 
+
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -9,7 +10,11 @@ import org.eclipse.emf.parsley.composite.FormControlFactory;
 import org.eclipse.swt.browser.Browser;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Device;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Text;
 
 public class AddButton extends FormControlFactory{
@@ -23,6 +28,24 @@ public class AddButton extends FormControlFactory{
 		//this.button = bu;
 		System.out.println("BEST AddButton ");
 	
+		if(text.getText().equals("")){
+			
+			
+			text.setEditable(true);
+    		Device device = Display.getCurrent();
+    		text.setBackground(null);
+    		text.setEnabled(true);
+			
+			
+		}else{
+
+			text.setEditable(false);
+    		Device device = Display.getCurrent ();
+    		Color grey = new Color (device, 224, 224, 224);
+    		text.setBackground(grey);
+    		text.setEnabled(false);
+    		System.out.println("text" + text.getText());
+		}
 		
         buttonOpen.addSelectionListener(new SelectionAdapter() {
             @Override
@@ -50,9 +73,17 @@ public class AddButton extends FormControlFactory{
             	
             	if(text.getEditable()){
             		text.setEditable(false);
+            		Device device = Display.getCurrent ();
+            		Color grey = new Color (device, 224, 224, 224);
+            		text.setBackground(grey);
+            		text.setEnabled(false);
+            		
             	}
             	else if(!text.getEditable()){
             		text.setEditable(true);
+            		Device device = Display.getCurrent();
+            		text.setBackground(null);
+            		text.setEnabled(true);
             		
 
             	}

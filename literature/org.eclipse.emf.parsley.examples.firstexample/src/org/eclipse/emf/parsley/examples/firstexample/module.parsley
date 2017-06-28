@@ -153,6 +153,7 @@ module org.eclipse.emf.parsley.examples.firstexample {
 				//val k = new SelectionListener()
 				val b = toolkit.createButton(v,"open", SWT.PUSH)
 				val s = toolkit.createButton(v,"set", SWT.PUSH)
+				//val k  = new AddButton(b, s, name, t)
 				val k  = new AddButton(b, s, name, t)
 				
 				//b.addSelectionListener()
