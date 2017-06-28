@@ -8,6 +8,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
         eType="#//ALiteratureBase"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Article" eSuperTypes="#//ALiteratureBase">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="journal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -49,5 +50,30 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="note" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="references" upperBound="-1"
         eType="#//ALiteratureBase"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Library">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="article" upperBound="-1"
+        eType="#//Article"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="book" upperBound="-1" eType="#//Book"
+        transient="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inbook" upperBound="-1"
+        eType="#//Inbook"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conference" upperBound="-1"
+        eType="#//Conference"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="incollection" upperBound="-1"
+        eType="#//Incollection"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inproceedings" upperBound="-1"
+        eType="#//Inproceedings"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="proceedings" upperBound="-1"
+        eType="#//Proceedings"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="techreport" upperBound="-1"
+        eType="#//Techreport"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="phdthesis" upperBound="-1"
+        eType="#//Phdthesis"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="masterthesis" upperBound="-1"
+        eType="#//Masterthesis"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unpublished" upperBound="-1"
+        eType="#//Unpublished"/>
   </eClassifiers>
 </ecore:EPackage>

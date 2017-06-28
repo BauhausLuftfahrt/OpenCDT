@@ -64,6 +64,7 @@ public class ALiteratureBaseItemProvider
 			addAuthorPropertyDescriptor(object);
 			addYearPropertyDescriptor(object);
 			addReferencesPropertyDescriptor(object);
+			addPathPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -157,6 +158,28 @@ public class ALiteratureBaseItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Path feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPathPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ALiteratureBase_path_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ALiteratureBase_path_feature", "_UI_ALiteratureBase_type"),
+				 CdtliteraturePackage.Literals.ALITERATURE_BASE__PATH,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -186,6 +209,7 @@ public class ALiteratureBaseItemProvider
 			case CdtliteraturePackage.ALITERATURE_BASE__TITLE:
 			case CdtliteraturePackage.ALITERATURE_BASE__AUTHOR:
 			case CdtliteraturePackage.ALITERATURE_BASE__YEAR:
+			case CdtliteraturePackage.ALITERATURE_BASE__PATH:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

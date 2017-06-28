@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link cdtliterature.ALiteratureBase#getAuthor <em>Author</em>}</li>
  *   <li>{@link cdtliterature.ALiteratureBase#getYear <em>Year</em>}</li>
  *   <li>{@link cdtliterature.ALiteratureBase#getReferences <em>References</em>}</li>
+ *   <li>{@link cdtliterature.ALiteratureBase#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @see cdtliterature.CdtliteraturePackage#getALiteratureBase()
@@ -119,5 +120,31 @@ public interface ALiteratureBase extends EObject {
 	 * @generated
 	 */
 	EList<ALiteratureBase> getReferences();
+
+	/**
+	 * Returns the value of the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Path</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Path</em>' attribute.
+	 * @see #setPath(String)
+	 * @see cdtliterature.CdtliteraturePackage#getALiteratureBase_Path()
+	 * @model
+	 * @generated
+	 */
+	String getPath();
+
+	/**
+	 * Sets the value of the '{@link cdtliterature.ALiteratureBase#getPath <em>Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Path</em>' attribute.
+	 * @see #getPath()
+	 * @generated
+	 */
+	void setPath(String value);
 
 } // ALiteratureBase

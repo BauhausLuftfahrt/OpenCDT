@@ -103,13 +103,22 @@ public interface CdtliteraturePackage extends EPackage {
 	int ALITERATURE_BASE__REFERENCES = 3;
 
 	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ALITERATURE_BASE__PATH = 4;
+
+	/**
 	 * The number of structural features of the '<em>ALiterature Base</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ALITERATURE_BASE_FEATURE_COUNT = 4;
+	int ALITERATURE_BASE_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>ALiterature Base</em>' class.
@@ -165,6 +174,15 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @ordered
 	 */
 	int ARTICLE__REFERENCES = ALITERATURE_BASE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTICLE__PATH = ALITERATURE_BASE__PATH;
 
 	/**
 	 * The feature id for the '<em><b>Journal</b></em>' attribute.
@@ -238,6 +256,15 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @ordered
 	 */
 	int BOOK__REFERENCES = ALITERATURE_BASE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOK__PATH = ALITERATURE_BASE__PATH;
 
 	/**
 	 * The feature id for the '<em><b>Publisher</b></em>' attribute.
@@ -320,6 +347,15 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @ordered
 	 */
 	int INBOOK__REFERENCES = ALITERATURE_BASE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INBOOK__PATH = ALITERATURE_BASE__PATH;
 
 	/**
 	 * The feature id for the '<em><b>Pages</b></em>' attribute.
@@ -413,6 +449,15 @@ public interface CdtliteraturePackage extends EPackage {
 	int CONFERENCE__REFERENCES = ALITERATURE_BASE__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONFERENCE__PATH = ALITERATURE_BASE__PATH;
+
+	/**
 	 * The feature id for the '<em><b>Booktitle</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -484,6 +529,15 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @ordered
 	 */
 	int INCOLLECTION__REFERENCES = ALITERATURE_BASE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INCOLLECTION__PATH = ALITERATURE_BASE__PATH;
 
 	/**
 	 * The feature id for the '<em><b>Booktitle</b></em>' attribute.
@@ -577,6 +631,15 @@ public interface CdtliteraturePackage extends EPackage {
 	int INPROCEEDINGS__REFERENCES = ALITERATURE_BASE__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INPROCEEDINGS__PATH = ALITERATURE_BASE__PATH;
+
+	/**
 	 * The feature id for the '<em><b>Booktitle</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -659,6 +722,15 @@ public interface CdtliteraturePackage extends EPackage {
 	int PROCEEDINGS__REFERENCES = ALITERATURE_BASE__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROCEEDINGS__PATH = ALITERATURE_BASE__PATH;
+
+	/**
 	 * The number of structural features of the '<em>Proceedings</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -721,6 +793,15 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @ordered
 	 */
 	int TECHREPORT__REFERENCES = ALITERATURE_BASE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TECHREPORT__PATH = ALITERATURE_BASE__PATH;
 
 	/**
 	 * The feature id for the '<em><b>Institution</b></em>' attribute.
@@ -796,6 +877,15 @@ public interface CdtliteraturePackage extends EPackage {
 	int PHDTHESIS__REFERENCES = ALITERATURE_BASE__REFERENCES;
 
 	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PHDTHESIS__PATH = ALITERATURE_BASE__PATH;
+
+	/**
 	 * The feature id for the '<em><b>School</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -867,6 +957,15 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @ordered
 	 */
 	int MASTERTHESIS__REFERENCES = ALITERATURE_BASE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MASTERTHESIS__PATH = ALITERATURE_BASE__PATH;
 
 	/**
 	 * The feature id for the '<em><b>School</b></em>' attribute.
@@ -961,6 +1060,143 @@ public interface CdtliteraturePackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link cdtliterature.impl.LibraryImpl <em>Library</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see cdtliterature.impl.LibraryImpl
+	 * @see cdtliterature.impl.CdtliteraturePackageImpl#getLibrary()
+	 * @generated
+	 */
+	int LIBRARY = 12;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Article</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__ARTICLE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Book</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__BOOK = 2;
+
+	/**
+	 * The feature id for the '<em><b>Inbook</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__INBOOK = 3;
+
+	/**
+	 * The feature id for the '<em><b>Conference</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__CONFERENCE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Incollection</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__INCOLLECTION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Inproceedings</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__INPROCEEDINGS = 6;
+
+	/**
+	 * The feature id for the '<em><b>Proceedings</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__PROCEEDINGS = 7;
+
+	/**
+	 * The feature id for the '<em><b>Techreport</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__TECHREPORT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Phdthesis</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__PHDTHESIS = 9;
+
+	/**
+	 * The feature id for the '<em><b>Masterthesis</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__MASTERTHESIS = 10;
+
+	/**
+	 * The feature id for the '<em><b>Unpublished</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__UNPUBLISHED = 11;
+
+	/**
+	 * The number of structural features of the '<em>Library</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY_FEATURE_COUNT = 12;
+
+	/**
+	 * The number of operations of the '<em>Library</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link cdtliterature.ALiteratureBase <em>ALiterature Base</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1013,6 +1249,17 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 */
 	EReference getALiteratureBase_References();
+
+	/**
+	 * Returns the meta object for the attribute '{@link cdtliterature.ALiteratureBase#getPath <em>Path</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Path</em>'.
+	 * @see cdtliterature.ALiteratureBase#getPath()
+	 * @see #getALiteratureBase()
+	 * @generated
+	 */
+	EAttribute getALiteratureBase_Path();
 
 	/**
 	 * Returns the meta object for class '{@link cdtliterature.Article <em>Article</em>}'.
@@ -1334,6 +1581,148 @@ public interface CdtliteraturePackage extends EPackage {
 	EReference getUnpublished_References();
 
 	/**
+	 * Returns the meta object for class '{@link cdtliterature.Library <em>Library</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Library</em>'.
+	 * @see cdtliterature.Library
+	 * @generated
+	 */
+	EClass getLibrary();
+
+	/**
+	 * Returns the meta object for the attribute '{@link cdtliterature.Library#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see cdtliterature.Library#getName()
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	EAttribute getLibrary_Name();
+
+	/**
+	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getArticle <em>Article</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Article</em>'.
+	 * @see cdtliterature.Library#getArticle()
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	EReference getLibrary_Article();
+
+	/**
+	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getBook <em>Book</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Book</em>'.
+	 * @see cdtliterature.Library#getBook()
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	EReference getLibrary_Book();
+
+	/**
+	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getInbook <em>Inbook</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Inbook</em>'.
+	 * @see cdtliterature.Library#getInbook()
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	EReference getLibrary_Inbook();
+
+	/**
+	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getConference <em>Conference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Conference</em>'.
+	 * @see cdtliterature.Library#getConference()
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	EReference getLibrary_Conference();
+
+	/**
+	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getIncollection <em>Incollection</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Incollection</em>'.
+	 * @see cdtliterature.Library#getIncollection()
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	EReference getLibrary_Incollection();
+
+	/**
+	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getInproceedings <em>Inproceedings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Inproceedings</em>'.
+	 * @see cdtliterature.Library#getInproceedings()
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	EReference getLibrary_Inproceedings();
+
+	/**
+	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getProceedings <em>Proceedings</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Proceedings</em>'.
+	 * @see cdtliterature.Library#getProceedings()
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	EReference getLibrary_Proceedings();
+
+	/**
+	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getTechreport <em>Techreport</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Techreport</em>'.
+	 * @see cdtliterature.Library#getTechreport()
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	EReference getLibrary_Techreport();
+
+	/**
+	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getPhdthesis <em>Phdthesis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Phdthesis</em>'.
+	 * @see cdtliterature.Library#getPhdthesis()
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	EReference getLibrary_Phdthesis();
+
+	/**
+	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getMasterthesis <em>Masterthesis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Masterthesis</em>'.
+	 * @see cdtliterature.Library#getMasterthesis()
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	EReference getLibrary_Masterthesis();
+
+	/**
+	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getUnpublished <em>Unpublished</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Unpublished</em>'.
+	 * @see cdtliterature.Library#getUnpublished()
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	EReference getLibrary_Unpublished();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1397,6 +1786,14 @@ public interface CdtliteraturePackage extends EPackage {
 		 * @generated
 		 */
 		EReference ALITERATURE_BASE__REFERENCES = eINSTANCE.getALiteratureBase_References();
+
+		/**
+		 * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ALITERATURE_BASE__PATH = eINSTANCE.getALiteratureBase_Path();
 
 		/**
 		 * The meta object literal for the '{@link cdtliterature.impl.ArticleImpl <em>Article</em>}' class.
@@ -1659,6 +2056,112 @@ public interface CdtliteraturePackage extends EPackage {
 		 * @generated
 		 */
 		EReference UNPUBLISHED__REFERENCES = eINSTANCE.getUnpublished_References();
+
+		/**
+		 * The meta object literal for the '{@link cdtliterature.impl.LibraryImpl <em>Library</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see cdtliterature.impl.LibraryImpl
+		 * @see cdtliterature.impl.CdtliteraturePackageImpl#getLibrary()
+		 * @generated
+		 */
+		EClass LIBRARY = eINSTANCE.getLibrary();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LIBRARY__NAME = eINSTANCE.getLibrary_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Article</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIBRARY__ARTICLE = eINSTANCE.getLibrary_Article();
+
+		/**
+		 * The meta object literal for the '<em><b>Book</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIBRARY__BOOK = eINSTANCE.getLibrary_Book();
+
+		/**
+		 * The meta object literal for the '<em><b>Inbook</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIBRARY__INBOOK = eINSTANCE.getLibrary_Inbook();
+
+		/**
+		 * The meta object literal for the '<em><b>Conference</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIBRARY__CONFERENCE = eINSTANCE.getLibrary_Conference();
+
+		/**
+		 * The meta object literal for the '<em><b>Incollection</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIBRARY__INCOLLECTION = eINSTANCE.getLibrary_Incollection();
+
+		/**
+		 * The meta object literal for the '<em><b>Inproceedings</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIBRARY__INPROCEEDINGS = eINSTANCE.getLibrary_Inproceedings();
+
+		/**
+		 * The meta object literal for the '<em><b>Proceedings</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIBRARY__PROCEEDINGS = eINSTANCE.getLibrary_Proceedings();
+
+		/**
+		 * The meta object literal for the '<em><b>Techreport</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIBRARY__TECHREPORT = eINSTANCE.getLibrary_Techreport();
+
+		/**
+		 * The meta object literal for the '<em><b>Phdthesis</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIBRARY__PHDTHESIS = eINSTANCE.getLibrary_Phdthesis();
+
+		/**
+		 * The meta object literal for the '<em><b>Masterthesis</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIBRARY__MASTERTHESIS = eINSTANCE.getLibrary_Masterthesis();
+
+		/**
+		 * The meta object literal for the '<em><b>Unpublished</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIBRARY__UNPUBLISHED = eINSTANCE.getLibrary_Unpublished();
 
 	}
 

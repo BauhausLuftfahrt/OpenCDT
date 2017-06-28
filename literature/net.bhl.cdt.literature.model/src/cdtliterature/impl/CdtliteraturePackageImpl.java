@@ -11,6 +11,7 @@ import cdtliterature.Conference;
 import cdtliterature.Inbook;
 import cdtliterature.Incollection;
 import cdtliterature.Inproceedings;
+import cdtliterature.Library;
 import cdtliterature.Masterthesis;
 import cdtliterature.Phdthesis;
 import cdtliterature.Proceedings;
@@ -116,6 +117,13 @@ public class CdtliteraturePackageImpl extends EPackageImpl implements Cdtliterat
 	private EClass unpublishedEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass libraryEClass = null;
+
+	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -219,6 +227,15 @@ public class CdtliteraturePackageImpl extends EPackageImpl implements Cdtliterat
 	 */
 	public EReference getALiteratureBase_References() {
 		return (EReference)aLiteratureBaseEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getALiteratureBase_Path() {
+		return (EAttribute)aLiteratureBaseEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -496,6 +513,123 @@ public class CdtliteraturePackageImpl extends EPackageImpl implements Cdtliterat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getLibrary() {
+		return libraryEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getLibrary_Name() {
+		return (EAttribute)libraryEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLibrary_Article() {
+		return (EReference)libraryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLibrary_Book() {
+		return (EReference)libraryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLibrary_Inbook() {
+		return (EReference)libraryEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLibrary_Conference() {
+		return (EReference)libraryEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLibrary_Incollection() {
+		return (EReference)libraryEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLibrary_Inproceedings() {
+		return (EReference)libraryEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLibrary_Proceedings() {
+		return (EReference)libraryEClass.getEStructuralFeatures().get(7);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLibrary_Techreport() {
+		return (EReference)libraryEClass.getEStructuralFeatures().get(8);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLibrary_Phdthesis() {
+		return (EReference)libraryEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLibrary_Masterthesis() {
+		return (EReference)libraryEClass.getEStructuralFeatures().get(10);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getLibrary_Unpublished() {
+		return (EReference)libraryEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CdtliteratureFactory getCdtliteratureFactory() {
 		return (CdtliteratureFactory)getEFactoryInstance();
 	}
@@ -524,6 +658,7 @@ public class CdtliteraturePackageImpl extends EPackageImpl implements Cdtliterat
 		createEAttribute(aLiteratureBaseEClass, ALITERATURE_BASE__AUTHOR);
 		createEAttribute(aLiteratureBaseEClass, ALITERATURE_BASE__YEAR);
 		createEReference(aLiteratureBaseEClass, ALITERATURE_BASE__REFERENCES);
+		createEAttribute(aLiteratureBaseEClass, ALITERATURE_BASE__PATH);
 
 		articleEClass = createEClass(ARTICLE);
 		createEAttribute(articleEClass, ARTICLE__JOURNAL);
@@ -565,6 +700,20 @@ public class CdtliteraturePackageImpl extends EPackageImpl implements Cdtliterat
 		createEAttribute(unpublishedEClass, UNPUBLISHED__TITLE);
 		createEAttribute(unpublishedEClass, UNPUBLISHED__NOTE);
 		createEReference(unpublishedEClass, UNPUBLISHED__REFERENCES);
+
+		libraryEClass = createEClass(LIBRARY);
+		createEAttribute(libraryEClass, LIBRARY__NAME);
+		createEReference(libraryEClass, LIBRARY__ARTICLE);
+		createEReference(libraryEClass, LIBRARY__BOOK);
+		createEReference(libraryEClass, LIBRARY__INBOOK);
+		createEReference(libraryEClass, LIBRARY__CONFERENCE);
+		createEReference(libraryEClass, LIBRARY__INCOLLECTION);
+		createEReference(libraryEClass, LIBRARY__INPROCEEDINGS);
+		createEReference(libraryEClass, LIBRARY__PROCEEDINGS);
+		createEReference(libraryEClass, LIBRARY__TECHREPORT);
+		createEReference(libraryEClass, LIBRARY__PHDTHESIS);
+		createEReference(libraryEClass, LIBRARY__MASTERTHESIS);
+		createEReference(libraryEClass, LIBRARY__UNPUBLISHED);
 	}
 
 	/**
@@ -612,6 +761,7 @@ public class CdtliteraturePackageImpl extends EPackageImpl implements Cdtliterat
 		initEAttribute(getALiteratureBase_Author(), ecorePackage.getEString(), "author", null, 0, 1, ALiteratureBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getALiteratureBase_Year(), ecorePackage.getEInt(), "year", null, 0, 1, ALiteratureBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getALiteratureBase_References(), this.getALiteratureBase(), null, "references", null, 0, -1, ALiteratureBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getALiteratureBase_Path(), ecorePackage.getEString(), "path", null, 0, 1, ALiteratureBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(articleEClass, Article.class, "Article", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArticle_Journal(), ecorePackage.getEString(), "journal", null, 0, 1, Article.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -653,6 +803,20 @@ public class CdtliteraturePackageImpl extends EPackageImpl implements Cdtliterat
 		initEAttribute(getUnpublished_Title(), ecorePackage.getEString(), "title", null, 0, 1, Unpublished.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getUnpublished_Note(), ecorePackage.getEString(), "note", null, 0, 1, Unpublished.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getUnpublished_References(), this.getALiteratureBase(), null, "references", null, 0, -1, Unpublished.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(libraryEClass, Library.class, "Library", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getLibrary_Name(), ecorePackage.getEString(), "name", null, 0, 1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLibrary_Article(), this.getArticle(), null, "article", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLibrary_Book(), this.getBook(), null, "book", null, 0, -1, Library.class, IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLibrary_Inbook(), this.getInbook(), null, "inbook", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLibrary_Conference(), this.getConference(), null, "conference", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLibrary_Incollection(), this.getIncollection(), null, "incollection", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLibrary_Inproceedings(), this.getInproceedings(), null, "inproceedings", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLibrary_Proceedings(), this.getProceedings(), null, "proceedings", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLibrary_Techreport(), this.getTechreport(), null, "techreport", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLibrary_Phdthesis(), this.getPhdthesis(), null, "phdthesis", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLibrary_Masterthesis(), this.getMasterthesis(), null, "masterthesis", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLibrary_Unpublished(), this.getUnpublished(), null, "unpublished", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

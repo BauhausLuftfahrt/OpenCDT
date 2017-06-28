@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  *   <li>{@link cdtliterature.impl.ALiteratureBaseImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link cdtliterature.impl.ALiteratureBaseImpl#getYear <em>Year</em>}</li>
  *   <li>{@link cdtliterature.impl.ALiteratureBaseImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link cdtliterature.impl.ALiteratureBaseImpl#getPath <em>Path</em>}</li>
  * </ul>
  *
  * @generated
@@ -104,6 +105,26 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 	 * @ordered
 	 */
 	protected EList<ALiteratureBase> references;
+
+	/**
+	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String PATH_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPath()
+	 * @generated
+	 * @ordered
+	 */
+	protected String path = PATH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -204,6 +225,27 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getPath() {
+		return path;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPath(String newPath) {
+		String oldPath = path;
+		path = newPath;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CdtliteraturePackage.ALITERATURE_BASE__PATH, oldPath, path));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -215,6 +257,8 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 				return getYear();
 			case CdtliteraturePackage.ALITERATURE_BASE__REFERENCES:
 				return getReferences();
+			case CdtliteraturePackage.ALITERATURE_BASE__PATH:
+				return getPath();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -241,6 +285,9 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 				getReferences().clear();
 				getReferences().addAll((Collection<? extends ALiteratureBase>)newValue);
 				return;
+			case CdtliteraturePackage.ALITERATURE_BASE__PATH:
+				setPath((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -265,6 +312,9 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 			case CdtliteraturePackage.ALITERATURE_BASE__REFERENCES:
 				getReferences().clear();
 				return;
+			case CdtliteraturePackage.ALITERATURE_BASE__PATH:
+				setPath(PATH_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -285,6 +335,8 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 				return year != YEAR_EDEFAULT;
 			case CdtliteraturePackage.ALITERATURE_BASE__REFERENCES:
 				return references != null && !references.isEmpty();
+			case CdtliteraturePackage.ALITERATURE_BASE__PATH:
+				return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -305,6 +357,8 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 		result.append(author);
 		result.append(", year: ");
 		result.append(year);
+		result.append(", path: ");
+		result.append(path);
 		result.append(')');
 		return result.toString();
 	}

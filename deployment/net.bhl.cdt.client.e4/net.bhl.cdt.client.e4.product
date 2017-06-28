@@ -40,6 +40,8 @@
       <plugin id="javax.xml"/>
       <plugin id="net.bhl.cdt.client.e4"/>
       <plugin id="net.bhl.cdt.literature.model"/>
+      <plugin id="net.bhl.cdt.literature.model.parsley"/>
+      <plugin id="net.bhl.cdt.literature.model.parsley.parts"/>
       <plugin id="net.bhl.cdt.log"/>
       <plugin id="net.bhl.cdt.model"/>
       <plugin id="net.bhl.cdt.model.edit"/>
@@ -154,8 +156,6 @@
       <plugin id="org.eclipse.emf.examples.library.edit"/>
       <plugin id="org.eclipse.emf.parsley"/>
       <plugin id="org.eclipse.emf.parsley.common"/>
-      <plugin id="org.eclipse.emf.parsley.examples.firstexample"/>
-      <plugin id="org.eclipse.emf.parsley.firstexample.application.parts"/>
       <plugin id="org.eclipse.emf.parsley.runtime"/>
       <plugin id="org.eclipse.emf.parsley.runtime.common"/>
       <plugin id="org.eclipse.emf.parsley.views"/>

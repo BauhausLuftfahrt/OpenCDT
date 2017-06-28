@@ -67,6 +67,7 @@ public class CdtliteratureFactoryImpl extends EFactoryImpl implements Cdtliterat
 			case CdtliteraturePackage.PHDTHESIS: return createPhdthesis();
 			case CdtliteraturePackage.MASTERTHESIS: return createMasterthesis();
 			case CdtliteraturePackage.UNPUBLISHED: return createUnpublished();
+			case CdtliteraturePackage.LIBRARY: return createLibrary();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -180,6 +181,16 @@ public class CdtliteratureFactoryImpl extends EFactoryImpl implements Cdtliterat
 	public Unpublished createUnpublished() {
 		UnpublishedImpl unpublished = new UnpublishedImpl();
 		return unpublished;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Library createLibrary() {
+		LibraryImpl library = new LibraryImpl();
+		return library;
 	}
 
 	/**

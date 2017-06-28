@@ -22,7 +22,6 @@ import org.eclipse.emf.parsley.examples.firstexample.FirstexampleInjectorProvide
 import org.eclipse.emf.parsley.menus.ViewerContextMenuHelper;
 import org.eclipse.emf.parsley.resource.ResourceLoader;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 

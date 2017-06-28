@@ -325,6 +325,29 @@ public class CdtliteratureItemProviderAdapterFactory extends CdtliteratureAdapte
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link cdtliterature.Library} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LibraryItemProvider libraryItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link cdtliterature.Library}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLibraryAdapter() {
+		if (libraryItemProvider == null) {
+			libraryItemProvider = new LibraryItemProvider(this);
+		}
+
+		return libraryItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -434,6 +457,7 @@ public class CdtliteratureItemProviderAdapterFactory extends CdtliteratureAdapte
 		if (phdthesisItemProvider != null) phdthesisItemProvider.dispose();
 		if (masterthesisItemProvider != null) masterthesisItemProvider.dispose();
 		if (unpublishedItemProvider != null) unpublishedItemProvider.dispose();
+		if (libraryItemProvider != null) libraryItemProvider.dispose();
 	}
 
 }
