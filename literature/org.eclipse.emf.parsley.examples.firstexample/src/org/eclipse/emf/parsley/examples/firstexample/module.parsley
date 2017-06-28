@@ -143,21 +143,22 @@ module org.eclipse.emf.parsley.examples.firstexample {
 				
 				
 			}
-			Writer :  lastName -> { val v = toolkit.createComposite(parent,SWT.BORDER)	
+			Writer :  lastName -> { val v = toolkit.createComposite(parent, SWT.NONE)	
 		
 				v.setLayout(new GridLayout(3, false))
 
-				val t = toolkit.createText(v,name,SWT.SINGLE)
-				t.setSize(100,10)
+				val t = toolkit.createText(v,name, SWT.SINGLE)
+				//t.setSize(100,10)
 				
 				//val k = new SelectionListener()
 				val b = toolkit.createButton(v,"open", SWT.PUSH)
 				val s = toolkit.createButton(v,"set", SWT.PUSH)
 				val k  = new AddButton(b, s, name, t)
+				
 				//b.addSelectionListener()
 				//b.getSelection()
-				//toolkit.createComposite(parent,SWT.NONE)
-				toolkit.createComposite(v)
+				toolkit.createComposite(parent,SWT.NONE)
+				//toolkit.createComposite(v)
 				
 				
 				

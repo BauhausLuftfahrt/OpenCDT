@@ -50,13 +50,12 @@ public class FirstexampleFormControlFactory extends FormControlFactory {
     {
       FormToolkit _toolkit = this.getToolkit();
       Composite _parent = this.getParent();
-      final Composite v = _toolkit.createComposite(_parent, SWT.BORDER);
+      final Composite v = _toolkit.createComposite(_parent, SWT.NONE);
       GridLayout _gridLayout = new GridLayout(3, false);
       v.setLayout(_gridLayout);
       FormToolkit _toolkit_1 = this.getToolkit();
       String _name = it.getName();
       final Text t = _toolkit_1.createText(v, _name, SWT.SINGLE);
-      t.setSize(100, 10);
       FormToolkit _toolkit_2 = this.getToolkit();
       final Button b = _toolkit_2.createButton(v, "open", SWT.PUSH);
       FormToolkit _toolkit_3 = this.getToolkit();
@@ -64,7 +63,8 @@ public class FirstexampleFormControlFactory extends FormControlFactory {
       String _name_1 = it.getName();
       final AddButton k = new AddButton(b, s, _name_1, t);
       FormToolkit _toolkit_4 = this.getToolkit();
-      _xblockexpression = _toolkit_4.createComposite(v);
+      Composite _parent_1 = this.getParent();
+      _xblockexpression = _toolkit_4.createComposite(_parent_1, SWT.NONE);
     }
     return _xblockexpression;
   }
