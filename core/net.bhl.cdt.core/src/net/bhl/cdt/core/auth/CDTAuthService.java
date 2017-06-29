@@ -1,7 +1,13 @@
-package net.bhl.cdt.client.e4.auth;
+package net.bhl.cdt.core.auth;
 
 import java.util.Date;
 
+/**
+ * 
+ * @author Michael Shamiyeh
+ * @since 2017-06-26
+ *
+ */
 public class CDTAuthService {
 	
 	private String username;
@@ -25,6 +31,10 @@ public class CDTAuthService {
 	private Date loginDate;
 	
 	public CDTAuthService() {
+	}
+	
+	public void initialize() {
+		loginUser(System.getProperty("user.name"));
 	}
 	
 	public void loginUser(String username) {

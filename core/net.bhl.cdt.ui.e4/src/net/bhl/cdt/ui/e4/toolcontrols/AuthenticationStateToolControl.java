@@ -1,4 +1,4 @@
-package net.bhl.cdt.client.e4.auth.ui;
+package net.bhl.cdt.ui.e4.toolcontrols;
 
 import java.text.SimpleDateFormat;
 
@@ -8,7 +8,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.widgets.Composite;
 
-import net.bhl.cdt.client.e4.auth.CDTAuthService;
+import net.bhl.cdt.core.auth.CDTAuthService;
 
 /**
  * Simple authentication state tool control. Shows login name and login time.

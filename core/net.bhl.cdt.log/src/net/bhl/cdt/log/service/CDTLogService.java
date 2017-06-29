@@ -15,7 +15,7 @@ import net.bhl.cdt.log.model.LogEntryImpl;
 /**
  * Implementation of the OGSI LogService.
  * 
- * @author Michael.Shamiyeh
+ * @author Michael Shamiyeh
  *
  */
 public class CDTLogService implements LogService {

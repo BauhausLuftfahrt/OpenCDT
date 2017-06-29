@@ -34,11 +34,15 @@ Require-Bundle: org.eclipse.emf.ecp.ui.e4;bundle-version="[1.10.0,2.0.0)",
  org.eclipse.equinox.registry,
  net.bhl.cdt.model.v2;bundle-version="0.1.0",
  net.bhl.cdt.model.v2.edit;bundle-version="1.0.0",
- net.bhl.cdt.ui.e4;bundle-version="1.0.0"
+ net.bhl.cdt.ui.e4,
+ net.bhl.cdt.log,
+ net.bhl.cdt.util,
+ net.bhl.cdt.core
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.annotation,
  javax.inject;version="1.0.0",
- net.bhl.cdt.log.service,
+ net.bhl.cdt.util,
+ net.bhl.cdt.util.constants,
  org.apache.commons.lang;version="1.8.1",
  org.osgi.service.event;version="1.3.1"
 Bundle-ActivationPolicy: lazy

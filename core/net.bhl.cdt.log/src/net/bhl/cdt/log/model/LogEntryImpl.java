@@ -22,7 +22,7 @@ public final class LogEntryImpl implements LogEntry {
 	private final Throwable exception;
 	
 	private final Bundle loggingBundle;
-	private final ServiceReference serviceReference;
+	private final ServiceReference<?> serviceReference;
 
 	/**
 	 * Create a new instance.
@@ -38,7 +38,7 @@ public final class LogEntryImpl implements LogEntry {
 	 * @param exception
 	 *            the exception to associate with this LogEntry object
 	 */
-	public LogEntryImpl(final Bundle bundle, final ServiceReference sr, final int level, final String message, final Throwable exception) {
+	public LogEntryImpl(final Bundle bundle, final ServiceReference<?> sr, final int level, final String message, final Throwable exception) {
 		this.loggingBundle = bundle;
 		this.exception = LogException.getException(exception);
 		this.level = level;
@@ -65,7 +65,7 @@ public final class LogEntryImpl implements LogEntry {
 	 *         with this LogEntry object; <code>null</code> if no
 	 *         {@link ServiceReference} object was provided
 	 */
-	public ServiceReference getServiceReference() {
+	public ServiceReference<?> getServiceReference() {
 		return serviceReference;
 	}
 

@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: OpenCDT Core
+Bundle-SymbolicName: net.bhl.cdt.core
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: net.bhl.cdt.core.Activator
+Bundle-Vendor: Bauhaus Luftfahrt e.V.
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ net.bhl.cdt.util,
+ net.bhl.cdt.log,
+ org.eclipse.osgi.services,
+ org.eclipse.e4.core.di;bundle-version="1.6.1",
+ org.eclipse.e4.ui.model.workbench
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Import-Package: org.eclipse.e4.core.contexts
+Service-Component: OSGI-INF/CDTPreferencesServiceContextFunction.xml,
+ OSGI-INF/CDTAuthServiceContextFunction.xml
+Export-Package: net.bhl.cdt.core.auth,
+ net.bhl.cdt.core.pref

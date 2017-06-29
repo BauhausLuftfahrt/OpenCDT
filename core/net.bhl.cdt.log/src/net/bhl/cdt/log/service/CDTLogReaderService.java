@@ -39,7 +39,7 @@ public final class CDTLogReaderService implements LogReaderService {
 	}
 	
 	@Override
-	public Enumeration getLog() {
+	public Enumeration<?> getLog() {
 		return new LogEntryEnumeration(log.getEntryIterator());
 	}
 

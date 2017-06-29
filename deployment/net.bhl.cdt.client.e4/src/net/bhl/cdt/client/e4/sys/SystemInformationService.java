@@ -4,7 +4,7 @@ import java.net.UnknownHostException;
 
 /**
  * Contains information about the operating system and the user logged in.
- * @author michael.shamiyeh
+ * @author michael shamiyeh
  *
  */
 public class SystemInformationService {

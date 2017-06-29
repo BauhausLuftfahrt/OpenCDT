@@ -17,7 +17,7 @@ import net.bhl.cdt.log.service.CDTLogReaderService;
  * @author Michael Shamiyeh
  *
  */
-public class CDTLogReaderServiceFactory implements ServiceFactory {
+public class CDTLogReaderServiceFactory implements ServiceFactory<Object> {
 	private final CDTLog log;
 
     /**
@@ -30,12 +30,12 @@ public class CDTLogReaderServiceFactory implements ServiceFactory {
     }
 	
 	@Override
-	public Object getService(Bundle bundle, ServiceRegistration registration) {
+	public Object getService(Bundle bundle, ServiceRegistration<Object> registration) {
 		return new CDTLogReaderService(log);
 	}
 
 	@Override
-	public void ungetService(Bundle bundle, ServiceRegistration registration, Object service) {
+	public void ungetService(Bundle bundle, ServiceRegistration<Object> registration, Object service) {
 		((CDTLogReaderService)service).removeAllLogListeners();
 	}
 }

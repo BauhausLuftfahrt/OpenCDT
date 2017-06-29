@@ -17,7 +17,7 @@ import net.bhl.cdt.log.service.CDTLogService;
  * @author Michael Shamiyeh
  *
  */
-public final class CDTLogServiceFactory  implements ServiceFactory {
+public final class CDTLogServiceFactory  implements ServiceFactory<Object> {
 
 	private final CDTLog log;
 	
@@ -26,11 +26,11 @@ public final class CDTLogServiceFactory  implements ServiceFactory {
 	}
 	
 	@Override
-	public Object getService(Bundle bundle, ServiceRegistration registration) {
+	public Object getService(Bundle bundle, ServiceRegistration<Object> registration) {
 		return new CDTLogService(log, bundle);
 	}
 
 	@Override
-	public void ungetService(Bundle bundle, ServiceRegistration registration, Object service) {
+	public void ungetService(Bundle bundle, ServiceRegistration<Object> registration, Object service) {
 	}
 }

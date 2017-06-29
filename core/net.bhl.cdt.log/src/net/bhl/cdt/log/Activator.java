@@ -8,11 +8,6 @@ package net.bhl.cdt.log;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
-import net.bhl.cdt.log.service.CDTLogReaderService;
-import net.bhl.cdt.log.service.CDTLogService;
-import net.bhl.cdt.log.service.internal.CDTLogReaderServiceFactory;
-import net.bhl.cdt.log.service.internal.CDTLogServiceFactory;
-
 /**
  * 
  * @author Michael Shamiyeh
@@ -20,22 +15,23 @@ import net.bhl.cdt.log.service.internal.CDTLogServiceFactory;
  */
 public class Activator implements BundleActivator {
 
-	private CDTLog log;
+	private static CDTLog log;
+	
+	public static CDTLog getLog() {
+		if (log == null)
+			log = new CDTLog();
+		
+		return log;
+	}
 	
 	/*
 	 * (non-Javadoc)
 	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
 	 */
 	public void start(BundleContext context) throws Exception {
-		log = new CDTLog();
-
-        context.addBundleListener(log);
-        context.addFrameworkListener(log);
-        context.addServiceListener(log);
-
-        // register the services with the framework
-        context.registerService(CDTLogService.class.getName(), new CDTLogServiceFactory(log), null);
-        context.registerService(CDTLogReaderService.class.getName(), new CDTLogReaderServiceFactory(log), null);
+		context.addBundleListener(getLog());
+		context.addFrameworkListener(getLog());
+		context.addServiceListener(getLog());
 	}
 	
 	/*

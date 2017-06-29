@@ -1,8 +1,14 @@
 package net.bhl.cdt.util.ui;
 
+import java.net.URL;
+
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
+import org.osgi.framework.Bundle;
 
 public class UIHelper {
 	public static String SHOWFILE_TITLE = "Open...";
@@ -37,5 +43,10 @@ public class UIHelper {
 		fd.setText(title);
 		fd.setFilterExtensions(filters);
 		return fd.open();
+	}
+	
+	public static ImageDescriptor getImageDescriptor(Bundle bundle, String relativeFileString) {
+	    URL url = FileLocator.find(bundle, new Path(relativeFileString), null);
+	    return ImageDescriptor.createFromURL(url);
 	}
 }

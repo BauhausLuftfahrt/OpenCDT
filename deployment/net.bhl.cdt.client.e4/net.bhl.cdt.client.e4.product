@@ -40,10 +40,12 @@
       <plugin id="javax.xml"/>
       <plugin id="net.bhl.cdt.client.e4"/>
       <plugin id="net.bhl.cdt.connector.mat"/>
+      <plugin id="net.bhl.cdt.core"/>
       <plugin id="net.bhl.cdt.log"/>
       <plugin id="net.bhl.cdt.model.v2"/>
       <plugin id="net.bhl.cdt.model.v2.edit"/>
       <plugin id="net.bhl.cdt.ui.e4"/>
+      <plugin id="net.bhl.cdt.util"/>
       <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.util"/>
       <plugin id="org.apache.batik.util.gui"/>
@@ -172,6 +174,11 @@
    </plugins>
 
    <configurations>
+      <plugin id="net.bhl.cdt.log" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
    </configurations>

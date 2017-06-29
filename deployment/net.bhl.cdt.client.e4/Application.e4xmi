@@ -49,7 +49,9 @@
               <tags>editorPart</tags>
               <tags>NoAutoCollapse</tags>
             </children>
-            <children xsi:type="basic:PartStack" xmi:id="_yMj_oAuUEeaU6bN0NO_FuA" elementId="net.bhl.cdt.client.e4.partstack.bottom" containerData="30"/>
+            <children xsi:type="basic:PartStack" xmi:id="_yMj_oAuUEeaU6bN0NO_FuA" elementId="net.bhl.cdt.client.e4.partstack.bottom" containerData="30">
+              <children xsi:type="basic:Part" xmi:id="_6PL14FwIEeem-NQJmMGsUA" elementId="net.bhl.cdt.client.e4.part.log" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.view.CDTConsole" label="Log"/>
+            </children>
           </children>
         </children>
       </children>
@@ -83,7 +85,6 @@
       <children xsi:type="menu:ToolControl" xmi:id="_r-9B0IbuEeapQ8NRxL7giQ" elementId="net.bhl.cdt.client.e4.toolcontrol.spacerglue">
         <tags>glue</tags>
       </children>
-      <children xsi:type="menu:ToolControl" xmi:id="_negx8IbtEeapQ8NRxL7giQ" elementId="net.bhl.cdt.client.e4.toolcontrol.authpanel" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.auth.ui.AuthenticationStateToolControl"/>
     </trimBars>
   </children>
   <handlers xmi:id="_q5IcYJgZEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.handler.newProject" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.handlers.NewProjectHandler" command="_ogB3AJgZEeKJoJcmiy2C6w"/>

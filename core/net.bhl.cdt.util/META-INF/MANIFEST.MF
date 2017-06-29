@@ -6,7 +6,11 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: net.bhl.cdt.util.Activator
 Bundle-Vendor: Bauhaus Luftfahrt e.V.
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.swt
+ org.eclipse.swt,
+ org.eclipse.core.resources;bundle-version="3.11.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Export-Package: net.bhl.cdt.util.ui
+Export-Package: net.bhl.cdt.util,
+ net.bhl.cdt.util.constants,
+ net.bhl.cdt.util.ui
+Import-Package: org.eclipse.jface.resource

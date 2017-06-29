@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_laT64FzbEeei0rvuewvo_Q">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_mQQEYFzbEeei0rvuewvo_Q" featurename="children" parentElementId="net.bhl.cdt.client.e4.trimbar.statusbar" positionInList="">
+    <elements xsi:type="menu:ToolControl" xmi:id="_uPAqsFzbEeei0rvuewvo_Q" elementId="net.bhl.cdt.ui.e4.toolcontrol.authentificationstate" contributionURI="bundleclass://net.bhl.cdt.ui.e4/net.bhl.cdt.ui.e4.toolcontrols.AuthenticationStateToolControl"/>
+  </fragments>
+</fragment:ModelFragments>

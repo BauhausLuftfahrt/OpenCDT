@@ -13,33 +13,18 @@ import org.eclipse.e4.ui.workbench.lifecycle.PreSave;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessAdditions;
 import org.eclipse.e4.ui.workbench.lifecycle.ProcessRemovals;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
-import org.osgi.framework.ServiceReference;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventHandler;
 
-import net.bhl.cdt.client.e4.auth.CDTAuthService;
 import net.bhl.cdt.client.ui.CDTUIManager;
-import net.bhl.cdt.log.service.CDTLogService;
+import net.bhl.cdt.core.pref.CDTPreferencesService;
 
 @SuppressWarnings("restriction")
 public class E4LifeCycle {
 	private static final String UIMGR_EXTPOINT_ID = "net.bhl.cdt.client.e4.uimanager";
 	
 	@PostContextCreate
-	void postContextCreate(IEclipseContext workbenchContext, @Optional final IEventBroker eventBroker) {
-		@SuppressWarnings("rawtypes")
-		ServiceReference ref = Activator.getContext().getServiceReference(CDTLogService.class.getName());
-		if (ref != null) {
-			@SuppressWarnings("unchecked")
-			CDTLogService logService = (CDTLogService)Activator.getContext().getService(ref);
-			workbenchContext.set(CDTLogService.class, logService);
-		}
-		
-		CDTAuthService authService = new CDTAuthService();
-		authService.loginUser(System.getProperty("user.name"));
-		
-		workbenchContext.set(CDTAuthService.class, authService);
-
+	void postContextCreate(IEclipseContext workbenchContext, @Optional final IEventBroker eventBroker) {		
 		// register for startup completed event and close the shell
 		eventBroker.subscribe(UIEvents.UILifeCycle.APP_STARTUP_COMPLETE, new EventHandler() {
 			@Override
@@ -50,7 +35,9 @@ public class E4LifeCycle {
 	}
 
 	@PreSave
-	void preSave(IEclipseContext workbenchContext) {
+	void preSave(IEclipseContext workbenchContext, @Optional CDTPreferencesService preferencesService) {
+		if (preferencesService != null)
+			preferencesService.save();
 	}
 
 	@ProcessAdditions
