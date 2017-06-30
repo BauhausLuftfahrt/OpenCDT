@@ -1,62 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_GlqaEArBEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.application" bindingContexts="_GlrBIArBEeaJ2Y3tZdi01w">
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_GlqaEArBEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.application" bindingContexts="_GlrBIArBEeaJ2Y3tZdi01w">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_GlqaEQrBEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.mainwindow" selectedElement="_Y7B88ArDEeaJ2Y3tZdi01w" label="OpenCDT" iconURI="platform:/plugin/net.bhl.cdt.client.e4/res/OpenCDT_Symbol_0064.png" width="1280" height="800">
-    <children xsi:type="advanced:PerspectiveStack" xmi:id="_Y7B88ArDEeaJ2Y3tZdi01w" elementId="cdt.mainwindow.perspectivestack">
-      <children xsi:type="advanced:Perspective" xmi:id="_Z2zBoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.perspective.cdt" label="Modelling" iconURI="platform:/plugin/net.bhl.cdt.client.e4/res/OpenCDT_Symbol_0016.png">
-        <children xsi:type="basic:PartSashContainer" xmi:id="_c39FgArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.partsashcontainer.0" horizontal="true">
-          <children xsi:type="basic:PartSashContainer" xmi:id="_PP2rUAt3EeaTQKclQUz8Eg" elementId="net.bhl.cdt.client.e4.partsashcontainer.2" containerData="20">
-            <children xsi:type="basic:PartStack" xmi:id="__MeeoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.partstack.0" containerData="70">
-              <children xsi:type="basic:Part" xmi:id="__il4kArDEeaJ2Y3tZdi01w" elementId="org.eclipse.emf.ecp.e4.application.part.navigator" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.view.ECPModelView" label="Model Explorer" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/folder_brick.png">
-                <menus xsi:type="menu:PopupMenu" xmi:id="_dAsF4JgZEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.popupmenu.navigator" label="Navigator menu">
-                  <children xsi:type="menu:DynamicMenuContribution" xmi:id="_amzu4ErKEeOavfZiWcfdwA" elementId="org.eclipse.emf.ecp.application.e4.childrenDescriptorElements" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.view.DynamicCreateChildrenElementsMenuContribution"/>
-                  <children xsi:type="menu:MenuSeparator" xmi:id="_FLB5sH3WEeO60MnVpeSbmA" elementId="org.eclipse.emf.ecp.application.e4.menuseparator.2"/>
-                  <children xsi:type="menu:HandledMenuItem" xmi:id="_ibQRIJgZEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.handledmenuitem.newProject" label="Create new project" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/project_new.gif" command="_ogB3AJgZEeKJoJcmiy2C6w"/>
-                  <children xsi:type="menu:MenuSeparator" xmi:id="_-yuXAH3ZEeO60MnVpeSbmA" elementId="org.eclipse.emf.ecp.application.e4.menuseparator.0"/>
-                  <children xsi:type="menu:HandledMenuItem" xmi:id="_-e8dcAt3EeaTQKclQUz8Eg" elementId="org.eclipse.emf.ecp.e4.application.handledmenuitem.project.closeProject" label="Close" command="_snLnIHq5EeOKPMuLiPS6LA">
-                    <visibleWhen xsi:type="ui:CoreExpression" xmi:id="__47IIAt3EeaTQKclQUz8Eg" coreExpressionId="org.eclipse.emf.ecp.application.e4.isProjectOpened"/>
-                  </children>
-                  <children xsi:type="menu:HandledMenuItem" xmi:id="_Kb8pcGfMEeOSxuzzXgfhAA" elementId="org.eclipse.emf.ecp.e4.application.handledmenuitem.project.deleteProject" label="Delete" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/delete.gif" command="_-EYP0GfLEeOSxuzzXgfhAA">
-                    <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_9gTzQGfoEeOSxuzzXgfhAA" coreExpressionId="org.eclipse.emf.ecp.application.e4.isProjectSelected"/>
-                  </children>
-                  <children xsi:type="menu:HandledMenuItem" xmi:id="_SUSpQGfNEeOSxuzzXgfhAA" elementId="org.eclipse.emf.ecp.e4.application.handledmenuitem.project.deleteModelElement" label="Delete Model Element" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/delete.gif" command="_lKS7YGfMEeOSxuzzXgfhAA">
-                    <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_ZtxHgGfpEeOSxuzzXgfhAA" coreExpressionId="org.eclipse.emf.ecp.application.e4.isModelElementSelected"/>
-                  </children>
-                  <children xsi:type="menu:HandledMenuItem" xmi:id="_XUKgAHq6EeOKPMuLiPS6LA" elementId="org.eclipse.emf.ecp.e4.application.handledmenuitem.project.openProject" label="Open" command="_vuNCcHq5EeOKPMuLiPS6LA">
-                    <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_8XlIUHq6EeOKPMuLiPS6LA" coreExpressionId="org.eclipse.emf.ecp.application.e4.isProjectClosed"/>
-                  </children>
-                  <children xsi:type="menu:HandledMenuItem" xmi:id="_73BDkH3IEeOH4sahiLvWWw" elementId="org.eclipse.emf.ecp.application.e4.handledmenuitem.0" label="Filter Model Elements" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/sample.gif" command="_v4zlIH3IEeOH4sahiLvWWw">
-                    <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_-GJ0oH3IEeOH4sahiLvWWw" coreExpressionId="org.eclipse.emf.ecp.application.e4.isProjectSelected"/>
-                  </children>
-                  <children xsi:type="menu:HandledMenuItem" xmi:id="_c1wWwJoSEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.handledmenuitem.project.newModelElement" label="New Model Element" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/modelelement_add.gif" command="_StwzEJoSEeKJoJcmiy2C6w">
-                    <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_nZAHcHkLEeOKPMuLiPS6LA" coreExpressionId="org.eclipse.emf.ecp.application.e4.isProjectSelected"/>
-                  </children>
-                  <children xsi:type="menu:HandledMenuItem" xmi:id="_ZEtI8H3NEeOH4sahiLvWWw" elementId="org.eclipse.emf.ecp.e4.application.handledmenuitem.import" label="Import Child" command="_Q7bUsH3NEeOH4sahiLvWWw">
-                    <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_qOjl0H3NEeOH4sahiLvWWw" coreExpressionId="org.eclipse.emf.ecp.application.e4.isSingleProjectOrModelElementSelected"/>
-                  </children>
-                  <children xsi:type="menu:HandledMenuItem" xmi:id="_n6kRUH3KEeOH4sahiLvWWw" elementId="org.eclipse.emf.ecp.e4.application.handledmenuitem.export" label="Export" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/database_go.png" command="_AbdpsH3KEeOH4sahiLvWWw">
-                    <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_pIgEEH3KEeOH4sahiLvWWw" coreExpressionId="org.eclipse.emf.ecp.application.e4.isSingleModelElementSelected"/>
-                  </children>
-                </menus>
-                <toolbar xmi:id="_uWMcwJoUEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.toolbar.0">
-                  <children xsi:type="menu:HandledToolItem" xmi:id="_W0NKYHq2EeOKPMuLiPS6LA" elementId="org.eclipse.emf.ecp.application.e4.handledtoolitem.0" label="Save Project" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/save_edit.gif" command="_FrvNkHq2EeOKPMuLiPS6LA"/>
-                  <children xsi:type="menu:HandledToolItem" xmi:id="_qBe0sHvAEeOKPMuLiPS6LA" elementId="org.eclipse.emf.ecp.application.e4.handledtoolitem.link" label="Link" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/link_with_editor.gif" tooltip="Link With Editor" selected="true" type="Check" command="_fDbLsHvAEeOKPMuLiPS6LA"/>
-                </toolbar>
-              </children>
-            </children>
-          </children>
-          <children xsi:type="basic:PartSashContainer" xmi:id="_DWfy4BzqEeaR45oFjt34qg" elementId="net.bhl.cdt.client.e4.partsashcontainer.1" containerData="80">
-            <children xsi:type="basic:PartStack" xmi:id="_G7JTIArHEeaJ2Y3tZdi01w" elementId="org.eclipse.emf.ecp.e4.application.partstack.editor" containerData="70">
-              <tags>editorPart</tags>
-              <tags>NoAutoCollapse</tags>
-            </children>
-            <children xsi:type="basic:PartStack" xmi:id="_yMj_oAuUEeaU6bN0NO_FuA" elementId="net.bhl.cdt.client.e4.partstack.bottom" containerData="30">
-              <children xsi:type="basic:Part" xmi:id="_6PL14FwIEeem-NQJmMGsUA" elementId="net.bhl.cdt.client.e4.part.log" contributionURI="bundleclass://net.bhl.cdt.client.e4/net.bhl.cdt.client.e4.view.CDTConsole" label="Log"/>
-            </children>
-          </children>
-        </children>
-      </children>
-      <children xsi:type="advanced:Perspective" xmi:id="_ROa7cBXYEeagnLNaja9bdg" elementId="net.bhl.cdt.client.e4.perspective.design" toBeRendered="false" visible="false" label="Design" iconURI="platform:/plugin/net.bhl.cdt.client.e4/icons/bricks.png"/>
-    </children>
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_Y7B88ArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.mainwindow.perspectivestack"/>
     <mainMenu xmi:id="_y35uoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.menu.0">
       <children xsi:type="menu:Menu" xmi:id="_WWyncBqOEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.menu.file" label="File">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_XoxMsBqOEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.handledmenuitem.exit" label="Exit" command="_cSFhMBqOEeaW3cdp9dOVbQ"/>

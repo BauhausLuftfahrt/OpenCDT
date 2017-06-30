@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="ASCII"?>
-<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_laT64FzbEeei0rvuewvo_Q">
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_laT64FzbEeei0rvuewvo_Q">
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_mQQEYFzbEeei0rvuewvo_Q" featurename="children" parentElementId="net.bhl.cdt.client.e4.trimbar.statusbar" positionInList="">
     <elements xsi:type="menu:ToolControl" xmi:id="_uPAqsFzbEeei0rvuewvo_Q" elementId="net.bhl.cdt.ui.e4.toolcontrol.authentificationstate" contributionURI="bundleclass://net.bhl.cdt.ui.e4/net.bhl.cdt.ui.e4.toolcontrols.AuthenticationStateToolControl"/>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_YOTmoF1qEeeE8ZZG_XaDLg" featurename="descriptors" parentElementId="net.bhl.cdt.application"/>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_AHDKYF14EeeE8ZZG_XaDLg" featurename="children" parentElementId="net.bhl.cdt.client.e4.mainwindow.perspectivestack">
+    <elements xsi:type="advanced:Perspective" xmi:id="_QkvE0F14EeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.perspective.cdtmodelling" label="CDT Modelling" iconURI="platform:/plugin/net.bhl.cdt.ui.e4/icons/OpenCDT_Symbol_0016.png">
+      <children xsi:type="basic:PartSashContainer" xmi:id="_cD8TEF14EeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.partsashcontainer.0" horizontal="true">
+        <children xsi:type="basic:PartStack" xmi:id="_emcsEF14EeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.partstack.0" containerData="25"/>
+        <children xsi:type="basic:PartSashContainer" xmi:id="_e93GgF14EeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.partsashcontainer.1" containerData="75">
+          <children xsi:type="basic:PartStack" xmi:id="_glJ0cF14EeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.partstack.1" containerData="75"/>
+          <children xsi:type="basic:PartStack" xmi:id="_g5wLcF14EeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.partstack.2" containerData="25">
+            <children xsi:type="advanced:Placeholder" xmi:id="_6--n4F14EeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.placeholder.log" ref="_N3xS0F15EeeE8ZZG_XaDLg"/>
+          </children>
+        </children>
+      </children>
+    </elements>
+  </fragments>
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_IK9hAF15EeeE8ZZG_XaDLg" featurename="sharedElements" parentElementId="net.bhl.cdt.client.e4.mainwindow">
+    <elements xsi:type="basic:Part" xmi:id="_N3xS0F15EeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.part.logviewpart" contributionURI="bundleclass://net.bhl.cdt.ui.e4/net.bhl.cdt.ui.e4.parts.logview.LogViewPart" label="Log" iconURI="platform:/plugin/net.bhl.cdt.ui.e4/icons/console_16x16.png">
+      <toolbar xmi:id="_QlRa4F15EeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.toolbar.0">
+        <children xsi:type="menu:DirectToolItem" xmi:id="_qoDL0F1vEeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.logviewpart.infosvisible" iconURI="platform:/plugin/net.bhl.cdt.ui.e4/icons/info_16x16.png" tooltip="Show Infos" type="Check" contributionURI="bundleclass://net.bhl.cdt.ui.e4/net.bhl.cdt.ui.e4.parts.logview.LogViewPartFilterHandler"/>
+        <children xsi:type="menu:DirectToolItem" xmi:id="_7jMgA11vEeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.logviewpart.warningsvisible" iconURI="platform:/plugin/net.bhl.cdt.ui.e4/icons/warning_16x16.png" tooltip="Show Warnings" type="Check" contributionURI="bundleclass://net.bhl.cdt.ui.e4/net.bhl.cdt.ui.e4.parts.logview.LogViewPartFilterHandler"/>
+        <children xsi:type="menu:DirectToolItem" xmi:id="_5yybMF1wEeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.logviewpart.errorsvisible" iconURI="platform:/plugin/net.bhl.cdt.ui.e4/icons/error_16x16.png" tooltip="Show Errors" type="Check" contributionURI="bundleclass://net.bhl.cdt.ui.e4/net.bhl.cdt.ui.e4.parts.logview.LogViewPartFilterHandler"/>
+        <children xsi:type="menu:DirectToolItem" xmi:id="_6GLRQF1wEeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.logviewpart.debugvisible" iconURI="platform:/plugin/net.bhl.cdt.ui.e4/icons/debug_16x16.png" tooltip="Show Debug-Messages" type="Check" contributionURI="bundleclass://net.bhl.cdt.ui.e4/net.bhl.cdt.ui.e4.parts.logview.LogViewPartFilterHandler"/>
+      </toolbar>
+    </elements>
   </fragments>
 </fragment:ModelFragments>

@@ -1,5 +1,6 @@
 package net.bhl.cdt.ui.e4.parts.logview;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Enumeration;
@@ -12,6 +13,9 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.model.application.ui.menu.MDirectToolItem;
+import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.resource.ResourceManager;
@@ -23,17 +27,10 @@ import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.ExpandBar;
-import org.eclipse.swt.widgets.ExpandItem;
-import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.osgi.framework.FrameworkUtil;
@@ -44,23 +41,37 @@ import org.osgi.service.log.LogService;
 import net.bhl.cdt.core.pref.CDTPreferencesService;
 import net.bhl.cdt.log.service.CDTLogReaderService;
 import net.bhl.cdt.log.service.CDTLogService;
+import net.bhl.cdt.ui.e4.PluginResources;
 import net.bhl.cdt.util.constants.StringConstants;
 import net.bhl.cdt.util.ui.UIHelper;
 
+/**
+ * 
+ * @author Michael Shamiyeh
+ * @author Moddasir Khan
+ * @since 2017-01-26
+ *
+ */
 public class LogViewPart implements LogListener {
-	private static final String[] COLUMN_NAMES = new String[] { StringConstants.EMPTY, "Time", "Type", "Bundle", "Description" };
-	private static final int[] COLUMN_WIDTHS = new int[] { 50, 100, 200, 500, 200 };
+	public static final String PART_ID = "net.bhl.cdt.ui.e4.part.logviewpart";
+
+	public static final String ERRORS_VISIBLE_BT_ID = "net.bhl.cdt.ui.e4.logviewpart.errorsvisible";
+	public static final String WARNINGS_VISIBLE_BT_ID = "net.bhl.cdt.ui.e4.logviewpart.warningsvisible";
+	public static final String INFOS_VISIBLE_BT_ID = "net.bhl.cdt.ui.e4.logviewpart.infosvisible";
+	public static final String DEBUG_VISIBLE_BT_ID = "net.bhl.cdt.ui.e4.logviewpart.debugvisible";
+
+	private static final String[] COLUMN_NAMES = new String[] { StringConstants.EMPTY, "Time", "Description", "Bundle" };
+	private static final int[] COLUMN_WIDTHS = new int[] { 25, 125, 500, 250 };
 
 	private static final String ERRORS_VISIBLE = "errorsVisible";
 	private static final String INFOS_VISIBLE = "infosVisible";
 	private static final String WARNINGS_VISIBLE = "warningsVisible";
 	private static final String DEBUG_VISIBLE = "debugVisible";
-	private static final String SELECTED_BUNDLE = "selectedBundle";
 
-	private Button errorsVisibleButton;
-	private Button warningsVisibleButton;
-	private Button infosVisibleButton;
-	private Button debugVisibleButton;
+	private boolean errorsVisible = true;
+	private boolean warningsVisible = true;
+	private boolean infosVisible = true;
+	private boolean debugVisible = false;
 
 	private TableViewer logTableViewer;
 
@@ -69,55 +80,38 @@ public class LogViewPart implements LogListener {
 	private ArrayList<LogEntry> logList = new ArrayList<LogEntry>();
 	private ArrayList<LogEntry> logListFiltered = new ArrayList<LogEntry>();
 
-	private Combo comboBundle;
-
 	@Inject
 	private CDTPreferencesService preferencesService;
 
 	@Inject
 	private CDTLogReaderService logReaderService;
 
+	public void setErrorsVisible(boolean errorsVisible) {
+		this.errorsVisible = errorsVisible;
+		preferencesService.setPreference(ERRORS_VISIBLE, Boolean.toString(errorsVisible));
+	}
+
+	public void setWarningsVisible(boolean warningsVisible) {
+		this.warningsVisible = warningsVisible;
+		preferencesService.setPreference(WARNINGS_VISIBLE, Boolean.toString(warningsVisible));
+	}
+
+	public void setInfosVisible(boolean infosVisible) {
+		this.infosVisible = infosVisible;
+		preferencesService.setPreference(INFOS_VISIBLE, Boolean.toString(infosVisible));
+	}
+
+	public void setDebugVisible(boolean debugVisible) {
+		this.debugVisible = debugVisible;
+		preferencesService.setPreference(DEBUG_VISIBLE, Boolean.toString(debugVisible));
+	}
+	
 	@PostConstruct
-	public void postConstruct(Composite parent, CDTLogService logger) {
-		ExpandBar msgTypeActionBar = new ExpandBar(parent, SWT.NONE);
-		Composite composite = new Composite(msgTypeActionBar, SWT.NONE);
-		GridLayout layout = new GridLayout(6, false);
-		layout.verticalSpacing = 10;
-		composite.setLayout(layout);
+	public void postConstruct(Composite parent, CDTLogService logger, EModelService modelService, final MPart part) {
+		initializeToolbar(modelService, part);
 
-		errorsVisibleButton = createVisibilityCheckbox(composite, "Errors", LogService.LOG_ERROR, ERRORS_VISIBLE);
-		warningsVisibleButton = createVisibilityCheckbox(composite, "Warnings", LogService.LOG_WARNING,
-				WARNINGS_VISIBLE);
-		infosVisibleButton = createVisibilityCheckbox(composite, "Infos", LogService.LOG_INFO, INFOS_VISIBLE);
-		debugVisibleButton = createVisibilityCheckbox(composite, "Debug", LogService.LOG_DEBUG, DEBUG_VISIBLE);
-
-		Label label = new Label(composite, SWT.NULL);
-		label.setText("  Select Bundle: ");
-		comboBundle = new Combo(composite, SWT.READ_ONLY | SWT.DROP_DOWN);
-		// comboBundle.setBounds(50, 50, 150, 50);
-		comboBundle.setSize(200, 30);
-
-		Optional<String> selectedBundleOpt = preferencesService.getPreference(SELECTED_BUNDLE);
-		if (selectedBundleOpt.isPresent())
-			comboBundle.setItems(selectedBundleOpt.get());
-
-		comboBundle.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				preferencesService.setPreference(SELECTED_BUNDLE, comboBundle.getText());
-				// filterList();
-				// getList();
-				// run();
-			}
-		});
-
-		ExpandItem items = new ExpandItem(msgTypeActionBar, SWT.NONE, 0);
-		items.setText("Message Types Action");
-		items.setHeight(composite.computeSize(SWT.DEFAULT, SWT.DEFAULT).y);
-		items.setControl(composite);
-		items.setExpanded(true);
-		msgTypeActionBar.setSpacing(1);
-
-		logTableViewer = new TableViewer(parent, SWT.MULTI | SWT.BORDER | SWT.FILL | SWT.FULL_SELECTION | SWT.V_SCROLL | SWT.H_SCROLL);
+		logTableViewer = new TableViewer(parent,
+				SWT.MULTI | SWT.BORDER | SWT.FILL | SWT.FULL_SELECTION | SWT.V_SCROLL | SWT.H_SCROLL);
 
 		final Table table = logTableViewer.getTable();
 
@@ -128,31 +122,31 @@ public class LogViewPart implements LogListener {
 
 		logTableViewer.setContentProvider(ArrayContentProvider.getInstance());
 		logTableViewer.setInput(logListFiltered);
-		
-		GridData gridData = new GridData();
-        gridData.verticalAlignment = GridData.FILL;
-        gridData.horizontalSpan = 2;
-        gridData.grabExcessHorizontalSpace = true;
-        gridData.grabExcessVerticalSpace = true;
-        gridData.horizontalAlignment = GridData.FILL;
-        table.setLayoutData(gridData);
-        
-        // Full Row Selection:
-        logTableViewer.addSelectionChangedListener(new ISelectionChangedListener() {
-            private boolean update;
-            private ISelection lastSelection;
 
-            @Override
-            public void selectionChanged(SelectionChangedEvent event) {
-                if (event.getSelection().isEmpty() && !update) {
-                    update = true;
-                    logTableViewer.setSelection(lastSelection);
-                    update = false;
-                } else if (!event.getSelection().isEmpty()) {
-                    lastSelection = event.getSelection();
-                }
-            }
-        });
+		GridData gridData = new GridData();
+		gridData.verticalAlignment = GridData.FILL;
+		gridData.horizontalSpan = 2;
+		gridData.grabExcessHorizontalSpace = true;
+		gridData.grabExcessVerticalSpace = true;
+		gridData.horizontalAlignment = GridData.FILL;
+		table.setLayoutData(gridData);
+
+		// Full Row Selection:
+		logTableViewer.addSelectionChangedListener(new ISelectionChangedListener() {
+			private boolean update;
+			private ISelection lastSelection;
+
+			@Override
+			public void selectionChanged(SelectionChangedEvent event) {
+				if (event.getSelection().isEmpty() && !update) {
+					update = true;
+					logTableViewer.setSelection(lastSelection);
+					update = false;
+				} else if (!event.getSelection().isEmpty()) {
+					lastSelection = event.getSelection();
+				}
+			}
+		});
 
 		registerLogReader();
 
@@ -163,110 +157,119 @@ public class LogViewPart implements LogListener {
 		logger.warning("This is a sample Warning Msg");
 	}
 
+	private void initializeToolbar(EModelService modelService, MPart part) {
+		Optional<Boolean> errorsVisibleOpt = preferencesService.getBooleanPreference(ERRORS_VISIBLE);
+		if (errorsVisibleOpt.isPresent())
+			errorsVisible = errorsVisibleOpt.get();
+
+		Optional<Boolean> warningsVisibleOpt = preferencesService.getBooleanPreference(WARNINGS_VISIBLE);
+		if (warningsVisibleOpt.isPresent())
+			warningsVisible = warningsVisibleOpt.get();
+
+		Optional<Boolean> infosVisibleOpt = preferencesService.getBooleanPreference(INFOS_VISIBLE);
+		if (infosVisibleOpt.isPresent())
+			infosVisible = infosVisibleOpt.get();
+
+		Optional<Boolean> debugVisibleOpt = preferencesService.getBooleanPreference(DEBUG_VISIBLE);
+		if (debugVisibleOpt.isPresent())
+			debugVisible = debugVisibleOpt.get();
+
+		((MDirectToolItem) modelService.find(ERRORS_VISIBLE_BT_ID, part.getToolbar())).setSelected(errorsVisible);
+		((MDirectToolItem) modelService.find(WARNINGS_VISIBLE_BT_ID, part.getToolbar())).setSelected(warningsVisible);
+		((MDirectToolItem) modelService.find(INFOS_VISIBLE_BT_ID, part.getToolbar())).setSelected(infosVisible);
+		((MDirectToolItem) modelService.find(DEBUG_VISIBLE_BT_ID, part.getToolbar())).setSelected(debugVisible);
+	}
+
 	private void createColumns() {
-		TableViewerColumn col = createTableViewerColumn(COLUMN_NAMES[0], COLUMN_WIDTHS[0], 0);
+		TableViewerColumn col = createTableViewerColumn(COLUMN_NAMES[0], COLUMN_WIDTHS[0], false);
 		col.setLabelProvider(new ColumnLabelProvider() {
 			private ResourceManager resourceManager = new LocalResourceManager(JFaceResources.getResources());
-			
+
 			@Override
-		    public String getText(Object element) {
-		        return null;
-		    }
-			
+			public String getText(Object element) {
+				return null;
+			}
+
 			@Override
 			public Image getImage(Object element) {
 				switch (((LogEntry) element).getLevel()) {
 				case LogService.LOG_INFO:
-					return resourceManager.createImage(UIHelper.getImageDescriptor(FrameworkUtil.getBundle(this.getClass()), "icons/info.png"));
+					return resourceManager.createImage(UIHelper
+							.getImageDescriptor(FrameworkUtil.getBundle(this.getClass()), PluginResources.INFO_ICON));
 				case LogService.LOG_ERROR:
-					return resourceManager.createImage(UIHelper.getImageDescriptor(FrameworkUtil.getBundle(this.getClass()), "icons/error.png"));
+					return resourceManager.createImage(UIHelper
+							.getImageDescriptor(FrameworkUtil.getBundle(this.getClass()), PluginResources.ERROR_ICON));
 				case LogService.LOG_WARNING:
-					return resourceManager.createImage(UIHelper.getImageDescriptor(FrameworkUtil.getBundle(this.getClass()), "icons/warning.png"));
+					return resourceManager.createImage(UIHelper.getImageDescriptor(
+							FrameworkUtil.getBundle(this.getClass()), PluginResources.WARNING_ICON));
 				case LogService.LOG_DEBUG:
-					return resourceManager.createImage(UIHelper.getImageDescriptor(FrameworkUtil.getBundle(this.getClass()), "icons/debug.png"));
+					return resourceManager.createImage(UIHelper
+							.getImageDescriptor(FrameworkUtil.getBundle(this.getClass()), PluginResources.DEBUG_ICON));
 				default:
 					return null;
 				}
 			}
+
+			@Override
+			public void dispose() {
+				super.dispose();
+				resourceManager.dispose();
+			}
+		});
+
+		col = createTableViewerColumn(COLUMN_NAMES[1], COLUMN_WIDTHS[1], false);
+		col.setLabelProvider(new ColumnLabelProvider() {
+			private SimpleDateFormat format = new SimpleDateFormat("[yyyy-MM-dd] HH:mm:ss");
 			
 			@Override
-		    public void dispose() {
-		        super.dispose();
-		        resourceManager.dispose();
-		    }
-		});
-
-		col = createTableViewerColumn(COLUMN_NAMES[1], COLUMN_WIDTHS[1], 1);
-		col.setLabelProvider(new ColumnLabelProvider() {
-			@Override
 			public String getText(Object element) {
-				return new Date(((LogEntry) element).getTime()).toString();
+				return format.format(new Date(((LogEntry) element).getTime()));
 			}
 		});
 
-		col = createTableViewerColumn(COLUMN_NAMES[2], COLUMN_WIDTHS[2], 2);
-		col.setLabelProvider(new ColumnLabelProvider() {
-			@Override
-			public String getText(Object element) {
-				switch (((LogEntry) element).getLevel()) {
-				case LogService.LOG_INFO:
-					return "Information";
-				case LogService.LOG_ERROR:
-					return "Error";
-				case LogService.LOG_WARNING:
-					return "Warning";
-				case LogService.LOG_DEBUG:
-					return "Debug";
-				default:
-					return StringConstants.EMPTY;
-				}
-			}
-		});
-
-		col = createTableViewerColumn(COLUMN_NAMES[3], COLUMN_WIDTHS[3], 3);
-		col.setLabelProvider(new ColumnLabelProvider() {
-			@Override
-			public String getText(Object element) {
-				return ((LogEntry) element).getBundle().getSymbolicName();
-			}
-		});
-
-		col = createTableViewerColumn(COLUMN_NAMES[4], COLUMN_WIDTHS[4], 4);
+		col = createTableViewerColumn(COLUMN_NAMES[2], COLUMN_WIDTHS[2], true);
 		col.setLabelProvider(new ColumnLabelProvider() {
 			@Override
 			public String getText(Object element) {
 				return ((LogEntry) element).getMessage();
 			}
 		});
+
+		col = createTableViewerColumn(COLUMN_NAMES[3], COLUMN_WIDTHS[3], true);
+		col.setLabelProvider(new ColumnLabelProvider() {
+			@Override
+			public String getText(Object element) {
+				return ((LogEntry) element).getBundle().getSymbolicName();
+			}
+		});
 	}
 
-	private TableViewerColumn createTableViewerColumn(String title, int bound, final int colNumber) {
+	private TableViewerColumn createTableViewerColumn(String title, int bound, boolean resizable) {
 		final TableViewerColumn viewerColumn = new TableViewerColumn(logTableViewer, SWT.ICON);
 		final TableColumn column = viewerColumn.getColumn();
 		column.setText(title);
 		column.setWidth(bound);
-		column.setResizable(true);
-		column.setMoveable(true);
+		column.setResizable(resizable);
 		return viewerColumn;
 	}
 
-	private boolean isEntryFiltered(final LogEntry entry) {
-		if (filterByEntryLevel(entry.getLevel()))
+	private boolean isEntryVisible(final LogEntry entry) {
+		if (getVisibilityByEntryLevel(entry.getLevel()))
 			return true;
 
 		return false;
 	}
 
-	private boolean filterByEntryLevel(int logLevel) {
+	private boolean getVisibilityByEntryLevel(int logLevel) {
 		switch (logLevel) {
 		case LogService.LOG_ERROR:
-			return errorsVisibleButton.getSelection();
+			return errorsVisible;
 		case LogService.LOG_WARNING:
-			return warningsVisibleButton.getSelection();
+			return warningsVisible;
 		case LogService.LOG_INFO:
-			return infosVisibleButton.getSelection();
+			return infosVisible;
 		case LogService.LOG_DEBUG:
-			return debugVisibleButton.getSelection();
+			return debugVisible;
 		default:
 			return false;
 		}
@@ -275,34 +278,22 @@ public class LogViewPart implements LogListener {
 	private void addEntry(LogEntry entry) {
 		logList.add(entry);
 
-		if (!isEntryFiltered(entry)) {
+		if (isEntryVisible(entry)) {
 			logListFiltered.add(entry);
-			logTableViewer.refresh();
+			
+			Display.getDefault().asyncExec(new Runnable() {
+			    public void run() {
+			    	logTableViewer.refresh();
+			    	logTableViewer.reveal(entry);
+			    }
+			});
 		}
 	}
 
-	private Button createVisibilityCheckbox(Composite parent, String text, int level, String visibilitySettingsKey) {
-		Button visibilityCheckbox = new Button(parent, SWT.CHECK | SWT.NULL);
-		visibilityCheckbox.setText(text);
-
-		Optional<Boolean> visibilityOpt = preferencesService.getBooleanPreference(visibilitySettingsKey);
-		if (visibilityOpt.isPresent())
-			visibilityCheckbox.setSelection(visibilityOpt.get());
-
-		visibilityCheckbox.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				preferencesService.setPreference(visibilitySettingsKey,
-						Boolean.toString(visibilityCheckbox.getSelection()));
-
-				logListFiltered.clear();
-				logListFiltered.addAll(
-						logList.stream().filter(entry -> isEntryFiltered(entry) == true).collect(Collectors.toList()));
-				logTableViewer.refresh();
-			}
-		});
-
-		return visibilityCheckbox;
+	public void updateFilter() {
+		logListFiltered.clear();
+		logListFiltered.addAll(logList.stream().filter(entry -> isEntryVisible(entry)).collect(Collectors.toList()));
+		logTableViewer.refresh();
 	}
 
 	private void registerLogReader() {
@@ -327,11 +318,6 @@ public class LogViewPart implements LogListener {
 	public void preDestroy() {
 		deRegisterLogReader();
 	}
-
-	// @Focus
-	// public void setFocus() {
-	// logTable.getTable().setFocus();
-	// }
 
 	@Override
 	public void logged(LogEntry log) {
