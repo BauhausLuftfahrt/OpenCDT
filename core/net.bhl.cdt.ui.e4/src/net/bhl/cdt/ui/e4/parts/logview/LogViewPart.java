@@ -40,7 +40,6 @@ import org.osgi.service.log.LogService;
 
 import net.bhl.cdt.core.pref.CDTPreferencesService;
 import net.bhl.cdt.log.service.CDTLogReaderService;
-import net.bhl.cdt.log.service.CDTLogService;
 import net.bhl.cdt.ui.e4.PluginResources;
 import net.bhl.cdt.util.constants.StringConstants;
 import net.bhl.cdt.util.ui.UIHelper;
@@ -62,6 +61,8 @@ public class LogViewPart implements LogListener {
 
 	private static final String[] COLUMN_NAMES = new String[] { StringConstants.EMPTY, "Time", "Description", "Bundle" };
 	private static final int[] COLUMN_WIDTHS = new int[] { 25, 125, 500, 250 };
+	
+	private static final String FILTER_STRING = "net.bhl.cdt";
 
 	private static final String ERRORS_VISIBLE = "errorsVisible";
 	private static final String INFOS_VISIBLE = "infosVisible";
@@ -107,7 +108,7 @@ public class LogViewPart implements LogListener {
 	}
 	
 	@PostConstruct
-	public void postConstruct(Composite parent, CDTLogService logger, EModelService modelService, final MPart part) {
+	public void postConstruct(Composite parent, EModelService modelService, final MPart part) {
 		initializeToolbar(modelService, part);
 
 		logTableViewer = new TableViewer(parent,
@@ -149,12 +150,6 @@ public class LogViewPart implements LogListener {
 		});
 
 		registerLogReader();
-
-		logger.info("CDT Console initialized.");
-		logger.error("This is a sample Error Msg");
-		logger.error("This is a sample Error Msg 1");
-		logger.error("This is a sample Error Msg 2");
-		logger.warning("This is a sample Warning Msg");
 	}
 
 	private void initializeToolbar(EModelService modelService, MPart part) {
@@ -254,10 +249,13 @@ public class LogViewPart implements LogListener {
 	}
 
 	private boolean isEntryVisible(final LogEntry entry) {
-		if (getVisibilityByEntryLevel(entry.getLevel()))
-			return true;
+		if (!getVisibilityByEntryLevel(entry.getLevel()))
+			return false;
 
-		return false;
+		if (!getVisiblityByBundlenameFilter(entry.getBundle().getSymbolicName()))
+			return false;
+		
+		return true;
 	}
 
 	private boolean getVisibilityByEntryLevel(int logLevel) {
@@ -273,6 +271,10 @@ public class LogViewPart implements LogListener {
 		default:
 			return false;
 		}
+	}
+	
+	private boolean getVisiblityByBundlenameFilter(String bundleName) {
+		return bundleName.startsWith(FILTER_STRING);
 	}
 
 	private void addEntry(LogEntry entry) {
