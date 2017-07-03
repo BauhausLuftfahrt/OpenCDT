@@ -3,7 +3,7 @@
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  *******************************************************************************/
-package net.bhl.cdt.log.service;
+package net.bhl.cdt.core.log.service;
 
 import java.util.Enumeration;
 import java.util.LinkedList;
@@ -12,8 +12,8 @@ import java.util.List;
 import org.osgi.service.log.LogListener;
 import org.osgi.service.log.LogReaderService;
 
-import net.bhl.cdt.log.CDTLog;
-import net.bhl.cdt.log.model.LogEntryEnumeration;
+import net.bhl.cdt.core.log.CDTLog;
+import net.bhl.cdt.core.log.model.LogEntryEnumeration;
 
 /**
  * 

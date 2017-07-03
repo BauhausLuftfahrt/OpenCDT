@@ -4,6 +4,9 @@ import java.io.File;
 
 import org.eclipse.core.resources.ResourcesPlugin;
 
+import net.bhl.cdt.util.constants.FileConstants;
+import net.bhl.cdt.util.constants.StringConstants;
+
 /**
  * 
  * @author Michael Shamiyeh
@@ -11,11 +14,19 @@ import org.eclipse.core.resources.ResourcesPlugin;
  *
  */
 public class CDTFileAndFolderUtil {
-	public static String getCDTWorkPathString() {
-		return ResourcesPlugin.getWorkspace().getRoot().getLocation().toString();
-	}
-	
-	public static File getCDTWorkPathFile() {
-		return new File(getCDTWorkPathString());
-	}
+    public static String getCDTWorkPathString() {
+	return ResourcesPlugin.getWorkspace().getRoot().getLocation().toString();
+    }
+
+    public static File getCDTWorkPathFile() {
+	return new File(getCDTWorkPathString());
+    }
+    
+    public static String getUserHomeDirectory() {
+	return System.getProperty("user.home");
+    }
+    
+    public static String getUserDefaultWorkFolderPath() {
+	return getUserHomeDirectory() + StringConstants.BACKSLASH + FileConstants.CDT_DEFAULT_WORK_FOLDERNAME;
+    }
 }

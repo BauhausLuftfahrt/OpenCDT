@@ -18,4 +18,5 @@ Import-Package: org.eclipse.e4.core.contexts
 Service-Component: OSGI-INF/CDTPreferencesServiceContextFunction.xml,
  OSGI-INF/CDTAuthServiceContextFunction.xml
 Export-Package: net.bhl.cdt.core.auth,
- net.bhl.cdt.core.pref
+ net.bhl.cdt.core.pref,
+ net.bhl.cdt.core.pref.listener

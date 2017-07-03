@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package net.bhl.cdt.log.model;
+package net.bhl.cdt.core.log.model;
 
 /**
  * Implementation dependent exception class used to avoid references to any

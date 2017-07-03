@@ -3,14 +3,14 @@
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  *******************************************************************************/
-package net.bhl.cdt.log.service;
+package net.bhl.cdt.core.log.service;
 
 import org.osgi.framework.Bundle;
 import org.osgi.framework.ServiceReference;
 import org.osgi.service.log.LogService;
 
-import net.bhl.cdt.log.CDTLog;
-import net.bhl.cdt.log.model.LogEntryImpl;
+import net.bhl.cdt.core.log.CDTLog;
+import net.bhl.cdt.core.log.model.LogEntryImpl;
 
 /**
  * Implementation of the OGSI LogService.

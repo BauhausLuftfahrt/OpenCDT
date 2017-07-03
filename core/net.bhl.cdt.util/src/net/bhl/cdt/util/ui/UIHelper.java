@@ -6,10 +6,17 @@ import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.osgi.framework.Bundle;
 
+/**
+ * 
+ * @author Michael Shamiyeh
+ * @since 2017-07-03
+ *
+ */
 public class UIHelper {
 	public static String SHOWFILE_TITLE = "Open...";
 	public static String SHOWFILE_FILTER_DEFAULT = "*.*";
@@ -43,6 +50,12 @@ public class UIHelper {
 		fd.setText(title);
 		fd.setFilterExtensions(filters);
 		return fd.open();
+	}
+	
+	public static String showDirectoryDialog(Shell shell, String title) {
+		DirectoryDialog dd = new DirectoryDialog(shell);
+		dd.setText(title);
+		return dd.open();
 	}
 	
 	public static ImageDescriptor getImageDescriptor(Bundle bundle, String relativeFileString) {

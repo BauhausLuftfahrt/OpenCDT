@@ -3,12 +3,9 @@
  * materials are made available under the terms of the Eclipse Public License v1.0 which accompanies this distribution,
  * and is available at http://www.eclipse.org/legal/epl-v10.html </copyright>
  ******************************************************************************/
-package net.bhl.cdt.log.model;
+package net.bhl.cdt.core.pref.listener;
 
-import java.util.Enumeration;
-import java.util.Iterator;
-
-import org.osgi.service.log.LogEntry;
+import net.bhl.cdt.core.pref.CDTPreferencesService;
 
 /**
  * 
@@ -16,20 +13,6 @@ import org.osgi.service.log.LogEntry;
  * @since 2017-03-07
  *
  */
-public class LogEntryEnumeration implements Enumeration<LogEntry> {	
-	private Iterator<LogEntryImpl> logEntryIterator;
-	
-	public LogEntryEnumeration(Iterator<LogEntryImpl> it) {
-		logEntryIterator = it;
-	}
-	
-	@Override
-	public boolean hasMoreElements() {
-		return logEntryIterator.hasNext();
-	}
-
-	@Override
-	public LogEntry nextElement() {
-		return logEntryIterator.next();
-	}
+public interface ICDTPreferencesListener {
+    void notifyPreferenceChanged(CDTPreferencesService sender, String preferenceKey);
 }
