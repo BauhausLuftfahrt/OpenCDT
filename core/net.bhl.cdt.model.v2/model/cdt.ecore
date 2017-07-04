@@ -10,6 +10,15 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
           iD="true"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ModelContainer" eSuperTypes="#//base/ANamedItem #//base/AIdentifiableItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="containedItems" upperBound="-1"
+          eType="#//base/AModelContainerItem" containment="true" eOpposite="#//base/AModelContainerItem/container"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AModelContainerItem" abstract="true"
+        eSuperTypes="#//base/AIdentifiableItem #//base/ANamedItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="container" lowerBound="1"
+          eType="#//base/ModelContainer" eOpposite="#//base/ModelContainer/containedItems"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="data" nsURI="http://www.bauhaus-luftfahrt.net/cdt/data" nsPrefix="net.bhl.cdt.model">
     <eClassifiers xsi:type="ecore:EClass" name="AUnit" eSuperTypes="#//base/ANamedItem">

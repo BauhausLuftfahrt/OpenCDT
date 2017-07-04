@@ -12,8 +12,14 @@ import java.util.Optional;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider;
+import org.eclipse.jface.viewers.DoubleClickEvent;
+import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.jface.viewers.TreeViewerColumn;
 import org.eclipse.jface.viewers.Viewer;
@@ -28,10 +34,12 @@ import org.eclipse.swt.widgets.TreeColumn;
 
 import net.bhl.cdt.core.pref.CDTPreferencesService;
 import net.bhl.cdt.core.pref.listener.ICDTPreferencesListener;
+import net.bhl.cdt.ui.e4.E4ResourceIds;
 import net.bhl.cdt.ui.e4.parts.explorer.labelprovider.FileModifiedLabelProvider;
 import net.bhl.cdt.ui.e4.parts.explorer.labelprovider.FileSizeLabelProvider;
 import net.bhl.cdt.ui.e4.parts.explorer.labelprovider.ViewLabelProvider;
 import net.bhl.cdt.util.CDTFileAndFolderUtil;
+import net.bhl.cdt.util.constants.FileConstants;
 
 /**
  * 
@@ -40,6 +48,8 @@ import net.bhl.cdt.util.CDTFileAndFolderUtil;
  *
  */
 public class CDTExplorerViewPart implements ICDTPreferencesListener {
+    public static final String PART_ID = "net.bhl.cdt.ui.e4.part.explorer";
+
     private static final String[] COLUMN_NAMES = new String[] { "Name", "Modified", "Size" };
     private static final int[] COLUMN_WIDTHS = new int[] { 200, 80, 50 };
 
@@ -47,8 +57,11 @@ public class CDTExplorerViewPart implements ICDTPreferencesListener {
 
     private TreeViewer viewer;
 
+    private CDTPreferencesService preferencesService;
+
     @PostConstruct
-    public void postConstruct(Composite parent, CDTPreferencesService preferencesService, ESelectionService selectionService) {
+    public void postConstruct(Composite parent, CDTPreferencesService preferencesService, ESelectionService selectionService, EPartService partService) {
+	this.preferencesService = preferencesService;
 	preferencesService.registerListener(this, PREF_KEY_WORKFOLDER);
 
 	viewer = new TreeViewer(parent, SWT.FILL | SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL);
@@ -62,7 +75,7 @@ public class CDTExplorerViewPart implements ICDTPreferencesListener {
 		int columnCount = tree.getColumnCount();
 		if (columnCount == 0)
 		    return;
-		
+
 		Rectangle area = tree.getClientArea();
 		int totalAreaWdith = area.width;
 		int lineWidth = tree.getGridLineWidth();
@@ -70,7 +83,7 @@ public class CDTExplorerViewPart implements ICDTPreferencesListener {
 		int totalColumnWidth = 0;
 		for (TreeColumn column : tree.getColumns())
 		    totalColumnWidth = totalColumnWidth + column.getWidth();
-		    
+
 		int diff = totalAreaWdith - (totalColumnWidth + totalGridLineWidth);
 
 		TreeColumn firstCol = tree.getColumns()[0];
@@ -97,15 +110,25 @@ public class CDTExplorerViewPart implements ICDTPreferencesListener {
 	    }
 	});
 
+	viewer.addDoubleClickListener(new IDoubleClickListener() {
+	    @Override
+	    public void doubleClick(DoubleClickEvent event) {
+		selectionService.setSelection(event.getSelection());
+
+		Object selectedElement = ((IStructuredSelection)event.getSelection()).getFirstElement();
+		if (selectedElement instanceof File && ((File)selectedElement).getName().endsWith(FileConstants.CDT_MODELFILE_EXTENSION)) {
+		    MPart part = partService.createPart(E4ResourceIds.PARTDESCRIPTOR_MODELEDITOR_ID);
+		    part.setLabel(((File)selectedElement).getName());
+		    partService.showPart(part, PartState.ACTIVATE);
+		}
+	    }
+	});
+
 	viewer.getTree().setHeaderVisible(true);
 
 	createColumns();
 
-	Optional<String> optWorkFolder = preferencesService.getPreference(PREF_KEY_WORKFOLDER);
-	if (optWorkFolder.isPresent())
-	    viewer.setInput(new File(optWorkFolder.get()));
-	else
-	    preferencesService.setPreference(PREF_KEY_WORKFOLDER, CDTFileAndFolderUtil.getUserDefaultWorkFolderPath());
+	refresh();
     }
 
     private void createColumns() {
@@ -128,6 +151,14 @@ public class CDTExplorerViewPart implements ICDTPreferencesListener {
 	fileSizeColumn.getColumn().setAlignment(SWT.RIGHT);
 	fileSizeColumn.getColumn().setResizable(false);
 	fileSizeColumn.setLabelProvider(new DelegatingStyledCellLabelProvider(new FileSizeLabelProvider()));
+    }
+
+    public void refresh() {
+	Optional<String> optWorkFolder = preferencesService.getPreference(PREF_KEY_WORKFOLDER);
+	if (optWorkFolder.isPresent())
+	    viewer.setInput(new File(optWorkFolder.get()));
+	else
+	    preferencesService.setPreference(PREF_KEY_WORKFOLDER, CDTFileAndFolderUtil.getUserDefaultWorkFolderPath());
     }
 
     @PreDestroy

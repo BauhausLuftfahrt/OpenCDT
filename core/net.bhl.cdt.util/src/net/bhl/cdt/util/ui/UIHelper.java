@@ -11,6 +11,8 @@ import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.osgi.framework.Bundle;
 
+import net.bhl.cdt.util.constants.StringConstants;
+
 /**
  * 
  * @author Michael Shamiyeh
@@ -30,7 +32,7 @@ public class UIHelper {
 	}
 
 	public static String showSelectFileDialog(Shell shell, String title, String[] filters) {
-		return showFileDialog(shell, title, filters, SWT.OPEN);
+		return showFileDialog(shell, title, filters, StringConstants.EMPTY, SWT.OPEN);
 	}
 	
 	public static String showSaveFileDialog(Shell shell) {
@@ -38,15 +40,19 @@ public class UIHelper {
 	}
 
 	public static String showSaveFileDialog(Shell shell, String title) {
-		return showSaveFileDialog(shell, title, new String[] { SHOWFILE_FILTER_DEFAULT });
+		return showSaveFileDialog(shell, title, new String[] { SHOWFILE_FILTER_DEFAULT }, StringConstants.EMPTY);
 	}
 	
-	public static String showSaveFileDialog(Shell shell, String title, String[] filters) {
-		return showFileDialog(shell, title, filters, SWT.SAVE);
+	public static String showSaveFileDialog(Shell shell, String title, String[] filters, String initialFolder) {
+		return showFileDialog(shell, title, filters, initialFolder, SWT.SAVE);
 	}
 	
-	private static String showFileDialog(Shell shell, String title, String[] filters, int openSelect) {
+	private static String showFileDialog(Shell shell, String title, String[] filters, String initialFolder, int openSelect) {
 		FileDialog fd = new FileDialog(shell, openSelect);
+		
+		if (!initialFolder.isEmpty())
+		    fd.setFileName(initialFolder);
+		
 		fd.setText(title);
 		fd.setFilterExtensions(filters);
 		return fd.open();

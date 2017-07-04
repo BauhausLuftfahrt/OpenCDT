@@ -44,7 +44,7 @@
       <plugin id="net.bhl.cdt.log"/>
       <plugin id="net.bhl.cdt.model.v2"/>
       <plugin id="net.bhl.cdt.model.v2.edit"/>
-      <plugin id="net.bhl.cdt.ui.e4"/>
+      <plugin id="net.bhl.cdt.ui"/>
       <plugin id="net.bhl.cdt.util"/>
       <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.util"/>
@@ -96,7 +96,6 @@
       <plugin id="org.eclipse.emf.ecore.change"/>
       <plugin id="org.eclipse.emf.ecore.edit"/>
       <plugin id="org.eclipse.emf.ecore.xmi"/>
-      <plugin id="org.eclipse.emf.ecp.application.e4"/>
       <plugin id="org.eclipse.emf.ecp.common"/>
       <plugin id="org.eclipse.emf.ecp.common.ui"/>
       <plugin id="org.eclipse.emf.ecp.core"/>
@@ -174,7 +173,6 @@
    </plugins>
 
    <configurations>
-      <plugin id="net.bhl.cdt.log" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />

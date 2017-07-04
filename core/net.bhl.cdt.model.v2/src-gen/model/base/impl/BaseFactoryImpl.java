@@ -20,65 +20,76 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
+         * Creates the default factory implementation.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public static BaseFactory init() {
-		try {
-			BaseFactory theBaseFactory = (BaseFactory)EPackage.Registry.INSTANCE.getEFactory(BasePackage.eNS_URI);
-			if (theBaseFactory != null) {
-				return theBaseFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new BaseFactoryImpl();
-	}
+                try {
+                        BaseFactory theBaseFactory = (BaseFactory)EPackage.Registry.INSTANCE.getEFactory(BasePackage.eNS_URI);
+                        if (theBaseFactory != null) {
+                                return theBaseFactory;
+                        }
+                }
+                catch (Exception exception) {
+                        EcorePlugin.INSTANCE.log(exception);
+                }
+                return new BaseFactoryImpl();
+        }
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
+         * Creates an instance of the factory.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public BaseFactoryImpl() {
-		super();
-	}
+                super();
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	@Override
 	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+                switch (eClass.getClassifierID()) {
+                        case BasePackage.MODEL_CONTAINER: return createModelContainer();
+                        default:
+                                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+                }
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public ModelContainer createModelContainer() {
+                ModelContainerImpl modelContainer = new ModelContainerImpl();
+                return modelContainer;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public BasePackage getBasePackage() {
-		return (BasePackage)getEPackage();
-	}
+                return (BasePackage)getEPackage();
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
+         * @deprecated
+         * @generated
+         */
 	@Deprecated
 	public static BasePackage getPackage() {
-		return BasePackage.eINSTANCE;
-	}
+                return BasePackage.eINSTANCE;
+        }
 
 } //BaseFactoryImpl

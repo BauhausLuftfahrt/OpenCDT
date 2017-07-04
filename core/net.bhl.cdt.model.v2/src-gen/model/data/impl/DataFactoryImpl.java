@@ -20,87 +20,87 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class DataFactoryImpl extends EFactoryImpl implements DataFactory {
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
+         * Creates the default factory implementation.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public static DataFactory init() {
-		try {
-			DataFactory theDataFactory = (DataFactory)EPackage.Registry.INSTANCE.getEFactory(DataPackage.eNS_URI);
-			if (theDataFactory != null) {
-				return theDataFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new DataFactoryImpl();
-	}
+                try {
+                        DataFactory theDataFactory = (DataFactory)EPackage.Registry.INSTANCE.getEFactory(DataPackage.eNS_URI);
+                        if (theDataFactory != null) {
+                                return theDataFactory;
+                        }
+                }
+                catch (Exception exception) {
+                        EcorePlugin.INSTANCE.log(exception);
+                }
+                return new DataFactoryImpl();
+        }
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
+         * Creates an instance of the factory.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public DataFactoryImpl() {
-		super();
-	}
+                super();
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	@Override
 	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case DataPackage.AUNIT: return createAUnit();
-			case DataPackage.AVALUE: return createAValue();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+                switch (eClass.getClassifierID()) {
+                        case DataPackage.AUNIT: return createAUnit();
+                        case DataPackage.AVALUE: return createAValue();
+                        default:
+                                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+                }
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public AUnit createAUnit() {
-		AUnitImpl aUnit = new AUnitImpl();
-		return aUnit;
-	}
+                AUnitImpl aUnit = new AUnitImpl();
+                return aUnit;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public AValue createAValue() {
-		AValueImpl aValue = new AValueImpl();
-		return aValue;
-	}
+                AValueImpl aValue = new AValueImpl();
+                return aValue;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public DataPackage getDataPackage() {
-		return (DataPackage)getEPackage();
-	}
+                return (DataPackage)getEPackage();
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
+         * @deprecated
+         * @generated
+         */
 	@Deprecated
 	public static DataPackage getPackage() {
-		return DataPackage.eINSTANCE;
-	}
+                return DataPackage.eINSTANCE;
+        }
 
 } //DataFactoryImpl

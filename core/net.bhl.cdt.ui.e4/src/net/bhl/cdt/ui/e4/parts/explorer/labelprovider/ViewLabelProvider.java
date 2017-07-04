@@ -21,7 +21,7 @@ import org.eclipse.swt.program.Program;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
-import net.bhl.cdt.ui.e4.PluginResources;
+import net.bhl.cdt.ui.PluginResources;
 import net.bhl.cdt.util.constants.StringConstants;
 import net.bhl.cdt.util.ui.UIHelper;
 

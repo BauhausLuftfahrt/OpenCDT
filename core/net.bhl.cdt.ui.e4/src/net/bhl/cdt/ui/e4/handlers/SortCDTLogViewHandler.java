@@ -6,8 +6,8 @@
 package net.bhl.cdt.ui.e4.handlers;
 
 import org.eclipse.e4.core.di.annotations.Execute;
-import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.model.application.ui.menu.MToolItem;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
 
 import net.bhl.cdt.ui.e4.parts.logview.CDTLogViewPart;
 
@@ -19,23 +19,23 @@ import net.bhl.cdt.ui.e4.parts.logview.CDTLogViewPart;
  */
 public class SortCDTLogViewHandler {
     @Execute
-    public void execute(final MToolItem item, final MPart part) {
-	CDTLogViewPart logPart = (CDTLogViewPart)part.getObject();
+    public void execute(final MToolItem item, EPartService partService) {
+	CDTLogViewPart logPart = (CDTLogViewPart)partService.findPart(CDTLogViewPart.PART_ID).getObject();
 
 	switch (item.getElementId()) {
-	case CDTLogViewPart.INFOS_VISIBLE_BT_ID:
+	case CDTLogViewPart.PART_TOOLBAR_ITEM_INFOSVISIBLE_ID:
 	    logPart.setInfosVisible(item.isSelected());
 	    break;
 
-	case CDTLogViewPart.WARNINGS_VISIBLE_BT_ID:
+	case CDTLogViewPart.PART_TOOLBAR_ITEM_WARNINGSVISIBLE_ID:
 	    logPart.setWarningsVisible(item.isSelected());
 	    break;
 
-	case CDTLogViewPart.ERRORS_VISIBLE_BT_ID:
+	case CDTLogViewPart.PART_TOOLBAR_ITEM_ERRORSVISIBLE_ID:
 	    logPart.setErrorsVisible(item.isSelected());
 	    break;
 
-	case CDTLogViewPart.DEBUG_VISIBLE_BT_ID:
+	case CDTLogViewPart.PART_TOOLBAR_ITEM_DEBUGVISIBLE_ID:
 	    logPart.setDebugVisible(item.isSelected());
 	    break;
 	}

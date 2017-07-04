@@ -48,7 +48,7 @@ import org.osgi.service.log.LogService;
 
 import net.bhl.cdt.core.pref.CDTPreferencesService;
 import net.bhl.cdt.log.service.CDTLogReaderService;
-import net.bhl.cdt.ui.e4.PluginResources;
+import net.bhl.cdt.ui.PluginResources;
 import net.bhl.cdt.util.constants.StringConstants;
 import net.bhl.cdt.util.ui.UIHelper;
 
@@ -60,12 +60,12 @@ import net.bhl.cdt.util.ui.UIHelper;
  *
  */
 public class CDTLogViewPart implements LogListener {
-    public static final String PART_ID = "net.bhl.cdt.ui.e4.part.logviewpart";
-
-    public static final String ERRORS_VISIBLE_BT_ID = "net.bhl.cdt.ui.e4.logviewpart.errorsvisible";
-    public static final String WARNINGS_VISIBLE_BT_ID = "net.bhl.cdt.ui.e4.logviewpart.warningsvisible";
-    public static final String INFOS_VISIBLE_BT_ID = "net.bhl.cdt.ui.e4.logviewpart.infosvisible";
-    public static final String DEBUG_VISIBLE_BT_ID = "net.bhl.cdt.ui.e4.logviewpart.debugvisible";
+    public static final String PART_ID =				"net.bhl.cdt.ui.e4.part.logviewpart";
+    public static final String PART_TOOLBAR_ID =			"net.bhl.cdt.ui.e4.part.logviewpart.toolbar";
+    public static final String PART_TOOLBAR_ITEM_INFOSVISIBLE_ID =	"net.bhl.cdt.ui.e4.part.logviewpart.toolbar.item.infosvisible";
+    public static final String PART_TOOLBAR_ITEM_WARNINGSVISIBLE_ID =	"net.bhl.cdt.ui.e4.part.logviewpart.toolbar.item.warningsvisible";
+    public static final String PART_TOOLBAR_ITEM_ERRORSVISIBLE_ID = 	"net.bhl.cdt.ui.e4.part.logviewpart.toolbar.item.errorsvisible";
+    public static final String PART_TOOLBAR_ITEM_DEBUGVISIBLE_ID = 	"net.bhl.cdt.ui.e4.part.logviewpart.toolbar.item.debugvisible";
 
     private static final String[] COLUMN_NAMES = new String[] { StringConstants.EMPTY, "Time", "Description", "Bundle" };
     private static final int[] COLUMN_WIDTHS = new int[] { 25, 125, 500, 150 };
@@ -200,10 +200,10 @@ public class CDTLogViewPart implements LogListener {
 	if (debugVisibleOpt.isPresent())
 	    debugVisible = debugVisibleOpt.get();
 
-	((MHandledToolItem)modelService.find(ERRORS_VISIBLE_BT_ID, part.getToolbar())).setSelected(errorsVisible);
-	((MHandledToolItem)modelService.find(WARNINGS_VISIBLE_BT_ID, part.getToolbar())).setSelected(warningsVisible);
-	((MHandledToolItem)modelService.find(INFOS_VISIBLE_BT_ID, part.getToolbar())).setSelected(infosVisible);
-	((MHandledToolItem)modelService.find(DEBUG_VISIBLE_BT_ID, part.getToolbar())).setSelected(debugVisible);
+	((MHandledToolItem)modelService.find(PART_TOOLBAR_ITEM_ERRORSVISIBLE_ID, part.getToolbar())).setSelected(errorsVisible);
+	((MHandledToolItem)modelService.find(PART_TOOLBAR_ITEM_WARNINGSVISIBLE_ID, part.getToolbar())).setSelected(warningsVisible);
+	((MHandledToolItem)modelService.find(PART_TOOLBAR_ITEM_INFOSVISIBLE_ID, part.getToolbar())).setSelected(infosVisible);
+	((MHandledToolItem)modelService.find(PART_TOOLBAR_ITEM_DEBUGVISIBLE_ID, part.getToolbar())).setSelected(debugVisible);
     }
 
     private void createColumns() {

@@ -5,9 +5,23 @@
          point="org.eclipse.ui.views">
       <view
             category="org.eclipse.emf.parsley"
-            class="net.bhl.cdt.ui.e4.E4ExecutableExtensionFactory:net.bhl.cdt.ui.e4.FolderExplorerTreeView"
+            class="net.bhl.cdt.ui.e4.E4ExecutableExtensionFactory:net.bhl.cdt.ui.ModelContainerEditor"
             id="net.bhl.cdt.ui.e4"
-            name="Folder Explorer"
+            name="Model Container Editor"
+            restorable="true">
+      </view>
+      <view
+            category="org.eclipse.emf.parsley"
+            class="net.bhl.cdt.ui.UiExecutableExtensionFactory:net.bhl.cdt.ui.ModelContainerEditor"
+            id="net.bhl.cdt.ui"
+            name="Model Container Editor"
+            restorable="true">
+      </view>
+      <view
+            category="org.eclipse.emf.parsley"
+            class="net.bhl.cdt.ui.view.ViewExecutableExtensionFactory:net.bhl.cdt.ui.view.ModelContainerEditor"
+            id="net.bhl.cdt.ui.view"
+            name="Model Container Editor"
             restorable="true">
       </view>
    </extension>

@@ -40,340 +40,340 @@ import org.jscience.physics.amount.Amount;
  */
 public class QuantitiesPackageImpl extends EPackageImpl implements QuantitiesPackage {
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	private EClass stringParameterEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	private EClass iNumberParameterEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	private EClass lengthParamenterEClass = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	private EDataType lengthEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	private EDataType distanceEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	private EDataType amountEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	private EDataType unitEDataType = null;
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	private EDataType quantityEDataType = null;
 
 	/**
-	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
-	 * package URI value.
-	 * <p>Note: the correct way to create the package is via the static
-	 * factory method {@link #init init()}, which also performs
-	 * initialization of the package, or returns the registered package,
-	 * if one already exists.
-	 * <!-- begin-user-doc -->
+         * Creates an instance of the model <b>Package</b>, registered with
+         * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
+         * package URI value.
+         * <p>Note: the correct way to create the package is via the static
+         * factory method {@link #init init()}, which also performs
+         * initialization of the package, or returns the registered package,
+         * if one already exists.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see model.quantities.QuantitiesPackage#eNS_URI
-	 * @see #init()
-	 * @generated
-	 */
+         * @see org.eclipse.emf.ecore.EPackage.Registry
+         * @see model.quantities.QuantitiesPackage#eNS_URI
+         * @see #init()
+         * @generated
+         */
 	private QuantitiesPackageImpl() {
-		super(eNS_URI, QuantitiesFactory.eINSTANCE);
-	}
+                super(eNS_URI, QuantitiesFactory.eINSTANCE);
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	private static boolean isInited = false;
 
 	/**
-	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
-	 * <p>This method is used to initialize {@link QuantitiesPackage#eINSTANCE} when that field is accessed.
-	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-	 * <!-- begin-user-doc -->
+         * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+         * 
+         * <p>This method is used to initialize {@link QuantitiesPackage#eINSTANCE} when that field is accessed.
+         * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #eNS_URI
-	 * @see #createPackageContents()
-	 * @see #initializePackageContents()
-	 * @generated
-	 */
+         * @see #eNS_URI
+         * @see #createPackageContents()
+         * @see #initializePackageContents()
+         * @generated
+         */
 	public static QuantitiesPackage init() {
-		if (isInited) return (QuantitiesPackage)EPackage.Registry.INSTANCE.getEPackage(QuantitiesPackage.eNS_URI);
+                if (isInited) return (QuantitiesPackage)EPackage.Registry.INSTANCE.getEPackage(QuantitiesPackage.eNS_URI);
 
-		// Obtain or create and register package
-		QuantitiesPackageImpl theQuantitiesPackage = (QuantitiesPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof QuantitiesPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new QuantitiesPackageImpl());
+                // Obtain or create and register package
+                QuantitiesPackageImpl theQuantitiesPackage = (QuantitiesPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof QuantitiesPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new QuantitiesPackageImpl());
 
-		isInited = true;
+                isInited = true;
 
-		// Obtain or create and register interdependencies
-		BasePackageImpl theBasePackage = (BasePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BasePackage.eNS_URI) instanceof BasePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BasePackage.eNS_URI) : BasePackage.eINSTANCE);
-		DataPackageImpl theDataPackage = (DataPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI) instanceof DataPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI) : DataPackage.eINSTANCE);
+                // Obtain or create and register interdependencies
+                BasePackageImpl theBasePackage = (BasePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BasePackage.eNS_URI) instanceof BasePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BasePackage.eNS_URI) : BasePackage.eINSTANCE);
+                DataPackageImpl theDataPackage = (DataPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI) instanceof DataPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI) : DataPackage.eINSTANCE);
 
-		// Create package meta-data objects
-		theQuantitiesPackage.createPackageContents();
-		theBasePackage.createPackageContents();
-		theDataPackage.createPackageContents();
+                // Create package meta-data objects
+                theQuantitiesPackage.createPackageContents();
+                theBasePackage.createPackageContents();
+                theDataPackage.createPackageContents();
 
-		// Initialize created meta-data
-		theQuantitiesPackage.initializePackageContents();
-		theBasePackage.initializePackageContents();
-		theDataPackage.initializePackageContents();
+                // Initialize created meta-data
+                theQuantitiesPackage.initializePackageContents();
+                theBasePackage.initializePackageContents();
+                theDataPackage.initializePackageContents();
 
-		// Mark meta-data to indicate it can't be changed
-		theQuantitiesPackage.freeze();
+                // Mark meta-data to indicate it can't be changed
+                theQuantitiesPackage.freeze();
 
   
-		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(QuantitiesPackage.eNS_URI, theQuantitiesPackage);
-		return theQuantitiesPackage;
-	}
+                // Update the registry and return the package
+                EPackage.Registry.INSTANCE.put(QuantitiesPackage.eNS_URI, theQuantitiesPackage);
+                return theQuantitiesPackage;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public EClass getStringParameter() {
-		return stringParameterEClass;
-	}
+                return stringParameterEClass;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public EAttribute getStringParameter_Value() {
-		return (EAttribute)stringParameterEClass.getEStructuralFeatures().get(0);
-	}
+                return (EAttribute)stringParameterEClass.getEStructuralFeatures().get(0);
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public EClass getINumberParameter() {
-		return iNumberParameterEClass;
-	}
+                return iNumberParameterEClass;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public EClass getLengthParamenter() {
-		return lengthParamenterEClass;
-	}
+                return lengthParamenterEClass;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public EAttribute getLengthParamenter_Value() {
-		return (EAttribute)lengthParamenterEClass.getEStructuralFeatures().get(0);
-	}
+                return (EAttribute)lengthParamenterEClass.getEStructuralFeatures().get(0);
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public EAttribute getLengthParamenter_Unit() {
-		return (EAttribute)lengthParamenterEClass.getEStructuralFeatures().get(1);
-	}
+                return (EAttribute)lengthParamenterEClass.getEStructuralFeatures().get(1);
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public EDataType getLength() {
-		return lengthEDataType;
-	}
+                return lengthEDataType;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public EDataType getDistance() {
-		return distanceEDataType;
-	}
+                return distanceEDataType;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public EDataType getAmount() {
-		return amountEDataType;
-	}
+                return amountEDataType;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public EDataType getUnit() {
-		return unitEDataType;
-	}
+                return unitEDataType;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public EDataType getQuantity() {
-		return quantityEDataType;
-	}
+                return quantityEDataType;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public QuantitiesFactory getQuantitiesFactory() {
-		return (QuantitiesFactory)getEFactoryInstance();
-	}
+                return (QuantitiesFactory)getEFactoryInstance();
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	private boolean isCreated = false;
 
 	/**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
+         * Creates the meta-model objects for the package.  This method is
+         * guarded to have no affect on any invocation but its first.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public void createPackageContents() {
-		if (isCreated) return;
-		isCreated = true;
+                if (isCreated) return;
+                isCreated = true;
 
-		// Create classes and their features
-		stringParameterEClass = createEClass(STRING_PARAMETER);
-		createEAttribute(stringParameterEClass, STRING_PARAMETER__VALUE);
+                // Create classes and their features
+                stringParameterEClass = createEClass(STRING_PARAMETER);
+                createEAttribute(stringParameterEClass, STRING_PARAMETER__VALUE);
 
-		iNumberParameterEClass = createEClass(INUMBER_PARAMETER);
+                iNumberParameterEClass = createEClass(INUMBER_PARAMETER);
 
-		lengthParamenterEClass = createEClass(LENGTH_PARAMENTER);
-		createEAttribute(lengthParamenterEClass, LENGTH_PARAMENTER__VALUE);
-		createEAttribute(lengthParamenterEClass, LENGTH_PARAMENTER__UNIT);
+                lengthParamenterEClass = createEClass(LENGTH_PARAMENTER);
+                createEAttribute(lengthParamenterEClass, LENGTH_PARAMENTER__VALUE);
+                createEAttribute(lengthParamenterEClass, LENGTH_PARAMENTER__UNIT);
 
-		// Create data types
-		lengthEDataType = createEDataType(LENGTH);
-		distanceEDataType = createEDataType(DISTANCE);
-		amountEDataType = createEDataType(AMOUNT);
-		unitEDataType = createEDataType(UNIT);
-		quantityEDataType = createEDataType(QUANTITY);
-	}
+                // Create data types
+                lengthEDataType = createEDataType(LENGTH);
+                distanceEDataType = createEDataType(DISTANCE);
+                amountEDataType = createEDataType(AMOUNT);
+                unitEDataType = createEDataType(UNIT);
+                quantityEDataType = createEDataType(QUANTITY);
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	private boolean isInitialized = false;
 
 	/**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
+         * Complete the initialization of the package and its meta-model.  This
+         * method is guarded to have no affect on any invocation but its first.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public void initializePackageContents() {
-		if (isInitialized) return;
-		isInitialized = true;
+                if (isInitialized) return;
+                isInitialized = true;
 
-		// Initialize package
-		setName(eNAME);
-		setNsPrefix(eNS_PREFIX);
-		setNsURI(eNS_URI);
+                // Initialize package
+                setName(eNAME);
+                setNsPrefix(eNS_PREFIX);
+                setNsURI(eNS_URI);
 
-		// Obtain other dependent packages
-		DataPackage theDataPackage = (DataPackage)EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI);
+                // Obtain other dependent packages
+                DataPackage theDataPackage = (DataPackage)EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI);
 
-		// Create type parameters
-		ETypeParameter amountEDataType_Q = addETypeParameter(amountEDataType, "Q");
-		ETypeParameter unitEDataType_Q = addETypeParameter(unitEDataType, "Q");
+                // Create type parameters
+                ETypeParameter amountEDataType_Q = addETypeParameter(amountEDataType, "Q");
+                ETypeParameter unitEDataType_Q = addETypeParameter(unitEDataType, "Q");
 
-		// Set bounds for type parameters
-		EGenericType g1 = createEGenericType(this.getQuantity());
-		amountEDataType_Q.getEBounds().add(g1);
-		g1 = createEGenericType(this.getQuantity());
-		unitEDataType_Q.getEBounds().add(g1);
+                // Set bounds for type parameters
+                EGenericType g1 = createEGenericType(this.getQuantity());
+                amountEDataType_Q.getEBounds().add(g1);
+                g1 = createEGenericType(this.getQuantity());
+                unitEDataType_Q.getEBounds().add(g1);
 
-		// Add supertypes to classes
-		stringParameterEClass.getESuperTypes().add(theDataPackage.getIParameter());
-		iNumberParameterEClass.getESuperTypes().add(theDataPackage.getIParameter());
-		lengthParamenterEClass.getESuperTypes().add(this.getINumberParameter());
+                // Add supertypes to classes
+                stringParameterEClass.getESuperTypes().add(theDataPackage.getIParameter());
+                iNumberParameterEClass.getESuperTypes().add(theDataPackage.getIParameter());
+                lengthParamenterEClass.getESuperTypes().add(this.getINumberParameter());
 
-		// Initialize classes, features, and operations; add parameters
-		initEClass(stringParameterEClass, StringParameter.class, "StringParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getStringParameter_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                // Initialize classes, features, and operations; add parameters
+                initEClass(stringParameterEClass, StringParameter.class, "StringParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                initEAttribute(getStringParameter_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(iNumberParameterEClass, INumberParameter.class, "INumberParameter", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                initEClass(iNumberParameterEClass, INumberParameter.class, "INumberParameter", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(lengthParamenterEClass, LengthParamenter.class, "LengthParamenter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		g1 = createEGenericType(this.getAmount());
-		EGenericType g2 = createEGenericType(this.getLength());
-		g1.getETypeArguments().add(g2);
-		initEAttribute(getLengthParamenter_Value(), g1, "value", null, 0, 1, LengthParamenter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		g1 = createEGenericType(this.getUnit());
-		g2 = createEGenericType(this.getLength());
-		g1.getETypeArguments().add(g2);
-		initEAttribute(getLengthParamenter_Unit(), g1, "unit", null, 0, 1, LengthParamenter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEClass(lengthParamenterEClass, LengthParamenter.class, "LengthParamenter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                g1 = createEGenericType(this.getAmount());
+                EGenericType g2 = createEGenericType(this.getLength());
+                g1.getETypeArguments().add(g2);
+                initEAttribute(getLengthParamenter_Value(), g1, "value", null, 0, 1, LengthParamenter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                g1 = createEGenericType(this.getUnit());
+                g2 = createEGenericType(this.getLength());
+                g1.getETypeArguments().add(g2);
+                initEAttribute(getLengthParamenter_Unit(), g1, "unit", null, 0, 1, LengthParamenter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		// Initialize data types
-		initEDataType(lengthEDataType, Length.class, "Length", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(distanceEDataType, Length.class, "Distance", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(amountEDataType, Amount.class, "Amount", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(unitEDataType, Unit.class, "Unit", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-		initEDataType(quantityEDataType, Quantity.class, "Quantity", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+                // Initialize data types
+                initEDataType(lengthEDataType, Length.class, "Length", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+                initEDataType(distanceEDataType, Length.class, "Distance", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+                initEDataType(amountEDataType, Amount.class, "Amount", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+                initEDataType(unitEDataType, Unit.class, "Unit", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
+                initEDataType(quantityEDataType, Quantity.class, "Quantity", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
-		// Create resource
-		createResource(eNS_URI);
-	}
+                // Create resource
+                createResource(eNS_URI);
+        }
 
 } //QuantitiesPackageImpl

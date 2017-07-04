@@ -31,196 +31,196 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class AUnitImpl extends ANamedItemImpl implements AUnit {
 	/**
-	 * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference.
-	 * <!-- begin-user-doc -->
+         * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getParameter()
-	 * @generated
-	 * @ordered
-	 */
+         * @see #getParameter()
+         * @generated
+         * @ordered
+         */
 	protected IParameter parameter;
 
 	/**
-	 * The default value of the '{@link #getSymbol() <em>Symbol</em>}' attribute.
-	 * <!-- begin-user-doc -->
+         * The default value of the '{@link #getSymbol() <em>Symbol</em>}' attribute.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSymbol()
-	 * @generated
-	 * @ordered
-	 */
+         * @see #getSymbol()
+         * @generated
+         * @ordered
+         */
 	protected static final String SYMBOL_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getSymbol() <em>Symbol</em>}' attribute.
-	 * <!-- begin-user-doc -->
+         * The cached value of the '{@link #getSymbol() <em>Symbol</em>}' attribute.
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSymbol()
-	 * @generated
-	 * @ordered
-	 */
+         * @see #getSymbol()
+         * @generated
+         * @ordered
+         */
 	protected String symbol = SYMBOL_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	protected AUnitImpl() {
-		super();
-	}
+                super();
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	@Override
 	protected EClass eStaticClass() {
-		return DataPackage.Literals.AUNIT;
-	}
+                return DataPackage.Literals.AUNIT;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public IParameter getParameter() {
-		if (parameter != null && parameter.eIsProxy()) {
-			InternalEObject oldParameter = (InternalEObject)parameter;
-			parameter = (IParameter)eResolveProxy(oldParameter);
-			if (parameter != oldParameter) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, DataPackage.AUNIT__PARAMETER, oldParameter, parameter));
-			}
-		}
-		return parameter;
-	}
+                if (parameter != null && parameter.eIsProxy()) {
+                        InternalEObject oldParameter = (InternalEObject)parameter;
+                        parameter = (IParameter)eResolveProxy(oldParameter);
+                        if (parameter != oldParameter) {
+                                if (eNotificationRequired())
+                                        eNotify(new ENotificationImpl(this, Notification.RESOLVE, DataPackage.AUNIT__PARAMETER, oldParameter, parameter));
+                        }
+                }
+                return parameter;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public IParameter basicGetParameter() {
-		return parameter;
-	}
+                return parameter;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public void setParameter(IParameter newParameter) {
-		IParameter oldParameter = parameter;
-		parameter = newParameter;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DataPackage.AUNIT__PARAMETER, oldParameter, parameter));
-	}
+                IParameter oldParameter = parameter;
+                parameter = newParameter;
+                if (eNotificationRequired())
+                        eNotify(new ENotificationImpl(this, Notification.SET, DataPackage.AUNIT__PARAMETER, oldParameter, parameter));
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public String getSymbol() {
-		return symbol;
-	}
+                return symbol;
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	public void setSymbol(String newSymbol) {
-		String oldSymbol = symbol;
-		symbol = newSymbol;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, DataPackage.AUNIT__SYMBOL, oldSymbol, symbol));
-	}
+                String oldSymbol = symbol;
+                symbol = newSymbol;
+                if (eNotificationRequired())
+                        eNotify(new ENotificationImpl(this, Notification.SET, DataPackage.AUNIT__SYMBOL, oldSymbol, symbol));
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case DataPackage.AUNIT__PARAMETER:
-				if (resolve) return getParameter();
-				return basicGetParameter();
-			case DataPackage.AUNIT__SYMBOL:
-				return getSymbol();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+                switch (featureID) {
+                        case DataPackage.AUNIT__PARAMETER:
+                                if (resolve) return getParameter();
+                                return basicGetParameter();
+                        case DataPackage.AUNIT__SYMBOL:
+                                return getSymbol();
+                }
+                return super.eGet(featureID, resolve, coreType);
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case DataPackage.AUNIT__PARAMETER:
-				setParameter((IParameter)newValue);
-				return;
-			case DataPackage.AUNIT__SYMBOL:
-				setSymbol((String)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+                switch (featureID) {
+                        case DataPackage.AUNIT__PARAMETER:
+                                setParameter((IParameter)newValue);
+                                return;
+                        case DataPackage.AUNIT__SYMBOL:
+                                setSymbol((String)newValue);
+                                return;
+                }
+                super.eSet(featureID, newValue);
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case DataPackage.AUNIT__PARAMETER:
-				setParameter((IParameter)null);
-				return;
-			case DataPackage.AUNIT__SYMBOL:
-				setSymbol(SYMBOL_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+                switch (featureID) {
+                        case DataPackage.AUNIT__PARAMETER:
+                                setParameter((IParameter)null);
+                                return;
+                        case DataPackage.AUNIT__SYMBOL:
+                                setSymbol(SYMBOL_EDEFAULT);
+                                return;
+                }
+                super.eUnset(featureID);
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case DataPackage.AUNIT__PARAMETER:
-				return parameter != null;
-			case DataPackage.AUNIT__SYMBOL:
-				return SYMBOL_EDEFAULT == null ? symbol != null : !SYMBOL_EDEFAULT.equals(symbol);
-		}
-		return super.eIsSet(featureID);
-	}
+                switch (featureID) {
+                        case DataPackage.AUNIT__PARAMETER:
+                                return parameter != null;
+                        case DataPackage.AUNIT__SYMBOL:
+                                return SYMBOL_EDEFAULT == null ? symbol != null : !SYMBOL_EDEFAULT.equals(symbol);
+                }
+                return super.eIsSet(featureID);
+        }
 
 	/**
-	 * <!-- begin-user-doc -->
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+         * @generated
+         */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+                if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (symbol: ");
-		result.append(symbol);
-		result.append(')');
-		return result.toString();
-	}
+                StringBuffer result = new StringBuffer(super.toString());
+                result.append(" (symbol: ");
+                result.append(symbol);
+                result.append(')');
+                return result.toString();
+        }
 
 } //AUnitImpl
