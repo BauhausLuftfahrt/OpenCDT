@@ -36,7 +36,7 @@ public class MyParts {
 	private TreeFormComposite treeFormComposite;
 	private Resource resource;
 	//private URI uri = URI.createFileURI(System.getProperty("user.home") + "/workspace/reference" + "/MyLibrary.library");
-	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/workspace/reference" + "/MyLibrary.xmi");
+	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/workspace/reference" + "/MyLibrary.library");
 	private boolean post = true;
 	private EObject library;
 	private Composite composite;	
@@ -77,9 +77,7 @@ public class MyParts {
 		// set context menu and drag and drop
 		contextMenuHelper.addViewerContextMenu(treeFormComposite.getViewer(), editingDomain);
 		dragAndDropHelper.addDragAndDrop(treeFormComposite.getViewer(), editingDomain);
-		
-		
-		
+	
 		System.out.println("postConstruct");
 		
 		
@@ -114,7 +112,6 @@ public class MyParts {
 		*/
 		
 		
-		
 		resource.getContents().add(library);
 		
 		/* try {
@@ -124,7 +121,7 @@ public class MyParts {
 	            e.printStackTrace();
 	        }
 	        */
-	        System.out.println("save reference");
+	       // System.out.println("save reference");
 		
 		
 	}

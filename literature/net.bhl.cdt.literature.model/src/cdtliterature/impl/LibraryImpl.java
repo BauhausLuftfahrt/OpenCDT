@@ -20,14 +20,17 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -75,7 +78,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getArticle() <em>Article</em>}' reference list.
+	 * The cached value of the '{@link #getArticle() <em>Article</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getArticle()
@@ -85,7 +88,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	protected EList<Article> article;
 
 	/**
-	 * The cached value of the '{@link #getBook() <em>Book</em>}' reference list.
+	 * The cached value of the '{@link #getBook() <em>Book</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getBook()
@@ -95,7 +98,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	protected EList<Book> book;
 
 	/**
-	 * The cached value of the '{@link #getInbook() <em>Inbook</em>}' reference list.
+	 * The cached value of the '{@link #getInbook() <em>Inbook</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getInbook()
@@ -231,7 +234,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	 */
 	public EList<Article> getArticle() {
 		if (article == null) {
-			article = new EObjectResolvingEList<Article>(Article.class, this, CdtliteraturePackage.LIBRARY__ARTICLE);
+			article = new EObjectContainmentEList<Article>(Article.class, this, CdtliteraturePackage.LIBRARY__ARTICLE);
 		}
 		return article;
 	}
@@ -243,7 +246,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	 */
 	public EList<Book> getBook() {
 		if (book == null) {
-			book = new EObjectResolvingEList<Book>(Book.class, this, CdtliteraturePackage.LIBRARY__BOOK);
+			book = new EObjectContainmentEList<Book>(Book.class, this, CdtliteraturePackage.LIBRARY__BOOK);
 		}
 		return book;
 	}
@@ -255,7 +258,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	 */
 	public EList<Inbook> getInbook() {
 		if (inbook == null) {
-			inbook = new EObjectResolvingEList<Inbook>(Inbook.class, this, CdtliteraturePackage.LIBRARY__INBOOK);
+			inbook = new EObjectContainmentEList<Inbook>(Inbook.class, this, CdtliteraturePackage.LIBRARY__INBOOK);
 		}
 		return inbook;
 	}
@@ -354,6 +357,24 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 			unpublished = new EObjectResolvingEList<Unpublished>(Unpublished.class, this, CdtliteraturePackage.LIBRARY__UNPUBLISHED);
 		}
 		return unpublished;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CdtliteraturePackage.LIBRARY__ARTICLE:
+				return ((InternalEList<?>)getArticle()).basicRemove(otherEnd, msgs);
+			case CdtliteraturePackage.LIBRARY__BOOK:
+				return ((InternalEList<?>)getBook()).basicRemove(otherEnd, msgs);
+			case CdtliteraturePackage.LIBRARY__INBOOK:
+				return ((InternalEList<?>)getInbook()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

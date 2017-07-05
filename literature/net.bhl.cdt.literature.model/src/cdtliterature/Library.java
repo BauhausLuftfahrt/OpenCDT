@@ -61,7 +61,7 @@ public interface Library extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Article</b></em>' reference list.
+	 * Returns the value of the '<em><b>Article</b></em>' containment reference list.
 	 * The list contents are of type {@link cdtliterature.Article}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -69,15 +69,15 @@ public interface Library extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Article</em>' reference list.
+	 * @return the value of the '<em>Article</em>' containment reference list.
 	 * @see cdtliterature.CdtliteraturePackage#getLibrary_Article()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Article> getArticle();
 
 	/**
-	 * Returns the value of the '<em><b>Book</b></em>' reference list.
+	 * Returns the value of the '<em><b>Book</b></em>' containment reference list.
 	 * The list contents are of type {@link cdtliterature.Book}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -85,15 +85,15 @@ public interface Library extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Book</em>' reference list.
+	 * @return the value of the '<em>Book</em>' containment reference list.
 	 * @see cdtliterature.CdtliteraturePackage#getLibrary_Book()
-	 * @model transient="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Book> getBook();
 
 	/**
-	 * Returns the value of the '<em><b>Inbook</b></em>' reference list.
+	 * Returns the value of the '<em><b>Inbook</b></em>' containment reference list.
 	 * The list contents are of type {@link cdtliterature.Inbook}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -101,9 +101,9 @@ public interface Library extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Inbook</em>' reference list.
+	 * @return the value of the '<em>Inbook</em>' containment reference list.
 	 * @see cdtliterature.CdtliteraturePackage#getLibrary_Inbook()
-	 * @model
+	 * @model containment="true" derived="true"
 	 * @generated
 	 */
 	EList<Inbook> getInbook();

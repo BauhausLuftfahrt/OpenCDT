@@ -40,6 +40,7 @@
       <plugin id="javax.xml"/>
       <plugin id="net.bhl.cdt.client.e4"/>
       <plugin id="net.bhl.cdt.literature.model"/>
+      <plugin id="net.bhl.cdt.literature.model.edit"/>
       <plugin id="net.bhl.cdt.literature.model.parsley"/>
       <plugin id="net.bhl.cdt.literature.model.parsley.parts"/>
       <plugin id="net.bhl.cdt.log"/>
@@ -94,6 +95,7 @@
       <plugin id="org.eclipse.emf.ecore.change"/>
       <plugin id="org.eclipse.emf.ecore.edit"/>
       <plugin id="org.eclipse.emf.ecore.xmi"/>
+      <plugin id="org.eclipse.emf.ecore.xmi.source"/>
       <plugin id="org.eclipse.emf.ecp.application.e4"/>
       <plugin id="org.eclipse.emf.ecp.common"/>
       <plugin id="org.eclipse.emf.ecp.common.ui"/>
@@ -152,8 +154,6 @@
       <plugin id="org.eclipse.emf.emfstore.server"/>
       <plugin id="org.eclipse.emf.emfstore.server.model"/>
       <plugin id="org.eclipse.emf.emfstore.server.model.edit"/>
-      <plugin id="org.eclipse.emf.examples.library"/>
-      <plugin id="org.eclipse.emf.examples.library.edit"/>
       <plugin id="org.eclipse.emf.parsley"/>
       <plugin id="org.eclipse.emf.parsley.common"/>
       <plugin id="org.eclipse.emf.parsley.runtime"/>

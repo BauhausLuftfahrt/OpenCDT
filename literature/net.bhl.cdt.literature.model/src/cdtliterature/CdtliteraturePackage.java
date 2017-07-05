@@ -1079,7 +1079,7 @@ public interface CdtliteraturePackage extends EPackage {
 	int LIBRARY__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Article</b></em>' reference list.
+	 * The feature id for the '<em><b>Article</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1088,7 +1088,7 @@ public interface CdtliteraturePackage extends EPackage {
 	int LIBRARY__ARTICLE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Book</b></em>' reference list.
+	 * The feature id for the '<em><b>Book</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1097,7 +1097,7 @@ public interface CdtliteraturePackage extends EPackage {
 	int LIBRARY__BOOK = 2;
 
 	/**
-	 * The feature id for the '<em><b>Inbook</b></em>' reference list.
+	 * The feature id for the '<em><b>Inbook</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1602,10 +1602,10 @@ public interface CdtliteraturePackage extends EPackage {
 	EAttribute getLibrary_Name();
 
 	/**
-	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getArticle <em>Article</em>}'.
+	 * Returns the meta object for the containment reference list '{@link cdtliterature.Library#getArticle <em>Article</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Article</em>'.
+	 * @return the meta object for the containment reference list '<em>Article</em>'.
 	 * @see cdtliterature.Library#getArticle()
 	 * @see #getLibrary()
 	 * @generated
@@ -1613,10 +1613,10 @@ public interface CdtliteraturePackage extends EPackage {
 	EReference getLibrary_Article();
 
 	/**
-	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getBook <em>Book</em>}'.
+	 * Returns the meta object for the containment reference list '{@link cdtliterature.Library#getBook <em>Book</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Book</em>'.
+	 * @return the meta object for the containment reference list '<em>Book</em>'.
 	 * @see cdtliterature.Library#getBook()
 	 * @see #getLibrary()
 	 * @generated
@@ -1624,10 +1624,10 @@ public interface CdtliteraturePackage extends EPackage {
 	EReference getLibrary_Book();
 
 	/**
-	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getInbook <em>Inbook</em>}'.
+	 * Returns the meta object for the containment reference list '{@link cdtliterature.Library#getInbook <em>Inbook</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Inbook</em>'.
+	 * @return the meta object for the containment reference list '<em>Inbook</em>'.
 	 * @see cdtliterature.Library#getInbook()
 	 * @see #getLibrary()
 	 * @generated
@@ -2076,7 +2076,7 @@ public interface CdtliteraturePackage extends EPackage {
 		EAttribute LIBRARY__NAME = eINSTANCE.getLibrary_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Article</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Article</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2084,7 +2084,7 @@ public interface CdtliteraturePackage extends EPackage {
 		EReference LIBRARY__ARTICLE = eINSTANCE.getLibrary_Article();
 
 		/**
-		 * The meta object literal for the '<em><b>Book</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Book</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2092,7 +2092,7 @@ public interface CdtliteraturePackage extends EPackage {
 		EReference LIBRARY__BOOK = eINSTANCE.getLibrary_Book();
 
 		/**
-		 * The meta object literal for the '<em><b>Inbook</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Inbook</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

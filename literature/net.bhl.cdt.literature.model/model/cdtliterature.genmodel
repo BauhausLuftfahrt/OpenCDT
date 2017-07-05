@@ -1,9 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/net.bhl.cdt.literature.model/src" modelPluginID="net.bhl.cdt.literature.model"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/net.bhl.cdt.literature.model/src" modelPluginID="net.bhl.cdt.literature.model"
     modelName="Cdtliterature" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
   <foreignModel>cdtliterature.ecore</foreignModel>
-  <genPackages prefix="Cdtliterature" disposableProviderFactory="true" ecorePackage="cdtliterature.ecore#/"/>
+  <genPackages prefix="Cdtliterature" disposableProviderFactory="true" ecorePackage="cdtliterature.ecore#/">
+    <genClasses image="false" ecoreClass="cdtliterature.ecore#//ALiteratureBase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//ALiteratureBase/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//ALiteratureBase/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//ALiteratureBase/year"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//ALiteratureBase/references"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//ALiteratureBase/path"/>
+    </genClasses>
+    <genClasses ecoreClass="cdtliterature.ecore#//Article">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Article/journal"/>
+    </genClasses>
+    <genClasses ecoreClass="cdtliterature.ecore#//Book">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Book/publisher"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Book/isbn"/>
+    </genClasses>
+    <genClasses ecoreClass="cdtliterature.ecore#//Inbook">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Inbook/pages"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Inbook/publisher"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Inbook/book"/>
+    </genClasses>
+    <genClasses ecoreClass="cdtliterature.ecore#//Conference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Conference/booktitle"/>
+    </genClasses>
+    <genClasses ecoreClass="cdtliterature.ecore#//Incollection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Incollection/booktitle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Incollection/publisher"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Incollection/books"/>
+    </genClasses>
+    <genClasses ecoreClass="cdtliterature.ecore#//Inproceedings">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Inproceedings/booktitle"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Inproceedings/articles"/>
+    </genClasses>
+    <genClasses ecoreClass="cdtliterature.ecore#//Proceedings"/>
+    <genClasses ecoreClass="cdtliterature.ecore#//Techreport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Techreport/institution"/>
+    </genClasses>
+    <genClasses ecoreClass="cdtliterature.ecore#//Phdthesis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Phdthesis/school"/>
+    </genClasses>
+    <genClasses ecoreClass="cdtliterature.ecore#//Masterthesis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Masterthesis/school"/>
+    </genClasses>
+    <genClasses ecoreClass="cdtliterature.ecore#//Unpublished">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Unpublished/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Unpublished/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Unpublished/note"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Unpublished/references"/>
+    </genClasses>
+    <genClasses ecoreClass="cdtliterature.ecore#//Library">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Library/name"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Library/article"/>
+      <genFeatures property="None" children="true" createChild="true" propertyCategory=""
+          ecoreFeature="ecore:EReference cdtliterature.ecore#//Library/book"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Library/inbook"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Library/conference"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Library/incollection"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Library/inproceedings"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Library/proceedings"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Library/techreport"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Library/phdthesis"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Library/masterthesis"/>
+      <genFeatures children="true" createChild="true" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Library/unpublished"/>
+    </genClasses>
+  </genPackages>
 </genmodel:GenModel>
