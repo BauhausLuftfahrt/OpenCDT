@@ -19,6 +19,16 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="container" lowerBound="1"
           eType="#//base/ModelContainer" eOpposite="#//base/ModelContainer/containedItems"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//base/AModelContainerItem #//data/IDataEntity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+          eType="#//base/Component" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//data/IDataEntity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="containingComponent"
+          eType="#//base/Component" eOpposite="#//base/Component/subComponents"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subComponents" upperBound="-1"
+          eType="#//base/Component" containment="true" eOpposite="#//base/Component/containingComponent"/>
+    </eClassifiers>
   </eSubpackages>
   <eSubpackages name="data" nsURI="http://www.bauhaus-luftfahrt.net/cdt/data" nsPrefix="net.bhl.cdt.model">
     <eClassifiers xsi:type="ecore:EClass" name="AUnit" eSuperTypes="#//base/ANamedItem">
@@ -30,8 +40,17 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
           eType="#//data/IParameter"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IDimension" abstract="true" interface="true"
+        eSuperTypes="#//base/AIdentifiableItem #//base/ANamedItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="units" upperBound="-1"
+          eType="#//data/AUnit" containment="true"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IParameter" abstract="true" interface="true"
         eSuperTypes="#//base/ANamedItem #//base/AIdentifiableItem"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IDimensionParameter" eSuperTypes="#//data/IParameter">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dimension" lowerBound="1"
+          eType="#//data/IDimension"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IDataEntity" abstract="true" interface="true"
         eSuperTypes="#//base/AIdentifiableItem #//base/ANamedItem">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"

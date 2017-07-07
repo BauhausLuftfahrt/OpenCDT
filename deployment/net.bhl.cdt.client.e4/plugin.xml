@@ -38,11 +38,4 @@
          </property>
       </product>
    </extension>
-   <extension
-         point="org.eclipse.emf.ecp.ui.modelElementOpener">
-      <modelElementOpener
-            class="net.bhl.cdt.client.ecp.CDTECPModelElementOpener">
-      </modelElementOpener>
-   </extension>
-
 </plugin>

@@ -118,6 +118,29 @@ public class DataItemProviderAdapterFactory extends DataAdapterFactory implement
         }
 
 	/**
+         * This keeps track of the one adapter used for all {@link model.data.IDimensionParameter} instances.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        protected IDimensionParameterItemProvider iDimensionParameterItemProvider;
+
+        /**
+         * This creates an adapter for a {@link model.data.IDimensionParameter}.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public Adapter createIDimensionParameterAdapter() {
+                if (iDimensionParameterItemProvider == null) {
+                        iDimensionParameterItemProvider = new IDimensionParameterItemProvider(this);
+                }
+
+                return iDimensionParameterItemProvider;
+        }
+
+        /**
          * This returns the root adapter factory that contains this factory.
          * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -218,6 +241,7 @@ public class DataItemProviderAdapterFactory extends DataAdapterFactory implement
 	public void dispose() {
                 if (aUnitItemProvider != null) aUnitItemProvider.dispose();
                 if (aValueItemProvider != null) aValueItemProvider.dispose();
+                if (iDimensionParameterItemProvider != null) iDimensionParameterItemProvider.dispose();
         }
 
 }

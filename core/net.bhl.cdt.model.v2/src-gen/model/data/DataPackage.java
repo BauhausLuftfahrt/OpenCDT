@@ -151,6 +151,61 @@ public interface DataPackage extends EPackage {
 	int AVALUE_OPERATION_COUNT = 0;
 
 	/**
+         * The meta object id for the '{@link model.data.IDimension <em>IDimension</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see model.data.IDimension
+         * @see model.data.impl.DataPackageImpl#getIDimension()
+         * @generated
+         */
+        int IDIMENSION = 2;
+
+        /**
+         * The feature id for the '<em><b>Id</b></em>' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int IDIMENSION__ID = BasePackage.AIDENTIFIABLE_ITEM__ID;
+
+        /**
+         * The feature id for the '<em><b>Name</b></em>' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int IDIMENSION__NAME = BasePackage.AIDENTIFIABLE_ITEM_FEATURE_COUNT + 0;
+
+        /**
+         * The feature id for the '<em><b>Units</b></em>' containment reference list.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int IDIMENSION__UNITS = BasePackage.AIDENTIFIABLE_ITEM_FEATURE_COUNT + 1;
+
+        /**
+         * The number of structural features of the '<em>IDimension</em>' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int IDIMENSION_FEATURE_COUNT = BasePackage.AIDENTIFIABLE_ITEM_FEATURE_COUNT + 2;
+
+        /**
+         * The number of operations of the '<em>IDimension</em>' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int IDIMENSION_OPERATION_COUNT = BasePackage.AIDENTIFIABLE_ITEM_OPERATION_COUNT + 0;
+
+        /**
          * The meta object id for the '{@link model.data.IParameter <em>IParameter</em>}' class.
          * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,7 +213,7 @@ public interface DataPackage extends EPackage {
          * @see model.data.impl.DataPackageImpl#getIParameter()
          * @generated
          */
-	int IPARAMETER = 2;
+	int IPARAMETER = 3;
 
 	/**
          * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -197,6 +252,61 @@ public interface DataPackage extends EPackage {
 	int IPARAMETER_OPERATION_COUNT = BasePackage.ANAMED_ITEM_OPERATION_COUNT + 0;
 
 	/**
+         * The meta object id for the '{@link model.data.impl.IDimensionParameterImpl <em>IDimension Parameter</em>}' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see model.data.impl.IDimensionParameterImpl
+         * @see model.data.impl.DataPackageImpl#getIDimensionParameter()
+         * @generated
+         */
+        int IDIMENSION_PARAMETER = 4;
+
+        /**
+         * The feature id for the '<em><b>Name</b></em>' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int IDIMENSION_PARAMETER__NAME = IPARAMETER__NAME;
+
+        /**
+         * The feature id for the '<em><b>Id</b></em>' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int IDIMENSION_PARAMETER__ID = IPARAMETER__ID;
+
+        /**
+         * The feature id for the '<em><b>Dimension</b></em>' reference.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int IDIMENSION_PARAMETER__DIMENSION = IPARAMETER_FEATURE_COUNT + 0;
+
+        /**
+         * The number of structural features of the '<em>IDimension Parameter</em>' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int IDIMENSION_PARAMETER_FEATURE_COUNT = IPARAMETER_FEATURE_COUNT + 1;
+
+        /**
+         * The number of operations of the '<em>IDimension Parameter</em>' class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         * @ordered
+         */
+        int IDIMENSION_PARAMETER_OPERATION_COUNT = IPARAMETER_OPERATION_COUNT + 0;
+
+        /**
          * The meta object id for the '{@link model.data.IDataEntity <em>IData Entity</em>}' class.
          * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -204,7 +314,7 @@ public interface DataPackage extends EPackage {
          * @see model.data.impl.DataPackageImpl#getIDataEntity()
          * @generated
          */
-	int IDATA_ENTITY = 3;
+	int IDATA_ENTITY = 5;
 
 	/**
          * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -306,6 +416,27 @@ public interface DataPackage extends EPackage {
 	EReference getAValue_Parameter();
 
 	/**
+         * Returns the meta object for class '{@link model.data.IDimension <em>IDimension</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for class '<em>IDimension</em>'.
+         * @see model.data.IDimension
+         * @generated
+         */
+        EClass getIDimension();
+
+        /**
+         * Returns the meta object for the containment reference list '{@link model.data.IDimension#getUnits <em>Units</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for the containment reference list '<em>Units</em>'.
+         * @see model.data.IDimension#getUnits()
+         * @see #getIDimension()
+         * @generated
+         */
+        EReference getIDimension_Units();
+
+        /**
          * Returns the meta object for class '{@link model.data.IParameter <em>IParameter</em>}'.
          * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -316,6 +447,27 @@ public interface DataPackage extends EPackage {
 	EClass getIParameter();
 
 	/**
+         * Returns the meta object for class '{@link model.data.IDimensionParameter <em>IDimension Parameter</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for class '<em>IDimension Parameter</em>'.
+         * @see model.data.IDimensionParameter
+         * @generated
+         */
+        EClass getIDimensionParameter();
+
+        /**
+         * Returns the meta object for the reference '{@link model.data.IDimensionParameter#getDimension <em>Dimension</em>}'.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @return the meta object for the reference '<em>Dimension</em>'.
+         * @see model.data.IDimensionParameter#getDimension()
+         * @see #getIDimensionParameter()
+         * @generated
+         */
+        EReference getIDimensionParameter_Dimension();
+
+        /**
          * Returns the meta object for class '{@link model.data.IDataEntity <em>IData Entity</em>}'.
          * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -404,6 +556,24 @@ public interface DataPackage extends EPackage {
 		EReference AVALUE__PARAMETER = eINSTANCE.getAValue_Parameter();
 
 		/**
+                 * The meta object literal for the '{@link model.data.IDimension <em>IDimension</em>}' class.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @see model.data.IDimension
+                 * @see model.data.impl.DataPackageImpl#getIDimension()
+                 * @generated
+                 */
+                EClass IDIMENSION = eINSTANCE.getIDimension();
+
+                /**
+                 * The meta object literal for the '<em><b>Units</b></em>' containment reference list feature.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @generated
+                 */
+                EReference IDIMENSION__UNITS = eINSTANCE.getIDimension_Units();
+
+                /**
                  * The meta object literal for the '{@link model.data.IParameter <em>IParameter</em>}' class.
                  * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -414,6 +584,24 @@ public interface DataPackage extends EPackage {
 		EClass IPARAMETER = eINSTANCE.getIParameter();
 
 		/**
+                 * The meta object literal for the '{@link model.data.impl.IDimensionParameterImpl <em>IDimension Parameter</em>}' class.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @see model.data.impl.IDimensionParameterImpl
+                 * @see model.data.impl.DataPackageImpl#getIDimensionParameter()
+                 * @generated
+                 */
+                EClass IDIMENSION_PARAMETER = eINSTANCE.getIDimensionParameter();
+
+                /**
+                 * The meta object literal for the '<em><b>Dimension</b></em>' reference feature.
+                 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+                 * @generated
+                 */
+                EReference IDIMENSION_PARAMETER__DIMENSION = eINSTANCE.getIDimensionParameter_Dimension();
+
+                /**
                  * The meta object literal for the '{@link model.data.IDataEntity <em>IData Entity</em>}' class.
                  * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

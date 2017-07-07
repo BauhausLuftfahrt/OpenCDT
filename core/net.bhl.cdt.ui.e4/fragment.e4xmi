@@ -47,6 +47,9 @@
     <elements xsi:type="commands:Command" xmi:id="_n18cEGCaEeeLI_FcXsnNPA" elementId="net.bhl.cdt.ui.e4.command.newcdtmodel" commandName="New CDT Model"/>
     <elements xsi:type="commands:Command" xmi:id="_W3zTYGCvEeeLI_FcXsnNPA" elementId="net.bhl.cdt.ui.e4.command.refreshexplorerview" commandName="Refresh ExplorerView"/>
     <elements xsi:type="commands:Command" xmi:id="_FQSHcGDNEeeJLb6qqpigrw" elementId="net.bhl.cdt.ui.command.savemodel" commandName="Save Model"/>
+    <elements xsi:type="commands:Command" xmi:id="_95sHYGFbEeehouDRCWy2iQ" elementId="net.bhl.cdt.ui.command.openmodel" commandName="Open Model">
+      <parameters xmi:id="__szq0GFbEeehouDRCWy2iQ" elementId="net.bhl.cdt.ui.command.openmodel.parameter.modelfilepath" name="modelFilePath" optional="false"/>
+    </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_xOaTQF_JEee6jvp-IzUNlg" featurename="handlers" parentElementId="net.bhl.cdt.application">
     <elements xsi:type="commands:Handler" xmi:id="_0NNmsF_JEee6jvp-IzUNlg" elementId="net.bhl.cdt.ui.e4.handler.setexplorerviewworkfolder" contributionURI="bundleclass://net.bhl.cdt.ui/net.bhl.cdt.ui.e4.handlers.SetCDTExplorerWorkFolderHandler" command="_uVuO4F_JEee6jvp-IzUNlg"/>
@@ -54,9 +57,10 @@
     <elements xsi:type="commands:Handler" xmi:id="_mLDnkGCaEeeLI_FcXsnNPA" elementId="net.bhl.cdt.ui.e4.handler.2" contributionURI="bundleclass://net.bhl.cdt.ui/net.bhl.cdt.ui.e4.handlers.NewCDTModelHandler" command="_n18cEGCaEeeLI_FcXsnNPA"/>
     <elements xsi:type="commands:Handler" xmi:id="_bDOK8GCvEeeLI_FcXsnNPA" elementId="net.bhl.cdt.ui.e4.handler.3" contributionURI="bundleclass://net.bhl.cdt.ui/net.bhl.cdt.ui.e4.handlers.RefreshCDTExplorerViewHandler" command="_W3zTYGCvEeeLI_FcXsnNPA"/>
     <elements xsi:type="commands:Handler" xmi:id="_ERBp4GDNEeeJLb6qqpigrw" elementId="net.bhl.cdt.ui.handler.0" contributionURI="bundleclass://net.bhl.cdt.ui/net.bhl.cdt.ui.e4.handlers.SaveModelHandler" command="_FQSHcGDNEeeJLb6qqpigrw"/>
+    <elements xsi:type="commands:Handler" xmi:id="_VlWrcGFcEeehouDRCWy2iQ" elementId="net.bhl.cdt.ui.handler.openmodel" contributionURI="bundleclass://net.bhl.cdt.ui/net.bhl.cdt.ui.e4.handlers.OpenModelHandler" command="_95sHYGFbEeehouDRCWy2iQ"/>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_b4irkGC-EeeTeKHCZo5cZg" featurename="descriptors" parentElementId="net.bhl.cdt.application">
-    <elements xsi:type="basic_1:PartDescriptor" xmi:id="_ebl3IGC-EeeTeKHCZo5cZg" elementId="net.bhl.cdt.ui.e4.partdescriptor.modeleditor" allowMultiple="true" category="editorCategory" closeable="true" dirtyable="true" contributionURI="bundleclass://net.bhl.cdt.ui/net.bhl.cdt.ui.e4.parts.modeleditor.CDTModelEditorPart">
+    <elements xsi:type="basic_1:PartDescriptor" xmi:id="_ebl3IGC-EeeTeKHCZo5cZg" elementId="net.bhl.cdt.ui.e4.partdescriptor.modeleditor" allowMultiple="true" category="editorCategory" closeable="true" dirtyable="true" contributionURI="bundleclass://net.bhl.cdt.ui/net.bhl.cdt.ui.e4.parts.modeleditor.CDTDefaultModelEditorPart">
       <toolbar xmi:id="_3cQfQGC-EeeTeKHCZo5cZg" elementId="net.bhl.cdt.ui.e4.partdescriptor.modeleditor.toolbar">
         <children xsi:type="menu:HandledToolItem" xmi:id="_5_wWwGC-EeeTeKHCZo5cZg" elementId="net.bhl.cdt.ui.e4.handledtoolitem.save" label="Save" iconURI="platform:/plugin/net.bhl.cdt.ui/icons/save_16x16.png" tooltip="Save" command="_FQSHcGDNEeeJLb6qqpigrw"/>
       </toolbar>

@@ -58,6 +58,7 @@ public class DataFactoryImpl extends EFactoryImpl implements DataFactory {
                 switch (eClass.getClassifierID()) {
                         case DataPackage.AUNIT: return createAUnit();
                         case DataPackage.AVALUE: return createAValue();
+                        case DataPackage.IDIMENSION_PARAMETER: return createIDimensionParameter();
                         default:
                                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
                 }
@@ -84,6 +85,16 @@ public class DataFactoryImpl extends EFactoryImpl implements DataFactory {
         }
 
 	/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public IDimensionParameter createIDimensionParameter() {
+                IDimensionParameterImpl iDimensionParameter = new IDimensionParameterImpl();
+                return iDimensionParameter;
+        }
+
+        /**
          * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
          * @generated

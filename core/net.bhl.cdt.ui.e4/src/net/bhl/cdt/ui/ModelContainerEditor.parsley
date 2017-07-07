@@ -1,6 +1,9 @@
 import net.bhl.cdt.ui.view.ModelContainerEditor
 import org.eclipse.emf.parsley.edit.IEditingStrategy
 import org.eclipse.emf.parsley.edit.UndoableEditingStrategy
+import model.base.ModelContainer
+import model.base.System
+import model.base.Component
 
 /* net.bhl.cdt.ui.e4 EMF Parsley Dsl Module file */
 module net.bhl.cdt.ui.view {
@@ -16,20 +19,41 @@ module net.bhl.cdt.ui.view {
 		value int TreeFormSashStyle -> SWT.HORIZONTAL
 	}
 	
+	labelProvider {
+		text {
+			ModelContainer -> name
+			System -> name
+			Component -> name
+		}
+	}
+	
+	viewerContentProvider {
+		elements {
+			ModelContainer -> containedItems
+			System -> components
+			Component -> subComponents
+		}
+		
+		children {
+			System -> components
+			Component -> subComponents
+		}
+	}
+	
+	featuresProvider {
+		features {
+			ModelContainer -> name
+			System -> name, parameters
+			Component -> name, parameters 
+		}
+	}
+	
 	configurator {
 		resourceURI {
 			ModelContainerEditor -> {
 				// TODO create and return a org.eclipse.emf.common.util.URI
 				return null;
 			}
-		}
-	}
-
-	resourceManager {
-		initializeResource {
-			// Optional: initialize an empty Resource
-			// 'it' is of type Resource
-			// e.g., it.getContents += myFactory.createMyClass
 		}
 	}
 }

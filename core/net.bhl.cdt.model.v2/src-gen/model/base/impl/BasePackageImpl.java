@@ -8,6 +8,7 @@ import model.base.ANamedItem;
 import model.base.BaseFactory;
 import model.base.BasePackage;
 
+import model.base.Component;
 import model.base.ModelContainer;
 import model.data.DataPackage;
 
@@ -58,6 +59,20 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage {
          * @generated
          */
         private EClass aModelContainerItemEClass = null;
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        private EClass systemEClass = null;
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        private EClass componentEClass = null;
 
         /**
          * Creates an instance of the model <b>Package</b>, registered with
@@ -202,6 +217,51 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage {
 
         /**
          * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EClass getSystem() {
+                return systemEClass;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EReference getSystem_Components() {
+                return (EReference)systemEClass.getEStructuralFeatures().get(0);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EClass getComponent() {
+                return componentEClass;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EReference getComponent_ContainingComponent() {
+                return (EReference)componentEClass.getEStructuralFeatures().get(0);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EReference getComponent_SubComponents() {
+                return (EReference)componentEClass.getEStructuralFeatures().get(1);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
          * @generated
          */
@@ -239,6 +299,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage {
 
                 aModelContainerItemEClass = createEClass(AMODEL_CONTAINER_ITEM);
                 createEReference(aModelContainerItemEClass, AMODEL_CONTAINER_ITEM__CONTAINER);
+
+                systemEClass = createEClass(SYSTEM);
+                createEReference(systemEClass, SYSTEM__COMPONENTS);
+
+                componentEClass = createEClass(COMPONENT);
+                createEReference(componentEClass, COMPONENT__CONTAINING_COMPONENT);
+                createEReference(componentEClass, COMPONENT__SUB_COMPONENTS);
         }
 
 	/**
@@ -264,6 +331,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage {
                 setNsPrefix(eNS_PREFIX);
                 setNsURI(eNS_URI);
 
+                // Obtain other dependent packages
+                DataPackage theDataPackage = (DataPackage)EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI);
+
                 // Create type parameters
 
                 // Set bounds for type parameters
@@ -273,6 +343,9 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage {
                 modelContainerEClass.getESuperTypes().add(this.getAIdentifiableItem());
                 aModelContainerItemEClass.getESuperTypes().add(this.getAIdentifiableItem());
                 aModelContainerItemEClass.getESuperTypes().add(this.getANamedItem());
+                systemEClass.getESuperTypes().add(this.getAModelContainerItem());
+                systemEClass.getESuperTypes().add(theDataPackage.getIDataEntity());
+                componentEClass.getESuperTypes().add(theDataPackage.getIDataEntity());
 
                 // Initialize classes, features, and operations; add parameters
                 initEClass(aNamedItemEClass, ANamedItem.class, "ANamedItem", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -286,6 +359,13 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage {
 
                 initEClass(aModelContainerItemEClass, AModelContainerItem.class, "AModelContainerItem", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
                 initEReference(getAModelContainerItem_Container(), this.getModelContainer(), this.getModelContainer_ContainedItems(), "container", null, 1, 1, AModelContainerItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+                initEClass(systemEClass, model.base.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                initEReference(getSystem_Components(), this.getComponent(), null, "components", null, 0, -1, model.base.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+                initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                initEReference(getComponent_ContainingComponent(), this.getComponent(), this.getComponent_SubComponents(), "containingComponent", null, 0, 1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEReference(getComponent_SubComponents(), this.getComponent(), this.getComponent_ContainingComponent(), "subComponents", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
                 // Create resource
                 createResource(eNS_URI);

@@ -46,7 +46,7 @@ public class NewCDTModelHandler {
 	String newModelFile = UIHelper.showSaveFileDialog(shell, "New CDT Model", new String[] { "*.cdm" }, initialFolder);
 	if (newModelFile != null) {
 	    ModelContainer container = BaseFactory.eINSTANCE.createModelContainer();
-	    container.setName(newModelFile.substring(newModelFile.lastIndexOf(StringConstants.BACKSLASH), newModelFile.lastIndexOf(StringConstants.DOT)));
+	    container.setName(newModelFile.substring(newModelFile.lastIndexOf(StringConstants.BACKSLASH) + 1, newModelFile.lastIndexOf(StringConstants.DOT)));
 	    
 	    ResourceSet resSet = new ResourceSetImpl();
 	    Resource resource = resSet.createResource(URI.createFileURI(newModelFile));

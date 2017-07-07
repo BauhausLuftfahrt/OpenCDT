@@ -79,8 +79,16 @@ public class DataAdapterFactory extends AdapterFactoryImpl {
                                 return createAValueAdapter();
                         }
                         @Override
+                        public Adapter caseIDimension(IDimension object) {
+                                return createIDimensionAdapter();
+                        }
+                        @Override
                         public Adapter caseIParameter(IParameter object) {
                                 return createIParameterAdapter();
+                        }
+                        @Override
+                        public Adapter caseIDimensionParameter(IDimensionParameter object) {
+                                return createIDimensionParameterAdapter();
                         }
                         @Override
                         public Adapter caseIDataEntity(IDataEntity object) {
@@ -143,6 +151,20 @@ public class DataAdapterFactory extends AdapterFactoryImpl {
         }
 
 	/**
+         * Creates a new adapter for an object of class '{@link model.data.IDimension <em>IDimension</em>}'.
+         * <!-- begin-user-doc -->
+         * This default implementation returns null so that we can easily ignore cases;
+         * it's useful to ignore a case when inheritance will catch all the cases anyway.
+         * <!-- end-user-doc -->
+         * @return the new adapter.
+         * @see model.data.IDimension
+         * @generated
+         */
+        public Adapter createIDimensionAdapter() {
+                return null;
+        }
+
+        /**
          * Creates a new adapter for an object of class '{@link model.data.IParameter <em>IParameter</em>}'.
          * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -157,6 +179,20 @@ public class DataAdapterFactory extends AdapterFactoryImpl {
         }
 
 	/**
+         * Creates a new adapter for an object of class '{@link model.data.IDimensionParameter <em>IDimension Parameter</em>}'.
+         * <!-- begin-user-doc -->
+         * This default implementation returns null so that we can easily ignore cases;
+         * it's useful to ignore a case when inheritance will catch all the cases anyway.
+         * <!-- end-user-doc -->
+         * @return the new adapter.
+         * @see model.data.IDimensionParameter
+         * @generated
+         */
+        public Adapter createIDimensionParameterAdapter() {
+                return null;
+        }
+
+        /**
          * Creates a new adapter for an object of class '{@link model.data.IDataEntity <em>IData Entity</em>}'.
          * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;

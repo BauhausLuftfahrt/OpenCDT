@@ -6,7 +6,7 @@
 package net.bhl.cdt.ui.e4.parts.explorer;
 
 import java.io.File;
-import java.util.Vector;
+import java.util.Collections;
 
 import org.eclipse.jface.viewers.ITreeContentProvider;
 
@@ -27,7 +27,7 @@ public class CDTExplorerViewContentProvider implements ITreeContentProvider {
 	if (parentElement instanceof File)
 	    return filterFiles((File)parentElement);
 	else
-	    return new Vector<Object>().toArray();
+	    return Collections.EMPTY_LIST.toArray();
     }
 
     @Override

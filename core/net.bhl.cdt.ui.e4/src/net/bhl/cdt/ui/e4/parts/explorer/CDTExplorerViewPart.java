@@ -7,14 +7,17 @@ package net.bhl.cdt.ui.e4.parts.explorer;
 
 import java.io.File;
 import java.text.DateFormat;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
-import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.core.commands.ParameterizedCommand;
+import org.eclipse.e4.core.commands.ECommandService;
+import org.eclipse.e4.core.commands.EHandlerService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
-import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider;
 import org.eclipse.jface.viewers.DoubleClickEvent;
@@ -60,7 +63,8 @@ public class CDTExplorerViewPart implements ICDTPreferencesListener {
     private CDTPreferencesService preferencesService;
 
     @PostConstruct
-    public void postConstruct(Composite parent, CDTPreferencesService preferencesService, ESelectionService selectionService, EPartService partService) {
+    public void postConstruct(Composite parent, CDTPreferencesService preferencesService, ESelectionService selectionService, EPartService partService, ECommandService commandService,
+	    EHandlerService handlerService) {
 	this.preferencesService = preferencesService;
 	preferencesService.registerListener(this, PREF_KEY_WORKFOLDER);
 
@@ -117,9 +121,11 @@ public class CDTExplorerViewPart implements ICDTPreferencesListener {
 
 		Object selectedElement = ((IStructuredSelection)event.getSelection()).getFirstElement();
 		if (selectedElement instanceof File && ((File)selectedElement).getName().endsWith(FileConstants.CDT_MODELFILE_EXTENSION)) {
-		    MPart part = partService.createPart(E4ResourceIds.PARTDESCRIPTOR_MODELEDITOR_ID);
-		    part.setLabel(((File)selectedElement).getName());
-		    partService.showPart(part, PartState.ACTIVATE);
+		    Map<String, Object> params = new HashMap<String, Object>();
+		    params.put(E4ResourceIds.COMMAND_OPEN_MODELELEMENT_PARAM_FILEPATH_ID, ((File)selectedElement).getPath());
+		    
+		    ParameterizedCommand cmd = commandService.createCommand(E4ResourceIds.COMMAND_OPEN_MODELELEMENT_ID, params);
+		    handlerService.executeHandler(cmd);
 		}
 	    }
 	});

@@ -82,11 +82,28 @@ public class DataSwitch<T> extends Switch<T> {
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
                         }
+                        case DataPackage.IDIMENSION: {
+                                IDimension iDimension = (IDimension)theEObject;
+                                T result = caseIDimension(iDimension);
+                                if (result == null) result = caseAIdentifiableItem(iDimension);
+                                if (result == null) result = caseANamedItem(iDimension);
+                                if (result == null) result = defaultCase(theEObject);
+                                return result;
+                        }
                         case DataPackage.IPARAMETER: {
                                 IParameter iParameter = (IParameter)theEObject;
                                 T result = caseIParameter(iParameter);
                                 if (result == null) result = caseANamedItem(iParameter);
                                 if (result == null) result = caseAIdentifiableItem(iParameter);
+                                if (result == null) result = defaultCase(theEObject);
+                                return result;
+                        }
+                        case DataPackage.IDIMENSION_PARAMETER: {
+                                IDimensionParameter iDimensionParameter = (IDimensionParameter)theEObject;
+                                T result = caseIDimensionParameter(iDimensionParameter);
+                                if (result == null) result = caseIParameter(iDimensionParameter);
+                                if (result == null) result = caseANamedItem(iDimensionParameter);
+                                if (result == null) result = caseAIdentifiableItem(iDimensionParameter);
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
                         }
@@ -133,6 +150,21 @@ public class DataSwitch<T> extends Switch<T> {
         }
 
 	/**
+         * Returns the result of interpreting the object as an instance of '<em>IDimension</em>'.
+         * <!-- begin-user-doc -->
+         * This implementation returns null;
+         * returning a non-null result will terminate the switch.
+         * <!-- end-user-doc -->
+         * @param object the target of the switch.
+         * @return the result of interpreting the object as an instance of '<em>IDimension</em>'.
+         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+         * @generated
+         */
+        public T caseIDimension(IDimension object) {
+                return null;
+        }
+
+        /**
          * Returns the result of interpreting the object as an instance of '<em>IParameter</em>'.
          * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -148,6 +180,21 @@ public class DataSwitch<T> extends Switch<T> {
         }
 
 	/**
+         * Returns the result of interpreting the object as an instance of '<em>IDimension Parameter</em>'.
+         * <!-- begin-user-doc -->
+         * This implementation returns null;
+         * returning a non-null result will terminate the switch.
+         * <!-- end-user-doc -->
+         * @param object the target of the switch.
+         * @return the result of interpreting the object as an instance of '<em>IDimension Parameter</em>'.
+         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+         * @generated
+         */
+        public T caseIDimensionParameter(IDimensionParameter object) {
+                return null;
+        }
+
+        /**
          * Returns the result of interpreting the object as an instance of '<em>IData Entity</em>'.
          * <!-- begin-user-doc -->
 	 * This implementation returns null;

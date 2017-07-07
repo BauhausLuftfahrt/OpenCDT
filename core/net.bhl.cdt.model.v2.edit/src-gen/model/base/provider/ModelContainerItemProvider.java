@@ -6,6 +6,7 @@ package model.base.provider;
 import java.util.Collection;
 import java.util.List;
 
+import model.base.BaseFactory;
 import model.base.BasePackage;
 import model.base.ModelContainer;
 
@@ -162,6 +163,11 @@ public class ModelContainerItemProvider extends ANamedItemItemProvider {
         @Override
         protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
                 super.collectNewChildDescriptors(newChildDescriptors, object);
+
+                newChildDescriptors.add
+                        (createChildParameter
+                                (BasePackage.Literals.MODEL_CONTAINER__CONTAINED_ITEMS,
+                                 BaseFactory.eINSTANCE.createSystem()));
         }
 
 }

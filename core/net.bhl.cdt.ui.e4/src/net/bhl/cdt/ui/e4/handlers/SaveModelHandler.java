@@ -5,7 +5,9 @@
  ******************************************************************************/
 package net.bhl.cdt.ui.e4.handlers;
 
+import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
 
 /**
  * 
@@ -15,8 +17,12 @@ import org.eclipse.e4.core.di.annotations.Execute;
  */
 public class SaveModelHandler {
     @Execute
-    public void execute() {
-
+    public void execute(EPartService partService) {
+	partService.savePart(partService.getActivePart(), false);
     }
-
+    
+    @CanExecute
+    public boolean canExecute(EPartService partService) {
+	return partService.getActivePart().isDirty();
+    }
 }

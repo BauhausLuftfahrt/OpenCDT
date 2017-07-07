@@ -51,7 +51,6 @@
     <children xmi:id="_GlrBIQrBEeaJ2Y3tZdi01w" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_GlrBIgrBEeaJ2Y3tZdi01w" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
-  <descriptors xmi:id="_5aBzoJgREeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.partdescriptor.editor" label="" tooltip="" allowMultiple="true" category="editorPart" closeable="true" dirtyable="true" contributionURI="bundleclass://org.eclipse.emf.ecp.ui.e4/org.eclipse.emf.ecp.ui.e4.editor.ECPE4Editor"/>
   <commands xmi:id="_ogB3AJgZEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.command.newProject" commandName="New Project"/>
   <commands xmi:id="_eOWrgJgcEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.command.checkoutProject" commandName="Checkout"/>
   <commands xmi:id="_StwzEJoSEeKJoJcmiy2C6w" elementId="org.eclipse.emf.ecp.e4.application.command.project.newModelElement" commandName="New Model element"/>

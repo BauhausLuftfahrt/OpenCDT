@@ -11,6 +11,8 @@ import model.data.AValue;
 import model.data.DataFactory;
 import model.data.DataPackage;
 import model.data.IDataEntity;
+import model.data.IDimension;
+import model.data.IDimensionParameter;
 import model.data.IParameter;
 
 import model.quantities.QuantitiesPackage;
@@ -47,12 +49,26 @@ public class DataPackageImpl extends EPackageImpl implements DataPackage {
 
 	/**
          * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        private EClass iDimensionEClass = null;
+
+        /**
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
          * @generated
          */
 	private EClass iParameterEClass = null;
 
 	/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        private EClass iDimensionParameterEClass = null;
+
+        /**
          * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
          * @generated
@@ -175,6 +191,24 @@ public class DataPackageImpl extends EPackageImpl implements DataPackage {
 
 	/**
          * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EClass getIDimension() {
+                return iDimensionEClass;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EReference getIDimension_Units() {
+                return (EReference)iDimensionEClass.getEStructuralFeatures().get(0);
+        }
+
+        /**
+         * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
          * @generated
          */
@@ -183,6 +217,24 @@ public class DataPackageImpl extends EPackageImpl implements DataPackage {
         }
 
 	/**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EClass getIDimensionParameter() {
+                return iDimensionParameterEClass;
+        }
+
+        /**
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        public EReference getIDimensionParameter_Dimension() {
+                return (EReference)iDimensionParameterEClass.getEStructuralFeatures().get(0);
+        }
+
+        /**
          * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
          * @generated
@@ -235,7 +287,13 @@ public class DataPackageImpl extends EPackageImpl implements DataPackage {
                 aValueEClass = createEClass(AVALUE);
                 createEReference(aValueEClass, AVALUE__PARAMETER);
 
+                iDimensionEClass = createEClass(IDIMENSION);
+                createEReference(iDimensionEClass, IDIMENSION__UNITS);
+
                 iParameterEClass = createEClass(IPARAMETER);
+
+                iDimensionParameterEClass = createEClass(IDIMENSION_PARAMETER);
+                createEReference(iDimensionParameterEClass, IDIMENSION_PARAMETER__DIMENSION);
 
                 iDataEntityEClass = createEClass(IDATA_ENTITY);
                 createEReference(iDataEntityEClass, IDATA_ENTITY__PARAMETERS);
@@ -273,8 +331,11 @@ public class DataPackageImpl extends EPackageImpl implements DataPackage {
 
                 // Add supertypes to classes
                 aUnitEClass.getESuperTypes().add(theBasePackage.getANamedItem());
+                iDimensionEClass.getESuperTypes().add(theBasePackage.getAIdentifiableItem());
+                iDimensionEClass.getESuperTypes().add(theBasePackage.getANamedItem());
                 iParameterEClass.getESuperTypes().add(theBasePackage.getANamedItem());
                 iParameterEClass.getESuperTypes().add(theBasePackage.getAIdentifiableItem());
+                iDimensionParameterEClass.getESuperTypes().add(this.getIParameter());
                 iDataEntityEClass.getESuperTypes().add(theBasePackage.getAIdentifiableItem());
                 iDataEntityEClass.getESuperTypes().add(theBasePackage.getANamedItem());
 
@@ -286,7 +347,13 @@ public class DataPackageImpl extends EPackageImpl implements DataPackage {
                 initEClass(aValueEClass, AValue.class, "AValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
                 initEReference(getAValue_Parameter(), this.getIParameter(), null, "parameter", null, 1, 1, AValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+                initEClass(iDimensionEClass, IDimension.class, "IDimension", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                initEReference(getIDimension_Units(), this.getAUnit(), null, "units", null, 0, -1, IDimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
                 initEClass(iParameterEClass, IParameter.class, "IParameter", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+                initEClass(iDimensionParameterEClass, IDimensionParameter.class, "IDimensionParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+                initEReference(getIDimensionParameter_Dimension(), this.getIDimension(), null, "dimension", null, 1, 1, IDimensionParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
                 initEClass(iDataEntityEClass, IDataEntity.class, "IDataEntity", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
                 initEReference(getIDataEntity_Parameters(), this.getIParameter(), null, "parameters", null, 0, -1, IDataEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
