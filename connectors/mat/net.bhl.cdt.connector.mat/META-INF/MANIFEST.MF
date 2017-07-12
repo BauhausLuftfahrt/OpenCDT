@@ -8,9 +8,7 @@ Require-Bundle: javax.inject,
  org.eclipse.osgi,
  org.eclipse.jface,
  org.eclipse.e4.ui.services,
- org.eclipse.e4.core.di.annotations,
- org.eclipse.emf.ecp.core,
- org.eclipse.emf.ecp.ui
+ org.eclipse.e4.core.di.annotations
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.annotation;version="1.2.0"
 Bundle-ClassPath: lib/jmatio.jar,

@@ -1,0 +1,16 @@
+import org.eclipse.emf.parsley.edit.IEditingStrategy
+import org.eclipse.emf.parsley.edit.UndoableEditingStrategy
+
+/* net.bhl.cdt.ui.e4 EMF Parsley Dsl Module file */
+module net.bhl.cdt.ui.view.modeleditor {
+	parts {
+		viewpart net.bhl.cdt.ui.view.modeleditor {
+			viewname "Parameter Table"
+			viewclass ParameterTable
+		}
+	}
+	
+	bindings {
+		type IEditingStrategy -> UndoableEditingStrategy
+	}
+}

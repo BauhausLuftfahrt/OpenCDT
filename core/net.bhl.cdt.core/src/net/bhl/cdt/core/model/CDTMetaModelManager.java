@@ -7,7 +7,6 @@ package net.bhl.cdt.core.model;
 
 import java.time.LocalDateTime;
 
-import model.base.AIdentifiableItem;
 import net.bhl.cdt.util.constants.StringConstants;
 
 /**
@@ -28,9 +27,9 @@ public final class CDTMetaModelManager {
     
     private CDTMetaModelManager() {}
     
-    public void initializeAIdentifiableItem(AIdentifiableItem item) {
-	item.setId(generateDateTimeID());
-    }
+//    public void initializeAIdentifiableItem(AIdentifiableItem item) {
+//	item.setId(generateDateTimeID());
+//    }
     
     private int lastGeneratedID;
     

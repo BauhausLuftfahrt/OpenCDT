@@ -11,8 +11,7 @@ Require-Bundle: org.eclipse.ui,
  net.bhl.cdt.log,
  org.eclipse.osgi.services,
  org.eclipse.e4.core.di;bundle-version="1.6.1",
- org.eclipse.e4.ui.model.workbench,
- net.bhl.cdt.model.v2
+ org.eclipse.e4.ui.model.workbench
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.e4.core.contexts

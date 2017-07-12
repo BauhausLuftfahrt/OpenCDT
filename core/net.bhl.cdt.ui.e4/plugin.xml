@@ -19,9 +19,16 @@
       </view>
       <view
             category="org.eclipse.emf.parsley"
-            class="net.bhl.cdt.ui.view.ViewExecutableExtensionFactory:net.bhl.cdt.ui.view.ModelContainerEditor"
+            class="net.bhl.cdt.ui.view.ViewExecutableExtensionFactory:net.bhl.cdt.ui.view.modeleditor.ModelContainerEditor"
             id="net.bhl.cdt.ui.view"
             name="Model Container Editor"
+            restorable="true">
+      </view>
+      <view
+            category="org.eclipse.emf.parsley"
+            class="net.bhl.cdt.ui.view.modeleditor.ModeleditorExecutableExtensionFactory:net.bhl.cdt.ui.view.modeleditor.ParameterTable"
+            id="net.bhl.cdt.ui.view.modeleditor"
+            name="Parameter Table"
             restorable="true">
       </view>
    </extension>

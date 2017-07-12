@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: net.bhl.cdt.db.model
+Bundle-SymbolicName: net.bhl.cdt.db.model; singleton:=true
+Bundle-Version: 0.1.0.qualifier
+Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
+ org.eclipse.core.runtime,
+ net.bhl.cdt.model.v2;bundle-version="0.1.0"
