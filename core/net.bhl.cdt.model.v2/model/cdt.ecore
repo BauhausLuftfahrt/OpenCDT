@@ -36,10 +36,6 @@
           eType="#//data/IParameter"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="AValue">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
-          eType="#//data/IParameter"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IDimension" abstract="true" interface="true"
         eSuperTypes="#//base/AIdentifiableItem #//base/ANamedItem">
       <eStructuralFeatures xsi:type="ecore:EReference" name="units" upperBound="-1"
@@ -47,49 +43,44 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IParameter" abstract="true" interface="true"
         eSuperTypes="#//base/ANamedItem #//base/AIdentifiableItem"/>
-    <eClassifiers xsi:type="ecore:EClass" name="IDimensionParameter" eSuperTypes="#//data/IParameter">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="unit" lowerBound="1"
-          eType="#//data/AUnit"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="dimension" lowerBound="1"
-          eType="#//data/IDimension"/>
-    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="IDataEntity" abstract="true" interface="true"
         eSuperTypes="#//base/AIdentifiableItem #//base/ANamedItem">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
           eType="#//data/IParameter" containment="true"/>
     </eClassifiers>
-  </eSubpackages>
-  <eSubpackages name="quantities" nsURI="http://www.bauhaus-luftfahrt.net/cdt/quantities"
-      nsPrefix="net.bhl.cdt.model">
     <eClassifiers xsi:type="ecore:EDataType" name="Length" instanceClassName="javax.measure.quantity.Length"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Distance" instanceClassName="javax.measure.quantity.Length"/>
     <eClassifiers xsi:type="ecore:EDataType" name="Amount" instanceClassName="org.jscience.physics.amount.Amount">
       <eTypeParameters name="Q">
-        <eBounds eClassifier="#//quantities/Quantity"/>
+        <eBounds eClassifier="#//data/Quantity"/>
       </eTypeParameters>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EDataType" name="Unit" instanceClassName="javax.measure.unit.Unit">
       <eTypeParameters name="Q">
-        <eBounds eClassifier="#//quantities/Quantity"/>
+        <eBounds eClassifier="#//data/Quantity"/>
       </eTypeParameters>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EDataType" name="Quantity" instanceClassName="javax.measure.quantity.Quantity"/>
     <eClassifiers xsi:type="ecore:EClass" name="StringParameter" eSuperTypes="#//data/IParameter">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="INumberParameter" abstract="true"
-        interface="true" eSuperTypes="#//data/IParameter"/>
-    <eClassifiers xsi:type="ecore:EClass" name="LengthParamenter" eSuperTypes="#//quantities/INumberParameter">
+    <eClassifiers xsi:type="ecore:EClass" name="DateParameter" eSuperTypes="#//data/IParameter">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EDataType" name="Quantity" instanceClassName="javax.measure.quantity.Quantity"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IQuantifiedParameter">
+      <eTypeParameters name="Q">
+        <eBounds eClassifier="#//data/Quantity"/>
+      </eTypeParameters>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="value">
-        <eGenericType eClassifier="#//quantities/Amount">
-          <eTypeArguments eClassifier="#//quantities/Length"/>
+        <eGenericType eClassifier="#//data/Amount">
+          <eTypeArguments eTypeParameter="#//data/IQuantifiedParameter/Q"/>
         </eGenericType>
       </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit">
-        <eGenericType eClassifier="#//quantities/Unit">
-          <eTypeArguments eClassifier="#//quantities/Length"/>
-        </eGenericType>
-      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LengthParamenter">
+      <eGenericSuperTypes eClassifier="#//data/IQuantifiedParameter">
+        <eTypeArguments eClassifier="#//data/Length"/>
+      </eGenericSuperTypes>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

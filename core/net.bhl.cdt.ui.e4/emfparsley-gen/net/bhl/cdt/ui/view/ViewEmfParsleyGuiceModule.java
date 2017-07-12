@@ -1,15 +1,9 @@
 package net.bhl.cdt.ui.view;
 
 import net.bhl.cdt.ui.view.edit.ui.provider.ViewViewerContentProvider;
-import net.bhl.cdt.ui.view.modeleditor.ModelContainerEditorFormControlFactory;
-import net.bhl.cdt.ui.view.ui.provider.ViewFeatureCaptionProvider;
 import net.bhl.cdt.ui.view.ui.provider.ViewFeaturesProvider;
 import net.bhl.cdt.ui.view.ui.provider.ViewLabelProvider;
 import org.eclipse.emf.parsley.EmfParsleyGuiceModule;
-import org.eclipse.emf.parsley.composite.FormControlFactory;
-import org.eclipse.emf.parsley.edit.IEditingStrategy;
-import org.eclipse.emf.parsley.edit.UndoableEditingStrategy;
-import org.eclipse.emf.parsley.ui.provider.FeatureCaptionProvider;
 import org.eclipse.emf.parsley.ui.provider.FeaturesProvider;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
@@ -26,28 +20,13 @@ public class ViewEmfParsleyGuiceModule extends EmfParsleyGuiceModule {
   }
   
   @Override
-  public Class<? extends IEditingStrategy> bindIEditingStrategy() {
-    return UndoableEditingStrategy.class;
-  }
-  
-  @Override
   public int valueTreeFormSashStyle() {
     return SWT.HORIZONTAL;
   }
   
   @Override
-  public Class<? extends FormControlFactory> bindFormControlFactory() {
-    return ModelContainerEditorFormControlFactory.class;
-  }
-  
-  @Override
   public Class<? extends ILabelProvider> bindILabelProvider() {
     return ViewLabelProvider.class;
-  }
-  
-  @Override
-  public Class<? extends FeatureCaptionProvider> bindFeatureCaptionProvider() {
-    return ViewFeatureCaptionProvider.class;
   }
   
   @Override

@@ -30,61 +30,61 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class AUnitImpl extends ANamedItemImpl implements AUnit {
-	/**
+        /**
          * The cached value of the '{@link #getParameter() <em>Parameter</em>}' reference.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @see #getParameter()
          * @generated
          * @ordered
          */
-	protected IParameter parameter;
+        protected IParameter parameter;
 
-	/**
+        /**
          * The default value of the '{@link #getSymbol() <em>Symbol</em>}' attribute.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @see #getSymbol()
          * @generated
          * @ordered
          */
-	protected static final String SYMBOL_EDEFAULT = null;
+        protected static final String SYMBOL_EDEFAULT = null;
 
-	/**
+        /**
          * The cached value of the '{@link #getSymbol() <em>Symbol</em>}' attribute.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @see #getSymbol()
          * @generated
          * @ordered
          */
-	protected String symbol = SYMBOL_EDEFAULT;
+        protected String symbol = SYMBOL_EDEFAULT;
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	protected AUnitImpl() {
+        protected AUnitImpl() {
                 super();
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	@Override
-	protected EClass eStaticClass() {
+        @Override
+        protected EClass eStaticClass() {
                 return DataPackage.Literals.AUNIT;
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public IParameter getParameter() {
+        public IParameter getParameter() {
                 if (parameter != null && parameter.eIsProxy()) {
                         InternalEObject oldParameter = (InternalEObject)parameter;
                         parameter = (IParameter)eResolveProxy(oldParameter);
@@ -96,55 +96,55 @@ public class AUnitImpl extends ANamedItemImpl implements AUnit {
                 return parameter;
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public IParameter basicGetParameter() {
+        public IParameter basicGetParameter() {
                 return parameter;
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public void setParameter(IParameter newParameter) {
+        public void setParameter(IParameter newParameter) {
                 IParameter oldParameter = parameter;
                 parameter = newParameter;
                 if (eNotificationRequired())
                         eNotify(new ENotificationImpl(this, Notification.SET, DataPackage.AUNIT__PARAMETER, oldParameter, parameter));
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public String getSymbol() {
+        public String getSymbol() {
                 return symbol;
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public void setSymbol(String newSymbol) {
+        public void setSymbol(String newSymbol) {
                 String oldSymbol = symbol;
                 symbol = newSymbol;
                 if (eNotificationRequired())
                         eNotify(new ENotificationImpl(this, Notification.SET, DataPackage.AUNIT__SYMBOL, oldSymbol, symbol));
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+        @Override
+        public Object eGet(int featureID, boolean resolve, boolean coreType) {
                 switch (featureID) {
                         case DataPackage.AUNIT__PARAMETER:
                                 if (resolve) return getParameter();
@@ -155,13 +155,13 @@ public class AUnitImpl extends ANamedItemImpl implements AUnit {
                 return super.eGet(featureID, resolve, coreType);
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	@Override
-	public void eSet(int featureID, Object newValue) {
+        @Override
+        public void eSet(int featureID, Object newValue) {
                 switch (featureID) {
                         case DataPackage.AUNIT__PARAMETER:
                                 setParameter((IParameter)newValue);
@@ -173,13 +173,13 @@ public class AUnitImpl extends ANamedItemImpl implements AUnit {
                 super.eSet(featureID, newValue);
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	@Override
-	public void eUnset(int featureID) {
+        @Override
+        public void eUnset(int featureID) {
                 switch (featureID) {
                         case DataPackage.AUNIT__PARAMETER:
                                 setParameter((IParameter)null);
@@ -191,13 +191,13 @@ public class AUnitImpl extends ANamedItemImpl implements AUnit {
                 super.eUnset(featureID);
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	@Override
-	public boolean eIsSet(int featureID) {
+        @Override
+        public boolean eIsSet(int featureID) {
                 switch (featureID) {
                         case DataPackage.AUNIT__PARAMETER:
                                 return parameter != null;
@@ -207,13 +207,13 @@ public class AUnitImpl extends ANamedItemImpl implements AUnit {
                 return super.eIsSet(featureID);
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	@Override
-	public String toString() {
+        @Override
+        public String toString() {
                 if (eIsProxy()) return super.toString();
 
                 StringBuffer result = new StringBuffer(super.toString());

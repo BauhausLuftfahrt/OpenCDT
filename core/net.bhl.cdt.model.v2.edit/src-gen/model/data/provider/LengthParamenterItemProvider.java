@@ -1,37 +1,35 @@
 /**
  */
-package model.base.provider;
+package model.data.provider;
 
 
 import java.util.Collection;
 import java.util.List;
 
-import model.base.AModelContainerItem;
-import model.base.BasePackage;
+import model.data.LengthParamenter;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.StyledString;
-import org.eclipse.emf.edit.provider.ViewerNotification;
+
+import org.jscience.physics.amount.Amount;
 
 /**
- * This is the item provider adapter for a {@link model.base.AModelContainerItem} object.
+ * This is the item provider adapter for a {@link model.data.LengthParamenter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class AModelContainerItemItemProvider extends AIdentifiableItemItemProvider {
+public class LengthParamenterItemProvider extends IQuantifiedParameterItemProvider {
         /**
          * This constructs an instance from a factory and a notifier.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        public AModelContainerItemItemProvider(AdapterFactory adapterFactory) {
+        public LengthParamenterItemProvider(AdapterFactory adapterFactory) {
                 super(adapterFactory);
         }
 
@@ -46,31 +44,19 @@ public class AModelContainerItemItemProvider extends AIdentifiableItemItemProvid
                 if (itemPropertyDescriptors == null) {
                         super.getPropertyDescriptors(object);
 
-                        addNamePropertyDescriptor(object);
                 }
                 return itemPropertyDescriptors;
         }
 
         /**
-         * This adds a property descriptor for the Name feature.
+         * This returns LengthParamenter.gif.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        protected void addNamePropertyDescriptor(Object object) {
-                itemPropertyDescriptors.add
-                        (createItemPropertyDescriptor
-                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-                                 getResourceLocator(),
-                                 getString("_UI_ANamedItem_name_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_ANamedItem_name_feature", "_UI_ANamedItem_type"),
-                                 BasePackage.Literals.ANAMED_ITEM__NAME,
-                                 true,
-                                 false,
-                                 false,
-                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-                                 null,
-                                 null));
+        @Override
+        public Object getImage(Object object) {
+                return overlayImage(object, getResourceLocator().getImage("full/obj16/LengthParamenter"));
         }
 
         /**
@@ -92,12 +78,13 @@ public class AModelContainerItemItemProvider extends AIdentifiableItemItemProvid
          */
         @Override
         public Object getStyledText(Object object) {
-                String label = ((AModelContainerItem)object).getName();
+                Amount labelValue = ((LengthParamenter)object).getValue();
+                String label = labelValue == null ? null : labelValue.toString();
     	StyledString styledLabel = new StyledString();
                 if (label == null || label.length() == 0) {
-                        styledLabel.append(getString("_UI_AModelContainerItem_type"), StyledString.Style.QUALIFIER_STYLER); 
+                        styledLabel.append(getString("_UI_LengthParamenter_type"), StyledString.Style.QUALIFIER_STYLER); 
                 } else {
-                        styledLabel.append(getString("_UI_AModelContainerItem_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label);
+                        styledLabel.append(getString("_UI_LengthParamenter_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label);
                 }
                 return styledLabel;
         }	
@@ -112,12 +99,6 @@ public class AModelContainerItemItemProvider extends AIdentifiableItemItemProvid
         @Override
         public void notifyChanged(Notification notification) {
                 updateChildren(notification);
-
-                switch (notification.getFeatureID(AModelContainerItem.class)) {
-                        case BasePackage.AMODEL_CONTAINER_ITEM__NAME:
-                                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                                return;
-                }
                 super.notifyChanged(notification);
         }
 

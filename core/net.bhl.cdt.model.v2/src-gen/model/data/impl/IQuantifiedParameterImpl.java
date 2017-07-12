@@ -1,9 +1,11 @@
 /**
  */
-package model.base.impl;
+package model.data.impl;
 
-import model.base.AIdentifiableItem;
-import model.base.BasePackage;
+import javax.measure.quantity.Quantity;
+
+import model.data.DataPackage;
+import model.data.IQuantifiedParameter;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -12,46 +14,38 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.jscience.physics.amount.Amount;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>AIdentifiable Item</b></em>'.
+ * An implementation of the model object '<em><b>IQuantified Parameter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link model.base.impl.AIdentifiableItemImpl#getId <em>Id</em>}</li>
+ *   <li>{@link model.data.impl.IQuantifiedParameterImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public abstract class AIdentifiableItemImpl extends MinimalEObjectImpl.Container implements AIdentifiableItem {
+public class IQuantifiedParameterImpl<Q extends Quantity> extends MinimalEObjectImpl.Container implements IQuantifiedParameter<Q> {
         /**
-         * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+         * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getId()
+         * @see #getValue()
          * @generated
          * @ordered
          */
-        protected static final String ID_EDEFAULT = null;
-
-        /**
-         * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @see #getId()
-         * @generated
-         * @ordered
-         */
-        protected String id = ID_EDEFAULT;
+        protected Amount<Q> value;
 
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        protected AIdentifiableItemImpl() {
+        protected IQuantifiedParameterImpl() {
                 super();
         }
 
@@ -62,7 +56,7 @@ public abstract class AIdentifiableItemImpl extends MinimalEObjectImpl.Container
          */
         @Override
         protected EClass eStaticClass() {
-                return BasePackage.Literals.AIDENTIFIABLE_ITEM;
+                return DataPackage.Literals.IQUANTIFIED_PARAMETER;
         }
 
         /**
@@ -70,8 +64,8 @@ public abstract class AIdentifiableItemImpl extends MinimalEObjectImpl.Container
          * <!-- end-user-doc -->
          * @generated
          */
-        public String getId() {
-                return id;
+        public Amount<Q> getValue() {
+                return value;
         }
 
         /**
@@ -79,11 +73,11 @@ public abstract class AIdentifiableItemImpl extends MinimalEObjectImpl.Container
          * <!-- end-user-doc -->
          * @generated
          */
-        public void setId(String newId) {
-                String oldId = id;
-                id = newId;
+        public void setValue(Amount<Q> newValue) {
+                Amount<Q> oldValue = value;
+                value = newValue;
                 if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.AIDENTIFIABLE_ITEM__ID, oldId, id));
+                        eNotify(new ENotificationImpl(this, Notification.SET, DataPackage.IQUANTIFIED_PARAMETER__VALUE, oldValue, value));
         }
 
         /**
@@ -94,8 +88,8 @@ public abstract class AIdentifiableItemImpl extends MinimalEObjectImpl.Container
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
                 switch (featureID) {
-                        case BasePackage.AIDENTIFIABLE_ITEM__ID:
-                                return getId();
+                        case DataPackage.IQUANTIFIED_PARAMETER__VALUE:
+                                return getValue();
                 }
                 return super.eGet(featureID, resolve, coreType);
         }
@@ -105,11 +99,12 @@ public abstract class AIdentifiableItemImpl extends MinimalEObjectImpl.Container
          * <!-- end-user-doc -->
          * @generated
          */
+        @SuppressWarnings("unchecked")
         @Override
         public void eSet(int featureID, Object newValue) {
                 switch (featureID) {
-                        case BasePackage.AIDENTIFIABLE_ITEM__ID:
-                                setId((String)newValue);
+                        case DataPackage.IQUANTIFIED_PARAMETER__VALUE:
+                                setValue((Amount<Q>)newValue);
                                 return;
                 }
                 super.eSet(featureID, newValue);
@@ -123,8 +118,8 @@ public abstract class AIdentifiableItemImpl extends MinimalEObjectImpl.Container
         @Override
         public void eUnset(int featureID) {
                 switch (featureID) {
-                        case BasePackage.AIDENTIFIABLE_ITEM__ID:
-                                setId(ID_EDEFAULT);
+                        case DataPackage.IQUANTIFIED_PARAMETER__VALUE:
+                                setValue((Amount<Q>)null);
                                 return;
                 }
                 super.eUnset(featureID);
@@ -138,8 +133,8 @@ public abstract class AIdentifiableItemImpl extends MinimalEObjectImpl.Container
         @Override
         public boolean eIsSet(int featureID) {
                 switch (featureID) {
-                        case BasePackage.AIDENTIFIABLE_ITEM__ID:
-                                return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+                        case DataPackage.IQUANTIFIED_PARAMETER__VALUE:
+                                return value != null;
                 }
                 return super.eIsSet(featureID);
         }
@@ -154,10 +149,10 @@ public abstract class AIdentifiableItemImpl extends MinimalEObjectImpl.Container
                 if (eIsProxy()) return super.toString();
 
                 StringBuffer result = new StringBuffer(super.toString());
-                result.append(" (id: ");
-                result.append(id);
+                result.append(" (value: ");
+                result.append(value);
                 result.append(')');
                 return result.toString();
         }
 
-} //AIdentifiableItemImpl
+} //IQuantifiedParameterImpl

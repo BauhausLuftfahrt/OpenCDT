@@ -2,10 +2,6 @@ import model.base.Component
 import model.base.ModelContainer
 import model.base.System
 import net.bhl.cdt.ui.view.modeleditor.ModelContainerEditor
-import net.bhl.cdt.ui.view.modeleditor.ModelContainerEditorFormControlFactory
-import org.eclipse.emf.parsley.composite.FormControlFactory
-import org.eclipse.emf.parsley.edit.IEditingStrategy
-import org.eclipse.emf.parsley.edit.UndoableEditingStrategy
 import org.eclipse.swt.SWT
 
 /* net.bhl.cdt.ui.e4 EMF Parsley Dsl Module file */
@@ -18,9 +14,8 @@ module net.bhl.cdt.ui.view {
 	}
 	
 	bindings {
-		type IEditingStrategy -> UndoableEditingStrategy
 		value int TreeFormSashStyle -> SWT.HORIZONTAL
-		type FormControlFactory -> ModelContainerEditorFormControlFactory
+		//type FormControlFactory -> ModelContainerEditorFormControlFactory
 	}
 	
 	labelProvider {
@@ -40,21 +35,15 @@ module net.bhl.cdt.ui.view {
 		
 		children {
 			System -> components
-			Component -> subComponents
+			Component -> { subComponents }
 		}
 	}
 	
 	featuresProvider {
 		features {
 			ModelContainer -> name
-			System -> name, parameters
-			Component -> name, parameters, id 
-		}
-	}
-	
-	featureCaptionProvider {
-		text {
-			Component: parameters -> "Parameters:"
+			System -> name
+			Component -> name, id 
 		}
 	}
 }

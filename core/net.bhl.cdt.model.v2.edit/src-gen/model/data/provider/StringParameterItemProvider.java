@@ -1,22 +1,23 @@
 /**
  */
-package model.base.provider;
+package model.data.provider;
 
 
 import java.util.Collection;
 import java.util.List;
 
-import model.base.BaseFactory;
 import model.base.BasePackage;
-import model.base.Component;
 
-import model.data.DataFactory;
+import model.base.provider.ANamedItemItemProvider;
+import model.base.provider.CDTEditPlugin;
+
 import model.data.DataPackage;
+import model.data.StringParameter;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -25,19 +26,19 @@ import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link model.base.Component} object.
+ * This is the item provider adapter for a {@link model.data.StringParameter} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class ComponentItemProvider extends AIdentifiableItemItemProvider {
+public class StringParameterItemProvider extends ANamedItemItemProvider {
         /**
          * This constructs an instance from a factory and a notifier.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        public ComponentItemProvider(AdapterFactory adapterFactory) {
+        public StringParameterItemProvider(AdapterFactory adapterFactory) {
                 super(adapterFactory);
         }
 
@@ -52,25 +53,26 @@ public class ComponentItemProvider extends AIdentifiableItemItemProvider {
                 if (itemPropertyDescriptors == null) {
                         super.getPropertyDescriptors(object);
 
-                        addNamePropertyDescriptor(object);
+                        addIdPropertyDescriptor(object);
+                        addValuePropertyDescriptor(object);
                 }
                 return itemPropertyDescriptors;
         }
 
         /**
-         * This adds a property descriptor for the Name feature.
+         * This adds a property descriptor for the Id feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        protected void addNamePropertyDescriptor(Object object) {
+        protected void addIdPropertyDescriptor(Object object) {
                 itemPropertyDescriptors.add
                         (createItemPropertyDescriptor
                                 (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
                                  getResourceLocator(),
-                                 getString("_UI_ANamedItem_name_feature"),
-                                 getString("_UI_PropertyDescriptor_description", "_UI_ANamedItem_name_feature", "_UI_ANamedItem_type"),
-                                 BasePackage.Literals.ANAMED_ITEM__NAME,
+                                 getString("_UI_AIdentifiableItem_id_feature"),
+                                 getString("_UI_PropertyDescriptor_description", "_UI_AIdentifiableItem_id_feature", "_UI_AIdentifiableItem_type"),
+                                 BasePackage.Literals.AIDENTIFIABLE_ITEM__ID,
                                  true,
                                  false,
                                  false,
@@ -80,45 +82,36 @@ public class ComponentItemProvider extends AIdentifiableItemItemProvider {
         }
 
         /**
-         * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-         * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-         * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+         * This adds a property descriptor for the Value feature.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        @Override
-        public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-                if (childrenFeatures == null) {
-                        super.getChildrenFeatures(object);
-                        childrenFeatures.add(DataPackage.Literals.IDATA_ENTITY__PARAMETERS);
-                        childrenFeatures.add(BasePackage.Literals.COMPONENT__SUB_COMPONENTS);
-                }
-                return childrenFeatures;
+        protected void addValuePropertyDescriptor(Object object) {
+                itemPropertyDescriptors.add
+                        (createItemPropertyDescriptor
+                                (((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+                                 getResourceLocator(),
+                                 getString("_UI_StringParameter_value_feature"),
+                                 getString("_UI_PropertyDescriptor_description", "_UI_StringParameter_value_feature", "_UI_StringParameter_type"),
+                                 DataPackage.Literals.STRING_PARAMETER__VALUE,
+                                 true,
+                                 false,
+                                 false,
+                                 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+                                 null,
+                                 null));
         }
 
         /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        protected EStructuralFeature getChildFeature(Object object, Object child) {
-                // Check the type of the specified child object and return the proper feature to use for
-                // adding (see {@link AddCommand}) it as a child.
-
-                return super.getChildFeature(object, child);
-        }
-
-        /**
-         * This returns Component.gif.
+         * This returns StringParameter.gif.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
         @Override
         public Object getImage(Object object) {
-                return overlayImage(object, getResourceLocator().getImage("full/obj16/Component"));
+                return overlayImage(object, getResourceLocator().getImage("full/obj16/StringParameter"));
         }
 
         /**
@@ -140,12 +133,12 @@ public class ComponentItemProvider extends AIdentifiableItemItemProvider {
          */
         @Override
         public Object getStyledText(Object object) {
-                String label = ((Component)object).getName();
+                String label = ((StringParameter)object).getName();
     	StyledString styledLabel = new StyledString();
                 if (label == null || label.length() == 0) {
-                        styledLabel.append(getString("_UI_Component_type"), StyledString.Style.QUALIFIER_STYLER); 
+                        styledLabel.append(getString("_UI_StringParameter_type"), StyledString.Style.QUALIFIER_STYLER); 
                 } else {
-                        styledLabel.append(getString("_UI_Component_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label);
+                        styledLabel.append(getString("_UI_StringParameter_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label);
                 }
                 return styledLabel;
         }	
@@ -161,13 +154,10 @@ public class ComponentItemProvider extends AIdentifiableItemItemProvider {
         public void notifyChanged(Notification notification) {
                 updateChildren(notification);
 
-                switch (notification.getFeatureID(Component.class)) {
-                        case BasePackage.COMPONENT__NAME:
+                switch (notification.getFeatureID(StringParameter.class)) {
+                        case DataPackage.STRING_PARAMETER__ID:
+                        case DataPackage.STRING_PARAMETER__VALUE:
                                 fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-                                return;
-                        case BasePackage.COMPONENT__PARAMETERS:
-                        case BasePackage.COMPONENT__SUB_COMPONENTS:
-                                fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
                                 return;
                 }
                 super.notifyChanged(notification);
@@ -183,21 +173,17 @@ public class ComponentItemProvider extends AIdentifiableItemItemProvider {
         @Override
         protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
                 super.collectNewChildDescriptors(newChildDescriptors, object);
+        }
 
-                newChildDescriptors.add
-                        (createChildParameter
-                                (DataPackage.Literals.IDATA_ENTITY__PARAMETERS,
-                                 DataFactory.eINSTANCE.createStringParameter()));
-
-                newChildDescriptors.add
-                        (createChildParameter
-                                (DataPackage.Literals.IDATA_ENTITY__PARAMETERS,
-                                 DataFactory.eINSTANCE.createDateParameter()));
-
-                newChildDescriptors.add
-                        (createChildParameter
-                                (BasePackage.Literals.COMPONENT__SUB_COMPONENTS,
-                                 BaseFactory.eINSTANCE.createComponent()));
+        /**
+         * Return the resource locator for this item provider's resources.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public ResourceLocator getResourceLocator() {
+                return CDTEditPlugin.INSTANCE;
         }
 
 }

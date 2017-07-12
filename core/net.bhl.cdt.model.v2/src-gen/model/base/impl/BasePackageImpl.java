@@ -7,22 +7,18 @@ import model.base.AModelContainerItem;
 import model.base.ANamedItem;
 import model.base.BaseFactory;
 import model.base.BasePackage;
-
 import model.base.Component;
 import model.base.ModelContainer;
+
 import model.data.DataPackage;
 
 import model.data.impl.DataPackageImpl;
 
-import model.quantities.QuantitiesPackage;
-
-import model.quantities.impl.QuantitiesPackageImpl;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.EReference;
+
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -32,21 +28,21 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * @generated
  */
 public class BasePackageImpl extends EPackageImpl implements BasePackage {
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	private EClass aNamedItemEClass = null;
+        private EClass aNamedItemEClass = null;
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	private EClass aIdentifiableItemEClass = null;
+        private EClass aIdentifiableItemEClass = null;
 
-	/**
+        /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -83,36 +79,36 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage {
          * initialization of the package, or returns the registered package,
          * if one already exists.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @see org.eclipse.emf.ecore.EPackage.Registry
          * @see model.base.BasePackage#eNS_URI
          * @see #init()
          * @generated
          */
-	private BasePackageImpl() {
+        private BasePackageImpl() {
                 super(eNS_URI, BaseFactory.eINSTANCE);
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	private static boolean isInited = false;
+        private static boolean isInited = false;
 
-	/**
+        /**
          * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
          * 
          * <p>This method is used to initialize {@link BasePackage#eINSTANCE} when that field is accessed.
          * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @see #eNS_URI
          * @see #createPackageContents()
          * @see #initializePackageContents()
          * @generated
          */
-	public static BasePackage init() {
+        public static BasePackage init() {
                 if (isInited) return (BasePackage)EPackage.Registry.INSTANCE.getEPackage(BasePackage.eNS_URI);
 
                 // Obtain or create and register package
@@ -122,17 +118,14 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage {
 
                 // Obtain or create and register interdependencies
                 DataPackageImpl theDataPackage = (DataPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI) instanceof DataPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI) : DataPackage.eINSTANCE);
-                QuantitiesPackageImpl theQuantitiesPackage = (QuantitiesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QuantitiesPackage.eNS_URI) instanceof QuantitiesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QuantitiesPackage.eNS_URI) : QuantitiesPackage.eINSTANCE);
 
                 // Create package meta-data objects
                 theBasePackage.createPackageContents();
                 theDataPackage.createPackageContents();
-                theQuantitiesPackage.createPackageContents();
 
                 // Initialize created meta-data
                 theBasePackage.initializePackageContents();
                 theDataPackage.initializePackageContents();
-                theQuantitiesPackage.initializePackageContents();
 
                 // Mark meta-data to indicate it can't be changed
                 theBasePackage.freeze();
@@ -143,43 +136,43 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage {
                 return theBasePackage;
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public EClass getANamedItem() {
+        public EClass getANamedItem() {
                 return aNamedItemEClass;
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public EAttribute getANamedItem_Name() {
+        public EAttribute getANamedItem_Name() {
                 return (EAttribute)aNamedItemEClass.getEStructuralFeatures().get(0);
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public EClass getAIdentifiableItem() {
+        public EClass getAIdentifiableItem() {
                 return aIdentifiableItemEClass;
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public EAttribute getAIdentifiableItem_Id() {
+        public EAttribute getAIdentifiableItem_Id() {
                 return (EAttribute)aIdentifiableItemEClass.getEStructuralFeatures().get(0);
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
@@ -262,28 +255,28 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage {
 
         /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public BaseFactory getBaseFactory() {
+        public BaseFactory getBaseFactory() {
                 return (BaseFactory)getEFactoryInstance();
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	private boolean isCreated = false;
+        private boolean isCreated = false;
 
-	/**
+        /**
          * Creates the meta-model objects for the package.  This method is
          * guarded to have no affect on any invocation but its first.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public void createPackageContents() {
+        public void createPackageContents() {
                 if (isCreated) return;
                 isCreated = true;
 
@@ -308,21 +301,21 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage {
                 createEReference(componentEClass, COMPONENT__SUB_COMPONENTS);
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	private boolean isInitialized = false;
+        private boolean isInitialized = false;
 
-	/**
+        /**
          * Complete the initialization of the package and its meta-model.  This
          * method is guarded to have no affect on any invocation but its first.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public void initializePackageContents() {
+        public void initializePackageContents() {
                 if (isInitialized) return;
                 isInitialized = true;
 

@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: OpenCDT E4
 Bundle-SymbolicName: net.bhl.cdt.client.e4;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: net.bhl.cdt.client.e4.Activator
+Bundle-Activator: net.bhl.cdt.client.Activator
 Bundle-Vendor: Bauhaus Luftfahrt e.V.
 Export-Package: net.bhl.cdt.client.ui
 Require-Bundle: org.eclipse.core.expressions;bundle-version="[3.4.0,4.0.0)",

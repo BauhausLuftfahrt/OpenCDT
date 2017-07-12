@@ -2,6 +2,8 @@
  */
 package model.data.util;
 
+import javax.measure.quantity.Quantity;
+
 import model.base.AIdentifiableItem;
 import model.base.ANamedItem;
 
@@ -26,59 +28,53 @@ import org.eclipse.emf.ecore.util.Switch;
  * @generated
  */
 public class DataSwitch<T> extends Switch<T> {
-	/**
+        /**
          * The cached model package
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	protected static DataPackage modelPackage;
+        protected static DataPackage modelPackage;
 
-	/**
+        /**
          * Creates an instance of the switch.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public DataSwitch() {
+        public DataSwitch() {
                 if (modelPackage == null) {
                         modelPackage = DataPackage.eINSTANCE;
                 }
         }
 
-	/**
+        /**
          * Checks whether this is a switch for the given package.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @param ePackage the package in question.
          * @return whether this is a switch for the given package.
          * @generated
          */
-	@Override
-	protected boolean isSwitchFor(EPackage ePackage) {
+        @Override
+        protected boolean isSwitchFor(EPackage ePackage) {
                 return ePackage == modelPackage;
         }
 
-	/**
+        /**
          * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @return the first non-null result returned by a <code>caseXXX</code> call.
          * @generated
          */
-	@Override
-	protected T doSwitch(int classifierID, EObject theEObject) {
+        @Override
+        protected T doSwitch(int classifierID, EObject theEObject) {
                 switch (classifierID) {
                         case DataPackage.AUNIT: {
                                 AUnit aUnit = (AUnit)theEObject;
                                 T result = caseAUnit(aUnit);
                                 if (result == null) result = caseANamedItem(aUnit);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case DataPackage.AVALUE: {
-                                AValue aValue = (AValue)theEObject;
-                                T result = caseAValue(aValue);
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
                         }
@@ -98,15 +94,6 @@ public class DataSwitch<T> extends Switch<T> {
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
                         }
-                        case DataPackage.IDIMENSION_PARAMETER: {
-                                IDimensionParameter iDimensionParameter = (IDimensionParameter)theEObject;
-                                T result = caseIDimensionParameter(iDimensionParameter);
-                                if (result == null) result = caseIParameter(iDimensionParameter);
-                                if (result == null) result = caseANamedItem(iDimensionParameter);
-                                if (result == null) result = caseAIdentifiableItem(iDimensionParameter);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
                         case DataPackage.IDATA_ENTITY: {
                                 IDataEntity iDataEntity = (IDataEntity)theEObject;
                                 T result = caseIDataEntity(iDataEntity);
@@ -115,41 +102,57 @@ public class DataSwitch<T> extends Switch<T> {
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
                         }
+                        case DataPackage.STRING_PARAMETER: {
+                                StringParameter stringParameter = (StringParameter)theEObject;
+                                T result = caseStringParameter(stringParameter);
+                                if (result == null) result = caseIParameter(stringParameter);
+                                if (result == null) result = caseANamedItem(stringParameter);
+                                if (result == null) result = caseAIdentifiableItem(stringParameter);
+                                if (result == null) result = defaultCase(theEObject);
+                                return result;
+                        }
+                        case DataPackage.DATE_PARAMETER: {
+                                DateParameter dateParameter = (DateParameter)theEObject;
+                                T result = caseDateParameter(dateParameter);
+                                if (result == null) result = caseIParameter(dateParameter);
+                                if (result == null) result = caseANamedItem(dateParameter);
+                                if (result == null) result = caseAIdentifiableItem(dateParameter);
+                                if (result == null) result = defaultCase(theEObject);
+                                return result;
+                        }
+                        case DataPackage.IQUANTIFIED_PARAMETER: {
+                                IQuantifiedParameter<?> iQuantifiedParameter = (IQuantifiedParameter<?>)theEObject;
+                                T result = caseIQuantifiedParameter(iQuantifiedParameter);
+                                if (result == null) result = defaultCase(theEObject);
+                                return result;
+                        }
+                        case DataPackage.LENGTH_PARAMENTER: {
+                                LengthParamenter lengthParamenter = (LengthParamenter)theEObject;
+                                T result = caseLengthParamenter(lengthParamenter);
+                                if (result == null) result = caseIQuantifiedParameter(lengthParamenter);
+                                if (result == null) result = defaultCase(theEObject);
+                                return result;
+                        }
                         default: return defaultCase(theEObject);
                 }
         }
 
-	/**
+        /**
          * Returns the result of interpreting the object as an instance of '<em>AUnit</em>'.
          * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+         * This implementation returns null;
+         * returning a non-null result will terminate the switch.
+         * <!-- end-user-doc -->
          * @param object the target of the switch.
          * @return the result of interpreting the object as an instance of '<em>AUnit</em>'.
          * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
          * @generated
          */
-	public T caseAUnit(AUnit object) {
+        public T caseAUnit(AUnit object) {
                 return null;
         }
 
-	/**
-         * Returns the result of interpreting the object as an instance of '<em>AValue</em>'.
-         * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>AValue</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
-	public T caseAValue(AValue object) {
-                return null;
-        }
-
-	/**
+        /**
          * Returns the result of interpreting the object as an instance of '<em>IDimension</em>'.
          * <!-- begin-user-doc -->
          * This implementation returns null;
@@ -167,91 +170,136 @@ public class DataSwitch<T> extends Switch<T> {
         /**
          * Returns the result of interpreting the object as an instance of '<em>IParameter</em>'.
          * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+         * This implementation returns null;
+         * returning a non-null result will terminate the switch.
+         * <!-- end-user-doc -->
          * @param object the target of the switch.
          * @return the result of interpreting the object as an instance of '<em>IParameter</em>'.
          * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
          * @generated
          */
-	public T caseIParameter(IParameter object) {
-                return null;
-        }
-
-	/**
-         * Returns the result of interpreting the object as an instance of '<em>IDimension Parameter</em>'.
-         * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>IDimension Parameter</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
-        public T caseIDimensionParameter(IDimensionParameter object) {
+        public T caseIParameter(IParameter object) {
                 return null;
         }
 
         /**
          * Returns the result of interpreting the object as an instance of '<em>IData Entity</em>'.
          * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+         * This implementation returns null;
+         * returning a non-null result will terminate the switch.
+         * <!-- end-user-doc -->
          * @param object the target of the switch.
          * @return the result of interpreting the object as an instance of '<em>IData Entity</em>'.
          * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
          * @generated
          */
-	public T caseIDataEntity(IDataEntity object) {
+        public T caseIDataEntity(IDataEntity object) {
                 return null;
         }
 
-	/**
+        /**
+         * Returns the result of interpreting the object as an instance of '<em>String Parameter</em>'.
+         * <!-- begin-user-doc -->
+         * This implementation returns null;
+         * returning a non-null result will terminate the switch.
+         * <!-- end-user-doc -->
+         * @param object the target of the switch.
+         * @return the result of interpreting the object as an instance of '<em>String Parameter</em>'.
+         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+         * @generated
+         */
+        public T caseStringParameter(StringParameter object) {
+                return null;
+        }
+
+        /**
+         * Returns the result of interpreting the object as an instance of '<em>Date Parameter</em>'.
+         * <!-- begin-user-doc -->
+         * This implementation returns null;
+         * returning a non-null result will terminate the switch.
+         * <!-- end-user-doc -->
+         * @param object the target of the switch.
+         * @return the result of interpreting the object as an instance of '<em>Date Parameter</em>'.
+         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+         * @generated
+         */
+        public T caseDateParameter(DateParameter object) {
+                return null;
+        }
+
+        /**
+         * Returns the result of interpreting the object as an instance of '<em>IQuantified Parameter</em>'.
+         * <!-- begin-user-doc -->
+         * This implementation returns null;
+         * returning a non-null result will terminate the switch.
+         * <!-- end-user-doc -->
+         * @param object the target of the switch.
+         * @return the result of interpreting the object as an instance of '<em>IQuantified Parameter</em>'.
+         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+         * @generated
+         */
+        public <Q extends Quantity> T caseIQuantifiedParameter(IQuantifiedParameter<Q> object) {
+                return null;
+        }
+
+        /**
+         * Returns the result of interpreting the object as an instance of '<em>Length Paramenter</em>'.
+         * <!-- begin-user-doc -->
+         * This implementation returns null;
+         * returning a non-null result will terminate the switch.
+         * <!-- end-user-doc -->
+         * @param object the target of the switch.
+         * @return the result of interpreting the object as an instance of '<em>Length Paramenter</em>'.
+         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+         * @generated
+         */
+        public T caseLengthParamenter(LengthParamenter object) {
+                return null;
+        }
+
+        /**
          * Returns the result of interpreting the object as an instance of '<em>ANamed Item</em>'.
          * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+         * This implementation returns null;
+         * returning a non-null result will terminate the switch.
+         * <!-- end-user-doc -->
          * @param object the target of the switch.
          * @return the result of interpreting the object as an instance of '<em>ANamed Item</em>'.
          * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
          * @generated
          */
-	public T caseANamedItem(ANamedItem object) {
+        public T caseANamedItem(ANamedItem object) {
                 return null;
         }
 
-	/**
+        /**
          * Returns the result of interpreting the object as an instance of '<em>AIdentifiable Item</em>'.
          * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
+         * This implementation returns null;
+         * returning a non-null result will terminate the switch.
+         * <!-- end-user-doc -->
          * @param object the target of the switch.
          * @return the result of interpreting the object as an instance of '<em>AIdentifiable Item</em>'.
          * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
          * @generated
          */
-	public T caseAIdentifiableItem(AIdentifiableItem object) {
+        public T caseAIdentifiableItem(AIdentifiableItem object) {
                 return null;
         }
 
-	/**
+        /**
          * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
          * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch, but this is the last case anyway.
-	 * <!-- end-user-doc -->
+         * This implementation returns null;
+         * returning a non-null result will terminate the switch, but this is the last case anyway.
+         * <!-- end-user-doc -->
          * @param object the target of the switch.
          * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
          * @see #doSwitch(org.eclipse.emf.ecore.EObject)
          * @generated
          */
-	@Override
-	public T defaultCase(EObject object) {
+        @Override
+        public T defaultCase(EObject object) {
                 return null;
         }
 

@@ -12,14 +12,13 @@ import model.base.BasePackage;
 import model.data.DataFactory;
 import model.data.DataPackage;
 
-import model.quantities.QuantitiesFactory;
-
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.StyledString;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -104,12 +103,26 @@ public class SystemItemProvider extends AModelContainerItemItemProvider {
          */
         @Override
         public String getText(Object object) {
-                String label = ((model.base.System)object).getName();
-                return label == null || label.length() == 0 ?
-                        getString("_UI_System_type") :
-                        getString("_UI_System_type") + " " + label;
+                return ((StyledString)getStyledText(object)).getString();
         }
         
+        /**
+         * This returns the label styled text for the adapted class.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public Object getStyledText(Object object) {
+                String label = ((model.base.System)object).getName();
+    	StyledString styledLabel = new StyledString();
+                if (label == null || label.length() == 0) {
+                        styledLabel.append(getString("_UI_System_type"), StyledString.Style.QUALIFIER_STYLER); 
+                } else {
+                        styledLabel.append(getString("_UI_System_type"), StyledString.Style.QUALIFIER_STYLER).append(" " + label);
+                }
+                return styledLabel;
+        }	
 
         /**
          * This handles model notifications by calling {@link #updateChildren} to update any cached
@@ -145,17 +158,12 @@ public class SystemItemProvider extends AModelContainerItemItemProvider {
                 newChildDescriptors.add
                         (createChildParameter
                                 (DataPackage.Literals.IDATA_ENTITY__PARAMETERS,
-                                 DataFactory.eINSTANCE.createIDimensionParameter()));
+                                 DataFactory.eINSTANCE.createStringParameter()));
 
                 newChildDescriptors.add
                         (createChildParameter
                                 (DataPackage.Literals.IDATA_ENTITY__PARAMETERS,
-                                 QuantitiesFactory.eINSTANCE.createStringParameter()));
-
-                newChildDescriptors.add
-                        (createChildParameter
-                                (DataPackage.Literals.IDATA_ENTITY__PARAMETERS,
-                                 QuantitiesFactory.eINSTANCE.createLengthParamenter()));
+                                 DataFactory.eINSTANCE.createDateParameter()));
 
                 newChildDescriptors.add
                         (createChildParameter

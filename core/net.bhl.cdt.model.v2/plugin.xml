@@ -23,12 +23,4 @@
             genModel="model/cdt.genmodel"/>
    </extension>
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated cdt -->
-      <package
-            uri="http://www.bauhaus-luftfahrt.net/cdt/quantities"
-            class="model.quantities.QuantitiesPackage"
-            genModel="model/cdt.genmodel"/>
-   </extension>
-
 </plugin>

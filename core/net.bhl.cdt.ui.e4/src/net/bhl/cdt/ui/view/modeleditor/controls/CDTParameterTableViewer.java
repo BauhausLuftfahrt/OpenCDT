@@ -15,8 +15,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 
 import model.data.IParameter;
-import model.quantities.LengthParamenter;
-import net.bhl.cdt.util.constants.StringConstants;
 
 /**
  * 
@@ -55,36 +53,36 @@ public class CDTParameterTableViewer extends TableViewer {
 	});
 	colName.setEditingSupport(new NameEditingSupport(this));
 
-	TableViewerColumn colValue = new TableViewerColumn(this, SWT.NONE);
-	colValue.getColumn().setWidth(200);
-	colValue.getColumn().setText(COLHEADER_VALUE);
-	colValue.setLabelProvider(new ColumnLabelProvider() {
-	    @Override
-	    public String getText(Object element) {
-		if (element instanceof LengthParamenter) {
-		    if (((LengthParamenter)element).getValue() == null)
-			return StringConstants.EMPTY;
-		    else
-			return ((LengthParamenter)element).getValue().toString();
-		}
-		return element.toString();
-	    }
-	});
-
-	TableViewerColumn colUnit = new TableViewerColumn(this, SWT.NONE);
-	colUnit.getColumn().setWidth(200);
-	colUnit.getColumn().setText(COLHEADER_UNIT);
-	colUnit.setLabelProvider(new ColumnLabelProvider() {
-	    @Override
-	    public String getText(Object element) {
-		if (element instanceof LengthParamenter) {
-		    if (((LengthParamenter)element).getUnit() == null)
-			return StringConstants.EMPTY;
-		    else
-			return ((LengthParamenter)element).getUnit().toString();
-		}
-		return element.toString();
-	    }
-	});
+//	TableViewerColumn colValue = new TableViewerColumn(this, SWT.NONE);
+//	colValue.getColumn().setWidth(200);
+//	colValue.getColumn().setText(COLHEADER_VALUE);
+//	colValue.setLabelProvider(new ColumnLabelProvider() {
+//	    @Override
+//	    public String getText(Object element) {
+//		if (element instanceof LengthParamenter) {
+//		    if (((LengthParamenter)element).getValue() == null)
+//			return StringConstants.EMPTY;
+//		    else
+//			return ((LengthParamenter)element).getValue().toString();
+//		}
+//		return element.toString();
+//	    }
+//	});
+//
+//	TableViewerColumn colUnit = new TableViewerColumn(this, SWT.NONE);
+//	colUnit.getColumn().setWidth(200);
+//	colUnit.getColumn().setText(COLHEADER_UNIT);
+//	colUnit.setLabelProvider(new ColumnLabelProvider() {
+//	    @Override
+//	    public String getText(Object element) {
+//		if (element instanceof LengthParamenter) {
+//		    if (((LengthParamenter)element).getUnit() == null)
+//			return StringConstants.EMPTY;
+//		    else
+//			return ((LengthParamenter)element).getUnit().toString();
+//		}
+//		return element.toString();
+//	    }
+//	});
     }
 }

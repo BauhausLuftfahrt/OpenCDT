@@ -13,15 +13,15 @@ import org.eclipse.emf.ecore.EFactory;
  * @generated
  */
 public interface BaseFactory extends EFactory {
-	/**
+        /**
          * The singleton instance of the factory.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	BaseFactory eINSTANCE = model.base.impl.BaseFactoryImpl.init();
+        BaseFactory eINSTANCE = model.base.impl.BaseFactoryImpl.init();
 
-	/**
+        /**
          * Returns a new object of class '<em>Model Container</em>'.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -51,10 +51,10 @@ public interface BaseFactory extends EFactory {
         /**
          * Returns the package supported by this factory.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @return the package supported by this factory.
          * @generated
          */
-	BasePackage getBasePackage();
+        BasePackage getBasePackage();
 
 } //BaseFactory

@@ -1,42 +1,36 @@
 /**
  */
-package model.base.impl;
-
-import java.util.Collection;
+package model.data.impl;
 
 import model.base.AIdentifiableItem;
-import model.base.AModelContainerItem;
 import model.base.BasePackage;
-import model.base.ModelContainer;
+
+import model.base.impl.ANamedItemImpl;
+
+import model.data.DataPackage;
+import model.data.StringParameter;
 
 import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model Container</b></em>'.
+ * An implementation of the model object '<em><b>String Parameter</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link model.base.impl.ModelContainerImpl#getId <em>Id</em>}</li>
- *   <li>{@link model.base.impl.ModelContainerImpl#getContainedItems <em>Contained Items</em>}</li>
+ *   <li>{@link model.data.impl.StringParameterImpl#getId <em>Id</em>}</li>
+ *   <li>{@link model.data.impl.StringParameterImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelContainerImpl extends ANamedItemImpl implements ModelContainer {
+public class StringParameterImpl extends ANamedItemImpl implements StringParameter {
         /**
          * The default value of the '{@link #getId() <em>Id</em>}' attribute.
          * <!-- begin-user-doc -->
@@ -58,21 +52,31 @@ public class ModelContainerImpl extends ANamedItemImpl implements ModelContainer
         protected String id = ID_EDEFAULT;
 
         /**
-         * The cached value of the '{@link #getContainedItems() <em>Contained Items</em>}' containment reference list.
+         * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
-         * @see #getContainedItems()
+         * @see #getValue()
          * @generated
          * @ordered
          */
-        protected EList<AModelContainerItem> containedItems;
+        protected static final String VALUE_EDEFAULT = null;
+
+        /**
+         * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @see #getValue()
+         * @generated
+         * @ordered
+         */
+        protected String value = VALUE_EDEFAULT;
 
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        protected ModelContainerImpl() {
+        protected StringParameterImpl() {
                 super();
         }
 
@@ -83,7 +87,7 @@ public class ModelContainerImpl extends ANamedItemImpl implements ModelContainer
          */
         @Override
         protected EClass eStaticClass() {
-                return BasePackage.Literals.MODEL_CONTAINER;
+                return DataPackage.Literals.STRING_PARAMETER;
         }
 
         /**
@@ -104,7 +108,7 @@ public class ModelContainerImpl extends ANamedItemImpl implements ModelContainer
                 String oldId = id;
                 id = newId;
                 if (eNotificationRequired())
-                        eNotify(new ENotificationImpl(this, Notification.SET, BasePackage.MODEL_CONTAINER__ID, oldId, id));
+                        eNotify(new ENotificationImpl(this, Notification.SET, DataPackage.STRING_PARAMETER__ID, oldId, id));
         }
 
         /**
@@ -112,11 +116,8 @@ public class ModelContainerImpl extends ANamedItemImpl implements ModelContainer
          * <!-- end-user-doc -->
          * @generated
          */
-        public EList<AModelContainerItem> getContainedItems() {
-                if (containedItems == null) {
-                        containedItems = new EObjectContainmentWithInverseEList<AModelContainerItem>(AModelContainerItem.class, this, BasePackage.MODEL_CONTAINER__CONTAINED_ITEMS, BasePackage.AMODEL_CONTAINER_ITEM__CONTAINER);
-                }
-                return containedItems;
+        public String getValue() {
+                return value;
         }
 
         /**
@@ -124,28 +125,11 @@ public class ModelContainerImpl extends ANamedItemImpl implements ModelContainer
          * <!-- end-user-doc -->
          * @generated
          */
-        @SuppressWarnings("unchecked")
-        @Override
-        public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case BasePackage.MODEL_CONTAINER__CONTAINED_ITEMS:
-                                return ((InternalEList<InternalEObject>)(InternalEList<?>)getContainedItems()).basicAdd(otherEnd, msgs);
-                }
-                return super.eInverseAdd(otherEnd, featureID, msgs);
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-                switch (featureID) {
-                        case BasePackage.MODEL_CONTAINER__CONTAINED_ITEMS:
-                                return ((InternalEList<?>)getContainedItems()).basicRemove(otherEnd, msgs);
-                }
-                return super.eInverseRemove(otherEnd, featureID, msgs);
+        public void setValue(String newValue) {
+                String oldValue = value;
+                value = newValue;
+                if (eNotificationRequired())
+                        eNotify(new ENotificationImpl(this, Notification.SET, DataPackage.STRING_PARAMETER__VALUE, oldValue, value));
         }
 
         /**
@@ -156,10 +140,10 @@ public class ModelContainerImpl extends ANamedItemImpl implements ModelContainer
         @Override
         public Object eGet(int featureID, boolean resolve, boolean coreType) {
                 switch (featureID) {
-                        case BasePackage.MODEL_CONTAINER__ID:
+                        case DataPackage.STRING_PARAMETER__ID:
                                 return getId();
-                        case BasePackage.MODEL_CONTAINER__CONTAINED_ITEMS:
-                                return getContainedItems();
+                        case DataPackage.STRING_PARAMETER__VALUE:
+                                return getValue();
                 }
                 return super.eGet(featureID, resolve, coreType);
         }
@@ -169,16 +153,14 @@ public class ModelContainerImpl extends ANamedItemImpl implements ModelContainer
          * <!-- end-user-doc -->
          * @generated
          */
-        @SuppressWarnings("unchecked")
         @Override
         public void eSet(int featureID, Object newValue) {
                 switch (featureID) {
-                        case BasePackage.MODEL_CONTAINER__ID:
+                        case DataPackage.STRING_PARAMETER__ID:
                                 setId((String)newValue);
                                 return;
-                        case BasePackage.MODEL_CONTAINER__CONTAINED_ITEMS:
-                                getContainedItems().clear();
-                                getContainedItems().addAll((Collection<? extends AModelContainerItem>)newValue);
+                        case DataPackage.STRING_PARAMETER__VALUE:
+                                setValue((String)newValue);
                                 return;
                 }
                 super.eSet(featureID, newValue);
@@ -192,11 +174,11 @@ public class ModelContainerImpl extends ANamedItemImpl implements ModelContainer
         @Override
         public void eUnset(int featureID) {
                 switch (featureID) {
-                        case BasePackage.MODEL_CONTAINER__ID:
+                        case DataPackage.STRING_PARAMETER__ID:
                                 setId(ID_EDEFAULT);
                                 return;
-                        case BasePackage.MODEL_CONTAINER__CONTAINED_ITEMS:
-                                getContainedItems().clear();
+                        case DataPackage.STRING_PARAMETER__VALUE:
+                                setValue(VALUE_EDEFAULT);
                                 return;
                 }
                 super.eUnset(featureID);
@@ -210,10 +192,10 @@ public class ModelContainerImpl extends ANamedItemImpl implements ModelContainer
         @Override
         public boolean eIsSet(int featureID) {
                 switch (featureID) {
-                        case BasePackage.MODEL_CONTAINER__ID:
+                        case DataPackage.STRING_PARAMETER__ID:
                                 return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-                        case BasePackage.MODEL_CONTAINER__CONTAINED_ITEMS:
-                                return containedItems != null && !containedItems.isEmpty();
+                        case DataPackage.STRING_PARAMETER__VALUE:
+                                return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
                 }
                 return super.eIsSet(featureID);
         }
@@ -227,7 +209,7 @@ public class ModelContainerImpl extends ANamedItemImpl implements ModelContainer
         public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
                 if (baseClass == AIdentifiableItem.class) {
                         switch (derivedFeatureID) {
-                                case BasePackage.MODEL_CONTAINER__ID: return BasePackage.AIDENTIFIABLE_ITEM__ID;
+                                case DataPackage.STRING_PARAMETER__ID: return BasePackage.AIDENTIFIABLE_ITEM__ID;
                                 default: return -1;
                         }
                 }
@@ -243,7 +225,7 @@ public class ModelContainerImpl extends ANamedItemImpl implements ModelContainer
         public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
                 if (baseClass == AIdentifiableItem.class) {
                         switch (baseFeatureID) {
-                                case BasePackage.AIDENTIFIABLE_ITEM__ID: return BasePackage.MODEL_CONTAINER__ID;
+                                case BasePackage.AIDENTIFIABLE_ITEM__ID: return DataPackage.STRING_PARAMETER__ID;
                                 default: return -1;
                         }
                 }
@@ -262,8 +244,10 @@ public class ModelContainerImpl extends ANamedItemImpl implements ModelContainer
                 StringBuffer result = new StringBuffer(super.toString());
                 result.append(" (id: ");
                 result.append(id);
+                result.append(", value: ");
+                result.append(value);
                 result.append(')');
                 return result.toString();
         }
 
-} //ModelContainerImpl
+} //StringParameterImpl

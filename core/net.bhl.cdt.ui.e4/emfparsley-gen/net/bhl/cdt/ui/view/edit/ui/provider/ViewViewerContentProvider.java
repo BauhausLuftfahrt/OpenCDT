@@ -36,7 +36,6 @@ public class ViewViewerContentProvider extends ViewerContentProvider {
   }
   
   public Object children(final Component it) {
-    EList<Component> _subComponents = it.getSubComponents();
-    return _subComponents;
+    return it.getSubComponents();
   }
 }

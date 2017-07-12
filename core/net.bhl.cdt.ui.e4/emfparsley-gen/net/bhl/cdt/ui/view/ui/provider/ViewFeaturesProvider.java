@@ -12,8 +12,8 @@ public class ViewFeaturesProvider extends FeaturesProvider {
     stringMap.mapTo("model.base.ModelContainer",
       "name");
     stringMap.mapTo("model.base.System",
-      "name", "parameters");
+      "name");
     stringMap.mapTo("model.base.Component",
-      "name", "parameters", "id");
+      "name", "id");
   }
 }

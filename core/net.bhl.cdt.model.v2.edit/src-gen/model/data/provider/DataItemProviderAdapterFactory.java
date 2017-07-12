@@ -17,10 +17,16 @@ import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemColorProvider;
+import org.eclipse.emf.edit.provider.IItemFontProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IItemStyledLabelProvider;
 import org.eclipse.emf.edit.provider.INotifyChangedListener;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITableItemColorProvider;
+import org.eclipse.emf.edit.provider.ITableItemFontProvider;
+import org.eclipse.emf.edit.provider.ITableItemLabelProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 
 /**
@@ -33,60 +39,66 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class DataItemProviderAdapterFactory extends DataAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
-	/**
+        /**
          * This keeps track of the root adapter factory that delegates to this adapter factory.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	protected ComposedAdapterFactory parentAdapterFactory;
+        protected ComposedAdapterFactory parentAdapterFactory;
 
-	/**
+        /**
          * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	protected IChangeNotifier changeNotifier = new ChangeNotifier();
+        protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
-	/**
+        /**
          * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	protected Collection<Object> supportedTypes = new ArrayList<Object>();
+        protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
-	/**
+        /**
          * This constructs an instance.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public DataItemProviderAdapterFactory() {
+        public DataItemProviderAdapterFactory() {
                 supportedTypes.add(IEditingDomainItemProvider.class);
                 supportedTypes.add(IStructuredItemContentProvider.class);
                 supportedTypes.add(ITreeItemContentProvider.class);
                 supportedTypes.add(IItemLabelProvider.class);
                 supportedTypes.add(IItemPropertySource.class);
+                supportedTypes.add(ITableItemLabelProvider.class);
+                supportedTypes.add(ITableItemColorProvider.class);
+                supportedTypes.add(ITableItemFontProvider.class);
+                supportedTypes.add(IItemColorProvider.class);
+                supportedTypes.add(IItemFontProvider.class);
+                supportedTypes.add(IItemStyledLabelProvider.class);
         }
 
-	/**
+        /**
          * This keeps track of the one adapter used for all {@link model.data.AUnit} instances.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	protected AUnitItemProvider aUnitItemProvider;
+        protected AUnitItemProvider aUnitItemProvider;
 
-	/**
+        /**
          * This creates an adapter for a {@link model.data.AUnit}.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	@Override
-	public Adapter createAUnitAdapter() {
+        @Override
+        public Adapter createAUnitAdapter() {
                 if (aUnitItemProvider == null) {
                         aUnitItemProvider = new AUnitItemProvider(this);
                 }
@@ -94,100 +106,146 @@ public class DataItemProviderAdapterFactory extends DataAdapterFactory implement
                 return aUnitItemProvider;
         }
 
-	/**
-         * This keeps track of the one adapter used for all {@link model.data.AValue} instances.
-         * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-         * @generated
-         */
-	protected AValueItemProvider aValueItemProvider;
-
-	/**
-         * This creates an adapter for a {@link model.data.AValue}.
-         * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-         * @generated
-         */
-	@Override
-	public Adapter createAValueAdapter() {
-                if (aValueItemProvider == null) {
-                        aValueItemProvider = new AValueItemProvider(this);
-                }
-
-                return aValueItemProvider;
-        }
-
-	/**
-         * This keeps track of the one adapter used for all {@link model.data.IDimensionParameter} instances.
+        /**
+         * This keeps track of the one adapter used for all {@link model.data.StringParameter} instances.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
-        protected IDimensionParameterItemProvider iDimensionParameterItemProvider;
+        protected StringParameterItemProvider stringParameterItemProvider;
 
         /**
-         * This creates an adapter for a {@link model.data.IDimensionParameter}.
+         * This creates an adapter for a {@link model.data.StringParameter}.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
          * @generated
          */
         @Override
-        public Adapter createIDimensionParameterAdapter() {
-                if (iDimensionParameterItemProvider == null) {
-                        iDimensionParameterItemProvider = new IDimensionParameterItemProvider(this);
+        public Adapter createStringParameterAdapter() {
+                if (stringParameterItemProvider == null) {
+                        stringParameterItemProvider = new StringParameterItemProvider(this);
                 }
 
-                return iDimensionParameterItemProvider;
+                return stringParameterItemProvider;
+        }
+
+        /**
+         * This keeps track of the one adapter used for all {@link model.data.DateParameter} instances.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        protected DateParameterItemProvider dateParameterItemProvider;
+
+        /**
+         * This creates an adapter for a {@link model.data.DateParameter}.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public Adapter createDateParameterAdapter() {
+                if (dateParameterItemProvider == null) {
+                        dateParameterItemProvider = new DateParameterItemProvider(this);
+                }
+
+                return dateParameterItemProvider;
+        }
+
+        /**
+         * This keeps track of the one adapter used for all {@link model.data.IQuantifiedParameter} instances.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        protected IQuantifiedParameterItemProvider iQuantifiedParameterItemProvider;
+
+        /**
+         * This creates an adapter for a {@link model.data.IQuantifiedParameter}.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public Adapter createIQuantifiedParameterAdapter() {
+                if (iQuantifiedParameterItemProvider == null) {
+                        iQuantifiedParameterItemProvider = new IQuantifiedParameterItemProvider(this);
+                }
+
+                return iQuantifiedParameterItemProvider;
+        }
+
+        /**
+         * This keeps track of the one adapter used for all {@link model.data.LengthParamenter} instances.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        protected LengthParamenterItemProvider lengthParamenterItemProvider;
+
+        /**
+         * This creates an adapter for a {@link model.data.LengthParamenter}.
+         * <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         * @generated
+         */
+        @Override
+        public Adapter createLengthParamenterAdapter() {
+                if (lengthParamenterItemProvider == null) {
+                        lengthParamenterItemProvider = new LengthParamenterItemProvider(this);
+                }
+
+                return lengthParamenterItemProvider;
         }
 
         /**
          * This returns the root adapter factory that contains this factory.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public ComposeableAdapterFactory getRootAdapterFactory() {
+        public ComposeableAdapterFactory getRootAdapterFactory() {
                 return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
         }
 
-	/**
+        /**
          * This sets the composed adapter factory that contains this factory.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
+        public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
                 this.parentAdapterFactory = parentAdapterFactory;
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	@Override
-	public boolean isFactoryForType(Object type) {
+        @Override
+        public boolean isFactoryForType(Object type) {
                 return supportedTypes.contains(type) || super.isFactoryForType(type);
         }
 
-	/**
+        /**
          * This implementation substitutes the factory itself as the key for the adapter.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	@Override
-	public Adapter adapt(Notifier notifier, Object type) {
+        @Override
+        public Adapter adapt(Notifier notifier, Object type) {
                 return super.adapt(notifier, this);
         }
 
-	/**
+        /**
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	@Override
-	public Object adapt(Object object, Object type) {
+        @Override
+        public Object adapt(Object object, Object type) {
                 if (isFactoryForType(type)) {
                         Object adapter = super.adapt(object, type);
                         if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
@@ -198,33 +256,33 @@ public class DataItemProviderAdapterFactory extends DataAdapterFactory implement
                 return null;
         }
 
-	/**
+        /**
          * This adds a listener.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public void addListener(INotifyChangedListener notifyChangedListener) {
+        public void addListener(INotifyChangedListener notifyChangedListener) {
                 changeNotifier.addListener(notifyChangedListener);
         }
 
-	/**
+        /**
          * This removes a listener.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public void removeListener(INotifyChangedListener notifyChangedListener) {
+        public void removeListener(INotifyChangedListener notifyChangedListener) {
                 changeNotifier.removeListener(notifyChangedListener);
         }
 
-	/**
+        /**
          * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public void fireNotifyChanged(Notification notification) {
+        public void fireNotifyChanged(Notification notification) {
                 changeNotifier.fireNotifyChanged(notification);
 
                 if (parentAdapterFactory != null) {
@@ -232,16 +290,18 @@ public class DataItemProviderAdapterFactory extends DataAdapterFactory implement
                 }
         }
 
-	/**
+        /**
          * This disposes all of the item providers created by this factory. 
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public void dispose() {
+        public void dispose() {
                 if (aUnitItemProvider != null) aUnitItemProvider.dispose();
-                if (aValueItemProvider != null) aValueItemProvider.dispose();
-                if (iDimensionParameterItemProvider != null) iDimensionParameterItemProvider.dispose();
+                if (stringParameterItemProvider != null) stringParameterItemProvider.dispose();
+                if (dateParameterItemProvider != null) dateParameterItemProvider.dispose();
+                if (iQuantifiedParameterItemProvider != null) iQuantifiedParameterItemProvider.dispose();
+                if (lengthParamenterItemProvider != null) lengthParamenterItemProvider.dispose();
         }
 
 }

@@ -2,6 +2,8 @@
  */
 package model.data.util;
 
+import javax.measure.quantity.Quantity;
+
 import model.base.AIdentifiableItem;
 import model.base.ANamedItem;
 
@@ -23,36 +25,36 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public class DataAdapterFactory extends AdapterFactoryImpl {
-	/**
+        /**
          * The cached model package.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	protected static DataPackage modelPackage;
+        protected static DataPackage modelPackage;
 
-	/**
+        /**
          * Creates an instance of the adapter factory.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	public DataAdapterFactory() {
+        public DataAdapterFactory() {
                 if (modelPackage == null) {
                         modelPackage = DataPackage.eINSTANCE;
                 }
         }
 
-	/**
+        /**
          * Returns whether this factory is applicable for the type of the object.
          * <!-- begin-user-doc -->
-	 * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
-	 * <!-- end-user-doc -->
+         * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
+         * <!-- end-user-doc -->
          * @return whether this factory is applicable for the type of the object.
          * @generated
          */
-	@Override
-	public boolean isFactoryForType(Object object) {
+        @Override
+        public boolean isFactoryForType(Object object) {
                 if (object == modelPackage) {
                         return true;
                 }
@@ -62,21 +64,17 @@ public class DataAdapterFactory extends AdapterFactoryImpl {
                 return false;
         }
 
-	/**
+        /**
          * The switch that delegates to the <code>createXXX</code> methods.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @generated
          */
-	protected DataSwitch<Adapter> modelSwitch =
-		new DataSwitch<Adapter>() {
+        protected DataSwitch<Adapter> modelSwitch =
+                new DataSwitch<Adapter>() {
                         @Override
                         public Adapter caseAUnit(AUnit object) {
                                 return createAUnitAdapter();
-                        }
-                        @Override
-                        public Adapter caseAValue(AValue object) {
-                                return createAValueAdapter();
                         }
                         @Override
                         public Adapter caseIDimension(IDimension object) {
@@ -87,12 +85,24 @@ public class DataAdapterFactory extends AdapterFactoryImpl {
                                 return createIParameterAdapter();
                         }
                         @Override
-                        public Adapter caseIDimensionParameter(IDimensionParameter object) {
-                                return createIDimensionParameterAdapter();
-                        }
-                        @Override
                         public Adapter caseIDataEntity(IDataEntity object) {
                                 return createIDataEntityAdapter();
+                        }
+                        @Override
+                        public Adapter caseStringParameter(StringParameter object) {
+                                return createStringParameterAdapter();
+                        }
+                        @Override
+                        public Adapter caseDateParameter(DateParameter object) {
+                                return createDateParameterAdapter();
+                        }
+                        @Override
+                        public <Q extends Quantity> Adapter caseIQuantifiedParameter(IQuantifiedParameter<Q> object) {
+                                return createIQuantifiedParameterAdapter();
+                        }
+                        @Override
+                        public Adapter caseLengthParamenter(LengthParamenter object) {
+                                return createLengthParamenterAdapter();
                         }
                         @Override
                         public Adapter caseANamedItem(ANamedItem object) {
@@ -108,49 +118,35 @@ public class DataAdapterFactory extends AdapterFactoryImpl {
                         }
                 };
 
-	/**
+        /**
          * Creates an adapter for the <code>target</code>.
          * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+         * <!-- end-user-doc -->
          * @param target the object to adapt.
          * @return the adapter for the <code>target</code>.
          * @generated
          */
-	@Override
-	public Adapter createAdapter(Notifier target) {
+        @Override
+        public Adapter createAdapter(Notifier target) {
                 return modelSwitch.doSwitch((EObject)target);
         }
 
 
-	/**
+        /**
          * Creates a new adapter for an object of class '{@link model.data.AUnit <em>AUnit</em>}'.
          * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
+         * This default implementation returns null so that we can easily ignore cases;
+         * it's useful to ignore a case when inheritance will catch all the cases anyway.
+         * <!-- end-user-doc -->
          * @return the new adapter.
          * @see model.data.AUnit
          * @generated
          */
-	public Adapter createAUnitAdapter() {
+        public Adapter createAUnitAdapter() {
                 return null;
         }
 
-	/**
-         * Creates a new adapter for an object of class '{@link model.data.AValue <em>AValue</em>}'.
-         * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see model.data.AValue
-         * @generated
-         */
-	public Adapter createAValueAdapter() {
-                return null;
-        }
-
-	/**
+        /**
          * Creates a new adapter for an object of class '{@link model.data.IDimension <em>IDimension</em>}'.
          * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
@@ -167,82 +163,124 @@ public class DataAdapterFactory extends AdapterFactoryImpl {
         /**
          * Creates a new adapter for an object of class '{@link model.data.IParameter <em>IParameter</em>}'.
          * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see model.data.IParameter
-         * @generated
-         */
-	public Adapter createIParameterAdapter() {
-                return null;
-        }
-
-	/**
-         * Creates a new adapter for an object of class '{@link model.data.IDimensionParameter <em>IDimension Parameter</em>}'.
-         * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
          * @return the new adapter.
-         * @see model.data.IDimensionParameter
+         * @see model.data.IParameter
          * @generated
          */
-        public Adapter createIDimensionParameterAdapter() {
+        public Adapter createIParameterAdapter() {
                 return null;
         }
 
         /**
          * Creates a new adapter for an object of class '{@link model.data.IDataEntity <em>IData Entity</em>}'.
          * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
+         * This default implementation returns null so that we can easily ignore cases;
+         * it's useful to ignore a case when inheritance will catch all the cases anyway.
+         * <!-- end-user-doc -->
          * @return the new adapter.
          * @see model.data.IDataEntity
          * @generated
          */
-	public Adapter createIDataEntityAdapter() {
+        public Adapter createIDataEntityAdapter() {
                 return null;
         }
 
-	/**
+        /**
+         * Creates a new adapter for an object of class '{@link model.data.StringParameter <em>String Parameter</em>}'.
+         * <!-- begin-user-doc -->
+         * This default implementation returns null so that we can easily ignore cases;
+         * it's useful to ignore a case when inheritance will catch all the cases anyway.
+         * <!-- end-user-doc -->
+         * @return the new adapter.
+         * @see model.data.StringParameter
+         * @generated
+         */
+        public Adapter createStringParameterAdapter() {
+                return null;
+        }
+
+        /**
+         * Creates a new adapter for an object of class '{@link model.data.DateParameter <em>Date Parameter</em>}'.
+         * <!-- begin-user-doc -->
+         * This default implementation returns null so that we can easily ignore cases;
+         * it's useful to ignore a case when inheritance will catch all the cases anyway.
+         * <!-- end-user-doc -->
+         * @return the new adapter.
+         * @see model.data.DateParameter
+         * @generated
+         */
+        public Adapter createDateParameterAdapter() {
+                return null;
+        }
+
+        /**
+         * Creates a new adapter for an object of class '{@link model.data.IQuantifiedParameter <em>IQuantified Parameter</em>}'.
+         * <!-- begin-user-doc -->
+         * This default implementation returns null so that we can easily ignore cases;
+         * it's useful to ignore a case when inheritance will catch all the cases anyway.
+         * <!-- end-user-doc -->
+         * @return the new adapter.
+         * @see model.data.IQuantifiedParameter
+         * @generated
+         */
+        public Adapter createIQuantifiedParameterAdapter() {
+                return null;
+        }
+
+        /**
+         * Creates a new adapter for an object of class '{@link model.data.LengthParamenter <em>Length Paramenter</em>}'.
+         * <!-- begin-user-doc -->
+         * This default implementation returns null so that we can easily ignore cases;
+         * it's useful to ignore a case when inheritance will catch all the cases anyway.
+         * <!-- end-user-doc -->
+         * @return the new adapter.
+         * @see model.data.LengthParamenter
+         * @generated
+         */
+        public Adapter createLengthParamenterAdapter() {
+                return null;
+        }
+
+        /**
          * Creates a new adapter for an object of class '{@link model.base.ANamedItem <em>ANamed Item</em>}'.
          * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
+         * This default implementation returns null so that we can easily ignore cases;
+         * it's useful to ignore a case when inheritance will catch all the cases anyway.
+         * <!-- end-user-doc -->
          * @return the new adapter.
          * @see model.base.ANamedItem
          * @generated
          */
-	public Adapter createANamedItemAdapter() {
+        public Adapter createANamedItemAdapter() {
                 return null;
         }
 
-	/**
+        /**
          * Creates a new adapter for an object of class '{@link model.base.AIdentifiableItem <em>AIdentifiable Item</em>}'.
          * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
+         * This default implementation returns null so that we can easily ignore cases;
+         * it's useful to ignore a case when inheritance will catch all the cases anyway.
+         * <!-- end-user-doc -->
          * @return the new adapter.
          * @see model.base.AIdentifiableItem
          * @generated
          */
-	public Adapter createAIdentifiableItemAdapter() {
+        public Adapter createAIdentifiableItemAdapter() {
                 return null;
         }
 
-	/**
+        /**
          * Creates a new adapter for the default case.
          * <!-- begin-user-doc -->
-	 * This default implementation returns null.
-	 * <!-- end-user-doc -->
+         * This default implementation returns null.
+         * <!-- end-user-doc -->
          * @return the new adapter.
          * @generated
          */
-	public Adapter createEObjectAdapter() {
+        public Adapter createEObjectAdapter() {
                 return null;
         }
 
