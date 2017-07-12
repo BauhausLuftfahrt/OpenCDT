@@ -23,7 +23,7 @@
     <genClasses ecoreClass="cdtliterature.ecore#//Inbook">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Inbook/pages"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Inbook/publisher"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Inbook/book"/>
+      <genFeatures createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Inbook/book"/>
     </genClasses>
     <genClasses ecoreClass="cdtliterature.ecore#//Conference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Conference/booktitle"/>
@@ -52,6 +52,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Unpublished/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Unpublished/note"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cdtliterature.ecore#//Unpublished/references"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Unpublished/path"/>
     </genClasses>
     <genClasses ecoreClass="cdtliterature.ecore#//Library">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdtliterature.ecore#//Library/name"/>

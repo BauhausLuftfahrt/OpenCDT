@@ -13,7 +13,6 @@ package cdtliterature;
  * <ul>
  *   <li>{@link cdtliterature.Inbook#getPages <em>Pages</em>}</li>
  *   <li>{@link cdtliterature.Inbook#getPublisher <em>Publisher</em>}</li>
- *   <li>{@link cdtliterature.Inbook#getBook <em>Book</em>}</li>
  * </ul>
  *
  * @see cdtliterature.CdtliteraturePackage#getInbook()
@@ -72,31 +71,5 @@ public interface Inbook extends ALiteratureBase {
 	 * @generated
 	 */
 	void setPublisher(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Book</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Book</em>' reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Book</em>' reference.
-	 * @see #setBook(Book)
-	 * @see cdtliterature.CdtliteraturePackage#getInbook_Book()
-	 * @model
-	 * @generated
-	 */
-	Book getBook();
-
-	/**
-	 * Sets the value of the '{@link cdtliterature.Inbook#getBook <em>Book</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Book</em>' reference.
-	 * @see #getBook()
-	 * @generated
-	 */
-	void setBook(Book value);
 
 } // Inbook

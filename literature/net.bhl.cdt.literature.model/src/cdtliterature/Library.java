@@ -103,13 +103,13 @@ public interface Library extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Inbook</em>' containment reference list.
 	 * @see cdtliterature.CdtliteraturePackage#getLibrary_Inbook()
-	 * @model containment="true" derived="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Inbook> getInbook();
 
 	/**
-	 * Returns the value of the '<em><b>Conference</b></em>' reference list.
+	 * Returns the value of the '<em><b>Conference</b></em>' containment reference list.
 	 * The list contents are of type {@link cdtliterature.Conference}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -117,15 +117,15 @@ public interface Library extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Conference</em>' reference list.
+	 * @return the value of the '<em>Conference</em>' containment reference list.
 	 * @see cdtliterature.CdtliteraturePackage#getLibrary_Conference()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Conference> getConference();
 
 	/**
-	 * Returns the value of the '<em><b>Incollection</b></em>' reference list.
+	 * Returns the value of the '<em><b>Incollection</b></em>' containment reference list.
 	 * The list contents are of type {@link cdtliterature.Incollection}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -133,15 +133,15 @@ public interface Library extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Incollection</em>' reference list.
+	 * @return the value of the '<em>Incollection</em>' containment reference list.
 	 * @see cdtliterature.CdtliteraturePackage#getLibrary_Incollection()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Incollection> getIncollection();
 
 	/**
-	 * Returns the value of the '<em><b>Inproceedings</b></em>' reference list.
+	 * Returns the value of the '<em><b>Inproceedings</b></em>' containment reference list.
 	 * The list contents are of type {@link cdtliterature.Inproceedings}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -149,15 +149,15 @@ public interface Library extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Inproceedings</em>' reference list.
+	 * @return the value of the '<em>Inproceedings</em>' containment reference list.
 	 * @see cdtliterature.CdtliteraturePackage#getLibrary_Inproceedings()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Inproceedings> getInproceedings();
 
 	/**
-	 * Returns the value of the '<em><b>Proceedings</b></em>' reference list.
+	 * Returns the value of the '<em><b>Proceedings</b></em>' containment reference list.
 	 * The list contents are of type {@link cdtliterature.Proceedings}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -165,15 +165,15 @@ public interface Library extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Proceedings</em>' reference list.
+	 * @return the value of the '<em>Proceedings</em>' containment reference list.
 	 * @see cdtliterature.CdtliteraturePackage#getLibrary_Proceedings()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Proceedings> getProceedings();
 
 	/**
-	 * Returns the value of the '<em><b>Techreport</b></em>' reference list.
+	 * Returns the value of the '<em><b>Techreport</b></em>' containment reference list.
 	 * The list contents are of type {@link cdtliterature.Techreport}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -181,15 +181,15 @@ public interface Library extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Techreport</em>' reference list.
+	 * @return the value of the '<em>Techreport</em>' containment reference list.
 	 * @see cdtliterature.CdtliteraturePackage#getLibrary_Techreport()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Techreport> getTechreport();
 
 	/**
-	 * Returns the value of the '<em><b>Phdthesis</b></em>' reference list.
+	 * Returns the value of the '<em><b>Phdthesis</b></em>' containment reference list.
 	 * The list contents are of type {@link cdtliterature.Phdthesis}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -197,15 +197,15 @@ public interface Library extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Phdthesis</em>' reference list.
+	 * @return the value of the '<em>Phdthesis</em>' containment reference list.
 	 * @see cdtliterature.CdtliteraturePackage#getLibrary_Phdthesis()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Phdthesis> getPhdthesis();
 
 	/**
-	 * Returns the value of the '<em><b>Masterthesis</b></em>' reference list.
+	 * Returns the value of the '<em><b>Masterthesis</b></em>' containment reference list.
 	 * The list contents are of type {@link cdtliterature.Masterthesis}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -213,15 +213,15 @@ public interface Library extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Masterthesis</em>' reference list.
+	 * @return the value of the '<em>Masterthesis</em>' containment reference list.
 	 * @see cdtliterature.CdtliteraturePackage#getLibrary_Masterthesis()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Masterthesis> getMasterthesis();
 
 	/**
-	 * Returns the value of the '<em><b>Unpublished</b></em>' reference list.
+	 * Returns the value of the '<em><b>Unpublished</b></em>' containment reference list.
 	 * The list contents are of type {@link cdtliterature.Unpublished}.
 	 * <!-- begin-user-doc -->
 	 * <p>
@@ -229,9 +229,9 @@ public interface Library extends EObject {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Unpublished</em>' reference list.
+	 * @return the value of the '<em>Unpublished</em>' containment reference list.
 	 * @see cdtliterature.CdtliteraturePackage#getLibrary_Unpublished()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Unpublished> getUnpublished();

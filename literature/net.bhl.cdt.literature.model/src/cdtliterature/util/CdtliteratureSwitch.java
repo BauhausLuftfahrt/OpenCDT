@@ -145,6 +145,7 @@ public class CdtliteratureSwitch<T> extends Switch<T> {
 			case CdtliteraturePackage.UNPUBLISHED: {
 				Unpublished unpublished = (Unpublished)theEObject;
 				T result = caseUnpublished(unpublished);
+				if (result == null) result = caseALiteratureBase(unpublished);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

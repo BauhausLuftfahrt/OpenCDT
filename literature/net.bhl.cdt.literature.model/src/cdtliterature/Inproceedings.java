@@ -2,6 +2,8 @@
  */
 package cdtliterature;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Inproceedings</b></em>'.
@@ -47,29 +49,19 @@ public interface Inproceedings extends ALiteratureBase {
 	void setBooktitle(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Articles</b></em>' reference.
+	 * Returns the value of the '<em><b>Articles</b></em>' containment reference list.
+	 * The list contents are of type {@link cdtliterature.Article}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Articles</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Articles</em>' reference.
-	 * @see #setArticles(Article)
+	 * @return the value of the '<em>Articles</em>' containment reference list.
 	 * @see cdtliterature.CdtliteraturePackage#getInproceedings_Articles()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
-	Article getArticles();
-
-	/**
-	 * Sets the value of the '{@link cdtliterature.Inproceedings#getArticles <em>Articles</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Articles</em>' reference.
-	 * @see #getArticles()
-	 * @generated
-	 */
-	void setArticles(Article value);
+	EList<Article> getArticles();
 
 } // Inproceedings

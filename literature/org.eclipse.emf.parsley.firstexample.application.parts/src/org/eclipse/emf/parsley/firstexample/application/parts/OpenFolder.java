@@ -42,7 +42,7 @@ public class OpenFolder {
 			  files.add(dir);*/		
 		
 		
-		dialog = new FileDialog(Display.getCurrent().getActiveShell(), SWT.OPEN
+		  dialog = new FileDialog(Display.getCurrent().getActiveShell(), SWT.OPEN
 		          | SWT.MULTI);
 		  dialog.setText("Select the local file or directory to upload");
 		  dialog.setFilterPath(System.getProperty("user.home") + "/workspace/reference");

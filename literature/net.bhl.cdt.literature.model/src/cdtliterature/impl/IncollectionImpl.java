@@ -2,15 +2,10 @@
  */
 package cdtliterature.impl;
 
-import cdtliterature.Book;
 import cdtliterature.CdtliteraturePackage;
 import cdtliterature.Incollection;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -23,7 +18,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link cdtliterature.impl.IncollectionImpl#getBooktitle <em>Booktitle</em>}</li>
  *   <li>{@link cdtliterature.impl.IncollectionImpl#getPublisher <em>Publisher</em>}</li>
- *   <li>{@link cdtliterature.impl.IncollectionImpl#getBooks <em>Books</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,16 +62,6 @@ public class IncollectionImpl extends ALiteratureBaseImpl implements Incollectio
 	 * @ordered
 	 */
 	protected String publisher = PUBLISHER_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getBooks() <em>Books</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBooks()
-	 * @generated
-	 * @ordered
-	 */
-	protected Book books;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,44 +129,6 @@ public class IncollectionImpl extends ALiteratureBaseImpl implements Incollectio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Book getBooks() {
-		if (books != null && books.eIsProxy()) {
-			InternalEObject oldBooks = (InternalEObject)books;
-			books = (Book)eResolveProxy(oldBooks);
-			if (books != oldBooks) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CdtliteraturePackage.INCOLLECTION__BOOKS, oldBooks, books));
-			}
-		}
-		return books;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Book basicGetBooks() {
-		return books;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBooks(Book newBooks) {
-		Book oldBooks = books;
-		books = newBooks;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CdtliteraturePackage.INCOLLECTION__BOOKS, oldBooks, books));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -190,9 +136,6 @@ public class IncollectionImpl extends ALiteratureBaseImpl implements Incollectio
 				return getBooktitle();
 			case CdtliteraturePackage.INCOLLECTION__PUBLISHER:
 				return getPublisher();
-			case CdtliteraturePackage.INCOLLECTION__BOOKS:
-				if (resolve) return getBooks();
-				return basicGetBooks();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -202,6 +145,7 @@ public class IncollectionImpl extends ALiteratureBaseImpl implements Incollectio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -210,9 +154,6 @@ public class IncollectionImpl extends ALiteratureBaseImpl implements Incollectio
 				return;
 			case CdtliteraturePackage.INCOLLECTION__PUBLISHER:
 				setPublisher((String)newValue);
-				return;
-			case CdtliteraturePackage.INCOLLECTION__BOOKS:
-				setBooks((Book)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -232,9 +173,6 @@ public class IncollectionImpl extends ALiteratureBaseImpl implements Incollectio
 			case CdtliteraturePackage.INCOLLECTION__PUBLISHER:
 				setPublisher(PUBLISHER_EDEFAULT);
 				return;
-			case CdtliteraturePackage.INCOLLECTION__BOOKS:
-				setBooks((Book)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -251,8 +189,6 @@ public class IncollectionImpl extends ALiteratureBaseImpl implements Incollectio
 				return BOOKTITLE_EDEFAULT == null ? booktitle != null : !BOOKTITLE_EDEFAULT.equals(booktitle);
 			case CdtliteraturePackage.INCOLLECTION__PUBLISHER:
 				return PUBLISHER_EDEFAULT == null ? publisher != null : !PUBLISHER_EDEFAULT.equals(publisher);
-			case CdtliteraturePackage.INCOLLECTION__BOOKS:
-				return books != null;
 		}
 		return super.eIsSet(featureID);
 	}

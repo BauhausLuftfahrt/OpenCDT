@@ -2,15 +2,10 @@
  */
 package cdtliterature.impl;
 
-import cdtliterature.Book;
 import cdtliterature.CdtliteraturePackage;
 import cdtliterature.Inbook;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -23,7 +18,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link cdtliterature.impl.InbookImpl#getPages <em>Pages</em>}</li>
  *   <li>{@link cdtliterature.impl.InbookImpl#getPublisher <em>Publisher</em>}</li>
- *   <li>{@link cdtliterature.impl.InbookImpl#getBook <em>Book</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,16 +62,6 @@ public class InbookImpl extends ALiteratureBaseImpl implements Inbook {
 	 * @ordered
 	 */
 	protected String publisher = PUBLISHER_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getBook() <em>Book</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getBook()
-	 * @generated
-	 * @ordered
-	 */
-	protected Book book;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,44 +129,6 @@ public class InbookImpl extends ALiteratureBaseImpl implements Inbook {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Book getBook() {
-		if (book != null && book.eIsProxy()) {
-			InternalEObject oldBook = (InternalEObject)book;
-			book = (Book)eResolveProxy(oldBook);
-			if (book != oldBook) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CdtliteraturePackage.INBOOK__BOOK, oldBook, book));
-			}
-		}
-		return book;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Book basicGetBook() {
-		return book;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setBook(Book newBook) {
-		Book oldBook = book;
-		book = newBook;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CdtliteraturePackage.INBOOK__BOOK, oldBook, book));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
@@ -190,9 +136,6 @@ public class InbookImpl extends ALiteratureBaseImpl implements Inbook {
 				return getPages();
 			case CdtliteraturePackage.INBOOK__PUBLISHER:
 				return getPublisher();
-			case CdtliteraturePackage.INBOOK__BOOK:
-				if (resolve) return getBook();
-				return basicGetBook();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -202,6 +145,7 @@ public class InbookImpl extends ALiteratureBaseImpl implements Inbook {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -210,9 +154,6 @@ public class InbookImpl extends ALiteratureBaseImpl implements Inbook {
 				return;
 			case CdtliteraturePackage.INBOOK__PUBLISHER:
 				setPublisher((String)newValue);
-				return;
-			case CdtliteraturePackage.INBOOK__BOOK:
-				setBook((Book)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -232,9 +173,6 @@ public class InbookImpl extends ALiteratureBaseImpl implements Inbook {
 			case CdtliteraturePackage.INBOOK__PUBLISHER:
 				setPublisher(PUBLISHER_EDEFAULT);
 				return;
-			case CdtliteraturePackage.INBOOK__BOOK:
-				setBook((Book)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -251,8 +189,6 @@ public class InbookImpl extends ALiteratureBaseImpl implements Inbook {
 				return pages != PAGES_EDEFAULT;
 			case CdtliteraturePackage.INBOOK__PUBLISHER:
 				return PUBLISHER_EDEFAULT == null ? publisher != null : !PUBLISHER_EDEFAULT.equals(publisher);
-			case CdtliteraturePackage.INBOOK__BOOK:
-				return book != null;
 		}
 		return super.eIsSet(featureID);
 	}

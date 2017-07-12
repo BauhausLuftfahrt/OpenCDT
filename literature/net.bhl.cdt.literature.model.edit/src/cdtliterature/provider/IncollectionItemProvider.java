@@ -47,7 +47,6 @@ public class IncollectionItemProvider
 
 			addBooktitlePropertyDescriptor(object);
 			addPublisherPropertyDescriptor(object);
-			addBooksPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -92,28 +91,6 @@ public class IncollectionItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Books feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addBooksPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Incollection_books_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Incollection_books_feature", "_UI_Incollection_type"),
-				 CdtliteraturePackage.Literals.INCOLLECTION__BOOKS,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}

@@ -376,22 +376,13 @@ public interface CdtliteraturePackage extends EPackage {
 	int INBOOK__PUBLISHER = ALITERATURE_BASE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Book</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INBOOK__BOOK = ALITERATURE_BASE_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Inbook</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INBOOK_FEATURE_COUNT = ALITERATURE_BASE_FEATURE_COUNT + 3;
+	int INBOOK_FEATURE_COUNT = ALITERATURE_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Inbook</em>' class.
@@ -558,22 +549,13 @@ public interface CdtliteraturePackage extends EPackage {
 	int INCOLLECTION__PUBLISHER = ALITERATURE_BASE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Books</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INCOLLECTION__BOOKS = ALITERATURE_BASE_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Incollection</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INCOLLECTION_FEATURE_COUNT = ALITERATURE_BASE_FEATURE_COUNT + 3;
+	int INCOLLECTION_FEATURE_COUNT = ALITERATURE_BASE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Incollection</em>' class.
@@ -649,7 +631,7 @@ public interface CdtliteraturePackage extends EPackage {
 	int INPROCEEDINGS__BOOKTITLE = ALITERATURE_BASE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Articles</b></em>' reference.
+	 * The feature id for the '<em><b>Articles</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1005,31 +987,31 @@ public interface CdtliteraturePackage extends EPackage {
 	int UNPUBLISHED = 11;
 
 	/**
-	 * The feature id for the '<em><b>Author</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int UNPUBLISHED__AUTHOR = 0;
-
-	/**
 	 * The feature id for the '<em><b>Title</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNPUBLISHED__TITLE = 1;
+	int UNPUBLISHED__TITLE = ALITERATURE_BASE__TITLE;
 
 	/**
-	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * The feature id for the '<em><b>Author</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int UNPUBLISHED__NOTE = 2;
+	int UNPUBLISHED__AUTHOR = ALITERATURE_BASE__AUTHOR;
+
+	/**
+	 * The feature id for the '<em><b>Year</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNPUBLISHED__YEAR = ALITERATURE_BASE__YEAR;
 
 	/**
 	 * The feature id for the '<em><b>References</b></em>' reference list.
@@ -1038,7 +1020,25 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNPUBLISHED__REFERENCES = 3;
+	int UNPUBLISHED__REFERENCES = ALITERATURE_BASE__REFERENCES;
+
+	/**
+	 * The feature id for the '<em><b>Path</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNPUBLISHED__PATH = ALITERATURE_BASE__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Note</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int UNPUBLISHED__NOTE = ALITERATURE_BASE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Unpublished</em>' class.
@@ -1047,7 +1047,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNPUBLISHED_FEATURE_COUNT = 4;
+	int UNPUBLISHED_FEATURE_COUNT = ALITERATURE_BASE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Unpublished</em>' class.
@@ -1056,7 +1056,7 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int UNPUBLISHED_OPERATION_COUNT = 0;
+	int UNPUBLISHED_OPERATION_COUNT = ALITERATURE_BASE_OPERATION_COUNT + 0;
 
 
 	/**
@@ -1106,7 +1106,7 @@ public interface CdtliteraturePackage extends EPackage {
 	int LIBRARY__INBOOK = 3;
 
 	/**
-	 * The feature id for the '<em><b>Conference</b></em>' reference list.
+	 * The feature id for the '<em><b>Conference</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1115,7 +1115,7 @@ public interface CdtliteraturePackage extends EPackage {
 	int LIBRARY__CONFERENCE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Incollection</b></em>' reference list.
+	 * The feature id for the '<em><b>Incollection</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1124,7 +1124,7 @@ public interface CdtliteraturePackage extends EPackage {
 	int LIBRARY__INCOLLECTION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Inproceedings</b></em>' reference list.
+	 * The feature id for the '<em><b>Inproceedings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1133,7 +1133,7 @@ public interface CdtliteraturePackage extends EPackage {
 	int LIBRARY__INPROCEEDINGS = 6;
 
 	/**
-	 * The feature id for the '<em><b>Proceedings</b></em>' reference list.
+	 * The feature id for the '<em><b>Proceedings</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1142,7 +1142,7 @@ public interface CdtliteraturePackage extends EPackage {
 	int LIBRARY__PROCEEDINGS = 7;
 
 	/**
-	 * The feature id for the '<em><b>Techreport</b></em>' reference list.
+	 * The feature id for the '<em><b>Techreport</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1151,7 +1151,7 @@ public interface CdtliteraturePackage extends EPackage {
 	int LIBRARY__TECHREPORT = 8;
 
 	/**
-	 * The feature id for the '<em><b>Phdthesis</b></em>' reference list.
+	 * The feature id for the '<em><b>Phdthesis</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1160,7 +1160,7 @@ public interface CdtliteraturePackage extends EPackage {
 	int LIBRARY__PHDTHESIS = 9;
 
 	/**
-	 * The feature id for the '<em><b>Masterthesis</b></em>' reference list.
+	 * The feature id for the '<em><b>Masterthesis</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1169,7 +1169,7 @@ public interface CdtliteraturePackage extends EPackage {
 	int LIBRARY__MASTERTHESIS = 10;
 
 	/**
-	 * The feature id for the '<em><b>Unpublished</b></em>' reference list.
+	 * The feature id for the '<em><b>Unpublished</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1347,17 +1347,6 @@ public interface CdtliteraturePackage extends EPackage {
 	EAttribute getInbook_Publisher();
 
 	/**
-	 * Returns the meta object for the reference '{@link cdtliterature.Inbook#getBook <em>Book</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Book</em>'.
-	 * @see cdtliterature.Inbook#getBook()
-	 * @see #getInbook()
-	 * @generated
-	 */
-	EReference getInbook_Book();
-
-	/**
 	 * Returns the meta object for class '{@link cdtliterature.Conference <em>Conference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1411,17 +1400,6 @@ public interface CdtliteraturePackage extends EPackage {
 	EAttribute getIncollection_Publisher();
 
 	/**
-	 * Returns the meta object for the reference '{@link cdtliterature.Incollection#getBooks <em>Books</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Books</em>'.
-	 * @see cdtliterature.Incollection#getBooks()
-	 * @see #getIncollection()
-	 * @generated
-	 */
-	EReference getIncollection_Books();
-
-	/**
 	 * Returns the meta object for class '{@link cdtliterature.Inproceedings <em>Inproceedings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1443,10 +1421,10 @@ public interface CdtliteraturePackage extends EPackage {
 	EAttribute getInproceedings_Booktitle();
 
 	/**
-	 * Returns the meta object for the reference '{@link cdtliterature.Inproceedings#getArticles <em>Articles</em>}'.
+	 * Returns the meta object for the containment reference list '{@link cdtliterature.Inproceedings#getArticles <em>Articles</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Articles</em>'.
+	 * @return the meta object for the containment reference list '<em>Articles</em>'.
 	 * @see cdtliterature.Inproceedings#getArticles()
 	 * @see #getInproceedings()
 	 * @generated
@@ -1537,28 +1515,6 @@ public interface CdtliteraturePackage extends EPackage {
 	EClass getUnpublished();
 
 	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Unpublished#getAuthor <em>Author</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Author</em>'.
-	 * @see cdtliterature.Unpublished#getAuthor()
-	 * @see #getUnpublished()
-	 * @generated
-	 */
-	EAttribute getUnpublished_Author();
-
-	/**
-	 * Returns the meta object for the attribute '{@link cdtliterature.Unpublished#getTitle <em>Title</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Title</em>'.
-	 * @see cdtliterature.Unpublished#getTitle()
-	 * @see #getUnpublished()
-	 * @generated
-	 */
-	EAttribute getUnpublished_Title();
-
-	/**
 	 * Returns the meta object for the attribute '{@link cdtliterature.Unpublished#getNote <em>Note</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1568,17 +1524,6 @@ public interface CdtliteraturePackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getUnpublished_Note();
-
-	/**
-	 * Returns the meta object for the reference list '{@link cdtliterature.Unpublished#getReferences <em>References</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>References</em>'.
-	 * @see cdtliterature.Unpublished#getReferences()
-	 * @see #getUnpublished()
-	 * @generated
-	 */
-	EReference getUnpublished_References();
 
 	/**
 	 * Returns the meta object for class '{@link cdtliterature.Library <em>Library</em>}'.
@@ -1635,10 +1580,10 @@ public interface CdtliteraturePackage extends EPackage {
 	EReference getLibrary_Inbook();
 
 	/**
-	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getConference <em>Conference</em>}'.
+	 * Returns the meta object for the containment reference list '{@link cdtliterature.Library#getConference <em>Conference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Conference</em>'.
+	 * @return the meta object for the containment reference list '<em>Conference</em>'.
 	 * @see cdtliterature.Library#getConference()
 	 * @see #getLibrary()
 	 * @generated
@@ -1646,10 +1591,10 @@ public interface CdtliteraturePackage extends EPackage {
 	EReference getLibrary_Conference();
 
 	/**
-	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getIncollection <em>Incollection</em>}'.
+	 * Returns the meta object for the containment reference list '{@link cdtliterature.Library#getIncollection <em>Incollection</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Incollection</em>'.
+	 * @return the meta object for the containment reference list '<em>Incollection</em>'.
 	 * @see cdtliterature.Library#getIncollection()
 	 * @see #getLibrary()
 	 * @generated
@@ -1657,10 +1602,10 @@ public interface CdtliteraturePackage extends EPackage {
 	EReference getLibrary_Incollection();
 
 	/**
-	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getInproceedings <em>Inproceedings</em>}'.
+	 * Returns the meta object for the containment reference list '{@link cdtliterature.Library#getInproceedings <em>Inproceedings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Inproceedings</em>'.
+	 * @return the meta object for the containment reference list '<em>Inproceedings</em>'.
 	 * @see cdtliterature.Library#getInproceedings()
 	 * @see #getLibrary()
 	 * @generated
@@ -1668,10 +1613,10 @@ public interface CdtliteraturePackage extends EPackage {
 	EReference getLibrary_Inproceedings();
 
 	/**
-	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getProceedings <em>Proceedings</em>}'.
+	 * Returns the meta object for the containment reference list '{@link cdtliterature.Library#getProceedings <em>Proceedings</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Proceedings</em>'.
+	 * @return the meta object for the containment reference list '<em>Proceedings</em>'.
 	 * @see cdtliterature.Library#getProceedings()
 	 * @see #getLibrary()
 	 * @generated
@@ -1679,10 +1624,10 @@ public interface CdtliteraturePackage extends EPackage {
 	EReference getLibrary_Proceedings();
 
 	/**
-	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getTechreport <em>Techreport</em>}'.
+	 * Returns the meta object for the containment reference list '{@link cdtliterature.Library#getTechreport <em>Techreport</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Techreport</em>'.
+	 * @return the meta object for the containment reference list '<em>Techreport</em>'.
 	 * @see cdtliterature.Library#getTechreport()
 	 * @see #getLibrary()
 	 * @generated
@@ -1690,10 +1635,10 @@ public interface CdtliteraturePackage extends EPackage {
 	EReference getLibrary_Techreport();
 
 	/**
-	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getPhdthesis <em>Phdthesis</em>}'.
+	 * Returns the meta object for the containment reference list '{@link cdtliterature.Library#getPhdthesis <em>Phdthesis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Phdthesis</em>'.
+	 * @return the meta object for the containment reference list '<em>Phdthesis</em>'.
 	 * @see cdtliterature.Library#getPhdthesis()
 	 * @see #getLibrary()
 	 * @generated
@@ -1701,10 +1646,10 @@ public interface CdtliteraturePackage extends EPackage {
 	EReference getLibrary_Phdthesis();
 
 	/**
-	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getMasterthesis <em>Masterthesis</em>}'.
+	 * Returns the meta object for the containment reference list '{@link cdtliterature.Library#getMasterthesis <em>Masterthesis</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Masterthesis</em>'.
+	 * @return the meta object for the containment reference list '<em>Masterthesis</em>'.
 	 * @see cdtliterature.Library#getMasterthesis()
 	 * @see #getLibrary()
 	 * @generated
@@ -1712,10 +1657,10 @@ public interface CdtliteraturePackage extends EPackage {
 	EReference getLibrary_Masterthesis();
 
 	/**
-	 * Returns the meta object for the reference list '{@link cdtliterature.Library#getUnpublished <em>Unpublished</em>}'.
+	 * Returns the meta object for the containment reference list '{@link cdtliterature.Library#getUnpublished <em>Unpublished</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Unpublished</em>'.
+	 * @return the meta object for the containment reference list '<em>Unpublished</em>'.
 	 * @see cdtliterature.Library#getUnpublished()
 	 * @see #getLibrary()
 	 * @generated
@@ -1866,14 +1811,6 @@ public interface CdtliteraturePackage extends EPackage {
 		EAttribute INBOOK__PUBLISHER = eINSTANCE.getInbook_Publisher();
 
 		/**
-		 * The meta object literal for the '<em><b>Book</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INBOOK__BOOK = eINSTANCE.getInbook_Book();
-
-		/**
 		 * The meta object literal for the '{@link cdtliterature.impl.ConferenceImpl <em>Conference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1918,14 +1855,6 @@ public interface CdtliteraturePackage extends EPackage {
 		EAttribute INCOLLECTION__PUBLISHER = eINSTANCE.getIncollection_Publisher();
 
 		/**
-		 * The meta object literal for the '<em><b>Books</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference INCOLLECTION__BOOKS = eINSTANCE.getIncollection_Books();
-
-		/**
 		 * The meta object literal for the '{@link cdtliterature.impl.InproceedingsImpl <em>Inproceedings</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1944,7 +1873,7 @@ public interface CdtliteraturePackage extends EPackage {
 		EAttribute INPROCEEDINGS__BOOKTITLE = eINSTANCE.getInproceedings_Booktitle();
 
 		/**
-		 * The meta object literal for the '<em><b>Articles</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Articles</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2026,36 +1955,12 @@ public interface CdtliteraturePackage extends EPackage {
 		EClass UNPUBLISHED = eINSTANCE.getUnpublished();
 
 		/**
-		 * The meta object literal for the '<em><b>Author</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UNPUBLISHED__AUTHOR = eINSTANCE.getUnpublished_Author();
-
-		/**
-		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute UNPUBLISHED__TITLE = eINSTANCE.getUnpublished_Title();
-
-		/**
 		 * The meta object literal for the '<em><b>Note</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute UNPUBLISHED__NOTE = eINSTANCE.getUnpublished_Note();
-
-		/**
-		 * The meta object literal for the '<em><b>References</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference UNPUBLISHED__REFERENCES = eINSTANCE.getUnpublished_References();
 
 		/**
 		 * The meta object literal for the '{@link cdtliterature.impl.LibraryImpl <em>Library</em>}' class.
@@ -2100,7 +2005,7 @@ public interface CdtliteraturePackage extends EPackage {
 		EReference LIBRARY__INBOOK = eINSTANCE.getLibrary_Inbook();
 
 		/**
-		 * The meta object literal for the '<em><b>Conference</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Conference</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2108,7 +2013,7 @@ public interface CdtliteraturePackage extends EPackage {
 		EReference LIBRARY__CONFERENCE = eINSTANCE.getLibrary_Conference();
 
 		/**
-		 * The meta object literal for the '<em><b>Incollection</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Incollection</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2116,7 +2021,7 @@ public interface CdtliteraturePackage extends EPackage {
 		EReference LIBRARY__INCOLLECTION = eINSTANCE.getLibrary_Incollection();
 
 		/**
-		 * The meta object literal for the '<em><b>Inproceedings</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Inproceedings</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2124,7 +2029,7 @@ public interface CdtliteraturePackage extends EPackage {
 		EReference LIBRARY__INPROCEEDINGS = eINSTANCE.getLibrary_Inproceedings();
 
 		/**
-		 * The meta object literal for the '<em><b>Proceedings</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Proceedings</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2132,7 +2037,7 @@ public interface CdtliteraturePackage extends EPackage {
 		EReference LIBRARY__PROCEEDINGS = eINSTANCE.getLibrary_Proceedings();
 
 		/**
-		 * The meta object literal for the '<em><b>Techreport</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Techreport</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2140,7 +2045,7 @@ public interface CdtliteraturePackage extends EPackage {
 		EReference LIBRARY__TECHREPORT = eINSTANCE.getLibrary_Techreport();
 
 		/**
-		 * The meta object literal for the '<em><b>Phdthesis</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Phdthesis</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2148,7 +2053,7 @@ public interface CdtliteraturePackage extends EPackage {
 		EReference LIBRARY__PHDTHESIS = eINSTANCE.getLibrary_Phdthesis();
 
 		/**
-		 * The meta object literal for the '<em><b>Masterthesis</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Masterthesis</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2156,7 +2061,7 @@ public interface CdtliteraturePackage extends EPackage {
 		EReference LIBRARY__MASTERTHESIS = eINSTANCE.getLibrary_Masterthesis();
 
 		/**
-		 * The meta object literal for the '<em><b>Unpublished</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Unpublished</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

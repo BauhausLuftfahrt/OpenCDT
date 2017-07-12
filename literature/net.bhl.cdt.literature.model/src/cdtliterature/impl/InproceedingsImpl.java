@@ -6,12 +6,16 @@ import cdtliterature.Article;
 import cdtliterature.CdtliteraturePackage;
 import cdtliterature.Inproceedings;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -49,14 +53,14 @@ public class InproceedingsImpl extends ALiteratureBaseImpl implements Inproceedi
 	protected String booktitle = BOOKTITLE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getArticles() <em>Articles</em>}' reference.
+	 * The cached value of the '{@link #getArticles() <em>Articles</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getArticles()
 	 * @generated
 	 * @ordered
 	 */
-	protected Article articles;
+	protected EList<Article> articles;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -103,14 +107,9 @@ public class InproceedingsImpl extends ALiteratureBaseImpl implements Inproceedi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Article getArticles() {
-		if (articles != null && articles.eIsProxy()) {
-			InternalEObject oldArticles = (InternalEObject)articles;
-			articles = (Article)eResolveProxy(oldArticles);
-			if (articles != oldArticles) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CdtliteraturePackage.INPROCEEDINGS__ARTICLES, oldArticles, articles));
-			}
+	public EList<Article> getArticles() {
+		if (articles == null) {
+			articles = new EObjectContainmentEList<Article>(Article.class, this, CdtliteraturePackage.INPROCEEDINGS__ARTICLES);
 		}
 		return articles;
 	}
@@ -120,20 +119,13 @@ public class InproceedingsImpl extends ALiteratureBaseImpl implements Inproceedi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Article basicGetArticles() {
-		return articles;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setArticles(Article newArticles) {
-		Article oldArticles = articles;
-		articles = newArticles;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CdtliteraturePackage.INPROCEEDINGS__ARTICLES, oldArticles, articles));
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CdtliteraturePackage.INPROCEEDINGS__ARTICLES:
+				return ((InternalEList<?>)getArticles()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -147,8 +139,7 @@ public class InproceedingsImpl extends ALiteratureBaseImpl implements Inproceedi
 			case CdtliteraturePackage.INPROCEEDINGS__BOOKTITLE:
 				return getBooktitle();
 			case CdtliteraturePackage.INPROCEEDINGS__ARTICLES:
-				if (resolve) return getArticles();
-				return basicGetArticles();
+				return getArticles();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -158,6 +149,7 @@ public class InproceedingsImpl extends ALiteratureBaseImpl implements Inproceedi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
@@ -165,7 +157,8 @@ public class InproceedingsImpl extends ALiteratureBaseImpl implements Inproceedi
 				setBooktitle((String)newValue);
 				return;
 			case CdtliteraturePackage.INPROCEEDINGS__ARTICLES:
-				setArticles((Article)newValue);
+				getArticles().clear();
+				getArticles().addAll((Collection<? extends Article>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -183,7 +176,7 @@ public class InproceedingsImpl extends ALiteratureBaseImpl implements Inproceedi
 				setBooktitle(BOOKTITLE_EDEFAULT);
 				return;
 			case CdtliteraturePackage.INPROCEEDINGS__ARTICLES:
-				setArticles((Article)null);
+				getArticles().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -200,7 +193,7 @@ public class InproceedingsImpl extends ALiteratureBaseImpl implements Inproceedi
 			case CdtliteraturePackage.INPROCEEDINGS__BOOKTITLE:
 				return BOOKTITLE_EDEFAULT == null ? booktitle != null : !BOOKTITLE_EDEFAULT.equals(booktitle);
 			case CdtliteraturePackage.INPROCEEDINGS__ARTICLES:
-				return articles != null;
+				return articles != null && !articles.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

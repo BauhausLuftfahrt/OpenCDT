@@ -39,6 +39,7 @@
       <plugin id="javax.servlet"/>
       <plugin id="javax.xml"/>
       <plugin id="net.bhl.cdt.client.e4"/>
+      <plugin id="net.bhl.cdt.core"/>
       <plugin id="net.bhl.cdt.literature.model"/>
       <plugin id="net.bhl.cdt.literature.model.edit"/>
       <plugin id="net.bhl.cdt.literature.model.parsley"/>

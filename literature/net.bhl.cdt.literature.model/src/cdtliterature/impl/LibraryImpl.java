@@ -29,7 +29,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -108,7 +107,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	protected EList<Inbook> inbook;
 
 	/**
-	 * The cached value of the '{@link #getConference() <em>Conference</em>}' reference list.
+	 * The cached value of the '{@link #getConference() <em>Conference</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getConference()
@@ -118,7 +117,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	protected EList<Conference> conference;
 
 	/**
-	 * The cached value of the '{@link #getIncollection() <em>Incollection</em>}' reference list.
+	 * The cached value of the '{@link #getIncollection() <em>Incollection</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getIncollection()
@@ -128,7 +127,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	protected EList<Incollection> incollection;
 
 	/**
-	 * The cached value of the '{@link #getInproceedings() <em>Inproceedings</em>}' reference list.
+	 * The cached value of the '{@link #getInproceedings() <em>Inproceedings</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getInproceedings()
@@ -138,7 +137,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	protected EList<Inproceedings> inproceedings;
 
 	/**
-	 * The cached value of the '{@link #getProceedings() <em>Proceedings</em>}' reference list.
+	 * The cached value of the '{@link #getProceedings() <em>Proceedings</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getProceedings()
@@ -148,7 +147,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	protected EList<Proceedings> proceedings;
 
 	/**
-	 * The cached value of the '{@link #getTechreport() <em>Techreport</em>}' reference list.
+	 * The cached value of the '{@link #getTechreport() <em>Techreport</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getTechreport()
@@ -158,7 +157,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	protected EList<Techreport> techreport;
 
 	/**
-	 * The cached value of the '{@link #getPhdthesis() <em>Phdthesis</em>}' reference list.
+	 * The cached value of the '{@link #getPhdthesis() <em>Phdthesis</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPhdthesis()
@@ -168,7 +167,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	protected EList<Phdthesis> phdthesis;
 
 	/**
-	 * The cached value of the '{@link #getMasterthesis() <em>Masterthesis</em>}' reference list.
+	 * The cached value of the '{@link #getMasterthesis() <em>Masterthesis</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getMasterthesis()
@@ -178,7 +177,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	protected EList<Masterthesis> masterthesis;
 
 	/**
-	 * The cached value of the '{@link #getUnpublished() <em>Unpublished</em>}' reference list.
+	 * The cached value of the '{@link #getUnpublished() <em>Unpublished</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getUnpublished()
@@ -270,7 +269,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	 */
 	public EList<Conference> getConference() {
 		if (conference == null) {
-			conference = new EObjectResolvingEList<Conference>(Conference.class, this, CdtliteraturePackage.LIBRARY__CONFERENCE);
+			conference = new EObjectContainmentEList<Conference>(Conference.class, this, CdtliteraturePackage.LIBRARY__CONFERENCE);
 		}
 		return conference;
 	}
@@ -282,7 +281,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	 */
 	public EList<Incollection> getIncollection() {
 		if (incollection == null) {
-			incollection = new EObjectResolvingEList<Incollection>(Incollection.class, this, CdtliteraturePackage.LIBRARY__INCOLLECTION);
+			incollection = new EObjectContainmentEList<Incollection>(Incollection.class, this, CdtliteraturePackage.LIBRARY__INCOLLECTION);
 		}
 		return incollection;
 	}
@@ -294,7 +293,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	 */
 	public EList<Inproceedings> getInproceedings() {
 		if (inproceedings == null) {
-			inproceedings = new EObjectResolvingEList<Inproceedings>(Inproceedings.class, this, CdtliteraturePackage.LIBRARY__INPROCEEDINGS);
+			inproceedings = new EObjectContainmentEList<Inproceedings>(Inproceedings.class, this, CdtliteraturePackage.LIBRARY__INPROCEEDINGS);
 		}
 		return inproceedings;
 	}
@@ -306,7 +305,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	 */
 	public EList<Proceedings> getProceedings() {
 		if (proceedings == null) {
-			proceedings = new EObjectResolvingEList<Proceedings>(Proceedings.class, this, CdtliteraturePackage.LIBRARY__PROCEEDINGS);
+			proceedings = new EObjectContainmentEList<Proceedings>(Proceedings.class, this, CdtliteraturePackage.LIBRARY__PROCEEDINGS);
 		}
 		return proceedings;
 	}
@@ -318,7 +317,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	 */
 	public EList<Techreport> getTechreport() {
 		if (techreport == null) {
-			techreport = new EObjectResolvingEList<Techreport>(Techreport.class, this, CdtliteraturePackage.LIBRARY__TECHREPORT);
+			techreport = new EObjectContainmentEList<Techreport>(Techreport.class, this, CdtliteraturePackage.LIBRARY__TECHREPORT);
 		}
 		return techreport;
 	}
@@ -330,7 +329,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	 */
 	public EList<Phdthesis> getPhdthesis() {
 		if (phdthesis == null) {
-			phdthesis = new EObjectResolvingEList<Phdthesis>(Phdthesis.class, this, CdtliteraturePackage.LIBRARY__PHDTHESIS);
+			phdthesis = new EObjectContainmentEList<Phdthesis>(Phdthesis.class, this, CdtliteraturePackage.LIBRARY__PHDTHESIS);
 		}
 		return phdthesis;
 	}
@@ -342,7 +341,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	 */
 	public EList<Masterthesis> getMasterthesis() {
 		if (masterthesis == null) {
-			masterthesis = new EObjectResolvingEList<Masterthesis>(Masterthesis.class, this, CdtliteraturePackage.LIBRARY__MASTERTHESIS);
+			masterthesis = new EObjectContainmentEList<Masterthesis>(Masterthesis.class, this, CdtliteraturePackage.LIBRARY__MASTERTHESIS);
 		}
 		return masterthesis;
 	}
@@ -354,7 +353,7 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 	 */
 	public EList<Unpublished> getUnpublished() {
 		if (unpublished == null) {
-			unpublished = new EObjectResolvingEList<Unpublished>(Unpublished.class, this, CdtliteraturePackage.LIBRARY__UNPUBLISHED);
+			unpublished = new EObjectContainmentEList<Unpublished>(Unpublished.class, this, CdtliteraturePackage.LIBRARY__UNPUBLISHED);
 		}
 		return unpublished;
 	}
@@ -373,6 +372,22 @@ public class LibraryImpl extends MinimalEObjectImpl.Container implements Library
 				return ((InternalEList<?>)getBook()).basicRemove(otherEnd, msgs);
 			case CdtliteraturePackage.LIBRARY__INBOOK:
 				return ((InternalEList<?>)getInbook()).basicRemove(otherEnd, msgs);
+			case CdtliteraturePackage.LIBRARY__CONFERENCE:
+				return ((InternalEList<?>)getConference()).basicRemove(otherEnd, msgs);
+			case CdtliteraturePackage.LIBRARY__INCOLLECTION:
+				return ((InternalEList<?>)getIncollection()).basicRemove(otherEnd, msgs);
+			case CdtliteraturePackage.LIBRARY__INPROCEEDINGS:
+				return ((InternalEList<?>)getInproceedings()).basicRemove(otherEnd, msgs);
+			case CdtliteraturePackage.LIBRARY__PROCEEDINGS:
+				return ((InternalEList<?>)getProceedings()).basicRemove(otherEnd, msgs);
+			case CdtliteraturePackage.LIBRARY__TECHREPORT:
+				return ((InternalEList<?>)getTechreport()).basicRemove(otherEnd, msgs);
+			case CdtliteraturePackage.LIBRARY__PHDTHESIS:
+				return ((InternalEList<?>)getPhdthesis()).basicRemove(otherEnd, msgs);
+			case CdtliteraturePackage.LIBRARY__MASTERTHESIS:
+				return ((InternalEList<?>)getMasterthesis()).basicRemove(otherEnd, msgs);
+			case CdtliteraturePackage.LIBRARY__UNPUBLISHED:
+				return ((InternalEList<?>)getUnpublished()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
