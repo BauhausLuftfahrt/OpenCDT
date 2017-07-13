@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import model.base.AModelContainerItem;
 import model.base.Component;
 import model.base.ModelContainer;
+import model.data.IParameter;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.parsley.edit.ui.provider.ViewerContentProvider;
@@ -36,6 +37,11 @@ public class ViewViewerContentProvider extends ViewerContentProvider {
   }
   
   public Object children(final Component it) {
-    return it.getSubComponents();
+    EList<IParameter> _xblockexpression = null;
+    {
+      it.getSubComponents();
+      _xblockexpression = it.getParameters();
+    }
+    return _xblockexpression;
   }
 }

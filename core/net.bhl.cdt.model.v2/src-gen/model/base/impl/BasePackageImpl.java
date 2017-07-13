@@ -14,6 +14,14 @@ import model.data.DataPackage;
 
 import model.data.impl.DataPackageImpl;
 
+import model.data.measure.MeasurePackage;
+
+import model.data.measure.impl.MeasurePackageImpl;
+
+import model.experimental.ExperimentalPackage;
+
+import model.experimental.impl.ExperimentalPackageImpl;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -118,14 +126,20 @@ public class BasePackageImpl extends EPackageImpl implements BasePackage {
 
                 // Obtain or create and register interdependencies
                 DataPackageImpl theDataPackage = (DataPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI) instanceof DataPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(DataPackage.eNS_URI) : DataPackage.eINSTANCE);
+                MeasurePackageImpl theMeasurePackage = (MeasurePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MeasurePackage.eNS_URI) instanceof MeasurePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MeasurePackage.eNS_URI) : MeasurePackage.eINSTANCE);
+                ExperimentalPackageImpl theExperimentalPackage = (ExperimentalPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExperimentalPackage.eNS_URI) instanceof ExperimentalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExperimentalPackage.eNS_URI) : ExperimentalPackage.eINSTANCE);
 
                 // Create package meta-data objects
                 theBasePackage.createPackageContents();
                 theDataPackage.createPackageContents();
+                theMeasurePackage.createPackageContents();
+                theExperimentalPackage.createPackageContents();
 
                 // Initialize created meta-data
                 theBasePackage.initializePackageContents();
                 theDataPackage.initializePackageContents();
+                theMeasurePackage.initializePackageContents();
+                theExperimentalPackage.initializePackageContents();
 
                 // Mark meta-data to indicate it can't be changed
                 theBasePackage.freeze();

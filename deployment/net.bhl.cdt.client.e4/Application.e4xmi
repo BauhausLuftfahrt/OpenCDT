@@ -2,7 +2,7 @@
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_GlqaEArBEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.application" bindingContexts="_GlrBIArBEeaJ2Y3tZdi01w">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_GlqaEQrBEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.mainwindow" selectedElement="_Y7B88ArDEeaJ2Y3tZdi01w" label="OpenCDT" iconURI="platform:/plugin/net.bhl.cdt.client.e4/res/OpenCDT_Symbol_0064.png" width="1280" height="800">
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_Y7B88ArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.mainwindow.perspectivestack"/>
-    <mainMenu xmi:id="_y35uoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.menu.0">
+    <mainMenu xmi:id="_y35uoArDEeaJ2Y3tZdi01w" elementId="net.bhl.cdt.client.e4.mainmenu">
       <children xsi:type="menu:Menu" xmi:id="_WWyncBqOEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.menu.file" label="File">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_XoxMsBqOEeaW3cdp9dOVbQ" elementId="net.bhl.cdt.client.e4.handledmenuitem.exit" label="Exit" command="_cSFhMBqOEeaW3cdp9dOVbQ"/>
       </children>

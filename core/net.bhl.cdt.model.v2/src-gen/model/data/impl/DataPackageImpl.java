@@ -2,37 +2,32 @@
  */
 package model.data.impl;
 
-import javax.measure.quantity.Length;
-import javax.measure.quantity.Quantity;
-
-import javax.measure.unit.Unit;
-
 import model.base.BasePackage;
 
 import model.base.impl.BasePackageImpl;
 
-import model.data.AUnit;
 import model.data.DataFactory;
 import model.data.DataPackage;
 import model.data.DateParameter;
 import model.data.IDataEntity;
 import model.data.IDimension;
 import model.data.IParameter;
-import model.data.IQuantifiedParameter;
-import model.data.LengthParamenter;
 import model.data.StringParameter;
+
+import model.data.measure.MeasurePackage;
+
+import model.data.measure.impl.MeasurePackageImpl;
+
+import model.experimental.ExperimentalPackage;
+
+import model.experimental.impl.ExperimentalPackageImpl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
-import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.ETypeParameter;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-
-import org.jscience.physics.amount.Amount;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,13 +36,6 @@ import org.jscience.physics.amount.Amount;
  * @generated
  */
 public class DataPackageImpl extends EPackageImpl implements DataPackage {
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        private EClass aUnitEClass = null;
-
         /**
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -82,55 +70,6 @@ public class DataPackageImpl extends EPackageImpl implements DataPackage {
          * @generated
          */
         private EClass dateParameterEClass = null;
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        private EClass iQuantifiedParameterEClass = null;
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        private EClass lengthParamenterEClass = null;
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        private EDataType lengthEDataType = null;
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        private EDataType distanceEDataType = null;
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        private EDataType amountEDataType = null;
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        private EDataType unitEDataType = null;
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        private EDataType quantityEDataType = null;
 
         /**
          * Creates an instance of the model <b>Package</b>, registered with
@@ -180,14 +119,20 @@ public class DataPackageImpl extends EPackageImpl implements DataPackage {
 
                 // Obtain or create and register interdependencies
                 BasePackageImpl theBasePackage = (BasePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(BasePackage.eNS_URI) instanceof BasePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(BasePackage.eNS_URI) : BasePackage.eINSTANCE);
+                MeasurePackageImpl theMeasurePackage = (MeasurePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(MeasurePackage.eNS_URI) instanceof MeasurePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(MeasurePackage.eNS_URI) : MeasurePackage.eINSTANCE);
+                ExperimentalPackageImpl theExperimentalPackage = (ExperimentalPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ExperimentalPackage.eNS_URI) instanceof ExperimentalPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ExperimentalPackage.eNS_URI) : ExperimentalPackage.eINSTANCE);
 
                 // Create package meta-data objects
                 theDataPackage.createPackageContents();
                 theBasePackage.createPackageContents();
+                theMeasurePackage.createPackageContents();
+                theExperimentalPackage.createPackageContents();
 
                 // Initialize created meta-data
                 theDataPackage.initializePackageContents();
                 theBasePackage.initializePackageContents();
+                theMeasurePackage.initializePackageContents();
+                theExperimentalPackage.initializePackageContents();
 
                 // Mark meta-data to indicate it can't be changed
                 theDataPackage.freeze();
@@ -196,33 +141,6 @@ public class DataPackageImpl extends EPackageImpl implements DataPackage {
                 // Update the registry and return the package
                 EPackage.Registry.INSTANCE.put(DataPackage.eNS_URI, theDataPackage);
                 return theDataPackage;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EClass getAUnit() {
-                return aUnitEClass;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EReference getAUnit_Parameter() {
-                return (EReference)aUnitEClass.getEStructuralFeatures().get(0);
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EAttribute getAUnit_Symbol() {
-                return (EAttribute)aUnitEClass.getEStructuralFeatures().get(1);
         }
 
         /**
@@ -311,78 +229,6 @@ public class DataPackageImpl extends EPackageImpl implements DataPackage {
          * <!-- end-user-doc -->
          * @generated
          */
-        public EClass getIQuantifiedParameter() {
-                return iQuantifiedParameterEClass;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EAttribute getIQuantifiedParameter_Value() {
-                return (EAttribute)iQuantifiedParameterEClass.getEStructuralFeatures().get(0);
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EClass getLengthParamenter() {
-                return lengthParamenterEClass;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EDataType getLength() {
-                return lengthEDataType;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EDataType getDistance() {
-                return distanceEDataType;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EDataType getAmount() {
-                return amountEDataType;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EDataType getUnit() {
-                return unitEDataType;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public EDataType getQuantity() {
-                return quantityEDataType;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
         public DataFactory getDataFactory() {
                 return (DataFactory)getEFactoryInstance();
         }
@@ -406,10 +252,6 @@ public class DataPackageImpl extends EPackageImpl implements DataPackage {
                 isCreated = true;
 
                 // Create classes and their features
-                aUnitEClass = createEClass(AUNIT);
-                createEReference(aUnitEClass, AUNIT__PARAMETER);
-                createEAttribute(aUnitEClass, AUNIT__SYMBOL);
-
                 iDimensionEClass = createEClass(IDIMENSION);
                 createEReference(iDimensionEClass, IDIMENSION__UNITS);
 
@@ -423,18 +265,6 @@ public class DataPackageImpl extends EPackageImpl implements DataPackage {
 
                 dateParameterEClass = createEClass(DATE_PARAMETER);
                 createEAttribute(dateParameterEClass, DATE_PARAMETER__VALUE);
-
-                iQuantifiedParameterEClass = createEClass(IQUANTIFIED_PARAMETER);
-                createEAttribute(iQuantifiedParameterEClass, IQUANTIFIED_PARAMETER__VALUE);
-
-                lengthParamenterEClass = createEClass(LENGTH_PARAMENTER);
-
-                // Create data types
-                lengthEDataType = createEDataType(LENGTH);
-                distanceEDataType = createEDataType(DISTANCE);
-                amountEDataType = createEDataType(AMOUNT);
-                unitEDataType = createEDataType(UNIT);
-                quantityEDataType = createEDataType(QUANTITY);
         }
 
         /**
@@ -461,23 +291,17 @@ public class DataPackageImpl extends EPackageImpl implements DataPackage {
                 setNsURI(eNS_URI);
 
                 // Obtain other dependent packages
+                MeasurePackage theMeasurePackage = (MeasurePackage)EPackage.Registry.INSTANCE.getEPackage(MeasurePackage.eNS_URI);
                 BasePackage theBasePackage = (BasePackage)EPackage.Registry.INSTANCE.getEPackage(BasePackage.eNS_URI);
 
+                // Add subpackages
+                getESubpackages().add(theMeasurePackage);
+
                 // Create type parameters
-                ETypeParameter iQuantifiedParameterEClass_Q = addETypeParameter(iQuantifiedParameterEClass, "Q");
-                ETypeParameter amountEDataType_Q = addETypeParameter(amountEDataType, "Q");
-                ETypeParameter unitEDataType_Q = addETypeParameter(unitEDataType, "Q");
 
                 // Set bounds for type parameters
-                EGenericType g1 = createEGenericType(this.getQuantity());
-                iQuantifiedParameterEClass_Q.getEBounds().add(g1);
-                g1 = createEGenericType(this.getQuantity());
-                amountEDataType_Q.getEBounds().add(g1);
-                g1 = createEGenericType(this.getQuantity());
-                unitEDataType_Q.getEBounds().add(g1);
 
                 // Add supertypes to classes
-                aUnitEClass.getESuperTypes().add(theBasePackage.getANamedItem());
                 iDimensionEClass.getESuperTypes().add(theBasePackage.getAIdentifiableItem());
                 iDimensionEClass.getESuperTypes().add(theBasePackage.getANamedItem());
                 iParameterEClass.getESuperTypes().add(theBasePackage.getANamedItem());
@@ -486,18 +310,10 @@ public class DataPackageImpl extends EPackageImpl implements DataPackage {
                 iDataEntityEClass.getESuperTypes().add(theBasePackage.getANamedItem());
                 stringParameterEClass.getESuperTypes().add(this.getIParameter());
                 dateParameterEClass.getESuperTypes().add(this.getIParameter());
-                g1 = createEGenericType(this.getIQuantifiedParameter());
-                EGenericType g2 = createEGenericType(this.getLength());
-                g1.getETypeArguments().add(g2);
-                lengthParamenterEClass.getEGenericSuperTypes().add(g1);
 
                 // Initialize classes, features, and operations; add parameters
-                initEClass(aUnitEClass, AUnit.class, "AUnit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEReference(getAUnit_Parameter(), this.getIParameter(), null, "parameter", null, 1, 1, AUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-                initEAttribute(getAUnit_Symbol(), ecorePackage.getEString(), "symbol", null, 0, 1, AUnit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
                 initEClass(iDimensionEClass, IDimension.class, "IDimension", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                initEReference(getIDimension_Units(), this.getAUnit(), null, "units", null, 0, -1, IDimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+                initEReference(getIDimension_Units(), theMeasurePackage.getAUnit(), null, "units", null, 0, -1, IDimension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
                 initEClass(iParameterEClass, IParameter.class, "IParameter", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -509,21 +325,6 @@ public class DataPackageImpl extends EPackageImpl implements DataPackage {
 
                 initEClass(dateParameterEClass, DateParameter.class, "DateParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
                 initEAttribute(getDateParameter_Value(), ecorePackage.getEDate(), "value", null, 0, 1, DateParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-                initEClass(iQuantifiedParameterEClass, IQuantifiedParameter.class, "IQuantifiedParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-                g1 = createEGenericType(this.getAmount());
-                g2 = createEGenericType(iQuantifiedParameterEClass_Q);
-                g1.getETypeArguments().add(g2);
-                initEAttribute(getIQuantifiedParameter_Value(), g1, "value", null, 0, 1, IQuantifiedParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-                initEClass(lengthParamenterEClass, LengthParamenter.class, "LengthParamenter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-                // Initialize data types
-                initEDataType(lengthEDataType, Length.class, "Length", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-                initEDataType(distanceEDataType, Length.class, "Distance", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-                initEDataType(amountEDataType, Amount.class, "Amount", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-                initEDataType(unitEDataType, Unit.class, "Unit", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
-                initEDataType(quantityEDataType, Quantity.class, "Quantity", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);
 
                 // Create resource
                 createResource(eNS_URI);

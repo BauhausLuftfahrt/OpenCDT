@@ -21,7 +21,13 @@ Export-Package: javax.measure,
  model.base.util,
  model.data,
  model.data.impl,
+ model.data.measure,
+ model.data.measure.impl,
+ model.data.measure.util,
  model.data.util,
+ model.experimental,
+ model.experimental.impl,
+ model.experimental.util,
  net.bhl.cdt.model.v2.units.provider,
  org.jscience.physics.amount
 Bundle-Activator: net.bhl.cdt.model.v2.Activator

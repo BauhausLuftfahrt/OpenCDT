@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="OpenCDT Target Platform" sequenceNumber="338">
+<?pde version="3.8"?><target name="OpenCDT Target Platform" sequenceNumber="340">
 <locations>
-<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="com.google.guava" version="21.0.0.v20170206-1425"/>
-<unit id="com.google.guava.source" version="21.0.0.v20170206-1425"/>
-<unit id="com.google.inject" version="3.0.0.v201605172100"/>
-<unit id="com.google.inject.assistedinject" version="3.0.0.v201402270930"/>
-<unit id="com.google.inject.assistedinject.source" version="3.0.0.v201402270930"/>
-<unit id="com.google.inject.multibindings" version="3.0.0.v201605172100"/>
-<unit id="com.google.inject.multibindings.source" version="3.0.0.v201605172100"/>
-<unit id="com.google.inject.source" version="3.0.0.v201605172100"/>
-<repository location="http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository"/>
-</location>
 <location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.all.feature.group" version="2.11.0.v20150601-0402"/>
 <unit id="org.eclipse.emf.codegen.ecore.feature.group" version="2.11.0.v20150601-0402"/>
@@ -76,6 +65,12 @@
 <repository location="http://download.eclipse.org/eclipse/updates/4.7"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.rap.equinox.target.feature.feature.group" version="3.2.0.20170613-1148"/>
+<unit id="org.eclipse.rap.feature.feature.group" version="3.2.0.20170609-1144"/>
+<unit id="org.eclipse.rap.sdk.feature.feature.group" version="3.2.0.20170609-1144"/>
+<repository location="http://download.eclipse.org/rt/rap/3.2"/>
+</location>
+<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.parsley.cdo.feature.feature.group" version="1.2.1.v20170625-1309"/>
 <unit id="org.eclipse.emf.parsley.cdo.feature.source.feature.group" version="1.2.1.v20170625-1309"/>
 <unit id="org.eclipse.emf.parsley.dsl.feature.feature.group" version="1.2.1.v20170625-1309"/>
@@ -90,13 +85,18 @@
 <unit id="org.eclipse.emf.parsley.sdk.source.feature.group" version="1.2.1.v20170625-1309"/>
 <unit id="org.eclipse.emf.parsley.web.feature.feature.group" version="1.2.1.v20170625-1309"/>
 <unit id="org.eclipse.emf.parsley.web.feature.source.feature.group" version="1.2.1.v20170625-1309"/>
-<repository location="http://download.eclipse.org/emf-parsley/updates/"/>
+<repository location="http://download.eclipse.org/emf-parsley/updates/1.2"/>
 </location>
 <location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.rap.equinox.target.feature.feature.group" version="3.2.0.20170613-1148"/>
-<unit id="org.eclipse.rap.feature.feature.group" version="3.2.0.20170609-1144"/>
-<unit id="org.eclipse.rap.sdk.feature.feature.group" version="3.2.0.20170609-1144"/>
-<repository location="http://download.eclipse.org/rt/rap/3.2"/>
+<unit id="com.google.guava" version="15.0.0.v201403281430"/>
+<unit id="com.google.guava.source" version="15.0.0.v201403281430"/>
+<unit id="com.google.inject" version="3.0.0.v201605172100"/>
+<unit id="com.google.inject.assistedinject" version="3.0.0.v201402270930"/>
+<unit id="com.google.inject.assistedinject.source" version="3.0.0.v201402270930"/>
+<unit id="com.google.inject.multibindings" version="3.0.0.v201605172100"/>
+<unit id="com.google.inject.multibindings.source" version="3.0.0.v201605172100"/>
+<unit id="com.google.inject.source" version="3.0.0.v201605172100"/>
+<repository location="http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository"/>
 </location>
 </locations>
 <environment>

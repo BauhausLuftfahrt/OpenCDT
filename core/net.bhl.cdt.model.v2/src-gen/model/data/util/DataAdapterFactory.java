@@ -2,8 +2,6 @@
  */
 package model.data.util;
 
-import javax.measure.quantity.Quantity;
-
 import model.base.AIdentifiableItem;
 import model.base.ANamedItem;
 
@@ -73,10 +71,6 @@ public class DataAdapterFactory extends AdapterFactoryImpl {
         protected DataSwitch<Adapter> modelSwitch =
                 new DataSwitch<Adapter>() {
                         @Override
-                        public Adapter caseAUnit(AUnit object) {
-                                return createAUnitAdapter();
-                        }
-                        @Override
                         public Adapter caseIDimension(IDimension object) {
                                 return createIDimensionAdapter();
                         }
@@ -97,20 +91,12 @@ public class DataAdapterFactory extends AdapterFactoryImpl {
                                 return createDateParameterAdapter();
                         }
                         @Override
-                        public <Q extends Quantity> Adapter caseIQuantifiedParameter(IQuantifiedParameter<Q> object) {
-                                return createIQuantifiedParameterAdapter();
-                        }
-                        @Override
-                        public Adapter caseLengthParamenter(LengthParamenter object) {
-                                return createLengthParamenterAdapter();
+                        public Adapter caseAIdentifiableItem(AIdentifiableItem object) {
+                                return createAIdentifiableItemAdapter();
                         }
                         @Override
                         public Adapter caseANamedItem(ANamedItem object) {
                                 return createANamedItemAdapter();
-                        }
-                        @Override
-                        public Adapter caseAIdentifiableItem(AIdentifiableItem object) {
-                                return createAIdentifiableItemAdapter();
                         }
                         @Override
                         public Adapter defaultCase(EObject object) {
@@ -131,20 +117,6 @@ public class DataAdapterFactory extends AdapterFactoryImpl {
                 return modelSwitch.doSwitch((EObject)target);
         }
 
-
-        /**
-         * Creates a new adapter for an object of class '{@link model.data.AUnit <em>AUnit</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see model.data.AUnit
-         * @generated
-         */
-        public Adapter createAUnitAdapter() {
-                return null;
-        }
 
         /**
          * Creates a new adapter for an object of class '{@link model.data.IDimension <em>IDimension</em>}'.
@@ -217,30 +189,16 @@ public class DataAdapterFactory extends AdapterFactoryImpl {
         }
 
         /**
-         * Creates a new adapter for an object of class '{@link model.data.IQuantifiedParameter <em>IQuantified Parameter</em>}'.
+         * Creates a new adapter for an object of class '{@link model.base.AIdentifiableItem <em>AIdentifiable Item</em>}'.
          * <!-- begin-user-doc -->
          * This default implementation returns null so that we can easily ignore cases;
          * it's useful to ignore a case when inheritance will catch all the cases anyway.
          * <!-- end-user-doc -->
          * @return the new adapter.
-         * @see model.data.IQuantifiedParameter
+         * @see model.base.AIdentifiableItem
          * @generated
          */
-        public Adapter createIQuantifiedParameterAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link model.data.LengthParamenter <em>Length Paramenter</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see model.data.LengthParamenter
-         * @generated
-         */
-        public Adapter createLengthParamenterAdapter() {
+        public Adapter createAIdentifiableItemAdapter() {
                 return null;
         }
 
@@ -255,20 +213,6 @@ public class DataAdapterFactory extends AdapterFactoryImpl {
          * @generated
          */
         public Adapter createANamedItemAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link model.base.AIdentifiableItem <em>AIdentifiable Item</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see model.base.AIdentifiableItem
-         * @generated
-         */
-        public Adapter createAIdentifiableItemAdapter() {
                 return null;
         }
 

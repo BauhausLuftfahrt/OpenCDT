@@ -14,9 +14,12 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.e4.ui.model.workbench
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
-Import-Package: org.eclipse.e4.core.contexts
+Import-Package: javax.measure.quantity,
+ javax.measure.unit,
+ org.eclipse.e4.core.contexts
 Service-Component: OSGI-INF/CDTPreferencesServiceContextFunction.xml,
  OSGI-INF/CDTAuthServiceContextFunction.xml
 Export-Package: net.bhl.cdt.core.auth,
  net.bhl.cdt.core.pref,
- net.bhl.cdt.core.pref.listener
+ net.bhl.cdt.core.pref.listener,
+ net.bhl.cdt.core.science

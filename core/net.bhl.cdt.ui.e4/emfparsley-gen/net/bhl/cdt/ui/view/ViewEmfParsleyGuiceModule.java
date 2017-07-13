@@ -1,9 +1,11 @@
 package net.bhl.cdt.ui.view;
 
 import net.bhl.cdt.ui.view.edit.ui.provider.ViewViewerContentProvider;
+import net.bhl.cdt.ui.view.modeleditor.ModelContainerEditorFormControlFactory;
 import net.bhl.cdt.ui.view.ui.provider.ViewFeaturesProvider;
 import net.bhl.cdt.ui.view.ui.provider.ViewLabelProvider;
 import org.eclipse.emf.parsley.EmfParsleyGuiceModule;
+import org.eclipse.emf.parsley.composite.FormControlFactory;
 import org.eclipse.emf.parsley.ui.provider.FeaturesProvider;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
@@ -22,6 +24,11 @@ public class ViewEmfParsleyGuiceModule extends EmfParsleyGuiceModule {
   @Override
   public int valueTreeFormSashStyle() {
     return SWT.HORIZONTAL;
+  }
+  
+  @Override
+  public Class<? extends FormControlFactory> bindFormControlFactory() {
+    return ModelContainerEditorFormControlFactory.class;
   }
   
   @Override

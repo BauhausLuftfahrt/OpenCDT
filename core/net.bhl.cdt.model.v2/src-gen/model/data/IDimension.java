@@ -5,6 +5,8 @@ package model.data;
 import model.base.AIdentifiableItem;
 import model.base.ANamedItem;
 
+import model.data.measure.AUnit;
+
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -26,7 +28,7 @@ import org.eclipse.emf.common.util.EList;
 public interface IDimension extends AIdentifiableItem, ANamedItem {
         /**
          * Returns the value of the '<em><b>Units</b></em>' containment reference list.
-         * The list contents are of type {@link model.data.AUnit}.
+         * The list contents are of type {@link model.data.measure.AUnit}.
          * <!-- begin-user-doc -->
          * <p>
          * If the meaning of the '<em>Units</em>' containment reference list isn't clear,

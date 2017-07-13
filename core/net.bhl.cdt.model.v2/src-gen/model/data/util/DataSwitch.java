@@ -2,8 +2,6 @@
  */
 package model.data.util;
 
-import javax.measure.quantity.Quantity;
-
 import model.base.AIdentifiableItem;
 import model.base.ANamedItem;
 
@@ -71,13 +69,6 @@ public class DataSwitch<T> extends Switch<T> {
         @Override
         protected T doSwitch(int classifierID, EObject theEObject) {
                 switch (classifierID) {
-                        case DataPackage.AUNIT: {
-                                AUnit aUnit = (AUnit)theEObject;
-                                T result = caseAUnit(aUnit);
-                                if (result == null) result = caseANamedItem(aUnit);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
                         case DataPackage.IDIMENSION: {
                                 IDimension iDimension = (IDimension)theEObject;
                                 T result = caseIDimension(iDimension);
@@ -120,36 +111,8 @@ public class DataSwitch<T> extends Switch<T> {
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
                         }
-                        case DataPackage.IQUANTIFIED_PARAMETER: {
-                                IQuantifiedParameter<?> iQuantifiedParameter = (IQuantifiedParameter<?>)theEObject;
-                                T result = caseIQuantifiedParameter(iQuantifiedParameter);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case DataPackage.LENGTH_PARAMENTER: {
-                                LengthParamenter lengthParamenter = (LengthParamenter)theEObject;
-                                T result = caseLengthParamenter(lengthParamenter);
-                                if (result == null) result = caseIQuantifiedParameter(lengthParamenter);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
                         default: return defaultCase(theEObject);
                 }
-        }
-
-        /**
-         * Returns the result of interpreting the object as an instance of '<em>AUnit</em>'.
-         * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>AUnit</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
-        public T caseAUnit(AUnit object) {
-                return null;
         }
 
         /**
@@ -228,32 +191,17 @@ public class DataSwitch<T> extends Switch<T> {
         }
 
         /**
-         * Returns the result of interpreting the object as an instance of '<em>IQuantified Parameter</em>'.
+         * Returns the result of interpreting the object as an instance of '<em>AIdentifiable Item</em>'.
          * <!-- begin-user-doc -->
          * This implementation returns null;
          * returning a non-null result will terminate the switch.
          * <!-- end-user-doc -->
          * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>IQuantified Parameter</em>'.
+         * @return the result of interpreting the object as an instance of '<em>AIdentifiable Item</em>'.
          * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
          * @generated
          */
-        public <Q extends Quantity> T caseIQuantifiedParameter(IQuantifiedParameter<Q> object) {
-                return null;
-        }
-
-        /**
-         * Returns the result of interpreting the object as an instance of '<em>Length Paramenter</em>'.
-         * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Length Paramenter</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
-        public T caseLengthParamenter(LengthParamenter object) {
+        public T caseAIdentifiableItem(AIdentifiableItem object) {
                 return null;
         }
 
@@ -269,21 +217,6 @@ public class DataSwitch<T> extends Switch<T> {
          * @generated
          */
         public T caseANamedItem(ANamedItem object) {
-                return null;
-        }
-
-        /**
-         * Returns the result of interpreting the object as an instance of '<em>AIdentifiable Item</em>'.
-         * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>AIdentifiable Item</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
-        public T caseAIdentifiableItem(AIdentifiableItem object) {
                 return null;
         }
 

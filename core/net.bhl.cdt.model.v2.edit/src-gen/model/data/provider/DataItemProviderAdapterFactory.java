@@ -84,29 +84,6 @@ public class DataItemProviderAdapterFactory extends DataAdapterFactory implement
         }
 
         /**
-         * This keeps track of the one adapter used for all {@link model.data.AUnit} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected AUnitItemProvider aUnitItemProvider;
-
-        /**
-         * This creates an adapter for a {@link model.data.AUnit}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createAUnitAdapter() {
-                if (aUnitItemProvider == null) {
-                        aUnitItemProvider = new AUnitItemProvider(this);
-                }
-
-                return aUnitItemProvider;
-        }
-
-        /**
          * This keeps track of the one adapter used for all {@link model.data.StringParameter} instances.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -150,52 +127,6 @@ public class DataItemProviderAdapterFactory extends DataAdapterFactory implement
                 }
 
                 return dateParameterItemProvider;
-        }
-
-        /**
-         * This keeps track of the one adapter used for all {@link model.data.IQuantifiedParameter} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected IQuantifiedParameterItemProvider iQuantifiedParameterItemProvider;
-
-        /**
-         * This creates an adapter for a {@link model.data.IQuantifiedParameter}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createIQuantifiedParameterAdapter() {
-                if (iQuantifiedParameterItemProvider == null) {
-                        iQuantifiedParameterItemProvider = new IQuantifiedParameterItemProvider(this);
-                }
-
-                return iQuantifiedParameterItemProvider;
-        }
-
-        /**
-         * This keeps track of the one adapter used for all {@link model.data.LengthParamenter} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected LengthParamenterItemProvider lengthParamenterItemProvider;
-
-        /**
-         * This creates an adapter for a {@link model.data.LengthParamenter}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createLengthParamenterAdapter() {
-                if (lengthParamenterItemProvider == null) {
-                        lengthParamenterItemProvider = new LengthParamenterItemProvider(this);
-                }
-
-                return lengthParamenterItemProvider;
         }
 
         /**
@@ -297,11 +228,8 @@ public class DataItemProviderAdapterFactory extends DataAdapterFactory implement
          * @generated
          */
         public void dispose() {
-                if (aUnitItemProvider != null) aUnitItemProvider.dispose();
                 if (stringParameterItemProvider != null) stringParameterItemProvider.dispose();
                 if (dateParameterItemProvider != null) dateParameterItemProvider.dispose();
-                if (iQuantifiedParameterItemProvider != null) iQuantifiedParameterItemProvider.dispose();
-                if (lengthParamenterItemProvider != null) lengthParamenterItemProvider.dispose();
         }
 
 }

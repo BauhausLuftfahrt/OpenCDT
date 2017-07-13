@@ -13,6 +13,8 @@ import model.base.Component;
 import model.data.DataFactory;
 import model.data.DataPackage;
 
+import model.experimental.ExperimentalFactory;
+
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
@@ -193,6 +195,16 @@ public class ComponentItemProvider extends AIdentifiableItemItemProvider {
                         (createChildParameter
                                 (DataPackage.Literals.IDATA_ENTITY__PARAMETERS,
                                  DataFactory.eINSTANCE.createDateParameter()));
+
+                newChildDescriptors.add
+                        (createChildParameter
+                                (DataPackage.Literals.IDATA_ENTITY__PARAMETERS,
+                                 ExperimentalFactory.eINSTANCE.createLengthParameter()));
+
+                newChildDescriptors.add
+                        (createChildParameter
+                                (DataPackage.Literals.IDATA_ENTITY__PARAMETERS,
+                                 ExperimentalFactory.eINSTANCE.createMassParameter()));
 
                 newChildDescriptors.add
                         (createChildParameter
