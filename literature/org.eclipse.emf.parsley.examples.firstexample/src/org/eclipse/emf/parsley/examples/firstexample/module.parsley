@@ -132,10 +132,13 @@ module org.eclipse.emf.parsley.examples.firstexample {
    
 			control {
 			
+//			Writer : books -> 
+//					createLabel(
+//						books.map[title].join(", "))
 			Writer : books -> 
 					createLabel(
-						books.map[title].join(", "))
-		 
+						books.map[title].join(", "))	
+							 
 			Writer :  firstName -> { 
 				//createButton(parent,"set", SWT.PUSH)
 				//createButton(parent,"open", SWT.PUSH)
@@ -160,10 +163,7 @@ module org.eclipse.emf.parsley.examples.firstexample {
 				//b.getSelection()
 				toolkit.createComposite(parent,SWT.NONE)
 				//toolkit.createComposite(v)
-				
-				
-				
-				 //toolkit.createHyperlink(parent, name, SWT.NONE)
+				//toolkit.createHyperlink(parent, name, SWT.NONE)
 	
 			}
 			//Writer :  name -> { toolkit.setBorderStyle(SWT.BORDER)
