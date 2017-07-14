@@ -1,0 +1,116 @@
+import net.bhl.cdt.literature.model.parsley.ParsleySaveableTreeFormView
+import org.eclipse.emf.parsley.edit.IEditingStrategy
+import org.eclipse.emf.parsley.edit.UndoableEditingStrategy
+import org.eclipse.emf.common.util.URI
+import cdtliterature.Library
+import cdtliterature.Article
+import cdtliterature.Book
+import cdtliterature.Inbook
+import cdtliterature.Conference
+import cdtliterature.Incollection
+import cdtliterature.Inproceedings
+import cdtliterature.Proceedings
+import cdtliterature.Techreport
+import cdtliterature.Phdthesis
+import cdtliterature.Masterthesis
+import cdtliterature.Unpublished
+import cdtliterature.CdtliteratureFactory
+import org.eclipse.emf.parsley.composite.FormControlFactory
+import cdtliterature.ALiteratureBase
+
+/* net.bhl.cdt.literature.model.parsley EMF Parsley Dsl Module file */
+module net.bhl.cdt.literature.model.parsley {
+	parts {
+		viewpart net.bhl.cdt.literature.model.parsley {
+			viewname "Parsley"
+			viewclass ParsleySaveableTreeFormView
+		}
+	}
+	
+	bindings {
+		type IEditingStrategy -> UndoableEditingStrategy
+		value int TreeFormSashStyle -> SWT.HORIZONTAL
+		type FormControlFactory -> CustomFormControlFactory
+	}
+	
+	configurator {
+		resourceURI {
+			ParsleySaveableTreeFormView -> {
+				return URI.createFileURI(
+					System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" +
+						"/MyLibrary.library" );
+					}
+				}
+			}
+
+			resourceManager {
+				initializeResource {
+					// Optional: initialize an empty Resource
+					// 'it' is of type Resource
+					// e.g., it.getContents += myFactory.createMyClass
+				}
+
+			}
+			featuresProvider {
+				features {
+					Library -> name
+					Article -> title, author, year, references, journal, path
+					Book -> title, author, year, references, publisher, isbn, path
+					Inbook -> title, author, year, references, pages, publisher, path
+					Conference -> title, author, year, references, booktitle, path
+					Incollection -> title, author, year, references, booktitle, publisher, path
+					Inproceedings -> title, author, year, references, booktitle, path
+					Proceedings -> title, author, year, references, path
+					Techreport -> title, author, year, references, institution, path
+					Phdthesis -> title, author, year, references, school, path
+					Masterthesis -> title, author, year, references, school, path
+					Unpublished -> title, author,  year, references, note
+				}
+			}
+			formFeatureCaptionProvider{
+				text{
+					
+				}
+				label{
+					
+				}
+			}
+			labelProvider {
+				text {
+					
+				}
+			}
+			menuBuilder {
+				val factory = CdtliteratureFactory.eINSTANCE
+
+				emfMenus {
+					
+
+				}
+			}
+			viewerContentProvider {
+				elements{
+					
+
+				}
+				children {
+					Library -> {
+						article + book + inbook + conference + incollection + 
+							inproceedings + proceedings + techreport +
+								phdthesis + masterthesis + unpublished
+					}
+				}
+			}
+			//this mothod is implemented by CustomFormControlFactory in bidings.
+//			formControlFactory {
+//				control {
+//							
+//				}
+//			}
+			dialogControlFactory {
+				control {
+
+					
+				}
+			}
+		}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="__8xNIFvvEeekqYM3DiuC_A">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_tpueIFvwEeekqYM3DiuC_A" featurename="children" parentElementId="net.bhl.cdt.client.e4.perspectivestack">
+    <elements xsi:type="advanced:Perspective" xmi:id="_ys7SQFvwEeekqYM3DiuC_A" elementId="net.bhl.cdt.literature.model.parsley.parts.perspective.library" label="library" iconURI="platform:/plugin/net.bhl.cdt.literature.model.parsley.parts/book.png">
+      <children xsi:type="basic:PartStack" xmi:id="_R9EUYFvxEeekqYM3DiuC_A" elementId="net.bhl.cdt.literature.model.parsley.parts.partstack.0">
+        <children xsi:type="basic:Part" xmi:id="_TGsO4FvxEeekqYM3DiuC_A" elementId="net.bhl.cdt.literature.model.parsley.parts.part.library" contributionURI="bundleclass://net.bhl.cdt.literature.model.parsley.parts/net.bhl.cdt.literature.model.parsley.parts.MyParts.MyParts" label="library">
+          <toolbar xmi:id="_mpp3MFv8EeekqYM3DiuC_A" elementId="net.bhl.cdt.literature.model.parsley.parts.toolbar.0">
+            <children xsi:type="menu:DirectToolItem" xmi:id="_nnW1kFv8EeekqYM3DiuC_A" elementId="net.bhl.cdt.literature.model.parsley.parts.directtoolitem.add" label="add" iconURI="platform:/plugin/net.bhl.cdt.literature.model.parsley.parts/book_add.png" contributionURI="bundleclass://net.bhl.cdt.literature.model.parsley.parts/net.bhl.cdt.literature.model.parsley.parts.Fragment.AddLibrary"/>
+            <children xsi:type="menu:DirectToolItem" xmi:id="_GUc1AFv9EeekqYM3DiuC_A" elementId="net.bhl.cdt.literature.model.parsley.parts.directtoolitem.save" label="save" iconURI="platform:/plugin/net.bhl.cdt.literature.model.parsley.parts/save_edit.gif" contributionURI="bundleclass://net.bhl.cdt.literature.model.parsley.parts/net.bhl.cdt.literature.model.parsley.parts.Fragment.SaveReference"/>
+          </toolbar>
+        </children>
+      </children>
+    </elements>
+  </fragments>
+</fragment:ModelFragments>
