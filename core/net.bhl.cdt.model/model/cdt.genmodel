@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/net.bhl.cdt.model/src-gen" editDirectory="/net.bhl.cdt.model.edit/src-gen"
+    editorDirectory="/net.bhl.cdt.model.editor/src-gen" modelPluginID="net.bhl.cdt.model"
+    modelName="CDT" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/net.bhl.cdt.model.tests/src-gen" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" editPluginID="net.bhl.cdt.model.edit"
+    editorPluginID="net.bhl.cdt.model.editor" tableProviders="true" colorProviders="true"
+    fontProviders="true" operationReflection="true" runtimePlatform="RCP" importOrganizing="true"
+    styleProviders="true">
+  <foreignModel>cdt.ecore</foreignModel>
+  <genPackages prefix="model" disposableProviderFactory="true" ecorePackage="cdt.ecore#/">
+    <nestedGenPackages prefix="Base" disposableProviderFactory="true" ecorePackage="cdt.ecore#//base">
+      <genClasses image="false" ecoreClass="cdt.ecore#//base/ANamedItem">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//base/ANamedItem/name"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cdt.ecore#//base/AIdentifiableItem">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//base/AIdentifiableItem/id"/>
+      </genClasses>
+      <genClasses ecoreClass="cdt.ecore#//base/ModelContainer">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//base/ModelContainer/containedItems"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cdt.ecore#//base/AModelContainerItem">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference cdt.ecore#//base/AModelContainerItem/container"/>
+      </genClasses>
+      <genClasses ecoreClass="cdt.ecore#//base/System">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//base/System/components"/>
+      </genClasses>
+      <genClasses ecoreClass="cdt.ecore#//base/Component">
+        <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference cdt.ecore#//base/Component/containingComponent"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//base/Component/subComponents"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="Data" disposableProviderFactory="true" ecorePackage="cdt.ecore#//data">
+      <genClasses image="false" ecoreClass="cdt.ecore#//data/QuantityKind">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//data/QuantityKind/units"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cdt.ecore#//data/Unit">
+        <genTypeParameters ecoreTypeParameter="cdt.ecore#//data/Unit/Q"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//data/Unit/symbol"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cdt.ecore#//data/IDataEntity">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cdt.ecore#//data/IDataEntity/parameters"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="cdt.ecore#//data/IParameter"/>
+      <genClasses ecoreClass="cdt.ecore#//data/IQuantifiedParameter">
+        <genTypeParameters ecoreTypeParameter="cdt.ecore#//data/IQuantifiedParameter/Q"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//data/IQuantifiedParameter/value"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cdt.ecore#//data/IQuantifiedParameter/unit"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference cdt.ecore#//data/IQuantifiedParameter/quantity"/>
+      </genClasses>
+      <nestedGenPackages prefix="Quantities" disposableProviderFactory="true" ecorePackage="cdt.ecore#//data/quantities">
+        <genClasses ecoreClass="cdt.ecore#//data/quantities/Distance"/>
+        <genClasses ecoreClass="cdt.ecore#//data/quantities/Time"/>
+        <genClasses ecoreClass="cdt.ecore#//data/quantities/Velocity"/>
+        <genClasses ecoreClass="cdt.ecore#//data/quantities/Mass"/>
+        <genClasses ecoreClass="cdt.ecore#//data/quantities/Force"/>
+        <genClasses ecoreClass="cdt.ecore#//data/quantities/Efficiency"/>
+        <genClasses ecoreClass="cdt.ecore#//data/quantities/Energy"/>
+        <genClasses ecoreClass="cdt.ecore#//data/quantities/Power"/>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Parameter" disposableProviderFactory="true" ecorePackage="cdt.ecore#//data/parameter">
+        <genClasses ecoreClass="cdt.ecore#//data/parameter/StringParameter">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//data/parameter/StringParameter/value"/>
+        </genClasses>
+        <genClasses ecoreClass="cdt.ecore#//data/parameter/DateParameter">
+          <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cdt.ecore#//data/parameter/DateParameter/value"/>
+        </genClasses>
+        <genClasses ecoreClass="cdt.ecore#//data/parameter/DistanceParameter"/>
+        <genClasses ecoreClass="cdt.ecore#//data/parameter/TimeParameter"/>
+      </nestedGenPackages>
+      <nestedGenPackages prefix="Unit" disposableProviderFactory="true" ecorePackage="cdt.ecore#//data/unit">
+        <genClasses ecoreClass="cdt.ecore#//data/unit/DistanceUnit"/>
+        <genClasses ecoreClass="cdt.ecore#//data/unit/TimeUnit"/>
+        <genClasses ecoreClass="cdt.ecore#//data/unit/MassUnit"/>
+      </nestedGenPackages>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>

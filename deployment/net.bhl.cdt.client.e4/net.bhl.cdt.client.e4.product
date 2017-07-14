@@ -37,8 +37,8 @@
       <plugin id="net.bhl.cdt.client.e4"/>
       <plugin id="net.bhl.cdt.core"/>
       <plugin id="net.bhl.cdt.log"/>
-      <plugin id="net.bhl.cdt.model.v2"/>
-      <plugin id="net.bhl.cdt.model.v2.edit"/>
+      <plugin id="net.bhl.cdt.model"/>
+      <plugin id="net.bhl.cdt.model.edit"/>
       <plugin id="net.bhl.cdt.ui"/>
       <plugin id="net.bhl.cdt.util"/>
       <plugin id="net.bhl.msh.pta"/>

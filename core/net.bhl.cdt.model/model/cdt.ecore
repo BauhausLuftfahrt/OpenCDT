@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model" nsURI="http://www.bauhaus-luftfahrt.net/cdt" nsPrefix="net.bhl.cdt">
+  <eSubpackages name="base" nsURI="http://www.bauhaus-luftfahrt.net/cdt/base" nsPrefix="net.bhl.cdt.model">
+    <eClassifiers xsi:type="ecore:EClass" name="ANamedItem" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" unique="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AIdentifiableItem" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          iD="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ModelContainer" eSuperTypes="#//base/ANamedItem #//base/AIdentifiableItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="containedItems" upperBound="-1"
+          eType="#//base/AModelContainerItem" containment="true" eOpposite="#//base/AModelContainerItem/container"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="quantitySet" eType="#//data/QuantitySet"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AModelContainerItem" abstract="true"
+        eSuperTypes="#//base/AIdentifiableItem #//base/ANamedItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="container" lowerBound="1"
+          eType="#//base/ModelContainer" eOpposite="#//base/ModelContainer/containedItems"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//base/AModelContainerItem #//data/IDataEntity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+          eType="#//base/Component" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Component" eSuperTypes="#//data/IDataEntity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="containingComponent"
+          eType="#//base/Component" eOpposite="#//base/Component/subComponents"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subComponents" upperBound="-1"
+          eType="#//base/Component" containment="true" eOpposite="#//base/Component/containingComponent"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="data" nsURI="http://www.bauhaus-luftfahrt.net/cdt/data" nsPrefix="net.bhl.cdt.model">
+    <eClassifiers xsi:type="ecore:EClass" name="QuantitySet" eSuperTypes="#//base/AIdentifiableItem #//base/ANamedItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="quantityKinds" upperBound="-1"
+          eType="#//data/QuantityKind" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QuantityKind" abstract="true" eSuperTypes="#//base/AIdentifiableItem #//base/ANamedItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="units" upperBound="-1"
+          containment="true">
+        <eGenericType eClassifier="#//data/Unit">
+          <eTypeArguments/>
+        </eGenericType>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Unit" abstract="true" eSuperTypes="#//base/ANamedItem">
+      <eTypeParameters name="Q">
+        <eBounds eClassifier="#//data/QuantityKind"/>
+      </eTypeParameters>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="symbol" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IDataEntity" abstract="true" interface="true"
+        eSuperTypes="#//base/AIdentifiableItem #//base/ANamedItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="#//data/IParameter" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IParameter" abstract="true" interface="true"
+        eSuperTypes="#//base/ANamedItem #//base/AIdentifiableItem"/>
+    <eClassifiers xsi:type="ecore:EClass" name="IQuantifiedParameter" abstract="true"
+        interface="true" eSuperTypes="#//data/IParameter">
+      <eTypeParameters name="Q">
+        <eBounds eClassifier="#//data/QuantityKind"/>
+      </eTypeParameters>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="unit" lowerBound="1">
+        <eGenericType eClassifier="#//data/Unit">
+          <eTypeArguments eTypeParameter="#//data/IQuantifiedParameter/Q"/>
+        </eGenericType>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="quantity" lowerBound="1">
+        <eGenericType eTypeParameter="#//data/IQuantifiedParameter/Q"/>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eSubpackages name="quantities" nsURI="http://www.bauhaus-luftfahrt.net/cdt/data/quantities"
+        nsPrefix="net.bhl.cdt.model.data">
+      <eClassifiers xsi:type="ecore:EClass" name="Distance" eSuperTypes="#//data/QuantityKind"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Time" eSuperTypes="#//data/QuantityKind"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Velocity" eSuperTypes="#//data/QuantityKind"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Mass" eSuperTypes="#//data/QuantityKind"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Force" eSuperTypes="#//data/QuantityKind"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Efficiency" eSuperTypes="#//data/QuantityKind"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Energy" eSuperTypes="#//data/QuantityKind"/>
+      <eClassifiers xsi:type="ecore:EClass" name="Power" eSuperTypes="#//data/QuantityKind"/>
+    </eSubpackages>
+    <eSubpackages name="parameter" nsURI="http://www.bauhaus-luftfahrt.net/cdt/data/parameter"
+        nsPrefix="net.bhl.cdt.model.data">
+      <eClassifiers xsi:type="ecore:EClass" name="StringParameter" eSuperTypes="#//data/IParameter">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="DateParameter" eSuperTypes="#//data/IParameter">
+        <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="DistanceParameter">
+        <eGenericSuperTypes eClassifier="#//data/IQuantifiedParameter">
+          <eTypeArguments eClassifier="#//data/quantities/Distance"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="TimeParameter">
+        <eGenericSuperTypes eClassifier="#//data/IQuantifiedParameter">
+          <eTypeArguments eClassifier="#//data/quantities/Time"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+    </eSubpackages>
+    <eSubpackages name="unit" nsURI="http://www.bauhaus-luftfahrt.net/cdt/data/unit"
+        nsPrefix="net.bhl.cdt.model.data">
+      <eClassifiers xsi:type="ecore:EClass" name="DistanceUnit">
+        <eGenericSuperTypes eClassifier="#//data/Unit">
+          <eTypeArguments eClassifier="#//data/quantities/Distance"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="TimeUnit">
+        <eGenericSuperTypes eClassifier="#//data/Unit">
+          <eTypeArguments eClassifier="#//data/quantities/Time"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+      <eClassifiers xsi:type="ecore:EClass" name="MassUnit">
+        <eGenericSuperTypes eClassifier="#//data/Unit">
+          <eTypeArguments eClassifier="#//data/quantities/Mass"/>
+        </eGenericSuperTypes>
+      </eClassifiers>
+    </eSubpackages>
+  </eSubpackages>
+</ecore:EPackage>

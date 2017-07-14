@@ -2,115 +2,103 @@
 <?eclipse version="3.0"?>
 
 <!--
- <copyright>
- </copyright>
-
- $Id$
 -->
 
 <plugin>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated cdt -->
       <factory
-            uri="http://bhl.net/cdt/model"
-            class="net.bhl.cdt.model.provider.ModelItemProviderAdapterFactory"
+            uri="http://www.bauhaus-luftfahrt.net/cdt/base"
+            class="model.base.provider.BaseItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
                org.eclipse.emf.edit.provider.ITreeItemContentProvider
                org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+               org.eclipse.emf.edit.provider.IItemPropertySource
+               org.eclipse.emf.edit.provider.ITableItemLabelProvider
+               org.eclipse.emf.edit.provider.ITableItemColorProvider
+               org.eclipse.emf.edit.provider.ITableItemFontProvider
+               org.eclipse.emf.edit.provider.IItemColorProvider
+               org.eclipse.emf.edit.provider.IItemFontProvider
+               org.eclipse.emf.edit.provider.IItemStyledLabelProvider"/>
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated model -->
+      <!-- @generated cdt -->
       <factory
-            uri="http://bhl.net/cdt/model/process"
-            class="net.bhl.cdt.model.process.provider.ProcessItemProviderAdapterFactory"
+            uri="http://www.bauhaus-luftfahrt.net/cdt/data"
+            class="model.data.provider.DataItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
                org.eclipse.emf.edit.provider.ITreeItemContentProvider
                org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+               org.eclipse.emf.edit.provider.IItemPropertySource
+               org.eclipse.emf.edit.provider.ITableItemLabelProvider
+               org.eclipse.emf.edit.provider.ITableItemColorProvider
+               org.eclipse.emf.edit.provider.ITableItemFontProvider
+               org.eclipse.emf.edit.provider.IItemColorProvider
+               org.eclipse.emf.edit.provider.IItemFontProvider
+               org.eclipse.emf.edit.provider.IItemStyledLabelProvider"/>
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated model -->
+      <!-- @generated cdt -->
       <factory
-            uri="http://bhl.net/cdt/model/process/designoperations"
-            class="net.bhl.cdt.model.process.designoperations.provider.DesignoperationsItemProviderAdapterFactory"
+            uri="http://www.bauhaus-luftfahrt.net/cdt/data/quantities"
+            class="model.data.quantities.provider.QuantitiesItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
                org.eclipse.emf.edit.provider.ITreeItemContentProvider
                org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+               org.eclipse.emf.edit.provider.IItemPropertySource
+               org.eclipse.emf.edit.provider.ITableItemLabelProvider
+               org.eclipse.emf.edit.provider.ITableItemColorProvider
+               org.eclipse.emf.edit.provider.ITableItemFontProvider
+               org.eclipse.emf.edit.provider.IItemColorProvider
+               org.eclipse.emf.edit.provider.IItemFontProvider
+               org.eclipse.emf.edit.provider.IItemStyledLabelProvider"/>
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated model -->
+      <!-- @generated cdt -->
       <factory
-            uri="http://bhl.net/cdt/model/process/selection"
-            class="net.bhl.cdt.model.process.selection.provider.SelectionItemProviderAdapterFactory"
+            uri="http://www.bauhaus-luftfahrt.net/cdt/data/parameter"
+            class="model.data.parameter.provider.ParameterItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
                org.eclipse.emf.edit.provider.ITreeItemContentProvider
                org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+               org.eclipse.emf.edit.provider.IItemPropertySource
+               org.eclipse.emf.edit.provider.ITableItemLabelProvider
+               org.eclipse.emf.edit.provider.ITableItemColorProvider
+               org.eclipse.emf.edit.provider.ITableItemFontProvider
+               org.eclipse.emf.edit.provider.IItemColorProvider
+               org.eclipse.emf.edit.provider.IItemFontProvider
+               org.eclipse.emf.edit.provider.IItemStyledLabelProvider"/>
    </extension>
 
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated model -->
+      <!-- @generated cdt -->
       <factory
-            uri="http://bhl.net/cdt/model/system"
-            class="net.bhl.cdt.model.system.provider.SystemItemProviderAdapterFactory"
+            uri="http://www.bauhaus-luftfahrt.net/cdt/data/unit"
+            class="model.data.unit.provider.UnitItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
                org.eclipse.emf.edit.provider.ITreeItemContentProvider
                org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated model -->
-      <factory
-            uri="http://bhl.net/cdt/model/system/quantities"
-            class="net.bhl.cdt.model.system.quantities.provider.QuantitiesItemProviderAdapterFactory"
-            supportedTypes=
-              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
-               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
-               org.eclipse.emf.edit.provider.ITreeItemContentProvider
-               org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated model -->
-      <factory
-            uri="http://bhl.net/cdt/model/geometry"
-            class="net.bhl.cdt.model.geometry.provider.GeometryItemProviderAdapterFactory"
-            supportedTypes=
-              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
-               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
-               org.eclipse.emf.edit.provider.ITreeItemContentProvider
-               org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
-      <!-- @generated datatypes -->
-      <factory
-            uri="http://bhl.net/cdt/model/datatypes/"
-            class="net.bhl.cdt.model.datatypes.provider.DatatypesItemProviderAdapterFactory"
-            supportedTypes=
-              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
-               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
-               org.eclipse.emf.edit.provider.ITreeItemContentProvider
-               org.eclipse.emf.edit.provider.IItemLabelProvider
-               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+               org.eclipse.emf.edit.provider.IItemPropertySource
+               org.eclipse.emf.edit.provider.ITableItemLabelProvider
+               org.eclipse.emf.edit.provider.ITableItemColorProvider
+               org.eclipse.emf.edit.provider.ITableItemFontProvider
+               org.eclipse.emf.edit.provider.IItemColorProvider
+               org.eclipse.emf.edit.provider.IItemFontProvider
+               org.eclipse.emf.edit.provider.IItemStyledLabelProvider"/>
    </extension>
 
 </plugin>
