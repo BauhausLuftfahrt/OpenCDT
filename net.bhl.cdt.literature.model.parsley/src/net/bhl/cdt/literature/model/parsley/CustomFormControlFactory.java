@@ -15,6 +15,7 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Device;
+import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
@@ -45,7 +46,14 @@ public class CustomFormControlFactory extends FormControlFactory {
 	     * */
 	    GridLayout _gridLayout = new GridLayout(4, false);
 	    composite.setLayout(_gridLayout);  
-		Text pathText = getToolkit().createText(composite, " ");
+	    
+	    /**
+		 * text is filled in grid-layout*/
+		Text pathText = getToolkit().createText(composite, " ", SWT.SINGLE);
+		GridData gridData = new GridData();
+        gridData.horizontalAlignment = GridData.FILL;
+        gridData.grabExcessHorizontalSpace = true;
+        pathText.setLayoutData(gridData);
 		pathText.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
 		
 		/**
