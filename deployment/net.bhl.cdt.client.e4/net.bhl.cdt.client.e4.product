@@ -45,6 +45,11 @@
       <plugin id="net.bhl.cdt.literature.model.parsley"/>
       <plugin id="net.bhl.cdt.literature.model.parsley.parts"/>
       <plugin id="net.bhl.cdt.log"/>
+      <plugin id="net.bhl.cdt.methods.formula"/>
+      <plugin id="net.bhl.cdt.methods.formula.jeuklid"/>
+      <plugin id="net.bhl.cdt.methods.formula.model"/>
+      <plugin id="net.bhl.cdt.methods.formula.model.edit"/>
+      <plugin id="net.bhl.cdt.methods.formula.snuggle"/>
       <plugin id="net.bhl.cdt.model"/>
       <plugin id="net.bhl.cdt.model.edit"/>
       <plugin id="org.apache.batik.css"/>
@@ -104,6 +109,7 @@
       <plugin id="org.eclipse.emf.ecp.core.emffilter"/>
       <plugin id="org.eclipse.emf.ecp.edit"/>
       <plugin id="org.eclipse.emf.ecp.edit.swt"/>
+      <plugin id="org.eclipse.emf.ecp.edit.swt.source"/>
       <plugin id="org.eclipse.emf.ecp.emfstore.core"/>
       <plugin id="org.eclipse.emf.ecp.emfstore.ui"/>
       <plugin id="org.eclipse.emf.ecp.emfstore.ui.e4"/>
@@ -117,6 +123,8 @@
       <plugin id="org.eclipse.emf.ecp.view.context"/>
       <plugin id="org.eclipse.emf.ecp.view.control.multireference"/>
       <plugin id="org.eclipse.emf.ecp.view.core.swt"/>
+      <plugin id="org.eclipse.emf.ecp.view.custom.model"/>
+      <plugin id="org.eclipse.emf.ecp.view.custom.ui.swt"/>
       <plugin id="org.eclipse.emf.ecp.view.group.model"/>
       <plugin id="org.eclipse.emf.ecp.view.group.ui.swt"/>
       <plugin id="org.eclipse.emf.ecp.view.horizontal.model"/>
