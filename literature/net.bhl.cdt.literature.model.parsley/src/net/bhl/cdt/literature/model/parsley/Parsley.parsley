@@ -43,15 +43,16 @@ module net.bhl.cdt.literature.model.parsley {
 				}
 			}
 
-			resourceManager {
+	resourceManager {
 				initializeResource {
 					// Optional: initialize an empty Resource
 					// 'it' is of type Resource
 					// e.g., it.getContents += myFactory.createMyClass
+					it.getContents += CdtliteratureFactory.eINSTANCE.createLibrary();
 				}
 
 			}
-			featuresProvider {
+	featuresProvider {
 				features {
 					Library -> name
 					Article -> title, author, year, references, journal, path
@@ -67,7 +68,7 @@ module net.bhl.cdt.literature.model.parsley {
 					Unpublished -> title, author,  year, references, note
 				}
 			}
-			formFeatureCaptionProvider{
+	formFeatureCaptionProvider{
 				text{
 					
 				}
@@ -82,13 +83,19 @@ module net.bhl.cdt.literature.model.parsley {
 			}
 			menuBuilder {
 				val factory = CdtliteratureFactory.eINSTANCE
-
+				
 				emfMenus {
-					
+					//Library l -> #[
+					// actionChange("delete library", l.eContainer as Library,
+						//	[
+								
+							//]
+						
+					//)]
 
 				}
 			}
-			viewerContentProvider {
+	viewerContentProvider {
 				elements{
 					
 
@@ -107,7 +114,7 @@ module net.bhl.cdt.literature.model.parsley {
 //							
 //				}
 //			}
-			dialogControlFactory {
+	dialogControlFactory {
 				control {
 
 					

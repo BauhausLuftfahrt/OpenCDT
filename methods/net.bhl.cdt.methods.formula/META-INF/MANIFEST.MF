@@ -25,7 +25,6 @@ Require-Bundle: net.bhl.cdt.methods.formula.model;bundle-version="0.1.0",
  org.eclipse.emf.common;resolution:=optional,
  net.bhl.cdt.methods.formula.snuggle;bundle-version="1.0.0",
  net.bhl.cdt.methods.formula.jeuklid;bundle-version="1.0.0",
- org.eclipse.emf.ecp.edit.swt.source;bundle-version="1.10.0",
  org.eclipse.emf.ecore
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.emf.databinding,

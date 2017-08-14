@@ -89,9 +89,12 @@ public class MyParts {
 		
 		resource.getContents().add(library);
 		
+		/*System.out.println(resource.getContents().size());
+		resource.getContents().remove(1);
+		System.out.println("remove");*/
 	}
 	/**
-	 * it saves the all information of created object as the xmi file.*/  
+	 * it saves the all information of created objects as the xmi file.*/  
 	public void saveReference(){
 		
 		Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
@@ -112,12 +115,12 @@ public class MyParts {
         }
 	}
 	/**
-	 * it make the directory where the xmi file is saved.*/
+	 * it makes the directory where the xmi file is saved.*/
 	private void makeReferenceFolder(){
 		
 		/**
 		 * the path of new directory which the xmi file is saved is assigned.*/
-		File theDir = new File(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/workspace/reference");
+		File theDir = new File(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference");// + "/workspace/reference"
 		
 		/**
 		 * if the directory does not exist, create it*/

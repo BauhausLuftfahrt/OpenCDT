@@ -7,15 +7,9 @@ Bundle-ClassPath: .,
  lib/javolution-5.2.3.jar,
  lib/jscience-4.3.1.jar,
  lib/exp4j-0.3.11.jar
+Bundle-Activator: net.bhl.cdt.model.Activator
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Require-Bundle: org.eclipse.emf.emfstore.client;bundle-version="1.1.0";visibility:=reexport,
- org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport,
- net.bhl.cdt.model;visibility:=reexport,
- org.eclipse.equinox.registry
-Bundle-ActivationPolicy: lazy
 Export-Package: de.congrace.exp4j,
  javax.measure,
  javax.measure.converter,
@@ -58,11 +52,8 @@ Export-Package: de.congrace.exp4j,
  net.bhl.cdt.model.system.quantities.impl,
  net.bhl.cdt.model.system.quantities.util,
  net.bhl.cdt.model.system.util,
- net.bhl.cdt.model.units;
-  uses:="org.eclipse.emf.ecore",
- net.bhl.cdt.model.units.impl;
-  uses:="org.eclipse.emf.ecore,
-   org.eclipse.emf.ecore.impl",
+ net.bhl.cdt.model.units;uses:="org.eclipse.emf.ecore",
+ net.bhl.cdt.model.units.impl;uses:="org.eclipse.emf.ecore,org.eclipse.emf.ecore.impl",
  net.bhl.cdt.model.util;
   uses:="org.eclipse.emf.ecore.util,
    org.eclipse.emf.ecore,
@@ -71,5 +62,11 @@ Export-Package: de.congrace.exp4j,
    javax.units,
    org.eclipse.emf.common.notify",
  org.jscience.physics.amount
-Bundle-Activator: net.bhl.cdt.model.Activator
-
+Require-Bundle: org.eclipse.emf.emfstore.client;bundle-version="1.1.0";visibility:=reexport,
+ org.eclipse.core.runtime,
+ org.eclipse.emf.ecore;visibility:=reexport,
+ net.bhl.cdt.model;visibility:=reexport,
+ org.eclipse.equinox.registry,
+ org.eclipse.e4.ui.model.workbench;bundle-version="1.2.0.v20160229-1459"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy

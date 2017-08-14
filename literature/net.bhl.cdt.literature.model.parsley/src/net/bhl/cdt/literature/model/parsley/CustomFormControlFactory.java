@@ -45,7 +45,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 	     * this layout is set for text, three buttons.
 	     * */
 	    GridLayout _gridLayout = new GridLayout(4, false);
-	    composite.setLayout(_gridLayout);  
+	    composite.setLayout(_gridLayout);
+	    _gridLayout.marginLeft = -5;
+	    
 	    
 	    /**
 		 * text is filled in grid-layout*/
