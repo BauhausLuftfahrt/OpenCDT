@@ -52,6 +52,7 @@
       <plugin id="net.bhl.cdt.methods.formula.snuggle"/>
       <plugin id="net.bhl.cdt.model"/>
       <plugin id="net.bhl.cdt.model.edit"/>
+      <plugin id="net.bhl.cdt.reconstruct.cdtModel"/>
       <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.util"/>
       <plugin id="org.apache.batik.util.gui"/>

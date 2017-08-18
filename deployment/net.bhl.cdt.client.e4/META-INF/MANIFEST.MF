@@ -63,7 +63,8 @@ Require-Bundle: org.eclipse.emf.ecp.ui.e4,
  net.bhl.cdt.literature.model;bundle-version="0.1.0",
  net.bhl.cdt.literature.model.parsley.parts;bundle-version="1.0.0",
  net.bhl.cdt.core;bundle-version="1.0.0",
- net.bhl.cdt.methods.formula;bundle-version="1.0.0"
+ net.bhl.cdt.methods.formula;bundle-version="1.0.0",
+ net.bhl.cdt.reconstruct.cdtModel;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.annotation,
  javax.inject;version="1.0.0",

@@ -50,6 +50,12 @@ module net.bhl.cdt.literature.model.parsley {
 					// e.g., it.getContents += myFactory.createMyClass
 					it.getContents += CdtliteratureFactory.eINSTANCE.createLibrary();
 				}
+				saveResource {
+				// it is of type org.eclipse.emf.ecore.resource.Resource
+				it.save(null)
+				return true
+			}
+				
 
 			}
 	featuresProvider {
@@ -67,7 +73,7 @@ module net.bhl.cdt.literature.model.parsley {
 					Masterthesis -> title, author, year, references, school, path
 					Unpublished -> title, author,  year, references, note
 				}
-			}
+	}
 	formFeatureCaptionProvider{
 				text{
 					
@@ -76,22 +82,37 @@ module net.bhl.cdt.literature.model.parsley {
 					
 				}
 			}
-			labelProvider {
+	labelProvider {
 				text {
 					
 				}
 			}
-			menuBuilder {
+	menuBuilder {
 				val factory = CdtliteratureFactory.eINSTANCE
+				menus{
+					Library-> #[
+					submenu("Edit",#[
+						actionCopy,
+						actionCut,
+						separator,
+						actionPaste,
+						actionDelete
+					])
+				]
+					
+				}
 				
+	
 				emfMenus {
-					//Library l -> #[
+					//Library lib -> #[
 					// actionChange("delete library", l.eContainer as Library,
 						//	[
 								
 							//]
 						
 					//)]
+			
+					
 
 				}
 			}
@@ -101,11 +122,11 @@ module net.bhl.cdt.literature.model.parsley {
 
 				}
 				children {
-					Library -> {
-						article + book + inbook + conference + incollection + 
-							inproceedings + proceedings + techreport +
-								phdthesis + masterthesis + unpublished
-					}
+					//Library -> {
+						//article + book + inbook + conference + incollection + 
+							//inproceedings + proceedings + techreport +
+								//phdthesis + masterthesis + unpublished
+					//}
 				}
 			}
 			//this mothod is implemented by CustomFormControlFactory in bidings.

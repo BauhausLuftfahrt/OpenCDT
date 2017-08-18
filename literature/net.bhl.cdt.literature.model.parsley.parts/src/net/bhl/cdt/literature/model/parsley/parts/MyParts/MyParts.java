@@ -22,7 +22,10 @@ import org.eclipse.emf.parsley.resource.ResourceLoader;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import com.google.inject.Injector;
+
+import cdtliterature.Book;
 import cdtliterature.CdtliteratureFactory;
+import cdtliterature.Library;
 import net.bhl.cdt.literature.model.parsley.ParsleyInjectorProvider;
 
 public class MyParts {
@@ -32,7 +35,8 @@ public class MyParts {
 	private TreeFormComposite treeFormComposite;
 	private Resource resource;
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
-	private EObject library;
+	//private EObject library;
+	private Library library;
 	private EditingDomain editingDomain;
 	
 	@PostConstruct
@@ -88,6 +92,11 @@ public class MyParts {
 		library = CdtliteratureFactory.eINSTANCE.createLibrary();
 		
 		resource.getContents().add(library);
+		
+		
+		//book = CdtliteratureFactory.eINSTANCE.createBook();
+		
+		//resource.getContents().add(book);
 		
 		/*System.out.println(resource.getContents().size());
 		resource.getContents().remove(1);
