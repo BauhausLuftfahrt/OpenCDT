@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/descriptor/basic" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmi:id="_UA36YIDsEeeGK8EUwNZtqQ">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_U8ApoIJwEee0RN-F2Myzdg" featurename="" parentElementId="org.eclipse.emf.ecp.e4.application.partdescriptor.editor">
+    <elements xsi:type="basic:PartDescriptor" xmi:id="_aoBKMIJwEee0RN-F2Myzdg" elementId="net.bhl.cdt.reconstruct.cdtmodel.partdescriptor.0" contributionURI="bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTModelEditor"/>
+  </fragments>
+</fragment:ModelFragments>

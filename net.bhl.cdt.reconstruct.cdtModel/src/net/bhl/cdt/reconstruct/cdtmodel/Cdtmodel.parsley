@@ -1,0 +1,64 @@
+import net.bhl.cdt.reconstruct.cdtmodel.CdtmodelOnSelectionFormView
+import formula.Formula
+import org.eclipse.emf.parsley.edit.IEditingStrategy
+import org.eclipse.emf.parsley.edit.UndoableEditingStrategy
+import formula.FormulaRepository
+import formula.FormulaFactory
+
+/* net.bhl.cdt.reconstruct.cdtmodel EMF Parsley Dsl Module file */
+module net.bhl.cdt.reconstruct.cdtmodel {
+	
+	parts {
+		viewpart net.bhl.cdt.reconstruct.cdtmodel {
+			viewname "Cdtmodel"
+			viewclass CdtmodelOnSelectionFormView
+		}
+	}
+	bindings{
+		
+		type IEditingStrategy -> UndoableEditingStrategy
+		value int FormSashStyle -> SWT.HORIZONTAL
+		
+	}
+	resourceManager {
+				initializeResource {
+					// Optional: initialize an empty Resource
+					// 'it' is of type Resource
+					// e.g., it.getContents += myFactory.createMyClass
+					//it.getContents += FormulaFactory.eINSTANCE.createFormulaRepository()
+				}
+				saveResource {
+				// it is of type org.eclipse.emf.ecore.resource.Resource
+				it.save(null)
+				return true
+			}
+	}
+	
+	featuresProvider {
+				features {
+					 FormulaRepository -> name
+					 Formula -> name, latexString
+					
+				}
+	}
+	viewerContentProvider {
+				elements{
+					
+
+				}
+				children {
+					FormulaRepository -> {
+						Formula
+					}
+				}
+			}
+	formControlFactory {
+		control {
+			Formula : name -> { }		
+		}
+	
+	}
+	
+	
+	
+}
