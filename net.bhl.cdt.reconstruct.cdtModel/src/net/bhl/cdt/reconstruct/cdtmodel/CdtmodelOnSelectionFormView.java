@@ -9,15 +9,4 @@ import com.google.inject.Inject;
 
 public class CdtmodelOnSelectionFormView extends org.eclipse.emf.parsley.views.OnSelectionFormView {
 	
-	/*@Inject FormFactory formFactory;
-
-	public CdtmodelOnSelectionFormView(Composite composite,EObject eObject){
-		
-		formComposite = formFactory.createFormDetailComposite(parent, SWT.NONE);
-		formComposite.init(eObject);
-
-		System.out.println("aaaaa");
-	}*/
-	
-	
 }
