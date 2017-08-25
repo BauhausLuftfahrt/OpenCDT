@@ -28,12 +28,9 @@ public class CDTModelEditor {
 
     	Injector injector = CdtmodelInjectorProvider.getInjector();
     	FormFactory formFactory = injector.getInstance(FormFactory.class);
-		formComposite = formFactory.createFormDetailComposite(parent, SWT.BORDER);
-		
-		
+		formComposite = formFactory.createFormDetailComposite(parent, SWT.BORDER);		
 	}
 	
-
     @Inject
 	public void setInput(@Optional @Named(INPUT) EObject modelElement, @Optional ECPProject ecpProject, MPart part) {
     	if (modelElement == null || ecpProject == null) {
