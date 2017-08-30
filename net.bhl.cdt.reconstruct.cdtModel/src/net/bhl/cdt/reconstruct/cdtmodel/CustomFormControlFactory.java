@@ -307,7 +307,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		 			 		
 		 		canvas.addPaintListener(new PaintListener() {
 					  public void paintControl(PaintEvent e) {
-						  if(newWidth > 300 && newWidth < 500){
+						 /* if(newWidth > 300 && newWidth < 500){
 					 			
 					 			GridData gd2 = new GridData();
 					 			gd2.widthHint = 500;
@@ -324,7 +324,21 @@ public class CustomFormControlFactory extends FormControlFactory {
 						        canvas.setLayoutData(gd3);
 						        canvas.setSize(800, 50);
 		
-					 		}
+					 		}*/
+						  
+						//GridData gd2 = new GridData();
+				 		gd.widthHint = newWidth;
+					    gd.heightHint = 50;
+				        canvas.setLayoutData(gd);
+				        
+				        if(newHeight <= 50){
+				        	canvas.setSize(newWidth, 50);
+				        }else{
+				        	canvas.setSize(newWidth, newHeight);
+				        }
+				        
+				        
+				        
 						/*gd.widthHint = newWidth+50;
 						gd.heightHint = newHeight;
 						canvas.setLayoutData(gd);*/
