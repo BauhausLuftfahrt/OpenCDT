@@ -52,20 +52,16 @@ import uk.ac.ed.ph.snuggletex.SnuggleSession;
 
 public class CustomFormControlFactory extends FormControlFactory {
 	
-	//private ViewModelContext viewContext;
-	private Boolean assignLatex;
 	private Image image;
 	private Image newimage;
 	private ImageData imageData;
-	private CLabel imageLabelC;
 	private int newWidth;
 	private int newHeight;
-	private int width;
-	private int height;
 	private  Canvas canvas;
 	private GridData gd;
 	private static final String EMPTY = "";
-
+	private static final int STANDARD_HEIGHT = 50;
+	private static final int STANDARD_WIDTH = 300;
 	
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -111,7 +107,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 				}else{
 										
 						try {
-							//createNewImage(latexFormel, composite);
 							createNewImage(latexFormel, composite);
 						} catch (SAXException e1) {
 							// TODO Auto-generated catch block
@@ -132,13 +127,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 		/**
 		 * each function of button is implemented.
 		 * */
-        ImageData data = new ImageData("C://Users/sanghun.cho/Desktop/eclipse_image.png"); 
-		image = new Image(Display.getCurrent(), data);
+       /* ImageData data = new ImageData("C://Users/sanghun.cho/Desktop/eclipse_image.png"); 
+		image = new Image(Display.getCurrent(), data);*/
         canvas = new Canvas(composite, SWT.FILL);
-        //final GridData gd = new GridData();
         gd = new GridData();
-        gd.widthHint = 300;
-        gd.heightHint = 50;
+        gd.widthHint = STANDARD_WIDTH;
+        gd.heightHint = STANDARD_HEIGHT;
         canvas.setLayoutData(gd);
           
  
@@ -156,7 +150,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 				/**
 				 * if the textbox of latex-formel is not empty, then it returns true value.
 				 */
-				//assignLatex = viewContext.getDomainModel().eIsSet(FormulaPackage.Literals.FORMULA__LATEX_STRING);
 				
 				if(latexFormel != EMPTY){
 					try {				
@@ -177,7 +170,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 					/**
 					 * the image is removed, if the textbox is of latex-formel empty.
 					 */
-					//setImageRemove();
 					
 				}
 			}
@@ -282,71 +274,24 @@ public class CustomFormControlFactory extends FormControlFactory {
 		 		
 		 		imageData = new ImageData(inputStreamReader);	
 		 		newimage = new Image(Display.getCurrent(), imageData);
-		 		
+	 		
 		 		newWidth = newimage.getBounds().width;
 		 		newHeight = newimage.getBounds().height;
-		 		/*gd.widthHint = newWidth+50;
-		        gd.heightHint = newHeight;*/
-		 		System.out.println("width: " + newWidth);
-		 		
-		 		/*canvas.redraw();
-		 		if(newWidth > 300){
-		 			
-		 			GridData gd2 = new GridData();
-		 			gd2.widthHint = 500;
-			        gd2.heightHint = 50;
-			        canvas.setLayoutData(gd2);
-			        int width = composite.getBounds().width;
-		 			int height = composite.getBounds().height+1;
-		 			composite.setSize(width, height);
-			        canvas.redraw();
-			        canvas.update();
-		 			
-		 		}*/
-		 		
-		 			 		
+	 		
 		 		canvas.addPaintListener(new PaintListener() {
 					  public void paintControl(PaintEvent e) {
-						 /* if(newWidth > 300 && newWidth < 500){
-					 			
-					 			GridData gd2 = new GridData();
-					 			gd2.widthHint = 500;
-						        gd2.heightHint = 50;
-						        canvas.setLayoutData(gd2);
-						        canvas.setSize(500, 50);
-		
-					 		}
-						  if(newWidth >= 500){
-					 			
-					 			GridData gd3 = new GridData();
-					 			gd3.widthHint = 800;
-						        gd3.heightHint = 50;
-						        canvas.setLayoutData(gd3);
-						        canvas.setSize(800, 50);
-		
-					 		}*/
-						  
-						//GridData gd2 = new GridData();
+						
 				 		gd.widthHint = newWidth;
-					    gd.heightHint = 50;
+					    gd.heightHint = STANDARD_HEIGHT;
 				        canvas.setLayoutData(gd);
 				        
-				        if(newHeight <= 50){
-				        	canvas.setSize(newWidth, 50);
+				        if(newHeight <= STANDARD_HEIGHT){
+				        	canvas.setSize(newWidth, STANDARD_HEIGHT);
 				        }else{
 				        	canvas.setSize(newWidth, newHeight);
 				        }
-				        
-				        
-				        
-						/*gd.widthHint = newWidth+50;
-						gd.heightHint = newHeight;
-						canvas.setLayoutData(gd);*/
-	    
-					    e.gc.drawImage(newimage, 0, 0);
-					    //image.dispose();
-					    System.out.println("create image ");
-					    //canvas.redraw();
+				      
+					    e.gc.drawImage(newimage, 0, 0);		
 				 		canvas.update();
 					
 					  }
@@ -356,74 +301,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 		 		
 
 			}
-	}
-	private Image createNewImageTest(String latexFormel, Composite composite) throws SAXException, ParserConfigurationException, IOException {
-		
-		SnuggleEngine engine  = new SnuggleEngine();		
-		SnuggleSession session = engine.createSession();  
-		SnuggleInput input = new SnuggleInput(latexFormel);
-		session.getConfiguration().setFailingFast(true);
-		
-		 if (session.parseInput(input) == false){
-				
-				MessageBox messageBox = new MessageBox(new Shell(), SWT.ICON_WARNING | SWT.RETRY);
-		        
-		        messageBox.setText("Warning");
-		        messageBox.setMessage(session.getErrors().toString());
-		        messageBox.open();
-		        
-				System.out.println("Error : " + session.getErrors().toString());
-			}
-		   	/**
-	 	   	 * the string of latex-formel is converted into xml-string.
-	 	   	 */
-			else{
-					
-		 	    String xmlString = session.buildXMLString();
-						
-		 	    final Document document = MathMLParserSupport.parseString(xmlString);
-		 	   
-		 	    final File outFile = new File("test.png");
-		 	    
-		 	    final MutableLayoutContext params = new LayoutContextImpl(LayoutContextImpl.getDefaultLayoutContext());
-		 	     
-		 	    params.setParameter(Parameter.MATHSIZE, 25f);
-		 	   
-		 	    Converter.getInstance().convert(document, outFile, "image/" + "png", params);
-		 	    
-		 		byte[] uploadedImg = null;
-	 		 
-		 		try {
-		 			
-		
-		 			double fileLen = outFile.length();
-		 		    uploadedImg = new byte[(int) fileLen];
-		 		    FileInputStream inputStream = new FileInputStream(outFile);
-
-		 		    int nRead = 0;
-		 		    
-		 		    while ((nRead = inputStream.read(uploadedImg)) != -1) {
-		 		    }
-		 		    
-		 		    inputStream.close();
-
-		 		} catch (Exception e2) {
-		 		    // TODO: handle exception
-		 		}
-		 		/**
-		 		 * the xml-string is converted into the image file.
-		 		 */
-		 		BufferedInputStream inputStreamReader = new BufferedInputStream(new ByteArrayInputStream(uploadedImg));
-		 		
-		 		imageData = new ImageData(inputStreamReader);	
-		 		Image newimage = new Image(Display.getCurrent(), imageData);
-		 		
-		 		newWidth = newimage.getBounds().width;
-		 		newHeight = newimage.getBounds().height;
-		 		
-		 		
-			}
-		 return newimage;
 	}
 	/**
 	 * if the latex-formel is empty and the show-button is clicked, then dialog window is opened to warn.
