@@ -16,6 +16,8 @@ import org.eclipse.emf.parsley.composite.FormControlFactory;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
+import org.eclipse.swt.events.FocusEvent;
+import org.eclipse.swt.events.FocusListener;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -61,6 +63,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private int width;
 	private int height;
 	private  Canvas canvas;
+	private GridData gd;
+	private static final String EMPTY = "";
+
 	
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -79,6 +84,7 @@ public class CustomFormControlFactory extends FormControlFactory {
         latexString.setLayoutData(gridData);
 		latexString.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
 		dbc.bindValue(SWTObservables.observeText(latexString, SWT.Modify), featureObservable);
+		
 		final Button showButton = _toolkit.createButton(composite, "show", SWT.PUSH);
 		/**
 		 * After click, it tries to open the file.*/
@@ -96,16 +102,16 @@ public class CustomFormControlFactory extends FormControlFactory {
 				/**
 				 * In case texbox of latexString is empty 
 				 * */
-				if(latexFormel == ""){
+				if(latexFormel == EMPTY){
 					/**
 					 * when the latexformel-string is empty, then the message-box pops up to warn.
 					 */
 					openLatexMessageBox();
 					
 				}else{
-					
-						
+										
 						try {
+							//createNewImage(latexFormel, composite);
 							createNewImage(latexFormel, composite);
 						} catch (SAXException e1) {
 							// TODO Auto-generated catch block
@@ -116,51 +122,71 @@ public class CustomFormControlFactory extends FormControlFactory {
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
-						}
-						
-					
-					
-				}
-	
-				/*ImageData data = new ImageData("C://Users/sanghun.cho/Desktop/eclipse_image.png"); 
-				newimage = new Image(Display.getCurrent(), data);
-				System.out.println("Sanghun: " + latexString.getText());
-				imageLabelC.setImage(newimage);*/
-			
-		
+						}					
+				}	
 					
 			}
 		}); 
 		
-		
-		/*imageLabelC = new CLabel(composite, SWT.BORDER);
-		image = new Image(Display.getCurrent(), 700, 50);
-		width = image.getBounds().width;
- 		height = image.getBounds().height;
- 		
- 		System.out.println("width : " + width);
- 		System.out.println("height : " + height);
- 		
-		imageLabelC.setImage(image);*/
 
 		/**
 		 * each function of button is implemented.
 		 * */
-		
-		//parsleyCustomButton(showButton, latexString, _parent);
-        //image = new Image(Display.getCurrent(), 900, 100);	
         ImageData data = new ImageData("C://Users/sanghun.cho/Desktop/eclipse_image.png"); 
 		image = new Image(Display.getCurrent(), data);
         canvas = new Canvas(composite, SWT.FILL);
-        final GridData d = new GridData();
-        d.widthHint = 700;
-        d.heightHint = 50;
-        canvas.setLayoutData(d);
-        
+        //final GridData gd = new GridData();
+        gd = new GridData();
+        gd.widthHint = 300;
+        gd.heightHint = 50;
+        canvas.setLayoutData(gd);
+          
+ 
+        FocusListener listener = new FocusListener() {
+        	
+            public void focusGained(FocusEvent event) {
+                   	
+            	//System.out.println("get Focus");      	
+            }
+
+			@Override
+			public void focusLost(FocusEvent e) {
+				
+				String latexFormel = latexString.getText();		
+				/**
+				 * if the textbox of latex-formel is not empty, then it returns true value.
+				 */
+				//assignLatex = viewContext.getDomainModel().eIsSet(FormulaPackage.Literals.FORMULA__LATEX_STRING);
+				
+				if(latexFormel != EMPTY){
+					try {				
+						
+						createNewImage(latexFormel, composite);
+						
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (SAXException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					} catch (ParserConfigurationException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}else{
+					/**
+					 * the image is removed, if the textbox is of latex-formel empty.
+					 */
+					//setImageRemove();
+					
+				}
+			}
+		};
+        latexString.addFocusListener(listener);
 
 		return composite;
 		
-		//ImageData data = new ImageData("C://Users/sanghun.cho/Desktop/eclipse_image.png"); 
+		
 	
 	}
 	
@@ -181,7 +207,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				/**
 				 * In case texbox of latexString is empty 
 				 * */
-				if(latexFormel == ""){
+				if(latexFormel == EMPTY){
 					/**
 					 * when the latexformel-string is empty, then the message-box pops up to warn.
 					 */
@@ -190,22 +216,14 @@ public class CustomFormControlFactory extends FormControlFactory {
 				}else{
 					
 				}
-	
-				/*ImageData data = new ImageData("C://Users/sanghun.cho/Desktop/eclipse_image.png"); 
-				newimage = new Image(Display.getCurrent(), data);
-				System.out.println("Sanghun: " + latexString.getText());
-				imageLabelC.setImage(newimage);*/
-			
 		
-					
 			}
 		});       
       	
 	}
 	private void createNewImage(String latexFormel, Composite composite) throws SAXException, ParserConfigurationException, IOException {
 		
-		System.out.println("createNewImage : " + latexFormel);
-		
+	    
 		SnuggleEngine engine  = new SnuggleEngine();		
 		SnuggleSession session = engine.createSession();  
 		SnuggleInput input = new SnuggleInput(latexFormel);
@@ -219,8 +237,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 		        messageBox.setMessage(session.getErrors().toString());
 		        messageBox.open();
 		        
-		        //setImageRemove();
-				
 				System.out.println("Error : " + session.getErrors().toString());
 			}
 		   	/**
@@ -267,78 +283,133 @@ public class CustomFormControlFactory extends FormControlFactory {
 		 		imageData = new ImageData(inputStreamReader);	
 		 		newimage = new Image(Display.getCurrent(), imageData);
 		 		
-		 		//this.imageLabelC.setImage(newimage);
+		 		newWidth = newimage.getBounds().width;
+		 		newHeight = newimage.getBounds().height;
+		 		/*gd.widthHint = newWidth+50;
+		        gd.heightHint = newHeight;*/
+		 		System.out.println("width: " + newWidth);
+		 		
+		 		/*canvas.redraw();
+		 		if(newWidth > 300){
+		 			
+		 			GridData gd2 = new GridData();
+		 			gd2.widthHint = 500;
+			        gd2.heightHint = 50;
+			        canvas.setLayoutData(gd2);
+			        int width = composite.getBounds().width;
+		 			int height = composite.getBounds().height+1;
+		 			composite.setSize(width, height);
+			        canvas.redraw();
+			        canvas.update();
+		 			
+		 		}*/
+		 		
+		 			 		
+		 		canvas.addPaintListener(new PaintListener() {
+					  public void paintControl(PaintEvent e) {
+						  if(newWidth > 300 && newWidth < 500){
+					 			
+					 			GridData gd2 = new GridData();
+					 			gd2.widthHint = 500;
+						        gd2.heightHint = 50;
+						        canvas.setLayoutData(gd2);
+						        canvas.setSize(500, 50);
+		
+					 		}
+						  if(newWidth >= 500){
+					 			
+					 			GridData gd3 = new GridData();
+					 			gd3.widthHint = 800;
+						        gd3.heightHint = 50;
+						        canvas.setLayoutData(gd3);
+						        canvas.setSize(800, 50);
+		
+					 		}
+						/*gd.widthHint = newWidth+50;
+						gd.heightHint = newHeight;
+						canvas.setLayoutData(gd);*/
+	    
+					    e.gc.drawImage(newimage, 0, 0);
+					    //image.dispose();
+					    System.out.println("create image ");
+					    //canvas.redraw();
+				 		canvas.update();
+					
+					  }
+				});
+		 		canvas.redraw();
+		 		canvas.update();
+		 		
+
+			}
+	}
+	private Image createNewImageTest(String latexFormel, Composite composite) throws SAXException, ParserConfigurationException, IOException {
+		
+		SnuggleEngine engine  = new SnuggleEngine();		
+		SnuggleSession session = engine.createSession();  
+		SnuggleInput input = new SnuggleInput(latexFormel);
+		session.getConfiguration().setFailingFast(true);
+		
+		 if (session.parseInput(input) == false){
+				
+				MessageBox messageBox = new MessageBox(new Shell(), SWT.ICON_WARNING | SWT.RETRY);
+		        
+		        messageBox.setText("Warning");
+		        messageBox.setMessage(session.getErrors().toString());
+		        messageBox.open();
+		        
+				System.out.println("Error : " + session.getErrors().toString());
+			}
+		   	/**
+	 	   	 * the string of latex-formel is converted into xml-string.
+	 	   	 */
+			else{
+					
+		 	    String xmlString = session.buildXMLString();
+						
+		 	    final Document document = MathMLParserSupport.parseString(xmlString);
+		 	   
+		 	    final File outFile = new File("test.png");
+		 	    
+		 	    final MutableLayoutContext params = new LayoutContextImpl(LayoutContextImpl.getDefaultLayoutContext());
+		 	     
+		 	    params.setParameter(Parameter.MATHSIZE, 25f);
+		 	   
+		 	    Converter.getInstance().convert(document, outFile, "image/" + "png", params);
+		 	    
+		 		byte[] uploadedImg = null;
+	 		 
+		 		try {
+		 			
+		
+		 			double fileLen = outFile.length();
+		 		    uploadedImg = new byte[(int) fileLen];
+		 		    FileInputStream inputStream = new FileInputStream(outFile);
+
+		 		    int nRead = 0;
+		 		    
+		 		    while ((nRead = inputStream.read(uploadedImg)) != -1) {
+		 		    }
+		 		    
+		 		    inputStream.close();
+
+		 		} catch (Exception e2) {
+		 		    // TODO: handle exception
+		 		}
+		 		/**
+		 		 * the xml-string is converted into the image file.
+		 		 */
+		 		BufferedInputStream inputStreamReader = new BufferedInputStream(new ByteArrayInputStream(uploadedImg));
+		 		
+		 		imageData = new ImageData(inputStreamReader);	
+		 		Image newimage = new Image(Display.getCurrent(), imageData);
 		 		
 		 		newWidth = newimage.getBounds().width;
 		 		newHeight = newimage.getBounds().height;
 		 		
-		 		System.out.println("newWidth : " + newWidth);
-		 		System.out.println("newHeight : " + newHeight);
 		 		
-		 		/**
-		 		 * the size of the image gets scaled down.  
-		 		 */
-		 		/*if(( newWidth > 900 && newWidth < 1200 ) && ( newHeight <= 100  )){		
-		 			
-		 			imageLabelC.setBounds(0, 60, newWidth+10, newHeight+10);
-		 			this.imageLabelC.setImage(newimage);
-		 		}
-		 		else if(( newWidth >= 1200 ) && ( newHeight <= 100  )){
-		 			int scaledWidth = ( newWidth / width );
-		 			final Image scaled = new Image(Display.getDefault(),imageData.scaledTo(1200,20/scaledWidth));
-		 			imageLabelC.setBounds(0, 60, newWidth+10, newHeight+10);
-		 			this.imageLabelC.setImage(scaled);
-		 				
-		 		}
-		 		else if(( newWidth < 1200 ) && ( newHeight > 100  )){
-		 			int scaleHeight = ( newHeight / height );
-		 			final Image scaled = new Image(Display.getDefault(),imageData.scaledTo(newWidth/scaleHeight,100));
-		 			imageLabelC.setBounds(0, 30, newWidth+10, newHeight+10);
-		 			this.imageLabelC.setImage(scaled);
-		 		}
-		 		else{
-		 			
-		 			this.imageLabelC.setImage(newimage);
-		 			
-		 		}*/
-		 		
-		 		
-		 		/*imageLabelC.setImage(newimage);
-		 		composite.redraw();
-	 			composite.update();
-	 			System.out.println("update");*/
-		 		
-		 		
-		 		canvas.addPaintListener(new PaintListener() {
-					  public void paintControl(PaintEvent e) {
-						  
-					    e.gc.drawImage(newimage, 0, 0);
-					    image.dispose();
-					    System.out.println(" canvas listner");
-					    System.out.println(" canvas listner width " + newimage.getImageData().width);
-					    System.out.println(" canvas listner height " + newimage.getImageData().height);
-					  }
-					});
-		 		canvas.redraw();
-		 		canvas.update();
-
 			}
-		 		 
-		 		
-				 /*canvas.addPaintListener(new PaintListener() {
-					  public void paintControl(PaintEvent e) {
-					    e.gc.drawImage(newimage, 0, 0, newimage.getImageData().width, newimage.getImageData().height, 0, 0, newimage.getImageData().width, newimage.getImageData().height);   
-					    System.out.println(" canvas listner");
-					    System.out.println(" canvas listner width " + newimage.getImageData().width);
-					    System.out.println(" canvas listner height " + newimage.getImageData().height);
-					  }
-					});
-				 
-		}*/
-		 	
-		
-		 
-		
+		 return newimage;
 	}
 	/**
 	 * if the latex-formel is empty and the show-button is clicked, then dialog window is opened to warn.
