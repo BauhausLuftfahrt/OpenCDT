@@ -40,7 +40,7 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 	featuresProvider {
 				features {
 					 FormulaRepository -> name
-					 Formula -> name, latexString
+					 Formula -> name, latexString,reference
 					
 				}
 	}

@@ -2,6 +2,7 @@
  */
 package formula;
 
+import cdtliterature.ALiteratureBase;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link formula.Formula#getInputParameter <em>Input Parameter</em>}</li>
  *   <li>{@link formula.Formula#getOutputParameter <em>Output Parameter</em>}</li>
  *   <li>{@link formula.Formula#getRepository <em>Repository</em>}</li>
+ *   <li>{@link formula.Formula#getReference <em>Reference</em>}</li>
  * </ul>
  *
  * @see formula.FormulaPackage#getFormula()
@@ -150,6 +152,22 @@ public interface Formula extends EObject {
 	 * @generated
 	 */
 	void setRepository(FormulaRepository value);
+
+	/**
+	 * Returns the value of the '<em><b>Reference</b></em>' reference list.
+	 * The list contents are of type {@link cdtliterature.ALiteratureBase}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Reference</em>' reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reference</em>' reference list.
+	 * @see formula.FormulaPackage#getFormula_Reference()
+	 * @model
+	 * @generated
+	 */
+	EList<ALiteratureBase> getReference();
 
 	/**
 	 * <!-- begin-user-doc -->

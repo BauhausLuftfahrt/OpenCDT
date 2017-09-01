@@ -93,14 +93,6 @@ public class MyParts {
 		
 		resource.getContents().add(library);
 		
-		
-		//book = CdtliteratureFactory.eINSTANCE.createBook();
-		
-		//resource.getContents().add(book);
-		
-		/*System.out.println(resource.getContents().size());
-		resource.getContents().remove(1);
-		System.out.println("remove");*/
 	}
 	/**
 	 * it saves the all information of created objects as the xmi file.*/  
