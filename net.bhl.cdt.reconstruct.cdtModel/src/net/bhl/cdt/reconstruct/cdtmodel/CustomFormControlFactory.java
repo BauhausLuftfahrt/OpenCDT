@@ -36,6 +36,7 @@ import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.eclipse.ui.forms.widgets.Hyperlink;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -181,7 +182,29 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 	
 	}
+	/*public Control control_Formula_refernce(DataBindingContext dbc, IObservableValue featureObservable) {
+		
+		FormToolkit _toolkit = this.getToolkit();
+	    Composite _parent = this.getParent();
+	    Hyperlink createHyperlink  = _toolkit.createHyperlink(_parent, );
+	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
+	    
+	   
+	    Text latexString = getToolkit().createText(composite, " ", SWT.BORDER);
+		GridData gridData = new GridData();
+        gridData.horizontalAlignment = GridData.FILL;
+        gridData.grabExcessHorizontalSpace = true;
+        latexString.setLayoutData(gridData);
+		latexString.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
+		dbc.bindValue(SWTObservables.observeText(latexString, SWT.Modify), featureObservable);
+		
+
+		return composite;
+		
+		
 	
+	}
+	*/
 	private void parsleyCustomButton(Button buttonShow, Text latexString, Composite _parent){
 
 	

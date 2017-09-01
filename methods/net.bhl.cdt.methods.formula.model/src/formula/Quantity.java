@@ -115,7 +115,7 @@ public interface Quantity extends EObject {
 	 * @see #setRepository(FormulaRepository)
 	 * @see formula.FormulaPackage#getQuantity_Repository()
 	 * @see formula.FormulaRepository#getQuantities
-	 * @model opposite="quantities" required="true" transient="false"
+	 * @model opposite="quantities" transient="false"
 	 * @generated
 	 */
 	FormulaRepository getRepository();

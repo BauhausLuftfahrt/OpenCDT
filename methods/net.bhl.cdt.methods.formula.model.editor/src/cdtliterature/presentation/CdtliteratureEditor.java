@@ -1,6 +1,6 @@
 /**
  */
-package formula.presentation;
+package cdtliterature.presentation;
 
 
 import java.io.IOException;
@@ -154,17 +154,22 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
+import cdtliterature.provider.CdtliteratureItemProviderAdapterFactory;
+
+import formula.presentation.FormulaEditorPlugin;
+
 import formula.provider.FormulaItemProviderAdapterFactory;
+
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
 /**
- * This is an example of a Formula model editor.
+ * This is an example of a Cdtliterature model editor.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class FormulaEditor
+public class CdtliteratureEditor
 	extends MultiPageEditorPart
 	implements IEditingDomainProvider, ISelectionProvider, IMenuListener, IViewerProvider, IGotoMarker {
 	/**
@@ -326,18 +331,18 @@ public class FormulaEditor
 			public void partActivated(IWorkbenchPart p) {
 				if (p instanceof ContentOutline) {
 					if (((ContentOutline)p).getCurrentPage() == contentOutlinePage) {
-						getActionBarContributor().setActiveEditor(FormulaEditor.this);
+						getActionBarContributor().setActiveEditor(CdtliteratureEditor.this);
 
 						setCurrentViewer(contentOutlineViewer);
 					}
 				}
 				else if (p instanceof PropertySheet) {
 					if (propertySheetPages.contains(((PropertySheet)p).getCurrentPage())) {
-						getActionBarContributor().setActiveEditor(FormulaEditor.this);
+						getActionBarContributor().setActiveEditor(CdtliteratureEditor.this);
 						handleActivate();
 					}
 				}
-				else if (p == FormulaEditor.this) {
+				else if (p == CdtliteratureEditor.this) {
 					handleActivate();
 				}
 			}
@@ -510,7 +515,7 @@ public class FormulaEditor
 								 public void run() {
 									 removedResources.addAll(visitor.getRemovedResources());
 									 if (!isDirty()) {
-										 getSite().getPage().closeEditor(FormulaEditor.this, false);
+										 getSite().getPage().closeEditor(CdtliteratureEditor.this, false);
 									 }
 								 }
 							 });
@@ -521,7 +526,7 @@ public class FormulaEditor
 							(new Runnable() {
 								 public void run() {
 									 changedResources.addAll(visitor.getChangedResources());
-									 if (getSite().getPage().getActiveEditor() == FormulaEditor.this) {
+									 if (getSite().getPage().getActiveEditor() == CdtliteratureEditor.this) {
 										 handleActivate();
 									 }
 								 }
@@ -553,7 +558,7 @@ public class FormulaEditor
 
 		if (!removedResources.isEmpty()) {
 			if (handleDirtyConflict()) {
-				getSite().getPage().closeEditor(FormulaEditor.this, false);
+				getSite().getPage().closeEditor(CdtliteratureEditor.this, false);
 			}
 			else {
 				removedResources.clear();
@@ -683,7 +688,7 @@ public class FormulaEditor
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FormulaEditor() {
+	public CdtliteratureEditor() {
 		super();
 		initializeEditingDomain();
 	}
@@ -701,6 +706,7 @@ public class FormulaEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new FormulaItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new CdtliteratureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.
@@ -1021,7 +1027,7 @@ public class FormulaEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), FormulaEditor.this) {
+					new ViewerPane(getSite().getPage(), CdtliteratureEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
@@ -1055,7 +1061,7 @@ public class FormulaEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), FormulaEditor.this) {
+					new ViewerPane(getSite().getPage(), CdtliteratureEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							Tree tree = new Tree(composite, SWT.MULTI);
@@ -1084,7 +1090,7 @@ public class FormulaEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), FormulaEditor.this) {
+					new ViewerPane(getSite().getPage(), CdtliteratureEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new ListViewer(composite);
@@ -1109,7 +1115,7 @@ public class FormulaEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), FormulaEditor.this) {
+					new ViewerPane(getSite().getPage(), CdtliteratureEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
@@ -1136,7 +1142,7 @@ public class FormulaEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), FormulaEditor.this) {
+					new ViewerPane(getSite().getPage(), CdtliteratureEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TableViewer(composite);
@@ -1179,7 +1185,7 @@ public class FormulaEditor
 			//
 			{
 				ViewerPane viewerPane =
-					new ViewerPane(getSite().getPage(), FormulaEditor.this) {
+					new ViewerPane(getSite().getPage(), CdtliteratureEditor.this) {
 						@Override
 						public Viewer createViewer(Composite composite) {
 							return new TreeViewer(composite);
@@ -1399,8 +1405,8 @@ public class FormulaEditor
 			new ExtendedPropertySheetPage(editingDomain) {
 				@Override
 				public void setSelectionToViewer(List<?> selection) {
-					FormulaEditor.this.setSelectionToViewer(selection);
-					FormulaEditor.this.setFocus();
+					CdtliteratureEditor.this.setSelectionToViewer(selection);
+					CdtliteratureEditor.this.setFocus();
 				}
 
 				@Override

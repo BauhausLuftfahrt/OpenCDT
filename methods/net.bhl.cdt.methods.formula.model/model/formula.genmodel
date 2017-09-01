@@ -17,6 +17,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference formula.ecore#//Formula/inputParameter"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference formula.ecore#//Formula/outputParameter"/>
       <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference formula.ecore#//Formula/repository"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference formula.ecore#//Formula/reference"/>
       <genOperations ecoreOperation="formula.ecore#//Formula/hasName">
         <genParameters ecoreParameter="formula.ecore#//Formula/hasName/chain"/>
         <genParameters ecoreParameter="formula.ecore#//Formula/hasName/context"/>
