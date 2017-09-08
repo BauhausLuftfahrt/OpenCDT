@@ -36,6 +36,8 @@ import net.bhl.cdt.core.ui.UIHelper;
 
 public class CustomFormControlFactory extends FormControlFactory {
 	
+	
+	
 	public Control control_ALiteratureBase_path(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		FormToolkit _toolkit = this.getToolkit();
@@ -174,6 +176,7 @@ public class CustomFormControlFactory extends FormControlFactory {
             public void widgetSelected(SelectionEvent e) {
             	
             	String filePath = UIHelper.showSelectFileDialog(Display.getCurrent().getActiveShell());
+            
             	if(filePath != null){
             		pathText.setText(filePath);
             		Device device = Display.getCurrent ();

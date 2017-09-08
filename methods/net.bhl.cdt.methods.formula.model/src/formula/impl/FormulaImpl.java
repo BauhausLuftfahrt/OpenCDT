@@ -42,6 +42,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link formula.impl.FormulaImpl#getInputParameter <em>Input Parameter</em>}</li>
  *   <li>{@link formula.impl.FormulaImpl#getOutputParameter <em>Output Parameter</em>}</li>
  *   <li>{@link formula.impl.FormulaImpl#getRepository <em>Repository</em>}</li>
+ *   <li>{@link formula.impl.FormulaImpl#getRef <em>Ref</em>}</li>
  *   <li>{@link formula.impl.FormulaImpl#getReference <em>Reference</em>}</li>
  * </ul>
  *
@@ -107,6 +108,26 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * @ordered
 	 */
 	protected Quantity outputParameter;
+
+	/**
+	 * The default value of the '{@link #getRef() <em>Ref</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REF_EDEFAULT = "";
+
+	/**
+	 * The cached value of the '{@link #getRef() <em>Ref</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRef()
+	 * @generated
+	 * @ordered
+	 */
+	protected String ref = REF_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getReference() <em>Reference</em>}' reference list.
@@ -275,6 +296,27 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getRef() {
+		return ref;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setRef(String newRef) {
+		String oldRef = ref;
+		ref = newRef;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormulaPackage.FORMULA__REF, oldRef, ref));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EList<ALiteratureBase> getReference() {
 		if (reference == null) {
 			reference = new EObjectResolvingEList<ALiteratureBase>(ALiteratureBase.class, this, FormulaPackage.FORMULA__REFERENCE);
@@ -370,6 +412,8 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				return basicGetOutputParameter();
 			case FormulaPackage.FORMULA__REPOSITORY:
 				return getRepository();
+			case FormulaPackage.FORMULA__REF:
+				return getRef();
 			case FormulaPackage.FORMULA__REFERENCE:
 				return getReference();
 		}
@@ -400,6 +444,9 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				return;
 			case FormulaPackage.FORMULA__REPOSITORY:
 				setRepository((FormulaRepository)newValue);
+				return;
+			case FormulaPackage.FORMULA__REF:
+				setRef((String)newValue);
 				return;
 			case FormulaPackage.FORMULA__REFERENCE:
 				getReference().clear();
@@ -432,6 +479,9 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 			case FormulaPackage.FORMULA__REPOSITORY:
 				setRepository((FormulaRepository)null);
 				return;
+			case FormulaPackage.FORMULA__REF:
+				setRef(REF_EDEFAULT);
+				return;
 			case FormulaPackage.FORMULA__REFERENCE:
 				getReference().clear();
 				return;
@@ -457,6 +507,8 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				return outputParameter != null;
 			case FormulaPackage.FORMULA__REPOSITORY:
 				return getRepository() != null;
+			case FormulaPackage.FORMULA__REF:
+				return REF_EDEFAULT == null ? ref != null : !REF_EDEFAULT.equals(ref);
 			case FormulaPackage.FORMULA__REFERENCE:
 				return reference != null && !reference.isEmpty();
 		}
@@ -491,6 +543,8 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 		result.append(name);
 		result.append(", latexString: ");
 		result.append(latexString);
+		result.append(", ref: ");
+		result.append(ref);
 		result.append(')');
 		return result.toString();
 	}

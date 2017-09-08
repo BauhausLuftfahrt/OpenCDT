@@ -46,7 +46,7 @@ module net.bhl.cdt.literature.model.parsley {
 	resourceManager {
 				initializeResource {
 					
-					//it.getContents += CdtliteratureFactory.eINSTANCE.createLibrary();
+					it.getContents += CdtliteratureFactory.eINSTANCE.createLibrary();
 				}
 				saveResource {
 				// it is of type org.eclipse.emf.ecore.resource.Resource

@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link formula.Formula#getInputParameter <em>Input Parameter</em>}</li>
  *   <li>{@link formula.Formula#getOutputParameter <em>Output Parameter</em>}</li>
  *   <li>{@link formula.Formula#getRepository <em>Repository</em>}</li>
+ *   <li>{@link formula.Formula#getRef <em>Ref</em>}</li>
  *   <li>{@link formula.Formula#getReference <em>Reference</em>}</li>
  * </ul>
  *
@@ -152,6 +153,33 @@ public interface Formula extends EObject {
 	 * @generated
 	 */
 	void setRepository(FormulaRepository value);
+
+	/**
+	 * Returns the value of the '<em><b>Ref</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Ref</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Ref</em>' attribute.
+	 * @see #setRef(String)
+	 * @see formula.FormulaPackage#getFormula_Ref()
+	 * @model default=""
+	 * @generated
+	 */
+	String getRef();
+
+	/**
+	 * Sets the value of the '{@link formula.Formula#getRef <em>Ref</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Ref</em>' attribute.
+	 * @see #getRef()
+	 * @generated
+	 */
+	void setRef(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Reference</b></em>' reference list.

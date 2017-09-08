@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.emf.ecp.spi.ui.util.ECPHandlerHelper;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.parsley.composite.TreeFormComposite;
 import org.eclipse.emf.parsley.composite.TreeFormFactory;
@@ -21,6 +22,8 @@ import org.eclipse.emf.parsley.menus.ViewerContextMenuHelper;
 import org.eclipse.emf.parsley.resource.ResourceLoader;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
+
 import com.google.inject.Injector;
 
 import cdtliterature.Book;
@@ -34,8 +37,8 @@ public class MyParts {
 
 	private TreeFormComposite treeFormComposite;
 	private Resource resource;
-	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
-	//private EObject library;
+	private URI uri = URI.createFileURI(System.getProperty("user.home") 
+			+ "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 	private Library library;
 	private EditingDomain editingDomain;
 	

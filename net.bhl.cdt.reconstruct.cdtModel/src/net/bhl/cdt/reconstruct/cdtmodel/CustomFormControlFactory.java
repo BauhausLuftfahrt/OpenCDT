@@ -5,15 +5,27 @@ import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.inject.Inject;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecp.view.spi.context.ViewModelContext;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.parsley.composite.FormControlFactory;
+import org.eclipse.emf.parsley.resource.ResourceLoader;
 import org.eclipse.jface.databinding.swt.SWTObservables;
+import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.CLabel;
 import org.eclipse.swt.events.FocusEvent;
@@ -22,6 +34,8 @@ import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Device;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
 import org.eclipse.swt.layout.GridData;
@@ -32,16 +46,29 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.dialogs.ElementListSelectionDialog;
+import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
+import org.eclipse.ui.dialogs.ListDialog;
+import org.eclipse.ui.dialogs.TwoPaneElementSelector;
+import org.eclipse.ui.forms.widgets.FormText;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Hyperlink;
+import org.eclipse.ui.model.WorkbenchLabelProvider;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import com.google.inject.Injector;
+
+import cdtliterature.CdtliteratureFactory;
+import cdtliterature.Library;
 import formula.Formula;
 import formula.FormulaPackage;
+import net.bhl.cdt.core.ui.UIHelper;
+import net.bhl.cdt.literature.model.parsley.ParsleyInjectorProvider;
 import net.sourceforge.jeuclid.MathMLParserSupport;
 import net.sourceforge.jeuclid.MutableLayoutContext;
 import net.sourceforge.jeuclid.context.LayoutContextImpl;
@@ -63,6 +90,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private static final String EMPTY = "";
 	private static final int STANDARD_HEIGHT = 50;
 	private static final int STANDARD_WIDTH = 300;
+	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 	
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -182,13 +210,123 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 	
 	}
-	/*public Control control_Formula_refernce(DataBindingContext dbc, IObservableValue featureObservable) {
+	public Control control_Formula_reference(final Formula it) {
+		//EList<EObject> _contents = re.getContents();
+		//it.getReference().listIterator().toString()
+		FormToolkit _toolkit = this.getToolkit();
+	    Composite _parent = this.getParent();
+	    Control [] control = _parent.getChildren();
+	    
+	    System.out.print("getReference : ");
+	    System.out.print("control : " + control.length);
+	    
+	    
+	    return null;
+	  }
+	public Control control_Formula_ref(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
-	    Hyperlink createHyperlink  = _toolkit.createHyperlink(_parent, );
 	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
+	    /**
+	     * this layout is set for text, three buttons.
+	     * */
+	    GridLayout _gridLayout = new GridLayout(2, false);
+	    composite.setLayout(_gridLayout);
+	    //_gridLayout.marginLeft = -5;
 	    
+	    
+	    /** 
+		 * text is filled in grid-layout*/
+		//Text pathText = getToolkit().createText(composite, "sanghun", SWT.SINGLE);
+		FormText refText = _toolkit.createFormText(composite, true);
+		//refText.setText("", false, false);
+		//pathText.setText("Sanghun");
+		GridData gridData = new GridData();
+        gridData.horizontalAlignment = GridData.FILL;
+        gridData.grabExcessHorizontalSpace = true;
+        refText.setLayoutData(gridData);
+		refText.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
+		final Button openButton = _toolkit.createButton(composite, "set", SWT.PUSH);
+		//dbc.bindValue(SWTObservables.observeText(refText, SWT.Modify), featureObservable);
+		
+		 openButton.addSelectionListener(new SelectionAdapter() {
+	            @Override
+	            public void widgetSelected(SelectionEvent e) {
+	            	Shell shell = _parent.getShell();
+	            	//String filePath = UIHelper.showSelectFileDialog(Display.getCurrent().getActiveShell());
+	            	
+	            	Injector injector = ParsleyInjectorProvider.getInjector();
+
+	        		/**
+	        		 * The EditingDomain is needed for context menu and drag and drop.*/
+	        		ResourceLoader resourceLoader = injector.getInstance(ResourceLoader.class);
+	        		EditingDomain editingDomain = injector.getInstance(EditingDomain.class);
+	        		/**
+	        		 * load the resource*/
+	        		Resource resource = resourceLoader.getResource(editingDomain, uri).getResource();
+	        		Library library = (Library) resource.getContents().get(0);
+	        		library.getConference();
+	            	/*ElementListSelectionDialog dialog = 
+	            			new ElementListSelectionDialog(Display.getCurrent().getActiveShell(), new LabelProvider());
+	            		
+	            		dialog.setTitle("Which operating system are you using");
+	            		
+	            		dialog.setMessage("This is Element List Message");
+	            		String [] list =  { "Linux", "Mac", "Windows" };      
+	            		dialog.setElements(list);
+	            		if (dialog.open() != Window.OK) {
+	            		        //return false;
+	            			System.out.print("Sanghun");
+	            		}
+	            		Object[] result = dialog.getResult();*/
+	        		
+	        		/*TwoPaneElementSelector elementSelector = new TwoPaneElementSelector(shell, new LabelProvider(), new LabelProvider());
+	        	    elementSelector.setTitle("Two Pane Element Selector");
+	        	    elementSelector.setElements(new String[] {"One", "Two", "Three"});
+	        	    elementSelector.setLowerListLabel("Lower List");
+	        	    elementSelector.setUpperListLabel("Upper List");
+	        	    elementSelector.setMultipleSelection(true);
+	        	    elementSelector.setInitialSelections(new String[] {"One", "Two", "Three"});
+	        	    elementSelector.open();*/
+	        		
+	        		ListDialog ld = new ListDialog(shell);
+	        	    ld.setAddCancelButton(true);
+	        	    ld.setContentProvider(new ArrayContentProvider());
+	        	    ld.setLabelProvider(new LabelProvider());
+	        	    ld.setInput(new String[] { "Linux", "Mac", "Windows" });
+	        	    ld.setTitle("Select # of Nobel Prize Nominations :");
+	        	    ld.open();
+	        	    Object [] choice =ld.getResult();
+	        	    String[] strArray = new String[choice.length];
+
+	        	    for(int i = 0 ; i < choice.length ; i ++){  
+	        	    	   try {
+	        	    	      strArray[i] = choice[i].toString();
+	        	    	   } catch (NullPointerException ex) {
+	        	    	       // do some default initialization
+	        	    	   }
+	        	    	}  
+	        	    
+	        	    
+	        	    
+	        	    refText.setText(Arrays.toString(strArray), false, false); 
+	        	    
+	        	    
+	           
+	            }
+	        });
+		
+		return composite;
+		
+	  }
+	/*public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
+		
+		FormToolkit _toolkit = this.getToolkit();
+	    Composite _parent = this.getParent();
+	    Hyperlink createHyperlink  = _toolkit.createHyperlink(_parent,"Sanghun",1 );
+	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
+	    System.out.print("reference!! ");
 	   
 	    Text latexString = getToolkit().createText(composite, " ", SWT.BORDER);
 		GridData gridData = new GridData();
@@ -203,8 +341,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		
 	
-	}
-	*/
+	}*/
+	
 	private void parsleyCustomButton(Button buttonShow, Text latexString, Composite _parent){
 
 	

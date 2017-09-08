@@ -6,6 +6,8 @@ import formula.FormulaRepository
 import formula.FormulaFactory
 import org.eclipse.emf.parsley.composite.FormControlFactory
 import net.bhl.cdt.reconstruct.cdtmodel.CustomFormControlFactory
+import org.eclipse.emf.common.util.URI
+import cdtliterature.CdtliteratureFactory
 
 /* net.bhl.cdt.reconstruct.cdtmodel EMF Parsley Dsl Module file */
 module net.bhl.cdt.reconstruct.cdtmodel {
@@ -23,12 +25,23 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 		type FormControlFactory -> CustomFormControlFactory
 		
 	}
+	configurator {
+		resourceURI {
+			CdtmodelOnSelectionFormView -> {
+				return URI.createFileURI(
+					System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" +
+						"/MyLibrary.library" );
+					}
+				}
+			}
 	resourceManager {
+		//val CdtliteratureFactory library = CdtliteratureFactory.eINSTANCE;
+		
 				initializeResource {
 					// Optional: initialize an empty Resource
 					// 'it' is of type Resource
 					// e.g., it.getContents += myFactory.createMyClass
-					//it.getContents += FormulaFactory.eINSTANCE.createFormulaRepository()
+					//it.getContents += CdtliteratureFactory.
 				}
 				saveResource {
 				// it is of type org.eclipse.emf.ecore.resource.Resource
@@ -40,7 +53,7 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 	featuresProvider {
 				features {
 					 FormulaRepository -> name
-					 Formula -> name, latexString,reference
+					 Formula -> name, latexString, ref, reference
 					
 				}
 	}
@@ -58,8 +71,10 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 //	formControlFactory {
 //		control {
 //			Formula : latexString -> { }	
+//			Formula : reference -> { }
 //		
 //		}
+//		
 //	
 //	}
 	
