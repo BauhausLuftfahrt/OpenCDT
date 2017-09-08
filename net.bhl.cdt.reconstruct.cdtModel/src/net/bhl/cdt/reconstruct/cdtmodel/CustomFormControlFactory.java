@@ -253,6 +253,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		 openButton.addSelectionListener(new SelectionAdapter() {
 	            @Override
 	            public void widgetSelected(SelectionEvent e) {
+	            	
 	            	Shell shell = _parent.getShell();
 	            	//String filePath = UIHelper.showSelectFileDialog(Display.getCurrent().getActiveShell());
 	            	
