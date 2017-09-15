@@ -2,6 +2,8 @@
  */
 package formula.impl;
 
+import cdtliterature.CdtliteraturePackage;
+import cdtliterature.impl.CdtliteraturePackageImpl;
 import formula.Formula;
 import formula.FormulaFactory;
 import formula.FormulaPackage;
@@ -93,11 +95,16 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 
 		isInited = true;
 
+		// Obtain or create and register interdependencies
+		CdtliteraturePackageImpl theCdtliteraturePackage = (CdtliteraturePackageImpl)(EPackage.Registry.INSTANCE.getEPackage(CdtliteraturePackage.eNS_URI) instanceof CdtliteraturePackageImpl ? EPackage.Registry.INSTANCE.getEPackage(CdtliteraturePackage.eNS_URI) : CdtliteraturePackage.eINSTANCE);
+
 		// Create package meta-data objects
 		theFormulaPackage.createPackageContents();
+		theCdtliteraturePackage.createPackageContents();
 
 		// Initialize created meta-data
 		theFormulaPackage.initializePackageContents();
+		theCdtliteraturePackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
@@ -212,6 +219,24 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getFormula_Reference() {
+		return (EReference)formulaEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFormula_Ref() {
+		return (EAttribute)formulaEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getFormula__HasName__DiagnosticChain_Map() {
 		return formulaEClass.getEOperations().get(0);
 	}
@@ -300,6 +325,8 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 		createEReference(formulaEClass, FORMULA__INPUT_PARAMETER);
 		createEReference(formulaEClass, FORMULA__OUTPUT_PARAMETER);
 		createEReference(formulaEClass, FORMULA__REPOSITORY);
+		createEReference(formulaEClass, FORMULA__REFERENCE);
+		createEAttribute(formulaEClass, FORMULA__REF);
 		createEOperation(formulaEClass, FORMULA___HAS_NAME__DIAGNOSTICCHAIN_MAP);
 
 		quantityEClass = createEClass(QUANTITY);
@@ -332,6 +359,9 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Obtain other dependent packages
+		CdtliteraturePackage theCdtliteraturePackage = (CdtliteraturePackage)EPackage.Registry.INSTANCE.getEPackage(CdtliteraturePackage.eNS_URI);
+
 		// Create type parameters
 
 		// Set bounds for type parameters
@@ -350,6 +380,8 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 		initEReference(getFormula_InputParameter(), this.getQuantity(), null, "inputParameter", null, 0, -1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormula_OutputParameter(), this.getQuantity(), null, "outputParameter", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormula_Repository(), this.getFormulaRepository(), this.getFormulaRepository_Formulas(), "repository", null, 1, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFormula_Reference(), theCdtliteraturePackage.getALiteratureBase(), null, "reference", null, 0, -1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFormula_Ref(), ecorePackage.getEString(), "ref", "", 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getFormula__HasName__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "hasName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED);

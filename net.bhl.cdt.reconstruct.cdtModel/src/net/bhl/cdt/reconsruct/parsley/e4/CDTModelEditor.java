@@ -13,6 +13,7 @@ import org.eclipse.emf.ecp.core.ECPProject;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.parsley.composite.FormDetailComposite;
 import org.eclipse.emf.parsley.composite.FormFactory;
+import org.eclipse.emf.parsley.composite.ProposalCreator;
 import org.eclipse.emf.parsley.resource.ResourceLoader;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
@@ -29,14 +30,15 @@ public class CDTModelEditor {
 	private FormDetailComposite formComposite;
 	public static final java.lang.String INPUT = "ecpEditorInput";	
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
-
+	//private Library libraryPre;
 	
 	@PostConstruct
 	public void postConstruct(Composite parent) {	
 
     	Injector injector = CdtmodelInjectorProvider.getInjector();
     	FormFactory formFactory = injector.getInstance(FormFactory.class);
-		formComposite = formFactory.createFormDetailComposite(parent, SWT.BORDER);		
+		formComposite = formFactory.createFormDetailComposite(parent, SWT.BORDER);	
+		
 	}
 	
     @Inject
@@ -48,11 +50,10 @@ public class CDTModelEditor {
     	final int width = formComposite.getBounds().width;
 		final int height = formComposite.getBounds().height+1;
 		formComposite.init(modelElement);
-		part.setLabel(""+ modelElement.eClass().getName() +"");
+		part.setLabel(""+ modelElement.eClass().getName() + " ");
 		formComposite.setSize(width, height);
 		
-		
-		
+	
 		Injector injector = ParsleyInjectorProvider.getInjector();
 
 		/**
@@ -61,12 +62,25 @@ public class CDTModelEditor {
 		EditingDomain editingDomain = injector.getInstance(EditingDomain.class);
 		/**
 		 * load the resource*/
-		Resource resource = resourceLoader.getResource(editingDomain, uri).getResource();
+		Resource resources = resourceLoader.getResource(editingDomain, uri).getResource();
 		//Library library = (Library) resource.getContents().get(0);
-		Library library = (Library) resource.getContents().get(0);
-		if(ecpProject == null){
-			ecpProject.getContents().add(library);
-		}
+		//Resource resource = resourceLoader.getResource(editingDomain, uri).getResource();
+		Library library = (Library) resources.getContents().get(0);
+		Resource resource  = modelElement.eResource();
+		resource.getContents().add(library);
+		
+		
+		//resource.getContents().size()
+		//ecpProject.getEditingDomain().getResourceSet().
+		//if(ecpProject == null){
+		//library.getArticle()	
+		
+		//ecpProject.getContents().add(library.getArticle().get(0));
+		
+		//ecpProject.getContents().size()
+		
+		//System.out.println("add library on the openCDT: " + resource.isModified());
+		//}
     }	
 	
 }

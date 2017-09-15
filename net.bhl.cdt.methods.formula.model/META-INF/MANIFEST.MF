@@ -7,9 +7,15 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: formula,
+Export-Package: cdtliterature,
+ cdtliterature.impl,
+ cdtliterature.util,
+ formula,
  formula.impl,
  formula.util
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.emf.ecore;visibility:=reexport
+ org.eclipse.emf.ecore;visibility:=reexport,
+ net.bhl.cdt.literature.model;bundle-version="0.1.0",
+ net.bhl.cdt.literature.model.edit;bundle-version="1.0.0",
+ net.bhl.cdt.literature.model.editor;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy

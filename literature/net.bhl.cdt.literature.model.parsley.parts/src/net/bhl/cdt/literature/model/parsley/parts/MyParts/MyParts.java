@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.eclipse.emf.ecp.spi.ui.util.ECPHandlerHelper;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.parsley.composite.ProposalCreator;
 import org.eclipse.emf.parsley.composite.TreeFormComposite;
 import org.eclipse.emf.parsley.composite.TreeFormFactory;
 import org.eclipse.emf.parsley.edit.ui.dnd.ViewerDragAndDropHelper;
@@ -24,6 +25,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 
+import com.google.inject.Inject;
 import com.google.inject.Injector;
 
 import cdtliterature.Book;
@@ -41,6 +43,7 @@ public class MyParts {
 			+ "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 	private Library library;
 	private EditingDomain editingDomain;
+	
 	
 	@PostConstruct
 	public void postConstruct(Composite parent) {
@@ -112,6 +115,7 @@ public class MyParts {
       try {
            
     	  resource.save(Collections.EMPTY_MAP);
+    	  
     	 
         } catch (IOException e) {
             // TODO Auto-generated catch block

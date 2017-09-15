@@ -65,6 +65,8 @@ public class FormulaItemProvider
 			addInputParameterPropertyDescriptor(object);
 			addOutputParameterPropertyDescriptor(object);
 			addRepositoryPropertyDescriptor(object);
+			addReferencePropertyDescriptor(object);
+			addRefPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -180,6 +182,50 @@ public class FormulaItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Reference feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferencePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Formula_reference_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Formula_reference_feature", "_UI_Formula_type"),
+				 FormulaPackage.Literals.FORMULA__REFERENCE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Ref feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRefPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Formula_ref_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Formula_ref_feature", "_UI_Formula_type"),
+				 FormulaPackage.Literals.FORMULA__REF,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Formula.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -219,6 +265,7 @@ public class FormulaItemProvider
 		switch (notification.getFeatureID(Formula.class)) {
 			case FormulaPackage.FORMULA__NAME:
 			case FormulaPackage.FORMULA__LATEX_STRING:
+			case FormulaPackage.FORMULA__REF:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

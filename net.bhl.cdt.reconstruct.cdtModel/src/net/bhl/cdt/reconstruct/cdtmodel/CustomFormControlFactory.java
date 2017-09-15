@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 
 import javax.inject.Inject;
 import javax.xml.parsers.ParserConfigurationException;
@@ -18,12 +19,15 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecp.internal.ui.model.TreeContentProvider;
 import org.eclipse.emf.ecp.view.spi.context.ViewModelContext;
 import org.eclipse.emf.edit.domain.EditingDomain;
+import org.eclipse.emf.edit.ui.celleditor.FeatureEditorDialog;
 import org.eclipse.emf.parsley.composite.FormControlFactory;
 import org.eclipse.emf.parsley.resource.ResourceLoader;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
@@ -267,15 +271,20 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        		 * load the resource*/
 	        		Resource resource = resourceLoader.getResource(editingDomain, uri).getResource();
 	        		Library library = (Library) resource.getContents().get(0);
-	        		library.getConference();
+	        		//library.getArticle().stream()
+	        		
+	        		//library.getConference();
 	            	/*ElementListSelectionDialog dialog = 
 	            			new ElementListSelectionDialog(Display.getCurrent().getActiveShell(), new LabelProvider());
 	            		
 	            		dialog.setTitle("Which operating system are you using");
 	            		
 	            		dialog.setMessage("This is Element List Message");
-	            		String [] list =  { "Linux", "Mac", "Windows" };      
+	            		Object [] list =  { "Linux" };
+	            		dialog.setMultipleSelection(true);
 	            		dialog.setElements(list);
+	            		//dialog.setInitialSelections(list);
+	            		
 	            		if (dialog.open() != Window.OK) {
 	            		        //return false;
 	            			System.out.print("Sanghun");
@@ -291,11 +300,16 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        	    elementSelector.setInitialSelections(new String[] {"One", "Two", "Three"});
 	        	    elementSelector.open();*/
 	        		
-	        		ListDialog ld = new ListDialog(shell);
+	        	
+	        		
+	        		
+	        		/*ListDialog ld = new ListDialog(shell);
 	        	    ld.setAddCancelButton(true);
 	        	    ld.setContentProvider(new ArrayContentProvider());
 	        	    ld.setLabelProvider(new LabelProvider());
-	        	    ld.setInput(new String[] { "Linux", "Mac", "Windows" });
+	        	    int m = library.getArticle().size();
+	        	    String k = library.getArticle().get(0).getTitle();
+	        	    ld.setInput(new String[] { k });
 	        	    ld.setTitle("Select # of Nobel Prize Nominations :");
 	        	    ld.open();
 	        	    Object [] choice =ld.getResult();
@@ -307,12 +321,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        	    	   } catch (NullPointerException ex) {
 	        	    	       // do some default initialization
 	        	    	   }
-	        	    	}  
-	        	    
-	        	    
-	        	    
-	        	    refText.setText(Arrays.toString(strArray), false, false); 
-	        	    
+	        	    	}    
+	        	    refText.setText(Arrays.toString(strArray), false, false); */
+	        		
+	        	
 	        	    
 	           
 	            }
@@ -321,6 +333,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		return composite;
 		
 	  }
+	
 	/*public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		FormToolkit _toolkit = this.getToolkit();

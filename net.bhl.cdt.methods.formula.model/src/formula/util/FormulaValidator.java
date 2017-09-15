@@ -5,9 +5,6 @@ package formula.util;
 import formula.*;
 
 import java.util.Map;
-
-import org.eclipse.emf.common.util.BasicDiagnostic;
-import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 
@@ -131,7 +128,6 @@ public class FormulaValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(formula, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(formula, diagnostics, context);
 		if (result || diagnostics != null) result &= validateFormula_hasName(formula, diagnostics, context);
-		//if (result || diagnostics != null) result &= validateFormula_hasLatexString(formula, diagnostics, context);
 		return result;
 	}
 

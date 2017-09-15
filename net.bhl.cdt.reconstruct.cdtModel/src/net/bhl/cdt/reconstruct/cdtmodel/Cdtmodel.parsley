@@ -27,11 +27,11 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 	}
 	configurator {
 		resourceURI {
-			CdtmodelOnSelectionFormView -> {
-				return URI.createFileURI(
-					System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" +
-						"/MyLibrary.library" );
-					}
+//			CdtmodelOnSelectionFormView -> {
+//				return URI.createFileURI(
+//					System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" +
+//						"/MyLibrary.library" );
+//					}
 				}
 			}
 	resourceManager {
@@ -45,7 +45,7 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 				}
 				saveResource {
 				// it is of type org.eclipse.emf.ecore.resource.Resource
-				it.save(null)
+				//it.save(null)
 				return true
 			}
 	}
@@ -53,7 +53,7 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 	featuresProvider {
 				features {
 					 FormulaRepository -> name
-					 Formula -> name, latexString, ref, reference
+					 Formula -> name, latexString, reference, ref
 					
 				}
 	}
