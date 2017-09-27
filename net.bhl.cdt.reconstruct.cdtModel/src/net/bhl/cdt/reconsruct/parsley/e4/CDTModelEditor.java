@@ -55,7 +55,6 @@ public class CDTModelEditor {
 		part.setLabel(""+ modelElement.eClass().getName() + " ");
 		formComposite.setSize(width, height);
 	
-	 
     }	
 	
 }

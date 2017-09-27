@@ -243,14 +243,20 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    /** 
 		 * text is filled in grid-layout*/
 		//Text pathText = getToolkit().createText(composite, "sanghun", SWT.SINGLE);
-		FormText refText = _toolkit.createFormText(composite, true);
+		//FormText refText = _toolkit.createFormText(composite, true);
+		final Hyperlink link = new Hyperlink(composite, SWT.FILL);
+		link.setText("");
+
+
 		//refText.setText("", false, false);
 		//pathText.setText("Sanghun");
 		GridData gridData = new GridData();
         gridData.horizontalAlignment = GridData.FILL;
         gridData.grabExcessHorizontalSpace = true;
-        refText.setLayoutData(gridData);
-		refText.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
+        //refText.setLayoutData(gridData);
+        link.setLayoutData(gridData);
+		//refText.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
+        link.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
 		final Button openButton = _toolkit.createButton(composite, "set", SWT.PUSH);
 		//dbc.bindValue(SWTObservables.observeText(refText, SWT.Modify), featureObservable);
 		
@@ -307,8 +313,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        	    if (refDialog.open() == Window.OK) {
 	        	    	
 	        	    	System.out.println("OK");
-	        	    	refText.setText(refDialog.getSelectedItem(), false, false);
+	        	    	link.setText(refDialog.getSelectedItem());
+	        	    	//refText.setText(refDialog.getSelectedItem(), false, false);
 	        	    }
+	        	    
 	        	    
 	        	    
 	        	    //refText.setText("Sanghun", false, false);
