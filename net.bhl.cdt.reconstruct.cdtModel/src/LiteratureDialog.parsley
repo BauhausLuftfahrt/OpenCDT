@@ -1,0 +1,132 @@
+import formula.Formula
+import formula.FormulaRepository
+import net.bhl.cdt.reconstruct.cdtmodel.CDTLiteratureTable
+import net.bhl.cdt.reconstruct.cdtmodel.CustomFormControlFactory
+import org.eclipse.emf.parsley.composite.FormControlFactory
+import org.eclipse.emf.parsley.edit.IEditingStrategy
+import org.eclipse.emf.parsley.edit.UndoableEditingStrategy
+import org.eclipse.swt.SWT
+import net.bhl.cdt.reconstruct.cdtmodel.CdtmodelOnSelectionFormView
+import org.eclipse.emf.common.util.URI
+import cdtliterature.Library
+import net.bhl.cdt.reconstruct.cdtmodel.ReferenceDialog
+import cdtliterature.CdtliteratureFactory
+import java.util.List
+import cdtliterature.Article
+import cdtliterature.ALiteratureBase
+
+/* net.bhl.cdt.reconstruct.cdtmodel EMF Parsley Dsl Module file */
+module net.bhl.cdt.reconstruct.cdtliteraturetable {
+	
+	parts {
+		viewpart net.bhl.cdt.reconstruct.cdtliteraturetable {
+			viewname "CDTLiteratureTable"
+			viewclass CDTLiteratureTable
+		}
+	}
+	bindings{
+		
+		type IEditingStrategy -> UndoableEditingStrategy
+		type FormControlFactory -> CustomFormControlFactory
+		
+		
+		
+	}
+	configurator {
+		
+		val lib = CdtliteratureFactory.eINSTANCE.getCdtliteraturePackage();
+		
+		resourceURI {
+			
+				CDTLiteratureTable -> {
+				return URI.createFileURI(
+					System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" +
+						"/MyLibrary.library" );
+					}
+				}
+				
+				eClass {			
+//				ReferenceDialog  -> {
+//					return lib.getLibrary()
+//					
+//				}
+			}
+				
+	}
+	
+	resourceManager {
+		
+			initializeResource {
+					// Optional: initialize an empty Resource
+					// 'it' is of type Resource
+					// e.g., it.getContents += myFactory.createMyClass
+					//it.getContents += CdtliteratureFactory.
+				}
+				saveResource {
+				// it is of type org.eclipse.emf.ecore.resource.Resource
+				//it.save(null)
+				return true
+			}
+	}
+	
+//	featuresProvider {
+//				features {
+//					 Library -> name, title
+//					 Article -> title,author
+//					
+//					 
+//					
+//				}
+//	}
+//	featureCaptionProvider{
+//			text{
+//				Library:name -> "name by:"
+//				
+//			}
+//		}
+//	
+	tableViewerContentProvider{
+			elements{
+				Library lib -> {	
+					lib.name + lib.title
+				}
+				Article art -> {	
+					art.title + art.author
+				}
+				
+			}
+		}
+	tableLabelProvider {
+			text {
+				Library:name -> 'Name' // constant
+
+			}
+	}
+	viewerContentProvider {
+				elements{
+					Library -> article + inbook
+					Article -> title
+					
+				}
+				children {
+					FormulaRepository -> {
+						Formula
+					}
+					Library -> {
+						Article
+					}
+				}
+    		}
+//	formControlFactory {
+//		control {
+//			Formula : latexString -> { }	
+//			Formula : reference -> { }
+//		
+//		}
+//		
+//	
+//	}
+	
+	
+	
+}

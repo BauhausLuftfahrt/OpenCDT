@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link cdtliterature.Library#getPhdthesis <em>Phdthesis</em>}</li>
  *   <li>{@link cdtliterature.Library#getMasterthesis <em>Masterthesis</em>}</li>
  *   <li>{@link cdtliterature.Library#getUnpublished <em>Unpublished</em>}</li>
+ *   <li>{@link cdtliterature.Library#getTitle <em>Title</em>}</li>
  * </ul>
  *
  * @see cdtliterature.CdtliteraturePackage#getLibrary()
@@ -235,5 +236,31 @@ public interface Library extends EObject {
 	 * @generated
 	 */
 	EList<Unpublished> getUnpublished();
+
+	/**
+	 * Returns the value of the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Title</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Title</em>' attribute.
+	 * @see #setTitle(String)
+	 * @see cdtliterature.CdtliteraturePackage#getLibrary_Title()
+	 * @model
+	 * @generated
+	 */
+	String getTitle();
+
+	/**
+	 * Sets the value of the '{@link cdtliterature.Library#getTitle <em>Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Title</em>' attribute.
+	 * @see #getTitle()
+	 * @generated
+	 */
+	void setTitle(String value);
 
 } // Library

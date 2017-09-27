@@ -73,6 +73,7 @@ public class LibraryItemProvider
 			addPhdthesisPropertyDescriptor(object);
 			addMasterthesisPropertyDescriptor(object);
 			addUnpublishedPropertyDescriptor(object);
+			addTitlePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -320,6 +321,28 @@ public class LibraryItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Title feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTitlePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Library_title_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Library_title_feature", "_UI_Library_type"),
+				 CdtliteraturePackage.Literals.LIBRARY__TITLE,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -398,6 +421,7 @@ public class LibraryItemProvider
 
 		switch (notification.getFeatureID(Library.class)) {
 			case CdtliteraturePackage.LIBRARY__NAME:
+			case CdtliteraturePackage.LIBRARY__TITLE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case CdtliteraturePackage.LIBRARY__ARTICLE:

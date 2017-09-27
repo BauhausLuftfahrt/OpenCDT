@@ -1178,13 +1178,22 @@ public interface CdtliteraturePackage extends EPackage {
 	int LIBRARY__UNPUBLISHED = 11;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIBRARY__TITLE = 12;
+
+	/**
 	 * The number of structural features of the '<em>Library</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIBRARY_FEATURE_COUNT = 12;
+	int LIBRARY_FEATURE_COUNT = 13;
 
 	/**
 	 * The number of operations of the '<em>Library</em>' class.
@@ -1668,6 +1677,17 @@ public interface CdtliteraturePackage extends EPackage {
 	EReference getLibrary_Unpublished();
 
 	/**
+	 * Returns the meta object for the attribute '{@link cdtliterature.Library#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see cdtliterature.Library#getTitle()
+	 * @see #getLibrary()
+	 * @generated
+	 */
+	EAttribute getLibrary_Title();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2067,6 +2087,14 @@ public interface CdtliteraturePackage extends EPackage {
 		 * @generated
 		 */
 		EReference LIBRARY__UNPUBLISHED = eINSTANCE.getLibrary_Unpublished();
+
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LIBRARY__TITLE = eINSTANCE.getLibrary_Title();
 
 	}
 

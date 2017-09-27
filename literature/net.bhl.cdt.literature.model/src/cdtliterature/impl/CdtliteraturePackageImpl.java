@@ -585,6 +585,15 @@ public class CdtliteraturePackageImpl extends EPackageImpl implements Cdtliterat
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getLibrary_Title() {
+		return (EAttribute)libraryEClass.getEStructuralFeatures().get(12);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public CdtliteratureFactory getCdtliteratureFactory() {
 		return (CdtliteratureFactory)getEFactoryInstance();
 	}
@@ -664,6 +673,7 @@ public class CdtliteraturePackageImpl extends EPackageImpl implements Cdtliterat
 		createEReference(libraryEClass, LIBRARY__PHDTHESIS);
 		createEReference(libraryEClass, LIBRARY__MASTERTHESIS);
 		createEReference(libraryEClass, LIBRARY__UNPUBLISHED);
+		createEAttribute(libraryEClass, LIBRARY__TITLE);
 	}
 
 	/**
@@ -763,6 +773,7 @@ public class CdtliteraturePackageImpl extends EPackageImpl implements Cdtliterat
 		initEReference(getLibrary_Phdthesis(), this.getPhdthesis(), null, "phdthesis", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLibrary_Masterthesis(), this.getMasterthesis(), null, "masterthesis", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLibrary_Unpublished(), this.getUnpublished(), null, "unpublished", null, 0, -1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLibrary_Title(), ecorePackage.getEString(), "title", null, 0, 1, Library.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

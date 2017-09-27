@@ -10,6 +10,13 @@
             name="Cdtmodel"
             restorable="true">
       </view>
+      <view
+            category="org.eclipse.emf.parsley"
+            class="net.bhl.cdt.reconstruct.cdtliteraturetable.CdtliteraturetableExecutableExtensionFactory:net.bhl.cdt.reconstruct.cdtmodel.CDTLiteratureTable"
+            id="net.bhl.cdt.reconstruct.cdtliteraturetable"
+            name="CDTLiteratureTable"
+            restorable="true">
+      </view>
    </extension>
    <extension
          id="net.bhl.cdt.reconstruct.cdtModel.fragment"

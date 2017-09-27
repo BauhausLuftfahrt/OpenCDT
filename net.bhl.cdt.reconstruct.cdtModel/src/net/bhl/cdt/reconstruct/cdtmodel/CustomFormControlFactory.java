@@ -72,7 +72,7 @@ import cdtliterature.Library;
 import formula.Formula;
 import formula.FormulaPackage;
 import net.bhl.cdt.core.ui.UIHelper;
-import net.bhl.cdt.literature.model.parsley.ParsleyInjectorProvider;
+import net.bhl.cdt.reconstruct.cdtliteraturetable.CdtliteraturetableInjectorProvider;
 import net.sourceforge.jeuclid.MathMLParserSupport;
 import net.sourceforge.jeuclid.MutableLayoutContext;
 import net.sourceforge.jeuclid.context.LayoutContextImpl;
@@ -214,7 +214,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 	
 	}
-	public Control control_Formula_reference(final Formula it) {
+	/*public Control control_Formula_reference(final Formula it) {
 		//EList<EObject> _contents = re.getContents();
 		//it.getReference().listIterator().toString()
 		FormToolkit _toolkit = this.getToolkit();
@@ -226,8 +226,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    
 	    
 	    return null;
-	  }
-	public Control control_Formula_ref(DataBindingContext dbc, IObservableValue featureObservable) {
+	  }*/
+	public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
@@ -261,16 +261,16 @@ public class CustomFormControlFactory extends FormControlFactory {
 	            	Shell shell = _parent.getShell();
 	            	//String filePath = UIHelper.showSelectFileDialog(Display.getCurrent().getActiveShell());
 	            	
-	            	Injector injector = ParsleyInjectorProvider.getInjector();
+	            	/*Injector injector = ParsleyInjectorProvider.getInjector();
 
-	        		/**
-	        		 * The EditingDomain is needed for context menu and drag and drop.*/
+	        		*//**
+	        		 * The EditingDomain is needed for context menu and drag and drop.*//*
 	        		ResourceLoader resourceLoader = injector.getInstance(ResourceLoader.class);
 	        		EditingDomain editingDomain = injector.getInstance(EditingDomain.class);
-	        		/**
-	        		 * load the resource*/
+	        		*//**
+	        		 * load the resource*//*
 	        		Resource resource = resourceLoader.getResource(editingDomain, uri).getResource();
-	        		Library library = (Library) resource.getContents().get(0);
+	        		Library library = (Library) resource.getContents().get(0);*/
 	        		//library.getArticle().stream()
 	        		
 	        		//library.getConference();
@@ -299,21 +299,11 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        	    elementSelector.setMultipleSelection(true);
 	        	    elementSelector.setInitialSelections(new String[] {"One", "Two", "Three"});
 	        	    elementSelector.open();*/
+	        		ReferenceDialog refDialog = new ReferenceDialog(shell); 
 	        		
-	        	
-	        		
-	        		
-	        		/*ListDialog ld = new ListDialog(shell);
-	        	    ld.setAddCancelButton(true);
-	        	    ld.setContentProvider(new ArrayContentProvider());
-	        	    ld.setLabelProvider(new LabelProvider());
-	        	    int m = library.getArticle().size();
-	        	    String k = library.getArticle().get(0).getTitle();
-	        	    ld.setInput(new String[] { k });
-	        	    ld.setTitle("Select # of Nobel Prize Nominations :");
-	        	    ld.open();
-	        	    Object [] choice =ld.getResult();
-	        	    String[] strArray = new String[choice.length];
+	        	    refDialog.open();
+	        	    
+	        	    /*String[] strArray = new String[choice.length];
 
 	        	    for(int i = 0 ; i < choice.length ; i ++){  
 	        	    	   try {
@@ -322,10 +312,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        	    	       // do some default initialization
 	        	    	   }
 	        	    	}    
-	        	    refText.setText(Arrays.toString(strArray), false, false); */
-	        		
-	        	
-	        	    
+	        	    refText.setText(Arrays.toString(strArray), false, false); 
+*/	        		 	    
 	           
 	            }
 	        });
@@ -333,29 +321,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 		return composite;
 		
 	  }
-	
-	/*public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
-		
-		FormToolkit _toolkit = this.getToolkit();
-	    Composite _parent = this.getParent();
-	    Hyperlink createHyperlink  = _toolkit.createHyperlink(_parent,"Sanghun",1 );
-	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
-	    System.out.print("reference!! ");
-	   
-	    Text latexString = getToolkit().createText(composite, " ", SWT.BORDER);
-		GridData gridData = new GridData();
-        gridData.horizontalAlignment = GridData.FILL;
-        gridData.grabExcessHorizontalSpace = true;
-        latexString.setLayoutData(gridData);
-		latexString.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
-		dbc.bindValue(SWTObservables.observeText(latexString, SWT.Modify), featureObservable);
-		
-
-		return composite;
-		
-		
-	
-	}*/
 	
 	private void parsleyCustomButton(Button buttonShow, Text latexString, Composite _parent){
 

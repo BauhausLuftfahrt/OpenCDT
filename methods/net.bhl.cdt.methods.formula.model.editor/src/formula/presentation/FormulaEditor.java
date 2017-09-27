@@ -155,7 +155,6 @@ import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.edit.ui.view.ExtendedPropertySheetPage;
 
 import formula.provider.FormulaItemProviderAdapterFactory;
-import cdtliterature.provider.CdtliteratureItemProviderAdapterFactory;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 
@@ -702,7 +701,6 @@ public class FormulaEditor
 
 		adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new FormulaItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new CdtliteratureItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

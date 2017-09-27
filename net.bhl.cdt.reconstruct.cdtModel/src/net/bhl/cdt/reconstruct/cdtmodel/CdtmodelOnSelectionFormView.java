@@ -9,4 +9,5 @@ import com.google.inject.Inject;
 
 public class CdtmodelOnSelectionFormView extends org.eclipse.emf.parsley.views.OnSelectionFormView {
 	
+	
 }

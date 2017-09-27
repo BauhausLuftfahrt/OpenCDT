@@ -7,10 +7,7 @@ Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Export-Package: cdtliterature,
- cdtliterature.impl,
- cdtliterature.util,
- formula,
+Export-Package: formula,
  formula.impl,
  formula.util
 Require-Bundle: org.eclipse.core.runtime,
