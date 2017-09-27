@@ -3,7 +3,9 @@ package net.bhl.cdt.reconstruct.cdtliteraturetable.config;
 import cdtliterature.CdtliteratureFactory;
 import cdtliterature.CdtliteraturePackage;
 import net.bhl.cdt.reconstruct.cdtmodel.CDTLiteratureTable;
+import net.bhl.cdt.reconstruct.cdtmodel.ReferenceDialog;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.parsley.config.Configurator;
 
 @SuppressWarnings("all")
@@ -20,5 +22,9 @@ public class CdtliteraturetableConfigurator extends Configurator {
     String _plus_1 = (_plus + 
       "/MyLibrary.library");
     return URI.createFileURI(_plus_1);
+  }
+  
+  public EClass eClass(final ReferenceDialog it) {
+    return this.lib.getLibrary();
   }
 }

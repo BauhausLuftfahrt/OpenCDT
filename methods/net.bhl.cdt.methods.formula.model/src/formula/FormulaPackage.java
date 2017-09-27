@@ -168,22 +168,13 @@ public interface FormulaPackage extends EPackage {
 	int FORMULA__REPOSITORY = 4;
 
 	/**
-	 * The feature id for the '<em><b>Ref</b></em>' attribute.
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA__REF = 5;
-
-	/**
-	 * The feature id for the '<em><b>Reference</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA__REFERENCE = 6;
+	int FORMULA__REFERENCE = 5;
 
 	/**
 	 * The number of structural features of the '<em>Formula</em>' class.
@@ -192,7 +183,7 @@ public interface FormulaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA_FEATURE_COUNT = 7;
+	int FORMULA_FEATURE_COUNT = 6;
 
 	/**
 	 * The operation id for the '<em>Has Name</em>' operation.
@@ -386,26 +377,15 @@ public interface FormulaPackage extends EPackage {
 	EReference getFormula_Repository();
 
 	/**
-	 * Returns the meta object for the attribute '{@link formula.Formula#getRef <em>Ref</em>}'.
+	 * Returns the meta object for the attribute '{@link formula.Formula#getReference <em>Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ref</em>'.
-	 * @see formula.Formula#getRef()
-	 * @see #getFormula()
-	 * @generated
-	 */
-	EAttribute getFormula_Ref();
-
-	/**
-	 * Returns the meta object for the reference list '{@link formula.Formula#getReference <em>Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Reference</em>'.
+	 * @return the meta object for the attribute '<em>Reference</em>'.
 	 * @see formula.Formula#getReference()
 	 * @see #getFormula()
 	 * @generated
 	 */
-	EReference getFormula_Reference();
+	EAttribute getFormula_Reference();
 
 	/**
 	 * Returns the meta object for the '{@link formula.Formula#hasName(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Has Name</em>}' operation.
@@ -579,20 +559,12 @@ public interface FormulaPackage extends EPackage {
 		EReference FORMULA__REPOSITORY = eINSTANCE.getFormula_Repository();
 
 		/**
-		 * The meta object literal for the '<em><b>Ref</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Reference</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FORMULA__REF = eINSTANCE.getFormula_Ref();
-
-		/**
-		 * The meta object literal for the '<em><b>Reference</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FORMULA__REFERENCE = eINSTANCE.getFormula_Reference();
+		EAttribute FORMULA__REFERENCE = eINSTANCE.getFormula_Reference();
 
 		/**
 		 * The meta object literal for the '<em><b>Has Name</b></em>' operation.

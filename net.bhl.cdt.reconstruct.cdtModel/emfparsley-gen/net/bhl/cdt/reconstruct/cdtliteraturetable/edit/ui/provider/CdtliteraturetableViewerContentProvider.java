@@ -2,7 +2,7 @@ package net.bhl.cdt.reconstruct.cdtliteraturetable.edit.ui.provider;
 
 import cdtliterature.ALiteratureBase;
 import cdtliterature.Article;
-import cdtliterature.Inbook;
+import cdtliterature.Book;
 import cdtliterature.Library;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
@@ -21,8 +21,8 @@ public class CdtliteraturetableViewerContentProvider extends ViewerContentProvid
   
   public Object elements(final Library it) {
     EList<Article> _article = it.getArticle();
-    EList<Inbook> _inbook = it.getInbook();
-    Iterable<ALiteratureBase> _plus = Iterables.<ALiteratureBase>concat(_article, _inbook);
+    EList<Book> _book = it.getBook();
+    Iterable<ALiteratureBase> _plus = Iterables.<ALiteratureBase>concat(_article, _book);
     return _plus;
   }
   

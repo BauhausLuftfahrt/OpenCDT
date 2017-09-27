@@ -299,10 +299,19 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        	    elementSelector.setMultipleSelection(true);
 	        	    elementSelector.setInitialSelections(new String[] {"One", "Two", "Three"});
 	        	    elementSelector.open();*/
+	            	
+	            	
 	        		ReferenceDialog refDialog = new ReferenceDialog(shell); 
 	        		
-	        	    refDialog.open();
+	        	    //refDialog.open();
+	        	    if (refDialog.open() == Window.OK) {
+	        	    	
+	        	    	System.out.println("OK");
+	        	    	refText.setText(refDialog.getSelectedItem(), false, false);
+	        	    }
 	        	    
+	        	    
+	        	    //refText.setText("Sanghun", false, false);
 	        	    /*String[] strArray = new String[choice.length];
 
 	        	    for(int i = 0 ; i < choice.length ; i ++){  
@@ -311,9 +320,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        	    	   } catch (NullPointerException ex) {
 	        	    	       // do some default initialization
 	        	    	   }
-	        	    	}    
-	        	    refText.setText(Arrays.toString(strArray), false, false); 
-*/	        		 	    
+	        	    	} */	
+	        	    //refText.setText(Arrays.toString(strArray), false, false); 
+        		 	    
 	           
 	            }
 	        });

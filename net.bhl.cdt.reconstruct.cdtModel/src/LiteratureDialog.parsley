@@ -14,6 +14,7 @@ import cdtliterature.CdtliteratureFactory
 import java.util.List
 import cdtliterature.Article
 import cdtliterature.ALiteratureBase
+import cdtliterature.Book
 
 /* net.bhl.cdt.reconstruct.cdtmodel EMF Parsley Dsl Module file */
 module net.bhl.cdt.reconstruct.cdtliteraturetable {
@@ -46,21 +47,20 @@ module net.bhl.cdt.reconstruct.cdtliteraturetable {
 				}
 				
 				eClass {			
-//				ReferenceDialog  -> {
-//					return lib.getLibrary()
-//					
-//				}
+				ReferenceDialog  -> {
+					return lib.getLibrary()
+				
+				}
 			}
 				
 	}
 	
-	resourceManager {
-		
+	resourceManager {		
 			initializeResource {
 					// Optional: initialize an empty Resource
 					// 'it' is of type Resource
 					// e.g., it.getContents += myFactory.createMyClass
-					//it.getContents += CdtliteratureFactory.
+					it.getContents += CdtliteratureFactory.eINSTANCE.createLibrary();
 				}
 				saveResource {
 				// it is of type org.eclipse.emf.ecore.resource.Resource
@@ -69,15 +69,16 @@ module net.bhl.cdt.reconstruct.cdtliteraturetable {
 			}
 	}
 	
-//	featuresProvider {
-//				features {
-//					 Library -> name, title
-//					 Article -> title,author
-//					
-//					 
-//					
-//				}
-//	}
+	featuresProvider {
+				features {
+					 Library -> name
+					 Article -> title, author
+					 Book -> publisher, isbn
+					
+					 
+					
+				}
+	}
 //	featureCaptionProvider{
 //			text{
 //				Library:name -> "name by:"
@@ -85,17 +86,17 @@ module net.bhl.cdt.reconstruct.cdtliteraturetable {
 //			}
 //		}
 //	
-	tableViewerContentProvider{
-			elements{
-				Library lib -> {	
-					lib.name + lib.title
-				}
-				Article art -> {	
-					art.title + art.author
-				}
-				
-			}
-		}
+//	tableViewerContentProvider{
+//			elements{
+//				Library lib -> {	
+//					lib.name
+//				}
+//				Article art -> {	
+//					art.title + art.author
+//				}
+//				
+//			}
+//		}
 	tableLabelProvider {
 			text {
 				Library:name -> 'Name' // constant
@@ -104,7 +105,7 @@ module net.bhl.cdt.reconstruct.cdtliteraturetable {
 	}
 	viewerContentProvider {
 				elements{
-					Library -> article + inbook
+					Library -> article + book
 					Article -> title
 					
 				}

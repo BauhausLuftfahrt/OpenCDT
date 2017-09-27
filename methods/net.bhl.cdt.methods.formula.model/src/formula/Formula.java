@@ -2,7 +2,6 @@
  */
 package formula;
 
-import cdtliterature.ALiteratureBase;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
@@ -23,7 +22,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link formula.Formula#getInputParameter <em>Input Parameter</em>}</li>
  *   <li>{@link formula.Formula#getOutputParameter <em>Output Parameter</em>}</li>
  *   <li>{@link formula.Formula#getRepository <em>Repository</em>}</li>
- *   <li>{@link formula.Formula#getRef <em>Ref</em>}</li>
  *   <li>{@link formula.Formula#getReference <em>Reference</em>}</li>
  * </ul>
  *
@@ -155,47 +153,31 @@ public interface Formula extends EObject {
 	void setRepository(FormulaRepository value);
 
 	/**
-	 * Returns the value of the '<em><b>Ref</b></em>' attribute.
+	 * Returns the value of the '<em><b>Reference</b></em>' attribute.
 	 * The default value is <code>""</code>.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Ref</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ref</em>' attribute.
-	 * @see #setRef(String)
-	 * @see formula.FormulaPackage#getFormula_Ref()
-	 * @model default=""
-	 * @generated
-	 */
-	String getRef();
-
-	/**
-	 * Sets the value of the '{@link formula.Formula#getRef <em>Ref</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ref</em>' attribute.
-	 * @see #getRef()
-	 * @generated
-	 */
-	void setRef(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Reference</b></em>' reference list.
-	 * The list contents are of type {@link cdtliterature.ALiteratureBase}.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Reference</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reference</em>' reference list.
+	 * @return the value of the '<em>Reference</em>' attribute.
+	 * @see #setReference(String)
 	 * @see formula.FormulaPackage#getFormula_Reference()
-	 * @model
+	 * @model default=""
 	 * @generated
 	 */
-	EList<ALiteratureBase> getReference();
+	String getReference();
+
+	/**
+	 * Sets the value of the '{@link formula.Formula#getReference <em>Reference</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Reference</em>' attribute.
+	 * @see #getReference()
+	 * @generated
+	 */
+	void setReference(String value);
 
 	/**
 	 * <!-- begin-user-doc -->
