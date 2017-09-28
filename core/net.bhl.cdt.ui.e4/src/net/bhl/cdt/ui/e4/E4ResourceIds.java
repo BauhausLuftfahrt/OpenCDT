@@ -17,11 +17,16 @@ public final class E4ResourceIds {
     
     public static final String COMMAND_REFRESH_EXPLORERVIEW_ID =		"net.bhl.cdt.ui.e4.command.refreshexplorerview";
     
-    public static final String COMMAND_OPEN_MODELELEMENT_ID = 			"net.bhl.cdt.ui.command.openmodel";
-    public static final String COMMAND_OPEN_MODELELEMENT_PARAM_FILEPATH_ID = 	"net.bhl.cdt.ui.command.openmodel.parameter.modelfilepath";
-    public static final String HANDLER_OPEN_MODELELEMENT_ID = 			"net.bhl.cdt.ui.handler.openmodel";
+    public static final String COMMAND_OPEN_MODEL_ID = 				"net.bhl.cdt.ui.command.openmodel";
+    public static final String COMMAND_OPEN_MODEL_PARAM_FILEPATH_ID = 		"net.bhl.cdt.ui.command.openmodel.parameter.modelfilepath";
+    public static final String HANDLER_OPEN_MODEL_ID = 				"net.bhl.cdt.ui.handler.openmodel";
+    
+    public static final String COMMAND_SHOW_MODELELEMENT_ID = 			"net.bhl.cdt.ui.command.showmodelelement";
+    public static final String COMMAND_SHOW_MODELELEMENT_PARAM_ELEMENT_ID = 	"net.bhl.cdt.ui.command.showmodelelement.parameter.modelelement";
+    public static final String HANDLER_SHOW_MODELELEMENT_ID = 			"net.bhl.cdt.ui.handler.showmodelelement";
     
     public static final String PARTSTACK_MAIN_ID =				"net.bhl.cdt.ui.e4.perspective.cdtmodelling.partstack.main";
     
     public static final String PARTDESCRIPTOR_MODELEDITOR_ID =			"net.bhl.cdt.ui.e4.partdescriptor.modeleditor";
+    public static final String PARTDESCRIPTOR_MODELELEMENTEDITOR_ID = 		"net.bhl.cdt.ui.e4.partdescriptor.modelelementeditor";
 }

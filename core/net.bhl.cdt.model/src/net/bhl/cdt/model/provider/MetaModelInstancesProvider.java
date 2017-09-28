@@ -7,12 +7,11 @@ package net.bhl.cdt.model.provider;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EGenericType;
-import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
-import org.eclipse.emf.edit.provider.ItemProvider;
+
 import model.data.DataPackage;
 import model.data.Unit;
 import model.data.parameter.ParameterPackage;

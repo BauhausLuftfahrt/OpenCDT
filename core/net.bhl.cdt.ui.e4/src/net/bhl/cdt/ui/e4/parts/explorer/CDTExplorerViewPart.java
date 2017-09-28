@@ -37,10 +37,11 @@ import org.eclipse.swt.widgets.TreeColumn;
 
 import net.bhl.cdt.core.pref.CDTPreferencesService;
 import net.bhl.cdt.core.pref.listener.ICDTPreferencesListener;
+import net.bhl.cdt.editor.e4.part.explorer.provider.content.CDTExplorerViewContentProvider;
+import net.bhl.cdt.editor.e4.part.explorer.provider.label.FileModifiedLabelProvider;
+import net.bhl.cdt.editor.e4.part.explorer.provider.label.FileSizeLabelProvider;
+import net.bhl.cdt.editor.e4.part.explorer.provider.label.ViewLabelProvider;
 import net.bhl.cdt.ui.e4.E4ResourceIds;
-import net.bhl.cdt.ui.e4.parts.explorer.labelprovider.FileModifiedLabelProvider;
-import net.bhl.cdt.ui.e4.parts.explorer.labelprovider.FileSizeLabelProvider;
-import net.bhl.cdt.ui.e4.parts.explorer.labelprovider.ViewLabelProvider;
 import net.bhl.cdt.util.CDTFileAndFolderUtil;
 import net.bhl.cdt.util.constants.FileConstants;
 
@@ -122,9 +123,9 @@ public class CDTExplorerViewPart implements ICDTPreferencesListener {
 		Object selectedElement = ((IStructuredSelection)event.getSelection()).getFirstElement();
 		if (selectedElement instanceof File && ((File)selectedElement).getName().endsWith(FileConstants.CDT_MODELFILE_EXTENSION)) {
 		    Map<String, Object> params = new HashMap<String, Object>();
-		    params.put(E4ResourceIds.COMMAND_OPEN_MODELELEMENT_PARAM_FILEPATH_ID, ((File)selectedElement).getPath());
+		    params.put(E4ResourceIds.COMMAND_OPEN_MODEL_PARAM_FILEPATH_ID, ((File)selectedElement).getPath());
 		    
-		    ParameterizedCommand cmd = commandService.createCommand(E4ResourceIds.COMMAND_OPEN_MODELELEMENT_ID, params);
+		    ParameterizedCommand cmd = commandService.createCommand(E4ResourceIds.COMMAND_OPEN_MODEL_ID, params);
 		    handlerService.executeHandler(cmd);
 		}
 	    }

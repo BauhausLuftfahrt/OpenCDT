@@ -1,0 +1,54 @@
+import model.base.Component
+import model.base.ModelContainer
+import model.base.System
+import model.data.parameter.ParameterFactory
+import net.bhl.cdt.ui.view.modeleditor.ModelStructureTreeView
+
+module net.bhl.cdt.ui.view.modelstructuretreeview {
+	parts {
+		viewpart net.bhl.cdt.ui.view.modelstructuretreeview {
+			viewname "Model Structure"
+			viewclass ModelStructureTreeView
+		}
+	}
+	
+	labelProvider {
+		text {
+			ModelContainer -> name
+			System -> name
+			Component -> name
+		}
+	}
+
+	viewerContentProvider {
+		elements {
+			ModelContainer -> containedItems
+			System -> components
+			Component -> subComponents
+		}
+
+		children {
+			System -> components
+			Component -> subComponents
+		}
+	}
+
+	menuBuilder {
+		menus{
+			Component -> #[
+				submenu("Edit", #[
+					actionCopy,
+					actionCut,
+					separator,
+					actionPaste
+				])
+			]
+		}
+		emfMenus{
+			Component c -> #[
+				actionAdd("Add Parameter", c.parameters, ParameterFactory.eINSTANCE.createDistanceParameter, [ param |
+					param.name = "Distance Parameter"
+				])]
+		}
+	}
+}

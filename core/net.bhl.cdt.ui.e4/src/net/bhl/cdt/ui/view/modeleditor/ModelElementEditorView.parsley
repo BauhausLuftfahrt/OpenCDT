@@ -1,0 +1,42 @@
+import java.util.List
+import model.base.Component
+import model.data.IParameter
+import org.eclipse.emf.parsley.edit.IEditingStrategy
+import org.eclipse.emf.parsley.edit.UndoableEditingStrategy
+import net.bhl.cdt.ui.view.modeleditor.ModelElementEditorView
+
+/* net.bhl.cdt.ui.e4 EMF Parsley Dsl Module file */
+module net.bhl.cdt.ui.view.modeleditor {
+	parts {
+		viewpart net.bhl.cdt.ui.view.modeleditor {
+			viewname "Parameter Table"
+			viewclass ModelElementEditorView
+		}
+	}
+	
+	bindings {
+		type IEditingStrategy -> UndoableEditingStrategy
+		value List<Integer> TableColumnWeights -> #[100,200]
+	}
+	
+	tableViewerContentProvider {
+		elements {
+			Component c -> {
+				c.parameters
+			}
+		}
+	}
+	
+	tableFeaturesProvider {
+		features {
+			IParameter -> name
+			//IQuantifiedParameter -> name, ^value, unit
+		}
+	}
+	
+	tableLabelProvider {
+		text {
+			//IQuantifiedParameter:unit -> unit.name
+		}
+	}
+}

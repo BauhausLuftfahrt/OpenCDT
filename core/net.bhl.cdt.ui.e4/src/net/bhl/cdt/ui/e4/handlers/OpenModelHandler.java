@@ -20,7 +20,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
 import net.bhl.cdt.log.service.CDTLogService;
 import net.bhl.cdt.ui.e4.E4ResourceIds;
-import net.bhl.cdt.ui.e4.parts.modeleditor.CDTDefaultModelEditorPart;
+import net.bhl.cdt.ui.e4.parts.modeleditor.ModelStructureEditorPart;
 
 /**
  * 
@@ -30,7 +30,7 @@ import net.bhl.cdt.ui.e4.parts.modeleditor.CDTDefaultModelEditorPart;
  */
 public class OpenModelHandler {
     @Execute
-    public void execute(@Named(E4ResourceIds.COMMAND_OPEN_MODELELEMENT_PARAM_FILEPATH_ID) String modelFilePath, EPartService partService, CDTLogService logService) {
+    public void execute(@Named(E4ResourceIds.COMMAND_OPEN_MODEL_PARAM_FILEPATH_ID) String modelFilePath, EPartService partService, CDTLogService logService) {
 	File modelFile = new File(modelFilePath);
 	if (modelFile.exists()) {
 	    ResourceSet modelResourceSet = new ResourceSetImpl();
@@ -41,7 +41,7 @@ public class OpenModelHandler {
 	    MPart part = partService.createPart(E4ResourceIds.PARTDESCRIPTOR_MODELEDITOR_ID);
 	    part.setLabel(modelFile.getName());
 	    
-	    part.getTransientData().put(CDTDefaultModelEditorPart.MODEL_RESOURCE_KEY, modelResource);
+	    part.getTransientData().put(ModelStructureEditorPart.MODEL_RESOURCE_KEY, modelResource);
 	    partService.showPart(part, PartState.ACTIVATE);
 	}
 	else
