@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecp.core.ECPProject;
-import org.eclipse.emf.ecp.internal.ui.model.TreeContentProvider;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.parsley.composite.FormDetailComposite;
 import org.eclipse.emf.parsley.composite.FormFactory;
@@ -22,6 +21,8 @@ import org.eclipse.emf.parsley.resource.ResourceLoader;
 import org.eclipse.emf.parsley.viewers.ViewerFactory;
 import org.eclipse.emf.parsley.views.OnSelectionTableView;
 import org.eclipse.jface.dialogs.Dialog;
+import org.eclipse.jface.layout.GridLayoutFactory;
+import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.StyledCellLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
@@ -42,7 +43,10 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Table;
+import org.eclipse.swt.widgets.TableColumn;
+import org.eclipse.swt.widgets.TableItem;
 import org.eclipse.swt.widgets.Tree;
+import org.eclipse.swt.widgets.TreeColumn;
 import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
@@ -67,14 +71,15 @@ public class ReferenceDialog extends Dialog {
 	private Object[] result;
 	private String selectedItem;
 	
-	
-	public ReferenceDialog(Shell parent) {
+	FormToolkit toolkit;
+	public ReferenceDialog(Shell parent,FormToolkit _toolkit) {
 		super(parent);
+		toolkit = _toolkit;
 	}
 
 	protected Control createDialogArea(Composite parent) {
 		//FormToolkit toolkit = new FormToolkit(parent.getDisplay());
-
+		
 		 Injector injector = CdtliteraturetableInjectorProvider.getInjector();
 		 ViewerFactory viewerFactory = injector.getInstance(ViewerFactory.class);
 		 
@@ -94,16 +99,19 @@ public class ReferenceDialog extends Dialog {
 		
 		
 		ViewerContextMenuHelper contextMenuHelper = injector.getInstance(ViewerContextMenuHelper.class);
-		// Guice injected viewer drag and drop helper
+		//Guice injected viewer drag and drop helper
 		
 		//ALiteratureBase base = CdtliteratureFactory.eINSTANCE.getCdtliteraturePackage().getALiteratureBase();
 		
+		//Object obj = resourceLibrary.getContents().get(0);
 		Library library = (Library) resourceLibrary.getContents().get(0);
-		
 		//resourceLibrary.getAllContents()
 		//Article article = library.getArticle().get(0);
 		//Book book = library.getBook().get(0);
+		//parent.setSize(500, 700);
 		Composite container = (Composite) super.createDialogArea(parent);
+		
+		//container.setSize(300, 500);
 		/*TableFormFactory tableFactory = injector.getInstance(TableFormFactory.class);
 		TableFormComposite tableComposite = tableFactory.createTableFormMasterDetailComposite(parent, SWT.BORDER,library.eClass());
 		TableViewer table = viewerFactory.createTableViewer(tableComposite, SWT.BORDER | SWT.NO_SCROLL, library.eClass());
@@ -119,23 +127,30 @@ public class ReferenceDialog extends Dialog {
 		table.getTable().getColumn(1).setWidth(100);
 		table.getTable().getColumn(2).setWidth(100);*/
 		
-		
-		
-		//TreeViewer treeViewer = viewerFactory.createTreeViewerWithColumns(container, article.eClass() , resourceLibrary.getContents().get(0));
-		TreeViewer treeViewer = viewerFactory.createTreeViewerWithColumns(container,
-					CdtliteratureFactory.eINSTANCE.getCdtliteraturePackage().getALiteratureBase(), library);
-		
-		
-		contextMenuHelper.addViewerContextMenu(treeViewer, editingDomain);
 
-		//viewerFactory.initialize(treeViewer, library);
+		
+		TreeViewer treeViewer = viewerFactory.createTreeViewerWithColumns(container,
+				CdtliteratureFactory.eINSTANCE.getCdtliteraturePackage().getALiteratureBase(), library);
+		treeViewer.add(library, library.getArticle().get(0));
+		
+		/*TreeViewer treeViewer = new TreeViewer(parent);
+        treeViewer.setContentProvider(new TreeContentProvider());
+		treeViewer.getTree().setHeaderVisible(true);
+		TreeViewerColumn viewerColumn = new TreeViewerColumn(treeViewer, SWT.NONE);
+        viewerColumn.getColumn().setWidth(300);
+        viewerColumn.getColumn().setText("Names");
+        viewerColumn.setLabelProvider(new ColumnLabelProvider());
+        treeViewer.setInput(new String[] { "Simon Scholz" });
+        GridLayoutFactory.fillDefaults().generateLayout(parent);*/
+
+		contextMenuHelper.addViewerContextMenu(treeViewer, editingDomain);
 		treeViewer.getTree().setHeaderVisible(true);
         treeViewer.getTree().setLinesVisible(true);
 
-		//viewerFactory.initialize(treeViewer, library);
-		treeViewer.getTree().getColumn(0).setWidth(200);
-		treeViewer.getTree().getColumn(1).setWidth(50);
-		//treeViewer.getTree().getColumn(1).setText(library.getName());
+		
+        for(int i= 0;i<6;i++){
+        	treeViewer.getTree().getColumn(i).setWidth(100);	
+        }
 	
 		Tree tree = (Tree) treeViewer.getControl();
 		tree.addSelectionListener(new SelectionAdapter() {
@@ -186,6 +201,11 @@ public class ReferenceDialog extends Dialog {
 	public String getSelectedItem(){
 		return selectedItem;
 	}
+	protected boolean isResizable() {
+	    return true;
+	}
+	
+	
 
 
 	    

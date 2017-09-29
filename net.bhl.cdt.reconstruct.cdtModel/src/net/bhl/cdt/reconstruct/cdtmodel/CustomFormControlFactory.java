@@ -23,9 +23,11 @@ import org.eclipse.emf.ecp.internal.ui.model.TreeContentProvider;
 import org.eclipse.emf.ecp.view.spi.context.ViewModelContext;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.celleditor.FeatureEditorDialog;
+import org.eclipse.emf.parsley.composite.EObjectTextObservable;
 import org.eclipse.emf.parsley.composite.FormControlFactory;
 import org.eclipse.emf.parsley.resource.ResourceLoader;
 import org.eclipse.jface.databinding.swt.SWTObservables;
+import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
@@ -58,6 +60,7 @@ import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 import org.eclipse.ui.dialogs.ListDialog;
 import org.eclipse.ui.dialogs.TwoPaneElementSelector;
+import org.eclipse.ui.forms.HyperlinkGroup;
 import org.eclipse.ui.forms.widgets.FormText;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Hyperlink;
@@ -228,6 +231,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    return null;
 	  }*/
 	public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
+		Injector injector = CdtliteraturetableInjectorProvider.getInjector();
 		
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
@@ -242,11 +246,15 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    
 	    /** 
 		 * text is filled in grid-layout*/
-		//Text pathText = getToolkit().createText(composite, "sanghun", SWT.SINGLE);
+		//Text pathText = getToolkit().createText(composite, "", SWT.SINGLE);
 		//FormText refText = _toolkit.createFormText(composite, true);
-		final Hyperlink link = new Hyperlink(composite, SWT.FILL);
-		link.setText("");
-
+	    
+	    Hyperlink hyperlink = _toolkit.createHyperlink(composite,"", SWT.FILL);
+	    HyperlinkGroup group = _toolkit.getHyperlinkGroup();
+	    
+	    //final Hyperlink link = new Hyperlink(composite, SWT.FILL);
+		//link.setText("");
+	    
 
 		//refText.setText("", false, false);
 		//pathText.setText("Sanghun");
@@ -254,17 +262,26 @@ public class CustomFormControlFactory extends FormControlFactory {
         gridData.horizontalAlignment = GridData.FILL;
         gridData.grabExcessHorizontalSpace = true;
         //refText.setLayoutData(gridData);
-        link.setLayoutData(gridData);
+        //link.setLayoutData(gridData);
+        //pathText.setLayoutData(gridData);
+        hyperlink.setLayoutData(gridData);
 		//refText.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
-        link.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
-		final Button openButton = _toolkit.createButton(composite, "set", SWT.PUSH);
+        //link.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
+        hyperlink.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
+       // pathText.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
+        final Button openButton = _toolkit.createButton(composite, "set", SWT.PUSH);
 		//dbc.bindValue(SWTObservables.observeText(refText, SWT.Modify), featureObservable);
-		
+        //dbc.bindValue(SWTObservables.observeText(hyperlink, SWT.Modify), featureObservable);
+       
 		 openButton.addSelectionListener(new SelectionAdapter() {
 	            @Override
 	            public void widgetSelected(SelectionEvent e) {
 	            	
-	            	Shell shell = _parent.getShell();
+	            	//Shell shell = _parent.getShell();
+	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
+	            	        | SWT.APPLICATION_MODAL);
+	            	 shell.setSize(800, 800);
+
 	            	//String filePath = UIHelper.showSelectFileDialog(Display.getCurrent().getActiveShell());
 	            	
 	            	/*Injector injector = ParsleyInjectorProvider.getInjector();
@@ -277,61 +294,23 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        		 * load the resource*//*
 	        		Resource resource = resourceLoader.getResource(editingDomain, uri).getResource();
 	        		Library library = (Library) resource.getContents().get(0);*/
-	        		//library.getArticle().stream()
+	
+	        		ReferenceDialog refDialog = new ReferenceDialog(shell, _toolkit); 
+	        		refDialog.isResizable();
 	        		
-	        		//library.getConference();
-	            	/*ElementListSelectionDialog dialog = 
-	            			new ElementListSelectionDialog(Display.getCurrent().getActiveShell(), new LabelProvider());
-	            		
-	            		dialog.setTitle("Which operating system are you using");
-	            		
-	            		dialog.setMessage("This is Element List Message");
-	            		Object [] list =  { "Linux" };
-	            		dialog.setMultipleSelection(true);
-	            		dialog.setElements(list);
-	            		//dialog.setInitialSelections(list);
-	            		
-	            		if (dialog.open() != Window.OK) {
-	            		        //return false;
-	            			System.out.print("Sanghun");
-	            		}
-	            		Object[] result = dialog.getResult();*/
 	        		
-	        		/*TwoPaneElementSelector elementSelector = new TwoPaneElementSelector(shell, new LabelProvider(), new LabelProvider());
-	        	    elementSelector.setTitle("Two Pane Element Selector");
-	        	    elementSelector.setElements(new String[] {"One", "Two", "Three"});
-	        	    elementSelector.setLowerListLabel("Lower List");
-	        	    elementSelector.setUpperListLabel("Upper List");
-	        	    elementSelector.setMultipleSelection(true);
-	        	    elementSelector.setInitialSelections(new String[] {"One", "Two", "Three"});
-	        	    elementSelector.open();*/
-	            	
-	            	
-	        		ReferenceDialog refDialog = new ReferenceDialog(shell); 
-	        		
-	        	    //refDialog.open();
 	        	    if (refDialog.open() == Window.OK) {
-	        	    	
+	        		//if (refWindow.open() == Window.OK) {
 	        	    	System.out.println("OK");
-	        	    	link.setText(refDialog.getSelectedItem());
+	        	    	//link.setText(refDialog.getSelectedItem());
+	        	    	//hyperlink.setText(refDialog.getSelectedItem());
+	        	    	//hyperlink.setText(refWindow.getSelectedItem());
+	        	    	//((Formula)featureObservable.getValue()).addReference(refDialog.getSelectedItem())
+	        	    	//dbc.bindValue(SWTObservables.observeText(hyperlink, refDialog.getSelectedItem()));
+	        	    	//pathText.setText(refDialog.getSelectedItem());
 	        	    	//refText.setText(refDialog.getSelectedItem(), false, false);
 	        	    }
-	        	    
-	        	    
-	        	    
-	        	    //refText.setText("Sanghun", false, false);
-	        	    /*String[] strArray = new String[choice.length];
-
-	        	    for(int i = 0 ; i < choice.length ; i ++){  
-	        	    	   try {
-	        	    	      strArray[i] = choice[i].toString();
-	        	    	   } catch (NullPointerException ex) {
-	        	    	       // do some default initialization
-	        	    	   }
-	        	    	} */	
-	        	    //refText.setText(Arrays.toString(strArray), false, false); 
-        		 	    
-	           
+	    	    
 	            }
 	        });
 		

@@ -4,6 +4,7 @@ import net.bhl.cdt.reconstruct.cdtliteraturetable.config.CdtliteraturetableConfi
 import net.bhl.cdt.reconstruct.cdtliteraturetable.edit.ui.provider.CdtliteraturetableViewerContentProvider;
 import net.bhl.cdt.reconstruct.cdtliteraturetable.resource.CdtliteraturetableResourceManager;
 import net.bhl.cdt.reconstruct.cdtliteraturetable.ui.provider.CdtliteraturetableFeaturesProvider;
+import net.bhl.cdt.reconstruct.cdtliteraturetable.ui.provider.CdtliteraturetableTableFeaturesProvider;
 import net.bhl.cdt.reconstruct.cdtliteraturetable.ui.provider.CdtliteraturetableTableLabelProvider;
 import net.bhl.cdt.reconstruct.cdtmodel.CustomFormControlFactory;
 import org.eclipse.emf.parsley.EmfParsleyGuiceModule;
@@ -14,6 +15,7 @@ import org.eclipse.emf.parsley.edit.UndoableEditingStrategy;
 import org.eclipse.emf.parsley.resource.ResourceManager;
 import org.eclipse.emf.parsley.ui.provider.FeaturesProvider;
 import org.eclipse.emf.parsley.ui.provider.TableColumnLabelProvider;
+import org.eclipse.emf.parsley.ui.provider.TableFeaturesProvider;
 import org.eclipse.jface.viewers.IContentProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -44,6 +46,11 @@ public class CdtliteraturetableEmfParsleyGuiceModule extends EmfParsleyGuiceModu
   @Override
   public Class<? extends FeaturesProvider> bindFeaturesProvider() {
     return CdtliteraturetableFeaturesProvider.class;
+  }
+  
+  @Override
+  public Class<? extends TableFeaturesProvider> bindTableFeaturesProvider() {
+    return CdtliteraturetableTableFeaturesProvider.class;
   }
   
   @Override
