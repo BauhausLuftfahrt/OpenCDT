@@ -245,89 +245,46 @@ public class CustomFormControlFactory extends FormControlFactory {
 	     * */
 	    GridLayout _gridLayout = new GridLayout(2, false);
 	    composite.setLayout(_gridLayout);
-	    
-	    //_gridLayout.marginLeft = -5;
-	    
-	    
+	   
 	    /** 
 		 * text is filled in grid-layout*/
-		//Text pathText = getToolkit().createText(composite, "", SWT.SINGLE);
-	   // Text pathText = getToolkit().createText(composite, "", SWT.READ_ONLY | SWT.WRAP);
-	    Label refLabel = getToolkit().createLabel(composite,featureObservable.getValue().toString(), SWT.LEFT);
-		//FormText refText = _toolkit.createFormText(composite, true);
-	    refLabel.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-	    //IObservableValue modelObservable = BeansObservables.observeValue(model, "amount");
-
-	   // GridData gd = new GridData ();
-	    //gd.horizontalAlignment = GridData.FILL;
-	   // gd.widthHint = 500;
-	    //gd.horizontalSpan = GridData.FILL;
-	   // refLabel.setData(gd);
-	   // Hyperlink hyperlink = _toolkit.createHyperlink(composite,"", SWT.FILL);
-	    //HyperlinkGroup group = _toolkit.getHyperlinkGroup();
-	    
+	
+	   // Label refLabel = getToolkit().createLabel(composite,featureObservable.getValue().toString(), SWT.LEFT);
+	   // refLabel.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 	   
-
-		
-		//pathText.setText("Sanghun");
-		
-		//GridData gridData = new GridData();
-       // gridData.horizontalAlignment = GridData.FILL;
-        //gridData.grabExcessHorizontalSpace = true;
-        //refText.setLayoutData(gridData);
-        //link.setLayoutData(gridData);
-        //pathText.setLayoutData(gridData);
-        //hyperlink.setLayoutData(gridData);
-       // refLabel.setData(gridData);
-		//refText.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
-        //link.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
-       // hyperlink.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
-       //pathText.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
-        //refLabel.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
+	   Hyperlink hyperlink = _toolkit.createHyperlink(composite,featureObservable.getValue().toString(), SWT.FILL);
+	
+	   
+	   GridData gridData = new GridData();
+       gridData.horizontalAlignment = GridData.FILL;
+        gridData.grabExcessHorizontalSpace = true;
+        hyperlink.setLayoutData(gridData);
+     
+        //hyperlink.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
+      
         final Button openButton = _toolkit.createButton(composite, "set", SWT.PUSH);
-		//dbc.bindValue(SWTObservables.observeText(pathText, SWT.Modify), featureObservable);
-       // dbc.bindValue(SWTObservables.observeText(refLabel, SWT.Modify),featureObservable);
-        //dbc.bindValue(SWTObservables.observeText(hyperlink, SWT.Modify), featureObservable);
        
 		 openButton.addSelectionListener(new SelectionAdapter() {
 	            @Override
 	            public void widgetSelected(SelectionEvent e) {
 	            	
-	            	//Shell shell = _parent.getShell();
+	            
 	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
 	            	        | SWT.APPLICATION_MODAL);
-	            	 //shell.setSize(800, 800);
-
-	            	//String filePath = UIHelper.showSelectFileDialog(Display.getCurrent().getActiveShell());
 	            	
-	            	/*Injector injector = ParsleyInjectorProvider.getInjector();
-
-	        		*//**
-	        		 * The EditingDomain is needed for context menu and drag and drop.*//*
-	        		ResourceLoader resourceLoader = injector.getInstance(ResourceLoader.class);
-	        		EditingDomain editingDomain = injector.getInstance(EditingDomain.class);
-	        		*//**
-	        		 * load the resource*//*
-	        		Resource resource = resourceLoader.getResource(editingDomain, uri).getResource();
-	        		Library library = (Library) resource.getContents().get(0);*/
-	
+	   
 	        		ReferenceDialog refDialog = new ReferenceDialog(shell, _toolkit); 
 	        		refDialog.isResizable();
 	        		 		
 	        	    if (refDialog.open() == Window.OK) {
-	        		//if (refWindow.open() == Window.OK) {
+	        		
 	        	    	System.out.println("OK");
-	        	    	//link.setText(refDialog.getSelectedItem());
-	        	    	//hyperlink.setText(refDialog.getSelectedItem());
-	        	    	//hyperlink.setText(refWindow.getSelectedItem());
-	        	    	//featureObservable.setValue(refDialog.getSelectedTreeItem());
-	        	    	//setReference(refDialog.getSelectedItem());
-	        	    	//dbc.bindValue(SWTObservables.observeText(hyperlink, SWT.Modify),featureObservable);
-	        	    	//pathText.setText(refDialog.getSelectedItem());
-	        	    	refLabel.setText(refDialog.getSelectedItem());
+	    	    	
+	        	    	hyperlink.setText(refDialog.getSelectedItem());
+ 
+	        	    	//refLabel.setText(refDialog.getSelectedItem());
 	        	    	featureObservable.setValue(refDialog.getSelectedItem());
-	        	    	//dbc.bindValue(SWTObservables.observeText(refLabel, SWT.Modify),featureObservable);
-	        	    	
+	        	    
 	        	    }
 	    	    
 	            }
