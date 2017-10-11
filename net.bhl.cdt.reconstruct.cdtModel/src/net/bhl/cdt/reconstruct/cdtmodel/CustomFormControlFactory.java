@@ -52,8 +52,10 @@ import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
@@ -62,6 +64,8 @@ import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 import org.eclipse.ui.dialogs.ListDialog;
 import org.eclipse.ui.dialogs.TwoPaneElementSelector;
 import org.eclipse.ui.forms.HyperlinkGroup;
+import org.eclipse.ui.forms.events.HyperlinkAdapter;
+import org.eclipse.ui.forms.events.HyperlinkEvent;
 import org.eclipse.ui.forms.widgets.FormText;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Hyperlink;
@@ -252,13 +256,20 @@ public class CustomFormControlFactory extends FormControlFactory {
 	   // Label refLabel = getToolkit().createLabel(composite,featureObservable.getValue().toString(), SWT.LEFT);
 	   // refLabel.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 	   
-	   Hyperlink hyperlink = _toolkit.createHyperlink(composite,featureObservable.getValue().toString(), SWT.FILL);
-	
+	    Hyperlink hyperlink = _toolkit.createHyperlink(composite,featureObservable.getValue().toString(), SWT.FILL);
+	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
+	    	
+			public void linkActivated(HyperlinkEvent e) {
+				System.out.println("Link activated!");
+			}
+		});
+
+
 	   
-	   GridData gridData = new GridData();
-       gridData.horizontalAlignment = GridData.FILL;
+		GridData gridData = new GridData();
+	    gridData.horizontalAlignment = GridData.FILL;
         gridData.grabExcessHorizontalSpace = true;
-        hyperlink.setLayoutData(gridData);
+	    hyperlink.setLayoutData(gridData);
      
         //hyperlink.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
       
