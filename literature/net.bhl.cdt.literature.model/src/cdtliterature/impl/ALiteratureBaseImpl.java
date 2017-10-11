@@ -79,7 +79,7 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int YEAR_EDEFAULT = 0;
+	protected static final String YEAR_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getYear() <em>Year</em>}' attribute.
@@ -89,7 +89,7 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 	 * @generated
 	 * @ordered
 	 */
-	protected int year = YEAR_EDEFAULT;
+	protected String year = YEAR_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getReferences() <em>References</em>}' reference list.
@@ -187,7 +187,7 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getYear() {
+	public String getYear() {
 		return year;
 	}
 
@@ -196,8 +196,8 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setYear(int newYear) {
-		int oldYear = year;
+	public void setYear(String newYear) {
+		String oldYear = year;
 		year = newYear;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CdtliteraturePackage.ALITERATURE_BASE__YEAR, oldYear, year));
@@ -274,7 +274,7 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 				setAuthor((String)newValue);
 				return;
 			case CdtliteraturePackage.ALITERATURE_BASE__YEAR:
-				setYear((Integer)newValue);
+				setYear((String)newValue);
 				return;
 			case CdtliteraturePackage.ALITERATURE_BASE__REFERENCES:
 				getReferences().clear();
@@ -327,7 +327,7 @@ public abstract class ALiteratureBaseImpl extends MinimalEObjectImpl.Container i
 			case CdtliteraturePackage.ALITERATURE_BASE__AUTHOR:
 				return AUTHOR_EDEFAULT == null ? author != null : !AUTHOR_EDEFAULT.equals(author);
 			case CdtliteraturePackage.ALITERATURE_BASE__YEAR:
-				return year != YEAR_EDEFAULT;
+				return YEAR_EDEFAULT == null ? year != null : !YEAR_EDEFAULT.equals(year);
 			case CdtliteraturePackage.ALITERATURE_BASE__REFERENCES:
 				return references != null && !references.isEmpty();
 			case CdtliteraturePackage.ALITERATURE_BASE__PATH:

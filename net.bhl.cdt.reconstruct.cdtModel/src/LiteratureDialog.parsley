@@ -79,7 +79,7 @@ module net.bhl.cdt.reconstruct.cdtliteraturetable {
 	featuresProvider {
 				features {
 					 Library -> name
-					 Article -> title, author
+					 Article -> title, author, year, path
 					 Book -> publisher, isbn
 	
 				}

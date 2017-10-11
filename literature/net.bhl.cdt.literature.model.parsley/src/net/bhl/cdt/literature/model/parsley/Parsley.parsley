@@ -87,18 +87,18 @@ module net.bhl.cdt.literature.model.parsley {
 			}
 	menuBuilder {
 				val factory = CdtliteratureFactory.eINSTANCE
-				menus{
-					Library-> #[
-					submenu("Edit",#[
-						actionCopy,
-						actionCut,
-						separator,
-						actionPaste,
-						actionDelete
-					])
-				]
-					
-				}
+//				menus{
+//					Library-> #[
+//					submenu("Edit",#[
+//						actionCopy,
+//						actionCut,
+//						separator,
+//						actionPaste,
+//						actionDelete
+//					])
+//				]
+//					
+//				}
 				
 	
 				emfMenus {
@@ -113,7 +113,7 @@ module net.bhl.cdt.literature.model.parsley {
 					
 
 				}
-			}
+	}
 	viewerContentProvider {
 				elements{
 					

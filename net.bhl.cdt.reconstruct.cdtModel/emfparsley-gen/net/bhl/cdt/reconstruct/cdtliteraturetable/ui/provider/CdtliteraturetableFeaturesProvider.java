@@ -12,7 +12,7 @@ public class CdtliteraturetableFeaturesProvider extends FeaturesProvider {
     stringMap.mapTo("cdtliterature.Library",
       "name");
     stringMap.mapTo("cdtliterature.Article",
-      "title", "author");
+      "title", "author", "year", "path");
     stringMap.mapTo("cdtliterature.Book",
       "publisher", "isbn");
   }

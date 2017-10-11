@@ -44,6 +44,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Device;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.ImageData;
+import org.eclipse.swt.layout.FormData;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -64,6 +65,7 @@ import org.eclipse.ui.forms.HyperlinkGroup;
 import org.eclipse.ui.forms.widgets.FormText;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.Hyperlink;
+import org.eclipse.ui.internal.Model;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
@@ -98,6 +100,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private static final int STANDARD_HEIGHT = 50;
 	private static final int STANDARD_WIDTH = 300;
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
+	
 	
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -231,6 +234,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    return null;
 	  }*/
 	public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
+		
 		Injector injector = CdtliteraturetableInjectorProvider.getInjector();
 		
 		FormToolkit _toolkit = this.getToolkit();
@@ -241,36 +245,48 @@ public class CustomFormControlFactory extends FormControlFactory {
 	     * */
 	    GridLayout _gridLayout = new GridLayout(2, false);
 	    composite.setLayout(_gridLayout);
+	    
 	    //_gridLayout.marginLeft = -5;
 	    
 	    
 	    /** 
 		 * text is filled in grid-layout*/
 		//Text pathText = getToolkit().createText(composite, "", SWT.SINGLE);
+	   // Text pathText = getToolkit().createText(composite, "", SWT.READ_ONLY | SWT.WRAP);
+	    Label refLabel = getToolkit().createLabel(composite,featureObservable.getValue().toString(), SWT.LEFT);
 		//FormText refText = _toolkit.createFormText(composite, true);
-	    
-	    Hyperlink hyperlink = _toolkit.createHyperlink(composite,"", SWT.FILL);
-	    HyperlinkGroup group = _toolkit.getHyperlinkGroup();
-	    
-	    //final Hyperlink link = new Hyperlink(composite, SWT.FILL);
-		//link.setText("");
-	    
+	    refLabel.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
+	    //IObservableValue modelObservable = BeansObservables.observeValue(model, "amount");
 
-		//refText.setText("", false, false);
+	   // GridData gd = new GridData ();
+	    //gd.horizontalAlignment = GridData.FILL;
+	   // gd.widthHint = 500;
+	    //gd.horizontalSpan = GridData.FILL;
+	   // refLabel.setData(gd);
+	   // Hyperlink hyperlink = _toolkit.createHyperlink(composite,"", SWT.FILL);
+	    //HyperlinkGroup group = _toolkit.getHyperlinkGroup();
+	    
+	   
+
+		
 		//pathText.setText("Sanghun");
-		GridData gridData = new GridData();
-        gridData.horizontalAlignment = GridData.FILL;
-        gridData.grabExcessHorizontalSpace = true;
+		
+		//GridData gridData = new GridData();
+       // gridData.horizontalAlignment = GridData.FILL;
+        //gridData.grabExcessHorizontalSpace = true;
         //refText.setLayoutData(gridData);
         //link.setLayoutData(gridData);
         //pathText.setLayoutData(gridData);
-        hyperlink.setLayoutData(gridData);
+        //hyperlink.setLayoutData(gridData);
+       // refLabel.setData(gridData);
 		//refText.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
         //link.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
-        hyperlink.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
-       // pathText.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
+       // hyperlink.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
+       //pathText.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
+        //refLabel.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TREE_BORDER);
         final Button openButton = _toolkit.createButton(composite, "set", SWT.PUSH);
-		//dbc.bindValue(SWTObservables.observeText(refText, SWT.Modify), featureObservable);
+		//dbc.bindValue(SWTObservables.observeText(pathText, SWT.Modify), featureObservable);
+       // dbc.bindValue(SWTObservables.observeText(refLabel, SWT.Modify),featureObservable);
         //dbc.bindValue(SWTObservables.observeText(hyperlink, SWT.Modify), featureObservable);
        
 		 openButton.addSelectionListener(new SelectionAdapter() {
@@ -280,7 +296,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	            	//Shell shell = _parent.getShell();
 	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
 	            	        | SWT.APPLICATION_MODAL);
-	            	 shell.setSize(800, 800);
+	            	 //shell.setSize(800, 800);
 
 	            	//String filePath = UIHelper.showSelectFileDialog(Display.getCurrent().getActiveShell());
 	            	
@@ -297,18 +313,21 @@ public class CustomFormControlFactory extends FormControlFactory {
 	
 	        		ReferenceDialog refDialog = new ReferenceDialog(shell, _toolkit); 
 	        		refDialog.isResizable();
-	        		
-	        		
+	        		 		
 	        	    if (refDialog.open() == Window.OK) {
 	        		//if (refWindow.open() == Window.OK) {
 	        	    	System.out.println("OK");
 	        	    	//link.setText(refDialog.getSelectedItem());
 	        	    	//hyperlink.setText(refDialog.getSelectedItem());
 	        	    	//hyperlink.setText(refWindow.getSelectedItem());
-	        	    	//((Formula)featureObservable.getValue()).addReference(refDialog.getSelectedItem())
-	        	    	//dbc.bindValue(SWTObservables.observeText(hyperlink, refDialog.getSelectedItem()));
+	        	    	//featureObservable.setValue(refDialog.getSelectedTreeItem());
+	        	    	//setReference(refDialog.getSelectedItem());
+	        	    	//dbc.bindValue(SWTObservables.observeText(hyperlink, SWT.Modify),featureObservable);
 	        	    	//pathText.setText(refDialog.getSelectedItem());
-	        	    	//refText.setText(refDialog.getSelectedItem(), false, false);
+	        	    	refLabel.setText(refDialog.getSelectedItem());
+	        	    	featureObservable.setValue(refDialog.getSelectedItem());
+	        	    	//dbc.bindValue(SWTObservables.observeText(refLabel, SWT.Modify),featureObservable);
+	        	    	
 	        	    }
 	    	    
 	            }

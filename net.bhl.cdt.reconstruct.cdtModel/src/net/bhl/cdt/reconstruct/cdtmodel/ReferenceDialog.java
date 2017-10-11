@@ -5,6 +5,7 @@ import javax.inject.Named;
 
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -70,6 +71,7 @@ public class ReferenceDialog extends Dialog {
 	private ViewerFactory viewerFactory;
 	private Object[] result;
 	private String selectedItem;
+	private TreeItem item;
 	
 	FormToolkit toolkit;
 	public ReferenceDialog(Shell parent,FormToolkit _toolkit) {
@@ -130,9 +132,17 @@ public class ReferenceDialog extends Dialog {
 
 		
 		TreeViewer treeViewer = viewerFactory.createTreeViewerWithColumns(container,
-				CdtliteratureFactory.eINSTANCE.getCdtliteraturePackage().getALiteratureBase(), library);
-		treeViewer.add(library, library.getArticle().get(0));
+				CdtliteratureFactory.eINSTANCE.getCdtliteraturePackage().getALiteratureBase(), library);//library
 		
+		EList<EObject> elibrary = library.eContents();
+		
+		for(int i=0; i<elibrary.size(); i++){
+			
+			treeViewer.add(library, elibrary.get(i));
+			
+		}
+		//treeViewer.add(library, library.getArticle().get(0));
+		//treeViewer.add(library, library.getBook().get(0));
 		/*TreeViewer treeViewer = new TreeViewer(parent);
         treeViewer.setContentProvider(new TreeContentProvider());
 		treeViewer.getTree().setHeaderVisible(true);
@@ -148,15 +158,16 @@ public class ReferenceDialog extends Dialog {
         treeViewer.getTree().setLinesVisible(true);
 
 		
-        for(int i= 0;i<6;i++){
-        	treeViewer.getTree().getColumn(i).setWidth(100);	
+        for(int i= 0; i<6; i++){
+        	treeViewer.getTree().getColumn(i).setWidth(150);	
         }
 	
 		Tree tree = (Tree) treeViewer.getControl();
 		tree.addSelectionListener(new SelectionAdapter() {
 		  @Override
 		  public void widgetSelected(SelectionEvent e) {
-		      TreeItem item = (TreeItem) e.item;
+		      //TreeItem item = (TreeItem) e.item;
+			  	item = (TreeItem) e.item;
 		        System.out.println(item.getText().toString());
 		        selectedItem = item.getText().toString();
 		    }
@@ -189,7 +200,7 @@ public class ReferenceDialog extends Dialog {
 			
 	}
 	protected Point getInitialSize() {
-	      return new Point(450, 300);
+	      return new Point(940, 400);
 	}
 	public Object[] getResult() {
 		return result;
@@ -200,6 +211,9 @@ public class ReferenceDialog extends Dialog {
     }
 	public String getSelectedItem(){
 		return selectedItem;
+	}
+	public TreeItem getSelectedTreeItem(){
+		return item;
 	}
 	protected boolean isResizable() {
 	    return true;

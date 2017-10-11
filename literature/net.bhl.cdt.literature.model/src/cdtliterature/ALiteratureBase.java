@@ -87,12 +87,12 @@ public interface ALiteratureBase extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Year</em>' attribute.
-	 * @see #setYear(int)
+	 * @see #setYear(String)
 	 * @see cdtliterature.CdtliteraturePackage#getALiteratureBase_Year()
 	 * @model
 	 * @generated
 	 */
-	int getYear();
+	String getYear();
 
 	/**
 	 * Sets the value of the '{@link cdtliterature.ALiteratureBase#getYear <em>Year</em>}' attribute.
@@ -102,7 +102,7 @@ public interface ALiteratureBase extends EObject {
 	 * @see #getYear()
 	 * @generated
 	 */
-	void setYear(int value);
+	void setYear(String value);
 
 	/**
 	 * Returns the value of the '<em><b>References</b></em>' reference list.

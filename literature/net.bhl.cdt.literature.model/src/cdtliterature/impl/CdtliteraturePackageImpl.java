@@ -720,7 +720,7 @@ public class CdtliteraturePackageImpl extends EPackageImpl implements Cdtliterat
 		initEClass(aLiteratureBaseEClass, ALiteratureBase.class, "ALiteratureBase", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getALiteratureBase_Title(), ecorePackage.getEString(), "title", null, 0, 1, ALiteratureBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getALiteratureBase_Author(), ecorePackage.getEString(), "author", null, 0, 1, ALiteratureBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getALiteratureBase_Year(), ecorePackage.getEInt(), "year", null, 0, 1, ALiteratureBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getALiteratureBase_Year(), ecorePackage.getEString(), "year", null, 0, 1, ALiteratureBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getALiteratureBase_References(), this.getALiteratureBase(), null, "references", null, 0, -1, ALiteratureBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getALiteratureBase_Path(), ecorePackage.getEString(), "path", null, 0, 1, ALiteratureBase.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
