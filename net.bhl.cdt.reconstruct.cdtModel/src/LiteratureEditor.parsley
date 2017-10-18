@@ -1,0 +1,76 @@
+
+import net.bhl.cdt.reconstruct.cdtmodel.CustomFormControlFactory
+import org.eclipse.emf.parsley.composite.FormControlFactory
+import org.eclipse.emf.parsley.edit.IEditingStrategy
+import org.eclipse.emf.parsley.edit.UndoableEditingStrategy
+import org.eclipse.swt.SWT
+import net.bhl.cdt.reconstruct.cdtmodel.CdtmodelOnSelectionFormView
+import org.eclipse.emf.common.util.URI
+import cdtliterature.Library
+import net.bhl.cdt.reconstruct.cdtmodel.ReferenceDialog
+import cdtliterature.CdtliteratureFactory
+import java.util.List
+import cdtliterature.Article
+import cdtliterature.ALiteratureBase
+import cdtliterature.Book
+import net.bhl.cdt.reconstruct.cdtmodel.CDTLiteratureEditor
+
+/* net.bhl.cdt.reconstruct.cdtmodel EMF Parsley Dsl Module file */
+module net.bhl.cdt.reconstruct.cdtliteratureeditor {
+	
+	parts {
+		viewpart net.bhl.cdt.reconstruct.cdtliteratureeditor {
+			viewname "CDTLiteratureEditor"
+			viewclass CDTLiteratureEditor
+		}
+	}
+	
+	bindings{
+		
+		type IEditingStrategy -> UndoableEditingStrategy
+		type FormControlFactory -> CustomFormControlFactory	
+		
+	}
+	configurator {
+		
+		val lib = CdtliteratureFactory.eINSTANCE.getCdtliteraturePackage();
+		
+		resourceURI {
+			
+				CDTLiteratureEditor -> {
+				return URI.createFileURI(
+					System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" +
+						"/MyLibrary.library" );
+					}
+				}
+				
+				
+			}
+				
+	}
+	
+//	resourceManager {		
+//			initializeResource {
+//					// Optional: initialize an empty Resource
+//					// 'it' is of type Resource
+//					// e.g., it.getContents += myFactory.createMyClass
+//					//it.getContents += CdtliteratureFactory.eINSTANCE.createLibrary();
+//				}
+//				saveResource {
+//				// it is of type org.eclipse.emf.ecore.resource.Resource
+//				//it.save(null)
+//				return true
+//			}
+//	}
+
+
+	
+	
+	
+
+	
+	
+	
+	
+	
+

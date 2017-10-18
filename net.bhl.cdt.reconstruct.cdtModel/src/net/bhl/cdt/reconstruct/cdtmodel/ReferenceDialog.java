@@ -5,6 +5,7 @@ import javax.inject.Named;
 
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
@@ -72,9 +73,11 @@ public class ReferenceDialog extends Dialog {
 	private Object[] result;
 	private String selectedItem;
 	private TreeItem item;
-	
+	private Library library;
 	FormToolkit toolkit;
-	public ReferenceDialog(Shell parent,FormToolkit _toolkit) {
+	
+	
+	public ReferenceDialog(Shell parent, FormToolkit _toolkit) {
 		super(parent);
 		toolkit = _toolkit;
 	}
@@ -82,8 +85,8 @@ public class ReferenceDialog extends Dialog {
 	protected Control createDialogArea(Composite parent) {
 		//FormToolkit toolkit = new FormToolkit(parent.getDisplay());
 		
-		 Injector injector = CdtliteraturetableInjectorProvider.getInjector();
-		 ViewerFactory viewerFactory = injector.getInstance(ViewerFactory.class);
+		Injector injector = CdtliteraturetableInjectorProvider.getInjector();
+		ViewerFactory viewerFactory = injector.getInstance(ViewerFactory.class);
 		 
 		  //OnSelectionTableView tableView = injector.getInstance(OnSelectionTableView.class);
 		  
@@ -106,7 +109,7 @@ public class ReferenceDialog extends Dialog {
 		//ALiteratureBase base = CdtliteratureFactory.eINSTANCE.getCdtliteraturePackage().getALiteratureBase();
 		
 		//Object obj = resourceLibrary.getContents().get(0);
-		Library library = (Library) resourceLibrary.getContents().get(0);
+		library = (Library) resourceLibrary.getContents().get(0);
 		//resourceLibrary.getAllContents()
 		//Article article = library.getArticle().get(0);
 		//Book book = library.getBook().get(0);
@@ -214,6 +217,10 @@ public class ReferenceDialog extends Dialog {
 	}
 	public TreeItem getSelectedTreeItem(){
 		return item;
+	}
+	public Library getLibrary(){
+		return library;
+		
 	}
 	protected boolean isResizable() {
 	    return true;

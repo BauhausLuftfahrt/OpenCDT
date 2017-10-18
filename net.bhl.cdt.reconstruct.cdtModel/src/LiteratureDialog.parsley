@@ -29,9 +29,7 @@ module net.bhl.cdt.reconstruct.cdtliteraturetable {
 		
 		type IEditingStrategy -> UndoableEditingStrategy
 		type FormControlFactory -> CustomFormControlFactory
-		
-		
-		
+				
 	}
 	configurator {
 		

@@ -4,8 +4,13 @@ import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.model.application.ui.basic.MBasicFactory;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.workbench.modeling.EModelService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
@@ -32,7 +37,9 @@ public class CDTModelEditor {
 
 	private FormDetailComposite formComposite;
 	public static final java.lang.String INPUT = "ecpEditorInput";	
-	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
+	//private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
+	
+	
 	
 	@PostConstruct
 	public void postConstruct(Composite parent) {	
@@ -55,6 +62,8 @@ public class CDTModelEditor {
 		part.setLabel(""+ modelElement.eClass().getName() + " ");
 		formComposite.setSize(width, height);
 	
-    }	
 	
+    }	
+   
+ 
 }

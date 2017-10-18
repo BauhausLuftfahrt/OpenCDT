@@ -17,6 +17,13 @@
             name="CDTLiteratureTable"
             restorable="true">
       </view>
+      <view
+            category="org.eclipse.emf.parsley"
+            class="net.bhl.cdt.reconstruct.cdtliteratureeditor.CdtliteratureeditorExecutableExtensionFactory:net.bhl.cdt.reconstruct.cdtmodel.CDTLiteratureEditor"
+            id="net.bhl.cdt.reconstruct.cdtliteratureeditor"
+            name="CDTLiteratureEditor"
+            restorable="true">
+      </view>
    </extension>
    <extension
          id="net.bhl.cdt.reconstruct.cdtModel.fragment"

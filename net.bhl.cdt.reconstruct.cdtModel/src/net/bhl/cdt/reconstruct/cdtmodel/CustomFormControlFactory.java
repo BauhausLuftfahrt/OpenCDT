@@ -14,17 +14,32 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.ui.model.application.MApplication;
+import org.eclipse.e4.ui.model.application.ui.basic.MBasicFactory;
+import org.eclipse.e4.ui.model.application.ui.basic.MCompositePart;
+import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.workbench.modeling.EModelService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecp.application.e4.editor.E4ModelElementOpener;
+import org.eclipse.emf.ecp.core.ECPProject;
 import org.eclipse.emf.ecp.internal.ui.model.TreeContentProvider;
+import org.eclipse.emf.ecp.spi.ui.util.ECPHandlerHelper;
+import org.eclipse.emf.ecp.ui.e4.util.EPartServiceHelper;
+import org.eclipse.emf.ecp.ui.e4.view.ECPModelView;
 import org.eclipse.emf.ecp.view.spi.context.ViewModelContext;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.ui.celleditor.FeatureEditorDialog;
 import org.eclipse.emf.parsley.composite.EObjectTextObservable;
 import org.eclipse.emf.parsley.composite.FormControlFactory;
+import org.eclipse.emf.parsley.composite.FormDetailComposite;
+import org.eclipse.emf.parsley.composite.FormFactory;
 import org.eclipse.emf.parsley.resource.ResourceLoader;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
@@ -58,6 +73,8 @@ import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.TabFolder;
+import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
@@ -74,6 +91,7 @@ import org.eclipse.ui.model.WorkbenchLabelProvider;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import com.google.inject.Guice;
 import com.google.inject.Injector;
 
 import cdtliterature.CdtliteratureFactory;
@@ -81,6 +99,9 @@ import cdtliterature.Library;
 import formula.Formula;
 import formula.FormulaPackage;
 import net.bhl.cdt.core.ui.UIHelper;
+import net.bhl.cdt.literature.model.parsley.ParsleyInjectorProvider;
+import net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor;
+import net.bhl.cdt.reconstruct.cdtliteratureeditor.CdtliteratureeditorInjectorProvider;
 import net.bhl.cdt.reconstruct.cdtliteraturetable.CdtliteraturetableInjectorProvider;
 import net.sourceforge.jeuclid.MathMLParserSupport;
 import net.sourceforge.jeuclid.MutableLayoutContext;
@@ -104,7 +125,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private static final int STANDARD_HEIGHT = 50;
 	private static final int STANDARD_WIDTH = 300;
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
-	
+	private ReferenceDialog refDialog;
 	
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -237,9 +258,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    
 	    return null;
 	  }*/
+	//@Inject CDTLibraryModelEditor modelEditor;
 	public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
 		
-		Injector injector = CdtliteraturetableInjectorProvider.getInjector();
+		Injector injector = CdtliteratureeditorInjectorProvider.getInjector();
 		
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
@@ -256,11 +278,61 @@ public class CustomFormControlFactory extends FormControlFactory {
 	   // Label refLabel = getToolkit().createLabel(composite,featureObservable.getValue().toString(), SWT.LEFT);
 	   // refLabel.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 	   
-	    Hyperlink hyperlink = _toolkit.createHyperlink(composite,featureObservable.getValue().toString(), SWT.FILL);
+	    Hyperlink hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.FILL);
 	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
 	    	
 			public void linkActivated(HyperlinkEvent e) {
+				
+				/*EModelService modelservice = injector.getInstance(EModelService.class);
+				MApplication application = injector.getInstance(MApplication.class);
+				EPartService partService = injector.getInstance(EPartService.class);*/
+				//ECPProject ecpProject  = injector.getInstance(ECPProject.class);
+				//CDTLibraryModelEditor modelEditor = new CDTLibraryModelEditor();
+				//partService.showPart("part id", PartState.ACTIVATE);
+				//modelEditor.setInput(refDialog.getLibrary().getArticle().get(0));
+			/*
+				FormFactory formFactory = injector.getInstance(FormFactory.class);*/
+				EPartService partService = EPartServiceHelper.getEPartService();
+				
+				
+				MPart part = MBasicFactory.INSTANCE.createPart();
+				//injector.getInstance(CDTLibraryModelEditor.class);
+				//new CDTLibraryModelEditor();
+				//partService.getParts().add(part);
+				
+				
+				part.setLabel("Part");
+				//partService.showPart(part, PartState.VISIBLE);
+				
+				//part.setObject(featureObservable);
+				part.setCloseable(true);
+				part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+				//part.setContributionURI(featureObservable.getValue().toString());
+				part.setObject(refDialog.getLibrary());
+				
+				
+				//cdt.initPart(refDialog.getLibrary().getArticle().get(0).eClass());
+				partService.showPart(part, PartState.CREATE);
+				partService.bringToTop(part);
+				
+
+				//MPart part = MBasicFactory.INSTANCE.createCompositePart();
+				/*FormDetailComposite formComposite = formFactory.createFormDetailComposite(_parent, SWT.BORDER);		
+				ECPHandlerHelper.openModelElement(refDialog.getLibrary().getArticle().get(0), ecpProject);
+				formComposite.init(refDialog.getLibrary().getArticle().get(0));*/
 				System.out.println("Link activated!");
+				
+				
+				/*
+				Injector injector = CdtliteratureeditorInjectorProvider.getInjector();
+		    	FormFactory formFactory = injector.getInstance(FormFactory.class);
+		    	
+		  
+		    	
+		    	FormDetailComposite formComposite = formFactory.createFormDetailComposite(_parent, SWT.BORDER);	
+				formComposite.init(refDialog.getLibrary().getArticle().get(0));*/
+				
+				
 			}
 		});
 
@@ -275,7 +347,7 @@ public class CustomFormControlFactory extends FormControlFactory {
       
         final Button openButton = _toolkit.createButton(composite, "set", SWT.PUSH);
        
-		 openButton.addSelectionListener(new SelectionAdapter() {
+		openButton.addSelectionListener(new SelectionAdapter() {
 	            @Override
 	            public void widgetSelected(SelectionEvent e) {
 	            	
@@ -284,7 +356,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	            	        | SWT.APPLICATION_MODAL);
 	            	
 	   
-	        		ReferenceDialog refDialog = new ReferenceDialog(shell, _toolkit); 
+	        		//ReferenceDialog refDialog = new ReferenceDialog(shell, _toolkit);
+	            	refDialog = new ReferenceDialog(shell, _toolkit);
 	        		refDialog.isResizable();
 	        		 		
 	        	    if (refDialog.open() == Window.OK) {
