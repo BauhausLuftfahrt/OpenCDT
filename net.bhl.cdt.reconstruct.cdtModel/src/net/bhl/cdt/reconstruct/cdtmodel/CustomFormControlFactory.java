@@ -296,44 +296,18 @@ public class CustomFormControlFactory extends FormControlFactory {
 				
 				
 				MPart part = MBasicFactory.INSTANCE.createPart();
-				//injector.getInstance(CDTLibraryModelEditor.class);
-				//new CDTLibraryModelEditor();
-				//partService.getParts().add(part);
-				
-				
 				part.setLabel(featureObservable.getValue().toString());
-				//partService.showPart(part, PartState.VISIBLE);
-				
-				//part.setObject(featureObservable);
 				part.setCloseable(true);
 				part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
-				//part.setContributionURI(featureObservable.getValue().toString());
-				//part.setElementId(featureObservable.getValue().toString());
-				//part.setObject(featureObservable.getValue());
 				part.setObject(refDialog.getSelected());
 				
-				//cdt.initPart(refDialog.getLibrary().getArticle().get(0).eClass());
 				partService.showPart(part, PartState.CREATE);
 				partService.bringToTop(part);
 				
 
-				//MPart part = MBasicFactory.INSTANCE.createCompositePart();
-				/*FormDetailComposite formComposite = formFactory.createFormDetailComposite(_parent, SWT.BORDER);		
-				ECPHandlerHelper.openModelElement(refDialog.getLibrary().getArticle().get(0), ecpProject);
-				formComposite.init(refDialog.getLibrary().getArticle().get(0));*/
+				
 				System.out.println("Link activated!");
-				
-				
-				/*
-				Injector injector = CdtliteratureeditorInjectorProvider.getInjector();
-		    	FormFactory formFactory = injector.getInstance(FormFactory.class);
-		    	
-		  
-		    	
-		    	FormDetailComposite formComposite = formFactory.createFormDetailComposite(_parent, SWT.BORDER);	
-				formComposite.init(refDialog.getLibrary().getArticle().get(0));*/
-				
-				
+					
 			}
 		});
 
@@ -343,21 +317,16 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    gridData.horizontalAlignment = GridData.FILL;
         gridData.grabExcessHorizontalSpace = true;
 	    hyperlink.setLayoutData(gridData);
-     
-        //hyperlink.setData(FormToolkit.KEY_DRAW_BORDER, FormToolkit.TEXT_BORDER);
-      
+           
         final Button openButton = _toolkit.createButton(composite, "set", SWT.PUSH);
        
 		openButton.addSelectionListener(new SelectionAdapter() {
 	            @Override
 	            public void widgetSelected(SelectionEvent e) {
-	            	
-	            
+	            	            
 	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
 	            	        | SWT.APPLICATION_MODAL);
 	            	
-	   
-	        		//ReferenceDialog refDialog = new ReferenceDialog(shell, _toolkit);
 	            	refDialog = new ReferenceDialog(shell, _toolkit);
 	        		refDialog.isResizable();
 	        		 		
@@ -367,7 +336,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	    	
 	        	    	hyperlink.setText(refDialog.getSelectedItem());
  
-	        	    	//featureObservable.setValue(refDialog.getSelectedItem());
 	        	    	featureObservable.setValue(refDialog.getSelected());
 	        	    }
 	    	    

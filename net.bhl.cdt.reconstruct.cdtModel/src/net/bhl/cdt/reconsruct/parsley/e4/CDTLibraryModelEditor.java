@@ -66,43 +66,18 @@ public class CDTLibraryModelEditor {
 		
 		
 	}
-
-	
-	
-	/*@Inject
-	public void setInput(@Optional EObject modelElement, @Optional ECPProject ecpProject, MPart part) {
-		if (modelElement == null || ecpProject == null ) { 		
-			return;
-		}
-			System.out.println("inject");
-	    	final int width = formComposite.getBounds().width;
-			final int height = formComposite.getBounds().height+1;
-			formComposite.init(modelElement);
-			formComposite.setSize(width, height);
-			//ECPHandlerHelper.openModelElement(modelElement ,ecpProject);
-	
-	 }*/
 	 @Inject
-	 public void initPart(MPart part){
-		 	
+	 public void initPart(MPart part, EModelService modelService, MApplication application){		 	
 		 	findObject(part.getObject());
 		 	
-	    	
-	 }
-	 
+		 	
+		 	 List<MPartStack> stacks = modelService.findElements(application, null,
+		             MPartStack.class, null);
+		 	stacks.get(1).getChildren().add(part);
+		 	 
+	 } 
 	 private void findObject(Object object){
-		 
-		/*Injector injectorLib = ParsleyInjectorProvider.getInjector();
-		ResourceLoader resourceLoader = injectorLib.getInstance(ResourceLoader.class);
-		EditingDomain editingDomain = injectorLib.getInstance(EditingDomain.class);
-		Resource resourceLibrary = resourceLoader.getResource(editingDomain, uri).getResource();
-		Library library = (Library) resourceLibrary.getContents().get(0);
-		*/
-		 
-		number = Integer.parseInt(object.toString());
-		
-				
-		//formComposite.init(resourceLibrary.getContents().get(0).eContents().get(0));
+ 		number = Integer.parseInt(object.toString());					
 	 }
 	 
 	
