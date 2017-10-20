@@ -68,12 +68,11 @@ public class CDTLibraryModelEditor {
 	}
 	 @Inject
 	 public void initPart(MPart part, EModelService modelService, MApplication application){		 	
-		 	findObject(part.getObject());
 		 	
-		 	
-		 	 List<MPartStack> stacks = modelService.findElements(application, null,
-		             MPartStack.class, null);
-		 	stacks.get(1).getChildren().add(part);
+		 findObject(part.getObject());
+		 List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
+		 stacks.get(1).getChildren().add(part);
+		 //part.setLabel(featureObservable.getValue().toString());
 		 	 
 	 } 
 	 private void findObject(Object object){

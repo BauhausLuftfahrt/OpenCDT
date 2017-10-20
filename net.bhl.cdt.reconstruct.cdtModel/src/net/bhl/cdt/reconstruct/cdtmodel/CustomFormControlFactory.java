@@ -126,6 +126,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private static final int STANDARD_WIDTH = 300;
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 	private ReferenceDialog refDialog;
+	private MPart part;
+	private String partTitle;
 	
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -245,20 +247,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 	
 	}
-	/*public Control control_Formula_reference(final Formula it) {
-		//EList<EObject> _contents = re.getContents();
-		//it.getReference().listIterator().toString()
-		FormToolkit _toolkit = this.getToolkit();
-	    Composite _parent = this.getParent();
-	    Control [] control = _parent.getChildren();
-	    
-	    System.out.print("getReference : ");
-	    System.out.print("control : " + control.length);
-	    
-	    
-	    return null;
-	  }*/
-	//@Inject CDTLibraryModelEditor modelEditor;
+
 	public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		Injector injector = CdtliteratureeditorInjectorProvider.getInjector();
@@ -271,7 +260,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	     * */
 	    GridLayout _gridLayout = new GridLayout(2, false);
 	    composite.setLayout(_gridLayout);
-	   
+	    
 	    /** 
 		 * text is filled in grid-layout*/
 	
@@ -279,6 +268,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	   // refLabel.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 	   
 	    Hyperlink hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.FILL);
+	    //dbc.bindValue(SWTObservables.observeText(hyperlink., SWT.Modify), featureObservable);
 	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
 	    	
 			public void linkActivated(HyperlinkEvent e) {
@@ -295,16 +285,16 @@ public class CustomFormControlFactory extends FormControlFactory {
 				EPartService partService = EPartServiceHelper.getEPartService();
 				
 				
-				MPart part = MBasicFactory.INSTANCE.createPart();
-				part.setLabel(featureObservable.getValue().toString());
+				//MPart part = MBasicFactory.INSTANCE.createPart();
+				part = MBasicFactory.INSTANCE.createPart();
+				//part.setLabel(featureObservable.getValue().toString());
+				part.setLabel(partTitle);
 				part.setCloseable(true);
 				part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
 				part.setObject(refDialog.getSelected());
 				
 				partService.showPart(part, PartState.CREATE);
 				partService.bringToTop(part);
-				
-
 				
 				System.out.println("Link activated!");
 					
@@ -337,6 +327,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        	    	hyperlink.setText(refDialog.getSelectedItem());
  
 	        	    	featureObservable.setValue(refDialog.getSelected());
+	        	    	partTitle = refDialog.getSelectedItem();
+	        	    	//part.setLabel(refDialog.getSelectedItem());
 	        	    }
 	    	    
 	            }
