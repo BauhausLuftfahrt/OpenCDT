@@ -301,15 +301,16 @@ public class CustomFormControlFactory extends FormControlFactory {
 				//partService.getParts().add(part);
 				
 				
-				part.setLabel("Part");
+				part.setLabel(featureObservable.getValue().toString());
 				//partService.showPart(part, PartState.VISIBLE);
 				
 				//part.setObject(featureObservable);
 				part.setCloseable(true);
 				part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
 				//part.setContributionURI(featureObservable.getValue().toString());
-				part.setObject(refDialog.getLibrary());
-				
+				//part.setElementId(featureObservable.getValue().toString());
+				//part.setObject(featureObservable.getValue());
+				part.setObject(refDialog.getSelected());
 				
 				//cdt.initPart(refDialog.getLibrary().getArticle().get(0).eClass());
 				partService.showPart(part, PartState.CREATE);
@@ -366,9 +367,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	    	
 	        	    	hyperlink.setText(refDialog.getSelectedItem());
  
-	        	    	//refLabel.setText(refDialog.getSelectedItem());
-	        	    	featureObservable.setValue(refDialog.getSelectedItem());
-	        	    
+	        	    	//featureObservable.setValue(refDialog.getSelectedItem());
+	        	    	featureObservable.setValue(refDialog.getSelected());
 	        	    }
 	    	    
 	            }

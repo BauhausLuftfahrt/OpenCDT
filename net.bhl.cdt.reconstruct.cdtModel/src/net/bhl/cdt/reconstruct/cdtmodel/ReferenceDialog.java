@@ -25,6 +25,7 @@ import org.eclipse.emf.parsley.views.OnSelectionTableView;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
+import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.StyledCellLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
@@ -74,8 +75,8 @@ public class ReferenceDialog extends Dialog {
 	private String selectedItem;
 	private TreeItem item;
 	private Library library;
-	FormToolkit toolkit;
-	
+	private FormToolkit toolkit;
+	private int selected;
 	
 	public ReferenceDialog(Shell parent, FormToolkit _toolkit) {
 		super(parent);
@@ -162,6 +163,7 @@ public class ReferenceDialog extends Dialog {
 
 		
         for(int i= 0; i<6; i++){
+        	
         	treeViewer.getTree().getColumn(i).setWidth(150);	
         }
 	
@@ -169,10 +171,15 @@ public class ReferenceDialog extends Dialog {
 		tree.addSelectionListener(new SelectionAdapter() {
 		  @Override
 		  public void widgetSelected(SelectionEvent e) {
-		      //TreeItem item = (TreeItem) e.item;
+		      
 			  	item = (TreeItem) e.item;
+			  	
+			  	selected = tree.indexOf(item);
+			  	
 		        System.out.println(item.getText().toString());
+		        
 		        selectedItem = item.getText().toString();
+		
 		    }
 		});
 		/*treeViewer.getTree().getColumn(0).setWidth(100);
@@ -221,6 +228,9 @@ public class ReferenceDialog extends Dialog {
 	public Library getLibrary(){
 		return library;
 		
+	}
+	public int getSelected(){
+		return selected;
 	}
 	protected boolean isResizable() {
 	    return true;
