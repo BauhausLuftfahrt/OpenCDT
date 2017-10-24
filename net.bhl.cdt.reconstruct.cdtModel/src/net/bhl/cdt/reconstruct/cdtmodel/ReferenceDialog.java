@@ -72,7 +72,7 @@ public class ReferenceDialog extends Dialog {
 	private TableViewer viewer;
 	private ViewerFactory viewerFactory;
 	private Object[] result;
-	private String selectedItem;
+	private String selectedItemString;
 	private TreeItem item;
 	private Library library;
 	private FormToolkit toolkit;
@@ -82,9 +82,14 @@ public class ReferenceDialog extends Dialog {
 		super(parent);
 		toolkit = _toolkit;
 	}
-
+	/**
+	 * the custom dialog is created*/
 	protected Control createDialogArea(Composite parent) {
-		//FormToolkit toolkit = new FormToolkit(parent.getDisplay());
+		
+		/**
+		 * title of dialog is set as references*/
+		Shell shell = parent.getShell();
+		shell.setText("References");
 		
 		Injector injector = CdtliteraturetableInjectorProvider.getInjector();
 		ViewerFactory viewerFactory = injector.getInstance(ViewerFactory.class);
@@ -136,7 +141,7 @@ public class ReferenceDialog extends Dialog {
 
 		
 		TreeViewer treeViewer = viewerFactory.createTreeViewerWithColumns(container,
-				CdtliteratureFactory.eINSTANCE.getCdtliteraturePackage().getALiteratureBase(), resourceLibrary);//library
+				CdtliteratureFactory.eINSTANCE.getCdtliteraturePackage().getALiteratureBase(), resourceLibrary);
 		
 		treeViewer.expandAll();
 //		EList<EObject> elibrary = library.eContents();
@@ -175,15 +180,11 @@ public class ReferenceDialog extends Dialog {
 		  public void widgetSelected(SelectionEvent e) {
 		      
 			  	item = (TreeItem) e.item;
-			  	
-			  	selected = tree.indexOf(item);
-			  	
-		        System.out.println(item.getText().toString());
-		        
-		        selectedItem = item.getText().toString();
+		        selectedItemString = item.getText().toString();
 		
 		    }
 		});
+		
 		/*treeViewer.getTree().getColumn(0).setWidth(100);
 		treeViewer.getTree().getColumn(1).setWidth(100);*/
 		//viewerFactory.buildColumns(table,);
@@ -222,7 +223,7 @@ public class ReferenceDialog extends Dialog {
         super.okPressed();
     }
 	public String getSelectedItem(){
-		return selectedItem;
+		return selectedItemString;
 	}
 	public TreeItem getSelectedTreeItem(){
 		return item;

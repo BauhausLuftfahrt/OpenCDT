@@ -128,7 +128,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private static final int STANDARD_WIDTH = 300;
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 	private ReferenceDialog refDialog;
-	private String partTitle;
+	private String newPartTitle;
 	
 	
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
@@ -265,14 +265,52 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    
 	    Hyperlink hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.FILL);
 	   
-	    System.out.println("featureObs : " + featureObservable.getValue().toString() );
+	    System.out.println("featureObsable : " + featureObservable.getValue().toString() );
 	    
 	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
 	    	
 			public void linkActivated(HyperlinkEvent e) {
 			
+				String featureObsString;
 				EPartService partService = EPartServiceHelper.getEPartService();
+				if(featureObservable.getValue().toString() == ""){
+					 featureObsString = "";
+				}else{
+					featureObsString = featureObservable.getValue().toString();
+				}
+				//String featureObsString = featureObservable.getValue().toString();
+				Boolean partVisible = false;
 				
+				if(!featureObsString.isEmpty()){
+					MPart part = MBasicFactory.INSTANCE.createPart();
+					part.setElementId( featureObsString);
+					part.setLabel(featureObsString);
+					part.setCloseable(true);
+					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+					
+					Collection<MPart> collPart = partService.getParts();
+					for ( Iterator<MPart> iterator = collPart.iterator(); iterator.hasNext(); ){
+						
+						if(iterator.next().getLabel() == featureObsString){
+							partVisible = true;
+							break;
+						}
+						
+					}
+					if(!partVisible){
+						partService.showPart(part, PartState.CREATE);
+						partService.bringToTop(part);
+					}
+					
+				}
+				else{
+					
+				}
+				
+
+				
+				/*EPartService partService = EPartServiceHelper.getEPartService();
+			
 				MPart part = MBasicFactory.INSTANCE.createPart();
 				Boolean partVisible = false;
 				if(partTitle != ""){
@@ -296,12 +334,15 @@ public class CustomFormControlFactory extends FormControlFactory {
 					
 				}
 				
-				part.setObject(refDialog.getSelected());
+				//part.setObject(refDialog.getSelected());
+				//part.setObject(refDialog.getSelectedItem());
+				part.setObject(featureObservable.getValue().toString());
+				
 				if(!partVisible){
 					partService.showPart(part, PartState.CREATE);
 					partService.bringToTop(part);
-				}
-				System.out.println("Link activated!");
+				}*/
+				
 					
 			}
 		});
@@ -325,12 +366,20 @@ public class CustomFormControlFactory extends FormControlFactory {
 	            	
 	            	refDialog = new ReferenceDialog(shell, _toolkit);
 	        		refDialog.isResizable();
+	        		
 	        		 		
 	        	    if (refDialog.open() == Window.OK) {
-	    	    	
-	        	    	hyperlink.setText(refDialog.getSelectedItem());
-	        	    	featureObservable.setValue(refDialog.getSelectedItem());
-	        	    	partTitle = refDialog.getSelectedItem();
+	        	    	
+	        	    	if(refDialog.getSelectedItem() != ""){
+	        	    		
+		        	    	hyperlink.setText(refDialog.getSelectedItem());
+		        	    	System.out.println("dialog : " + refDialog.getSelectedItem());
+		        	    	featureObservable.setValue(refDialog.getSelectedItem());
+	        	    	}
+	        	    	else{
+	        	    		
+	        	    		//featureObservable.setValue("");
+	        	    	}
 	        	    }
 	    	    
 	            }
