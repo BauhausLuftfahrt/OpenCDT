@@ -65,18 +65,41 @@ public class CDTLibraryModelEditor {
 		formComposite.init(resourceLibrary.getContents().get(0).eContents().get(number));
 		
 		
+		
 	}
 	 @Inject
 	 public void initPart(MPart part, EModelService modelService, MApplication application){		 	
-		 	
-		 findObject(part.getObject());
+		 
+		 
+		 Boolean partVisible = false;
+		 MPartStack stack = (MPartStack) modelService.find(
+                 "org.eclipse.emf.ecp.e4.application.partstack.editor", application);
+		 stack.getChildren().size();
+		 String id = part.getElementId();
+		 
+		 for (int i = 0; i < stack.getChildren().size(); i++) {
+             if (stack.getChildren().get(i).isVisible()) {
+                 System.out.println(" part id: "
+                         + ((MPart) stack.getChildren().get(i)).getElementId());
+                 if(id == ((MPart) stack.getChildren().get(i)).getElementId()){
+                	 partVisible = true;
+                	 break;
+                	 
+                 }
+    
+             }
+         }
 		 List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
-		 stacks.get(1).getChildren().add(part);
+		 if(!partVisible){
+			 stacks.get(1).getChildren().add(part);}
 		 //part.setLabel(featureObservable.getValue().toString());
 		 	 
 	 } 
 	 private void findObject(Object object){
  		number = Integer.parseInt(object.toString());					
+	 }
+	 public void part(){
+		 
 	 }
 	 
 	

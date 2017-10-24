@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Iterator;
 
 import javax.inject.Inject;
@@ -19,6 +20,7 @@ import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.basic.MBasicFactory;
 import org.eclipse.e4.ui.model.application.ui.basic.MCompositePart;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
+import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
@@ -126,8 +128,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private static final int STANDARD_WIDTH = 300;
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 	private ReferenceDialog refDialog;
-	private MPart part;
 	private String partTitle;
+	
 	
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -261,41 +263,38 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    GridLayout _gridLayout = new GridLayout(2, false);
 	    composite.setLayout(_gridLayout);
 	    
-	    /** 
-		 * text is filled in grid-layout*/
-	
-	   // Label refLabel = getToolkit().createLabel(composite,featureObservable.getValue().toString(), SWT.LEFT);
-	   // refLabel.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
-	   
 	    Hyperlink hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.FILL);
-	    //dbc.bindValue(SWTObservables.observeText(hyperlink., SWT.Modify), featureObservable);
+	   
+	    System.out.println("featureObs : " + featureObservable.getValue().toString() );
+	    
 	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
 	    	
 			public void linkActivated(HyperlinkEvent e) {
-				
-				/*EModelService modelservice = injector.getInstance(EModelService.class);
-				MApplication application = injector.getInstance(MApplication.class);
-				EPartService partService = injector.getInstance(EPartService.class);*/
-				//ECPProject ecpProject  = injector.getInstance(ECPProject.class);
-				//CDTLibraryModelEditor modelEditor = new CDTLibraryModelEditor();
-				//partService.showPart("part id", PartState.ACTIVATE);
-				//modelEditor.setInput(refDialog.getLibrary().getArticle().get(0));
-			/*
-				FormFactory formFactory = injector.getInstance(FormFactory.class);*/
+			
 				EPartService partService = EPartServiceHelper.getEPartService();
 				
-				
-				//MPart part = MBasicFactory.INSTANCE.createPart();
-				part = MBasicFactory.INSTANCE.createPart();
-				//part.setLabel(featureObservable.getValue().toString());
+				MPart part = MBasicFactory.INSTANCE.createPart();
+				Boolean partVisible = false;
+				part.setElementId(partTitle);
 				part.setLabel(partTitle);
 				part.setCloseable(true);
 				part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+				
+				Collection<MPart> collPart = partService.getParts();
+				for ( Iterator<MPart> iterator = collPart.iterator(); iterator.hasNext(); ){
+					
+					if(iterator.next().getLabel() == partTitle){
+						partVisible = true;
+						break;
+					}
+					
+				}
+				
 				part.setObject(refDialog.getSelected());
-				
-				partService.showPart(part, PartState.CREATE);
-				partService.bringToTop(part);
-				
+				if(!partVisible){
+					partService.showPart(part, PartState.CREATE);
+					partService.bringToTop(part);
+				}
 				System.out.println("Link activated!");
 					
 			}
@@ -308,9 +307,10 @@ public class CustomFormControlFactory extends FormControlFactory {
         gridData.grabExcessHorizontalSpace = true;
 	    hyperlink.setLayoutData(gridData);
            
-        final Button openButton = _toolkit.createButton(composite, "set", SWT.PUSH);
+        final Button setButton = _toolkit.createButton(composite, "set", SWT.PUSH);
        
-		openButton.addSelectionListener(new SelectionAdapter() {
+		setButton.addSelectionListener(new SelectionAdapter() {
+			
 	            @Override
 	            public void widgetSelected(SelectionEvent e) {
 	            	            
@@ -321,14 +321,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        		refDialog.isResizable();
 	        		 		
 	        	    if (refDialog.open() == Window.OK) {
-	        		
-	        	    	System.out.println("OK");
 	    	    	
 	        	    	hyperlink.setText(refDialog.getSelectedItem());
- 
-	        	    	featureObservable.setValue(refDialog.getSelected());
+	        	    	featureObservable.setValue(refDialog.getSelectedItem());
 	        	    	partTitle = refDialog.getSelectedItem();
-	        	    	//part.setLabel(refDialog.getSelectedItem());
 	        	    }
 	    	    
 	            }
