@@ -118,7 +118,9 @@ module net.bhl.cdt.reconstruct.cdtliteraturetable {
 						Formula
 					}
 					Library -> {
-						Article
+						article + book + inbook + conference + incollection + inproceedings
+							 + proceedings + techreport + phdthesis+ masterthesis + unpublished
+						
 					}
 				}
     		}

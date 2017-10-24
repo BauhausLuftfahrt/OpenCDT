@@ -98,10 +98,6 @@ public class CDTLibraryModelEditor {
 	 private void findObject(Object object){
  		number = Integer.parseInt(object.toString());					
 	 }
-	 public void part(){
-		 
-	 }
-	 
 	
 	
 }

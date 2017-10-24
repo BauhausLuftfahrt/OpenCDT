@@ -136,15 +136,16 @@ public class ReferenceDialog extends Dialog {
 
 		
 		TreeViewer treeViewer = viewerFactory.createTreeViewerWithColumns(container,
-				CdtliteratureFactory.eINSTANCE.getCdtliteraturePackage().getALiteratureBase(), library);//library
+				CdtliteratureFactory.eINSTANCE.getCdtliteraturePackage().getALiteratureBase(), resourceLibrary);//library
 		
-		EList<EObject> elibrary = library.eContents();
-		
-		for(int i=0; i<elibrary.size(); i++){
-			
-			treeViewer.add(library, elibrary.get(i));
-			
-		}
+		treeViewer.expandAll();
+//		EList<EObject> elibrary = library.eContents();
+//		
+//		for(int i=0; i<elibrary.size(); i++){
+//			
+//			treeViewer.add(library, elibrary.get(i));
+//			
+//		}
 		//treeViewer.add(library, library.getArticle().get(0));
 		//treeViewer.add(library, library.getBook().get(0));
 		/*TreeViewer treeViewer = new TreeViewer(parent);
@@ -162,6 +163,7 @@ public class ReferenceDialog extends Dialog {
         treeViewer.getTree().setLinesVisible(true);
 
 		
+        
         for(int i= 0; i<6; i++){
         	
         	treeViewer.getTree().getColumn(i).setWidth(150);	
@@ -210,7 +212,7 @@ public class ReferenceDialog extends Dialog {
 			
 	}
 	protected Point getInitialSize() {
-	      return new Point(940, 400);
+	      return new Point(940, 300);
 	}
 	public Object[] getResult() {
 		return result;

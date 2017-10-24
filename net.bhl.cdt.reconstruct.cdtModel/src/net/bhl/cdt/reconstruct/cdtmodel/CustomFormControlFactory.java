@@ -275,8 +275,14 @@ public class CustomFormControlFactory extends FormControlFactory {
 				
 				MPart part = MBasicFactory.INSTANCE.createPart();
 				Boolean partVisible = false;
-				part.setElementId(partTitle);
-				part.setLabel(partTitle);
+				if(partTitle != ""){
+					part.setElementId(partTitle);
+					part.setLabel(partTitle);
+				}
+				else{
+					part.setElementId(featureObservable.getValue().toString());
+					part.setLabel(featureObservable.getValue().toString());
+				}
 				part.setCloseable(true);
 				part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
 				
