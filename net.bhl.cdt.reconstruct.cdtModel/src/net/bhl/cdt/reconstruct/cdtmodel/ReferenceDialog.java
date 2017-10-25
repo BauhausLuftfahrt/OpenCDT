@@ -25,7 +25,9 @@ import org.eclipse.emf.parsley.views.OnSelectionTableView;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.StyledCellLabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
@@ -76,7 +78,8 @@ public class ReferenceDialog extends Dialog {
 	private TreeItem item;
 	private Library library;
 	private FormToolkit toolkit;
-	private int selected;
+	private ALiteratureBase literatureObj;
+	private Resource resourceLibrary;
 	
 	public ReferenceDialog(Shell parent, FormToolkit _toolkit) {
 		super(parent);
@@ -94,56 +97,25 @@ public class ReferenceDialog extends Dialog {
 		Injector injector = CdtliteraturetableInjectorProvider.getInjector();
 		ViewerFactory viewerFactory = injector.getInstance(ViewerFactory.class);
 		 
-		  //OnSelectionTableView tableView = injector.getInstance(OnSelectionTableView.class);
-		  
-		  //Table t = toolkit.createTable(container, SWT.NONE);
-		  /*GridData gd = new GridData(GridData.FILL_BOTH);
-	        gd.heightHint = 20;
-	        gd.widthHint = 100;
-	        t.setLayoutData(gd);
-	        viewer = new TableViewer(t);
-	        TableViewerColumn viewerColumn = new TableViewerColumn(viewer, SWT.NONE);*/
 		Injector injectorLib = ParsleyInjectorProvider.getInjector();
 		ResourceLoader resourceLoader = injectorLib.getInstance(ResourceLoader.class);
 		EditingDomain editingDomain = injectorLib.getInstance(EditingDomain.class);
-		Resource resourceLibrary = resourceLoader.getResource(editingDomain, uri).getResource();
+		resourceLibrary = resourceLoader.getResource(editingDomain, uri).getResource();
 		
 		
 		ViewerContextMenuHelper contextMenuHelper = injector.getInstance(ViewerContextMenuHelper.class);
-		//Guice injected viewer drag and drop helper
 		
-		//ALiteratureBase base = CdtliteratureFactory.eINSTANCE.getCdtliteraturePackage().getALiteratureBase();
-		
-		//Object obj = resourceLibrary.getContents().get(0);
 		library = (Library) resourceLibrary.getContents().get(0);
-		//resourceLibrary.getAllContents()
-		//Article article = library.getArticle().get(0);
-		//Book book = library.getBook().get(0);
-		//parent.setSize(500, 700);
+		
 		Composite container = (Composite) super.createDialogArea(parent);
 		
-		//container.setSize(300, 500);
-		/*TableFormFactory tableFactory = injector.getInstance(TableFormFactory.class);
-		TableFormComposite tableComposite = tableFactory.createTableFormMasterDetailComposite(parent, SWT.BORDER,library.eClass());
-		TableViewer table = viewerFactory.createTableViewer(tableComposite, SWT.BORDER | SWT.NO_SCROLL, library.eClass());
-		tableComposite.getViewerFactory().initialize(table, article);*/
-		
-		
-		/*TableViewer table = viewerFactory.createTableViewer(container, SWT.BORDER | SWT.NO_SCROLL, library.eClass());
-		//TableViewer table = viewerFactory.createTableViewer(container, SWT.BORDER | SWT.NO_SCROLL, article.eClass());
-		viewerFactory.initialize(table, library);
-		
-	
-		table.getTable().getColumn(0).setWidth(100);
-		table.getTable().getColumn(1).setWidth(100);
-		table.getTable().getColumn(2).setWidth(100);*/
-		
 
-		
 		TreeViewer treeViewer = viewerFactory.createTreeViewerWithColumns(container,
 				CdtliteratureFactory.eINSTANCE.getCdtliteraturePackage().getALiteratureBase(), resourceLibrary);
 		
 		treeViewer.expandAll();
+
+		
 //		EList<EObject> elibrary = library.eContents();
 //		
 //		for(int i=0; i<elibrary.size(); i++){
@@ -151,24 +123,11 @@ public class ReferenceDialog extends Dialog {
 //			treeViewer.add(library, elibrary.get(i));
 //			
 //		}
-		//treeViewer.add(library, library.getArticle().get(0));
-		//treeViewer.add(library, library.getBook().get(0));
-		/*TreeViewer treeViewer = new TreeViewer(parent);
-        treeViewer.setContentProvider(new TreeContentProvider());
-		treeViewer.getTree().setHeaderVisible(true);
-		TreeViewerColumn viewerColumn = new TreeViewerColumn(treeViewer, SWT.NONE);
-        viewerColumn.getColumn().setWidth(300);
-        viewerColumn.getColumn().setText("Names");
-        viewerColumn.setLabelProvider(new ColumnLabelProvider());
-        treeViewer.setInput(new String[] { "Simon Scholz" });
-        GridLayoutFactory.fillDefaults().generateLayout(parent);*/
-
+		
 		contextMenuHelper.addViewerContextMenu(treeViewer, editingDomain);
 		treeViewer.getTree().setHeaderVisible(true);
         treeViewer.getTree().setLinesVisible(true);
-
-		
-        
+      
         for(int i= 0; i<6; i++){
         	
         	treeViewer.getTree().getColumn(i).setWidth(150);	
@@ -185,30 +144,33 @@ public class ReferenceDialog extends Dialog {
 		    }
 		});
 		
-		/*treeViewer.getTree().getColumn(0).setWidth(100);
-		treeViewer.getTree().getColumn(1).setWidth(100);*/
-		//viewerFactory.buildColumns(table,);
-		//viewerFactory.buildColumns(table,article.eClass());		
-		/*Library library = (Library) resourceLibrary.getContents().get(0);
-		ViewerFactory viewerFactory = new ViewerFactory();
-		TableViewer table = viewerFactory.createTableViewer(container, SWT.BORDER | SWT.FULL_SELECTION, library.eClass());
-		viewerFactory.initialize(table, uri);
+		/*treeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
+		    @Override
+		    public void selectionChanged(SelectionChangedEvent event) {
+		        IStructuredSelection selection = viewer.getStructuredSelection();
+		        selection.getFirstElement();
+		        //selectionService.setSelection(selection.getFirstElement());
+		    }
+		});*/
 		
-	    
-	    
-	      /*Button button = new Button(container, SWT.PUSH);
-	        button.setLayoutData(new GridData(SWT.BEGINNING, SWT.CENTER, false,
-	                false));
-	        button.setText("Press me");
-	        button.addSelectionListener(new SelectionAdapter() {
-	            @Override
-	            public void widgetSelected(SelectionEvent e) {
-	                System.out.println("Pressed");
-	            }
-	        });*/
-	      
+		treeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
+			   public void selectionChanged(SelectionChangedEvent event) {
+			       // if the selection is empty clear the label
+			       if(event.getSelection().isEmpty()) {			           
+			           return;
+			       }
+			       if(event.getSelection() instanceof IStructuredSelection) {
+			    	   
+			           IStructuredSelection selection = (IStructuredSelection)event.getSelection();
+			           
+			           literatureObj = (ALiteratureBase) selection.getFirstElement();
+			           
+			           
 	
-		  
+			       }
+			   }
+			});
+
 	      return container;
 			
 	}
@@ -228,16 +190,40 @@ public class ReferenceDialog extends Dialog {
 	public TreeItem getSelectedTreeItem(){
 		return item;
 	}
+	public String getLiteratureObj(){
+		
+		if(literatureObj != null)
+		{
+			return literatureObj.getTitle();}
+		else{
+			return "";
+		}
+	}
 	public Library getLibrary(){
 		return library;
 		
 	}
-	public int getSelected(){
+	/*public int getSelected(){
 		return selected;
-	}
+	}*/
 	protected boolean isResizable() {
 	    return true;
 	}
+/*	private int getNumberBib(){
+		
+		int number = resourceLibrary.getContents().size();
+		
+		for(int i=0; i<number;i++){
+			
+			Library lib =  resourceLibrary.getContents().get(i);
+			
+			int sizeLib = lib.get
+			
+			
+			
+		}
+		
+	}*/
 	
 	
 

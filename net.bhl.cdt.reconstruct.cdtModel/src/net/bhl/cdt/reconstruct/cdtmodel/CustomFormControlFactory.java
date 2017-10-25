@@ -264,13 +264,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    composite.setLayout(_gridLayout);
 	    
 	    Hyperlink hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.FILL);
-	   
-	    System.out.println("featureObsable : " + featureObservable.getValue().toString() );
+
+	    
 	    
 	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
 	    	
 			public void linkActivated(HyperlinkEvent e) {
-			
+				System.out.println("featureObsable : " + featureObservable.getValue().toString() );
 				String featureObsString;
 				EPartService partService = EPartServiceHelper.getEPartService();
 				if(featureObservable.getValue().toString() == ""){
@@ -278,15 +278,17 @@ public class CustomFormControlFactory extends FormControlFactory {
 				}else{
 					featureObsString = featureObservable.getValue().toString();
 				}
-				//String featureObsString = featureObservable.getValue().toString();
 				Boolean partVisible = false;
 				
 				if(!featureObsString.isEmpty()){
 					MPart part = MBasicFactory.INSTANCE.createPart();
-					part.setElementId( featureObsString);
+					part.setElementId(featureObsString);
 					part.setLabel(featureObsString);
 					part.setCloseable(true);
 					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+					
+					//part.setObject(featureObsString);
+					
 					
 					Collection<MPart> collPart = partService.getParts();
 					for ( Iterator<MPart> iterator = collPart.iterator(); iterator.hasNext(); ){
@@ -306,6 +308,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				else{
 					
 				}
+				
 				
 
 				
@@ -370,11 +373,18 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        		 		
 	        	    if (refDialog.open() == Window.OK) {
 	        	    	
-	        	    	if(refDialog.getSelectedItem() != ""){
+	        	    	/*if(!refDialog.getSelectedItem().equals("")){
 	        	    		
-		        	    	hyperlink.setText(refDialog.getSelectedItem());
+		        	    	hyperlink.setText(refDialog.getSelectedItem());*/
+	        	    	if(!refDialog.getLiteratureObj().equals("")){
+	        	    		
+		        	    	hyperlink.setText(refDialog.getLiteratureObj());
+		        	    	
 		        	    	System.out.println("dialog : " + refDialog.getSelectedItem());
-		        	    	featureObservable.setValue(refDialog.getSelectedItem());
+		        	    	
+		        	    	//featureObservable.setValue(refDialog.getSelectedItem());
+		        	    	featureObservable.setValue(refDialog.getLiteratureObj());
+		        	    	
 	        	    	}
 	        	    	else{
 	        	    		
