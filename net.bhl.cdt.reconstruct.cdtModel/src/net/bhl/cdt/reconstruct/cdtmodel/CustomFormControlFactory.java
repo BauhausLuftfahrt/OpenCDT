@@ -78,6 +78,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.TabFolder;
 import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.IPartListener2;
+import org.eclipse.ui.IWorkbenchPartReference;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 import org.eclipse.ui.dialogs.ListDialog;
@@ -258,19 +260,18 @@ public class CustomFormControlFactory extends FormControlFactory {
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
 	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
-	    /**
-	     * this layout is set for text, three buttons.
-	     * */
+	    
 	    //GridLayout _gridLayout = new GridLayout(2, false);
 	    GridLayout _gridLayout = new GridLayout(3, false);
 	    composite.setLayout(_gridLayout);
 	    
 	    //Hyperlink hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.FILL);
-	    hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.FILL);
+	    //hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.FILL);
+	    hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.NONE);
 	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
 	    	
 			public void linkActivated(HyperlinkEvent e) {
-				System.out.println("featureObsable : " + featureObservable.getValue().toString() );
+				//System.out.println("featureObsable : " + featureObservable.getValue().toString() );
 				String featureObsString;
 				EPartService partService = EPartServiceHelper.getEPartService();
 				if(featureObservable.getValue().toString() == ""){
@@ -281,24 +282,28 @@ public class CustomFormControlFactory extends FormControlFactory {
 				Boolean partVisible = false;
 				
 				if(!featureObsString.isEmpty()){
+					
 					MPart part = MBasicFactory.INSTANCE.createPart();
+					//MPart part = partService.createPart(featureObsString);
 					part.setElementId(featureObsString);
 					part.setLabel(featureObsString);
 					part.setCloseable(true);
 					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
 					
-					//part.setObject(featureObsString);
-					
-					
 					Collection<MPart> collPart = partService.getParts();
+										
 					for ( Iterator<MPart> iterator = collPart.iterator(); iterator.hasNext(); ){
 						
 						if(iterator.next().getLabel() == featureObsString){
-							partVisible = true;
-							break;
+							
+				
+								partVisible = true;
+								break;
+							
 						}
 						
 					}
+					
 					if(!partVisible){
 						partService.showPart(part, PartState.CREATE);
 						partService.bringToTop(part);
@@ -315,10 +320,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 
 	   
 		GridData gridData = new GridData();
-	    gridData.horizontalAlignment = GridData.FILL;
+	    //gridData.horizontalAlignment = GridData.FILL;
+		//gridData.horizontalAlignment = GridData.BEGINNING;
+		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
         gridData.grabExcessHorizontalSpace = true;
+        gridData.minimumWidth = 150;
 	    hyperlink.setLayoutData(gridData);
-           
+        
         final Button setButton = _toolkit.createButton(composite, "set", SWT.PUSH);
        
 		setButton.addSelectionListener(new SelectionAdapter() {
@@ -342,17 +350,17 @@ public class CustomFormControlFactory extends FormControlFactory {
 		        	    	
 		        	    	System.out.println("dialog : " + refDialog.getSelectedItem());
 		        	    	
-		        	    	//featureObservable.setValue(refDialog.getSelectedItem());
 		        	    	featureObservable.setValue(refDialog.getLiteratureObj());
 		        	    	
 	        	    	}
-	        	    	else{
-	        	    		
-	        	    		//featureObservable.setValue("");
-	        	    	}
+	        	    	
 	        	    }
-	    	    
+	        	    
+	        	    //hyperlink.setFocus();
+	        	    composite.forceFocus();
+	        	    
 	            }
+	           
 	        });
 		   
         final Button deleteButton = _toolkit.createButton(composite, "delete", SWT.PUSH);  
@@ -361,12 +369,20 @@ public class CustomFormControlFactory extends FormControlFactory {
 	            @Override
 	            public void widgetSelected(SelectionEvent e) {
 	            	            
-	            	hyperlink.setText("");
-	            	hyperlink.setEnabled(false);
-	    	    
+	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
+	            	        | SWT.APPLICATION_MODAL);
+	            	
+	            	MessageBox dialog = new MessageBox(shell, SWT.ICON_QUESTION | SWT.OK| SWT.CANCEL);
+	            		dialog.setText("Question");
+	            		dialog.setMessage("Do you really want to delete this?");
+	            		
+	            		if(dialog.open() == SWT.OK){
+	            			hyperlink.setText("");
+	    	            	hyperlink.setEnabled(false);
+	            		}
+	            		
 	            }
-	        });
-		
+	    });
 
 		return composite;
 		

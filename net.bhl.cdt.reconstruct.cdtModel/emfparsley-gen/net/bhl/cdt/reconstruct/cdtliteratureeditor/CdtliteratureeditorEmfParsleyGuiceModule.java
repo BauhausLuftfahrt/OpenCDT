@@ -1,12 +1,14 @@
 package net.bhl.cdt.reconstruct.cdtliteratureeditor;
 
 import net.bhl.cdt.reconstruct.cdtliteratureeditor.config.CdtliteratureeditorConfigurator;
-import net.bhl.cdt.reconstruct.cdtmodel.CustomFormControlFactory;
+import net.bhl.cdt.reconstruct.cdtliteratureeditor.ui.provider.CdtliteratureeditorFeaturesProvider;
+import net.bhl.cdt.reconstruct.cdtmodel.CustomPartControlFactory;
 import org.eclipse.emf.parsley.EmfParsleyGuiceModule;
 import org.eclipse.emf.parsley.composite.FormControlFactory;
 import org.eclipse.emf.parsley.config.Configurator;
 import org.eclipse.emf.parsley.edit.IEditingStrategy;
 import org.eclipse.emf.parsley.edit.UndoableEditingStrategy;
+import org.eclipse.emf.parsley.ui.provider.FeaturesProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
@@ -25,7 +27,12 @@ public class CdtliteratureeditorEmfParsleyGuiceModule extends EmfParsleyGuiceMod
   
   @Override
   public Class<? extends FormControlFactory> bindFormControlFactory() {
-    return CustomFormControlFactory.class;
+    return CustomPartControlFactory.class;
+  }
+  
+  @Override
+  public Class<? extends FeaturesProvider> bindFeaturesProvider() {
+    return CdtliteratureeditorFeaturesProvider.class;
   }
   
   @Override

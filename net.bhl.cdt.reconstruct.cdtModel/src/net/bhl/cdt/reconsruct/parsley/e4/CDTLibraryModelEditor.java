@@ -33,6 +33,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.ui.IPartListener2;
+import org.eclipse.ui.IWorkbenchPartReference;
 
 import com.google.inject.Injector;
 
@@ -46,7 +48,6 @@ public class CDTLibraryModelEditor {
 	
 	private FormDetailComposite formComposite;
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
-	//private int number;
 	private Resource resourceLibrary;
 	private int bib;
 	private int lit;
@@ -67,9 +68,9 @@ public class CDTLibraryModelEditor {
 		//Resource resourceLibrary = resourceLoader.getResource(editingDomain, uri).getResource();
 		resourceLibrary = resourceLoader.getResource(editingDomain, uri).getResource();
 		//Library library = (Library) resourceLibrary.getContents().get(0);*/	
-		System.out.println("bib : " + bib);
-		System.out.println("lit : " + lit);
+		
 		formComposite.init(resourceLibrary.getContents().get(bib).eContents().get(lit));
+		
 		
 	}
 	 @Inject
@@ -94,8 +95,9 @@ public class CDTLibraryModelEditor {
 		 
 		 for (int i = 0; i < stack.getChildren().size(); i++) {
              if (stack.getChildren().get(i).isVisible()) {
-                 System.out.println(" part id: "
-                         + ((MPart) stack.getChildren().get(i)).getElementId());
+                 
+            	 System.out.println(" part id visiable : " + ((MPart) stack.getChildren().get(i)).getElementId());
+            	 
                  if(id == ((MPart) stack.getChildren().get(i)).getElementId()){
                 	 partVisible = true;
                 	 break;
@@ -139,8 +141,6 @@ public class CDTLibraryModelEditor {
 			 	for(int j = 0; j< whole; j++){
 			 		ALiteratureBase base = (ALiteratureBase) resourceLibrary.getContents().get(i).eContents().get(j);
 			 		String title = base.getTitle();
-			 		System.out.println("id : " + id);
-			 		System.out.println("title : " + title);
 			 		if(title.equals(id)){
 			 			lit = j;
 			 			break;
@@ -148,9 +148,9 @@ public class CDTLibraryModelEditor {
 			 	}
 			 }
 		 
-		 System.out.println("lit2 : " + lit);
 		 return lit;
 	 }
+	 
 	 
 	 
 	
