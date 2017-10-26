@@ -203,32 +203,10 @@ public class ReferenceDialog extends Dialog {
 		return library;
 		
 	}
-	/*public int getSelected(){
-		return selected;
-	}*/
+	
 	protected boolean isResizable() {
 	    return true;
 	}
-/*	private int getNumberBib(){
-		
-		int number = resourceLibrary.getContents().size();
-		
-		for(int i=0; i<number;i++){
-			
-			Library lib =  resourceLibrary.getContents().get(i);
-			
-			int sizeLib = lib.get
-			
-			
-			
-		}
-		
-	}*/
-	
-	
-
-
-	    
-	    
+   
 
 }

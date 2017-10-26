@@ -129,6 +129,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 	private ReferenceDialog refDialog;
 	private String newPartTitle;
+	private Hyperlink hyperlink;
 	
 	
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
@@ -260,13 +261,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    /**
 	     * this layout is set for text, three buttons.
 	     * */
-	    GridLayout _gridLayout = new GridLayout(2, false);
+	    //GridLayout _gridLayout = new GridLayout(2, false);
+	    GridLayout _gridLayout = new GridLayout(3, false);
 	    composite.setLayout(_gridLayout);
 	    
-	    Hyperlink hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.FILL);
-
-	    
-	    
+	    //Hyperlink hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.FILL);
+	    hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.FILL);
 	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
 	    	
 			public void linkActivated(HyperlinkEvent e) {
@@ -308,45 +308,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				else{
 					
 				}
-				
-				
-
-				
-				/*EPartService partService = EPartServiceHelper.getEPartService();
-			
-				MPart part = MBasicFactory.INSTANCE.createPart();
-				Boolean partVisible = false;
-				if(partTitle != ""){
-					part.setElementId(partTitle);
-					part.setLabel(partTitle);
-				}
-				else{
-					part.setElementId(featureObservable.getValue().toString());
-					part.setLabel(featureObservable.getValue().toString());
-				}
-				part.setCloseable(true);
-				part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
-				
-				Collection<MPart> collPart = partService.getParts();
-				for ( Iterator<MPart> iterator = collPart.iterator(); iterator.hasNext(); ){
-					
-					if(iterator.next().getLabel() == partTitle){
-						partVisible = true;
-						break;
-					}
-					
-				}
-				
-				//part.setObject(refDialog.getSelected());
-				//part.setObject(refDialog.getSelectedItem());
-				part.setObject(featureObservable.getValue().toString());
-				
-				if(!partVisible){
-					partService.showPart(part, PartState.CREATE);
-					partService.bringToTop(part);
-				}*/
-				
-					
+	
 			}
 		});
 
@@ -372,12 +334,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        		
 	        		 		
 	        	    if (refDialog.open() == Window.OK) {
-	        	    	
-	        	    	/*if(!refDialog.getSelectedItem().equals("")){
-	        	    		
-		        	    	hyperlink.setText(refDialog.getSelectedItem());*/
+	        	    
 	        	    	if(!refDialog.getLiteratureObj().equals("")){
 	        	    		
+	        	    		hyperlink.setEnabled(true);
 		        	    	hyperlink.setText(refDialog.getLiteratureObj());
 		        	    	
 		        	    	System.out.println("dialog : " + refDialog.getSelectedItem());
@@ -394,7 +354,20 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	    
 	            }
 	        });
+		   
+        final Button deleteButton = _toolkit.createButton(composite, "delete", SWT.PUSH);  
+		deleteButton.addSelectionListener(new SelectionAdapter() {
+			
+	            @Override
+	            public void widgetSelected(SelectionEvent e) {
+	            	            
+	            	hyperlink.setText("");
+	            	hyperlink.setEnabled(false);
+	    	    
+	            }
+	        });
 		
+
 		return composite;
 		
 	  }
