@@ -8,7 +8,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.xml.parsers.ParserConfigurationException;
@@ -132,7 +134,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private ReferenceDialog refDialog;
 	private String newPartTitle;
 	private Hyperlink hyperlink;
-	
+	private MPart part; 
+	private HashMap<String, String> literatureCheck;
 	
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -249,10 +252,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 
 		return composite;
 		
-		
-	
 	}
-
 	public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		Injector injector = CdtliteratureeditorInjectorProvider.getInjector();
@@ -265,8 +265,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    GridLayout _gridLayout = new GridLayout(3, false);
 	    composite.setLayout(_gridLayout);
 	    
-	    //Hyperlink hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.FILL);
-	    //hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.FILL);
+	   
 	    hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.NONE);
 	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
 	    	
@@ -283,36 +282,49 @@ public class CustomFormControlFactory extends FormControlFactory {
 				
 				if(!featureObsString.isEmpty()){
 					
-					MPart part = MBasicFactory.INSTANCE.createPart();
-					//MPart part = partService.createPart(featureObsString);
+					/*MPart part = MBasicFactory.INSTANCE.createPart();
 					part.setElementId(featureObsString);
 					part.setLabel(featureObsString);
 					part.setCloseable(true);
 					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
-					
+					*/
 					Collection<MPart> collPart = partService.getParts();
-										
-					for ( Iterator<MPart> iterator = collPart.iterator(); iterator.hasNext(); ){
-						
-						if(iterator.next().getLabel() == featureObsString){
-							
+					
+	
+					
+					for( Iterator<MPart> iterator = collPart.iterator(); iterator.hasNext();){
 				
-								partVisible = true;
+						
+						if(iterator.next().getLabel().equals(featureObsString)){
+						
+								System.out.println("visible "+ iterator.next().isVisible());
+								partVisible = true;							
 								break;
 							
-						}
-						
+							}
 					}
 					
+					
 					if(!partVisible){
+						
+						//MPart part = MBasicFactory.INSTANCE.createPart();
+						part = MBasicFactory.INSTANCE.createPart();
+						part.setElementId(featureObsString);
+						part.setLabel(featureObsString);
+						part.setCloseable(true);
+						part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+						
 						partService.showPart(part, PartState.CREATE);
 						partService.bringToTop(part);
 					}
+
+					/*partService.showPart(part, PartState.CREATE);
+					partService.bringToTop(part);*/
 					
-				}
-				else{
-					
-				}
+				
+			}
+
+
 	
 			}
 		});
@@ -343,15 +355,19 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        		 		
 	        	    if (refDialog.open() == Window.OK) {
 	        	    
-	        	    	if(!refDialog.getLiteratureObj().equals("")){
+	        	    	if(!refDialog.getLiteratureTitle().equals("")){
 	        	    		
 	        	    		hyperlink.setEnabled(true);
-		        	    	hyperlink.setText(refDialog.getLiteratureObj());
+		        	    	hyperlink.setText(refDialog.getLiteratureTitle());
 		        	    	
 		        	    	System.out.println("dialog : " + refDialog.getSelectedItem());
 		        	    	
-		        	    	featureObservable.setValue(refDialog.getLiteratureObj());
+		        	    	featureObservable.setValue(refDialog.getLiteratureTitle());
 		        	    	
+		        	    	/*literatureCheck = new HashMap<String,String>();
+		        	    	literatureCheck.put("title",refDialog.getLiteratureTitle() );
+		        	    	literatureCheck.put("author",refDialog.getLiteratureAuthor() );
+		        	    	featureObservable.setValue(literatureCheck);*/
 	        	    	}
 	        	    	
 	        	    }
@@ -377,8 +393,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 	            		dialog.setMessage("Do you really want to delete this?");
 	            		
 	            		if(dialog.open() == SWT.OK){
-	            			hyperlink.setText("");
+	            			hyperlink.setText(EMPTY);
 	    	            	hyperlink.setEnabled(false);
+	    	            	featureObservable.setValue(EMPTY);
 	            		}
 	            		
 	            }

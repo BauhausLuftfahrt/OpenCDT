@@ -163,7 +163,14 @@ public class ReferenceDialog extends Dialog {
 			    	   
 			           IStructuredSelection selection = (IStructuredSelection)event.getSelection();
 			           
-			           literatureObj = (ALiteratureBase) selection.getFirstElement();
+			           try{
+			       			literatureObj = (ALiteratureBase) selection.getFirstElement();
+			   		   }catch(ClassCastException exc) {
+			   			   
+			   		   }
+
+			           
+			       
 			           
 			           
 	
@@ -190,11 +197,26 @@ public class ReferenceDialog extends Dialog {
 	public TreeItem getSelectedTreeItem(){
 		return item;
 	}
-	public String getLiteratureObj(){
+	public String getLiteratureTitle(){
 		
 		if(literatureObj != null)
 		{
-			return literatureObj.getTitle();}
+			
+			return literatureObj.getTitle();
+			
+		}
+		else{
+			return "";
+		}
+	}
+	public String getLiteratureAuthor(){
+		
+		if(literatureObj != null)
+		{
+			
+			return literatureObj.getAuthor();
+			
+		}
 		else{
 			return "";
 		}
