@@ -267,6 +267,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    
 	   
 	    hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.NONE);
+	    
 	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
 	    	
 			public void linkActivated(HyperlinkEvent e) {
@@ -362,17 +363,14 @@ public class CustomFormControlFactory extends FormControlFactory {
 		        	    	
 		        	    	System.out.println("dialog : " + refDialog.getSelectedItem());
 		        	    	
-		        	    	featureObservable.setValue(refDialog.getLiteratureTitle());
+		        	    	featureObservable.setValue(refDialog.getLiteratureObjName() + " " + refDialog.getLiteratureTitle());
 		        	    	
-		        	    	/*literatureCheck = new HashMap<String,String>();
-		        	    	literatureCheck.put("title",refDialog.getLiteratureTitle() );
-		        	    	literatureCheck.put("author",refDialog.getLiteratureAuthor() );
-		        	    	featureObservable.setValue(literatureCheck);*/
+		        	    	//featureObservable.setValue(refDialog.getLiteratureObj());
+		        	    	
 	        	    	}
 	        	    	
 	        	    }
 	        	    
-	        	    //hyperlink.setFocus();
 	        	    composite.forceFocus();
 	        	    
 	            }

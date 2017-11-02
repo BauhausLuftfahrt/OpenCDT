@@ -165,14 +165,12 @@ public class ReferenceDialog extends Dialog {
 			           
 			           try{
 			       			literatureObj = (ALiteratureBase) selection.getFirstElement();
+			       			//literatureObj.eClass().getName();// inbook
+			       			
 			   		   }catch(ClassCastException exc) {
 			   			   
 			   		   }
-
-			           
-			       
-			           
-			           
+        
 	
 			       }
 			   }
@@ -196,6 +194,9 @@ public class ReferenceDialog extends Dialog {
 	}
 	public TreeItem getSelectedTreeItem(){
 		return item;
+	}
+	public String getLiteratureObjName(){
+		return literatureObj.eClass().getName();
 	}
 	public String getLiteratureTitle(){
 		

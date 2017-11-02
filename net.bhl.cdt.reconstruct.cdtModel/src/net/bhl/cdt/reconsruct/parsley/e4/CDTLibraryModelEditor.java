@@ -67,7 +67,7 @@ public class CDTLibraryModelEditor {
 	private String id;
 	private MPart part;
 	private EPartService partService;
-
+	
 	
 	@PostConstruct
 	public void postConstruct(Composite parent) {	
@@ -91,7 +91,7 @@ public class CDTLibraryModelEditor {
 	
 	}
 	 @Inject
-	 public void initPart(MPart part, EModelService modelService, MApplication application, EPartService partService){		 	
+	 public void initPart(MPart part, EModelService modelService, MApplication application, EPartService partService,@Optional ECPProject ecpProject){		 	
 
 			Injector injectorLib = ParsleyInjectorProvider.getInjector();
 			ResourceLoader resourceLoader = injectorLib.getInstance(ResourceLoader.class);
@@ -107,6 +107,7 @@ public class CDTLibraryModelEditor {
 		 stack.getChildren().size();
 		 //String id = part.getElementId();
 		 id = part.getElementId();
+		//String[]  filteringID(id);
 		 this.part = part;
 		 Object obj = part.getObject();
 		
@@ -117,9 +118,7 @@ public class CDTLibraryModelEditor {
 		 for (int i = 0; i < stack.getChildren().size(); i++) {
              
 			 if (stack.getChildren().get(i).isVisible()) {
-                 
-            	
-            	 
+
                  if(id == ((MPart) stack.getChildren().get(i)).getElementId()){
                 	 partVisible = true;
                 	 break;
@@ -147,6 +146,7 @@ public class CDTLibraryModelEditor {
 			 	for(int j = 0; j< whole; j++){
 			 		ALiteratureBase base = (ALiteratureBase) resourceLibrary.getContents().get(i).eContents().get(j);
 			 		String title = base.getTitle();
+			 		String name = base.eClass().getName();
 			 		
 			 		if(title.equals(id)){
 			 			bib = i;
@@ -211,6 +211,14 @@ public class CDTLibraryModelEditor {
 						
 						}
 				}
+	 }
+	 private String[] filteringID(String id){
+		 
+		 String[] array = id.split(" ", 2);
+		 array[0].toString();
+		 
+		 return array;
+		 
 	 }
 	
 	
