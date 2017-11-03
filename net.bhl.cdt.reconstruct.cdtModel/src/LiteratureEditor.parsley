@@ -54,28 +54,22 @@ module net.bhl.cdt.reconstruct.cdtliteratureeditor {
 				}
 				
 				
-			}
-				
-	
+	}			
 	featuresProvider {
-				features {
-					Library -> name
-					Article -> title, author, year, references, journal, path
-					Book -> title, author, year, references, publisher, isbn, path
-					Inbook -> title, author, year, references, pages, publisher, path
-					Conference -> title, author, year, references, booktitle, path
-					Incollection -> title, author, year, references, booktitle, publisher, path
-					Inproceedings -> title, author, year, references, booktitle, path
-					Proceedings -> title, author, year, references, path
-					Techreport -> title, author, year, references, institution, path
-					Phdthesis -> title, author, year, references, school, path
-					Masterthesis -> title, author, year, references, school, path
-					Unpublished -> title, author,  year, references, note
-				}
+			features {
+				Library -> name
+				Article -> title, author, year, references, journal, path
+				Book -> title, author, year, references, publisher, isbn, path
+				Inbook -> title, author, year, references, pages, publisher, path
+				Conference -> title, author, year, references, booktitle, path
+				Incollection -> title, author, year, references, booktitle, publisher, path
+				Inproceedings -> title, author, year, references, booktitle, path
+				Proceedings -> title, author, year, references, path
+				Techreport -> title, author, year, references, institution, path
+				Phdthesis -> title, author, year, references, school, path
+				Masterthesis -> title, author, year, references, school, path
+				Unpublished -> title, author,  year, references, note
+			}
 	}
 }
-	
-
-
-
 	

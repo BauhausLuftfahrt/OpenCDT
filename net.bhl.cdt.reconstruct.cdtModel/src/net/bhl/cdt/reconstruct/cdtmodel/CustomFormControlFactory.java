@@ -120,7 +120,7 @@ import uk.ac.ed.ph.snuggletex.SnuggleSession;
 
 public class CustomFormControlFactory extends FormControlFactory {
 	
-	private Image image;
+	//private Image image;
 	private Image newimage;
 	private ImageData imageData;
 	private int newWidth;
@@ -130,12 +130,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private static final String EMPTY = "";
 	private static final int STANDARD_HEIGHT = 50;
 	private static final int STANDARD_WIDTH = 300;
-	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
-	private ReferenceDialog refDialog;
-	private String newPartTitle;
+	//private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
+	private ReferenceDialog treeColumnDialog;
 	private Hyperlink hyperlink;
 	private MPart part; 
-	private HashMap<String, String> literatureCheck;
 	
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -163,7 +161,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			public void widgetSelected(SelectionEvent e) {
 				
 				/**
-				 * check,whether the textbox of the latexformel is empty.
+				 * Check,whether the textbox of the latexformel is empty.
 				 */
 				String latexFormel = latexString.getText();
 				
@@ -174,7 +172,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				 * */
 				if(latexFormel == EMPTY){
 					/**
-					 * when the latexformel-string is empty, then the message-box pops up to warn.
+					 * When the latexformel-string is empty, then the message-box pops up to warn.
 					 */
 					openLatexMessageBox();
 					
@@ -201,8 +199,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 		/**
 		 * each function of button is implemented.
 		 * */
-       /* ImageData data = new ImageData("C://Users/sanghun.cho/Desktop/eclipse_image.png"); 
-		image = new Image(Display.getCurrent(), data);*/
         canvas = new Canvas(composite, SWT.FILL);
         gd = new GridData();
         gd.widthHint = STANDARD_WIDTH;
@@ -214,7 +210,6 @@ public class CustomFormControlFactory extends FormControlFactory {
         	
             public void focusGained(FocusEvent event) {
                    	
-            	//System.out.println("get Focus");      	
             }
 
 			@Override
@@ -222,7 +217,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				
 				String latexFormel = latexString.getText();		
 				/**
-				 * if the textbox of latex-formel is not empty, then it returns true value.
+				 * If the textbox of latex-formel is not empty, then it returns true value.
 				 */
 				
 				if(latexFormel != EMPTY){
@@ -242,7 +237,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 					}
 				}else{
 					/**
-					 * the image is removed, if the textbox is of latex-formel empty.
+					 * The image is removed, if the textbox is of latex-formel empty.
 					 */
 					
 				}
@@ -255,93 +250,85 @@ public class CustomFormControlFactory extends FormControlFactory {
 	}
 	public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
 		
-		Injector injector = CdtliteratureeditorInjectorProvider.getInjector();
+		//Injector injector = CdtliteratureeditorInjectorProvider.getInjector();
 		
+		/**The base elements are set for customized reference.*/
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
 	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
 	    
-	    //GridLayout _gridLayout = new GridLayout(2, false);
+	    /**
+	     * The gridlayout consist of hyperlink, set-button, delete-button.*/
 	    GridLayout _gridLayout = new GridLayout(3, false);
 	    composite.setLayout(_gridLayout);
-	    
-	   
+	       
 	    hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.NONE);
 	    
+	    /**The action for click of this hyperlink und let open and show the model of hyperlink.*/
 	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
 	    	
 			public void linkActivated(HyperlinkEvent e) {
-				//System.out.println("featureObsable : " + featureObservable.getValue().toString() );
+				
 				String featureObsString;
 				EPartService partService = EPartServiceHelper.getEPartService();
+				
+				/**This checks whether the parameter-featureObservale has the certain reference*/ 
 				if(featureObservable.getValue().toString() == ""){
-					 featureObsString = "";
+					/**featureObservable didn't save the reference.*/
+					featureObsString = "";
+
 				}else{
+					/**The featureObservable has the certain reference of library.*/
 					featureObsString = featureObservable.getValue().toString();
 				}
+				
+				/**It is regarded at first that the part of model is not opened and not visible.*/
 				Boolean partVisible = false;
 				
+				/**Before opening the part for model let check whether this part already is opened by click of hyperlink.*/
 				if(!featureObsString.isEmpty()){
-					
-					/*MPart part = MBasicFactory.INSTANCE.createPart();
-					part.setElementId(featureObsString);
-					part.setLabel(featureObsString);
-					part.setCloseable(true);
-					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
-					*/
+						
+					/**Let gather all parts*/
 					Collection<MPart> collPart = partService.getParts();
 					
-	
-					
 					for( Iterator<MPart> iterator = collPart.iterator(); iterator.hasNext();){
-				
-						
+				        /**the label of already opened part is compared with the saved featureObsString-value*/ 
 						if(iterator.next().getLabel().equals(featureObsString)){
-						
-								System.out.println("visible "+ iterator.next().isVisible());
+								
+							    /**the part of model is already opened*/
 								partVisible = true;							
 								break;
 							
 							}
 					}
 					
-					
+					/**the part of model is not yet opened*/
 					if(!partVisible){
 						
-						//MPart part = MBasicFactory.INSTANCE.createPart();
+						/**the new part is created*/
 						part = MBasicFactory.INSTANCE.createPart();
 						part.setElementId(featureObsString);
 						part.setLabel(featureObsString);
 						part.setCloseable(true);
+						/**the new part is depicted as this linked class*/
 						part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
 						
 						partService.showPart(part, PartState.CREATE);
 						partService.bringToTop(part);
 					}
-
-					/*partService.showPart(part, PartState.CREATE);
-					partService.bringToTop(part);*/
-					
-				
-			}
-
-
-	
-			}
+			  }
+			}//end linkActivated-clause
 		});
 
-
-	   
+	    /**this griddata makes the hyperlink to locate on the left of composite of customized reference*/
 		GridData gridData = new GridData();
-	    //gridData.horizontalAlignment = GridData.FILL;
-		//gridData.horizontalAlignment = GridData.BEGINNING;
 		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
         gridData.grabExcessHorizontalSpace = true;
         gridData.minimumWidth = 150;
 	    hyperlink.setLayoutData(gridData);
         
-        final Button setButton = _toolkit.createButton(composite, "set", SWT.PUSH);
-       
+	    /**If user clicks the set-button, then the tree-columns-dialog can be opened*/ 
+        final Button setButton = _toolkit.createButton(composite, "set", SWT.PUSH); 
 		setButton.addSelectionListener(new SelectionAdapter() {
 			
 	            @Override
@@ -350,33 +337,32 @@ public class CustomFormControlFactory extends FormControlFactory {
 	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
 	            	        | SWT.APPLICATION_MODAL);
 	            	
-	            	refDialog = new ReferenceDialog(shell, _toolkit);
-	        		refDialog.isResizable();
-	        		
+	            	treeColumnDialog = new ReferenceDialog(shell, _toolkit);
+	            	treeColumnDialog.isResizable();
+	            
 	        		 		
-	        	    if (refDialog.open() == Window.OK) {
+	        	    if (treeColumnDialog.open() == Window.OK) {
 	        	    
-	        	    	if(!refDialog.getLiteratureTitle().equals("")){
+	        	    	if(!treeColumnDialog.getLiteratureTitle().equals("")){
 	        	    		
+	        	    		String categoryOfLiteratre = treeColumnDialog.getLiteratureObjName();
+	    	        		String titleOfLiteratue = treeColumnDialog.getLiteratureTitle();
+	    	        		
 	        	    		hyperlink.setEnabled(true);
-		        	    	//hyperlink.setText(refDialog.getLiteratureTitle());
-	        	    		hyperlink.setText(refDialog.getLiteratureObjName() + " " + refDialog.getLiteratureTitle());
-		        	    	System.out.println("dialog : " + refDialog.getSelectedItem());
+	        	    		hyperlink.setText(categoryOfLiteratre + " " + titleOfLiteratue);
 		        	    	
-		        	    	featureObservable.setValue(refDialog.getLiteratureObjName() + " " + refDialog.getLiteratureTitle());
-		        	    	
-		        	    	//featureObservable.setValue(refDialog.getLiteratureObj());
-		        	    	
+	        	    		/**the category and title of selected model can be saved*/
+		        	    	featureObservable.setValue(categoryOfLiteratre + " " + titleOfLiteratue);
+		        	    	        	    	
 	        	    	}
 	        	    	
-	        	    }
-	        	    
-	        	    composite.forceFocus();
-	        	    
+	        	    }        	    
+	        	    composite.forceFocus();        	    
 	            }
 	           
 	        });
 		   
+		/**If user clicks the delete-button, then the hyperlink of model is deleted*/ 
         final Button deleteButton = _toolkit.createButton(composite, "delete", SWT.PUSH);  
 		deleteButton.addSelectionListener(new SelectionAdapter() {
 			
@@ -385,7 +371,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	            	            
 	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
 	            	        | SWT.APPLICATION_MODAL);
-	            	
+	            	/**Before this is deleted,the dialog is opened and it asks about the deletion.*/ 
 	            	MessageBox dialog = new MessageBox(shell, SWT.ICON_QUESTION | SWT.OK| SWT.CANCEL);
 	            		dialog.setText("Question");
 	            		dialog.setMessage("Do you really want to delete this?");

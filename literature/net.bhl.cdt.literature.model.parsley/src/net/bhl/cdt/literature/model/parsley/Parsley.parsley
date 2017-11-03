@@ -49,10 +49,10 @@ module net.bhl.cdt.literature.model.parsley {
 					it.getContents += CdtliteratureFactory.eINSTANCE.createLibrary();
 				}
 				saveResource {
-				// it is of type org.eclipse.emf.ecore.resource.Resource
-				it.save(null)
-				return true
-			}
+					// it is of type org.eclipse.emf.ecore.resource.Resource
+					it.save(null)
+					return true
+				}
 				
 
 			}
@@ -86,7 +86,7 @@ module net.bhl.cdt.literature.model.parsley {
 				}
 			}
 	menuBuilder {
-				val factory = CdtliteratureFactory.eINSTANCE
+//				val factory = CdtliteratureFactory.eINSTANCE
 //				menus{
 //					Library-> #[
 //					submenu("Edit",#[
@@ -102,17 +102,14 @@ module net.bhl.cdt.literature.model.parsley {
 				
 	
 				emfMenus {
-					//Library lib -> #[
-					// actionChange("delete library", l.eContainer as Library,
-						//	[
-								
-							//]
-						
-					//)]
-			
+//				Library lib -> #[
+//					actionAdd("Add a new book", lib.book,
+//						CdtliteratureFactory.eINSTANCE.createBook)
+//				]
+			}
 					
 
-				}
+				
 	}
 	viewerContentProvider {
 				elements{
