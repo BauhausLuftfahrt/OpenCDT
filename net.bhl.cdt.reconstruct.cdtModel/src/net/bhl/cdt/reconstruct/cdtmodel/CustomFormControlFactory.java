@@ -359,8 +359,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        	    	if(!refDialog.getLiteratureTitle().equals("")){
 	        	    		
 	        	    		hyperlink.setEnabled(true);
-		        	    	hyperlink.setText(refDialog.getLiteratureTitle());
-		        	    	
+		        	    	//hyperlink.setText(refDialog.getLiteratureTitle());
+	        	    		hyperlink.setText(refDialog.getLiteratureObjName() + " " + refDialog.getLiteratureTitle());
 		        	    	System.out.println("dialog : " + refDialog.getSelectedItem());
 		        	    	
 		        	    	featureObservable.setValue(refDialog.getLiteratureObjName() + " " + refDialog.getLiteratureTitle());

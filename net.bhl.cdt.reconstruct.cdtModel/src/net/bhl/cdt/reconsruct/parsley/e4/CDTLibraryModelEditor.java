@@ -61,8 +61,8 @@ public class CDTLibraryModelEditor {
 	private FormDetailComposite formComposite;
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 	private Resource resourceLibrary;
-	private int bib;
-	private int lit;
+	private int library;
+	private int literature;
 	private MPartStack stack;
 	private String id;
 	private MPart part;
@@ -75,7 +75,7 @@ public class CDTLibraryModelEditor {
 		Injector injector = CdtliteratureeditorInjectorProvider.getInjector();
 		FormFactory formFactory = injector.getInstance(FormFactory.class);
 		formComposite = formFactory.createFormDetailComposite(parent, SWT.BORDER);	
-		formComposite.init(resourceLibrary.getContents().get(bib).eContents().get(lit));
+		formComposite.init(resourceLibrary.getContents().get(library).eContents().get(literature));
 		
 		parent.addDisposeListener(new DisposeListener() {
 
@@ -101,19 +101,20 @@ public class CDTLibraryModelEditor {
 			//Library library = (Library) resourceLibrary.getContents().get(0);
 			
 		 this.partService = partService;
+		 this.part = part;
 		 Boolean partVisible = false;
 		 //MPartStack stack = (MPartStack) modelService.find("org.eclipse.emf.ecp.e4.application.partstack.editor", application);
 		 stack = (MPartStack) modelService.find("org.eclipse.emf.ecp.e4.application.partstack.editor", application);
 		 stack.getChildren().size();
-		 //String id = part.getElementId();
 		 id = part.getElementId();
-		//String[]  filteringID(id);
-		 this.part = part;
-		 Object obj = part.getObject();
+		 String[] filteredID = filteringID(id);
+		 findLiterature(filteredID[0], filteredID[1]);
+		
+		 //Object obj = part.getObject();
 		
 		 
-		 this.bib = findLibrary(id);
-		 this.lit = findLiterature(id);
+		 //this.bib = findLibrary(id);
+		 //this.lit = findLiterature(id);
 		 
 		 for (int i = 0; i < stack.getChildren().size(); i++) {
              
@@ -136,29 +137,46 @@ public class CDTLibraryModelEditor {
 	
 
 		 	 
-	 } 
-	 private int findLibrary(String id){
-		 int size = resourceLibrary.getContents().size();
-		 int bib = 0;
-		 for(int i = 0; i<size; i++){
+	 }
+	 private String[] filteringID(String id){
+		 
+		 String[] array = id.split(" ", 2);
+		 //array[0].toString();
+		 
+		 return array;
+		 
+	 }
+	 private void findLiterature(String categoryOfLiterature, String titleOfLiterature){
+		 
+		 /**the number of the registered library*/
+		 int sizeOfLibrary = resourceLibrary.getContents().size();
+		
+		 for(int i = 0; i< sizeOfLibrary; i++){
+			 
+			 /**the size of the literatures which are included by a library*/
 			 int whole = resourceLibrary.getContents().get(i).eContents().size();
 			 
 			 	for(int j = 0; j< whole; j++){
-			 		ALiteratureBase base = (ALiteratureBase) resourceLibrary.getContents().get(i).eContents().get(j);
-			 		String title = base.getTitle();
-			 		String name = base.eClass().getName();
 			 		
-			 		if(title.equals(id)){
-			 			bib = i;
+			 		ALiteratureBase base = (ALiteratureBase) resourceLibrary.getContents().get(i).eContents().get(j);
+			 		String titleBase = base.getTitle();
+			 		String categoryBase = base.eClass().getName();
+			 		
+			 		if((categoryBase.equals(categoryOfLiterature)) && (titleBase.equals(titleOfLiterature)) ){
+			 			
+			 			this.library = i;
+			 			this.literature = j;
 			 			break;
+			 			
 			 		}
+			 		
 			 	}
 			 }
 		 
-		 System.out.println("bib2 : " + bib);
-		 return bib;
+		/* System.out.println("bib2 : " + bib);
+		 return bib;*/
 	 }
-	 private int findLiterature(String id){
+	/* private int findLiterature(String id){
 		 int size = resourceLibrary.getContents().size();
 		 int lit = 0;
 		 for(int i = 0; i<size; i++){
@@ -175,8 +193,8 @@ public class CDTLibraryModelEditor {
 			 }
 		 
 		 return lit;
-	 }
-	
+	 }*/
+	  
 	 public void setUnvisible(){
 		
 		 for (int i = 0; i < stack.getChildren().size(); i++) {
@@ -192,7 +210,7 @@ public class CDTLibraryModelEditor {
                  }
     
              }
-         }
+		 }
 		 
 		 
 		 Collection<MPart> collPart = partService.getParts();
@@ -212,14 +230,7 @@ public class CDTLibraryModelEditor {
 						}
 				}
 	 }
-	 private String[] filteringID(String id){
-		 
-		 String[] array = id.split(" ", 2);
-		 array[0].toString();
-		 
-		 return array;
-		 
-	 }
+	 
 	
 	
 }
