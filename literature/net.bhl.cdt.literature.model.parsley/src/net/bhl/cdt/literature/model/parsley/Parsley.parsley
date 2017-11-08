@@ -17,6 +17,7 @@ import cdtliterature.Unpublished
 import cdtliterature.CdtliteratureFactory
 import org.eclipse.emf.parsley.composite.FormControlFactory
 import cdtliterature.ALiteratureBase
+import org.eclipse.emf.parsley.edit.action.EditingMenuBuilder
 
 /* net.bhl.cdt.literature.model.parsley EMF Parsley Dsl Module file */
 module net.bhl.cdt.literature.model.parsley {
@@ -31,6 +32,7 @@ module net.bhl.cdt.literature.model.parsley {
 		type IEditingStrategy -> UndoableEditingStrategy
 		value int TreeFormSashStyle -> SWT.HORIZONTAL
 		type FormControlFactory -> CustomFormControlFactory
+		type EditingMenuBuilder -> CustomMenuBuilder
 	}
 	
 	configurator {
@@ -85,32 +87,32 @@ module net.bhl.cdt.literature.model.parsley {
 					
 				}
 			}
-	menuBuilder {
-//				val factory = CdtliteratureFactory.eINSTANCE
-//				menus{
-//					Library-> #[
-//					submenu("Edit",#[
-//						actionCopy,
-//						actionCut,
-//						separator,
-//						actionPaste,
-//						actionDelete
-//					])
-//				]
-//					
-//				}
-				
-	
-				emfMenus {
+//	menuBuilder {
+////				val factory = CdtliteratureFactory.eINSTANCE
+////				menus{
+////					Library-> #[
+////					submenu("Edit",#[
+////						actionCopy,
+////						actionCut,
+////						separator,
+////						actionPaste,
+////						actionDelete
+////					])
+////				]
+////					
+////				}
+//				
+//	
+//				emfMenus {
 //				Library lib -> #[
 //					actionAdd("Add a new book", lib.book,
 //						CdtliteratureFactory.eINSTANCE.createBook)
 //				]
-			}
-					
-
-				
-	}
+//			}
+//					
+//
+//				
+//	}
 	viewerContentProvider {
 				elements{
 					

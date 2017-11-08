@@ -179,7 +179,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 				}else{
 										
 						try {
-							createNewImage(latexFormel, composite);
+							//createNewImage(latexFormel, composite);
+							createNewImage(latexFormel, composite, latexString);
 						} catch (SAXException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -222,8 +223,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				
 				if(latexFormel != EMPTY){
 					try {				
-						
-						createNewImage(latexFormel, composite);
+						createNewImage(latexFormel, composite, latexString);
 						
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
@@ -420,8 +420,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		});       
       	
 	}
-	private void createNewImage(String latexFormel, Composite composite) throws SAXException, ParserConfigurationException, IOException {
-		
+	private void createNewImage(String latexFormel, Composite composite, Text latexString) throws SAXException, ParserConfigurationException, IOException {
 	    
 		SnuggleEngine engine  = new SnuggleEngine();		
 		SnuggleSession session = engine.createSession();  
@@ -484,18 +483,32 @@ public class CustomFormControlFactory extends FormControlFactory {
 	 		
 		 		newWidth = newimage.getBounds().width;
 		 		newHeight = newimage.getBounds().height;
-	 		
+		 		System.out.println("new height : " + newHeight);
+		 		
+		 		
+		 		
+		 		
 		 		canvas.addPaintListener(new PaintListener() {
 					  public void paintControl(PaintEvent e) {
 						
 				 		gd.widthHint = newWidth;
-					    gd.heightHint = STANDARD_HEIGHT;
+					    //gd.heightHint = STANDARD_HEIGHT;
+				 		gd.heightHint = newHeight;
 				        canvas.setLayoutData(gd);
 				        
 				        if(newHeight <= STANDARD_HEIGHT){
 				        	canvas.setSize(newWidth, STANDARD_HEIGHT);
+				        	
 				        }else{
+				        	System.out.println("set new height");
+				        	//latexString.setText(latexFormel+"a");
+				        	/*Device device = Display.getCurrent ();
+				        	Color red = new Color (device, 255, 0, 0);*/
+				        	String newString = latexFormel.concat(" ");
+				        	latexString.setText(newString);
 				        	canvas.setSize(newWidth, newHeight);
+				        	//canvas.setLocation(200, 200);
+				        	
 				        }
 				      
 					    e.gc.drawImage(newimage, 0, 0);		
@@ -504,7 +517,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 					  }
 				});
 		 		canvas.redraw();
-		 		canvas.update();
+		 		//canvas.update();
 		 		
 
 			}

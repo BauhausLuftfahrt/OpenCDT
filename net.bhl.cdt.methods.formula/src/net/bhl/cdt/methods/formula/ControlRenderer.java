@@ -196,7 +196,8 @@ public class ControlRenderer extends TextControlSWTRenderer implements Component
 		 * the size of the background image can be modified.
 		 */	
 		imageLabelC = new CLabel(main, SWT.NONE);
-		image = new Image(Display.getCurrent(), 900, 100);	
+		//image = new Image(Display.getCurrent(), 900, 100);
+		image = new Image(Display.getCurrent(), 900, 200);
 		width = image.getBounds().width;
  		height = image.getBounds().height;
 		imageLabelC.setImage(image);
@@ -341,24 +342,23 @@ public class ControlRenderer extends TextControlSWTRenderer implements Component
 	 		
 	 		newWidth = newimage.getBounds().width;
 	 		newHeight = newimage.getBounds().height;
-
 	 		
 	 		/**
 	 		 * the size of the image gets scaled down.  
 	 		 */
-	 		if(( newWidth > 900 && newWidth < 1200 ) && ( newHeight <= 100  )){		
+	 		if(( newWidth > 900 && newWidth < 1200 ) && ( newHeight <= 120  )){		
 	 			
 	 			imageLabelC.setBounds(0, 60, newWidth+10, newHeight+10);
 	 			this.imageLabelC.setImage(newimage);
 	 		}
-	 		else if(( newWidth >= 1200 ) && ( newHeight <= 100  )){
+	 		else if(( newWidth >= 1200 ) && ( newHeight <= 120 )){
 	 			int scaledWidth = ( newWidth / width );
 	 			final Image scaled = new Image(Display.getDefault(),imageData.scaledTo(1200,20/scaledWidth));
 	 			imageLabelC.setBounds(0, 60, newWidth+10, newHeight+10);
 	 			this.imageLabelC.setImage(scaled);
 	 				
 	 		}
-	 		else if(( newWidth < 1200 ) && ( newHeight > 100  )){
+	 		else if(( newWidth < 1200 ) && ( newHeight > 120 )){
 	 			int scaleHeight = ( newHeight / height );
 	 			final Image scaled = new Image(Display.getDefault(),imageData.scaledTo(newWidth/scaleHeight,100));
 	 			imageLabelC.setBounds(0, 30, newWidth+10, newHeight+10);
