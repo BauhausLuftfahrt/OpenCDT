@@ -120,15 +120,14 @@ import uk.ac.ed.ph.snuggletex.SnuggleSession;
 
 public class CustomFormControlFactory extends FormControlFactory {
 	
-	//private Image image;
 	private Image newimage;
 	private ImageData imageData;
 	private int newWidth;
 	private int newHeight;
+	private int startHeight;
 	private  Canvas canvas;
 	private GridData gd;
 	private static final String EMPTY = "";
-	private static final int STANDARD_HEIGHT = 50;
 	private static final int STANDARD_WIDTH = 300;
 	//private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 	private ReferenceDialog treeColumnDialog;
@@ -161,26 +160,25 @@ public class CustomFormControlFactory extends FormControlFactory {
 			public void widgetSelected(SelectionEvent e) {
 				
 				/**
-				 * Check,whether the textbox of the latexformel is empty.
+				 * Check,whether the textbox of the latexformula is empty.
 				 */
-				String latexFormel = latexString.getText();
+				String latexformula = latexString.getText();
 				
-				System.out.println("latexFormel : " + latexFormel);
+				System.out.println("latexformula : " + latexformula);
 				
 				/**
 				 * In case texbox of latexString is empty 
 				 * */
-				if(latexFormel == EMPTY){
+				if(latexformula == EMPTY){
 					/**
-					 * When the latexformel-string is empty, then the message-box pops up to warn.
+					 * When the latexformula-string is empty, then the message-box pops up to warn.
 					 */
 					openLatexMessageBox();
 					
 				}else{
 										
 						try {
-							//createNewImage(latexFormel, composite);
-							createNewImage(latexFormel, composite, latexString);
+							createNewImage(latexformula, composite, latexString);
 						} catch (SAXException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -203,7 +201,10 @@ public class CustomFormControlFactory extends FormControlFactory {
         canvas = new Canvas(composite, SWT.FILL);
         gd = new GridData();
         gd.widthHint = STANDARD_WIDTH;
-        gd.heightHint = STANDARD_HEIGHT;
+        /**the initial size of formula-image is set in 60*/ 
+        startHeight = 60;
+        gd.heightHint = startHeight;
+        
         canvas.setLayoutData(gd);
           
  
@@ -216,14 +217,14 @@ public class CustomFormControlFactory extends FormControlFactory {
 			@Override
 			public void focusLost(FocusEvent e) {
 				
-				String latexFormel = latexString.getText();		
+				String latexformula = latexString.getText();		
 				/**
-				 * If the textbox of latex-formel is not empty, then it returns true value.
+				 * If the textbox of latex-formula is not empty, then it returns true value.
 				 */
 				
-				if(latexFormel != EMPTY){
+				if(latexformula != EMPTY){
 					try {				
-						createNewImage(latexFormel, composite, latexString);
+						createNewImage(latexformula, composite, latexString);
 						
 					} catch (IOException e1) {
 						// TODO Auto-generated catch block
@@ -237,7 +238,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 					}
 				}else{
 					/**
-					 * The image is removed, if the textbox is of latex-formel empty.
+					 * The image is removed, if the textbox is of latex-formula empty.
 					 */
 					
 				}
@@ -400,15 +401,15 @@ public class CustomFormControlFactory extends FormControlFactory {
 			public void widgetSelected(SelectionEvent e) {
 				
 				/**
-				 * check,whether the textbox of the latexformel is empty.
+				 * check,whether the textbox of the latexformula is empty.
 				 */
-				String latexFormel = latexString.getText();
+				String latexformula = latexString.getText();
 				/**
 				 * In case texbox of latexString is empty 
 				 * */
-				if(latexFormel == EMPTY){
+				if(latexformula == EMPTY){
 					/**
-					 * when the latexformel-string is empty, then the message-box pops up to warn.
+					 * when the latexformula-string is empty, then the message-box pops up to warn.
 					 */
 					openLatexMessageBox();
 					
@@ -420,11 +421,11 @@ public class CustomFormControlFactory extends FormControlFactory {
 		});       
       	
 	}
-	private void createNewImage(String latexFormel, Composite composite, Text latexString) throws SAXException, ParserConfigurationException, IOException {
+	private void createNewImage(String latexformula, Composite composite, Text latexString) throws SAXException, ParserConfigurationException, IOException {
 	    
 		SnuggleEngine engine  = new SnuggleEngine();		
 		SnuggleSession session = engine.createSession();  
-		SnuggleInput input = new SnuggleInput(latexFormel);
+		SnuggleInput input = new SnuggleInput(latexformula);
 		session.getConfiguration().setFailingFast(true);
 		
 		 if (session.parseInput(input) == false){
@@ -438,7 +439,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				System.out.println("Error : " + session.getErrors().toString());
 			}
 		   	/**
-	 	   	 * the string of latex-formel is converted into xml-string.
+	 	   	 * the string of latex-formula is converted into xml-string.
 	 	   	 */
 			else{
 					
@@ -483,31 +484,25 @@ public class CustomFormControlFactory extends FormControlFactory {
 	 		
 		 		newWidth = newimage.getBounds().width;
 		 		newHeight = newimage.getBounds().height;
-		 		System.out.println("new height : " + newHeight);
 		 		
-		 		
-		 		
-		 		
-		 		canvas.addPaintListener(new PaintListener() {
+				canvas.addPaintListener(new PaintListener() {
 					  public void paintControl(PaintEvent e) {
 						
 				 		gd.widthHint = newWidth;
-					    //gd.heightHint = STANDARD_HEIGHT;
-				 		gd.heightHint = newHeight;
+				 		gd.heightHint = startHeight;
 				        canvas.setLayoutData(gd);
 				        
-				        if(newHeight <= STANDARD_HEIGHT){
-				        	canvas.setSize(newWidth, STANDARD_HEIGHT);
+				        if(newHeight <= startHeight){
+				        	canvas.setSize(newWidth, startHeight);
 				        	
 				        }else{
-				        	System.out.println("set new height");
-				        	//latexString.setText(latexFormel+"a");
-				        	/*Device device = Display.getCurrent ();
-				        	Color red = new Color (device, 255, 0, 0);*/
-				        	String newString = latexFormel.concat(" ");
-				        	latexString.setText(newString);
+				        	
+				        	//System.out.println("set new height");
+				        	
 				        	canvas.setSize(newWidth, newHeight);
-				        	//canvas.setLocation(200, 200);
+				        	startHeight = newHeight;
+				        	String newString = latexformula.concat(" ");
+				        	latexString.setText(newString);
 				        	
 				        }
 				      
@@ -516,14 +511,15 @@ public class CustomFormControlFactory extends FormControlFactory {
 					
 					  }
 				});
+				
+		 		
 		 		canvas.redraw();
-		 		//canvas.update();
 		 		
 
 			}
 	}
 	/**
-	 * if the latex-formel is empty and the show-button is clicked, then dialog window is opened to warn.
+	 * if the latex-formula is empty and the show-button is clicked, then dialog window is opened to warn.
 	  */
 	private void openLatexMessageBox(){
 		
