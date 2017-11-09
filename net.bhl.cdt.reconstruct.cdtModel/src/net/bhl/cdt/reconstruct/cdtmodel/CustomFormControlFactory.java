@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecp.application.e4.editor.E4ModelElementOpener;
 import org.eclipse.emf.ecp.core.ECPProject;
+import org.eclipse.emf.ecp.core.util.ECPUtil;
 import org.eclipse.emf.ecp.internal.ui.model.TreeContentProvider;
 import org.eclipse.emf.ecp.spi.ui.util.ECPHandlerHelper;
 import org.eclipse.emf.ecp.ui.e4.util.EPartServiceHelper;
@@ -107,6 +108,7 @@ import formula.FormulaPackage;
 import net.bhl.cdt.core.ui.UIHelper;
 import net.bhl.cdt.literature.model.parsley.ParsleyInjectorProvider;
 import net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor;
+import net.bhl.cdt.reconsruct.parsley.e4.CDTModelEditor;
 import net.bhl.cdt.reconstruct.cdtliteratureeditor.CdtliteratureeditorInjectorProvider;
 import net.bhl.cdt.reconstruct.cdtliteraturetable.CdtliteraturetableInjectorProvider;
 import net.sourceforge.jeuclid.MathMLParserSupport;
@@ -189,8 +191,15 @@ public class CustomFormControlFactory extends FormControlFactory {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}					
-				}	
-					
+				}
+				
+				
+				Collection<ECPProject> projects = null;
+				projects = ECPUtil.getECPProjectManager().getProjects();
+				projects.iterator().next().getName();
+				
+				
+				
 			}
 		}); 
 		
@@ -528,5 +537,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 		messageBox_empty.setMessage("Latex String is empty");
         messageBox_empty.open();
 		
+	}
+	public void print(){
+		System.out.println("print ");
 	}
 }

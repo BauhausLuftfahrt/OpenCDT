@@ -32,7 +32,7 @@ module net.bhl.cdt.literature.model.parsley {
 		type IEditingStrategy -> UndoableEditingStrategy
 		value int TreeFormSashStyle -> SWT.HORIZONTAL
 		type FormControlFactory -> CustomFormControlFactory
-		type EditingMenuBuilder -> CustomMenuBuilder
+		//type EditingMenuBuilder -> CustomMenuBuilder
 	}
 	
 	configurator {

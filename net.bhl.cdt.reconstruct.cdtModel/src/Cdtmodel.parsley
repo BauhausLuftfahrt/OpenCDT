@@ -24,6 +24,7 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 		value int FormSashStyle -> SWT.HORIZONTAL
 		type FormControlFactory -> CustomFormControlFactory
 		
+		
 	}
 	configurator {
 		resourceURI {

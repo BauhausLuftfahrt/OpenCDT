@@ -1,4 +1,4 @@
-package net.bhl.cdt.literature.model.parsley;
+/*package net.bhl.cdt.literature.model.parsley;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -31,10 +31,10 @@ public class CustomMenuBuilder extends EditingMenuBuilder {
 			+ "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 
 		  public List<IMenuContributionSpecification> emfMenuContributions(final Library lib) {
-		    /*EList<Book> _book = lib.getBook();
-		    Book _createBook = CdtliteratureFactory.eINSTANCE.createBook();*/
+		    EList<Book> _book = lib.getBook();
+		    Book _createBook = CdtliteratureFactory.eINSTANCE.createBook();
 			  
-			/*Injector injector = ParsleyInjectorProvider.getInjector();
+			Injector injector = ParsleyInjectorProvider.getInjector();
 
 				
 			EditingDomain editingDomain = injector.getInstance(EditingDomain.class);
@@ -46,7 +46,7 @@ public class CustomMenuBuilder extends EditingMenuBuilder {
 		    IMenuContributionSpecification _actionDelete = actionDeleteLibrary("Delete this library", resource, lib);
 		    
 		    IMenuContributionSpecification _actionAdd = this.actionAdd("Delete this library", null, null);
-		    */
+		    
 		    
 		    EList<Book> _book = lib.getBook();
 		    Book _createBook = CdtliteratureFactory.eINSTANCE.createBook();
@@ -80,25 +80,26 @@ public class CustomMenuBuilder extends EditingMenuBuilder {
 	
 	private static class CustomDeleteCommand<T> extends DeleteCommand {
 
-		/*public CustomDeleteCommand(EditingDomain domain, EList<? super T> list, T value) {
+		public CustomDeleteCommand(EditingDomain domain, EList<? super T> list, T value) {
 			super(domain, list, value);
-		}*/
+		}
 		
 		public CustomDeleteCommand(EditingDomain domain, Collection<?> collection) {
 			
 			super(domain, collection);
 		}
 
-		/*@Override
+		@Override
 		public void doUndo() {
 			// we must save the container, before undoing, since that
 			// will remove the object from the container
 			EObject eContainer = ((EObject) collection.iterator().next()).eContainer();
 			super.doUndo();
 			affectedObjects = Collections.singleton(eContainer);
-		}*/
+		}
 	}
 
 		
 
 }
+*/
