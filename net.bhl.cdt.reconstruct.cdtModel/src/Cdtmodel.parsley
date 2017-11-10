@@ -8,6 +8,7 @@ import org.eclipse.emf.parsley.composite.FormControlFactory
 import net.bhl.cdt.reconstruct.cdtmodel.CustomFormControlFactory
 import org.eclipse.emf.common.util.URI
 import cdtliterature.CdtliteratureFactory
+import formula.Quantity
 
 /* net.bhl.cdt.reconstruct.cdtmodel EMF Parsley Dsl Module file */
 module net.bhl.cdt.reconstruct.cdtmodel {
@@ -54,8 +55,8 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 	featuresProvider {
 				features {
 					 FormulaRepository -> name
-					 Formula -> name, latexString, reference
-					
+					 Formula -> name, latexString, reference, inputParameter, outputParameter
+					 Quantity -> name, description, unit
 				}
 	}
 	viewerContentProvider {

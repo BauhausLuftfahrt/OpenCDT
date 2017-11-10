@@ -12,39 +12,9 @@ import org.eclipse.emf.edit.provider.IItemLabelProvider;
 
 public class GeneratingQuantity {
 
-	public static final java.lang.String INPUT = "ecpEditorInput";	
-	private ECPProject ecpProject;
-	
-	@Inject
-	public void setInput(@Optional @Named(INPUT) EObject modelElement, @Optional ECPProject ecpProject, MPart part) {
-    	if (modelElement == null || ecpProject == null ) { 		
-			return;
-		}
-    	
-    	this.ecpProject = ecpProject;
-    	/*
-    	final int width = formComposite.getBounds().width;
-		final int height = formComposite.getBounds().height+1;
-		formComposite.init(modelElement);
+	public GeneratingQuantity(){
 		
-		final IItemLabelProvider itemLabelProvider = (IItemLabelProvider) InternalProvider.EMF_ADAPTER_FACTORY.adapt(
-				modelElement, IItemLabelProvider.class);
-
-		part.setLabel(itemLabelProvider.getText(modelElement));
-		//part.setLabel(""+ modelElement.eClass().getName() + "");
-		
-		formComposite.setSize(width, height);*/
-    	//System.out.println("generating!!");
-	
-	
-    }
-	@Inject
-	public void generate(@Optional ECPProject ecpProject){
-		
-		String name = ecpProject.toString();
-		System.out.println("generating!! " + name);
 		
 	}
-	
 	
 }

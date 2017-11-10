@@ -11,6 +11,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import javax.inject.Inject;
 import javax.xml.parsers.ParserConfigurationException;
@@ -28,11 +29,14 @@ import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecp.application.e4.editor.E4ModelElementOpener;
 import org.eclipse.emf.ecp.core.ECPProject;
+import org.eclipse.emf.ecp.core.ECPRepository;
 import org.eclipse.emf.ecp.core.util.ECPUtil;
 import org.eclipse.emf.ecp.internal.ui.model.TreeContentProvider;
 import org.eclipse.emf.ecp.spi.ui.util.ECPHandlerHelper;
@@ -104,7 +108,10 @@ import com.google.inject.Injector;
 import cdtliterature.CdtliteratureFactory;
 import cdtliterature.Library;
 import formula.Formula;
+import formula.FormulaFactory;
 import formula.FormulaPackage;
+import formula.FormulaRepository;
+import formula.Quantity;
 import net.bhl.cdt.core.ui.UIHelper;
 import net.bhl.cdt.literature.model.parsley.ParsleyInjectorProvider;
 import net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor;
@@ -135,6 +142,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private ReferenceDialog treeColumnDialog;
 	private Hyperlink hyperlink;
 	private MPart part; 
+	private String projectName;
+	private String formulaName;
+	private ECPProject ecpProject;
+	private Shell shell;
 	
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -196,8 +207,35 @@ public class CustomFormControlFactory extends FormControlFactory {
 				
 				Collection<ECPProject> projects = null;
 				projects = ECPUtil.getECPProjectManager().getProjects();
-				projects.iterator().next().getName();
+				//projects.iterator().next().getName() //s
+				//projects.iterator().next()
+				//projects.iterator().next().getContents().get(0)
+				Collection<ECPRepository> repositories = null;
+				repositories = ECPUtil.getECPRepositoryManager().getRepositories();
+				//projects.iterator().next().getContents()
+				//ecpProject.getEditingDomain()
+				//ECPHandlerHelper.addModelElement(ecpProject, shell, true);
+				Quantity qunatity = FormulaFactory.eINSTANCE.createQuantity();
+				qunatity.setName("ADDED");
 				
+				
+				//projects.iterator().next().getContents().add(0, qunatity);
+				FormulaRepository repo = (FormulaRepository) projects.iterator().next().getContents().get(0);
+				//repo.getName(); LMU Informatik
+				/*int size = repo.getQuantities().size();
+				for(int i=0; i<size; i++){
+					
+					if(repo.getQuantities().get(i).getName().equals(qunatity.getName())){
+						
+						
+					}
+					
+				}*/
+
+				repo.getQuantities().add(qunatity);
+				
+				
+				//System.out.println("setProject : " + ecpProject.getName());
 				
 				
 			}
@@ -312,7 +350,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 							}
 					}
 					
-					/**the part of model is not yet opened*/
+					/**
+					 * the part of model is not yet opened.
+					 * */
 					if(!partVisible){
 						
 						/**the new part is created*/
@@ -330,14 +370,18 @@ public class CustomFormControlFactory extends FormControlFactory {
 			}//end linkActivated-clause
 		});
 
-	    /**this griddata makes the hyperlink to locate on the left of composite of customized reference*/
+	    /**
+	     * this griddata makes the hyperlink to locate on the left of composite of customized reference.
+	     * */
 		GridData gridData = new GridData();
 		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
         gridData.grabExcessHorizontalSpace = true;
         gridData.minimumWidth = 150;
 	    hyperlink.setLayoutData(gridData);
         
-	    /**If user clicks the set-button, then the tree-columns-dialog can be opened*/ 
+	    /**
+	     * If user clicks the set-button, then the tree-columns-dialog can be opened.
+	     * */ 
         final Button setButton = _toolkit.createButton(composite, "set", SWT.PUSH); 
 		setButton.addSelectionListener(new SelectionAdapter() {
 			
@@ -361,7 +405,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        	    		hyperlink.setEnabled(true);
 	        	    		hyperlink.setText(categoryOfLiteratre + " " + titleOfLiteratue);
 		        	    	
-	        	    		/**the category and title of selected model can be saved*/
+	        	    		/**
+	        	    		 * the category and title of selected model can be saved.
+	        	    		 * */
 		        	    	featureObservable.setValue(categoryOfLiteratre + " " + titleOfLiteratue);
 		        	    	        	    	
 	        	    	}
@@ -372,7 +418,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 	           
 	        });
 		   
-		/**If user clicks the delete-button, then the hyperlink of model is deleted*/ 
+		/**
+		 * If user clicks the delete-button, then the hyperlink of model is deleted.
+		 * */ 
         final Button deleteButton = _toolkit.createButton(composite, "delete", SWT.PUSH);  
 		deleteButton.addSelectionListener(new SelectionAdapter() {
 			
@@ -381,7 +429,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 	            	            
 	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
 	            	        | SWT.APPLICATION_MODAL);
-	            	/**Before this is deleted,the dialog is opened and it asks about the deletion.*/ 
+	            	/**
+	            	 * Before this is deleted,the dialog is opened and it asks about the deletion.
+	            	 * */ 
 	            	MessageBox dialog = new MessageBox(shell, SWT.ICON_QUESTION | SWT.OK| SWT.CANCEL);
 	            		dialog.setText("Question");
 	            		dialog.setMessage("Do you really want to delete this?");
@@ -538,7 +588,15 @@ public class CustomFormControlFactory extends FormControlFactory {
         messageBox_empty.open();
 		
 	}
-	public void print(){
-		System.out.println("print ");
+	/**
+	 * The name of project and formula are set to generate the quantities
+	 * */ 
+	public void setNameForGeneratingQuantity(String projectName, String formulaName){
+		
+		this.projectName = projectName;
+		this.formulaName = formulaName;
+		
 	}
+	
+	
 }

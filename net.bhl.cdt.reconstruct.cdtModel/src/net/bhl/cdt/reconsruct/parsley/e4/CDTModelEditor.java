@@ -31,13 +31,15 @@ import org.eclipse.emf.parsley.composite.ProposalCreator;
 import org.eclipse.emf.parsley.resource.ResourceLoader;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Shell;
 
 import com.google.inject.Injector;
 
 import cdtliterature.Library;
-import net.bhl.cdt.literature.model.parsley.CustomFormControlFactory;
+//import net.bhl.cdt.literature.model.parsley.CustomFormControlFactory;
 import net.bhl.cdt.literature.model.parsley.ParsleyInjectorProvider;
 import net.bhl.cdt.reconstruct.cdtmodel.CdtmodelInjectorProvider;
+import net.bhl.cdt.reconstruct.cdtmodel.CustomFormControlFactory;
 
 /**
  * The part of formula-model using parsley is generated.*/
@@ -47,21 +49,23 @@ public class CDTModelEditor {
 	public static final java.lang.String INPUT = "ecpEditorInput";	
 	//private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 	private Composite parent;
-	
+	private String projectName;
+	private String formulaName;
+	private String elementType;
+	private Injector injector;
 	
 	@PostConstruct
 	public void postConstruct(Composite parent) {	
 
 		this.parent = parent;
-    	Injector injector = CdtmodelInjectorProvider.getInjector();
+    	//Injector injector = CdtmodelInjectorProvider.getInjector();
+		injector = CdtmodelInjectorProvider.getInjector();
     	FormFactory formFactory = injector.getInstance(FormFactory.class);
 		formComposite = formFactory.createFormDetailComposite(parent, SWT.BORDER);	
 		
-		 CustomFormControlFactory fac = injector.getInstance(CustomFormControlFactory.class);
-		 
-		 
 		
-		
+		//System.out.println("postconstruct");
+	
 	}
 	
     @Inject
@@ -70,7 +74,8 @@ public class CDTModelEditor {
 			return;
 		}
 
-    	
+    	projectName = ecpProject.getName();
+    	 	
     	final int width = formComposite.getBounds().width;
 		final int height = formComposite.getBounds().height+1;
 		formComposite.init(modelElement);
@@ -79,12 +84,20 @@ public class CDTModelEditor {
 				modelElement, IItemLabelProvider.class);
 
 		part.setLabel(itemLabelProvider.getText(modelElement));
-		
+		formComposite.setSize(width, height);
+		//formulaName = filteringFormulaName(itemLabelProvider.getText(modelElement));
+		//filteringFormulaName(itemLabelProvider.getText(modelElement));
 		//part.setLabel(""+ modelElement.eClass().getName() + "");
 		
-		formComposite.setSize(width, height);
-	
-	
+		elementType = getElementType(itemLabelProvider.getText(modelElement));
+		
+		if(elementType.equals("Formula")){
+			CustomFormControlFactory formfactory = injector.getInstance(CustomFormControlFactory.class);
+			filteringFormulaName(itemLabelProvider.getText(modelElement));
+			
+			//formfactory.setNameForGeneratingQuantity(projectName, formulaName);
+		}
+
     }
     /**
 	 * Sets the focus to the parent composite.
@@ -95,15 +108,29 @@ public class CDTModelEditor {
 			parent.setFocus();
 		}
 	}
-	/*public ECPProject getECPProject(){
+	/*private String filteringFormulaName(String formula){
+		 
+		*//**formulaName-String is divided as two parts and it returns rear string*//*
+		 String[] array = formula.split(" ", 2);	 
+		 return array[1];
 		
-		return this.project;
+		
 	}*/
-	public void  getECPProject(){
-	
-		System.out.println("get!!");
+	private void filteringFormulaName(String formula){
+		 
+		/**formulaName-String is divided as two parts and it returns rear string*/
+		 String[] array = formula.split(" ", 2);	 
+		 formulaName = array[1];
 		
-	} 
+		
+	}
+	private String getElementType(String element){
+		 
+		/**formulaName-String is divided as two parts and it returns rear string*/
+		 String[] array = element.split(" ", 2);	 
+		 return array[0];
+		
+	}
 	
 	
  }
