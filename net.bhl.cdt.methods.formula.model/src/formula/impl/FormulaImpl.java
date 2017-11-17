@@ -2,6 +2,7 @@
  */
 package formula.impl;
 
+import cdtliterature.ALiteratureBase;
 import formula.Formula;
 import formula.FormulaPackage;
 import formula.FormulaRepository;
@@ -108,24 +109,14 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	protected Quantity outputParameter;
 
 	/**
-	 * The default value of the '{@link #getReference() <em>Reference</em>}' attribute.
+	 * The cached value of the '{@link #getReference() <em>Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String REFERENCE_EDEFAULT = "";
-
-	/**
-	 * The cached value of the '{@link #getReference() <em>Reference</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected String reference = REFERENCE_EDEFAULT;
+	protected ALiteratureBase reference;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -284,7 +275,15 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getReference() {
+	public ALiteratureBase getReference() {
+		if (reference != null && reference.eIsProxy()) {
+			InternalEObject oldReference = (InternalEObject)reference;
+			reference = (ALiteratureBase)eResolveProxy(oldReference);
+			if (reference != oldReference) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FormulaPackage.FORMULA__REFERENCE, oldReference, reference));
+			}
+		}
 		return reference;
 	}
 
@@ -293,8 +292,17 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setReference(String newReference) {
-		String oldReference = reference;
+	public ALiteratureBase basicGetReference() {
+		return reference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setReference(ALiteratureBase newReference) {
+		ALiteratureBase oldReference = reference;
 		reference = newReference;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FormulaPackage.FORMULA__REFERENCE, oldReference, reference));
@@ -389,7 +397,8 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 			case FormulaPackage.FORMULA__REPOSITORY:
 				return getRepository();
 			case FormulaPackage.FORMULA__REFERENCE:
-				return getReference();
+				if (resolve) return getReference();
+				return basicGetReference();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -420,7 +429,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				setRepository((FormulaRepository)newValue);
 				return;
 			case FormulaPackage.FORMULA__REFERENCE:
-				setReference((String)newValue);
+				setReference((ALiteratureBase)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -450,7 +459,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				setRepository((FormulaRepository)null);
 				return;
 			case FormulaPackage.FORMULA__REFERENCE:
-				setReference(REFERENCE_EDEFAULT);
+				setReference((ALiteratureBase)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -475,7 +484,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 			case FormulaPackage.FORMULA__REPOSITORY:
 				return getRepository() != null;
 			case FormulaPackage.FORMULA__REFERENCE:
-				return REFERENCE_EDEFAULT == null ? reference != null : !REFERENCE_EDEFAULT.equals(reference);
+				return reference != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -508,8 +517,6 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 		result.append(name);
 		result.append(", latexString: ");
 		result.append(latexString);
-		result.append(", reference: ");
-		result.append(reference);
 		result.append(')');
 		return result.toString();
 	}

@@ -2,6 +2,7 @@
  */
 package formula;
 
+import cdtliterature.ALiteratureBase;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
@@ -153,31 +154,30 @@ public interface Formula extends EObject {
 	void setRepository(FormulaRepository value);
 
 	/**
-	 * Returns the value of the '<em><b>Reference</b></em>' attribute.
-	 * The default value is <code>""</code>.
+	 * Returns the value of the '<em><b>Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Reference</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reference</em>' attribute.
-	 * @see #setReference(String)
+	 * @return the value of the '<em>Reference</em>' reference.
+	 * @see #setReference(ALiteratureBase)
 	 * @see formula.FormulaPackage#getFormula_Reference()
-	 * @model default=""
+	 * @model
 	 * @generated
 	 */
-	String getReference();
+	ALiteratureBase getReference();
 
 	/**
-	 * Sets the value of the '{@link formula.Formula#getReference <em>Reference</em>}' attribute.
+	 * Sets the value of the '{@link formula.Formula#getReference <em>Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reference</em>' attribute.
+	 * @param value the new value of the '<em>Reference</em>' reference.
 	 * @see #getReference()
 	 * @generated
 	 */
-	void setReference(String value);
+	void setReference(ALiteratureBase value);
 
 	/**
 	 * <!-- begin-user-doc -->

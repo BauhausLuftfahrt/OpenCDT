@@ -73,13 +73,14 @@ public class ReferenceDialog extends Dialog {
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 	private TableViewer viewer;
 	private ViewerFactory viewerFactory;
-	private Object[] result;
+	private EObject result;
 	private String selectedItemString;
 	private TreeItem item;
 	private Library library;
 	private FormToolkit toolkit;
 	private ALiteratureBase literatureObj;
 	private Resource resourceLibrary;
+	private Object object;
 	
 	public ReferenceDialog(Shell parent, FormToolkit _toolkit) {
 		super(parent);
@@ -133,7 +134,7 @@ public class ReferenceDialog extends Dialog {
         	treeViewer.getTree().getColumn(i).setWidth(150);	
         }
 	
-		Tree tree = (Tree) treeViewer.getControl();
+		/*Tree tree = (Tree) treeViewer.getControl();
 		tree.addSelectionListener(new SelectionAdapter() {
 		  @Override
 		  public void widgetSelected(SelectionEvent e) {
@@ -142,17 +143,10 @@ public class ReferenceDialog extends Dialog {
 		        selectedItemString = item.getText().toString();
 		
 		    }
-		});
-		
-		/*treeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
-		    @Override
-		    public void selectionChanged(SelectionChangedEvent event) {
-		        IStructuredSelection selection = viewer.getStructuredSelection();
-		        selection.getFirstElement();
-		        //selectionService.setSelection(selection.getFirstElement());
-		    }
 		});*/
 		
+        //treeViewer.addDoubleClickListener(listener);
+        
 		treeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			   public void selectionChanged(SelectionChangedEvent event) {
 			       // if the selection is empty clear the label
@@ -165,7 +159,10 @@ public class ReferenceDialog extends Dialog {
 			           
 			           try{
 			       			literatureObj = (ALiteratureBase) selection.getFirstElement();
+			       			//result = literatureObj;
 			       			//literatureObj.eClass().getName();// inbook
+			        	   
+			        	    object = selection.getFirstElement();
 			       			
 			   		   }catch(ClassCastException exc) {
 			   			   
@@ -182,21 +179,27 @@ public class ReferenceDialog extends Dialog {
 	protected Point getInitialSize() {
 	      return new Point(940, 300);
 	}
-	public Object[] getResult() {
+	public EObject getResult() {
 		return result;
+	}
+	public Object getObject(){
+		return object;
 	}
 	@Override
     protected void okPressed() {
         super.okPressed();
     }
-	public String getSelectedItem(){
+	/*public String getSelectedItem(){
 		return selectedItemString;
-	}
-	public TreeItem getSelectedTreeItem(){
+	}*/
+	/*public TreeItem getSelectedTreeItem(){
 		return item;
-	}
+	}*/
 	public String getLiteratureObjName(){
 		return literatureObj.eClass().getName();
+	}
+	public  ALiteratureBase getLiterature(){
+		return literatureObj;
 	}
 	public String getLiteratureTitle(){
 		

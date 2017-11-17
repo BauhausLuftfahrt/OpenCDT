@@ -196,8 +196,8 @@ public class FormulaItemProvider
 				 FormulaPackage.Literals.FORMULA__REFERENCE,
 				 true,
 				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 true,
+				 null,
 				 null,
 				 null));
 	}
@@ -242,7 +242,6 @@ public class FormulaItemProvider
 		switch (notification.getFeatureID(Formula.class)) {
 			case FormulaPackage.FORMULA__NAME:
 			case FormulaPackage.FORMULA__LATEX_STRING:
-			case FormulaPackage.FORMULA__REFERENCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

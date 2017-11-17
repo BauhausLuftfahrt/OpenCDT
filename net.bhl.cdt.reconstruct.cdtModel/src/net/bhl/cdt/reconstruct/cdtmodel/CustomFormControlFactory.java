@@ -107,6 +107,7 @@ import com.google.inject.Injector;
 
 import cdtliterature.CdtliteratureFactory;
 import cdtliterature.Library;
+import cdtliterature.ALiteratureBase;
 import formula.Formula;
 import formula.FormulaFactory;
 import formula.FormulaPackage;
@@ -142,10 +143,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private ReferenceDialog treeColumnDialog;
 	private Hyperlink hyperlink;
 	private MPart part; 
-	private String projectName;
-	private String formulaName;
-	private ECPProject ecpProject;
-	private Shell shell;
+	//private String projectName;
+	//private String formulaName;
+	//private ECPProject ecpProject;
+	//private Shell shell;
+	private String hyperLinkStr;
+	private Object obj;
+	String search;
 	
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -207,6 +211,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				
 				Collection<ECPProject> projects = null;
 				projects = ECPUtil.getECPProjectManager().getProjects();
+				
 				//projects.iterator().next().getName() //s
 				//projects.iterator().next()
 				//projects.iterator().next().getContents().get(0)
@@ -232,7 +237,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 					
 				}*/
 
-				repo.getQuantities().add(qunatity);
+				//repo.getQuantities().add(qunatity);
+				
 				
 				
 				//System.out.println("setProject : " + ecpProject.getName());
@@ -296,7 +302,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 		return composite;
 		
 	}
-	public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
+	
+public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		//Injector injector = CdtliteratureeditorInjectorProvider.getInjector();
 		
@@ -309,64 +316,93 @@ public class CustomFormControlFactory extends FormControlFactory {
 	     * The gridlayout consist of hyperlink, set-button, delete-button.*/
 	    GridLayout _gridLayout = new GridLayout(3, false);
 	    composite.setLayout(_gridLayout);
-	       
-	    hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.NONE);
+	    hyperLinkStr = "";
+	    
+	    if (featureObservable.getValue() != null)
+	    	hyperLinkStr = (((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
+
+	    hyperlink = _toolkit.createHyperlink(composite, hyperLinkStr, SWT.NONE);
+	    
+	    hyperlink.setUnderlined(false);
 	    
 	    /**The action for click of this hyperlink und let open and show the model of hyperlink.*/
 	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
 	    	
 			public void linkActivated(HyperlinkEvent e) {
 				
-				String featureObsString;
+				//String featureObsString;
 				EPartService partService = EPartServiceHelper.getEPartService();
 				
+				
+				
+				part = MBasicFactory.INSTANCE.createPart();
+				part.setElementId(search);
+				part.setLabel(((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
+				Object obj = featureObservable.getValue();
+				
+				//part.setObject(obj);
+				part.setCloseable(true);
+				
+			
+				part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+				
+				partService.showPart(part, PartState.CREATE);
+				partService.bringToTop(part);
+				
+				
+				
 				/**This checks whether the parameter-featureObservale has the certain reference*/ 
-				if(featureObservable.getValue().toString() == ""){
-					/**featureObservable didn't save the reference.*/
+			/*	if(featureObservable.getValue().toString() == ""){
+					*//**featureObservable didn't save the reference.*//*
 					featureObsString = "";
 
 				}else{
-					/**The featureObservable has the certain reference of library.*/
+					*//**The featureObservable has the certain reference of library.*//*
 					featureObsString = featureObservable.getValue().toString();
-				}
+				}*/
 				
 				/**It is regarded at first that the part of model is not opened and not visible.*/
-				Boolean partVisible = false;
-				
+				//Boolean partVisible = false;
+				//Boolean partVisible = true;
 				/**Before opening the part for model let check whether this part already is opened by click of hyperlink.*/
-				if(!featureObsString.isEmpty()){
-						
-					/**Let gather all parts*/
+				//if(!featureObsString.isEmpty()){
+				/*if(!hyperLinkStr.isEmpty()){	
+					*//**Let gather all parts*//*
 					Collection<MPart> collPart = partService.getParts();
 					
 					for( Iterator<MPart> iterator = collPart.iterator(); iterator.hasNext();){
-				        /**the label of already opened part is compared with the saved featureObsString-value*/ 
-						if(iterator.next().getLabel().equals(featureObsString)){
-								
-							    /**the part of model is already opened*/
+				        *//**the label of already opened part is compared with the saved featureObsString-value*//*
+						//if(iterator.next().getLabel().equals(featureObsString)){
+						if(iterator.next().getElementId().equals(featureObservable.getValue().toString())){	
+							    *//**the part of model is already opened*//*
 								partVisible = true;							
 								break;
 							
 							}
 					}
 					
-					/**
+					*//**
 					 * the part of model is not yet opened.
-					 * */
+					 * *//*
 					if(!partVisible){
 						
-						/**the new part is created*/
+						*//**the new part is created*//*
 						part = MBasicFactory.INSTANCE.createPart();
-						part.setElementId(featureObsString);
-						part.setLabel(featureObsString);
+						//part.setElementId(featureObservable.getValue().toString());
+						part.setElementId(search);
+						part.setLabel(((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
+						Object obj = featureObservable.getValue();
+						
+						part.setObject(obj);
 						part.setCloseable(true);
-						/**the new part is depicted as this linked class*/
+						
+						*//**the new part is depicted as this linked class*//*
 						part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
 						
 						partService.showPart(part, PartState.CREATE);
 						partService.bringToTop(part);
 					}
-			  }
+			  }*/
 			}//end linkActivated-clause
 		});
 
@@ -397,20 +433,48 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        		 		
 	        	    if (treeColumnDialog.open() == Window.OK) {
 	        	    
-	        	    	if(!treeColumnDialog.getLiteratureTitle().equals("")){
+	        	    	//if(!treeColumnDialog.getLiteratureTitle().equals("")){
 	        	    		
 	        	    		String categoryOfLiteratre = treeColumnDialog.getLiteratureObjName();
 	    	        		String titleOfLiteratue = treeColumnDialog.getLiteratureTitle();
 	    	        		
+	    	        		//Object object = treeColumnDialog.getResult();
+	    	        		//featureObservable.setValue(treeColumnDialog.getResult());
+	    	        		
+	    	        		//featureObservable.setValue(treeColumnDialog.getLiterature());
+	    	        		featureObservable.setValue(treeColumnDialog.getObject());
+	    	        		
+	    	        		//search = featureObservable.getValue().toString();
+	    	        		search = featureObservable.getValue().toString();
+	    	        		
+	    	        		//featureObservable.toString()
+	    	        		
+	    	        		Collection<ECPProject> projects = null;
+	    				/*	projects = ECPUtil.getECPProjectManager().getProjects();
+	    					projects.iterator().next().getContents().contains(treeColumnDialog.getObject())
+	    					if(projects.iterator().next().getContents().contains(treeColumnDialog.getObject())){
+	    						projects.iterator().next().getContents().remove(treeColumnDialog.getObject());
+	    					
+	    				
+	    					}*/
+	    	        		//featureObservable.setValue("string");
+	    	        		//String hyperLinkStr = ((ALiteratureBase)featureObservable.getValue()).getTitle() + "(" + ((ALiteratureBase)featureObservable.getValue()).getAuthor() + ")";
+	    	        		//((ALiteratureBase) featureObservable.getValue()).eClass().getName();
 	        	    		hyperlink.setEnabled(true);
-	        	    		hyperlink.setText(categoryOfLiteratre + " " + titleOfLiteratue);
-		        	    	
+	        	    		
+	        	    		ALiteratureBase literatureObj = (ALiteratureBase)treeColumnDialog.getObject();
+	        	    		EObject result = literatureObj;
+	        	    		
+	        	    		//hyperlink.setText(((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
+		        	    	hyperlink.setText(result.eClass().getName() + " " + literatureObj.getTitle());
+	        	    		
+	        	    		//hyperLinkStr = ((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle();
 	        	    		/**
 	        	    		 * the category and title of selected model can be saved.
 	        	    		 * */
-		        	    	featureObservable.setValue(categoryOfLiteratre + " " + titleOfLiteratue);
+		        	    	//featureObservable.setValue(categoryOfLiteratre + " " + titleOfLiteratue);
 		        	    	        	    	
-	        	    	}
+	        	    	//}
 	        	    	
 	        	    }        	    
 	        	    composite.forceFocus();        	    
@@ -447,7 +511,201 @@ public class CustomFormControlFactory extends FormControlFactory {
 
 		return composite;
 		
-	  }
+	 }
+	
+//	public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
+//		
+//		//Injector injector = CdtliteratureeditorInjectorProvider.getInjector();
+//		
+//		/**The base elements are set for customized reference.*/
+//		FormToolkit _toolkit = this.getToolkit();
+//	    Composite _parent = this.getParent();
+//	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
+//	    
+//	    /**
+//	     * The gridlayout consist of hyperlink, set-button, delete-button.*/
+//	    GridLayout _gridLayout = new GridLayout(3, false);
+//	    composite.setLayout(_gridLayout);
+//	       
+//	    hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.NONE);
+//	    hyperlink.setUnderlined(false);
+//	    
+//	    /**The action for click of this hyperlink und let open and show the model of hyperlink.*/
+//	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
+//	    	
+//			public void linkActivated(HyperlinkEvent e) {
+//				
+//				String featureObsString;
+//				EPartService partService = EPartServiceHelper.getEPartService();
+//				
+//				/**This checks whether the parameter-featureObservale has the certain reference*/ 
+//				if(featureObservable.getValue().toString() == ""){
+//					/**featureObservable didn't save the reference.*/
+//					featureObsString = "";
+//
+//				}else{
+//					/**The featureObservable has the certain reference of library.*/
+//					featureObsString = featureObservable.getValue().toString();
+//				}
+//				
+//				/**It is regarded at first that the part of model is not opened and not visible.*/
+//				Boolean partVisible = false;
+//				
+//				/**Before opening the part for model let check whether this part already is opened by click of hyperlink.*/
+//				if(!featureObsString.isEmpty()){
+//						
+//					/**Let gather all parts*/
+//					Collection<MPart> collPart = partService.getParts();
+//					
+//					for( Iterator<MPart> iterator = collPart.iterator(); iterator.hasNext();){
+//				        /**the label of already opened part is compared with the saved featureObsString-value*/ 
+//						if(iterator.next().getLabel().equals(featureObsString)){
+//								
+//							    /**the part of model is already opened*/
+//								partVisible = true;							
+//								break;
+//							
+//							}
+//					}
+//					
+//					/**
+//					 * the part of model is not yet opened.
+//					 * */
+//					if(!partVisible){
+//						
+//						/**the new part is created*/
+//						part = MBasicFactory.INSTANCE.createPart();
+//						part.setElementId(featureObsString);
+//						part.setLabel(featureObsString);
+//						part.setCloseable(true);
+//						/**the new part is depicted as this linked class*/
+//						part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+//						
+//						partService.showPart(part, PartState.CREATE);
+//						partService.bringToTop(part);
+//					}
+//			  }
+//			}//end linkActivated-clause
+//		});
+//
+//	    /**
+//	     * this griddata makes the hyperlink to locate on the left of composite of customized reference.
+//	     * */
+//		GridData gridData = new GridData();
+//		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
+//        gridData.grabExcessHorizontalSpace = true;
+//        gridData.minimumWidth = 150;
+//	    hyperlink.setLayoutData(gridData);
+//        
+//	    /**
+//	     * If user clicks the set-button, then the tree-columns-dialog can be opened.
+//	     * */ 
+//        final Button setButton = _toolkit.createButton(composite, "set", SWT.PUSH); 
+//		setButton.addSelectionListener(new SelectionAdapter() {
+//			
+//	            @Override
+//	            public void widgetSelected(SelectionEvent e) {
+//	            	            
+//	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
+//	            	        | SWT.APPLICATION_MODAL);
+//	            	
+//	            	treeColumnDialog = new ReferenceDialog(shell, _toolkit);
+//	            	treeColumnDialog.isResizable();
+//	            
+//	        		 		
+//	        	    if (treeColumnDialog.open() == Window.OK) {
+//	        	    
+//	        	    	if(!treeColumnDialog.getLiteratureTitle().equals("")){
+//	        	    		
+//	        	    		String categoryOfLiteratre = treeColumnDialog.getLiteratureObjName();
+//	    	        		String titleOfLiteratue = treeColumnDialog.getLiteratureTitle();
+//	    	        		
+//	    	        		featureObservable.setValue(treeColumnDialog.getResult());
+//	    	        		
+//	        	    		hyperlink.setEnabled(true);
+//	        	    		hyperlink.setText(categoryOfLiteratre + " " + titleOfLiteratue);
+//		        	    	
+//	        	    		/**
+//	        	    		 * the category and title of selected model can be saved.
+//	        	    		 * */
+//		        	    	featureObservable.setValue(categoryOfLiteratre + " " + titleOfLiteratue);
+//		        	    	        	    	
+//	        	    	}
+//	        	    	
+//	        	    }        	    
+//	        	    composite.forceFocus();        	    
+//	            }
+//	           
+//	        });
+//		   
+//		/**
+//		 * If user clicks the delete-button, then the hyperlink of model is deleted.
+//		 * */ 
+//        final Button deleteButton = _toolkit.createButton(composite, "delete", SWT.PUSH);  
+//		deleteButton.addSelectionListener(new SelectionAdapter() {
+//			
+//	            @Override
+//	            public void widgetSelected(SelectionEvent e) {
+//	            	            
+//	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
+//	            	        | SWT.APPLICATION_MODAL);
+//	            	/**
+//	            	 * Before this is deleted,the dialog is opened and it asks about the deletion.
+//	            	 * */ 
+//	            	MessageBox dialog = new MessageBox(shell, SWT.ICON_QUESTION | SWT.OK| SWT.CANCEL);
+//	            		dialog.setText("Question");
+//	            		dialog.setMessage("Do you really want to delete this?");
+//	            		
+//	            		if(dialog.open() == SWT.OK){
+//	            			hyperlink.setText(EMPTY);
+//	    	            	hyperlink.setEnabled(false);
+//	    	            	featureObservable.setValue(EMPTY);
+//	            		}
+//	            		
+//	            }
+//	    });
+//
+//		return composite;
+//		
+//	 }
+	public Control control_Formula_input(DataBindingContext dbc, IObservableValue featureObservable) {
+		FormToolkit _toolkit = this.getToolkit();
+	    Composite _parent = this.getParent();
+	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
+	    GridLayout _gridLayout = new GridLayout(3, false);
+	    composite.setLayout(_gridLayout);
+	     
+	    Hyperlink inputLink = _toolkit.createHyperlink(composite, "input", SWT.NONE);
+	    //inputLink.setEnabled(false);
+	    inputLink.setForeground(getColorBlack());
+	    inputLink.setUnderlined(false);
+	    composite.forceFocus();   
+	    
+	    return composite;
+	}
+	public Control control_Formula_output(DataBindingContext dbc, IObservableValue featureObservable) {
+		FormToolkit _toolkit = this.getToolkit();
+	    Composite _parent = this.getParent();
+	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
+	    GridLayout _gridLayout = new GridLayout(3, false);
+	    composite.setLayout(_gridLayout);
+	       
+	    //hyperlink = _toolkit.createHyperlink(composite, featureObservable.getValue().toString(), SWT.NONE);
+	    Hyperlink linkOutput = _toolkit.createHyperlink(composite, "output", SWT.NONE);
+	    //linkOutput.setEnabled(false);
+	    linkOutput.setUnderlined(false);
+	    linkOutput.setForeground(getColorBlack());
+	    composite.forceFocus();
+	    
+	    return composite;
+	}
+	private Color getColorBlack(){
+		
+		 Device device = Display.getCurrent ();
+		 Color black = new Color (device, 0, 0, 0);
+		
+		 return black;
+	}
 	
 	private void parsleyCustomButton(Button buttonShow, Text latexString, Composite _parent){
 
@@ -591,12 +849,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 	/**
 	 * The name of project and formula are set to generate the quantities
 	 * */ 
-	public void setNameForGeneratingQuantity(String projectName, String formulaName){
+	/*public void setNameForGeneratingQuantity(String projectName, String formulaName){
 		
 		this.projectName = projectName;
 		this.formulaName = formulaName;
 		
-	}
+	}*/
 	
 	
 }
