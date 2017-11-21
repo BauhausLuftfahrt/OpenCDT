@@ -228,6 +228,15 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getFormula_RefernceStr() {
+		return (EAttribute)formulaEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getFormula__HasName__DiagnosticChain_Map() {
 		return formulaEClass.getEOperations().get(0);
 	}
@@ -317,6 +326,7 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 		createEReference(formulaEClass, FORMULA__OUTPUT_PARAMETER);
 		createEReference(formulaEClass, FORMULA__REPOSITORY);
 		createEReference(formulaEClass, FORMULA__REFERENCE);
+		createEAttribute(formulaEClass, FORMULA__REFERNCE_STR);
 		createEOperation(formulaEClass, FORMULA___HAS_NAME__DIAGNOSTICCHAIN_MAP);
 
 		quantityEClass = createEClass(QUANTITY);
@@ -371,6 +381,7 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 		initEReference(getFormula_OutputParameter(), this.getQuantity(), null, "outputParameter", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormula_Repository(), this.getFormulaRepository(), this.getFormulaRepository_Formulas(), "repository", null, 1, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormula_Reference(), theCdtliteraturePackage.getALiteratureBase(), null, "reference", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFormula_RefernceStr(), ecorePackage.getEString(), "refernceStr", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getFormula__HasName__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "hasName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED);

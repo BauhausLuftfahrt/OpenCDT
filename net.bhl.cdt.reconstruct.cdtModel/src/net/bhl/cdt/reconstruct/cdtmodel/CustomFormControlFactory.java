@@ -151,6 +151,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private Object obj;
 	String search;
 	
+	
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
 		FormToolkit _toolkit = this.getToolkit();
@@ -312,6 +313,7 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    Composite _parent = this.getParent();
 	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
 	    
+	    ArrangeLiteratureOnProject arrangeLiterature = new ArrangeLiteratureOnProject();
 	    /**
 	     * The gridlayout consist of hyperlink, set-button, delete-button.*/
 	    GridLayout _gridLayout = new GridLayout(3, false);
@@ -330,25 +332,50 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    	
 			public void linkActivated(HyperlinkEvent e) {
 				
-				//String featureObsString;
+				
+				Boolean partVisible = false;
 				EPartService partService = EPartServiceHelper.getEPartService();
+				Collection<MPart> parts = partService.getParts();
 				
 				
 				
-				part = MBasicFactory.INSTANCE.createPart();
-				part.setElementId(search);
-				part.setLabel(((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
-				Object obj = featureObservable.getValue();
+				for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
+				{
+		             
+					MPart partSearch = i.next();
+					
+					
+					 if (partSearch.isVisible()) {
+						 
+						if(partSearch.getElementId().equals(featureObservable.getValue().toString())){
+						
+		                 //if(id == ((MPart) stack.getChildren().get(i)).getElementId()){
+		                	 partVisible = true;
+		                	 
+		                	 partService.activate(partSearch);
+		                	 break;
+							 
+							 
+		                 }
+		    
+		             }
+		        }
 				
-				//part.setObject(obj);
-				part.setCloseable(true);
-				
-			
-				part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
-				
-				partService.showPart(part, PartState.CREATE);
-				partService.bringToTop(part);
-				
+				//if(partService.findPart(featureObservable.getValue().toString()) == null){
+				if(!partVisible){
+					
+					//part = partService.createPart(featureObservable.getValue().toString());
+					part = MBasicFactory.INSTANCE.createPart();
+					part.setLabel(((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
+				    part.setElementId(featureObservable.getValue().toString());
+					part.setObject(featureObservable.getValue());
+					part.setCloseable(true);
+					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+					
+					partService.showPart(part, PartState.CREATE);
+					partService.bringToTop(part);
+					
+				}
 				
 				
 				/**This checks whether the parameter-featureObservale has the certain reference*/ 
@@ -433,8 +460,12 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	        		 		
 	        	    if (treeColumnDialog.open() == Window.OK) {
 	        	    
-	        	    	//if(!treeColumnDialog.getLiteratureTitle().equals("")){
+	        	    	if(treeColumnDialog.getLiteratureTitle().equals("")){
 	        	    		
+	        	    		return;
+	        	    	}
+	        	    	else{
+	        	    				
 	        	    		String categoryOfLiteratre = treeColumnDialog.getLiteratureObjName();
 	    	        		String titleOfLiteratue = treeColumnDialog.getLiteratureTitle();
 	    	        		
@@ -443,14 +474,15 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    	        		
 	    	        		//featureObservable.setValue(treeColumnDialog.getLiterature());
 	    	        		featureObservable.setValue(treeColumnDialog.getObject());
-	    	        		
 	    	        		//search = featureObservable.getValue().toString();
-	    	        		search = featureObservable.getValue().toString();
 	    	        		
+	    	        		
+	    	        		//search = String.valueOf(featureObservable.getValue().hashCode());
+	    	        		//search = String.valueOf(treeColumnDialog.getHashcode());
 	    	        		//featureObservable.toString()
 	    	        		
-	    	        		Collection<ECPProject> projects = null;
-	    				/*	projects = ECPUtil.getECPProjectManager().getProjects();
+	    	        		//Collection<ECPProject> projects = null;
+	    	        		/*projects = ECPUtil.getECPProjectManager().getProjects();
 	    					projects.iterator().next().getContents().contains(treeColumnDialog.getObject())
 	    					if(projects.iterator().next().getContents().contains(treeColumnDialog.getObject())){
 	    						projects.iterator().next().getContents().remove(treeColumnDialog.getObject());
@@ -475,6 +507,8 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 		        	    	//featureObservable.setValue(categoryOfLiteratre + " " + titleOfLiteratue);
 		        	    	        	    	
 	        	    	//}
+	        	    	}
+	        	    	arrangeLiterature.arrangeReferenceLiterature(featureObservable.getValue(), treeColumnDialog.getObject());
 	        	    	
 	        	    }        	    
 	        	    composite.forceFocus();        	    

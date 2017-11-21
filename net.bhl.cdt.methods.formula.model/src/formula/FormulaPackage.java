@@ -177,13 +177,22 @@ public interface FormulaPackage extends EPackage {
 	int FORMULA__REFERENCE = 5;
 
 	/**
+	 * The feature id for the '<em><b>Refernce Str</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA__REFERNCE_STR = 6;
+
+	/**
 	 * The number of structural features of the '<em>Formula</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA_FEATURE_COUNT = 6;
+	int FORMULA_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>Has Name</em>' operation.
@@ -388,6 +397,17 @@ public interface FormulaPackage extends EPackage {
 	EReference getFormula_Reference();
 
 	/**
+	 * Returns the meta object for the attribute '{@link formula.Formula#getRefernceStr <em>Refernce Str</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Refernce Str</em>'.
+	 * @see formula.Formula#getRefernceStr()
+	 * @see #getFormula()
+	 * @generated
+	 */
+	EAttribute getFormula_RefernceStr();
+
+	/**
 	 * Returns the meta object for the '{@link formula.Formula#hasName(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Has Name</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -565,6 +585,14 @@ public interface FormulaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FORMULA__REFERENCE = eINSTANCE.getFormula_Reference();
+
+		/**
+		 * The meta object literal for the '<em><b>Refernce Str</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FORMULA__REFERNCE_STR = eINSTANCE.getFormula_RefernceStr();
 
 		/**
 		 * The meta object literal for the '<em><b>Has Name</b></em>' operation.

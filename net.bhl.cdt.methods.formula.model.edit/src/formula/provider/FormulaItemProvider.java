@@ -66,6 +66,7 @@ public class FormulaItemProvider
 			addOutputParameterPropertyDescriptor(object);
 			addRepositoryPropertyDescriptor(object);
 			addReferencePropertyDescriptor(object);
+			addRefernceStrPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -203,6 +204,28 @@ public class FormulaItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Refernce Str feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRefernceStrPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Formula_refernceStr_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Formula_refernceStr_feature", "_UI_Formula_type"),
+				 FormulaPackage.Literals.FORMULA__REFERNCE_STR,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Formula.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -242,6 +265,7 @@ public class FormulaItemProvider
 		switch (notification.getFeatureID(Formula.class)) {
 			case FormulaPackage.FORMULA__NAME:
 			case FormulaPackage.FORMULA__LATEX_STRING:
+			case FormulaPackage.FORMULA__REFERNCE_STR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

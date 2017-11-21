@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link formula.Formula#getOutputParameter <em>Output Parameter</em>}</li>
  *   <li>{@link formula.Formula#getRepository <em>Repository</em>}</li>
  *   <li>{@link formula.Formula#getReference <em>Reference</em>}</li>
+ *   <li>{@link formula.Formula#getRefernceStr <em>Refernce Str</em>}</li>
  * </ul>
  *
  * @see formula.FormulaPackage#getFormula()
@@ -178,6 +179,32 @@ public interface Formula extends EObject {
 	 * @generated
 	 */
 	void setReference(ALiteratureBase value);
+
+	/**
+	 * Returns the value of the '<em><b>Refernce Str</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Refernce Str</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Refernce Str</em>' attribute.
+	 * @see #setRefernceStr(String)
+	 * @see formula.FormulaPackage#getFormula_RefernceStr()
+	 * @model
+	 * @generated
+	 */
+	String getRefernceStr();
+
+	/**
+	 * Sets the value of the '{@link formula.Formula#getRefernceStr <em>Refernce Str</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Refernce Str</em>' attribute.
+	 * @see #getRefernceStr()
+	 * @generated
+	 */
+	void setRefernceStr(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

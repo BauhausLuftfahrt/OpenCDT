@@ -81,6 +81,7 @@ public class ReferenceDialog extends Dialog {
 	private ALiteratureBase literatureObj;
 	private Resource resourceLibrary;
 	private Object object;
+	private int hashcode;
 	
 	public ReferenceDialog(Shell parent, FormToolkit _toolkit) {
 		super(parent);
@@ -163,7 +164,7 @@ public class ReferenceDialog extends Dialog {
 			       			//literatureObj.eClass().getName();// inbook
 			        	   
 			        	    object = selection.getFirstElement();
-			       			
+			        	    hashcode = selection.getFirstElement().hashCode();
 			   		   }catch(ClassCastException exc) {
 			   			   
 			   		   }
@@ -178,6 +179,9 @@ public class ReferenceDialog extends Dialog {
 	}
 	protected Point getInitialSize() {
 	      return new Point(940, 300);
+	}
+	public int getHashcode() {
+		return hashcode;
 	}
 	public EObject getResult() {
 		return result;
