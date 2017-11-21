@@ -511,6 +511,7 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	        	    	arrangeLiterature.arrangeReferenceLiterature(featureObservable.getValue(), treeColumnDialog.getObject());
 	        	    	
 	        	    }        	    
+	        	    
 	        	    composite.forceFocus();        	    
 	            }
 	           
