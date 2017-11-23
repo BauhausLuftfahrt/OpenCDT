@@ -144,12 +144,20 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private Hyperlink hyperlink;
 	private MPart part; 
 	//private String projectName;
-	//private String formulaName;
+	private Formula formulaObj;
 	//private ECPProject ecpProject;
 	//private Shell shell;
 	private String hyperLinkStr;
 	private Object obj;
-	String search;
+	private String search;
+	
+	public Control control_Formula_name(final Formula it) {
+		
+		formulaObj = it;
+		
+	    return null;
+	  }
+	
 	
 	
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
@@ -314,6 +322,7 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
 	    
 	    ArrangeLiteratureOnProject arrangeLiterature = new ArrangeLiteratureOnProject();
+	    
 	    /**
 	     * The gridlayout consist of hyperlink, set-button, delete-button.*/
 	    GridLayout _gridLayout = new GridLayout(3, false);
@@ -322,10 +331,14 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    
 	    if (featureObservable.getValue() != null)
 	    	hyperLinkStr = (((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
-
+	    
+	    	
 	    hyperlink = _toolkit.createHyperlink(composite, hyperLinkStr, SWT.NONE);
 	    
 	    hyperlink.setUnderlined(false);
+	    
+	    if (featureObservable.getValue() == null)
+	    	hyperlink.setEnabled(false);	
 	    
 	    /**The action for click of this hyperlink und let open and show the model of hyperlink.*/
 	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
@@ -338,7 +351,7 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 				Collection<MPart> parts = partService.getParts();
 				
 				
-				
+				//after part is closed, the action of active part should be modified 
 				for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
 				{
 		             
@@ -351,7 +364,6 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 						
 		                 //if(id == ((MPart) stack.getChildren().get(i)).getElementId()){
 		                	 partVisible = true;
-		                	 
 		                	 partService.activate(partSearch);
 		                	 break;
 							 
@@ -446,6 +458,12 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	     * If user clicks the set-button, then the tree-columns-dialog can be opened.
 	     * */ 
         final Button setButton = _toolkit.createButton(composite, "set", SWT.PUSH); 
+        
+        //setButton.setEnabled(false);
+ 
+        	
+        
+        
 		setButton.addSelectionListener(new SelectionAdapter() {
 			
 	            @Override
@@ -472,8 +490,25 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    	        		//Object object = treeColumnDialog.getResult();
 	    	        		//featureObservable.setValue(treeColumnDialog.getResult());
 	    	        		
+	    	        		
+	    	        		if(featureObservable.getValue() != null){
+		
+	    	        			arrangeLiterature.arrangeReferenceLiterature(featureObservable.getValue(), treeColumnDialog.getObject() , formulaObj);
+	    	        			
+	    	        		}
+	    	        			hyperlink.setEnabled(true);	        	    		
+		        	    		ALiteratureBase literatureObj = (ALiteratureBase)treeColumnDialog.getObject();
+		        	    		EObject result = literatureObj;
+		        	    		hyperlink.setText(result.eClass().getName() + " " + literatureObj.getTitle());
+		        	    		featureObservable.setValue(treeColumnDialog.getObject());
+		        	    		
 	    	        		//featureObservable.setValue(treeColumnDialog.getLiterature());
-	    	        		featureObservable.setValue(treeColumnDialog.getObject());
+	    	        		
+	    	        		if(!featureObservable.getValue().equals(treeColumnDialog.getObject())){
+	    	        			
+	    	        			featureObservable.setValue(treeColumnDialog.getObject());
+	    	        		
+	        	    		}
 	    	        		//search = featureObservable.getValue().toString();
 	    	        		
 	    	        		
@@ -492,13 +527,12 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    	        		//featureObservable.setValue("string");
 	    	        		//String hyperLinkStr = ((ALiteratureBase)featureObservable.getValue()).getTitle() + "(" + ((ALiteratureBase)featureObservable.getValue()).getAuthor() + ")";
 	    	        		//((ALiteratureBase) featureObservable.getValue()).eClass().getName();
+	    	        		
 	        	    		hyperlink.setEnabled(true);
-	        	    		
+	        	    		/*
 	        	    		ALiteratureBase literatureObj = (ALiteratureBase)treeColumnDialog.getObject();
 	        	    		EObject result = literatureObj;
-	        	    		
-	        	    		//hyperlink.setText(((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
-		        	    	hyperlink.setText(result.eClass().getName() + " " + literatureObj.getTitle());
+	        	    		hyperlink.setText(result.eClass().getName() + " " + literatureObj.getTitle());*/
 	        	    		
 	        	    		//hyperLinkStr = ((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle();
 	        	    		/**
@@ -507,8 +541,9 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 		        	    	//featureObservable.setValue(categoryOfLiteratre + " " + titleOfLiteratue);
 		        	    	        	    	
 	        	    	//}
+		        	    	
 	        	    	}
-	        	    	arrangeLiterature.arrangeReferenceLiterature(featureObservable.getValue(), treeColumnDialog.getObject());
+	        	    	
 	        	    	
 	        	    }        	    
 	        	    

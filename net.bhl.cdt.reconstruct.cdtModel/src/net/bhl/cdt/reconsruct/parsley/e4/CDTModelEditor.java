@@ -92,12 +92,12 @@ public class CDTModelEditor {
 		
 		elementType = getElementType(itemLabelProvider.getText(modelElement));
 		
-		if(elementType.equals("Formula")){
+		/*if(elementType.equals("Formula")){
 			CustomFormControlFactory formfactory = injector.getInstance(CustomFormControlFactory.class);
 			filteringFormulaName(itemLabelProvider.getText(modelElement));
 			
 			//formfactory.setNameForGeneratingQuantity(projectName, formulaName);
-		}
+		}*/
 
     }
     /**

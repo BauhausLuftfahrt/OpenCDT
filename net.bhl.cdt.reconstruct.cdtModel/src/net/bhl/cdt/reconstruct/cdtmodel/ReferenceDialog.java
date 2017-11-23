@@ -164,7 +164,11 @@ public class ReferenceDialog extends Dialog {
 			       			//literatureObj.eClass().getName();// inbook
 			        	   
 			        	    object = selection.getFirstElement();
+			        	    
+			        	    System.out.println(object.toString());
+			        	    
 			        	    hashcode = selection.getFirstElement().hashCode();
+			        	    
 			   		   }catch(ClassCastException exc) {
 			   			   
 			   		   }
