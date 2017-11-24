@@ -23,7 +23,8 @@ Require-Bundle: org.eclipse.e4.ui.model.workbench;bundle-version="1.2.0.v2016022
  net.bhl.cdt.literature.model.edit;bundle-version="1.0.0",
  org.eclipse.emf.parsley.common,
  org.eclipse.emf.ecp.ui.e4,
- org.eclipse.e4.ui.workbench
+ org.eclipse.e4.ui.workbench,
+ org.eclipse.jface
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: net.bhl.cdt.core.ui,
  net.bhl.cdt.literature.model.parsley,

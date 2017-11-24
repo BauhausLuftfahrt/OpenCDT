@@ -7,6 +7,7 @@
           <toolbar xmi:id="_mpp3MFv8EeekqYM3DiuC_A" elementId="net.bhl.cdt.literature.model.parsley.parts.toolbar.0">
             <children xsi:type="menu:DirectToolItem" xmi:id="_nnW1kFv8EeekqYM3DiuC_A" elementId="net.bhl.cdt.literature.model.parsley.parts.directtoolitem.add" label="add" iconURI="platform:/plugin/net.bhl.cdt.literature.model.parsley.parts/book_add.png" contributionURI="bundleclass://net.bhl.cdt.literature.model.parsley.parts/net.bhl.cdt.literature.model.parsley.parts.Fragment.AddLibrary"/>
             <children xsi:type="menu:DirectToolItem" xmi:id="_GUc1AFv9EeekqYM3DiuC_A" elementId="net.bhl.cdt.literature.model.parsley.parts.directtoolitem.save" label="save" iconURI="platform:/plugin/net.bhl.cdt.literature.model.parsley.parts/save_edit.gif" contributionURI="bundleclass://net.bhl.cdt.literature.model.parsley.parts/net.bhl.cdt.literature.model.parsley.parts.Fragment.SaveReference"/>
+            <children xsi:type="menu:DirectToolItem" xmi:id="_cvnz0NEoEeeJdsGr86Ubcw" elementId="net.bhl.cdt.literature.model.parsley.parts.directtoolitem.delete" label="delete" iconURI="platform:/plugin/net.bhl.cdt.literature.model.parsley.parts/book_delete.png" contributionURI="bundleclass://net.bhl.cdt.literature.model.parsley.parts/net.bhl.cdt.literature.model.parsley.parts.Fragment.DeleteLibrary"/>
           </toolbar>
         </children>
       </children>

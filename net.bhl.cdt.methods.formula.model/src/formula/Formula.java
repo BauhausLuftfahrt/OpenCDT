@@ -155,26 +155,26 @@ public interface Formula extends EObject {
 	void setRepository(FormulaRepository value);
 
 	/**
-	 * Returns the value of the '<em><b>Reference</b></em>' reference.
+	 * Returns the value of the '<em><b>Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Reference</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reference</em>' reference.
+	 * @return the value of the '<em>Reference</em>' containment reference.
 	 * @see #setReference(ALiteratureBase)
 	 * @see formula.FormulaPackage#getFormula_Reference()
-	 * @model
+	 * @model containment="true"
 	 * @generated
 	 */
 	ALiteratureBase getReference();
 
 	/**
-	 * Sets the value of the '{@link formula.Formula#getReference <em>Reference</em>}' reference.
+	 * Sets the value of the '{@link formula.Formula#getReference <em>Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reference</em>' reference.
+	 * @param value the new value of the '<em>Reference</em>' containment reference.
 	 * @see #getReference()
 	 * @generated
 	 */

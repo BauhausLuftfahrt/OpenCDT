@@ -25,6 +25,8 @@ import org.eclipse.emf.parsley.views.OnSelectionTableView;
 import org.eclipse.jface.dialogs.Dialog;
 import org.eclipse.jface.layout.GridLayoutFactory;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
+import org.eclipse.jface.viewers.DoubleClickEvent;
+import org.eclipse.jface.viewers.IDoubleClickListener;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.SelectionChangedEvent;
@@ -81,7 +83,7 @@ public class ReferenceDialog extends Dialog {
 	private ALiteratureBase literatureObj;
 	private Resource resourceLibrary;
 	private Object object;
-	private int hashcode;
+	private int code;
 	
 	public ReferenceDialog(Shell parent, FormToolkit _toolkit) {
 		super(parent);
@@ -117,15 +119,6 @@ public class ReferenceDialog extends Dialog {
 		
 		treeViewer.expandAll();
 
-		
-//		EList<EObject> elibrary = library.eContents();
-//		
-//		for(int i=0; i<elibrary.size(); i++){
-//			
-//			treeViewer.add(library, elibrary.get(i));
-//			
-//		}
-		
 		contextMenuHelper.addViewerContextMenu(treeViewer, editingDomain);
 		treeViewer.getTree().setHeaderVisible(true);
         treeViewer.getTree().setLinesVisible(true);
@@ -135,18 +128,6 @@ public class ReferenceDialog extends Dialog {
         	treeViewer.getTree().getColumn(i).setWidth(150);	
         }
 	
-		/*Tree tree = (Tree) treeViewer.getControl();
-		tree.addSelectionListener(new SelectionAdapter() {
-		  @Override
-		  public void widgetSelected(SelectionEvent e) {
-		      
-			  	item = (TreeItem) e.item;
-		        selectedItemString = item.getText().toString();
-		
-		    }
-		});*/
-		
-        //treeViewer.addDoubleClickListener(listener);
         
 		treeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			   public void selectionChanged(SelectionChangedEvent event) {
@@ -160,14 +141,12 @@ public class ReferenceDialog extends Dialog {
 			           
 			           try{
 			       			literatureObj = (ALiteratureBase) selection.getFirstElement();
-			       			//result = literatureObj;
-			       			//literatureObj.eClass().getName();// inbook
-			        	   
+			       			
 			        	    object = selection.getFirstElement();
 			        	    
 			        	    System.out.println(object.toString());
 			        	    
-			        	    hashcode = selection.getFirstElement().hashCode();
+			        	   
 			        	    
 			   		   }catch(ClassCastException exc) {
 			   			   
@@ -177,16 +156,35 @@ public class ReferenceDialog extends Dialog {
 			       }
 			   }
 			});
+		
+		treeViewer.addDoubleClickListener(new IDoubleClickListener() {
+		    @Override
+		    public void doubleClick(DoubleClickEvent event) {
+		    	
+		        TreeViewer viewer = (TreeViewer) event.getViewer();
+		        IStructuredSelection thisSelection = (IStructuredSelection) event.getSelection();
+		        object  = thisSelection.getFirstElement();
+		        
+		        result = (EObject) object;
+		        //result.eClass().getName()
+		        
+		        viewer.setExpandedState(object,
+		                !viewer.getExpandedState(object));
+		        handleShellCloseEvent();
+		        
+		    }
+		});
 
 	      return container;
 			
 	}
-	protected Point getInitialSize() {
+	public void handleShellCloseEvent() {
+		close();
+	}
+	public Point getInitialSize() {
 	      return new Point(940, 300);
 	}
-	public int getHashcode() {
-		return hashcode;
-	}
+	
 	public EObject getResult() {
 		return result;
 	}
@@ -240,6 +238,10 @@ public class ReferenceDialog extends Dialog {
 	
 	protected boolean isResizable() {
 	    return true;
+	}
+	public int getReturnCode(){
+		
+		return code;
 	}
    
 

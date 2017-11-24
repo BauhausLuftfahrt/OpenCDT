@@ -43,11 +43,14 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Widget;
+import org.eclipse.ui.IPageListener;
 import org.eclipse.ui.IPartListener;
 import org.eclipse.ui.IPartListener2;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartReference;
 import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.part.ViewPart;
 
 import com.google.inject.Injector;
 
@@ -57,8 +60,8 @@ import net.bhl.cdt.literature.model.parsley.ParsleyInjectorProvider;
 import net.bhl.cdt.reconstruct.cdtliteratureeditor.CdtliteratureeditorInjectorProvider;
 
 
-public class CDTLibraryModelEditor {
-	
+public class CDTLibraryModelEditor extends ViewPart {
+
 	private FormDetailComposite formComposite;
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 	private Resource resourceLibrary;
@@ -71,7 +74,7 @@ public class CDTLibraryModelEditor {
 	private EObject eObject;
 	private ALiteratureBase foundLiterature;
 	
-	
+
 	@PostConstruct
 	public void postConstruct(Composite parent) {	
 		
@@ -82,21 +85,23 @@ public class CDTLibraryModelEditor {
 		/**The model of hyperlink will be initialized and opened by the category and title of literature.*/
 		formComposite.init(eObject);
 
-		/**If the part is closed, then it makes the part to be unvisible.*/
+	}
+	@Inject
+	public void createPartControl(Composite parent){
 		parent.addDisposeListener(new DisposeListener() {
 
 		    @Override
 		    public void widgetDisposed(DisposeEvent e) {
-		    	
-		    	setUnvisible();
+		    	System.out.println("closed part");
+		    	//setUnvisible();
+		    	part.setVisible(false);
 
 		    }
 		});
 		
-	
 	}
 	 @Inject
-	 public void initPart(MPart part, EModelService modelService, MApplication application, EPartService partService, @Optional ECPProject ecpProject){		 	
+	 public void initPart(MPart part, EModelService modelService, MApplication application, EPartService partService, Shell shell){		 	
 
 		Injector injectorLib = ParsleyInjectorProvider.getInjector();
 		ResourceLoader resourceLoader = injectorLib.getInstance(ResourceLoader.class);
@@ -162,10 +167,13 @@ public class CDTLibraryModelEditor {
 		 else{
 			//the part is already opened on the formula-part 
 		 }*/
+		 
+		
 	
 
 		 	 
 	 }
+	 
 	 public EObject getEObjectCDT(){
 		 
 		 return eObject;
@@ -279,5 +287,9 @@ public class CDTLibraryModelEditor {
 				}
 			}
 	 }
+	@Override
+	public void setFocus() {
+				
+	}
 	
 }

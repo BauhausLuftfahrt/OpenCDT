@@ -33,6 +33,7 @@ import net.bhl.cdt.literature.model.parsley.ParsleyInjectorProvider;
 import net.bhl.cdt.reconstruct.cdtliteratureeditor.CdtliteratureeditorInjectorProvider;
 
 public class CDTLibraryRefernceModelViewer {
+	
 	private FormDetailComposite formComposite;
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 	private Resource resourceLibrary;
@@ -59,16 +60,18 @@ public class CDTLibraryRefernceModelViewer {
 		
 		//formComposite.init(foundLiterature);
 		
+		
 		/**If the part is closed, then it makes the part to be unvisible.*/
-		parent.addDisposeListener(new DisposeListener() {
+		/*parent.addDisposeListener(new DisposeListener() {
 
 		    @Override
 		    public void widgetDisposed(DisposeEvent e) {
 		    	
+		    	System.out.println("part is closed!!");
 		    	setUnvisible();
 
 		    }
-		});
+		});*/
 		
 	
 	}
@@ -129,6 +132,10 @@ public class CDTLibraryRefernceModelViewer {
 		 else{
 			//the part is already opened on the formula-part 
 		 }
+		 
+		 
+		 
+		 
 	
 
 		 	 

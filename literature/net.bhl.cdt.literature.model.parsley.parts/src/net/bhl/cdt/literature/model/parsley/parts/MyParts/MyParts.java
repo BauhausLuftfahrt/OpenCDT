@@ -7,12 +7,14 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
+import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.eclipse.emf.ecp.internal.ui.model.ModelContentProvider;
 import org.eclipse.emf.ecp.spi.ui.util.ECPHandlerHelper;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.parsley.composite.ProposalCreator;
@@ -21,6 +23,8 @@ import org.eclipse.emf.parsley.composite.TreeFormFactory;
 import org.eclipse.emf.parsley.edit.ui.dnd.ViewerDragAndDropHelper;
 import org.eclipse.emf.parsley.menus.ViewerContextMenuHelper;
 import org.eclipse.emf.parsley.resource.ResourceLoader;
+import org.eclipse.jface.viewers.StructuredViewer;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
@@ -43,6 +47,7 @@ public class MyParts {
 			+ "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 	private Library library;
 	private EditingDomain editingDomain;
+	
 	
 	
 	@PostConstruct
@@ -91,6 +96,8 @@ public class MyParts {
 		
 		
 	}
+	
+
 	/**
 	 * the user can add another library*/
 	public void addLibrary(){
@@ -99,6 +106,12 @@ public class MyParts {
 		
 		resource.getContents().add(library);
 		
+		
+	}
+	@Inject
+	public void deleteLibrary(ESelectionService selectionService){
+		
+		System.out.println("delete");
 	}
 	/**
 	 * it saves the all information of created objects as the xmi file.*/  

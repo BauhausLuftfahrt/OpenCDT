@@ -36,8 +36,11 @@ public class ArrangeLiteratureOnProject {
 	             
 				ECPProject project = i.next();
 				
-				if(project.getContents().contains(formulaObj) && project.getContents().contains(oldObj)){
-					project.getContents().remove(oldObj);	
+				//if(project.getContents().contains(formulaObj) && project.getContents().contains(oldObj)){
+				if(project.getContents().contains(oldObj)){
+					project.getContents().remove(oldObj);
+					
+					
 				}
 			}
 						

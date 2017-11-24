@@ -354,19 +354,12 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 				//after part is closed, the action of active part should be modified 
 				for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
 				{
-		             
 					MPart partSearch = i.next();
-					
-					
-					 if (partSearch.isVisible()) {
-						 
+					if (partSearch.isVisible()) {
 						if(partSearch.getElementId().equals(featureObservable.getValue().toString())){
-						
-		                 //if(id == ((MPart) stack.getChildren().get(i)).getElementId()){
-		                	 partVisible = true;
-		                	 partService.activate(partSearch);
-		                	 break;
-							 
+							partVisible = true;
+		                	partService.activate(partSearch);
+		                	break;
 							 
 		                 }
 		    
@@ -478,73 +471,32 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	        		 		
 	        	    if (treeColumnDialog.open() == Window.OK) {
 	        	    
-	        	    	if(treeColumnDialog.getLiteratureTitle().equals("")){
+	        	    	//if(treeColumnDialog.getLiteratureTitle().equals("")){
 	        	    		
-	        	    		return;
-	        	    	}
-	        	    	else{
+	        	    		//return;
+	        	    	//}
+	        	    	//else{
 	        	    				
-	        	    		String categoryOfLiteratre = treeColumnDialog.getLiteratureObjName();
-	    	        		String titleOfLiteratue = treeColumnDialog.getLiteratureTitle();
-	    	        		
-	    	        		//Object object = treeColumnDialog.getResult();
-	    	        		//featureObservable.setValue(treeColumnDialog.getResult());
-	    	        		
-	    	        		
-	    	        		if(featureObservable.getValue() != null){
+	        	    	
+	    	        		/*if(featureObservable.getValue() != null){
 		
 	    	        			arrangeLiterature.arrangeReferenceLiterature(featureObservable.getValue(), treeColumnDialog.getObject() , formulaObj);
 	    	        			
-	    	        		}
-	    	        			hyperlink.setEnabled(true);	        	    		
-		        	    		ALiteratureBase literatureObj = (ALiteratureBase)treeColumnDialog.getObject();
-		        	    		EObject result = literatureObj;
-		        	    		hyperlink.setText(result.eClass().getName() + " " + literatureObj.getTitle());
-		        	    		featureObservable.setValue(treeColumnDialog.getObject());
-		        	    		
-	    	        		//featureObservable.setValue(treeColumnDialog.getLiterature());
-	    	        		
-	    	        		if(!featureObservable.getValue().equals(treeColumnDialog.getObject())){
+	    	        		}*/
+	    	        		hyperlink.setEnabled(true);
+	    	        		try{
+	    	        			ALiteratureBase literatureObj = (ALiteratureBase)treeColumnDialog.getObject();
+	    	        			EObject result = literatureObj;
+			        	    	hyperlink.setText(result.eClass().getName() + " " + literatureObj.getTitle());
+			        	    	featureObservable.setValue(treeColumnDialog.getObject());
+		        	    		hyperlink.setEnabled(true);
+	    	        		}catch(ClassCastException e1){
+	    	        			System.err.println( "The library-model can not be chosen as the reference" );
 	    	        			
-	    	        			featureObservable.setValue(treeColumnDialog.getObject());
-	    	        		
-	        	    		}
-	    	        		//search = featureObservable.getValue().toString();
-	    	        		
-	    	        		
-	    	        		//search = String.valueOf(featureObservable.getValue().hashCode());
-	    	        		//search = String.valueOf(treeColumnDialog.getHashcode());
-	    	        		//featureObservable.toString()
-	    	        		
-	    	        		//Collection<ECPProject> projects = null;
-	    	        		/*projects = ECPUtil.getECPProjectManager().getProjects();
-	    					projects.iterator().next().getContents().contains(treeColumnDialog.getObject())
-	    					if(projects.iterator().next().getContents().contains(treeColumnDialog.getObject())){
-	    						projects.iterator().next().getContents().remove(treeColumnDialog.getObject());
-	    					
-	    				
-	    					}*/
-	    	        		//featureObservable.setValue("string");
-	    	        		//String hyperLinkStr = ((ALiteratureBase)featureObservable.getValue()).getTitle() + "(" + ((ALiteratureBase)featureObservable.getValue()).getAuthor() + ")";
-	    	        		//((ALiteratureBase) featureObservable.getValue()).eClass().getName();
-	    	        		
-	        	    		hyperlink.setEnabled(true);
-	        	    		/*
-	        	    		ALiteratureBase literatureObj = (ALiteratureBase)treeColumnDialog.getObject();
-	        	    		EObject result = literatureObj;
-	        	    		hyperlink.setText(result.eClass().getName() + " " + literatureObj.getTitle());*/
-	        	    		
-	        	    		//hyperLinkStr = ((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle();
-	        	    		/**
-	        	    		 * the category and title of selected model can be saved.
-	        	    		 * */
-		        	    	//featureObservable.setValue(categoryOfLiteratre + " " + titleOfLiteratue);
-		        	    	        	    	
-	        	    	//}
+	    	        		}
 		        	    	
-	        	    	}
-	        	    	
-	        	    	
+							
+	        	
 	        	    }        	    
 	        	    
 	        	    composite.forceFocus();        	    
