@@ -55,7 +55,7 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 	featuresProvider {
 				features {
 					 FormulaRepository -> name
-					 Formula -> name, latexString, reference, refernceStr, inputParameter, outputParameter
+					 Formula -> name, latexString, reference,  inputParameter, outputParameter
 					 Quantity -> name, description, unit
 				}
 	}
