@@ -23,11 +23,19 @@ import org.eclipse.emf.parsley.composite.TreeFormFactory;
 import org.eclipse.emf.parsley.edit.ui.dnd.ViewerDragAndDropHelper;
 import org.eclipse.emf.parsley.menus.ViewerContextMenuHelper;
 import org.eclipse.emf.parsley.resource.ResourceLoader;
+import org.eclipse.jface.viewers.ISelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.viewers.StructuredViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.ui.ISelectionListener;
+import org.eclipse.ui.ISelectionService;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
@@ -37,7 +45,8 @@ import cdtliterature.CdtliteratureFactory;
 import cdtliterature.Library;
 import net.bhl.cdt.literature.model.parsley.ParsleyInjectorProvider;
 
-public class MyParts {
+public class MyParts{
+	
 	
 	public static final String ID = "MyPartsObject";
 
@@ -47,13 +56,14 @@ public class MyParts {
 			+ "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 	private Library library;
 	private EditingDomain editingDomain;
+	private Composite composite;
 	
 	
 	
 	@PostConstruct
 	public void postConstruct(Composite parent) {
 		
-		
+		composite = parent;
 		/**
 		 * Guice injector*/
 		Injector injector = ParsleyInjectorProvider.getInjector();
@@ -72,6 +82,7 @@ public class MyParts {
 		/**
 		 * create the tree-form composite*/
 		treeFormComposite = treeFormFactory.createTreeFormComposite(parent, SWT.BORDER);
+		
 		
 		/**
 		 * Guice injected viewer context menu helper*/
@@ -94,7 +105,6 @@ public class MyParts {
 		 * update the composite*/
 		treeFormComposite.update(resource);
 		
-		
 	}
 	
 
@@ -108,10 +118,45 @@ public class MyParts {
 		
 		
 	}
-	@Inject
-	public void deleteLibrary(ESelectionService selectionService){
+	/**
+	 * the user can delete the library*/
+	@Inject 
+	public void deleteLibrary(){
+
+		Shell shell = new Shell(composite.getShell(), SWT.DIALOG_TRIM
+    	        | SWT.APPLICATION_MODAL);
+    	/**
+    	 * Before this is deleted,the dialog is opened and it asks about the deletion.
+    	 * */ 
 		
-		System.out.println("delete");
+		
+    	
+		if(treeFormComposite.getEmfSelectionHelper().getFirstSelectedEObject(treeFormComposite.getViewer().getSelection()) == null){
+			
+			MessageBox dialog = new MessageBox(shell, SWT.ICON_WARNING | SWT.OK);
+			dialog.setText("Caution");
+    		dialog.setMessage("Please select the library to be removed");
+    		if(dialog.open() == SWT.OK){
+    			
+    			
+    		}
+		}
+		if(treeFormComposite.getEmfSelectionHelper().getFirstSelectedEObject(treeFormComposite.getViewer().getSelection()) != null){
+			
+			MessageBox dialog = new MessageBox(shell, SWT.ICON_QUESTION | SWT.OK | SWT.CANCEL);
+    		dialog.setText("Question");
+    		dialog.setMessage("Do you want to delete this library?");
+    		
+    		if(dialog.open() == SWT.OK){
+    			EObject obj = 
+    					treeFormComposite.getEmfSelectionHelper().getFirstSelectedEObject(treeFormComposite.getViewer().getSelection());
+    			
+    			resource.getContents().remove(obj);
+    		}
+			
+		}
+		
+
 	}
 	/**
 	 * it saves the all information of created objects as the xmi file.*/  
@@ -162,5 +207,6 @@ public class MyParts {
 		}
 			
 	}
+
 
 }
