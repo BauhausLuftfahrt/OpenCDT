@@ -73,17 +73,17 @@ public class ReferenceDialog extends Dialog {
 
 	
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
-	private TableViewer viewer;
-	private ViewerFactory viewerFactory;
+	//private TableViewer viewer;
+	//private ViewerFactory viewerFactory;
 	private EObject result;
-	private String selectedItemString;
-	private TreeItem item;
+	//private String selectedItemString;
+	//private TreeItem item;
 	private Library library;
 	private FormToolkit toolkit;
 	private ALiteratureBase literatureObj;
 	private Resource resourceLibrary;
 	private Object object;
-	private int code;
+	private IStructuredSelection selection;
 	
 	public ReferenceDialog(Shell parent, FormToolkit _toolkit) {
 		super(parent);
@@ -137,7 +137,7 @@ public class ReferenceDialog extends Dialog {
 			       }
 			       if(event.getSelection() instanceof IStructuredSelection) {
 			    	   
-			           IStructuredSelection selection = (IStructuredSelection)event.getSelection();
+			           selection = (IStructuredSelection)event.getSelection();
 			           
 			           try{
 			       			literatureObj = (ALiteratureBase) selection.getFirstElement();
@@ -195,12 +195,6 @@ public class ReferenceDialog extends Dialog {
     protected void okPressed() {
         super.okPressed();
     }
-	/*public String getSelectedItem(){
-		return selectedItemString;
-	}*/
-	/*public TreeItem getSelectedTreeItem(){
-		return item;
-	}*/
 	public String getLiteratureObjName(){
 		return literatureObj.eClass().getName();
 	}
@@ -239,10 +233,4 @@ public class ReferenceDialog extends Dialog {
 	protected boolean isResizable() {
 	    return true;
 	}
-	public int getReturnCode(){
-		
-		return code;
-	}
-   
-
 }

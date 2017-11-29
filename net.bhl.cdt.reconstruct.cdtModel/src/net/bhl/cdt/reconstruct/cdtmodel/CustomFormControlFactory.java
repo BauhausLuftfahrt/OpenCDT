@@ -320,8 +320,7 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
 	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
-	    
-	    ArrangeLiteratureOnProject arrangeLiterature = new ArrangeLiteratureOnProject();
+	   
 	    
 	    /**
 	     * The gridlayout consist of hyperlink, set-button, delete-button.*/
@@ -451,12 +450,7 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	     * If user clicks the set-button, then the tree-columns-dialog can be opened.
 	     * */ 
         final Button setButton = _toolkit.createButton(composite, "set", SWT.PUSH); 
-        
-        //setButton.setEnabled(false);
  
-        	
-        
-        
 		setButton.addSelectionListener(new SelectionAdapter() {
 			
 	            @Override
@@ -470,35 +464,24 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	            
 	        		 		
 	        	    if (treeColumnDialog.open() == Window.OK) {
-	        	    
-	        	    	//if(treeColumnDialog.getLiteratureTitle().equals("")){
-	        	    		
-	        	    		//return;
-	        	    	//}
-	        	    	//else{
-	        	    				
 	        	    	
-	    	        		/*if(featureObservable.getValue() != null){
-		
-	    	        			arrangeLiterature.arrangeReferenceLiterature(featureObservable.getValue(), treeColumnDialog.getObject() , formulaObj);
-	    	        			
-	    	        		}*/
+	        	    	if(treeColumnDialog.getObject() != null){
+	
 	    	        		hyperlink.setEnabled(true);
+	    	        		
 	    	        		try{
 	    	        			ALiteratureBase literatureObj = (ALiteratureBase)treeColumnDialog.getObject();
 	    	        			EObject result = literatureObj;
 			        	    	hyperlink.setText(result.eClass().getName() + " " + literatureObj.getTitle());
 			        	    	featureObservable.setValue(treeColumnDialog.getObject());
 		        	    		hyperlink.setEnabled(true);
+		        	    		
 	    	        		}catch(ClassCastException e1){
 	    	        			System.err.println( "The library-model can not be chosen as the reference" );
 	    	        			
 	    	        		}
-		        	    	
-							
-	        	
-	        	    }        	    
-	        	    
+	        	    	}
+	        	    }
 	        	    composite.forceFocus();        	    
 	            }
 	           
