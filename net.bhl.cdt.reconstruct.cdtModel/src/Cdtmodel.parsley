@@ -29,15 +29,10 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 	}
 	configurator {
 		resourceURI {
-//			CdtmodelOnSelectionFormView -> {
-//				return URI.createFileURI(
-//					System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" +
-//						"/MyLibrary.library" );
-//					}
+
 				}
 			}
 	resourceManager {
-		//val CdtliteratureFactory library = CdtliteratureFactory.eINSTANCE;
 		
 				initializeResource {
 					// Optional: initialize an empty Resource
@@ -70,17 +65,7 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 					}
 				}
     		}
-//	formControlFactory {
-//		control {
-//			Formula : latexString -> { }	
-//			Formula : reference -> { }
-//
-//		
-//		
-//		}
-//		
-//	
-//	}
+
 	
 	
 	

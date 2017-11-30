@@ -72,12 +72,8 @@ import net.bhl.cdt.reconstruct.cdtmodel.CdtmodelInjectorProvider;
 public class ReferenceDialog extends Dialog {
 
 	
-	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
-	//private TableViewer viewer;
-	//private ViewerFactory viewerFactory;
+	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");	
 	private EObject result;
-	//private String selectedItemString;
-	//private TreeItem item;
 	private Library library;
 	private FormToolkit toolkit;
 	private ALiteratureBase literatureObj;
@@ -143,11 +139,7 @@ public class ReferenceDialog extends Dialog {
 			       			literatureObj = (ALiteratureBase) selection.getFirstElement();
 			       			
 			        	    object = selection.getFirstElement();
-			        	    
-			        	    //System.out.println(object.toString());
-			        	    
-			        	   
-			        	    
+			        	       
 			   		   }catch(ClassCastException exc) {
 			   			   
 			   		   }
@@ -166,7 +158,6 @@ public class ReferenceDialog extends Dialog {
 		        object  = thisSelection.getFirstElement();
 		        
 		        result = (EObject) object;
-		        //result.eClass().getName()
 		        
 		        viewer.setExpandedState(object,
 		                !viewer.getExpandedState(object));

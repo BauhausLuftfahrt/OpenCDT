@@ -83,24 +83,6 @@ module net.bhl.cdt.reconstruct.cdtliteraturetable {
 				}
 	}
 	
-//	featureCaptionProvider{
-//			text{
-//				Library:name -> "name by:"
-//				
-//			}
-//		}
-//	
-//	tableViewerContentProvider{
-//			elements{
-//				Library lib -> {	
-//					lib.name
-//				}
-//				Article art -> {	
-//					art.title + art.author
-//				}
-//				
-//			}
-//		}
 	tableLabelProvider {
 			text {
 				Library:name -> 'Name' // constant
@@ -124,16 +106,5 @@ module net.bhl.cdt.reconstruct.cdtliteraturetable {
 					}
 				}
     		}
-//	formControlFactory {
-//		control {
-//			Formula : latexString -> { }	
-//			Formula : reference -> { }
-//		
-//		}
-//		
-//	
-//	}
-	
-	
 	
 }

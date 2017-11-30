@@ -81,11 +81,9 @@ private void parsleyCustomButton(Button buttonOpen,Text pathText, Composite _par
 	 * the text of path is not empty, then at first it could not editable.*/	
 	}else{
 
-		//pathText.setEditable(false);
 		Device device = Display.getCurrent ();
 		Color grey = new Color (device, 224, 224, 224);
-		//pathText.setBackground(grey);
-		//pathText.setEnabled(false);
+		
 		
 	}
 	

@@ -51,20 +51,16 @@ public class CDTModelEditor {
 	private Composite parent;
 	private String projectName;
 	private String formulaName;
-	private String elementType;
 	private Injector injector;
 	
 	@PostConstruct
 	public void postConstruct(Composite parent) {	
 
 		this.parent = parent;
-    	//Injector injector = CdtmodelInjectorProvider.getInjector();
 		injector = CdtmodelInjectorProvider.getInjector();
     	FormFactory formFactory = injector.getInstance(FormFactory.class);
 		formComposite = formFactory.createFormDetailComposite(parent, SWT.BORDER);	
 		
-		
-		//System.out.println("postconstruct");
 	
 	}
 	
@@ -86,18 +82,7 @@ public class CDTModelEditor {
 
 		part.setLabel(itemLabelProvider.getText(modelElement));
 		formComposite.setSize(width, height);
-		//formulaName = filteringFormulaName(itemLabelProvider.getText(modelElement));
-		//filteringFormulaName(itemLabelProvider.getText(modelElement));
-		//part.setLabel(""+ modelElement.eClass().getName() + "");
-		
-		elementType = getElementType(itemLabelProvider.getText(modelElement));
-		
-		/*if(elementType.equals("Formula")){
-			CustomFormControlFactory formfactory = injector.getInstance(CustomFormControlFactory.class);
-			filteringFormulaName(itemLabelProvider.getText(modelElement));
-			
-			//formfactory.setNameForGeneratingQuantity(projectName, formulaName);
-		}*/
+	
 
     }
     /**
@@ -109,29 +94,7 @@ public class CDTModelEditor {
 			parent.setFocus();
 		}
 	}
-	/*private String filteringFormulaName(String formula){
-		 
-		*//**formulaName-String is divided as two parts and it returns rear string*//*
-		 String[] array = formula.split(" ", 2);	 
-		 return array[1];
-		
-		
-	}*/
-	private void filteringFormulaName(String formula){
-		 
-		/**formulaName-String is divided as two parts and it returns rear string*/
-		 String[] array = formula.split(" ", 2);	 
-		 formulaName = array[1];
-		
-		
-	}
-	private String getElementType(String element){
-		 
-		/**formulaName-String is divided as two parts and it returns rear string*/
-		 String[] array = element.split(" ", 2);	 
-		 return array[0];
-		
-	}
+
 	
 	
  }
