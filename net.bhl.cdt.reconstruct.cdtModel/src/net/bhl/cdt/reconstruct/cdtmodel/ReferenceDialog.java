@@ -144,7 +144,7 @@ public class ReferenceDialog extends Dialog {
 			       			
 			        	    object = selection.getFirstElement();
 			        	    
-			        	    System.out.println(object.toString());
+			        	    //System.out.println(object.toString());
 			        	    
 			        	   
 			        	    

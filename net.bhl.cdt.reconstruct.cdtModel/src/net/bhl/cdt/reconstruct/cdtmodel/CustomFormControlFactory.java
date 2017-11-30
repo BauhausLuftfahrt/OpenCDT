@@ -495,7 +495,11 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 			
 	            @Override
 	            public void widgetSelected(SelectionEvent e) {
-	            	            
+	            
+	            /**
+	             * If the reference is empty, then the delete-action doesn't work.*/	  
+	            	if(!hyperlink.getText().isEmpty()){
+	            	
 	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
 	            	        | SWT.APPLICATION_MODAL);
 	            	/**
@@ -511,7 +515,9 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    	            	featureObservable.setValue(EMPTY);
 	            		}
 	            		
+	            	}
 	            }
+	            
 	    });
 
 		return composite;
