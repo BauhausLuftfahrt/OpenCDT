@@ -29,6 +29,7 @@ import net.bhl.cdt.core.ui.UIHelper;
 public class CustomPartControlFactory extends FormControlFactory {
 	
 	
+	
 public Control control_ALiteratureBase_path(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		FormToolkit _toolkit = this.getToolkit();
@@ -44,7 +45,7 @@ public Control control_ALiteratureBase_path(DataBindingContext dbc, IObservableV
 	    
 	    /**
 		 * text is filled in grid-layout*/
-		Text pathText = getToolkit().createText(composite, " ", SWT.SINGLE);
+		Text pathText = getToolkit().createText(composite, " ", SWT.READ_ONLY);
 		GridData gridData = new GridData();
         gridData.horizontalAlignment = GridData.FILL;
         gridData.grabExcessHorizontalSpace = true;
@@ -80,11 +81,11 @@ private void parsleyCustomButton(Button buttonOpen,Text pathText, Composite _par
 	 * the text of path is not empty, then at first it could not editable.*/	
 	}else{
 
-		pathText.setEditable(false);
+		//pathText.setEditable(false);
 		Device device = Display.getCurrent ();
 		Color grey = new Color (device, 224, 224, 224);
-		pathText.setBackground(grey);
-		pathText.setEnabled(false);
+		//pathText.setBackground(grey);
+		//pathText.setEnabled(false);
 		
 	}
 	
@@ -128,58 +129,62 @@ private void parsleyCustomButton(Button buttonOpen,Text pathText, Composite _par
         }
     });
     
-    /**
-     * the user can make the path of file to set editable or not*//*  
-    buttonSet.addSelectionListener(new SelectionAdapter() {
-        @Override
-        public void widgetSelected(SelectionEvent e) {
-        	
-        	String address = pathText.getText();
-        	boolean notAddress =  address.equals("");
-        	
-        	if(!notAddress & pathText.getEditable()){
-        		
-        		pathText.setEditable(false);
-        		Device device = Display.getCurrent ();
-        		Color grey = new Color (device, 224, 224, 224);
-        		pathText.setBackground(grey);
-        		pathText.setEnabled(false);
-
-        	}
-
-        	else if(!pathText.getEditable()){
-        		pathText.setEditable(true);
-
-        		pathText.setBackground(null);
-        		pathText.setEnabled(true);
-
-        	}
-
-        }
-    });
-    *//**
-     * the user can open the folder in system and choose the file, then the path of file is saved.*//*
-    buttonFolder.addSelectionListener(new SelectionAdapter() {
-        @Override
-        public void widgetSelected(SelectionEvent e) {
-        	
-        	String filePath = UIHelper.showSelectFileDialog(Display.getCurrent().getActiveShell());
-        
-        	if(filePath != null){
-        		pathText.setText(filePath);
-        		Device device = Display.getCurrent ();
-        		Color grey = new Color (device, 224, 224, 224);
-        		pathText.setBackground(grey);
-        		pathText.setEnabled(false);
-        		pathText.setEditable(false);
-        		
-        	}
-       
-        }
-    });*/
-
+   
 	
 }
+public Control control_ALiteratureBase_title(DataBindingContext dbc, IObservableValue featureObservable) {
+	return setReadOnlyText(dbc, featureObservable);
+}
+public Control control_ALiteratureBase_author(DataBindingContext dbc, IObservableValue featureObservable) {
+	return setReadOnlyText(dbc, featureObservable);
+}
+public Control control_ALiteratureBase_year(DataBindingContext dbc, IObservableValue featureObservable) {
+	return setReadOnlyText(dbc, featureObservable);
+}
+public Control control_ALiteratureBase_journal(DataBindingContext dbc, IObservableValue featureObservable) {
+	return setReadOnlyText(dbc, featureObservable);
+}
+public Control control_ALiteratureBase_publisher(DataBindingContext dbc, IObservableValue featureObservable) {
+	return setReadOnlyText(dbc, featureObservable);
+}
+public Control control_ALiteratureBase_isbn(DataBindingContext dbc, IObservableValue featureObservable) {
+	return setReadOnlyText(dbc, featureObservable);
+}
+public Control control_ALiteratureBase_booktitle(DataBindingContext dbc, IObservableValue featureObservable) {
+	return setReadOnlyText(dbc, featureObservable);
+}
+public Control control_ALiteratureBase_school(DataBindingContext dbc, IObservableValue featureObservable) {
+	return setReadOnlyText(dbc, featureObservable);
+}
+public Control control_ALiteratureBase_institution(DataBindingContext dbc, IObservableValue featureObservable) {
+	return setReadOnlyText(dbc, featureObservable);
+}
+public Control control_ALiteratureBase_note(DataBindingContext dbc, IObservableValue featureObservable) {
+	return setReadOnlyText(dbc, featureObservable);
+}
+private Composite setReadOnlyText(DataBindingContext dbc, IObservableValue featureObservable){
+	
+	FormToolkit _toolkit = this.getToolkit();
+    Composite _parent = this.getParent();
+    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
+    
+    GridLayout _gridLayout = new GridLayout(1, false);
+    composite.setLayout(_gridLayout);
+    _gridLayout.marginLeft = -5;
+	Text pathText = getToolkit().createText(composite, " ", SWT.READ_ONLY);
+	
+	GridData gridData = new GridData();
+    gridData.horizontalAlignment = GridData.FILL;
+    gridData.grabExcessHorizontalSpace = true;
+    pathText.setLayoutData(gridData);
+    dbc.bindValue(SWTObservables.observeText(pathText, SWT.Modify), featureObservable);
+	
+	return composite;
+	
+}
+
+
+
 
 
 }

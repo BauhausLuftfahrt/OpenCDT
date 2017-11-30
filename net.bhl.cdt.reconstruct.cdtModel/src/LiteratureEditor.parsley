@@ -71,5 +71,6 @@ module net.bhl.cdt.reconstruct.cdtliteratureeditor {
 				Unpublished -> title, author,  year, references, note
 			}
 	}
+
 }
 	
