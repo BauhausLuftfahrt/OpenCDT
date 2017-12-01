@@ -142,20 +142,11 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private ReferenceDialog treeColumnDialog;
 	private Hyperlink hyperlink;
 	private MPart part; 
-	private Formula formulaObj;
 	private String hyperLinkStr;
 	private Object obj;
 	private String search;
 	
-	public Control control_Formula_name(final Formula it) {
-		
-		formulaObj = it;
-		
-	    return null;
-	  }
-	
-	
-	
+
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
 		FormToolkit _toolkit = this.getToolkit();
@@ -200,7 +191,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 				}else{
 										
 						try {
+							
 							createNewImage(latexformula, composite, latexString);
+													
+							generateQuantities(latexformula);
+							
+							
 						} catch (SAXException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -284,7 +280,35 @@ public class CustomFormControlFactory extends FormControlFactory {
 
 		return composite;
 		
-	}
+}
+private void generateQuantities(String latexFormula){
+	
+	String outputParameter = filtering_OutputParameter(latexFormula);
+	
+	
+	
+	
+	
+	
+}
+private String filtering_OutputParameter(String latexFormula){
+	
+	 String[] leftSideFormula = latexFormula.split("=", 2);	 //array[0] = cdtliterature.impl.BookImpl
+	 
+	 String leftSide = leftSideFormula[0];
+	 
+	 char[] leftSideCharacters = leftSide.toCharArray();
+	 
+	 String outputParameter = "";
+	     for (int i = 0; i < leftSideCharacters.length; i++) {
+	         if (!(leftSideCharacters[i] == '$')) 
+	        	 outputParameter += leftSideCharacters[i];
+	     }
+	 System.out.println("outputParameter : "+ outputParameter.replaceAll("\\s+",""));
+	 
+	 return outputParameter.replaceAll("\\s+","");
+	 
+}
 	
 public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
 		
@@ -457,7 +481,9 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    
 	    return composite;
 	}
-	public Control control_Formula_output(DataBindingContext dbc, IObservableValue featureObservable) {
+	public Control control_Formula_outputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
+		
+		
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
 	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
@@ -468,6 +494,7 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    linkOutput.setUnderlined(false);
 	    linkOutput.setForeground(getColorBlack());
 	    composite.forceFocus();
+	    
 	    
 	    return composite;
 	}
