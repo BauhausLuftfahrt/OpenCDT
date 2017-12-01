@@ -285,15 +285,39 @@ private void generateQuantities(String latexFormula){
 	
 	String outputParameter = filtering_OutputParameter(latexFormula);
 	
+	//String inputParameer = filtering_inputParameter(latexFormula);
 	
 	
 	
 	
 	
 }
+private String filtering_inputParameter(String latexFormula){
+	
+	 String[] rightSideFormula = latexFormula.split("=", 2);	 
+	 
+	 String rightSide = rightSideFormula[0];
+	 
+	 char[] rightSideCharacters = rightSide.toCharArray();
+	 
+	 String compactRightSide = "";
+	     for (int i = 0; i < rightSideCharacters.length; i++) {
+	         if (!(rightSideCharacters[i] == '$')) 
+	        	 compactRightSide += rightSideCharacters[i];
+	     }
+	 //System.out.println("outputParameter : "+ compactRightSide.replaceAll("\\s+",""));
+	 
+	 compactRightSide = compactRightSide.replaceAll("\\s+","");
+	 
+	 String[] items = compactRightSide.split("\\+\\-\\*\\");
+	 
+	 return null;
+	 //return outputParameter.replaceAll("\\s+","");
+	 
+}
 private String filtering_OutputParameter(String latexFormula){
 	
-	 String[] leftSideFormula = latexFormula.split("=", 2);	 //array[0] = cdtliterature.impl.BookImpl
+	 String[] leftSideFormula = latexFormula.split("=", 2);	 
 	 
 	 String leftSide = leftSideFormula[0];
 	 
