@@ -285,140 +285,16 @@ public class CustomFormControlFactory extends FormControlFactory {
 }
 private void generateQuantities(String latexFormula){
 	
-	//String outputParameter = filtering_OutputParameter(latexFormula);
-	
-	//String[] inputParameter = filtering_inputParameter(latexFormula);
-	//filtering_inputParameter(latexFormula);
-	
-	
 	String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
-	System.out.println("output :"+ out);
-	//ArrayList<String> input = new ArrayList<String>();
-			
-	//input = ExtractQuantitiesFromFormula.filtering_inputParameter(latexFormula);
+	System.out.println("output:"+ out);
+	
 	
 	ArrayList<String> input = ExtractQuantitiesFromFormula.filtering_inputParameter(latexFormula);
-
-	for (int p = 0; p < input.size(); p++) {
-        
-   	 System.out.println("quantitiesArray:"+ input.get(p).toString());
-    
+	for (int p = 0; p < input.size(); p++) {       
+   	 	System.out.println("quantitiesArray:"+ input.get(p).toString());   
     }	
 	
 }
-//private String[] filtering_inputParameter(String latexFormula){
-private void filtering_inputParameter(String latexFormula){
-	
-	 String[] equation = latexFormula.split("=", 2);	 
-	 
-	 String rightSideEquation = equation[1];
-	 
-	 char[] rightSideCharacters = rightSideEquation.toCharArray();
-	 
-	 String removed_$_RightSideEquation = "";
-	     for (int i = 0; i < rightSideCharacters.length; i++) {
-	         if (!(rightSideCharacters[i] == '$')) 
-	        	 removed_$_RightSideEquation += rightSideCharacters[i];
-	     }
-	 System.out.println("inputParameter : "+ removed_$_RightSideEquation);   
-	     
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	 /* System.out.println("outputParameter : "+ compactRightSide.replaceAll("\\s+",""));
-	 
-	 compactRightSide = compactRightSide.replaceAll("\\s+","");
-	     
-	     String pattern = "(?i)(<title.*?>)(.+?)()";
-	     String pattern = "title";
-		 String updated = removed_$_RightSideEquation.replaceAll(pattern, "$2");
-	     String updated = removed_$_RightSideEquation.replaceAll(pattern, "");
-	     
-	 String[] terms = distrubute_terms(removed_$_RightSideEquation);
-	 
-	 remove_empty_character(terms);
-	 String[] varialbles = compactRightSide.split("\\+|\\-");
-	 
-	 String str = "ZZZZL <%= dsn %> AFFF <%= AFG %>";
-	 String str = "(b+c)^2           + \sqrt{ (c - d)\cdot k }";
-	  
-	 
-	 removed_$_RightSideEquation = removed_$_RightSideEquation.replace("\\", "");
-	 removed_$_RightSideEquation = removed_$_RightSideEquation.replace("sqrt{", "(");
-	 removed_$_RightSideEquation = removed_$_RightSideEquation.replace("}", ")");
-	 Pattern patterns = Pattern.compile("((.+?))");
-	 Matcher matcher = patterns.matcher(removed_$_RightSideEquation);
-	 while (matcher.find()) {
-	     System.out.println(matcher.group(1));
-	    
-	 }
-	 System.out.println(matcher.group(1));
-	 return terms;
-	 eturn outputParameter.replaceAll("\\s+","");*/
-	 
-}
-private String[] distrubute_terms(String rightSideEquation){
-	
-	remove_square(rightSideEquation);
-	
-	
-	return rightSideEquation.split("\\+|\\-");
-}
-
-private void remove_square(String rightSideEquation){
-	
-	
-	
-	
-	
-	
-	
-}
-private void remove_empty_character(String[] terms){
-	
-	for (int i = 0; i < terms.length; i++) {
-        
-		terms[i] = terms[i].replaceAll("\\s+","");
-    }
-	
-}
-private void remove_empty_character(String term){
-	
-	term.replaceAll("\\s+","");
-}
-private String filtering_OutputParameter(String latexFormula){
-	
-	 String[] leftSideFormula = latexFormula.split("=", 2);	 
-	 
-	 String leftSide = leftSideFormula[0];
-	 
-	 char[] leftSideCharacters = leftSide.toCharArray();
-	 
-	 String outputParameter = "";
-	     for (int i = 0; i < leftSideCharacters.length; i++) {
-	         if (!(leftSideCharacters[i] == '$')) 
-	        	 outputParameter += leftSideCharacters[i];
-	     }
-	 System.out.println("outputParameter : "+ outputParameter.replaceAll("\\s+",""));
-	 
-	 //return outputParameter.replaceAll("\\s+","");
-	 
-	 return outputParameter;
-}
-	
 public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		

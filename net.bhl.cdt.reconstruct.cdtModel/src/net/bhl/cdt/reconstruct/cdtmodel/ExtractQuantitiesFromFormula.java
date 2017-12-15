@@ -29,17 +29,12 @@ public class ExtractQuantitiesFromFormula {
 		         if (!(leftSideCharacters[i] == '$')) 
 		        	 outputParameter += leftSideCharacters[i];
 		     }
-		 System.out.println("outputParameter : "+ outputParameter.replaceAll("\\s+",""));
-		 
-		 //return outputParameter.replaceAll("\\s+","");
-		 
-		 return outputParameter;
+
+		 return outputParameter.replaceAll("\\s+","");
 		
 	}
 	
 	public static ArrayList<String> filtering_inputParameter(String latexFormula){
-		
-		//List<String> quantitiesArray = new ArrayList<String>();
 		
 		return generateQuantities(latexFormula);
 		
@@ -76,13 +71,14 @@ public class ExtractQuantitiesFromFormula {
 					 formula.getInputQuantities().add(q);*/
 		 }
 		 
-		 for (int p = 0; p < quantitiesArray.size(); p++) {
+		 /*for (int p = 0; p < quantitiesArray.size(); p++) {
 	         
 	    	 System.out.println("quantitiesArray:"+ quantitiesArray.get(p).toString());
 	     
-	     }		
+	     }	*/	
 		 
 		 System.out.println("print array.....");
+		 
 		 return quantitiesArray;
 		
 	}
