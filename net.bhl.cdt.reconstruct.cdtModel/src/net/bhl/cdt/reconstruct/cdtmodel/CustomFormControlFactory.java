@@ -285,12 +285,29 @@ public class CustomFormControlFactory extends FormControlFactory {
 }
 private void generateQuantities(String latexFormula){
 	
-	String outputParameter = filtering_OutputParameter(latexFormula);
+	//String outputParameter = filtering_OutputParameter(latexFormula);
 	
 	//String[] inputParameter = filtering_inputParameter(latexFormula);
+	//filtering_inputParameter(latexFormula);
+	
+	
+	String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
+	System.out.println("output :"+ out);
+	//ArrayList<String> input = new ArrayList<String>();
+			
+	//input = ExtractQuantitiesFromFormula.filtering_inputParameter(latexFormula);
+	
+	ArrayList<String> input = ExtractQuantitiesFromFormula.filtering_inputParameter(latexFormula);
 
+	for (int p = 0; p < input.size(); p++) {
+        
+   	 System.out.println("quantitiesArray:"+ input.get(p).toString());
+    
+    }	
+	
 }
-private String[] filtering_inputParameter(String latexFormula){
+//private String[] filtering_inputParameter(String latexFormula){
+private void filtering_inputParameter(String latexFormula){
 	
 	 String[] equation = latexFormula.split("=", 2);	 
 	 
@@ -303,22 +320,40 @@ private String[] filtering_inputParameter(String latexFormula){
 	         if (!(rightSideCharacters[i] == '$')) 
 	        	 removed_$_RightSideEquation += rightSideCharacters[i];
 	     }
-	 //System.out.println("outputParameter : "+ compactRightSide.replaceAll("\\s+",""));
-	 
-	 //compactRightSide = compactRightSide.replaceAll("\\s+","");
+	 System.out.println("inputParameter : "+ removed_$_RightSideEquation);   
 	     
-	     //String pattern = "(?i)(<title.*?>)(.+?)()";
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 /* System.out.println("outputParameter : "+ compactRightSide.replaceAll("\\s+",""));
+	 
+	 compactRightSide = compactRightSide.replaceAll("\\s+","");
+	     
+	     String pattern = "(?i)(<title.*?>)(.+?)()";
 	     String pattern = "title";
-		 //String updated = removed_$_RightSideEquation.replaceAll(pattern, "$2");
+		 String updated = removed_$_RightSideEquation.replaceAll(pattern, "$2");
 	     String updated = removed_$_RightSideEquation.replaceAll(pattern, "");
 	     
 	 String[] terms = distrubute_terms(removed_$_RightSideEquation);
 	 
 	 remove_empty_character(terms);
-	 //String[] varialbles = compactRightSide.split("\\+|\\-");
+	 String[] varialbles = compactRightSide.split("\\+|\\-");
 	 
-	 //String str = "ZZZZL <%= dsn %> AFFF <%= AFG %>";
-	 //String str = "(b+c)^2           + \sqrt{ (c - d)\cdot k }";
+	 String str = "ZZZZL <%= dsn %> AFFF <%= AFG %>";
+	 String str = "(b+c)^2           + \sqrt{ (c - d)\cdot k }";
 	  
 	 
 	 removed_$_RightSideEquation = removed_$_RightSideEquation.replace("\\", "");
@@ -326,13 +361,13 @@ private String[] filtering_inputParameter(String latexFormula){
 	 removed_$_RightSideEquation = removed_$_RightSideEquation.replace("}", ")");
 	 Pattern patterns = Pattern.compile("((.+?))");
 	 Matcher matcher = patterns.matcher(removed_$_RightSideEquation);
-	 /*while (matcher.find()) {
+	 while (matcher.find()) {
 	     System.out.println(matcher.group(1));
 	    
-	 }*/
+	 }
 	 System.out.println(matcher.group(1));
 	 return terms;
-	 //return outputParameter.replaceAll("\\s+","");
+	 eturn outputParameter.replaceAll("\\s+","");*/
 	 
 }
 private String[] distrubute_terms(String rightSideEquation){
