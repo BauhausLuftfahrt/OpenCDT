@@ -292,12 +292,14 @@ public class CustomFormControlFactory extends FormControlFactory {
 		System.out.println("output:"+ out);
 		
 		hyperlink_output.setText(out);
-		/*Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();
+		Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();
 		quantity.setName(out);
-		output_featureObservable.setValue(quantity);
+		output_featureObservable.setValue(quantity.getName());
+		Collection<ECPProject> projects = null;
+		projects = ECPUtil.getECPProjectManager().getProjects();
 		FormulaRepository repo = (FormulaRepository) projects.iterator().next().getContents().get(0);
 		repo.getQuantities().add(quantity);
-		*/
+		
 		//output_featureObservable.setValue(out);
 		
 		
@@ -600,7 +602,7 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    	hyperlink_output = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);  	
 	    }
 	    else{
-	    	hyperlink_output = _toolkit.createHyperlink(composite, ((Quantity)featureObservable.getValue()).getName() , SWT.NONE);
+	    	//hyperlink_output = _toolkit.createHyperlink(composite, ((Quantity)featureObservable.getValue()).getName() , SWT.NONE);
 	    	//hyperlink_output = _toolkit.createHyperlink(composite, featureObservable.getValue().toString() , SWT.NONE);
 	    	
 	    }
