@@ -145,8 +145,11 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private Hyperlink hyperlink;
 	private MPart part; 
 	private String hyperLinkStr;
-	private Object obj;
-	private String search;
+	private Hyperlink hyperlink_output;
+	//private Hyperlink hyperlink_input;
+	private IObservableValue output_featureObservable;
+	private IObservableValue input_featureObservable;
+	private Composite inputParameter_composite;
 	
 
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
@@ -288,13 +291,102 @@ private void generateQuantities(String latexFormula){
 	String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
 	System.out.println("output:"+ out);
 	
+	/*hyperlink_output.setText(out);
+	Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();
+	quantity.setName(out);
+	output_featureObservable.setValue(quantity);*/
+	//output_featureObservable.setValue(out);
 	
 	ArrayList<String> input = ExtractQuantitiesFromFormula.filtering_inputParameter(latexFormula);
 	for (int p = 0; p < input.size(); p++) {       
    	 	System.out.println("quantitiesArray:"+ input.get(p).toString());   
     }	
-	
+	//generate_hyperlink_inputParameter(input);
 }
+/*public Control control_Formula_inputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
+	
+	input_featureObservable = featureObservable;
+	FormToolkit _toolkit = this.getToolkit();
+    Composite _parent = this.getParent();
+    inputParameter_composite = _toolkit.createComposite(_parent, SWT.NONE);
+    GridLayout _gridLayout = new GridLayout(3, false);
+    inputParameter_composite.setLayout(_gridLayout);
+     
+    GridData gridData = new GridData();
+	gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
+    gridData.grabExcessHorizontalSpace = true;
+    gridData.minimumWidth = 50;
+    
+    
+    if(featureObservable.getValue() == null){
+    	hyperlink_output = _toolkit.createHyperlink(inputParameter_composite, EMPTY, SWT.NONE); 
+    	hyperlink_output.setLayoutData(gridData); 
+    }
+    else{
+    	ArrayList<String> input = (ArrayList<String>) featureObservable.getValue();
+    	Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, input.get(0).toString(), SWT.NONE);
+	    hyperlink_input.setForeground(getColorBlack());
+	    hyperlink_input.setUnderlined(false);
+	    
+	    
+    	//hyperlink_input.setLayoutData(gridData);
+    	
+    	for (int p = 0; p < input.size(); p++) {
+    		
+    		Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, input.get(p).toString(), SWT.NONE);
+    	    hyperlink_input.setForeground(getColorBlack());
+    	    hyperlink_input.setUnderlined(false);
+    	    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
+    	    	
+    	 			public void linkActivated(HyperlinkEvent e) {
+    	 		
+    	 				System.out.println("input hyperlink");
+    	 			}//end linkActivated-clause
+    	 	}); 	
+        }	
+    	
+    }
+    
+    hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, "input", SWT.NONE);
+    hyperlink_input.setForeground(getColorBlack());
+    hyperlink_input.setUnderlined(false);
+    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
+    	
+ 			public void linkActivated(HyperlinkEvent e) {
+ 		
+ 				System.out.println("input1");
+ 			}//end linkActivated-clause
+ 	});
+    
+    
+    
+    
+    inputParameter_composite.forceFocus();   
+    
+    return inputParameter_composite;
+}
+private void generate_hyperlink_inputParameter(ArrayList<String> input){
+	
+	FormToolkit _toolkit = this.getToolkit();
+	for (int p = 0; p < input.size(); p++) {
+		
+		Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, input.get(p).toString(), SWT.NONE);
+	    hyperlink_input.setForeground(getColorBlack());
+	    hyperlink_input.setUnderlined(false);
+	    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
+	    	
+	 			public void linkActivated(HyperlinkEvent e) {
+	 		
+	 				System.out.println("input hyperlink");
+	 			}//end linkActivated-clause
+	 	});
+		
+   	 	
+    }
+	input_featureObservable.setValue(input);
+	
+	
+}*/
 public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		
@@ -483,6 +575,49 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    
 	    return composite;
 	}
+/*	public Control control_Formula_outputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
+		
+		
+		FormToolkit _toolkit = this.getToolkit();
+	    Composite _parent = this.getParent();
+	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
+	    GridLayout _gridLayout = new GridLayout(3, false);
+	    composite.setLayout(_gridLayout);
+	       
+	    output_featureObservable = featureObservable;
+	    
+	    GridData gridData = new GridData();
+		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
+	    gridData.grabExcessHorizontalSpace = true;
+	    gridData.minimumWidth = 50;
+	    
+	    if(featureObservable.getValue() == null){
+	    	hyperlink_output = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);  	
+	    }
+	    else{
+	    	hyperlink_output = _toolkit.createHyperlink(composite, ((Quantity)featureObservable.getValue()).getName() , SWT.NONE);
+	    	//hyperlink_output = _toolkit.createHyperlink(composite, featureObservable.getValue().toString() , SWT.NONE);
+	    	
+	    }
+	    hyperlink_output.setLayoutData(gridData); 
+	    hyperlink_output.setUnderlined(false);
+	    hyperlink_output.setForeground(getColorBlack());
+	    composite.forceFocus();
+	    
+	    if(featureObservable.getValue() == EMPTY){
+	    	hyperlink_output.setEnabled(false);
+	    }
+	    else{
+	    	hyperlink_output.setEnabled(true);
+	    	hyperlink_output = _toolkit.createHyperlink(composite, hyperlink_output.getText(), SWT.NONE);
+	        hyperlink_output.setUnderlined(false);
+	        hyperlink_output.setForeground(getColorBlack());
+	        composite.forceFocus();
+	    }
+	    
+
+	    return composite;
+	}*/
 	private Color getColorBlack(){
 		
 		 Device device = Display.getCurrent ();
