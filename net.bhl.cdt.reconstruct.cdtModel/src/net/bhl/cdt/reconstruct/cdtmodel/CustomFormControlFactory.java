@@ -215,7 +215,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				}
 				
 				
-				Collection<ECPProject> projects = null;
+				/*Collection<ECPProject> projects = null;
 				projects = ECPUtil.getECPProjectManager().getProjects();
 				
 				
@@ -226,7 +226,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				qunatity.setName("ADDED");
 				
 				
-				FormulaRepository repo = (FormulaRepository) projects.iterator().next().getContents().get(0);
+				FormulaRepository repo = (FormulaRepository) projects.iterator().next().getContents().get(0);*/
 		
 			}
 		}); 
@@ -285,24 +285,29 @@ public class CustomFormControlFactory extends FormControlFactory {
 
 		return composite;
 		
-}
-private void generateQuantities(String latexFormula){
-	
-	String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
-	System.out.println("output:"+ out);
-	
-	/*hyperlink_output.setText(out);
-	Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();
-	quantity.setName(out);
-	output_featureObservable.setValue(quantity);*/
-	//output_featureObservable.setValue(out);
-	
-	ArrayList<String> input = ExtractQuantitiesFromFormula.filtering_inputParameter(latexFormula);
-	for (int p = 0; p < input.size(); p++) {       
-   	 	System.out.println("quantitiesArray:"+ input.get(p).toString());   
-    }	
-	//generate_hyperlink_inputParameter(input);
-}
+	}
+	private void generateQuantities(String latexFormula){
+		
+		String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
+		System.out.println("output:"+ out);
+		
+		hyperlink_output.setText(out);
+		/*Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();
+		quantity.setName(out);
+		output_featureObservable.setValue(quantity);
+		FormulaRepository repo = (FormulaRepository) projects.iterator().next().getContents().get(0);
+		repo.getQuantities().add(quantity);
+		*/
+		//output_featureObservable.setValue(out);
+		
+		
+		
+		ArrayList<String> input = ExtractQuantitiesFromFormula.filtering_inputParameter(latexFormula);
+		for (int p = 0; p < input.size(); p++) {       
+	   	 	System.out.println("quantitiesArray:"+ input.get(p).toString());   
+	    }	
+		//generate_hyperlink_inputParameter(input);
+	}
 /*public Control control_Formula_inputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
 	
 	input_featureObservable = featureObservable;
@@ -558,7 +563,7 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    
 	    return composite;
 	}
-	public Control control_Formula_outputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
+/*	public Control control_Formula_outputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		
 		FormToolkit _toolkit = this.getToolkit();
@@ -574,8 +579,8 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    
 	    
 	    return composite;
-	}
-/*	public Control control_Formula_outputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
+	}*/
+	public Control control_Formula_outputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		
 		FormToolkit _toolkit = this.getToolkit();
@@ -604,20 +609,9 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    hyperlink_output.setForeground(getColorBlack());
 	    composite.forceFocus();
 	    
-	    if(featureObservable.getValue() == EMPTY){
-	    	hyperlink_output.setEnabled(false);
-	    }
-	    else{
-	    	hyperlink_output.setEnabled(true);
-	    	hyperlink_output = _toolkit.createHyperlink(composite, hyperlink_output.getText(), SWT.NONE);
-	        hyperlink_output.setUnderlined(false);
-	        hyperlink_output.setForeground(getColorBlack());
-	        composite.forceFocus();
-	    }
-	    
 
 	    return composite;
-	}*/
+	}
 	private Color getColorBlack(){
 		
 		 Device device = Display.getCurrent ();
