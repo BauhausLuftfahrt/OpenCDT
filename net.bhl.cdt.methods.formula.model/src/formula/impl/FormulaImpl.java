@@ -6,6 +6,7 @@ import cdtliterature.ALiteratureBase;
 import formula.Formula;
 import formula.FormulaPackage;
 import formula.FormulaRepository;
+import formula.Output;
 import formula.Quantity;
 
 import formula.util.FormulaValidator;
@@ -107,7 +108,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * @generated
 	 * @ordered
 	 */
-	protected Quantity outputParameter;
+	protected Output outputParameter;
 
 	/**
 	 * The cached value of the '{@link #getReference() <em>Reference</em>}' containment reference.
@@ -217,10 +218,10 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Quantity getOutputParameter() {
+	public Output getOutputParameter() {
 		if (outputParameter != null && outputParameter.eIsProxy()) {
 			InternalEObject oldOutputParameter = (InternalEObject)outputParameter;
-			outputParameter = (Quantity)eResolveProxy(oldOutputParameter);
+			outputParameter = (Output)eResolveProxy(oldOutputParameter);
 			if (outputParameter != oldOutputParameter) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FormulaPackage.FORMULA__OUTPUT_PARAMETER, oldOutputParameter, outputParameter));
@@ -234,7 +235,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Quantity basicGetOutputParameter() {
+	public Output basicGetOutputParameter() {
 		return outputParameter;
 	}
 
@@ -243,8 +244,8 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutputParameter(Quantity newOutputParameter) {
-		Quantity oldOutputParameter = outputParameter;
+	public void setOutputParameter(Output newOutputParameter) {
+		Output oldOutputParameter = outputParameter;
 		outputParameter = newOutputParameter;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FormulaPackage.FORMULA__OUTPUT_PARAMETER, oldOutputParameter, outputParameter));
@@ -473,7 +474,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				getInputParameter().addAll((Collection<? extends Quantity>)newValue);
 				return;
 			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
-				setOutputParameter((Quantity)newValue);
+				setOutputParameter((Output)newValue);
 				return;
 			case FormulaPackage.FORMULA__REPOSITORY:
 				setRepository((FormulaRepository)newValue);
@@ -506,7 +507,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				getInputParameter().clear();
 				return;
 			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
-				setOutputParameter((Quantity)null);
+				setOutputParameter((Output)null);
 				return;
 			case FormulaPackage.FORMULA__REPOSITORY:
 				setRepository((FormulaRepository)null);

@@ -109,12 +109,12 @@ public interface Formula extends EObject {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Output Parameter</em>' reference.
-	 * @see #setOutputParameter(Quantity)
+	 * @see #setOutputParameter(Output)
 	 * @see formula.FormulaPackage#getFormula_OutputParameter()
 	 * @model
 	 * @generated
 	 */
-	Quantity getOutputParameter();
+	Output getOutputParameter();
 
 	/**
 	 * Sets the value of the '{@link formula.Formula#getOutputParameter <em>Output Parameter</em>}' reference.
@@ -124,7 +124,7 @@ public interface Formula extends EObject {
 	 * @see #getOutputParameter()
 	 * @generated
 	 */
-	void setOutputParameter(Quantity value);
+	void setOutputParameter(Output value);
 
 	/**
 	 * Returns the value of the '<em><b>Repository</b></em>' container reference.

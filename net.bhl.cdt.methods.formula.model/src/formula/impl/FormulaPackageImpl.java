@@ -8,6 +8,7 @@ import formula.Formula;
 import formula.FormulaFactory;
 import formula.FormulaPackage;
 import formula.FormulaRepository;
+import formula.Output;
 import formula.Quantity;
 
 import formula.util.FormulaValidator;
@@ -48,6 +49,13 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 	 * @generated
 	 */
 	private EClass quantityEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass outputEClass = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -291,6 +299,42 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getOutput() {
+		return outputEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getOutput_Name() {
+		return (EAttribute)outputEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOutput_Repository() {
+		return (EReference)outputEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getOutput_Reference() {
+		return (EReference)outputEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public FormulaFactory getFormulaFactory() {
 		return (FormulaFactory)getEFactoryInstance();
 	}
@@ -334,6 +378,11 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 		createEAttribute(quantityEClass, QUANTITY__DESCRIPTION);
 		createEAttribute(quantityEClass, QUANTITY__UNIT);
 		createEReference(quantityEClass, QUANTITY__REPOSITORY);
+
+		outputEClass = createEClass(OUTPUT);
+		createEAttribute(outputEClass, OUTPUT__NAME);
+		createEReference(outputEClass, OUTPUT__REPOSITORY);
+		createEReference(outputEClass, OUTPUT__REFERENCE);
 	}
 
 	/**
@@ -378,7 +427,7 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 		initEAttribute(getFormula_Name(), ecorePackage.getEString(), "name", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFormula_LatexString(), ecorePackage.getEString(), "latexString", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormula_InputParameter(), this.getQuantity(), null, "inputParameter", null, 0, -1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFormula_OutputParameter(), this.getQuantity(), null, "outputParameter", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFormula_OutputParameter(), this.getOutput(), null, "outputParameter", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormula_Repository(), this.getFormulaRepository(), this.getFormulaRepository_Formulas(), "repository", null, 1, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormula_Reference(), theCdtliteraturePackage.getALiteratureBase(), null, "reference", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFormula_RefernceStr(), ecorePackage.getEString(), "refernceStr", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -397,6 +446,11 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 		initEAttribute(getQuantity_Description(), ecorePackage.getEString(), "description", null, 0, 1, Quantity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getQuantity_Unit(), ecorePackage.getEString(), "unit", null, 0, 1, Quantity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getQuantity_Repository(), this.getFormulaRepository(), this.getFormulaRepository_Quantities(), "repository", null, 1, 1, Quantity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(outputEClass, Output.class, "Output", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getOutput_Name(), ecorePackage.getEString(), "name", null, 0, 1, Output.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOutput_Repository(), this.getFormula(), null, "repository", null, 1, 1, Output.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getOutput_Reference(), this.getQuantity(), null, "reference", null, 0, 1, Output.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

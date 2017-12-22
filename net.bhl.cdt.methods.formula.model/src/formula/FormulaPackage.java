@@ -278,6 +278,62 @@ public interface FormulaPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link formula.impl.OutputImpl <em>Output</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see formula.impl.OutputImpl
+	 * @see formula.impl.FormulaPackageImpl#getOutput()
+	 * @generated
+	 */
+	int OUTPUT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT__NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Repository</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT__REPOSITORY = 1;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT__REFERENCE = 2;
+
+	/**
+	 * The number of structural features of the '<em>Output</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Output</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OUTPUT_OPERATION_COUNT = 0;
+
+
+	/**
 	 * Returns the meta object for class '{@link formula.FormulaRepository <em>Repository</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -472,6 +528,49 @@ public interface FormulaPackage extends EPackage {
 	EReference getQuantity_Repository();
 
 	/**
+	 * Returns the meta object for class '{@link formula.Output <em>Output</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Output</em>'.
+	 * @see formula.Output
+	 * @generated
+	 */
+	EClass getOutput();
+
+	/**
+	 * Returns the meta object for the attribute '{@link formula.Output#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see formula.Output#getName()
+	 * @see #getOutput()
+	 * @generated
+	 */
+	EAttribute getOutput_Name();
+
+	/**
+	 * Returns the meta object for the reference '{@link formula.Output#getRepository <em>Repository</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Repository</em>'.
+	 * @see formula.Output#getRepository()
+	 * @see #getOutput()
+	 * @generated
+	 */
+	EReference getOutput_Repository();
+
+	/**
+	 * Returns the meta object for the reference '{@link formula.Output#getReference <em>Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Reference</em>'.
+	 * @see formula.Output#getReference()
+	 * @see #getOutput()
+	 * @generated
+	 */
+	EReference getOutput_Reference();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -643,6 +742,40 @@ public interface FormulaPackage extends EPackage {
 		 * @generated
 		 */
 		EReference QUANTITY__REPOSITORY = eINSTANCE.getQuantity_Repository();
+
+		/**
+		 * The meta object literal for the '{@link formula.impl.OutputImpl <em>Output</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see formula.impl.OutputImpl
+		 * @see formula.impl.FormulaPackageImpl#getOutput()
+		 * @generated
+		 */
+		EClass OUTPUT = eINSTANCE.getOutput();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OUTPUT__NAME = eINSTANCE.getOutput_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Repository</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTPUT__REPOSITORY = eINSTANCE.getOutput_Repository();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OUTPUT__REFERENCE = eINSTANCE.getOutput_Reference();
 
 	}
 
