@@ -59,7 +59,6 @@ public class FormulaFactoryImpl extends EFactoryImpl implements FormulaFactory {
 			case FormulaPackage.FORMULA_REPOSITORY: return createFormulaRepository();
 			case FormulaPackage.FORMULA: return createFormula();
 			case FormulaPackage.QUANTITY: return createQuantity();
-			case FormulaPackage.OUTPUT: return createOutput();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -93,16 +92,6 @@ public class FormulaFactoryImpl extends EFactoryImpl implements FormulaFactory {
 	public Quantity createQuantity() {
 		QuantityImpl quantity = new QuantityImpl();
 		return quantity;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Output createOutput() {
-		OutputImpl output = new OutputImpl();
-		return output;
 	}
 
 	/**

@@ -288,20 +288,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	}
 	private void generateQuantities(String latexFormula){
 		
-		String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
-		System.out.println("output:"+ out);
-		
-		hyperlink_output.setText(out);
-		Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();
-		quantity.setName(out);
-		output_featureObservable.setValue(quantity.getName());
-		Collection<ECPProject> projects = null;
-		projects = ECPUtil.getECPProjectManager().getProjects();
-		FormulaRepository repo = (FormulaRepository) projects.iterator().next().getContents().get(0);
-		repo.getQuantities().add(quantity);
-		
-		//output_featureObservable.setValue(out);
-		
+		createOutputQuantity(latexFormula);
 		
 		
 		ArrayList<String> input = ExtractQuantitiesFromFormula.filtering_inputParameter(latexFormula);
@@ -310,6 +297,45 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    }	
 		//generate_hyperlink_inputParameter(input);
 	}
+	private void createOutputQuantity(String latexFormula){
+		
+		String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
+		hyperlink_output.setText(out);
+		Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+		quantity.setName(out);
+		
+		Collection<ECPProject> projects = null;
+		projects = ECPUtil.getECPProjectManager().getProjects();
+		
+		if(projects.iterator().hasNext()){
+			
+			int size_repository = projects.iterator().next().getContents().size();
+			
+			for (int r = 0; r < size_repository; r++) {       
+				FormulaRepository repository = (FormulaRepository) projects.iterator().next().getContents().get(r);
+				
+				int size_formula = repository.getFormulas().size();
+				
+				for (int f = 0; f < size_formula; f++) { 
+				
+					if(latexFormula.equals(repository.getFormulas().get(f).getLatexString())){
+						System.out.println("inclusive");
+						repository.getQuantities().add(quantity);
+						output_featureObservable.setValue(quantity);
+						
+					}
+					
+				}
+				
+		    }
+			
+			
+		}
+		
+			
+		
+	}
+	
 /*public Control control_Formula_inputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
 	
 	input_featureObservable = featureObservable;
@@ -602,8 +628,9 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    	hyperlink_output = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);  	
 	    }
 	    else{
-	    	//hyperlink_output = _toolkit.createHyperlink(composite, ((Quantity)featureObservable.getValue()).getName() , SWT.NONE);
+	    	hyperlink_output = _toolkit.createHyperlink(composite, ((Quantity)featureObservable.getValue()).getName() , SWT.NONE);
 	    	//hyperlink_output = _toolkit.createHyperlink(composite, featureObservable.getValue().toString() , SWT.NONE);
+	    	//hyperlink_output = _toolkit.createHyperlink(composite, ((Output)featureObservable.getValue()).getName() , SWT.NONE);
 	    	
 	    }
 	    hyperlink_output.setLayoutData(gridData); 

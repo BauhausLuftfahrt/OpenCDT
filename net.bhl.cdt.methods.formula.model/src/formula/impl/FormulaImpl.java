@@ -6,7 +6,6 @@ import cdtliterature.ALiteratureBase;
 import formula.Formula;
 import formula.FormulaPackage;
 import formula.FormulaRepository;
-import formula.Output;
 import formula.Quantity;
 
 import formula.util.FormulaValidator;
@@ -44,7 +43,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link formula.impl.FormulaImpl#getOutputParameter <em>Output Parameter</em>}</li>
  *   <li>{@link formula.impl.FormulaImpl#getRepository <em>Repository</em>}</li>
  *   <li>{@link formula.impl.FormulaImpl#getReference <em>Reference</em>}</li>
- *   <li>{@link formula.impl.FormulaImpl#getRefernceStr <em>Refernce Str</em>}</li>
  * </ul>
  *
  * @generated
@@ -108,7 +106,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * @generated
 	 * @ordered
 	 */
-	protected Output outputParameter;
+	protected Quantity outputParameter;
 
 	/**
 	 * The cached value of the '{@link #getReference() <em>Reference</em>}' containment reference.
@@ -119,26 +117,6 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * @ordered
 	 */
 	protected ALiteratureBase reference;
-
-	/**
-	 * The default value of the '{@link #getRefernceStr() <em>Refernce Str</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRefernceStr()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String REFERNCE_STR_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getRefernceStr() <em>Refernce Str</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRefernceStr()
-	 * @generated
-	 * @ordered
-	 */
-	protected String refernceStr = REFERNCE_STR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -218,10 +196,10 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Output getOutputParameter() {
+	public Quantity getOutputParameter() {
 		if (outputParameter != null && outputParameter.eIsProxy()) {
 			InternalEObject oldOutputParameter = (InternalEObject)outputParameter;
-			outputParameter = (Output)eResolveProxy(oldOutputParameter);
+			outputParameter = (Quantity)eResolveProxy(oldOutputParameter);
 			if (outputParameter != oldOutputParameter) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FormulaPackage.FORMULA__OUTPUT_PARAMETER, oldOutputParameter, outputParameter));
@@ -235,7 +213,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Output basicGetOutputParameter() {
+	public Quantity basicGetOutputParameter() {
 		return outputParameter;
 	}
 
@@ -244,8 +222,8 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setOutputParameter(Output newOutputParameter) {
-		Output oldOutputParameter = outputParameter;
+	public void setOutputParameter(Quantity newOutputParameter) {
+		Quantity oldOutputParameter = outputParameter;
 		outputParameter = newOutputParameter;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FormulaPackage.FORMULA__OUTPUT_PARAMETER, oldOutputParameter, outputParameter));
@@ -333,27 +311,6 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FormulaPackage.FORMULA__REFERENCE, newReference, newReference));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String getRefernceStr() {
-		return refernceStr;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setRefernceStr(String newRefernceStr) {
-		String oldRefernceStr = refernceStr;
-		refernceStr = newRefernceStr;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FormulaPackage.FORMULA__REFERNCE_STR, oldRefernceStr, refernceStr));
 	}
 
 	/**
@@ -448,8 +405,6 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				return getRepository();
 			case FormulaPackage.FORMULA__REFERENCE:
 				return getReference();
-			case FormulaPackage.FORMULA__REFERNCE_STR:
-				return getRefernceStr();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -474,16 +429,13 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				getInputParameter().addAll((Collection<? extends Quantity>)newValue);
 				return;
 			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
-				setOutputParameter((Output)newValue);
+				setOutputParameter((Quantity)newValue);
 				return;
 			case FormulaPackage.FORMULA__REPOSITORY:
 				setRepository((FormulaRepository)newValue);
 				return;
 			case FormulaPackage.FORMULA__REFERENCE:
 				setReference((ALiteratureBase)newValue);
-				return;
-			case FormulaPackage.FORMULA__REFERNCE_STR:
-				setRefernceStr((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -507,16 +459,13 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				getInputParameter().clear();
 				return;
 			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
-				setOutputParameter((Output)null);
+				setOutputParameter((Quantity)null);
 				return;
 			case FormulaPackage.FORMULA__REPOSITORY:
 				setRepository((FormulaRepository)null);
 				return;
 			case FormulaPackage.FORMULA__REFERENCE:
 				setReference((ALiteratureBase)null);
-				return;
-			case FormulaPackage.FORMULA__REFERNCE_STR:
-				setRefernceStr(REFERNCE_STR_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -542,8 +491,6 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				return getRepository() != null;
 			case FormulaPackage.FORMULA__REFERENCE:
 				return reference != null;
-			case FormulaPackage.FORMULA__REFERNCE_STR:
-				return REFERNCE_STR_EDEFAULT == null ? refernceStr != null : !REFERNCE_STR_EDEFAULT.equals(refernceStr);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -576,8 +523,6 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 		result.append(name);
 		result.append(", latexString: ");
 		result.append(latexString);
-		result.append(", refernceStr: ");
-		result.append(refernceStr);
 		result.append(')');
 		return result.toString();
 	}

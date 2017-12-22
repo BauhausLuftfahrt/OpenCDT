@@ -141,29 +141,6 @@ public class FormulaItemProviderAdapterFactory extends FormulaAdapterFactory imp
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link formula.Output} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected OutputItemProvider outputItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link formula.Output}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createOutputAdapter() {
-		if (outputItemProvider == null) {
-			outputItemProvider = new OutputItemProvider(this);
-		}
-
-		return outputItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -265,7 +242,6 @@ public class FormulaItemProviderAdapterFactory extends FormulaAdapterFactory imp
 		if (formulaRepositoryItemProvider != null) formulaRepositoryItemProvider.dispose();
 		if (formulaItemProvider != null) formulaItemProvider.dispose();
 		if (quantityItemProvider != null) quantityItemProvider.dispose();
-		if (outputItemProvider != null) outputItemProvider.dispose();
 	}
 
 }

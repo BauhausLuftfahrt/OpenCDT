@@ -98,8 +98,6 @@ public class FormulaValidator extends EObjectValidator {
 				return validateFormula((Formula)value, diagnostics, context);
 			case FormulaPackage.QUANTITY:
 				return validateQuantity((Quantity)value, diagnostics, context);
-			case FormulaPackage.OUTPUT:
-				return validateOutput((Output)value, diagnostics, context);
 			default:
 				return true;
 		}
@@ -161,15 +159,6 @@ public class FormulaValidator extends EObjectValidator {
 	 */
 	public boolean validateQuantity(Quantity quantity, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return validate_EveryDefaultConstraint(quantity, diagnostics, context);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateOutput(Output output, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(output, diagnostics, context);
 	}
 
 	/**
