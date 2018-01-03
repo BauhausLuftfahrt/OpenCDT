@@ -10,7 +10,7 @@ import org.eclipse.swt.widgets.Shell;
 
 import net.bhl.cdt.core.pref.CDTPreferencesService;
 import net.bhl.cdt.log.service.CDTLogService;
-import net.bhl.cdt.ui.e4.parts.explorer.CDTExplorerViewPart;
+import net.bhl.cdt.ui.e4.parts.explorer.ExplorerViewPart;
 import net.bhl.cdt.util.ui.UIHelper;
 
 /**
@@ -25,7 +25,7 @@ public class SetCDTExplorerWorkFolderHandler {
 	String dialogResult = UIHelper.showDirectoryDialog(shell, "Choose Work-Folder...");
 	
 	if (dialogResult != null) {
-	    prefService.setPreference(CDTExplorerViewPart.PREF_KEY_WORKFOLDER, dialogResult);
+	    prefService.setPreference(ExplorerViewPart.PREF_KEY_WORKFOLDER, dialogResult);
 	    logService.info("Work folder set to: '" + dialogResult + "'");
 	}
     }

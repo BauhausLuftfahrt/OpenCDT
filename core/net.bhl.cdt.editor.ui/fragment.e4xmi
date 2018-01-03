@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmi:id="_J64KEKODEeedCcw9B0rjdg">
-  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_wsUIgKOFEeedCcw9B0rjdg" featurename="children" parentElementId="net.bhl.cdt.client.e4.mainwindow.perspectivestack">
-    <elements xsi:type="advanced:Perspective" xmi:id="_3E9soKOFEeedCcw9B0rjdg" elementId="net.bhl.cdt.editor.perspective.modeleditor" label="Model Editor" iconURI="platform:/plugin/net.bhl.cdt.ui/icons/OpenCDT_Symbol_0016.png">
-      <children xsi:type="basic:Part" xmi:id="_86GUAKOFEeedCcw9B0rjdg" elementId="net.bhl.cdt.editor.part.0"/>
-    </elements>
-  </fragments>
-</fragment:ModelFragments>

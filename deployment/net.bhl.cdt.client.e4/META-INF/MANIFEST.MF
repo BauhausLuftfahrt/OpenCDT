@@ -27,9 +27,7 @@ Require-Bundle: org.eclipse.core.expressions;bundle-version="[3.4.0,4.0.0)",
  net.bhl.cdt.util,
  net.bhl.cdt.log,
  net.bhl.cdt.model;bundle-version="0.1.0",
- net.bhl.cdt.ui;bundle-version="1.0.0",
- net.bhl.msh.pta;bundle-version="1.0.0",
- net.bhl.msh.pta.ui;bundle-version="1.0.0"
+ net.bhl.cdt.ui;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.annotation,
  javax.inject;version="1.0.0",

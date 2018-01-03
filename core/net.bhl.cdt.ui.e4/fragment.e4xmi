@@ -32,12 +32,12 @@
         <children xsi:type="menu:HandledToolItem" xmi:id="_UXzVsGAIEee6jvp-IzUNlg" elementId="net.bhl.cdt.ui.e4.part.logviewpart.toolbar.item.debugvisible" label="" iconURI="platform:/plugin/net.bhl.cdt.ui/icons/debug_16x16.png" tooltip="Show Debug-Messages" type="Check" command="_4YJz8GAHEee6jvp-IzUNlg"/>
       </toolbar>
     </elements>
-    <elements xsi:type="basic:Part" xmi:id="_-UqCsF_HEee6jvp-IzUNlg" elementId="net.bhl.cdt.ui.e4.part.explorer" contributionURI="bundleclass://net.bhl.cdt.ui/net.bhl.cdt.ui.e4.parts.explorer.CDTExplorerViewPart" label="Explorer" iconURI="platform:/plugin/net.bhl.cdt.ui/icons/folder_16x16.png">
+    <elements xsi:type="basic:Part" xmi:id="_-UqCsF_HEee6jvp-IzUNlg" elementId="net.bhl.cdt.ui.e4.part.explorer" contributionURI="bundleclass://net.bhl.cdt.ui/net.bhl.cdt.ui.e4.parts.explorer.ExplorerViewPart" label="Explorer" iconURI="platform:/plugin/net.bhl.cdt.ui/icons/folder_16x16.png">
       <toolbar xmi:id="_Bxf9AF_IEee6jvp-IzUNlg" elementId="net.bhl.cdt.ui.e4.explorer.toolbar">
         <children xsi:type="menu:HandledToolItem" xmi:id="_Qnx_UF_JEee6jvp-IzUNlg" elementId="net.bhl.cdt.ui.e4.explorer.toolbar.setworkfolderbutton" label="Set Workfolder" iconURI="platform:/plugin/net.bhl.cdt.ui/icons/folder_16x16.png" tooltip="Set Workfolder" command="_uVuO4F_JEee6jvp-IzUNlg"/>
         <children xsi:type="menu:HandledToolItem" xmi:id="_CH8lsGCaEeeLI_FcXsnNPA" elementId="net.bhl.cdt.ui.e4.explorer.toolbar.additemmenubutton" label="Add Item" iconURI="platform:/plugin/net.bhl.cdt.ui/icons/plus_16x16.png" tooltip="Add Item" command="_n18cEGCaEeeLI_FcXsnNPA">
           <menu xmi:id="_U70UYGCaEeeLI_FcXsnNPA" elementId="net.bhl.cdt.ui.e4.explorer.toolbar.additemmenu">
-            <children xsi:type="menu:HandledMenuItem" xmi:id="_fxp1gGCaEeeLI_FcXsnNPA" elementId="net.bhl.cdt.ui.e4.handledmenuitem.newcdtmodel" label="New CDT Model" iconURI="platform:/plugin/net.bhl.cdt.ui/icons/OpenCDT_Symbol_0016.png"/>
+            <children xsi:type="menu:HandledMenuItem" xmi:id="_fxp1gGCaEeeLI_FcXsnNPA" elementId="net.bhl.cdt.ui.e4.handledmenuitem.newcdtmodel" label="New CDT Model" iconURI="platform:/plugin/net.bhl.cdt.ui/icons/OpenCDT_Symbol_0016.png" command="_n18cEGCaEeeLI_FcXsnNPA"/>
           </menu>
         </children>
         <children xsi:type="menu:HandledToolItem" xmi:id="_4hcyQGCpEeeLI_FcXsnNPA" elementId="net.bhl.cdt.ui.e4.handledtoolitem.refresh" label="Refresh" iconURI="platform:/plugin/net.bhl.cdt.ui/icons/refresh_16x16.png" tooltip="Refresh" command="_W3zTYGCvEeeLI_FcXsnNPA"/>

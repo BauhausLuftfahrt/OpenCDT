@@ -1,0 +1,34 @@
+import net.bhl.cdt.ui.views.explorer.ExplorerSaveableTableView
+
+/* net.bhl.cdt.editor EMF Parsley Dsl Module file */
+module net.bhl.cdt.ui.views.explorer {
+	
+	parts {
+		viewpart net.bhl.cdt.ui.views.explorer {
+			viewname "Explorer"
+			viewclass ExplorerSaveableTableView
+		}
+	}
+	
+	configurator {
+		eClass {
+			ExplorerSaveableTableView -> {
+				// TODO return the EClass of objects to be shown
+			}
+		}
+		resourceURI {
+			ExplorerSaveableTableView -> {
+				// TODO create and return a org.eclipse.emf.common.util.URI
+				return null;
+			}
+		}
+	}
+	
+	resourceManager {
+		initializeResource {
+			// Optional: initialize an empty Resource
+			// 'it' is of type Resource
+			// e.g., it.getContents += myFactory.createMyClass
+		}
+	}
+}

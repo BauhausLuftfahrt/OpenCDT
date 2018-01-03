@@ -24,7 +24,7 @@ import model.base.ModelContainer;
 import net.bhl.cdt.core.pref.CDTPreferencesService;
 import net.bhl.cdt.log.service.CDTLogService;
 import net.bhl.cdt.ui.e4.E4ResourceIds;
-import net.bhl.cdt.ui.e4.parts.explorer.CDTExplorerViewPart;
+import net.bhl.cdt.ui.e4.parts.explorer.ExplorerViewPart;
 import net.bhl.cdt.util.constants.StringConstants;
 import net.bhl.cdt.util.ui.UIHelper;
 
@@ -37,7 +37,7 @@ import net.bhl.cdt.util.ui.UIHelper;
 public class NewCDTModelHandler {
     @Execute
     public void execute(Shell shell, EHandlerService handlerService, ECommandService commandService, CDTLogService logService, CDTPreferencesService prefService) {
-	Optional<String> optWorkFolder = prefService.getPreference(CDTExplorerViewPart.PREF_KEY_WORKFOLDER);
+	Optional<String> optWorkFolder = prefService.getPreference(ExplorerViewPart.PREF_KEY_WORKFOLDER);
 
 	String initialFolder = StringConstants.EMPTY;
 	if (optWorkFolder.isPresent())

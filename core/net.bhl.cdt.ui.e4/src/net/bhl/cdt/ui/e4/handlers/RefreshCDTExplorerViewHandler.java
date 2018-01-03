@@ -8,7 +8,7 @@ package net.bhl.cdt.ui.e4.handlers;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 
-import net.bhl.cdt.ui.e4.parts.explorer.CDTExplorerViewPart;
+import net.bhl.cdt.ui.e4.parts.explorer.ExplorerViewPart;
 
 /**
  * 
@@ -19,7 +19,7 @@ import net.bhl.cdt.ui.e4.parts.explorer.CDTExplorerViewPart;
 public class RefreshCDTExplorerViewHandler {
     @Execute
     public void execute(EPartService partService) {
-	CDTExplorerViewPart explorerPart = (CDTExplorerViewPart)partService.findPart(CDTExplorerViewPart.PART_ID).getObject();
+	ExplorerViewPart explorerPart = (ExplorerViewPart)partService.findPart(ExplorerViewPart.PART_ID).getObject();
 	explorerPart.refresh();
     }
 }
