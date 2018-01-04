@@ -199,8 +199,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 							
 							createNewImage(latexformula, composite, latexString);
 													
-							generateQuantities(latexformula);
-							
+							//generateQuantities(latexformula);
+							generateQuantities(latexformula, latexString);
 							
 						} catch (SAXException e1) {
 							// TODO Auto-generated catch block
@@ -286,18 +286,17 @@ public class CustomFormControlFactory extends FormControlFactory {
 		return composite;
 		
 	}
-	private void generateQuantities(String latexFormula){
+	private void generateQuantities(String latexFormula,Text latexString){
 		
-		createOutputQuantity(latexFormula);
-		
-		
+		createOutputQuantity(latexFormula, latexString);
+			
 		ArrayList<String> input = ExtractQuantitiesFromFormula.filtering_inputParameter(latexFormula);
-		for (int p = 0; p < input.size(); p++) {       
+		/*for (int p = 0; p < input.size(); p++) {       
 	   	 	System.out.println("quantitiesArray:"+ input.get(p).toString());   
-	    }	
+	    }	*/
 		//generate_hyperlink_inputParameter(input);
 	}
-	private void createOutputQuantity(String latexFormula){
+	private void createOutputQuantity(String latexFormula, Text latexString){
 		
 		String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
 		hyperlink_output.setText(out);
@@ -307,32 +306,111 @@ public class CustomFormControlFactory extends FormControlFactory {
 		Collection<ECPProject> projects = null;
 		projects = ECPUtil.getECPProjectManager().getProjects();
 		
-		if(projects.iterator().hasNext()){
+		//if(projects.iterator().hasNext()){
+		//while(projects.iterator().hasNext()){
+		for ( Iterator i = projects.iterator(); i.hasNext(); ){
+		
+		//Iterator i = projects.iterator();
+		
+		//while(i.hasNext()){
+			//int size_repository = projects.iterator().next().getContents().size();
 			
-			int size_repository = projects.iterator().next().getContents().size();
+			Object obj = i.next();
+			
+			ECPProject project = (ECPProject) obj;
+			
+			int size_repository = project.getContents().size();
+			
+			//System.out.println(projects.iterator().next().getName());
 			
 			for (int r = 0; r < size_repository; r++) {       
-				FormulaRepository repository = (FormulaRepository) projects.iterator().next().getContents().get(r);
+				
+				//FormulaRepository repository = (FormulaRepository) projects.iterator().next().getContents().get(r);
+				
+				FormulaRepository repository =  (FormulaRepository) project.getContents().get(r);
+				//FormulaRepository repository = (FormulaRepository) projects.iterator().next().getContents().get(r);
+				
+				System.out.println("Repo : " +  repository.getName());
 				
 				int size_formula = repository.getFormulas().size();
 				
 				for (int f = 0; f < size_formula; f++) { 
 				
 					if(latexFormula.equals(repository.getFormulas().get(f).getLatexString())){
+						
+						Formula formula = repository.getFormulas().get(f);
+						
 						System.out.println("inclusive");
-						repository.getQuantities().add(quantity);
-						output_featureObservable.setValue(quantity);
+						
+						//int size_quantities = repository.getQuantities().size();
+						
+						if(output_featureObservable.getValue() == null){
+							System.out.println("Null");
+							repository.getQuantities().add(quantity);
+							
+							//output_featureObservable.setValue(quantity);
+							
+						}else{
+							
+							/*if(!output_featureObservable.getValue().equals(out)){
+								repository.getQuantities().add(quantity);
+							}*/
+							
+							Quantity q = (Quantity) output_featureObservable.getValue();
+							
+							if(!q.getName().equals(out)){
+								
+								//output_featureObservable.getClass().getName();
+								
+								System.out.println("output is different!");
+								
+								removePreviousOutput(repository, out, q);
+								
+								//repository.getQuantities().add(quantity);
+								//output_featureObservable.setValue(quantity);
+							}
+							
+							
+							
+						}
+						/*if(!repository.getQuantities().contains(quantity)){
+							
+							repository.getQuantities().add(quantity);
+							
+						}*/
+						//output_featureObservable.setValue(quantity);
 						
 					}
 					
 				}
+				//output_featureObservable.setValue(quantity);
 				
 		    }
+			//output_featureObservable.setValue(quantity);
 			
 			
 		}
 		
+	}
+	
+	private void removePreviousOutput(FormulaRepository repository, String output, Quantity q ){
+		
+		EList<Quantity> quantities = repository.getQuantities();
+		
+		for ( Iterator i = quantities.iterator(); i.hasNext();){
 			
+			//Object obj = i.next();
+		
+			Quantity quantity = (Quantity) i.next();
+			
+			//Quantity quantity = (Quantity) obj;
+			
+			if(quantity.getName().equals(q.getName())){
+				
+				quantity.setName(output);
+				
+			}
+		}
 		
 	}
 	
