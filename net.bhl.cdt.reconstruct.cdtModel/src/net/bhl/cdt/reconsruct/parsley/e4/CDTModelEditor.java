@@ -36,6 +36,7 @@ import org.eclipse.swt.widgets.Shell;
 import com.google.inject.Injector;
 
 import cdtliterature.Library;
+import formula.Formula;
 //import net.bhl.cdt.literature.model.parsley.CustomFormControlFactory;
 import net.bhl.cdt.literature.model.parsley.ParsleyInjectorProvider;
 import net.bhl.cdt.reconstruct.cdtmodel.CdtmodelInjectorProvider;
@@ -49,15 +50,14 @@ public class CDTModelEditor {
 	public static final java.lang.String INPUT = "ecpEditorInput";	
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
 	private Composite parent;
-	private String projectName;
-	private String formulaName;
-	private Injector injector;
+	//private String formulaID = "";
+	
 	
 	@PostConstruct
 	public void postConstruct(Composite parent) {	
 
 		this.parent = parent;
-		injector = CdtmodelInjectorProvider.getInjector();
+		Injector injector = CdtmodelInjectorProvider.getInjector();
     	FormFactory formFactory = injector.getInstance(FormFactory.class);
 		formComposite = formFactory.createFormDetailComposite(parent, SWT.BORDER);	
 		
@@ -70,9 +70,6 @@ public class CDTModelEditor {
 			return;
 		}
 
-    	projectName = ecpProject.getName();
-    	
-    	
     	final int width = formComposite.getBounds().width;
 		final int height = formComposite.getBounds().height+1;
 		formComposite.init(modelElement);
@@ -83,7 +80,9 @@ public class CDTModelEditor {
 		part.setLabel(itemLabelProvider.getText(modelElement));
 		formComposite.setSize(width, height);
 	
-
+		/*if(modelElement instanceof Formula)
+			formulaID = modelElement.toString();*/
+		
     }
     /**
 	 * Sets the focus to the parent composite.
@@ -94,6 +93,9 @@ public class CDTModelEditor {
 			parent.setFocus();
 		}
 	}
+	/*public String getFormulaID(){
+		return formulaID;
+	}*/
 
 	
 	

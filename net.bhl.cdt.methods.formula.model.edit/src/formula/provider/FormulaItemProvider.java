@@ -14,7 +14,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -67,7 +66,6 @@ public class FormulaItemProvider
 			addInputParameterPropertyDescriptor(object);
 			addOutputParameterPropertyDescriptor(object);
 			addRepositoryPropertyDescriptor(object);
-			addRefernceStrPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -183,28 +181,6 @@ public class FormulaItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Refernce Str feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRefernceStrPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Formula_refernceStr_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Formula_refernceStr_feature", "_UI_Formula_type"),
-				 FormulaPackage.Literals.FORMULA__REFERNCE_STR,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -274,7 +250,6 @@ public class FormulaItemProvider
 		switch (notification.getFeatureID(Formula.class)) {
 			case FormulaPackage.FORMULA__NAME:
 			case FormulaPackage.FORMULA__LATEX_STRING:
-			case FormulaPackage.FORMULA__REFERNCE_STR:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case FormulaPackage.FORMULA__REFERENCE:
