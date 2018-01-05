@@ -624,6 +624,7 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    	hyperlink_output.setEnabled(true);
 	    }
 	    
+	    
 		/**The action for click of this hyperlink und let open and show the model of hyperlink.*/
 		hyperlink_output.addHyperlinkListener(new HyperlinkAdapter() {
 	    	
