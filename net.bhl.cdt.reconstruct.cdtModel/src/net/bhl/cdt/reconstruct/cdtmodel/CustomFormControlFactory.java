@@ -201,6 +201,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 													
 							generateQuantities(latexformula);
 							
+							/**
+							 * remove the focus on showButton*/
+							_parent.getShell().setFocus();
+							
 							
 						} catch (SAXException e1) {
 							// TODO Auto-generated catch block
@@ -213,24 +217,11 @@ public class CustomFormControlFactory extends FormControlFactory {
 							e1.printStackTrace();
 						}					
 				}
-				
-				
-				/*Collection<ECPProject> projects = null;
-				projects = ECPUtil.getECPProjectManager().getProjects();
-				
-				
-				Collection<ECPRepository> repositories = null;
-				repositories = ECPUtil.getECPRepositoryManager().getRepositories();
-				
-				Quantity qunatity = FormulaFactory.eINSTANCE.createQuantity();
-				qunatity.setName("ADDED");
-				
-				
-				FormulaRepository repo = (FormulaRepository) projects.iterator().next().getContents().get(0);*/
-		
+	
 			}
+			
 		}); 
-		
+       
 
 		/**
 		 * each function of button is implemented.
@@ -282,7 +273,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			}
 		};
         latexString.addFocusListener(listener);
-
+        
 		return composite;
 		
 	}
@@ -308,7 +299,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		Boolean isOneFormula = checkFormulaRedundancy(projects, latexFormula, quantity);
 				
-		for ( Iterator i = projects.iterator(); i.hasNext(); ){
+		for (Iterator i = projects.iterator(); i.hasNext();){
 		
 			Object obj = i.next();
 			
@@ -317,32 +308,28 @@ public class CustomFormControlFactory extends FormControlFactory {
 			int size_repository = project.getContents().size();
 		
 			for (int r = 0; r < size_repository; r++) {       
-				
-				//FormulaRepository repository = (FormulaRepository) projects.iterator().next().getContents().get(r);
-				
+								
 				FormulaRepository repository =  (FormulaRepository) project.getContents().get(r);
-				//FormulaRepository repository = (FormulaRepository) projects.iterator().next().getContents().get(r);
-				
-				System.out.println("Repo : " +  repository.getName());
 				
 				int size_formula = repository.getFormulas().size();
 				
 				for (int f = 0; f < size_formula; f++) { 
 				
 					if(latexFormula.equals(repository.getFormulas().get(f).getLatexString())){
-						
-						Formula formula = repository.getFormulas().get(f);
-						
-						System.out.println("inclusive");
-						
-						//int size_quantities = repository.getQuantities().size();
+			
 						
 						if(output_featureObservable.getValue() == null){
 							System.out.println("Null");
 							
 							if(isOneFormula){
+								
 								repository.getQuantities().add(quantity);
 								output_featureObservable.setValue(quantity);
+								
+							}else{
+								
+								
+								System.out.println("This formula is not unique!!");
 							}
 							
 						}else{
@@ -351,15 +338,11 @@ public class CustomFormControlFactory extends FormControlFactory {
 							
 							if(!q.getName().equals(out)){
 			
-								System.out.println("output is different!");
-								
-								//removePreviousOutput(repository, out, q);
-								
-								
+								modifyPreviousOutput(repository, out, q);
+																
 							}
 							
-							
-							
+		
 						}
 						
 					
@@ -372,13 +355,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 			
 		}
+	
 		
 	}
 	private Boolean checkFormulaRedundancy(Collection<ECPProject> projects,String latexFormula, Quantity quantity){
 		
 		int number = 0; 
-		
-		
+				
 		for ( Iterator i = projects.iterator(); i.hasNext(); ){
 			
 			Object obj = i.next();
@@ -412,18 +395,14 @@ public class CustomFormControlFactory extends FormControlFactory {
 		return (number == 1);
 	}
 	
-	private void removePreviousOutput(FormulaRepository repository, String output, Quantity q ){
+	private void modifyPreviousOutput(FormulaRepository repository, String output, Quantity q ){
 		
 		EList<Quantity> quantities = repository.getQuantities();
 		
 		for ( Iterator i = quantities.iterator(); i.hasNext();){
-			
-			//Object obj = i.next();
-		
+					
 			Quantity quantity = (Quantity) i.next();
-			
-			//Quantity quantity = (Quantity) obj;
-			
+						
 			if(quantity.getName().equals(q.getName())){
 				
 				quantity.setName(output);
@@ -726,8 +705,6 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    }
 	    else{
 	    	hyperlink_output = _toolkit.createHyperlink(composite, ((Quantity)featureObservable.getValue()).getName() , SWT.NONE);
-	    	//hyperlink_output = _toolkit.createHyperlink(composite, featureObservable.getValue().toString() , SWT.NONE);
-	    	//hyperlink_output = _toolkit.createHyperlink(composite, ((Output)featureObservable.getValue()).getName() , SWT.NONE);
 	    	
 	    }
 	    hyperlink_output.setLayoutData(gridData); 
@@ -735,6 +712,55 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    hyperlink_output.setForeground(getColorBlack());
 	    composite.forceFocus();
 	    
+	
+	    if (featureObservable.getValue() == null)
+	    	hyperlink_output.setEnabled(false);	
+	    
+		/**The action for click of this hyperlink und let open and show the model of hyperlink.*/
+		hyperlink_output.addHyperlinkListener(new HyperlinkAdapter() {
+	    	
+			public void linkActivated(HyperlinkEvent e) {
+				
+				
+				Boolean partVisible = false;
+				EPartService partService = EPartServiceHelper.getEPartService();
+				Collection<MPart> parts = partService.getParts();
+				
+				
+				for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
+				{
+					MPart partSearch = i.next();
+					if (partSearch.isVisible()) {
+						if(partSearch.getElementId().equals(output_featureObservable.getValue().toString())){
+							partVisible = true;
+		                	partService.activate(partSearch);
+		                	break;
+							 
+		                 }
+		    
+		             }
+		        }
+				
+				if(!partVisible){
+					
+					part = MBasicFactory.INSTANCE.createPart();
+					part.setLabel(((Quantity)output_featureObservable.getValue()).eClass().getName() + " " + ((Quantity)output_featureObservable.getValue()).getName());
+				    part.setElementId(output_featureObservable.getValue().toString());
+					part.setObject(output_featureObservable.getValue());
+					part.setCloseable(true);
+					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+					
+					partService.showPart(part, PartState.CREATE);
+					partService.bringToTop(part);
+					
+				}
+				
+				
+		
+			}//end linkActivated-clause
+		});
+		
+		
 
 	    return composite;
 	}

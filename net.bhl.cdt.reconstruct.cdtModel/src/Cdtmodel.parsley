@@ -13,7 +13,7 @@ import formula.Quantity
 /* net.bhl.cdt.reconstruct.cdtmodel EMF Parsley Dsl Module file */
 module net.bhl.cdt.reconstruct.cdtmodel {
 	
-	parts {
+	parts{
 		viewpart net.bhl.cdt.reconstruct.cdtmodel {
 			viewname "Cdtmodel"
 			viewclass CdtmodelOnSelectionFormView
@@ -50,19 +50,26 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 	featuresProvider {
 				features {
 					 FormulaRepository -> name
-					 Formula -> name, latexString, reference,  inputParameter, outputParameter
+					 Formula -> name, latexString, reference, inputParameter, outputParameter
 					 Quantity -> name, description, unit
 				}
 	}
+	featureCaptionProvider{
+			text{
+				Formula:reference -> "Reference"
+				
+			}
+		}
+	
 	viewerContentProvider {
 				elements{
 					
 
 				}
 				children {
-					FormulaRepository -> {
-						Formula
-					}
+//					FormulaRepository -> {
+//						Formula
+//					}
 				}
     		}
 
