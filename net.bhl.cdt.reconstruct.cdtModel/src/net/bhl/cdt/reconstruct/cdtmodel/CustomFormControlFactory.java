@@ -52,6 +52,7 @@ import org.eclipse.emf.parsley.composite.FormControlFactory;
 import org.eclipse.emf.parsley.composite.FormDetailComposite;
 import org.eclipse.emf.parsley.composite.FormFactory;
 import org.eclipse.emf.parsley.resource.ResourceLoader;
+import org.eclipse.emf.parsley.util.DatabindingUtil;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -153,7 +154,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 	
 
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
-	
+		
+		/*Formula currentFormula = (Formula)getOwner();
+		currentFormula.getRepository();*/
+		
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
 	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
@@ -282,6 +286,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		createOutputQuantity(latexFormula);
 			
 		ArrayList<String> input = ExtractQuantitiesFromFormula.filtering_inputParameter(latexFormula);
+		
 		/*for (int p = 0; p < input.size(); p++) {       
 	   	 	System.out.println("quantitiesArray:"+ input.get(p).toString());   
 	    }	*/
@@ -291,10 +296,28 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
 		hyperlink_output.setText(out);
+		hyperlink_output.setEnabled(true);
 		Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
-		quantity.setName(out);
+		quantity.setName("output " + out);
 		
-		Collection<ECPProject> projects = null;
+		if(output_featureObservable.getValue() == null){
+			
+			Formula currentFormula = (Formula)getOwner();
+			currentFormula.getRepository().getQuantities().add(quantity);
+			output_featureObservable.setValue(quantity);
+			
+		}else{
+			
+			Quantity q = (Quantity) output_featureObservable.getValue();
+			
+			if(!q.getName().equals(out)){
+				Formula currentFormula = (Formula)getOwner();
+				modifyPreviousOutput(currentFormula.getRepository(), out, q);
+												
+			}
+		}
+		
+		/*Collection<ECPProject> projects = null;
 		projects = ECPUtil.getECPProjectManager().getProjects();
 		
 		Boolean isOneFormula = checkFormulaRedundancy(projects, latexFormula, quantity);
@@ -319,6 +342,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 						
 						if(output_featureObservable.getValue() == null){
+							
 							System.out.println("Null");
 							
 							if(isOneFormula){
@@ -332,7 +356,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 								System.out.println("This formula is not unique!!");
 							}
 							
-						}else{
+						}
+						else{
 					
 							Quantity q = (Quantity) output_featureObservable.getValue();
 							
@@ -354,11 +379,27 @@ public class CustomFormControlFactory extends FormControlFactory {
 		    }
 		
 			
-		}
+		}*/
 	
 		
 	}
-	private Boolean checkFormulaRedundancy(Collection<ECPProject> projects,String latexFormula, Quantity quantity){
+	private void modifyPreviousOutput(FormulaRepository repository, String output, Quantity q ){
+		
+		EList<Quantity> quantities = repository.getQuantities();
+		
+		for ( Iterator i = quantities.iterator(); i.hasNext();){
+					
+			Quantity quantity = (Quantity) i.next();
+						
+			if(quantity.getName().equals(q.getName())){
+				
+				quantity.setName(output);
+				
+			}
+		}
+		
+	}
+	/*private Boolean checkFormulaRedundancy(Collection<ECPProject> projects,String latexFormula, Quantity quantity){
 		
 		int number = 0; 
 				
@@ -393,24 +434,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 		}
 
 		return (number == 1);
-	}
+	}*/
 	
-	private void modifyPreviousOutput(FormulaRepository repository, String output, Quantity q ){
-		
-		EList<Quantity> quantities = repository.getQuantities();
-		
-		for ( Iterator i = quantities.iterator(); i.hasNext();){
-					
-			Quantity quantity = (Quantity) i.next();
-						
-			if(quantity.getName().equals(q.getName())){
-				
-				quantity.setName(output);
-				
-			}
-		}
-		
-	}
+	
 	
 /*public Control control_Formula_inputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -713,8 +739,11 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    composite.forceFocus();
 	    
 	
-	    if (featureObservable.getValue() == null)
-	    	hyperlink_output.setEnabled(false);	
+	    if (featureObservable.getValue() == null){
+	    	hyperlink_output.setEnabled(false);
+	    }else{
+	    	hyperlink_output.setEnabled(true);
+	    }
 	    
 		/**The action for click of this hyperlink und let open and show the model of hyperlink.*/
 		hyperlink_output.addHyperlinkListener(new HyperlinkAdapter() {
