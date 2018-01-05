@@ -316,72 +316,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 												
 			}
 		}
-		
-		/*Collection<ECPProject> projects = null;
-		projects = ECPUtil.getECPProjectManager().getProjects();
-		
-		Boolean isOneFormula = checkFormulaRedundancy(projects, latexFormula, quantity);
-				
-		for (Iterator i = projects.iterator(); i.hasNext();){
-		
-			Object obj = i.next();
-			
-			ECPProject project = (ECPProject) obj;
-			
-			int size_repository = project.getContents().size();
-		
-			for (int r = 0; r < size_repository; r++) {       
-								
-				FormulaRepository repository =  (FormulaRepository) project.getContents().get(r);
-				
-				int size_formula = repository.getFormulas().size();
-				
-				for (int f = 0; f < size_formula; f++) { 
-				
-					if(latexFormula.equals(repository.getFormulas().get(f).getLatexString())){
-			
-						
-						if(output_featureObservable.getValue() == null){
-							
-							System.out.println("Null");
-							
-							if(isOneFormula){
-								
-								repository.getQuantities().add(quantity);
-								output_featureObservable.setValue(quantity);
-								
-							}else{
-								
-								
-								System.out.println("This formula is not unique!!");
-							}
-							
-						}
-						else{
-					
-							Quantity q = (Quantity) output_featureObservable.getValue();
-							
-							if(!q.getName().equals(out)){
-			
-								modifyPreviousOutput(repository, out, q);
-																
-							}
-							
-		
-						}
-						
-					
-					}
-					
-				}
-				
-				
-		    }
-		
-			
-		}*/
-	
-		
 	}
 	private void modifyPreviousOutput(FormulaRepository repository, String output, Quantity q ){
 		
@@ -399,44 +333,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 		}
 		
 	}
-	/*private Boolean checkFormulaRedundancy(Collection<ECPProject> projects,String latexFormula, Quantity quantity){
-		
-		int number = 0; 
-				
-		for ( Iterator i = projects.iterator(); i.hasNext(); ){
-			
-			Object obj = i.next();
-			
-			ECPProject project = (ECPProject) obj;
-			
-			int size_repository = project.getContents().size();
-			
-			for (int r = 0; r < size_repository; r++) {       
-				
-				FormulaRepository repository =  (FormulaRepository) project.getContents().get(r);
-				
-				int size_formula = repository.getFormulas().size();
-				
-				for (int f = 0; f < size_formula; f++) { 
-					
-					if(latexFormula.equals(repository.getFormulas().get(f).getLatexString())){
-						
-						number++;
-						
-					}
-					
-					
-				}
-				
-			}
-			
-			
-		}
-
-		return (number == 1);
-	}*/
-	
-	
 	
 /*public Control control_Formula_inputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -693,23 +589,6 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 	    
 	    return composite;
 	}
-/*	public Control control_Formula_outputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
-		
-		
-		FormToolkit _toolkit = this.getToolkit();
-	    Composite _parent = this.getParent();
-	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
-	    GridLayout _gridLayout = new GridLayout(3, false);
-	    composite.setLayout(_gridLayout);
-	       
-	    Hyperlink linkOutput = _toolkit.createHyperlink(composite, "output", SWT.NONE);
-	    linkOutput.setUnderlined(false);
-	    linkOutput.setForeground(getColorBlack());
-	    composite.forceFocus();
-	    
-	    
-	    return composite;
-	}*/
 	public Control control_Formula_outputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		
