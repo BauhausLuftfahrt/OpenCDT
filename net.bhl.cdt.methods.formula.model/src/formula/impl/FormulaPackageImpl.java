@@ -192,8 +192,8 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFormula_InputParameter() {
-		return (EReference)formulaEClass.getEStructuralFeatures().get(2);
+	public EAttribute getFormula_InputParameter() {
+		return (EAttribute)formulaEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -313,7 +313,7 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 		formulaEClass = createEClass(FORMULA);
 		createEAttribute(formulaEClass, FORMULA__NAME);
 		createEAttribute(formulaEClass, FORMULA__LATEX_STRING);
-		createEReference(formulaEClass, FORMULA__INPUT_PARAMETER);
+		createEAttribute(formulaEClass, FORMULA__INPUT_PARAMETER);
 		createEReference(formulaEClass, FORMULA__OUTPUT_PARAMETER);
 		createEReference(formulaEClass, FORMULA__REPOSITORY);
 		createEReference(formulaEClass, FORMULA__REFERENCE);
@@ -367,7 +367,7 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 		initEClass(formulaEClass, Formula.class, "Formula", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFormula_Name(), ecorePackage.getEString(), "name", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFormula_LatexString(), ecorePackage.getEString(), "latexString", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFormula_InputParameter(), this.getQuantity(), null, "inputParameter", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFormula_InputParameter(), ecorePackage.getEString(), "inputParameter", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormula_OutputParameter(), this.getQuantity(), null, "outputParameter", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormula_Repository(), this.getFormulaRepository(), this.getFormulaRepository_Formulas(), "repository", null, 1, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormula_Reference(), theCdtliteraturePackage.getALiteratureBase(), null, "reference", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

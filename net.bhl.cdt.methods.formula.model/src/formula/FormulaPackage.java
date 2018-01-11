@@ -141,7 +141,7 @@ public interface FormulaPackage extends EPackage {
 	int FORMULA__LATEX_STRING = 1;
 
 	/**
-	 * The feature id for the '<em><b>Input Parameter</b></em>' reference.
+	 * The feature id for the '<em><b>Input Parameter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -344,15 +344,15 @@ public interface FormulaPackage extends EPackage {
 	EAttribute getFormula_LatexString();
 
 	/**
-	 * Returns the meta object for the reference '{@link formula.Formula#getInputParameter <em>Input Parameter</em>}'.
+	 * Returns the meta object for the attribute '{@link formula.Formula#getInputParameter <em>Input Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Input Parameter</em>'.
+	 * @return the meta object for the attribute '<em>Input Parameter</em>'.
 	 * @see formula.Formula#getInputParameter()
 	 * @see #getFormula()
 	 * @generated
 	 */
-	EReference getFormula_InputParameter();
+	EAttribute getFormula_InputParameter();
 
 	/**
 	 * Returns the meta object for the reference '{@link formula.Formula#getOutputParameter <em>Output Parameter</em>}'.
@@ -535,12 +535,12 @@ public interface FormulaPackage extends EPackage {
 		EAttribute FORMULA__LATEX_STRING = eINSTANCE.getFormula_LatexString();
 
 		/**
-		 * The meta object literal for the '<em><b>Input Parameter</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Input Parameter</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FORMULA__INPUT_PARAMETER = eINSTANCE.getFormula_InputParameter();
+		EAttribute FORMULA__INPUT_PARAMETER = eINSTANCE.getFormula_InputParameter();
 
 		/**
 		 * The meta object literal for the '<em><b>Output Parameter</b></em>' reference feature.

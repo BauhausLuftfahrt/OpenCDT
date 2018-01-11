@@ -82,30 +82,30 @@ public interface Formula extends EObject {
 	void setLatexString(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Input Parameter</b></em>' reference.
+	 * Returns the value of the '<em><b>Input Parameter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Input Parameter</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Input Parameter</em>' reference.
-	 * @see #setInputParameter(Quantity)
+	 * @return the value of the '<em>Input Parameter</em>' attribute.
+	 * @see #setInputParameter(String)
 	 * @see formula.FormulaPackage#getFormula_InputParameter()
 	 * @model
 	 * @generated
 	 */
-	Quantity getInputParameter();
+	String getInputParameter();
 
 	/**
-	 * Sets the value of the '{@link formula.Formula#getInputParameter <em>Input Parameter</em>}' reference.
+	 * Sets the value of the '{@link formula.Formula#getInputParameter <em>Input Parameter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Input Parameter</em>' reference.
+	 * @param value the new value of the '<em>Input Parameter</em>' attribute.
 	 * @see #getInputParameter()
 	 * @generated
 	 */
-	void setInputParameter(Quantity value);
+	void setInputParameter(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Output Parameter</b></em>' reference.

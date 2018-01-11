@@ -19,6 +19,7 @@ import javax.inject.Inject;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.eclipse.core.databinding.DataBindingContext;
+import org.eclipse.core.databinding.observable.list.IObservableList;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.model.application.MApplication;
@@ -56,6 +57,7 @@ import org.eclipse.emf.parsley.util.DatabindingUtil;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.ISelectionProvider;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
@@ -149,7 +151,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private MPart part; 
 	private String hyperLinkStr;
 	private Hyperlink hyperlink_output;
-	private Hyperlink hyperlink_input;
+	//private Hyperlink hyperlink_input;
 	private IObservableValue output_featureObservable;
 	private IObservableValue input_featureObservable;
 	private Composite inputParameter_composite;
@@ -323,19 +325,19 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 		}
 		
-		for (int p = 0; p < input.size(); p++) {
+		for (int m = 0; m < input.size(); m++) {
 			
-			/*Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, input.get(p).toString() ,SWT.NONE);
+			/*Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, input.get(m).toString() ,SWT.NONE);
 			new_hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
 		    	
 	 			public void linkActivated(HyperlinkEvent e) {
 	 		
 	 				System.out.println("Hello World");
 	 			}
-			});
-			listOfHyperlink.add(new_hyperlink_input);*/
-			listOfHyperlink.get(p).setEnabled(true);
-			listOfHyperlink.get(p).setText(input.get(p).toString());
+			});*/
+			//listOfHyperlink.add(new_hyperlink_input);
+			listOfHyperlink.get(m).setEnabled(true);
+			listOfHyperlink.get(m).setText(input.get(m).toString());
 			
 		}
 		
@@ -346,7 +348,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	   	 	Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
 	   	 	quantity.setName(input.get(q).toString());
 	   	 	
-			currentFormula.getRepository().getQuantities().add(quantity);
+			//currentFormula.getRepository().getQuantities().add(quantity);
+			
 			listOfQunatity.add(quantity);
 			
 			
@@ -365,12 +368,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 		int x = inputParameter_composite.getShell().getSize().x;
 		int y = inputParameter_composite.getShell().getSize().y;
 		inputParameter_composite.getShell().setSize(x+1 , y);
-		input_featureObservable.setValue(listOfQunatity.get(0));
-		input_featureObservable.setValue(listOfQunatity);
-		//ArrayList<Quantity> a = (ArrayList<Quantity>) input_featureObservable.getValue();
+		//input_featureObservable.setValue(listOfQunatity.get(0));
+		//input_featureObservable.setValue(listOfQunatity);
+		////ArrayList<Quantity> a = (ArrayList<Quantity>) input_featureObservable.getValue();
 		
 	}
-	public Control control_Formula_inputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
+	 public Control control_Formula_inputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
 	
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
@@ -385,8 +388,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	   //inputParameter_composite.setLayout(_gridLayout);
 	    inputParameter_composite.setLayout(rowLayout);
 
-	    input_featureObservable = featureObservable;
-	    
+	    //input_featureObservable = featureObservable;
+	    //input_featureObservable = targetObservableList;
 	   /* GridData gridData = new GridData();
 		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
 	    gridData.grabExcessHorizontalSpace = true;
@@ -395,7 +398,46 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    RowData rowData = new RowData();
 	    rowData.width = 50;
 	    
-	   if(featureObservable.getValue() == null){
+	    //ISelectionProvider inernalProvider = new InternalSelectionProvider();
+	    
+	   /* if(formula.getInputParameter().isEmpty()){	
+	    	
+	    	  for (int p = 0; p < 10; p++) {
+				   
+				   Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
+				   new_hyperlink_input.setLayoutData(rowData); 
+				   new_hyperlink_input.setEnabled(false);
+				   new_hyperlink_input.setUnderlined(true);
+				   new_hyperlink_input.setForeground(getColorBlack());
+				   
+				   listOfHyperlink.add(new_hyperlink_input);
+			 	   
+			  }
+	    }else{
+	    	
+	    	EList<Quantity> input_quantities = (EList<Quantity>) formula.getInputParameter();
+	    	
+	    	for (int p = 0; p < input_quantities.size(); p++) {
+	    		
+	    		Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, input_quantities.get(p).toString(), SWT.NONE);
+	    	    hyperlink_input.setForeground(getColorBlack());
+	    	    hyperlink_input.setUnderlined(true);
+	    	    String s = input_quantities.get(p).toString();
+	    	    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
+	    	    	
+	    	 			public void linkActivated(HyperlinkEvent e) {
+	    	 		
+	    	 				System.out.println("Hello World : "  + s);
+	    	 			}
+	    	 	});
+	    	    listOfHyperlink.add(hyperlink_input);
+	        }
+	    	
+	    	
+	    }*/
+	    
+	    
+	  /*if(featureObservable.getValue() == null){
 		   
 		   for (int p = 0; p < 10; p++) {
 			   
@@ -413,9 +455,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	
 	    	ArrayList<Quantity> input_quantities = (ArrayList<Quantity>) featureObservable.getValue();
 	    	
-	    	/*Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, input.get(0).toString(), SWT.NONE);
+	    	Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, input.get(0).toString(), SWT.NONE);
 		    hyperlink_input.setForeground(getColorBlack());
-		    hyperlink_input.setUnderlined(false);*/
+		    hyperlink_input.setUnderlined(false);
 		    
 		    
 	    	for (int p = 0; p < input_quantities.size(); p++) {
@@ -434,7 +476,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	    listOfHyperlink.add(hyperlink_input);
 	        }
 	    	
-	    }
+	    }*/
 	   /* hyperlink_input.setLayoutData(gridData); 
 	    hyperlink_input.setForeground(getColorBlack());
 	    
@@ -467,7 +509,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	 			}
 	 	});*/
 
-	    inputParameter_composite.forceFocus();   
+	    //inputParameter_composite.forceFocus();   
 	    
 	    return inputParameter_composite;
 	}
