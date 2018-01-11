@@ -297,14 +297,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private void createInputQuantity(String latexFormula){
 		
 		ArrayList<String> input = ExtractQuantitiesFromFormula.filtering_inputParameter(latexFormula);
+		String input_string = String.join(",", input);
+
 		Formula currentFormula = (Formula)getOwner();
 		
 		FormToolkit _toolkit = this.getToolkit();
 		
-		GridData gridData = new GridData();
-		gridData.horizontalAlignment = GridData.BEGINNING;
-		gridData.grabExcessHorizontalSpace = true;
-		gridData.minimumWidth = 50;
 		
 		if(input.size() > 10){
 			
@@ -319,11 +317,19 @@ public class CustomFormControlFactory extends FormControlFactory {
 				rest_hyperlink_input.setEnabled(true);
 				rest_hyperlink_input.setUnderlined(true);
 				rest_hyperlink_input.setForeground(getColorBlack());
-				listOfHyperlink.add(rest_hyperlink_input);
+				rest_hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
+	    	    	
+		 			public void linkActivated(HyperlinkEvent e) {
+		 		
+		 				showInputPart();
+		 			}
+		 	});
+			listOfHyperlink.add(rest_hyperlink_input);
 				
 			}
 			
 		}
+		
 		
 		for (int m = 0; m < input.size(); m++) {
 			
@@ -339,68 +345,66 @@ public class CustomFormControlFactory extends FormControlFactory {
 			listOfHyperlink.get(m).setEnabled(true);
 			listOfHyperlink.get(m).setText(input.get(m).toString());
 			
+			
 		}
+		
+		ArrayList<String> generated_inputs = new ArrayList<String>();
+		int quantities_size = currentFormula.getRepository().getQuantities().size();
+		for(int p = 0; p < quantities_size; p++){
+			
+			generated_inputs.add(currentFormula.getRepository().getQuantities().get(p).getName());
+   	 		
+   	 	}
 		
 		for (int q = 0; q < input.size(); q++) {
 			
 	   	 	System.out.println("quantitiesArray of Input:"+ input.get(q).toString());
-	   	 	
-	   	 	Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
-	   	 	quantity.setName(input.get(q).toString());
-	   	 	
-			//currentFormula.getRepository().getQuantities().add(quantity);
+	   	 		
+	   	 	if(!generated_inputs.contains(input.get(q).toString())){
+	   	 		
+		   	 	Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+		   	 	quantity.setName(input.get(q).toString());
+		   	 	quantity.setDescription("input");
+				currentFormula.getRepository().getQuantities().add(quantity);
+				listOfQunatity.add(quantity);
+	   	 	}
 			
-			listOfQunatity.add(quantity);
 			
-			
-			String p = input.get(q).toString();
-			
-			listOfHyperlink.get(q).addHyperlinkListener(new HyperlinkAdapter() {
-		    	
-	 			public void linkActivated(HyperlinkEvent e) {
-	 		
-	 				System.out.println("Hello World : "  + p);
-	 			}
-			});
 			
 	    }
 		
 		int x = inputParameter_composite.getShell().getSize().x;
 		int y = inputParameter_composite.getShell().getSize().y;
 		inputParameter_composite.getShell().setSize(x+1 , y);
-		//input_featureObservable.setValue(listOfQunatity.get(0));
-		//input_featureObservable.setValue(listOfQunatity);
-		////ArrayList<Quantity> a = (ArrayList<Quantity>) input_featureObservable.getValue();
+		input_featureObservable.setValue(input_string);
+		
 		
 	}
-	 public Control control_Formula_inputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
-	
+	private void showInputPart(){
+		
+		System.out.println("show part for input");
+		
+	}
+	public Control control_Formula_inputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
+		
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
-	    //final Composite inputParameter_composite = _toolkit.createComposite(_parent, SWT.NONE);
 	    inputParameter_composite = _toolkit.createComposite(_parent, SWT.NONE);
 	    
-	    //GridLayout _gridLayout = new GridLayout(5, false);
 	    RowLayout rowLayout = new RowLayout();
 	    rowLayout.wrap = true;
 	    rowLayout.justify = false;
 	    
-	   //inputParameter_composite.setLayout(_gridLayout);
 	    inputParameter_composite.setLayout(rowLayout);
 
-	    //input_featureObservable = featureObservable;
-	    //input_featureObservable = targetObservableList;
-	   /* GridData gridData = new GridData();
-		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
-	    gridData.grabExcessHorizontalSpace = true;
-	    gridData.minimumWidth = 50;*/
+	    input_featureObservable = featureObservable;
+	    
+	    String [] stringArray = input_featureObservable.getValue().toString().split(",");
 	    
 	    RowData rowData = new RowData();
 	    rowData.width = 50;
-	    
-	    //ISelectionProvider inernalProvider = new InternalSelectionProvider();
-	    
-	   /* if(formula.getInputParameter().isEmpty()){	
+	    	    
+	   if(input_featureObservable.getValue() == null){	
 	    	
 	    	  for (int p = 0; p < 10; p++) {
 				   
@@ -413,28 +417,29 @@ public class CustomFormControlFactory extends FormControlFactory {
 				   listOfHyperlink.add(new_hyperlink_input);
 			 	   
 			  }
+	    	  
 	    }else{
 	    	
-	    	EList<Quantity> input_quantities = (EList<Quantity>) formula.getInputParameter();
-	    	
-	    	for (int p = 0; p < input_quantities.size(); p++) {
+	    	for (int p = 0; p < stringArray.length; p++) {
 	    		
-	    		Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, input_quantities.get(p).toString(), SWT.NONE);
+	    		Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, stringArray[p], SWT.NONE);
+	    		hyperlink_input.setLayoutData(rowData); 
 	    	    hyperlink_input.setForeground(getColorBlack());
 	    	    hyperlink_input.setUnderlined(true);
-	    	    String s = input_quantities.get(p).toString();
+	    	  
+	    	    
 	    	    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
 	    	    	
 	    	 			public void linkActivated(HyperlinkEvent e) {
 	    	 		
-	    	 				System.out.println("Hello World : "  + s);
+	    	 				showInputPart();
 	    	 			}
 	    	 	});
 	    	    listOfHyperlink.add(hyperlink_input);
 	        }
 	    	
 	    	
-	    }*/
+	    }
 	    
 	    
 	  /*if(featureObservable.getValue() == null){
@@ -513,13 +518,15 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    
 	    return inputParameter_composite;
 	}
+	
 	private void createOutputQuantity(String latexFormula){
 		
 		String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
 		hyperlink_output.setText(out);
 		hyperlink_output.setEnabled(true);
 		Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
-		//quantity.setName("output " + out);
+		quantity.setName(out);
+		quantity.setDescription("output");
 		
 		if(output_featureObservable.getValue() == null){
 			
