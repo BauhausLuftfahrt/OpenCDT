@@ -333,15 +333,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		for (int m = 0; m < input.size(); m++) {
 			
-			/*Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, input.get(m).toString() ,SWT.NONE);
-			new_hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
-		    	
-	 			public void linkActivated(HyperlinkEvent e) {
-	 		
-	 				System.out.println("Hello World");
-	 			}
-			});*/
-			//listOfHyperlink.add(new_hyperlink_input);
 			listOfHyperlink.get(m).setEnabled(true);
 			listOfHyperlink.get(m).setText(input.get(m).toString());
 			
@@ -349,6 +340,38 @@ public class CustomFormControlFactory extends FormControlFactory {
 		}
 		
 		ArrayList<String> generated_inputs = new ArrayList<String>();
+		int quantities_size = currentFormula.getRepository().getQuantities().size();
+		Quantity output;
+		for(int p = 0; p < quantities_size; p++){
+			
+			//generated_inputs.add(currentFormula.getRepository().getQuantities().get(p).getName());
+			
+			if(currentFormula.getRepository().getQuantities().get(p).getDescription().equals("output")){
+				
+				output = currentFormula.getRepository().getQuantities().get(p);
+				
+			}
+   	 		
+   	 	}
+		
+		
+		for (int q = 0; q < input.size(); q++) {
+			
+	   	 	System.out.println("quantitiesArray of Input:"+ input.get(q).toString());
+
+		   	 	Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+		   	 	quantity.setName(input.get(q).toString());
+		   	 	quantity.setDescription("input");
+				currentFormula.getRepository().getQuantities().add(quantity);
+				listOfQunatity.add(quantity);
+	   	 	
+	
+			
+	    }
+		
+		
+		
+		/*ArrayList<String> generated_inputs = new ArrayList<String>();
 		int quantities_size = currentFormula.getRepository().getQuantities().size();
 		for(int p = 0; p < quantities_size; p++){
 			
@@ -371,7 +394,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 			
 			
-	    }
+	    }*/
 		
 		int x = inputParameter_composite.getShell().getSize().x;
 		int y = inputParameter_composite.getShell().getSize().y;
@@ -399,7 +422,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 
 	    input_featureObservable = featureObservable;
 	    
-	    String [] stringArray = input_featureObservable.getValue().toString().split(",");
+	    
 	    
 	    RowData rowData = new RowData();
 	    rowData.width = 50;
@@ -420,6 +443,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	  
 	    }else{
 	    	
+	    	String [] stringArray = input_featureObservable.getValue().toString().split(",");
 	    	for (int p = 0; p < stringArray.length; p++) {
 	    		
 	    		Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, stringArray[p], SWT.NONE);
