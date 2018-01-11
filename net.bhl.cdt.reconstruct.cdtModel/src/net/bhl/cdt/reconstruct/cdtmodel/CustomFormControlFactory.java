@@ -154,7 +154,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private IObservableValue input_featureObservable;
 	private Composite inputParameter_composite;
 	private ArrayList<Hyperlink> listOfHyperlink = new ArrayList<Hyperlink>();; 
-	
+	private ArrayList<Quantity> listOfQunatity = new ArrayList<Quantity>(); 
 
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 		
@@ -299,9 +299,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		FormToolkit _toolkit = this.getToolkit();
 		
-		/*GridLayout new_gridLayout = new GridLayout(input.size(), false);
-		inputParameter_composite.setLayout(new_gridLayout);*/
-		
 		GridData gridData = new GridData();
 		gridData.horizontalAlignment = GridData.BEGINNING;
 		gridData.grabExcessHorizontalSpace = true;
@@ -350,13 +347,28 @@ public class CustomFormControlFactory extends FormControlFactory {
 	   	 	quantity.setName(input.get(q).toString());
 	   	 	
 			currentFormula.getRepository().getQuantities().add(quantity);
+			listOfQunatity.add(quantity);
+			
+			
+			String p = input.get(q).toString();
+			
+			listOfHyperlink.get(q).addHyperlinkListener(new HyperlinkAdapter() {
+		    	
+	 			public void linkActivated(HyperlinkEvent e) {
+	 		
+	 				System.out.println("Hello World : "  + p);
+	 			}
+			});
 			
 	    }
 		
 		int x = inputParameter_composite.getShell().getSize().x;
 		int y = inputParameter_composite.getShell().getSize().y;
-		inputParameter_composite.getShell().setSize(x +1 , y);
-	
+		inputParameter_composite.getShell().setSize(x+1 , y);
+		input_featureObservable.setValue(listOfQunatity.get(0));
+		input_featureObservable.setValue(listOfQunatity);
+		//ArrayList<Quantity> a = (ArrayList<Quantity>) input_featureObservable.getValue();
+		
 	}
 	public Control control_Formula_inputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -392,31 +404,35 @@ public class CustomFormControlFactory extends FormControlFactory {
 			   new_hyperlink_input.setEnabled(false);
 			   new_hyperlink_input.setUnderlined(true);
 			   new_hyperlink_input.setForeground(getColorBlack());
+			   
 			   listOfHyperlink.add(new_hyperlink_input);
 		 	   
 		  }
 		   
 	   }else{
 	    	
-	    	/*ArrayList<String> input = (ArrayList<String>) featureObservable.getValue();
-	    	Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, input.get(0).toString(), SWT.NONE);
+	    	ArrayList<Quantity> input_quantities = (ArrayList<Quantity>) featureObservable.getValue();
+	    	
+	    	/*Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, input.get(0).toString(), SWT.NONE);
 		    hyperlink_input.setForeground(getColorBlack());
-		    hyperlink_input.setUnderlined(false);
+		    hyperlink_input.setUnderlined(false);*/
 		    
 		    
-	    	for (int p = 0; p < input.size(); p++) {
+	    	for (int p = 0; p < input_quantities.size(); p++) {
 	    		
-	    		hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, input.get(p).toString(), SWT.NONE);
+	    		hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, input_quantities.get(p).toString(), SWT.NONE);
 	    	    hyperlink_input.setForeground(getColorBlack());
-	    	    hyperlink_input.setUnderlined(false);
+	    	    hyperlink_input.setUnderlined(true);
+	    	    String s = input_quantities.get(p).toString();
 	    	    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
 	    	    	
 	    	 			public void linkActivated(HyperlinkEvent e) {
 	    	 		
-	    	 				System.out.println("input hyperlink");
+	    	 				System.out.println("Hello World : "  + s);
 	    	 			}
-	    	 	}); 	
-	        }*/	
+	    	 	});
+	    	    listOfHyperlink.add(hyperlink_input);
+	        }
 	    	
 	    }
 	   /* hyperlink_input.setLayoutData(gridData); 
@@ -450,10 +466,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	 				System.out.println("input2");
 	 			}
 	 	});*/
-	    
-	    
-	    
-	    
+
 	    inputParameter_composite.forceFocus();   
 	    
 	    return inputParameter_composite;
