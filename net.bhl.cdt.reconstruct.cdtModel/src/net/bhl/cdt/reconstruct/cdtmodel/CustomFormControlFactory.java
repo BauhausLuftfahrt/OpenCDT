@@ -295,22 +295,47 @@ public class CustomFormControlFactory extends FormControlFactory {
 		ArrayList<String> input = ExtractQuantitiesFromFormula.filtering_inputParameter(latexFormula);
 		Formula currentFormula = (Formula)getOwner();
 		
+		FormToolkit _toolkit = this.getToolkit();
 		
-		/*GridLayout new_gridLayout = new GridLayout(input.size(), false);
-		inputParameter_composite.setLayout(new_gridLayout);*/
-		 
+		GridLayout new_gridLayout = new GridLayout(input.size(), false);
+		inputParameter_composite.setLayout(new_gridLayout);
+		
+		GridData gridData = new GridData();
+		//gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
+		gridData.horizontalAlignment = GridData.BEGINNING;
+		gridData.grabExcessHorizontalSpace = true;
+		gridData.minimumWidth = 50;
+		
 		for (int p = 0; p < input.size(); p++) {
 			
-	   	 	System.out.println("quantitiesArray of Input:"+ input.get(p).toString());
+			Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, "Hello ",SWT.NONE);
+			//new_hyperlink_input.setLayoutData(gridData);
+			listOfHyperlink.add(new_hyperlink_input);
+		}
+		
+		for (int q = 0; q < input.size(); q++) {
+			
+	   	 	System.out.println("quantitiesArray of Input:"+ input.get(q).toString());
 	   	 	
 	   	 	Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
-	   	 	quantity.setName(input.get(p).toString());
+	   	 	quantity.setName(input.get(q).toString());
 	   	 	
 			currentFormula.getRepository().getQuantities().add(quantity);
 			
+			/*GridData gridData = new GridData();
+			//gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
+			gridData.horizontalAlignment = GridData.BEGINNING;
+			gridData.grabExcessHorizontalSpace = true;
+			gridData.minimumWidth = 50;*/
+			
 			/*Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, input.get(p).toString() ,SWT.NONE);
 			new_hyperlink_input.setForeground(getColorBlack());
-			new_hyperlink_input.setUnderlined(false);*/
+			new_hyperlink_input.setUnderlined(false);
+			listOfHyperlink.add(new_hyperlink_input);
+			new_hyperlink_input.setLayoutData(gridData);
+			new_hyperlink_input.setEnabled(true);*/
+			
+			
 			/*if(p == 0){
 				
 				hyperlink_input.setText(input.get(p).toString());
@@ -325,10 +350,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 				new_hyperlink_input.setEnabled(true);
 
 			}*/
-			listOfHyperlink.get(p).setText(input.get(p).toString());
-			listOfHyperlink.get(p).setEnabled(true);
+			//listOfHyperlink.get(q).setText(input.get(q).toString());
+			//listOfHyperlink.get(q).setEnabled(true);
 			
 	    }
+		
+		
 		
 		//inputParameter_composite.forceFocus();
 		
@@ -347,14 +374,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 	
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
-	    final Composite inputParameter_composite = _toolkit.createComposite(_parent, SWT.NONE);
-	    //inputParameter_composite = _toolkit.createComposite(_parent, SWT.NONE);
+	    //final Composite inputParameter_composite = _toolkit.createComposite(_parent, SWT.NONE);
+	    inputParameter_composite = _toolkit.createComposite(_parent, SWT.NONE);
 	    GridLayout _gridLayout = new GridLayout(5, false);
 	   
 	    inputParameter_composite.setLayout(_gridLayout);
 	     
 	    input_featureObservable = featureObservable;
-	    
 	    
 	    GridData gridData = new GridData();
 		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
@@ -366,16 +392,15 @@ public class CustomFormControlFactory extends FormControlFactory {
 	   if(featureObservable.getValue() == null){
 		   
 		   
-		   for (int p = 0; p < 5; p++) {
+		   /*for (int p = 0; p < 5; p++) {
 			   
 			   Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
-			   new_hyperlink_input.setLayoutData(gridData); 
-			   //new_hyperlink_input.setEnabled(false);
+			   new_hyperlink_input.setLayoutData(gridData);
 			   new_hyperlink_input.setUnderlined(false);
 			   new_hyperlink_input.setForeground(getColorBlack());
 			   listOfHyperlink.add(new_hyperlink_input);
 		 	   
-		   }
+		   }*/
 		   
 	    	/*hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY, SWT.NONE);
 		    hyperlink_input.setLayoutData(gridData); 
