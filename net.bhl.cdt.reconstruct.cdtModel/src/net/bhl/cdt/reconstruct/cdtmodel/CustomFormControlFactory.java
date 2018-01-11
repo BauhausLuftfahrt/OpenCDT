@@ -307,6 +307,24 @@ public class CustomFormControlFactory extends FormControlFactory {
 		gridData.grabExcessHorizontalSpace = true;
 		gridData.minimumWidth = 50;
 		
+		if(input.size() > 10){
+			
+			int rest = input.size() - 10;
+			RowData rowData = new RowData();
+			rowData.width = 50;
+			
+			for(int p = 0; p < rest; p++) {
+				
+				Hyperlink rest_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
+				rest_hyperlink_input.setLayoutData(rowData); 
+				rest_hyperlink_input.setEnabled(true);
+				rest_hyperlink_input.setUnderlined(true);
+				rest_hyperlink_input.setForeground(getColorBlack());
+				listOfHyperlink.add(rest_hyperlink_input);
+				
+			}
+			
+		}
 		
 		for (int p = 0; p < input.size(); p++) {
 			
@@ -319,9 +337,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 	 			}
 			});
 			listOfHyperlink.add(new_hyperlink_input);*/
-			
-			listOfHyperlink.get(p).setText(input.get(p).toString());
 			listOfHyperlink.get(p).setEnabled(true);
+			listOfHyperlink.get(p).setText(input.get(p).toString());
+			
 		}
 		
 		for (int q = 0; q < input.size(); q++) {
@@ -353,22 +371,22 @@ public class CustomFormControlFactory extends FormControlFactory {
 
 	    input_featureObservable = featureObservable;
 	    
-	    GridData gridData = new GridData();
+	   /* GridData gridData = new GridData();
 		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
 	    gridData.grabExcessHorizontalSpace = true;
-	    gridData.minimumWidth = 50;
+	    gridData.minimumWidth = 50;*/
 	    
 	    RowData rowData = new RowData();
-	    rowData.width = 20;
+	    rowData.width = 50;
 	    
 	   if(featureObservable.getValue() == null){
 		   
-		   for (int p = 0; p < 5; p++) {
+		   for (int p = 0; p < 10; p++) {
 			   
 			   Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
 			   new_hyperlink_input.setLayoutData(rowData); 
-			   //new_hyperlink_input.setEnabled(false);
-			   new_hyperlink_input.setUnderlined(false);
+			   new_hyperlink_input.setEnabled(false);
+			   new_hyperlink_input.setUnderlined(true);
 			   new_hyperlink_input.setForeground(getColorBlack());
 			   listOfHyperlink.add(new_hyperlink_input);
 		 	   
