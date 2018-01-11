@@ -352,6 +352,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 			currentFormula.getRepository().getQuantities().add(quantity);
 			
 	    }
+		
+		int x = inputParameter_composite.getShell().getSize().x;
+		int y = inputParameter_composite.getShell().getSize().y;
+		inputParameter_composite.getShell().setSize(x +1 , y);
 	
 	}
 	public Control control_Formula_inputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
