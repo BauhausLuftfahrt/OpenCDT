@@ -25,9 +25,7 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 		type IEditingStrategy -> UndoableEditingStrategy
 		value int FormSashStyle -> SWT.HORIZONTAL
 		type FormControlFactory -> CustomFormControlFactory
-		//value String formulaID -> CDTModelEditor.
-		
-		
+
 	}
 	configurator {
 		resourceURI {
@@ -73,7 +71,15 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 //						Formula
 //					}
 				}
-    		}
+    }
+//    formControlFactory{
+//    	control {
+//    			
+//    			Formula:inputParameter -> { }
+//    			Formula:name -> { }
+//    		}
+//    	
+//    }
 
 	
 	

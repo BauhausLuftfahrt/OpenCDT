@@ -10,8 +10,6 @@ import formula.Quantity;
 
 import formula.util.FormulaValidator;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Collection;
-
 import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -26,7 +24,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
@@ -89,14 +86,14 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	protected String latexString = LATEX_STRING_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getInputParameter() <em>Input Parameter</em>}' reference list.
+	 * The cached value of the '{@link #getInputParameter() <em>Input Parameter</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getInputParameter()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Quantity> inputParameter;
+	protected Quantity inputParameter;
 
 	/**
 	 * The cached value of the '{@link #getOutputParameter() <em>Output Parameter</em>}' reference.
@@ -184,11 +181,37 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Quantity> getInputParameter() {
-		if (inputParameter == null) {
-			inputParameter = new EObjectResolvingEList<Quantity>(Quantity.class, this, FormulaPackage.FORMULA__INPUT_PARAMETER);
+	public Quantity getInputParameter() {
+		if (inputParameter != null && inputParameter.eIsProxy()) {
+			InternalEObject oldInputParameter = (InternalEObject)inputParameter;
+			inputParameter = (Quantity)eResolveProxy(oldInputParameter);
+			if (inputParameter != oldInputParameter) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FormulaPackage.FORMULA__INPUT_PARAMETER, oldInputParameter, inputParameter));
+			}
 		}
 		return inputParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Quantity basicGetInputParameter() {
+		return inputParameter;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setInputParameter(Quantity newInputParameter) {
+		Quantity oldInputParameter = inputParameter;
+		inputParameter = newInputParameter;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormulaPackage.FORMULA__INPUT_PARAMETER, oldInputParameter, inputParameter));
 	}
 
 	/**
@@ -397,7 +420,8 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 			case FormulaPackage.FORMULA__LATEX_STRING:
 				return getLatexString();
 			case FormulaPackage.FORMULA__INPUT_PARAMETER:
-				return getInputParameter();
+				if (resolve) return getInputParameter();
+				return basicGetInputParameter();
 			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
 				if (resolve) return getOutputParameter();
 				return basicGetOutputParameter();
@@ -425,8 +449,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				setLatexString((String)newValue);
 				return;
 			case FormulaPackage.FORMULA__INPUT_PARAMETER:
-				getInputParameter().clear();
-				getInputParameter().addAll((Collection<? extends Quantity>)newValue);
+				setInputParameter((Quantity)newValue);
 				return;
 			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
 				setOutputParameter((Quantity)newValue);
@@ -456,7 +479,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				setLatexString(LATEX_STRING_EDEFAULT);
 				return;
 			case FormulaPackage.FORMULA__INPUT_PARAMETER:
-				getInputParameter().clear();
+				setInputParameter((Quantity)null);
 				return;
 			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
 				setOutputParameter((Quantity)null);
@@ -484,7 +507,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 			case FormulaPackage.FORMULA__LATEX_STRING:
 				return LATEX_STRING_EDEFAULT == null ? latexString != null : !LATEX_STRING_EDEFAULT.equals(latexString);
 			case FormulaPackage.FORMULA__INPUT_PARAMETER:
-				return inputParameter != null && !inputParameter.isEmpty();
+				return inputParameter != null;
 			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
 				return outputParameter != null;
 			case FormulaPackage.FORMULA__REPOSITORY:
