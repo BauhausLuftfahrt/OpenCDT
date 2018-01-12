@@ -299,7 +299,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		ArrayList<String> input = ExtractQuantitiesFromFormula.filtering_inputParameter(latexFormula);
 		String new_input_string = String.join(",", input);
-		String old_input_string = input_featureObservable.getValue().toString();
+		//String old_input_string = input_featureObservable.getValue().toString();
 		
 		Formula currentFormula = (Formula)getOwner();
 		
@@ -356,7 +356,17 @@ public class CustomFormControlFactory extends FormControlFactory {
    	 		
    	 	}*/
 		
-		updateInputParameter(currentFormula, input);
+		if(input_featureObservable.getValue() != null){
+				updateInputParameter(currentFormula, input);
+		}
+		for (int t = 0; t < listOfHyperlink.size(); t++) {
+			
+	   	 	System.out.println("");
+	   	 		
+	   	 	listOfHyperlink.get(t).setEnabled(false);
+			listOfHyperlink.get(t).setText("");
+			
+	    }
 		
 		if(input.size() != 0){
 		
@@ -369,19 +379,20 @@ public class CustomFormControlFactory extends FormControlFactory {
 				
 		    }
 			
-		}else{
+		}
+		/*else{
 			
-			for (int q = 0; q < listOfHyperlink.size(); q++) {
+			for (int t = 0; t < listOfHyperlink.size(); t++) {
 				
 		   	 	System.out.println("");
 		   	 		
-		   	 	listOfHyperlink.get(q).setEnabled(false);
-				listOfHyperlink.get(q).setText("");
+		   	 	listOfHyperlink.get(t).setEnabled(false);
+				listOfHyperlink.get(t).setText("");
 				
 		    }
 			
 			
-		}
+		}*/
 		
 		
 		
@@ -432,6 +443,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 			
 		}
+		
 		String [] oldQuantities_stringArray = input_featureObservable.getValue().toString().split(",");
 		ArrayList<String> oldQuantities_arrayList = new ArrayList<>(Arrays.asList(oldQuantities_stringArray));
 		
@@ -453,7 +465,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		for(String old_quantity : oldQuantities_arrayList){
 			
-			if(!input.contains(old_quantity)){
+			if(!input.contains(old_quantity) && !isCommunalQuantity(old_quantity, formulas)){
 				
 				removeOldQuantity(quantities, old_quantity);
 				
@@ -461,6 +473,23 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 		}
 		
+	}
+	private Boolean isCommunalQuantity(String old_quantity, EList<Formula> formulas){
+		
+		Boolean common=false;
+		for(int i=0; i<formulas.size(); i++){
+			
+			String [] inputParameter_stringArray = formulas.get(i).getInputParameter().split(","); 
+			ArrayList<String> inputParameter_arrayList = new ArrayList<>(Arrays.asList(inputParameter_stringArray));
+			
+			if(inputParameter_arrayList.contains(old_quantity)){
+				
+				common = true;
+			}
+		}
+		
+		
+		return common;
 	}
 	private void removeOldQuantity(EList<Quantity> quantities, String old_quantity){
 		
@@ -511,7 +540,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    inputParameter_composite.setLayout(rowLayout);
 	    input_featureObservable = featureObservable;
 	    
-	    if(input_featureObservable.getValue() == null){	
+ 	    if(input_featureObservable.getValue() == null || input_featureObservable.getValue().equals("")){	
 	    	
 	    	  for (int p = 0; p < 10; p++) {
 				   
