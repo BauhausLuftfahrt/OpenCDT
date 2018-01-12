@@ -14,7 +14,9 @@
             <children xsi:type="basic:PartStack" xmi:id="_glJ0cF14EeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.perspective.cdtmodelling.partstack.main" containerData="75">
               <tags>editorCategory</tags>
             </children>
-            <children xsi:type="basic:Part" xmi:id="_OuTf0KNiEeeYzqqOa13GMA" elementId="net.bhl.cdt.ui.e4.part.modelelementeditor" containerData="25" contributionURI="bundleclass://net.bhl.cdt.ui/net.bhl.cdt.ui.e4.parts.modeleditor.ModelElementEditorPart" label="Element Parameters"/>
+            <children xsi:type="basic:PartStack" xmi:id="_Ztga4Pa9Eee7T61yjkCqPw" elementId="net.bhl.cdt.ui.partstack.0" containerData="25">
+              <children xsi:type="basic:Part" xmi:id="_OuTf0KNiEeeYzqqOa13GMA" elementId="net.bhl.cdt.ui.e4.part.modelelementeditor" containerData="" contributionURI="bundleclass://net.bhl.cdt.ui/net.bhl.cdt.ui.e4.parts.modeleditor.ModelElementEditorPart" label="Element Parameters"/>
+            </children>
           </children>
           <children xsi:type="basic:PartStack" xmi:id="_g5wLcF14EeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.perspective.cdtmodelling.partstack.bottom" containerData="25" selectedElement="_6--n4F14EeeE8ZZG_XaDLg">
             <children xsi:type="advanced:Placeholder" xmi:id="_6--n4F14EeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.perspective.cdtmodelling.placeholder.log" ref="_N3xS0F15EeeE8ZZG_XaDLg"/>
