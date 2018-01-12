@@ -358,23 +358,30 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		updateInputParameter(currentFormula, input);
 		
+		if(input.size() != 0){
 		
-		for (int q = 0; q < input.size(); q++) {
+			for (int q = 0; q < input.size(); q++) {
+				
+		   	 	System.out.println("quantitiesArray of Input:"+ input.get(q).toString());
+		   	 		
+		   	 	listOfHyperlink.get(q).setEnabled(true);
+				listOfHyperlink.get(q).setText(input.get(q).toString());
+				
+		    }
 			
-	   	 	System.out.println("quantitiesArray of Input:"+ input.get(q).toString());
-	   	 		
-	   	 	listOfHyperlink.get(q).setEnabled(true);
-			listOfHyperlink.get(q).setText(input.get(q).toString());
+		}else{
 			
-		   	/*Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
-		   	quantity.setName(input.get(q).toString());
-		   	quantity.setDescription("input");
-			currentFormula.getRepository().getQuantities().add(quantity);
-			listOfQunatity.add(quantity);*/
-	   	 	
-	
+			for (int q = 0; q < listOfHyperlink.size(); q++) {
+				
+		   	 	System.out.println("");
+		   	 		
+		   	 	listOfHyperlink.get(q).setEnabled(false);
+				listOfHyperlink.get(q).setText("");
+				
+		    }
 			
-	    }
+			
+		}
 		
 		
 		
@@ -469,9 +476,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		}
 		
 		if(pivot != -1){
-			
-			
-			//quantities.remove(pivot);
+
 			final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
 			ArrayList<Object> toBeDeleted = new ArrayList<Object>();
 			Quantity q = quantities.get(pivot);
@@ -480,21 +485,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 			ECPHandlerHelper.deleteModelElement(
 					ecpProjectManager.getProject(eObject),
 					toBeDeleted);
-			/*final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
-			Quantity q = quantities.get(pivot);
-			Collection<Object> collection = new Collection<Object>();
-			EObject eObject = q;
-			collection.add(q);
-			ECPHandlerHelper.deleteModelElement(
-					ecpProjectManager.getProject(eObject),
-					collection);*/
-			
+
 		}
-			//quantities.remove(pivot);
-			/*ECPHandlerHelper.deleteModelElement(
-					ecpProjectManager.getProject(eObject),
-					toBeDeleted);*/
-		
+			
 	
 	}
 	private void showInputPart(){
