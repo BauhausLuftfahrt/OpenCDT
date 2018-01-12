@@ -668,9 +668,29 @@ public class CustomFormControlFactory extends FormControlFactory {
 		if(output_featureObservable.getValue() == null){
 			
 			Formula currentFormula = (Formula)getOwner();
-			currentFormula.getRepository().getQuantities().add(quantity);
-			output_featureObservable.setValue(quantity);
 			
+			EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
+			ArrayList<String> outQuantities_arrayList = new ArrayList<String>();
+			
+			for(Quantity q : quantities){
+				
+				if(q.getDescription().equals("output")){
+					
+					outQuantities_arrayList.add(q.getName());
+				}
+				
+				
+			}
+			
+			if(!outQuantities_arrayList.contains(out)){
+				
+				currentFormula.getRepository().getQuantities().add(quantity);
+				output_featureObservable.setValue(quantity);
+				
+			}else{
+				
+			}
+				
 		}else{
 			
 			Quantity q = (Quantity) output_featureObservable.getValue();
