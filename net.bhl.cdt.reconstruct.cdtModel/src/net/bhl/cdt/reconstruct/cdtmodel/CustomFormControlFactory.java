@@ -39,6 +39,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecp.application.e4.editor.E4ModelElementOpener;
 import org.eclipse.emf.ecp.core.ECPProject;
+import org.eclipse.emf.ecp.core.ECPProjectManager;
 import org.eclipse.emf.ecp.core.ECPRepository;
 import org.eclipse.emf.ecp.core.util.ECPUtil;
 import org.eclipse.emf.ecp.internal.ui.model.TreeContentProvider;
@@ -297,8 +298,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private void createInputQuantity(String latexFormula){
 		
 		ArrayList<String> input = ExtractQuantitiesFromFormula.filtering_inputParameter(latexFormula);
-		String input_string = String.join(",", input);
-
+		String new_input_string = String.join(",", input);
+		String old_input_string = input_featureObservable.getValue().toString();
+		
 		Formula currentFormula = (Formula)getOwner();
 		
 		FormToolkit _toolkit = this.getToolkit();
@@ -331,15 +333,15 @@ public class CustomFormControlFactory extends FormControlFactory {
 		}
 		
 		
-		for (int m = 0; m < input.size(); m++) {
+		/*for (int m = 0; m < input.size(); m++) {
 			
 			listOfHyperlink.get(m).setEnabled(true);
 			listOfHyperlink.get(m).setText(input.get(m).toString());
 			
 			
-		}
+		}*/
 		
-		ArrayList<String> generated_inputs = new ArrayList<String>();
+		/*ArrayList<String> generated_inputs = new ArrayList<String>();
 		int quantities_size = currentFormula.getRepository().getQuantities().size();
 		Quantity output;
 		for(int p = 0; p < quantities_size; p++){
@@ -352,18 +354,23 @@ public class CustomFormControlFactory extends FormControlFactory {
 				
 			}
    	 		
-   	 	}
+   	 	}*/
+		
+		updateInputParameter(currentFormula, input);
 		
 		
 		for (int q = 0; q < input.size(); q++) {
 			
 	   	 	System.out.println("quantitiesArray of Input:"+ input.get(q).toString());
-
-		   	 	Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
-		   	 	quantity.setName(input.get(q).toString());
-		   	 	quantity.setDescription("input");
-				currentFormula.getRepository().getQuantities().add(quantity);
-				listOfQunatity.add(quantity);
+	   	 		
+	   	 	listOfHyperlink.get(q).setEnabled(true);
+			listOfHyperlink.get(q).setText(input.get(q).toString());
+			
+		   	/*Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+		   	quantity.setName(input.get(q).toString());
+		   	quantity.setDescription("input");
+			currentFormula.getRepository().getQuantities().add(quantity);
+			listOfQunatity.add(quantity);*/
 	   	 	
 	
 			
@@ -399,9 +406,96 @@ public class CustomFormControlFactory extends FormControlFactory {
 		int x = inputParameter_composite.getShell().getSize().x;
 		int y = inputParameter_composite.getShell().getSize().y;
 		inputParameter_composite.getShell().setSize(x+1 , y);
-		input_featureObservable.setValue(input_string);
+		input_featureObservable.setValue(new_input_string);
 		
 		
+	}
+	private void updateInputParameter(Formula currentFormula, ArrayList<String> input){
+		
+		EList<Formula> formulas = currentFormula.getRepository().getFormulas();
+		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
+		ArrayList<String> inputQuantities_arrayList = new ArrayList<String>();
+		
+		for(Quantity q : quantities){
+			
+			if(q.getDescription().equals("input")){
+				
+				inputQuantities_arrayList.add(q.getName());
+			}
+			
+			
+		}
+		String [] oldQuantities_stringArray = input_featureObservable.getValue().toString().split(",");
+		ArrayList<String> oldQuantities_arrayList = new ArrayList<>(Arrays.asList(oldQuantities_stringArray));
+		
+		for(String input_quantity : input){
+			
+			if(!inputQuantities_arrayList.contains(input_quantity)){
+				
+				Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+			   	quantity.setName(input_quantity);
+			   	quantity.setDescription("input");
+				currentFormula.getRepository().getQuantities().add(quantity);
+				listOfQunatity.add(quantity);
+				
+			}
+			
+			
+		}
+		
+		
+		for(String old_quantity : oldQuantities_arrayList){
+			
+			if(!input.contains(old_quantity)){
+				
+				removeOldQuantity(quantities, old_quantity);
+				
+			}
+			
+		}
+		
+	}
+	private void removeOldQuantity(EList<Quantity> quantities, String old_quantity){
+		
+		int pivot = -1;
+		for(int i=0; i<quantities.size(); i++){
+			
+			if(quantities.get(i).getName().equals(old_quantity)){
+				
+				pivot = i;
+				
+			}
+			
+		}
+		
+		if(pivot != -1){
+			
+			
+			//quantities.remove(pivot);
+			final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
+			ArrayList<Object> toBeDeleted = new ArrayList<Object>();
+			Quantity q = quantities.get(pivot);
+			EObject eObject = q;
+			toBeDeleted.add(q);
+			ECPHandlerHelper.deleteModelElement(
+					ecpProjectManager.getProject(eObject),
+					toBeDeleted);
+			/*final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
+			Quantity q = quantities.get(pivot);
+			Collection<Object> collection = new Collection<Object>();
+			EObject eObject = q;
+			collection.add(q);
+			ECPHandlerHelper.deleteModelElement(
+					ecpProjectManager.getProject(eObject),
+					collection);*/
+			
+		}
+			//quantities.remove(pivot);
+			/*ECPHandlerHelper.deleteModelElement(
+					ecpProjectManager.getProject(eObject),
+					toBeDeleted);*/
+		
+	
 	}
 	private void showInputPart(){
 		
@@ -418,16 +512,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    rowLayout.wrap = true;
 	    rowLayout.justify = false;
 	    
-	    inputParameter_composite.setLayout(rowLayout);
-
-	    input_featureObservable = featureObservable;
-	    
-	    
-	    
 	    RowData rowData = new RowData();
 	    rowData.width = 50;
-	    	    
-	   if(input_featureObservable.getValue() == null){	
+	    
+	    inputParameter_composite.setLayout(rowLayout);
+	    input_featureObservable = featureObservable;
+	    
+	    if(input_featureObservable.getValue() == null){	
 	    	
 	    	  for (int p = 0; p < 10; p++) {
 				   
