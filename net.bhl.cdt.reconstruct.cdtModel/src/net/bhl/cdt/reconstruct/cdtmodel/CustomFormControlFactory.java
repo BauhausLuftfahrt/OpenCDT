@@ -316,7 +316,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	    	
 		 			public void linkActivated(HyperlinkEvent e) {
 		 		
-		 				showInputPart();
+		 				showInputPart(rest_hyperlink_input, currentFormula);
 		 			}
 		 	});
 			listOfHyperlink.add(rest_hyperlink_input);
@@ -447,9 +447,54 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 	
 	}
-	private void showInputPart(){
+	private void showInputPart(Hyperlink hyperlink, Formula currentFormula){
 		
 		System.out.println("show part for input");
+		
+		Boolean partVisible = false;
+		EPartService partService = EPartServiceHelper.getEPartService();
+		Collection<MPart> parts = partService.getParts();
+		
+		
+		for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
+		{
+			MPart partSearch = i.next();
+			if (partSearch.isVisible()) {
+				if(partSearch.getElementId().equals(hyperlink.getText())){
+					partVisible = true;
+                	partService.activate(partSearch);
+                	break;
+					 
+                 }
+    
+             }
+        }
+		
+		
+		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
+		
+		if(!partVisible){
+			
+			part = MBasicFactory.INSTANCE.createPart();
+			part.setLabel("Output  " + hyperlink.getText());
+		    part.setElementId(hyperlink.getText());
+			//part.setObject(featureObservable.getValue());
+		    
+		    for(Quantity q : quantities){
+				
+				if(q.getName().equals(hyperlink.getText())){
+					part.setObject(q);
+					
+				}	
+			}
+		    
+			part.setCloseable(true);
+			part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+			
+			partService.showPart(part, PartState.CREATE);
+			partService.bringToTop(part);
+			
+		}
 		
 	}
 	public Control control_Formula_inputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
@@ -457,6 +502,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
 	    inputParameter_composite = _toolkit.createComposite(_parent, SWT.NONE);
+	    Formula currentFormula = (Formula)getOwner();
 	    
 	    RowLayout rowLayout = new RowLayout();
 	    rowLayout.wrap = true;
@@ -497,7 +543,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	    	
 	    	 			public void linkActivated(HyperlinkEvent e) {
 	    	 		
-	    	 				showInputPart();
+	    	 				showInputPart(hyperlink_input, currentFormula);
 	    	 			}
 	    	 	});
 	    	    listOfHyperlink.add(hyperlink_input);
