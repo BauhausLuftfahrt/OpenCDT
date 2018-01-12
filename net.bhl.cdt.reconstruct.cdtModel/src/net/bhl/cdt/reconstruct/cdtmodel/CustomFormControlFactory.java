@@ -326,9 +326,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 		}
 		
 		
-		if(input_featureObservable.getValue() != null){
-				updateInputParameter(currentFormula, input);
-		}
+		//if(input_featureObservable.getValue() != null){
+		updateInputParameter(currentFormula, input);
+		
 		for (int t = 0; t < listOfHyperlink.size(); t++) {
 				
 	   	 	listOfHyperlink.get(t).setEnabled(false);
@@ -372,9 +372,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 		}
 		
-		String [] oldQuantities_stringArray = input_featureObservable.getValue().toString().split(",");
-		ArrayList<String> oldQuantities_arrayList = new ArrayList<>(Arrays.asList(oldQuantities_stringArray));
-		
 		for(String input_quantity : input){
 			
 			if(!inputQuantities_arrayList.contains(input_quantity)){
@@ -390,15 +387,19 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 		}
 		
+		if(input_featureObservable.getValue() != null){
+		String [] oldQuantities_stringArray = input_featureObservable.getValue().toString().split(",");
+		ArrayList<String> oldQuantities_arrayList = new ArrayList<>(Arrays.asList(oldQuantities_stringArray));
 		
-		for(String old_quantity : oldQuantities_arrayList){
-			
-			if(!input.contains(old_quantity) && !isCommunalQuantity(old_quantity, formulas)){
+			for(String old_quantity : oldQuantities_arrayList){
 				
-				removeOldQuantity(quantities, old_quantity);
+				if(!input.contains(old_quantity) && !isCommunalQuantity(old_quantity, formulas)){
+					
+					removeOldQuantity(quantities, old_quantity);
+					
+				}
 				
 			}
-			
 		}
 		
 	}
@@ -507,6 +508,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    RowLayout rowLayout = new RowLayout();
 	    rowLayout.wrap = true;
 	    rowLayout.justify = false;
+	    rowLayout.marginLeft = 5;
 	    
 	    RowData rowData = new RowData();
 	    rowData.width = 50;
