@@ -28,8 +28,8 @@
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated cdt -->
       <factory
-            uri="http://www.bauhaus-luftfahrt.net/cdt/data"
-            class="model.data.provider.DataItemProviderAdapterFactory"
+            uri="http://www.bauhaus-luftfahrt.net/cdt/science"
+            class="model.science.provider.ScienceItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -48,7 +48,7 @@
       <!-- @generated cdt -->
       <factory
             uri="http://www.bauhaus-luftfahrt.net/cdt/data/quantities"
-            class="model.data.quantities.provider.QuantitiesItemProviderAdapterFactory"
+            class="model.science.quantities.provider.QuantitiesItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -67,7 +67,7 @@
       <!-- @generated cdt -->
       <factory
             uri="http://www.bauhaus-luftfahrt.net/cdt/data/parameter"
-            class="model.data.parameter.provider.ParameterItemProviderAdapterFactory"
+            class="model.science.parameter.provider.ParameterItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider
@@ -86,7 +86,26 @@
       <!-- @generated cdt -->
       <factory
             uri="http://www.bauhaus-luftfahrt.net/cdt/data/unit"
-            class="model.data.unit.provider.UnitItemProviderAdapterFactory"
+            class="model.science.unit.provider.UnitItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource
+               org.eclipse.emf.edit.provider.ITableItemLabelProvider
+               org.eclipse.emf.edit.provider.ITableItemColorProvider
+               org.eclipse.emf.edit.provider.ITableItemFontProvider
+               org.eclipse.emf.edit.provider.IItemColorProvider
+               org.eclipse.emf.edit.provider.IItemFontProvider
+               org.eclipse.emf.edit.provider.IItemStyledLabelProvider"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated cdt -->
+      <factory
+            uri="http://www.bauhaus-luftfahrt.net/cdt/engineering"
+            class="model.engineering.provider.EngineeringItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

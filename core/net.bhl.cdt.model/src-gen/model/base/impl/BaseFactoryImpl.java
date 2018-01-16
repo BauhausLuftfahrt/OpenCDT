@@ -2,10 +2,7 @@
  */
 package model.base.impl;
 
-import model.base.BaseFactory;
-import model.base.BasePackage;
-import model.base.Component;
-import model.base.ModelContainer;
+import model.base.*;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -60,8 +57,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory {
         public EObject create(EClass eClass) {
                 switch (eClass.getClassifierID()) {
                         case BasePackage.MODEL_CONTAINER: return createModelContainer();
-                        case BasePackage.SYSTEM: return createSystem();
-                        case BasePackage.COMPONENT: return createComponent();
                         default:
                                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
                 }
@@ -75,26 +70,6 @@ public class BaseFactoryImpl extends EFactoryImpl implements BaseFactory {
         public ModelContainer createModelContainer() {
                 ModelContainerImpl modelContainer = new ModelContainerImpl();
                 return modelContainer;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public model.base.System createSystem() {
-                SystemImpl system = new SystemImpl();
-                return system;
-        }
-
-        /**
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        public Component createComponent() {
-                ComponentImpl component = new ComponentImpl();
-                return component;
         }
 
         /**

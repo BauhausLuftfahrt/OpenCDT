@@ -1,9 +1,9 @@
 import java.util.List
-import model.base.Component
-import model.data.IParameter
 import org.eclipse.emf.parsley.edit.IEditingStrategy
 import org.eclipse.emf.parsley.edit.UndoableEditingStrategy
 import net.bhl.cdt.ui.views.modeleditor.ModelElementEditorView
+import model.engineering.Component
+import model.science.IParameter
 
 /* net.bhl.cdt.ui.e4 EMF Parsley Dsl Module file */
 module net.bhl.cdt.ui.view.modeleditor {

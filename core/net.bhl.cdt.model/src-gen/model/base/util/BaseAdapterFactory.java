@@ -2,14 +2,7 @@
  */
 package model.base.util;
 
-import model.base.AIdentifiableItem;
-import model.base.AModelContainerItem;
-import model.base.ANamedItem;
-import model.base.BasePackage;
-import model.base.Component;
-import model.base.ModelContainer;
-
-import model.data.IDataEntity;
+import model.base.*;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -91,18 +84,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl {
                                 return createAModelContainerItemAdapter();
                         }
                         @Override
-                        public Adapter caseSystem(model.base.System object) {
-                                return createSystemAdapter();
-                        }
-                        @Override
-                        public Adapter caseComponent(Component object) {
-                                return createComponentAdapter();
-                        }
-                        @Override
-                        public Adapter caseIDataEntity(IDataEntity object) {
-                                return createIDataEntityAdapter();
-                        }
-                        @Override
                         public Adapter defaultCase(EObject object) {
                                 return createEObjectAdapter();
                         }
@@ -175,48 +156,6 @@ public class BaseAdapterFactory extends AdapterFactoryImpl {
          * @generated
          */
         public Adapter createAModelContainerItemAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link model.base.System <em>System</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see model.base.System
-         * @generated
-         */
-        public Adapter createSystemAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link model.base.Component <em>Component</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see model.base.Component
-         * @generated
-         */
-        public Adapter createComponentAdapter() {
-                return null;
-        }
-
-        /**
-         * Creates a new adapter for an object of class '{@link model.data.IDataEntity <em>IData Entity</em>}'.
-         * <!-- begin-user-doc -->
-         * This default implementation returns null so that we can easily ignore cases;
-         * it's useful to ignore a case when inheritance will catch all the cases anyway.
-         * <!-- end-user-doc -->
-         * @return the new adapter.
-         * @see model.data.IDataEntity
-         * @generated
-         */
-        public Adapter createIDataEntityAdapter() {
                 return null;
         }
 

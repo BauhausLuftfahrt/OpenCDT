@@ -21,6 +21,10 @@ public final class E4ResourceIds {
     public static final String COMMAND_OPEN_MODEL_PARAM_FILEPATH_ID = 		"net.bhl.cdt.ui.command.openmodel.parameter.modelfilepath";
     public static final String HANDLER_OPEN_MODEL_ID = 				"net.bhl.cdt.ui.handler.openmodel";
     
+    public static final String COMMAND_SHOW_SYSTEM_DETAILS_ID =			"net.bhl.cdt.ui.command.showsystemdetails";
+    public static final String COMMAND_SHOW_SYSTEM_DETAILS_PARAM_SYSTEM_ID =	"net.bhl.cdt.ui.command.showsystemdetails.parameter.system";
+    public static final String HANDLER_SHOW_SYSTEM_DETAILS_ID = 		"net.bhl.cdt.ui.handler.showsystemdetails";
+    
     public static final String COMMAND_SHOW_MODELELEMENT_ID = 			"net.bhl.cdt.ui.command.showmodelelement";
     public static final String COMMAND_SHOW_MODELELEMENT_PARAM_ELEMENT_ID = 	"net.bhl.cdt.ui.command.showmodelelement.parameter.modelelement";
     public static final String HANDLER_SHOW_MODELELEMENT_ID = 			"net.bhl.cdt.ui.handler.showmodelelement";

@@ -10,7 +10,7 @@ import org.eclipse.jface.viewers.EditingSupport;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
 
-import model.data.IParameter;
+import model.science.IQuantifiedParameter;
 
 /**
  * 
@@ -41,12 +41,12 @@ public class NameEditingSupport extends EditingSupport {
 
     @Override
     protected Object getValue(Object element) {
-        return ((IParameter)element).getName();
+        return ((IQuantifiedParameter)element).getName();
     }
 
     @Override
     protected void setValue(Object element, Object userInputValue) {
-        ((IParameter)element).setName(String.valueOf(userInputValue));
+        ((IQuantifiedParameter)element).setName(String.valueOf(userInputValue));
         viewer.update(element, null);
     }
 }

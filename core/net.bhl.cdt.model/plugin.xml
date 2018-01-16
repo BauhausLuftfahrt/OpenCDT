@@ -16,8 +16,8 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated cdt -->
       <package
-            uri="http://www.bauhaus-luftfahrt.net/cdt/data"
-            class="model.data.DataPackage"
+            uri="http://www.bauhaus-luftfahrt.net/cdt/science"
+            class="model.science.SciencePackage"
             genModel="model/cdt.genmodel"/>
    </extension>
 
@@ -25,7 +25,7 @@
       <!-- @generated cdt -->
       <package
             uri="http://www.bauhaus-luftfahrt.net/cdt/data/quantities"
-            class="model.data.quantities.QuantitiesPackage"
+            class="model.science.quantities.QuantitiesPackage"
             genModel="model/cdt.genmodel"/>
    </extension>
 
@@ -33,7 +33,7 @@
       <!-- @generated cdt -->
       <package
             uri="http://www.bauhaus-luftfahrt.net/cdt/data/parameter"
-            class="model.data.parameter.ParameterPackage"
+            class="model.science.parameter.ParameterPackage"
             genModel="model/cdt.genmodel"/>
    </extension>
 
@@ -41,7 +41,15 @@
       <!-- @generated cdt -->
       <package
             uri="http://www.bauhaus-luftfahrt.net/cdt/data/unit"
-            class="model.data.unit.UnitPackage"
+            class="model.science.unit.UnitPackage"
+            genModel="model/cdt.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated cdt -->
+      <package
+            uri="http://www.bauhaus-luftfahrt.net/cdt/engineering"
+            class="model.engineering.EngineeringPackage"
             genModel="model/cdt.genmodel"/>
    </extension>
 

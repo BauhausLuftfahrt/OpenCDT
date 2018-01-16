@@ -1,8 +1,8 @@
 package net.bhl.cdt.ui.view.modelstructuretreeview.ui.provider;
 
 import com.google.inject.Inject;
-import model.base.Component;
 import model.base.ModelContainer;
+import model.engineering.Component;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.parsley.ui.provider.ViewerLabelProvider;
 
@@ -18,7 +18,7 @@ public class ModelstructuretreeviewLabelProvider extends ViewerLabelProvider {
     return _name;
   }
   
-  public String text(final model.base.System it) {
+  public String text(final model.engineering.System it) {
     String _name = it.getName();
     return _name;
   }

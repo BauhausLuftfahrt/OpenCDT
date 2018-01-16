@@ -6,9 +6,10 @@ package model.base.provider;
 import java.util.Collection;
 import java.util.List;
 
-import model.base.BaseFactory;
 import model.base.BasePackage;
 import model.base.ModelContainer;
+
+import model.engineering.EngineeringFactory;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -205,7 +206,7 @@ public class ModelContainerItemProvider extends ANamedItemItemProvider {
                 newChildDescriptors.add
                         (createChildParameter
                                 (BasePackage.Literals.MODEL_CONTAINER__CONTAINED_ITEMS,
-                                 BaseFactory.eINSTANCE.createSystem()));
+                                 EngineeringFactory.eINSTANCE.createSystem()));
         }
 
 }

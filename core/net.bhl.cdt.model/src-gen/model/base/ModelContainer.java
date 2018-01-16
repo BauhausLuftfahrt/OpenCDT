@@ -2,7 +2,8 @@
  */
 package model.base;
 
-import model.data.QuantitySet;
+import model.science.QuantitySet;
+
 import org.eclipse.emf.common.util.EList;
 
 /**

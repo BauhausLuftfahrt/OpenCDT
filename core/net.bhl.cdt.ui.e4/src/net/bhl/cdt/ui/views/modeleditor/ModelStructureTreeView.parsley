@@ -1,7 +1,7 @@
-import model.base.Component
 import model.base.ModelContainer
-import model.base.System
-import model.data.parameter.ParameterFactory
+import model.engineering.Component
+import model.engineering.System
+import model.science.parameter.ParameterFactory
 import net.bhl.cdt.ui.views.modeleditor.ModelStructureTreeView
 
 module net.bhl.cdt.ui.view.modelstructuretreeview {

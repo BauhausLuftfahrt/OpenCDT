@@ -2,8 +2,8 @@ package net.bhl.cdt.ui.view.modelstructuretreeview.edit.ui.provider;
 
 import com.google.inject.Inject;
 import model.base.AModelContainerItem;
-import model.base.Component;
 import model.base.ModelContainer;
+import model.engineering.Component;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.parsley.edit.ui.provider.ViewerContentProvider;
@@ -20,7 +20,7 @@ public class ModelstructuretreeviewViewerContentProvider extends ViewerContentPr
     return _containedItems;
   }
   
-  public Object elements(final model.base.System it) {
+  public Object elements(final model.engineering.System it) {
     EList<Component> _components = it.getComponents();
     return _components;
   }
@@ -30,7 +30,7 @@ public class ModelstructuretreeviewViewerContentProvider extends ViewerContentPr
     return _subComponents;
   }
   
-  public Object children(final model.base.System it) {
+  public Object children(final model.engineering.System it) {
     EList<Component> _components = it.getComponents();
     return _components;
   }

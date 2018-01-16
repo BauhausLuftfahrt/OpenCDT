@@ -14,8 +14,8 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 
-import model.data.IParameter;
-import model.data.parameter.DistanceParameter;
+import model.science.IQuantifiedParameter;
+import model.science.parameter.DistanceParameter;
 import net.bhl.cdt.util.constants.StringConstants;
 
 /**
@@ -49,7 +49,7 @@ public class CDTParameterTableViewer extends TableViewer {
 	colName.setLabelProvider(new ColumnLabelProvider() {
 	    @Override
 	    public String getText(Object element) {
-		IParameter p = (IParameter)element;
+		IQuantifiedParameter p = (IQuantifiedParameter)element;
 		return p.getName();
 	    }
 	});
@@ -61,7 +61,7 @@ public class CDTParameterTableViewer extends TableViewer {
 	colValue.setLabelProvider(new ColumnLabelProvider() {
 	    @Override
 	    public String getText(Object element) {
-		if (element instanceof DistanceParameter) {
+		if (element instanceof model.science.parameter.DistanceParameter) {
 		    return String.valueOf(((DistanceParameter)element).getValue());
 		}
 		return element.toString();

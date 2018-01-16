@@ -2,14 +2,7 @@
  */
 package model.base.util;
 
-import model.base.AIdentifiableItem;
-import model.base.AModelContainerItem;
-import model.base.ANamedItem;
-import model.base.BasePackage;
-import model.base.Component;
-import model.base.ModelContainer;
-
-import model.data.IDataEntity;
+import model.base.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -101,25 +94,6 @@ public class BaseSwitch<T> extends Switch<T> {
                                 if (result == null) result = defaultCase(theEObject);
                                 return result;
                         }
-                        case BasePackage.SYSTEM: {
-                                model.base.System system = (model.base.System)theEObject;
-                                T result = caseSystem(system);
-                                if (result == null) result = caseAModelContainerItem(system);
-                                if (result == null) result = caseIDataEntity(system);
-                                if (result == null) result = caseAIdentifiableItem(system);
-                                if (result == null) result = caseANamedItem(system);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
-                        case BasePackage.COMPONENT: {
-                                Component component = (Component)theEObject;
-                                T result = caseComponent(component);
-                                if (result == null) result = caseIDataEntity(component);
-                                if (result == null) result = caseAIdentifiableItem(component);
-                                if (result == null) result = caseANamedItem(component);
-                                if (result == null) result = defaultCase(theEObject);
-                                return result;
-                        }
                         default: return defaultCase(theEObject);
                 }
         }
@@ -181,51 +155,6 @@ public class BaseSwitch<T> extends Switch<T> {
          * @generated
          */
         public T caseAModelContainerItem(AModelContainerItem object) {
-                return null;
-        }
-
-        /**
-         * Returns the result of interpreting the object as an instance of '<em>System</em>'.
-         * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>System</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
-        public T caseSystem(model.base.System object) {
-                return null;
-        }
-
-        /**
-         * Returns the result of interpreting the object as an instance of '<em>Component</em>'.
-         * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>Component</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
-        public T caseComponent(Component object) {
-                return null;
-        }
-
-        /**
-         * Returns the result of interpreting the object as an instance of '<em>IData Entity</em>'.
-         * <!-- begin-user-doc -->
-         * This implementation returns null;
-         * returning a non-null result will terminate the switch.
-         * <!-- end-user-doc -->
-         * @param object the target of the switch.
-         * @return the result of interpreting the object as an instance of '<em>IData Entity</em>'.
-         * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-         * @generated
-         */
-        public T caseIDataEntity(IDataEntity object) {
                 return null;
         }
 

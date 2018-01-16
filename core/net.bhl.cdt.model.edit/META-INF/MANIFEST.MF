@@ -9,10 +9,11 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: model.base.provider,
- model.data.parameter.provider,
- model.data.provider,
- model.data.quantities.provider,
- model.data.unit.provider
+ model.engineering.provider,
+ model.science.parameter.provider,
+ model.science.provider,
+ model.science.quantities.provider,
+ model.science.unit.provider
 Require-Bundle: org.eclipse.core.runtime,
  net.bhl.cdt.model;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport

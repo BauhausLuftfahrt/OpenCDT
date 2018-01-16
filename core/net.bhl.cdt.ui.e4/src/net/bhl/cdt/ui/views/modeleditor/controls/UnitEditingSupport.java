@@ -7,9 +7,9 @@ import org.eclipse.jface.viewers.ComboBoxViewerCellEditor;
 import org.eclipse.jface.viewers.EditingSupport;
 import org.eclipse.jface.viewers.TableViewer;
 
-import model.data.IQuantifiedParameter;
-import model.data.Unit;
-import model.data.parameter.DistanceParameter;
+import model.science.IQuantifiedParameter;
+import model.science.Unit;
+import model.science.parameter.DateParameter;
 import net.bhl.cdt.model.provider.MetaModelInstancesProvider;
 
 /**
@@ -31,7 +31,7 @@ public class UnitEditingSupport extends EditingSupport {
 
     @Override
     protected CellEditor getCellEditor(Object element) {
-	if (element instanceof DistanceParameter)
+	if (element instanceof DateParameter)
 	    editor.setInput(MetaModelInstancesProvider.getInstance().getDistanceQuantity().getUnits());
 	return editor;
     }

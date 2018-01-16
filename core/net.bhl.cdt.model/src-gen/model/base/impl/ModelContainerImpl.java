@@ -9,7 +9,8 @@ import model.base.AModelContainerItem;
 import model.base.BasePackage;
 import model.base.ModelContainer;
 
-import model.data.QuantitySet;
+import model.science.QuantitySet;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 

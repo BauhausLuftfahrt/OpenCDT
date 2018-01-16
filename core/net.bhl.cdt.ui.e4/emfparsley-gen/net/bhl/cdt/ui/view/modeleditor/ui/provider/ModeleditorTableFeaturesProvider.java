@@ -9,7 +9,7 @@ public class ModeleditorTableFeaturesProvider extends TableFeaturesProvider {
   public void buildStringMap(final EClassToEStructuralFeatureAsStringsMap stringMap) {
     super.buildStringMap(stringMap);
     
-    stringMap.mapTo("model.data.IParameter",
+    stringMap.mapTo("model.science.IParameter",
       "name");
   }
 }

@@ -107,52 +107,6 @@ public class BaseItemProviderAdapterFactory extends BaseAdapterFactory implement
         }
 
         /**
-         * This keeps track of the one adapter used for all {@link model.base.System} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected SystemItemProvider systemItemProvider;
-
-        /**
-         * This creates an adapter for a {@link model.base.System}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createSystemAdapter() {
-                if (systemItemProvider == null) {
-                        systemItemProvider = new SystemItemProvider(this);
-                }
-
-                return systemItemProvider;
-        }
-
-        /**
-         * This keeps track of the one adapter used for all {@link model.base.Component} instances.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        protected ComponentItemProvider componentItemProvider;
-
-        /**
-         * This creates an adapter for a {@link model.base.Component}.
-         * <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         * @generated
-         */
-        @Override
-        public Adapter createComponentAdapter() {
-                if (componentItemProvider == null) {
-                        componentItemProvider = new ComponentItemProvider(this);
-                }
-
-                return componentItemProvider;
-        }
-
-        /**
          * This returns the root adapter factory that contains this factory.
          * <!-- begin-user-doc -->
          * <!-- end-user-doc -->
@@ -252,8 +206,6 @@ public class BaseItemProviderAdapterFactory extends BaseAdapterFactory implement
          */
         public void dispose() {
                 if (modelContainerItemProvider != null) modelContainerItemProvider.dispose();
-                if (systemItemProvider != null) systemItemProvider.dispose();
-                if (componentItemProvider != null) componentItemProvider.dispose();
         }
 
 }

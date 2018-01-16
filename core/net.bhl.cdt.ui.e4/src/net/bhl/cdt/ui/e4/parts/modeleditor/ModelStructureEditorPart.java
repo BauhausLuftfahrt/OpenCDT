@@ -5,7 +5,6 @@
  ******************************************************************************/
 package net.bhl.cdt.ui.e4.parts.modeleditor;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.HashMap;
@@ -37,11 +36,9 @@ import org.eclipse.swt.widgets.Composite;
 
 import com.google.inject.Injector;
 
-import model.data.IDataEntity;
 import net.bhl.cdt.log.service.CDTLogService;
 import net.bhl.cdt.ui.e4.E4ResourceIds;
 import net.bhl.cdt.ui.view.modelstructuretreeview.ModelstructuretreeviewInjectorProvider;
-import net.bhl.cdt.util.constants.FileConstants;
 
 /**
  * 
@@ -91,11 +88,11 @@ public class ModelStructureEditorPart {
 			selectionService.setSelection(event.getSelection());
 			
 			Object selectedElement = ((IStructuredSelection)event.getSelection()).getFirstElement();
-			if (selectedElement instanceof IDataEntity) {
+			if (selectedElement instanceof model.science.IDataEntity) {
 			    Map<String, Object> params = new HashMap<String, Object>();
-			    params.put(E4ResourceIds.COMMAND_, ((File)selectedElement).getPath());
+			    params.put(E4ResourceIds.COMMAND_SHOW_SYSTEM_DETAILS_PARAM_SYSTEM_ID, selectedElement);
 			    
-			    ParameterizedCommand cmd = commandService.createCommand(E4ResourceIds.COMMAND_, params);
+			    ParameterizedCommand cmd = commandService.createCommand(E4ResourceIds.COMMAND_SHOW_SYSTEM_DETAILS_ID, params);
 			    handlerService.executeHandler(cmd);
 			}
 		    }

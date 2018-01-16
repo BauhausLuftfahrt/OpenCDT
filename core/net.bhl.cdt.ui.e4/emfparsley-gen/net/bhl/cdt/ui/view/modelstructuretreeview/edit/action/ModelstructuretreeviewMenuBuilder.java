@@ -2,9 +2,9 @@ package net.bhl.cdt.ui.view.modelstructuretreeview.edit.action;
 
 import java.util.Collections;
 import java.util.List;
-import model.base.Component;
-import model.data.parameter.DistanceParameter;
-import model.data.parameter.ParameterFactory;
+import model.engineering.Component;
+import model.science.parameter.DistanceParameter;
+import model.science.parameter.ParameterFactory;
 import org.eclipse.emf.parsley.edit.action.EditingMenuBuilder;
 import org.eclipse.emf.parsley.edit.action.IMenuContributionSpecification;
 import org.eclipse.emf.parsley.runtime.util.IAcceptor;

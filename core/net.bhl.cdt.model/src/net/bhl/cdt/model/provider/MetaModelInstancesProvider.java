@@ -12,16 +12,16 @@ import org.eclipse.emf.ecore.EcoreFactory;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 
-import model.data.DataPackage;
-import model.data.Unit;
-import model.data.parameter.ParameterPackage;
-import model.data.quantities.Distance;
-import model.data.quantities.Force;
-import model.data.quantities.Mass;
-import model.data.quantities.QuantitiesFactory;
-import model.data.quantities.Time;
-import model.data.quantities.Velocity;
-import model.data.unit.UnitFactory;
+import model.science.SciencePackage;
+import model.science.Unit;
+import model.science.parameter.ParameterPackage;
+import model.science.quantities.Distance;
+import model.science.quantities.Force;
+import model.science.quantities.Mass;
+import model.science.quantities.QuantitiesFactory;
+import model.science.quantities.Time;
+import model.science.quantities.Velocity;
+import model.science.unit.UnitFactory;
 
 /**
  * 
@@ -91,7 +91,7 @@ public class MetaModelInstancesProvider {
 	EGenericType forceParameterSuperType = EcoreFactory.eINSTANCE.createEGenericType();
 	ETypeParameter forceParameterSuperTypeParameter = EcoreFactory.eINSTANCE.createETypeParameter();
 	
-	forceParameterSuperType.setEClassifier(DataPackage.eINSTANCE.getIQuantifiedParameter());
+	forceParameterSuperType.setEClassifier(SciencePackage.eINSTANCE.getIQuantifiedParameter());
 	
 	forceParameterSuperType.setETypeParameter(forceParameterSuperTypeParameter);
 	
