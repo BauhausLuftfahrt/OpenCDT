@@ -7,6 +7,7 @@ package net.bhl.cdt.ui.views.modeleditor.controls;
 
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.EditingSupport;
+import org.eclipse.jface.viewers.ICellEditorValidator;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TextCellEditor;
 
@@ -25,7 +26,21 @@ public class ValueEditingSupport extends EditingSupport {
     public ValueEditingSupport(TableViewer viewer) {
         super(viewer);
         this.viewer = viewer;
-        this.editor = new TextCellEditor(viewer.getTable());
+        
+        TextCellEditor cellEditor =  new TextCellEditor(viewer.getTable());
+        cellEditor.setValidator(new ICellEditorValidator() {
+	    @Override
+	    public String isValid(Object value) {
+		try {
+		    Double.parseDouble((String)value);
+		    return null;
+		} catch (NumberFormatException ex) {
+		    return ex.getMessage();
+		}
+	    }
+	});
+        
+        this.editor = cellEditor;
     }
 
     @Override
@@ -40,12 +55,12 @@ public class ValueEditingSupport extends EditingSupport {
 
     @Override
     protected Object getValue(Object element) {
-        return ((IQuantifiedParameter)element).getName();
+        return String.valueOf(((IQuantifiedParameter<?>)element).getValue());
     }
 
     @Override
     protected void setValue(Object element, Object userInputValue) {
-        ((IQuantifiedParameter)element).setName(String.valueOf(userInputValue));
+        ((IQuantifiedParameter<?>)element).setValue(Double.parseDouble((String)userInputValue));
         viewer.update(element, null);
     }
 }

@@ -15,7 +15,6 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 
 import model.science.IQuantifiedParameter;
-import model.science.parameter.DistanceParameter;
 import net.bhl.cdt.util.constants.StringConstants;
 
 /**
@@ -30,11 +29,11 @@ public class CDTParameterTableViewer extends TableViewer {
     private static final String COLHEADER_UNIT = "Unit";
 
     public CDTParameterTableViewer(Composite parent) {
-	super(parent, SWT.MULTI | SWT.H_SCROLL | SWT.V_SCROLL | SWT.HIDE_SELECTION | SWT.BORDER);
+	super(parent, SWT.FULL_SELECTION | SWT.H_SCROLL | SWT.V_SCROLL | SWT.HIDE_SELECTION | SWT.BORDER);
 	createColumns();
 
 	setContentProvider(ArrayContentProvider.getInstance());
-
+	
 	getControl().setLayoutData(new GridData(GridData.GRAB_HORIZONTAL | GridData.HORIZONTAL_ALIGN_FILL));
 
 	final Table table = getTable();
@@ -49,7 +48,7 @@ public class CDTParameterTableViewer extends TableViewer {
 	colName.setLabelProvider(new ColumnLabelProvider() {
 	    @Override
 	    public String getText(Object element) {
-		IQuantifiedParameter p = (IQuantifiedParameter)element;
+		IQuantifiedParameter<?> p = (IQuantifiedParameter<?>)element;
 		return p.getName();
 	    }
 	});
@@ -61,12 +60,13 @@ public class CDTParameterTableViewer extends TableViewer {
 	colValue.setLabelProvider(new ColumnLabelProvider() {
 	    @Override
 	    public String getText(Object element) {
-		if (element instanceof model.science.parameter.DistanceParameter) {
-		    return String.valueOf(((DistanceParameter)element).getValue());
+		if (element instanceof IQuantifiedParameter) {
+		    return String.valueOf(((IQuantifiedParameter<?>)element).getValue());
 		}
 		return element.toString();
 	    }
 	});
+	colValue.setEditingSupport(new ValueEditingSupport(this));
 
 	TableViewerColumn colUnit = new TableViewerColumn(this, SWT.NONE);
 	colUnit.getColumn().setWidth(200);
@@ -74,11 +74,11 @@ public class CDTParameterTableViewer extends TableViewer {
 	colUnit.setLabelProvider(new ColumnLabelProvider() {
 	    @Override
 	    public String getText(Object element) {
-		if (element instanceof DistanceParameter) {
-		    if (((DistanceParameter)element).getUnit() == null)
+		if (element instanceof IQuantifiedParameter) {
+		    if (((IQuantifiedParameter<?>)element).getUnit() == null)
 			return StringConstants.EMPTY;
 		    else
-			return ((DistanceParameter)element).getUnit().toString();
+			return ((IQuantifiedParameter<?>)element).getUnit().toString();
 		}
 		return element.toString();
 	    }

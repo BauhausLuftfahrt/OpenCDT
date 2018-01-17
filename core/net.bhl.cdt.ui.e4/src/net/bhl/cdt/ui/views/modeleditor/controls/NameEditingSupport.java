@@ -41,12 +41,12 @@ public class NameEditingSupport extends EditingSupport {
 
     @Override
     protected Object getValue(Object element) {
-        return ((IQuantifiedParameter)element).getName();
+        return ((IQuantifiedParameter<?>)element).getName();
     }
 
     @Override
     protected void setValue(Object element, Object userInputValue) {
-        ((IQuantifiedParameter)element).setName(String.valueOf(userInputValue));
+        ((IQuantifiedParameter<?>)element).setName(String.valueOf(userInputValue));
         viewer.update(element, null);
     }
 }
