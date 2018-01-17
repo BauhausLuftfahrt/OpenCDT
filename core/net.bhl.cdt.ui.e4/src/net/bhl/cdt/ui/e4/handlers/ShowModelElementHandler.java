@@ -24,7 +24,7 @@ public class ShowModelElementHandler {
 	if (modelElement != null) {
 	    logService.info("Model-File '" + modelElement + "' loaded. Opening assigned editor...");
 	    
-	    MPart part = partService.createPart(E4ResourceIds.PARTDESCRIPTOR_MODELELEMENTEDITOR_ID);
+	    MPart part = partService.createPart(E4ResourceIds.PART_MODELELEMENTEDITOR_ID);
 	    part.setLabel("Element Parameters");
 	    
 //	    part.getTransientData().put(ModelElementEditorPart.MODEL_ELEMENT_KEY, modelElement);

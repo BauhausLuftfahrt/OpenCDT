@@ -1,5 +1,7 @@
 package net.bhl.cdt.ui.views.explorer;
 
-public class ExplorerSaveableTableView extends org.eclipse.emf.parsley.views.SaveableTableView {
+import org.eclipse.emf.parsley.views.SaveableTableView;
+
+public class ExplorerSaveableTableView extends SaveableTableView {
 	
 }

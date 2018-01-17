@@ -7,18 +7,12 @@ package net.bhl.cdt.ui.e4.parts.modeleditor;
 
 import java.io.IOException;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.eclipse.core.commands.ParameterizedCommand;
-import org.eclipse.e4.core.commands.ECommandService;
-import org.eclipse.e4.core.commands.EHandlerService;
 import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
-import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -27,9 +21,9 @@ import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.parsley.edit.ui.dnd.ViewerDragAndDropHelper;
 import org.eclipse.emf.parsley.menus.ViewerContextMenuHelper;
 import org.eclipse.emf.parsley.viewers.ViewerFactory;
-import org.eclipse.jface.viewers.DoubleClickEvent;
-import org.eclipse.jface.viewers.IDoubleClickListener;
-import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
+import org.eclipse.jface.viewers.TreeSelection;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
@@ -37,7 +31,6 @@ import org.eclipse.swt.widgets.Composite;
 import com.google.inject.Injector;
 
 import net.bhl.cdt.log.service.CDTLogService;
-import net.bhl.cdt.ui.e4.E4ResourceIds;
 import net.bhl.cdt.ui.view.modelstructuretreeview.ModelstructuretreeviewInjectorProvider;
 
 /**
@@ -57,8 +50,7 @@ public class ModelStructureEditorPart {
     private CDTLogService logService;
 
     @PostConstruct
-    public void postConstruct(Composite parent, MPart part, ESelectionService selectionService, EPartService partService, ECommandService commandService,
-	    EHandlerService handlerService) {
+    public void postConstruct(Composite parent, MPart part, ESelectionService selectionService) {
 	if (part.getTransientData().containsKey(MODEL_RESOURCE_KEY)) {
 	    Object modelObject = part.getTransientData().get(MODEL_RESOURCE_KEY);
 	    if (modelObject instanceof Resource) {
@@ -82,21 +74,31 @@ public class ModelStructureEditorPart {
 		contextMenuHelper.addViewerContextMenu(treeViewer, editingDomain);
 		dragAndDropHelper.addDragAndDrop(treeViewer, editingDomain);
 
-		treeViewer.addDoubleClickListener(new IDoubleClickListener() {
+		treeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
 		    @Override
-		    public void doubleClick(DoubleClickEvent event) {
-			selectionService.setSelection(event.getSelection());
-			
-			Object selectedElement = ((IStructuredSelection)event.getSelection()).getFirstElement();
-			if (selectedElement instanceof model.science.IDataEntity) {
-			    Map<String, Object> params = new HashMap<String, Object>();
-			    params.put(E4ResourceIds.COMMAND_SHOW_SYSTEM_DETAILS_PARAM_SYSTEM_ID, selectedElement);
-			    
-			    ParameterizedCommand cmd = commandService.createCommand(E4ResourceIds.COMMAND_SHOW_SYSTEM_DETAILS_ID, params);
-			    handlerService.executeHandler(cmd);
-			}
+		    public void selectionChanged(SelectionChangedEvent event) {
+			selectionService.setSelection(((TreeSelection)event.getSelection()).getFirstElement());
 		    }
 		});
+		
+//		treeViewer.addDoubleClickListener(new IDoubleClickListener() {		    
+//		    @Override
+//		    public void doubleClick(DoubleClickEvent event) {
+//			selectionService.setSelection(event.getSelection());
+//			
+////			Object selectedElement = ((IStructuredSelection)event.getSelection()).getFirstElement();
+////			if (selectedElement instanceof IDataEntity) {
+////			    MPart part = partService.findPart(E4ResourceIds.PART_MODELELEMENTEDITOR_ID);
+////			    
+////			    if (part == null)
+////				part = partService.createPart(E4ResourceIds.PART_MODELELEMENTEDITOR_ID);
+////			   
+////			    part.setLabel(((IDataEntity)selectedElement).getName() + " (" + selectedElement.getClass().getSimpleName() + ")");
+////			    part.setObject(selectedElement);
+////			    partService.showPart(part, PartState.ACTIVATE);
+////			}
+//		    }
+//		});
 
 		viewerFactory.initialize(treeViewer, modelResource);
 	    } else

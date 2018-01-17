@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="org.eclipse.emf.parsley"
+            class="net.bhl.cdt.ui.view.modelelementeditorview.ModelelementeditorviewExecutableExtensionFactory:net.bhl.cdt.ui.views.modeleditor.ModelElementEditorView"
+            id="net.bhl.cdt.ui.view.modeleditor"
+            name="Parameter Table"
+            restorable="true">
+      </view>
+   </extension>
+</plugin>

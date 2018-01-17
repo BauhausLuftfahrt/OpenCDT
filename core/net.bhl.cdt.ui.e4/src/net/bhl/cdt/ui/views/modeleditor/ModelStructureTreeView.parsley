@@ -3,6 +3,7 @@ import model.engineering.Component
 import model.engineering.System
 import model.science.parameter.ParameterFactory
 import net.bhl.cdt.ui.views.modeleditor.ModelStructureTreeView
+import model.science.IParameter
 
 module net.bhl.cdt.ui.view.modelstructuretreeview {
 	parts {
@@ -17,6 +18,7 @@ module net.bhl.cdt.ui.view.modelstructuretreeview {
 			ModelContainer -> name
 			System -> name
 			Component -> name
+			IParameter -> name
 		}
 	}
 

@@ -1,6 +1,6 @@
 package net.bhl.cdt.ui.views.modeleditor;
 
-import org.eclipse.emf.parsley.views.SaveableTreeView;
+import org.eclipse.emf.parsley.views.SaveableTreeWithColumnsView;
 
 /**
  * 
@@ -8,6 +8,6 @@ import org.eclipse.emf.parsley.views.SaveableTreeView;
  * @since 2017-09-26
  *
  */
-public class ModelStructureTreeView extends SaveableTreeView {
+public class ModelStructureTreeView extends SaveableTreeWithColumnsView {
 
 }
