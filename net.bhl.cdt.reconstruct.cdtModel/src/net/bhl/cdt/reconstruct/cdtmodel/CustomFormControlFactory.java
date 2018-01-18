@@ -491,8 +491,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		    	 	});
 		    	    listOfHyperlink.add(hyperlink_input);
 	    		}
-	    		
-	    		
+	   
 	    		else{
 	    			
 	    			 Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
