@@ -344,6 +344,14 @@ public class CustomFormControlFactory extends FormControlFactory {
 		   	 		
 		   	 	listOfHyperlink.get(q).setEnabled(true);
 				listOfHyperlink.get(q).setText(input.get(q).toString());
+				Hyperlink presentLink = listOfHyperlink.get(q);
+				listOfHyperlink.get(q).addHyperlinkListener(new HyperlinkAdapter() {
+	    	    	
+		 			public void linkActivated(HyperlinkEvent e) {
+		 		
+		 				showInputPart(presentLink, currentFormula);
+		 			}
+		 	});
 				
 		    }
 			
