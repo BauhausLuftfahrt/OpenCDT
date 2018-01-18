@@ -474,20 +474,43 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    }else{
 	    	
 	    	String [] stringArray = input_featureObservable.getValue().toString().split(",");
-	    	for (int p = 0; p < stringArray.length; p++) {
+	    	
+	    	for (int p = 0; p < 10; p++) {
 	    		
-	    		Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, stringArray[p], SWT.NONE);
-	    		hyperlink_input.setLayoutData(rowData); 
-	    	    hyperlink_input.setForeground(getColorBlack());
-	    	    hyperlink_input.setUnderlined(true);
-	    	    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
-	    	    	
-	    	 			public void linkActivated(HyperlinkEvent e) {
-	    	 		
-	    	 				showInputPart(hyperlink_input, currentFormula);
-	    	 			}
-	    	 	});
-	    	    listOfHyperlink.add(hyperlink_input);
+	    		if(p < stringArray.length){
+		    		Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, stringArray[p], SWT.NONE);
+		    		hyperlink_input.setLayoutData(rowData); 
+		    	    hyperlink_input.setForeground(getColorBlack());
+		    	    hyperlink_input.setUnderlined(true);
+		    	    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
+		    	    	
+		    	 			public void linkActivated(HyperlinkEvent e) {
+		    	 		
+		    	 				showInputPart(hyperlink_input, currentFormula);
+		    	 			}
+		    	 	});
+		    	    listOfHyperlink.add(hyperlink_input);
+	    		}
+	    		else{
+	    			
+	    			 Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
+					 new_hyperlink_input.setLayoutData(rowData); 
+					 new_hyperlink_input.setEnabled(false);
+					 //new_hyperlink_input.setUnderlined(true);
+					 //new_hyperlink_input.setForeground(getColorBlack());
+					 /*new_hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
+			    	    	
+		    	 			public void linkActivated(HyperlinkEvent e) {
+		    	 		
+		    	 				showInputPart(new_hyperlink_input, currentFormula);
+		    	 			}
+		    	 		});*/
+					 listOfHyperlink.add(new_hyperlink_input);
+	    			
+	    			
+	    		}
+	    	    
+	    	    
 	        }
 	    	
 	    	
@@ -634,6 +657,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		FormToolkit _toolkit = this.getToolkit();
 		
+		//if(listOfHyperlink.size() < input.size())
+		
 		
 		if(input.size() > 10){
 			
@@ -648,13 +673,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 				rest_hyperlink_input.setEnabled(true);
 				rest_hyperlink_input.setUnderlined(true);
 				rest_hyperlink_input.setForeground(getColorBlack());
-				rest_hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
+				/*rest_hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
 	    	    	
 		 			public void linkActivated(HyperlinkEvent e) {
 		 		
 		 				showInputPart(rest_hyperlink_input, currentFormula);
 		 			}
-		 	});
+		 	});*/
 			listOfHyperlink.add(rest_hyperlink_input);
 				
 			}
@@ -721,6 +746,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			   	quantity.setDescription("input");
 				currentFormula.getRepository().getQuantities().add(quantity);
 				generatedInputQuantities_array.add(input_quantity);
+				
 				listOfQunatity.add(quantity);
 				
 			}
