@@ -24,6 +24,13 @@
             name="CDTLiteratureEditor"
             restorable="true">
       </view>
+      <view
+            category="org.eclipse.emf.parsley"
+            class="net.bhl.cdt.reconstruct.cdtquantitymodel.CdtquantitymodelExecutableExtensionFactory:net.bhl.cdt.reconstruct.cdtmodel.CdtmodelOnSelectionFormView"
+            id="net.bhl.cdt.reconstruct.cdtquantitymodel"
+            name="Cdtmodel"
+            restorable="true">
+      </view>
    </extension>
    <extension
          id="net.bhl.cdt.reconstruct.cdtModel.fragment"

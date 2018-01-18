@@ -489,8 +489,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 			}
 		    
 			part.setCloseable(true);
-			part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
-			
+			//part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+			part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTQuantityModelViewer");
+
 			partService.showPart(part, PartState.CREATE);
 			partService.bringToTop(part);
 			
@@ -845,7 +846,9 @@ public Control control_Formula_reference(DataBindingContext dbc, IObservableValu
 				    part.setElementId(output_featureObservable.getValue().toString());
 					part.setObject(output_featureObservable.getValue());
 					part.setCloseable(true);
-					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+					//part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTQuantityModelViewer");
+
 					
 					partService.showPart(part, PartState.CREATE);
 					partService.bringToTop(part);

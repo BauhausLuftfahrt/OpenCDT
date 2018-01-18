@@ -79,9 +79,6 @@ public class CDTModelEditor {
 
 		part.setLabel(itemLabelProvider.getText(modelElement));
 		formComposite.setSize(width, height);
-	
-		/*if(modelElement instanceof Formula)
-			formulaID = modelElement.toString();*/
 		
     }
     /**
@@ -93,9 +90,7 @@ public class CDTModelEditor {
 			parent.setFocus();
 		}
 	}
-	/*public String getFormulaID(){
-		return formulaID;
-	}*/
+
 
 	
 	

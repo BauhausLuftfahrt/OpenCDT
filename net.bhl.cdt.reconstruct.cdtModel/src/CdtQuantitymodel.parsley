@@ -1,0 +1,64 @@
+import net.bhl.cdt.reconstruct.cdtmodel.CdtmodelOnSelectionFormView
+import formula.Formula
+import org.eclipse.emf.parsley.edit.IEditingStrategy
+import org.eclipse.emf.parsley.edit.UndoableEditingStrategy
+import formula.FormulaRepository
+import formula.FormulaFactory
+import org.eclipse.emf.parsley.composite.FormControlFactory
+import net.bhl.cdt.reconstruct.cdtmodel.CustomFormControlFactory
+import org.eclipse.emf.common.util.URI
+import cdtliterature.CdtliteratureFactory
+import formula.Quantity
+import net.bhl.cdt.reconsruct.parsley.e4.CDTModelEditor
+
+/* net.bhl.cdt.reconstruct.cdtmodel EMF Parsley Dsl Module file */
+module net.bhl.cdt.reconstruct.cdtquantitymodel {
+	
+	parts{
+		viewpart net.bhl.cdt.reconstruct.cdtquantitymodel {
+			viewname "Cdtmodel"
+			viewclass CdtmodelOnSelectionFormView
+		}
+	}
+	bindings{
+		
+		type IEditingStrategy -> UndoableEditingStrategy
+		value int FormSashStyle -> SWT.HORIZONTAL
+		//type FormControlFactory -> CustomFormControlFactory
+
+	}
+	configurator {
+		resourceURI {
+
+				}
+			}
+	resourceManager {
+		
+				initializeResource {
+					// Optional: initialize an empty Resource
+					// 'it' is of type Resource
+					// e.g., it.getContents += myFactory.createMyClass
+					//it.getContents += CdtliteratureFactory.
+				}
+				saveResource {
+				// it is of type org.eclipse.emf.ecore.resource.Resource
+				//it.save(null)
+				return true
+			}
+	}
+	
+	featuresProvider {
+				features {
+					 FormulaRepository -> name
+					 Formula -> name, latexString, reference, inputParameter, outputParameter
+					 Quantity -> name, description, unit
+				}
+	}
+
+
+
+
+	
+	
+	
+}
