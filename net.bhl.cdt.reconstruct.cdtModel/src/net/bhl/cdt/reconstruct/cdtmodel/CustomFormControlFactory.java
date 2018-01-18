@@ -341,10 +341,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 			for (int q = 0; q < input.size(); q++) {
 				
 		   	 	System.out.println("quantitiesArray of Input:"+ input.get(q).toString());
-		   	 		
+		   	 	Hyperlink presentLink = listOfHyperlink.get(q);
 		   	 	listOfHyperlink.get(q).setEnabled(true);
 				listOfHyperlink.get(q).setText(input.get(q).toString());
-				Hyperlink presentLink = listOfHyperlink.get(q);
 				listOfHyperlink.get(q).addHyperlinkListener(new HyperlinkAdapter() {
 	    	    	
 		 			public void linkActivated(HyperlinkEvent e) {
@@ -366,15 +365,15 @@ public class CustomFormControlFactory extends FormControlFactory {
 	}
 	private void updateInputParameter(Formula currentFormula, ArrayList<String> input){
 		
-		EList<Formula> formulas = currentFormula.getRepository().getFormulas();
-		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
-		ArrayList<String> inputQuantities_arrayList = new ArrayList<String>();
+		EList<Quantity> generatedQuantities = currentFormula.getRepository().getQuantities();
+		ArrayList<String> generatedInputQuantities_array = new ArrayList<String>();
+	
 		
-		for(Quantity q : quantities){
+		for(Quantity gQ : generatedQuantities){
 			
-			if(q.getDescription().equals("input")){
+			if(gQ.getDescription().equals("input")){
 				
-				inputQuantities_arrayList.add(q.getName());
+				generatedInputQuantities_array.add(gQ.getName());
 			}
 			
 			
@@ -382,46 +381,87 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		for(String input_quantity : input){
 			
-			if(!inputQuantities_arrayList.contains(input_quantity)){
+			if(!generatedInputQuantities_array.contains(input_quantity)){
 				
 				Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
 			   	quantity.setName(input_quantity);
 			   	quantity.setDescription("input");
 				currentFormula.getRepository().getQuantities().add(quantity);
+				generatedInputQuantities_array.add(input_quantity);
 				listOfQunatity.add(quantity);
 				
 			}
+		}
+		ArrayList<String> deleting_InputQuantities_array = new ArrayList<String>();
+		EList<Formula> currentFormulas = currentFormula.getRepository().getFormulas();
+		
+		for(String generated_quantity : generatedInputQuantities_array){
 			
+			if(!input.contains(generated_quantity) && !isCommunalQuantity(generated_quantity, currentFormulas, currentFormula)){
+				
+				//removeOldQuantity(generatedQuantities, generated_quantity);
+				deleting_InputQuantities_array.add(generated_quantity);
+				
+			}
 			
 		}
 		
-		if(input_featureObservable.getValue() != null){
-		String [] oldQuantities_stringArray = input_featureObservable.getValue().toString().split(",");
-		ArrayList<String> oldQuantities_arrayList = new ArrayList<>(Arrays.asList(oldQuantities_stringArray));
+		removeOldQuantity(deleting_InputQuantities_array, currentFormula);
+		
+		
+		//System.out.println(deleting_InputQuantities_array.get(0).toString());
+		
+		/*if(input_featureObservable.getValue() != null){
+			
+			String [] oldQuantities_stringArray = input_featureObservable.getValue().toString().split(",");
+			ArrayList<String> oldQuantities_arrayList = new ArrayList<>(Arrays.asList(oldQuantities_stringArray));
 		
 			for(String old_quantity : oldQuantities_arrayList){
 				
-				if(!input.contains(old_quantity) && !isCommunalQuantity(old_quantity, formulas)){
+				if(!input.contains(old_quantity) && !isCommunalQuantity(old_quantity, currentformulas)){
 					
-					removeOldQuantity(quantities, old_quantity);
+					removeOldQuantity(generatedQuantities, old_quantity);
 					
 				}
 				
 			}
-		}
+		}*/
+		
+		/*EList<Formula> currentFormulas = currentFormula.getRepository().getFormulas();
+		ArrayList<String> deleting_InputQuantities_array = new ArrayList<String>();
+		
+		for(int i=0; i<currentFormulas.size(); i++){
+			
+			String [] inputParameter_stringArray = currentFormulas.get(i).getInputParameter().split(","); 
+			ArrayList<String> inputParameter_array = new ArrayList<>(Arrays.asList(inputParameter_stringArray));
+			
+			if(inputParameter_array.contains(old_quantity)){
+				
+				
+			}
+			
+		}*/
+		
+		
+		
+		
 		
 	}
-	private Boolean isCommunalQuantity(String old_quantity, EList<Formula> formulas){
+	private Boolean isCommunalQuantity(String generated_quantity, EList<Formula> formulas, Formula currentFormula){
 		
 		Boolean common=false;
 		for(int i=0; i<formulas.size(); i++){
 			
-			String [] inputParameter_stringArray = formulas.get(i).getInputParameter().split(","); 
-			ArrayList<String> inputParameter_arrayList = new ArrayList<>(Arrays.asList(inputParameter_stringArray));
-			
-			if(inputParameter_arrayList.contains(old_quantity)){
+			 
+			if(!formulas.get(i).equals(currentFormula)){
 				
-				common = true;
+				String [] inputParameter_stringArray = formulas.get(i).getInputParameter().split(","); 
+				ArrayList<String> inputParameter_arrayList = new ArrayList<>(Arrays.asList(inputParameter_stringArray));
+				
+				if(inputParameter_arrayList.contains(generated_quantity)){
+					
+					common = true;
+				}
 			}
 		}
 		
@@ -454,7 +494,51 @@ public class CustomFormControlFactory extends FormControlFactory {
 
 		}
 			
+	//ArrayList<String> deleting_InputQuantities_array
+	}
+	private void removeOldQuantity(ArrayList<String> deleting_InputQuantities_array, Formula currentFormula){
+		
+		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
+		
+		final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
+		ArrayList<Object> toBeDeleted = new ArrayList<Object>();
 	
+		for(int i=0; i< quantities.size(); i++){
+			
+			if(deleting_InputQuantities_array.contains(quantities.get(i).getName())){
+				
+				Quantity q = quantities.get(i);
+				toBeDeleted.add(q);
+				EObject eObject = q;
+				ECPHandlerHelper.deleteModelElement(
+						ecpProjectManager.getProject(eObject),
+						toBeDeleted);
+				
+			}
+			
+			/*if(quantities.get(i).getName().equals(old_quantity)){
+				
+				pivot = i;
+				
+			}*/
+			
+		}
+		
+		
+		/*if(pivot != -1){
+
+			final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
+			ArrayList<Object> toBeDeleted = new ArrayList<Object>();
+			Quantity q = quantities.get(pivot);
+			EObject eObject = q;
+			toBeDeleted.add(q);
+			ECPHandlerHelper.deleteModelElement(
+					ecpProjectManager.getProject(eObject),
+					toBeDeleted);
+
+		}*/
+			
+	//ArrayList<String> deleting_InputQuantities_array
 	}
 	private void showInputPart(Hyperlink hyperlink, Formula currentFormula){
 		
@@ -547,8 +631,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    		hyperlink_input.setLayoutData(rowData); 
 	    	    hyperlink_input.setForeground(getColorBlack());
 	    	    hyperlink_input.setUnderlined(true);
-	    	  
-	    	    
 	    	    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
 	    	    	
 	    	 			public void linkActivated(HyperlinkEvent e) {
