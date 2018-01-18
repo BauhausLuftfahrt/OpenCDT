@@ -138,16 +138,13 @@ import uk.ac.ed.ph.snuggletex.SnuggleSession;
 
 public class CustomFormControlFactory extends FormControlFactory {
 	
-	private Image newimage;
-	private ImageData imageData;
 	private int newWidth;
 	private int newHeight;
 	private int startHeight;
-	private  Canvas canvas;
+	private Image newimage;
+	private ImageData imageData;
+	private Canvas canvas;
 	private GridData gd;
-	private static final String EMPTY = "";
-	private static final int STANDARD_WIDTH = 300;
-	private ReferenceDialog treeColumnDialog;
 	private Hyperlink hyperlink;
 	private MPart part; 
 	private String hyperLinkStr;
@@ -157,6 +154,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private Composite inputParameter_composite;
 	private ArrayList<Hyperlink> listOfHyperlink = new ArrayList<Hyperlink>();; 
 	private ArrayList<Quantity> listOfQunatity = new ArrayList<Quantity>(); 
+	private ReferenceDialog treeColumnDialog;
+	private static final String EMPTY = "";
+	private static final int STANDARD_WIDTH = 300;
 
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -283,6 +283,306 @@ public class CustomFormControlFactory extends FormControlFactory {
 		return composite;
 		
 	}
+	public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
+		
+		
+		/**The base elements are set for customized reference.*/
+		FormToolkit _toolkit = this.getToolkit();
+	    Composite _parent = this.getParent();
+	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
+	   
+	    
+	    /**
+	     * The gridlayout consist of hyperlink, set-button, delete-button.*/
+	    GridLayout _gridLayout = new GridLayout(3, false);
+	    composite.setLayout(_gridLayout);
+	    hyperLinkStr = "";
+	    
+	    if (featureObservable.getValue() != null)
+	    	hyperLinkStr = (((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
+	    
+	    	
+	    hyperlink = _toolkit.createHyperlink(composite, hyperLinkStr, SWT.NONE);
+	    
+	    hyperlink.setUnderlined(false);
+	    
+	    if (featureObservable.getValue() == null)
+	    	hyperlink.setEnabled(false);	
+	    
+	    /**The action for click of this hyperlink und let open and show the model of hyperlink.*/
+	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
+	    	
+			public void linkActivated(HyperlinkEvent e) {
+				
+				
+				Boolean partVisible = false;
+				EPartService partService = EPartServiceHelper.getEPartService();
+				Collection<MPart> parts = partService.getParts();
+				
+				
+				for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
+				{
+					MPart partSearch = i.next();
+					if (partSearch.isVisible()) {
+						if(partSearch.getElementId().equals(featureObservable.getValue().toString())){
+							partVisible = true;
+		                	partService.activate(partSearch);
+		                	break;
+							 
+		                 }
+		    
+		             }
+		        }
+				
+				if(!partVisible){
+					
+					part = MBasicFactory.INSTANCE.createPart();
+					part.setLabel(((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
+				    part.setElementId(featureObservable.getValue().toString());
+					part.setObject(featureObservable.getValue());
+					part.setCloseable(true);
+					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+					
+					partService.showPart(part, PartState.CREATE);
+					partService.bringToTop(part);
+					
+				}
+				
+				
+		
+			}//end linkActivated-clause
+		});
+
+	    /**
+	     * this griddata makes the hyperlink to locate on the left of composite of customized reference.
+	     * */
+		GridData gridData = new GridData();
+		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
+        gridData.grabExcessHorizontalSpace = true;
+        gridData.minimumWidth = 150;
+	    hyperlink.setLayoutData(gridData);
+        
+	    /**
+	     * If user clicks the set-button, then the tree-columns-dialog can be opened.
+	     * */ 
+        final Button setButton = _toolkit.createButton(composite, "set", SWT.PUSH); 
+ 
+		setButton.addSelectionListener(new SelectionAdapter() {
+			
+	            @Override
+	            public void widgetSelected(SelectionEvent e) {
+	            	            
+	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
+	            	        | SWT.APPLICATION_MODAL);
+	            	
+	            	treeColumnDialog = new ReferenceDialog(shell, _toolkit);
+	            	treeColumnDialog.isResizable();
+	            
+	        		 		
+	        	    if (treeColumnDialog.open() == Window.OK) {
+	        	    	
+	        	    	if(treeColumnDialog.getObject() != null){
+	
+	    	        		hyperlink.setEnabled(true);
+	    	        		
+	    	        		try{
+	    	        			ALiteratureBase literatureObj = (ALiteratureBase)treeColumnDialog.getObject();
+	    	        			EObject result = literatureObj;
+			        	    	hyperlink.setText(result.eClass().getName() + " " + literatureObj.getTitle());
+			        	    	featureObservable.setValue(treeColumnDialog.getObject());
+		        	    		hyperlink.setEnabled(true);
+		        	    		
+	    	        		}catch(ClassCastException e1){
+	    	        			System.err.println( "The library-model can not be chosen as the reference" );
+	    	        			
+	    	        		}
+	        	    	}
+	        	    }
+	        	    composite.forceFocus();        	    
+	            }
+	           
+	        });
+		   
+		/**
+		 * If user clicks the delete-button, then the hyperlink of model is deleted.
+		 * */ 
+        final Button deleteButton = _toolkit.createButton(composite, "delete", SWT.PUSH);  
+		deleteButton.addSelectionListener(new SelectionAdapter() {
+			
+	            @Override
+	            public void widgetSelected(SelectionEvent e) {
+	            
+	            /**
+	             * If the reference is empty, then the delete-action doesn't work.*/	  
+	            	if(!hyperlink.getText().isEmpty()){
+	            	
+	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
+	            	        | SWT.APPLICATION_MODAL);
+	            	/**
+	            	 * Before this is deleted,the dialog is opened and it asks about the deletion.
+	            	 * */ 
+	            	MessageBox dialog = new MessageBox(shell, SWT.ICON_QUESTION | SWT.OK| SWT.CANCEL);
+	            		dialog.setText("Question");
+	            		dialog.setMessage("Do you really want to delete this?");
+	            		
+	            		if(dialog.open() == SWT.OK){
+	            			hyperlink.setText(EMPTY);
+	    	            	hyperlink.setEnabled(false);
+	    	            	featureObservable.setValue(EMPTY);
+	            		}
+	            		
+	            	}
+	            }
+	            
+	    });
+
+		return composite;
+		
+	}
+	public Control control_Formula_inputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
+		
+		FormToolkit _toolkit = this.getToolkit();
+	    Composite _parent = this.getParent();
+	    inputParameter_composite = _toolkit.createComposite(_parent, SWT.NONE);
+	    Formula currentFormula = (Formula)getOwner();
+	    
+	    RowLayout rowLayout = new RowLayout();
+	    rowLayout.wrap = true;
+	    rowLayout.justify = false;
+	    rowLayout.marginLeft = 5;
+	    
+	    RowData rowData = new RowData();
+	    rowData.width = 50;
+	    
+	    inputParameter_composite.setLayout(rowLayout);
+	    input_featureObservable = featureObservable;
+	    
+ 	    if(input_featureObservable.getValue() == null || input_featureObservable.getValue().equals("")){	
+	    	
+	    	  for (int p = 0; p < 10; p++) {
+				   
+				   Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
+				   new_hyperlink_input.setLayoutData(rowData); 
+				   new_hyperlink_input.setEnabled(false);
+				   new_hyperlink_input.setUnderlined(true);
+				   new_hyperlink_input.setForeground(getColorBlack());
+				   
+				   listOfHyperlink.add(new_hyperlink_input);
+			 	   
+			  }
+	    	  
+	    }else{
+	    	
+	    	String [] stringArray = input_featureObservable.getValue().toString().split(",");
+	    	for (int p = 0; p < stringArray.length; p++) {
+	    		
+	    		Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, stringArray[p], SWT.NONE);
+	    		hyperlink_input.setLayoutData(rowData); 
+	    	    hyperlink_input.setForeground(getColorBlack());
+	    	    hyperlink_input.setUnderlined(true);
+	    	    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
+	    	    	
+	    	 			public void linkActivated(HyperlinkEvent e) {
+	    	 		
+	    	 				showInputPart(hyperlink_input, currentFormula);
+	    	 			}
+	    	 	});
+	    	    listOfHyperlink.add(hyperlink_input);
+	        }
+	    	
+	    	
+	    }
+	    
+	  
+	    return inputParameter_composite;
+	}
+	public Control control_Formula_outputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
+		
+		
+		FormToolkit _toolkit = this.getToolkit();
+	    Composite _parent = this.getParent();
+	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
+	    GridLayout _gridLayout = new GridLayout(1, false);
+	    composite.setLayout(_gridLayout);
+	       
+	    output_featureObservable = featureObservable;
+	    
+	    GridData gridData = new GridData();
+		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
+	    gridData.grabExcessHorizontalSpace = true;
+	    gridData.minimumWidth = 50;
+	    
+	    if(featureObservable.getValue() == null){
+	    	hyperlink_output = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);  	
+	    }
+	    else{
+	    	hyperlink_output = _toolkit.createHyperlink(composite, ((Quantity)featureObservable.getValue()).getName() , SWT.NONE);
+	    	
+	    }
+	    hyperlink_output.setLayoutData(gridData); 
+	    hyperlink_output.setUnderlined(false);
+	    hyperlink_output.setForeground(getColorBlack());
+	    composite.forceFocus();
+	    
+	
+	    if (featureObservable.getValue() == null){
+	    	hyperlink_output.setEnabled(false);
+	    }else{
+	    	hyperlink_output.setEnabled(true);
+	    }
+	    
+	    
+		/**The action for click of this hyperlink und let open and show the model of hyperlink.*/
+		hyperlink_output.addHyperlinkListener(new HyperlinkAdapter() {
+	    	
+			public void linkActivated(HyperlinkEvent e) {
+				
+				
+				Boolean partVisible = false;
+				EPartService partService = EPartServiceHelper.getEPartService();
+				Collection<MPart> parts = partService.getParts();
+				
+				
+				for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
+				{
+					MPart partSearch = i.next();
+					if (partSearch.isVisible()) {
+						if(partSearch.getElementId().equals(output_featureObservable.getValue().toString())){
+							partVisible = true;
+		                	partService.activate(partSearch);
+		                	break;
+							 
+		                 }
+		    
+		             }
+		        }
+				
+				if(!partVisible){
+					
+					part = MBasicFactory.INSTANCE.createPart();
+					part.setLabel(((Quantity)output_featureObservable.getValue()).eClass().getName() + " " + ((Quantity)output_featureObservable.getValue()).getName());
+				    part.setElementId(output_featureObservable.getValue().toString());
+					part.setObject(output_featureObservable.getValue());
+					part.setCloseable(true);
+					//part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTQuantityModelViewer");
+
+					
+					partService.showPart(part, PartState.CREATE);
+					partService.bringToTop(part);
+					
+				}
+				
+				
+		
+			}//end linkActivated-clause
+		});
+		
+		
+
+	    return composite;
+	}
+	
 	private void generateQuantities(String latexFormula){
 		
 		createOutputQuantity(latexFormula);
@@ -498,63 +798,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 		}
 		
 	}
-	public Control control_Formula_inputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
-		
-		FormToolkit _toolkit = this.getToolkit();
-	    Composite _parent = this.getParent();
-	    inputParameter_composite = _toolkit.createComposite(_parent, SWT.NONE);
-	    Formula currentFormula = (Formula)getOwner();
-	    
-	    RowLayout rowLayout = new RowLayout();
-	    rowLayout.wrap = true;
-	    rowLayout.justify = false;
-	    rowLayout.marginLeft = 5;
-	    
-	    RowData rowData = new RowData();
-	    rowData.width = 50;
-	    
-	    inputParameter_composite.setLayout(rowLayout);
-	    input_featureObservable = featureObservable;
-	    
- 	    if(input_featureObservable.getValue() == null || input_featureObservable.getValue().equals("")){	
-	    	
-	    	  for (int p = 0; p < 10; p++) {
-				   
-				   Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
-				   new_hyperlink_input.setLayoutData(rowData); 
-				   new_hyperlink_input.setEnabled(false);
-				   new_hyperlink_input.setUnderlined(true);
-				   new_hyperlink_input.setForeground(getColorBlack());
-				   
-				   listOfHyperlink.add(new_hyperlink_input);
-			 	   
-			  }
-	    	  
-	    }else{
-	    	
-	    	String [] stringArray = input_featureObservable.getValue().toString().split(",");
-	    	for (int p = 0; p < stringArray.length; p++) {
-	    		
-	    		Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, stringArray[p], SWT.NONE);
-	    		hyperlink_input.setLayoutData(rowData); 
-	    	    hyperlink_input.setForeground(getColorBlack());
-	    	    hyperlink_input.setUnderlined(true);
-	    	    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
-	    	    	
-	    	 			public void linkActivated(HyperlinkEvent e) {
-	    	 		
-	    	 				showInputPart(hyperlink_input, currentFormula);
-	    	 			}
-	    	 	});
-	    	    listOfHyperlink.add(hyperlink_input);
-	        }
-	    	
-	    	
-	    }
-	    
-	  
-	    return inputParameter_composite;
-	}
 	
 	private void createOutputQuantity(String latexFormula){
 		
@@ -617,252 +860,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 			}
 		}
 		
-	}
-	
-
-
-public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
-		
-		
-		/**The base elements are set for customized reference.*/
-		FormToolkit _toolkit = this.getToolkit();
-	    Composite _parent = this.getParent();
-	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
-	   
-	    
-	    /**
-	     * The gridlayout consist of hyperlink, set-button, delete-button.*/
-	    GridLayout _gridLayout = new GridLayout(3, false);
-	    composite.setLayout(_gridLayout);
-	    hyperLinkStr = "";
-	    
-	    if (featureObservable.getValue() != null)
-	    	hyperLinkStr = (((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
-	    
-	    	
-	    hyperlink = _toolkit.createHyperlink(composite, hyperLinkStr, SWT.NONE);
-	    
-	    hyperlink.setUnderlined(false);
-	    
-	    if (featureObservable.getValue() == null)
-	    	hyperlink.setEnabled(false);	
-	    
-	    /**The action for click of this hyperlink und let open and show the model of hyperlink.*/
-	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
-	    	
-			public void linkActivated(HyperlinkEvent e) {
-				
-				
-				Boolean partVisible = false;
-				EPartService partService = EPartServiceHelper.getEPartService();
-				Collection<MPart> parts = partService.getParts();
-				
-				
-				for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
-				{
-					MPart partSearch = i.next();
-					if (partSearch.isVisible()) {
-						if(partSearch.getElementId().equals(featureObservable.getValue().toString())){
-							partVisible = true;
-		                	partService.activate(partSearch);
-		                	break;
-							 
-		                 }
-		    
-		             }
-		        }
-				
-				if(!partVisible){
-					
-					part = MBasicFactory.INSTANCE.createPart();
-					part.setLabel(((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
-				    part.setElementId(featureObservable.getValue().toString());
-					part.setObject(featureObservable.getValue());
-					part.setCloseable(true);
-					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
-					
-					partService.showPart(part, PartState.CREATE);
-					partService.bringToTop(part);
-					
-				}
-				
-				
-		
-			}//end linkActivated-clause
-		});
-
-	    /**
-	     * this griddata makes the hyperlink to locate on the left of composite of customized reference.
-	     * */
-		GridData gridData = new GridData();
-		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
-        gridData.grabExcessHorizontalSpace = true;
-        gridData.minimumWidth = 150;
-	    hyperlink.setLayoutData(gridData);
-        
-	    /**
-	     * If user clicks the set-button, then the tree-columns-dialog can be opened.
-	     * */ 
-        final Button setButton = _toolkit.createButton(composite, "set", SWT.PUSH); 
- 
-		setButton.addSelectionListener(new SelectionAdapter() {
-			
-	            @Override
-	            public void widgetSelected(SelectionEvent e) {
-	            	            
-	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
-	            	        | SWT.APPLICATION_MODAL);
-	            	
-	            	treeColumnDialog = new ReferenceDialog(shell, _toolkit);
-	            	treeColumnDialog.isResizable();
-	            
-	        		 		
-	        	    if (treeColumnDialog.open() == Window.OK) {
-	        	    	
-	        	    	if(treeColumnDialog.getObject() != null){
-	
-	    	        		hyperlink.setEnabled(true);
-	    	        		
-	    	        		try{
-	    	        			ALiteratureBase literatureObj = (ALiteratureBase)treeColumnDialog.getObject();
-	    	        			EObject result = literatureObj;
-			        	    	hyperlink.setText(result.eClass().getName() + " " + literatureObj.getTitle());
-			        	    	featureObservable.setValue(treeColumnDialog.getObject());
-		        	    		hyperlink.setEnabled(true);
-		        	    		
-	    	        		}catch(ClassCastException e1){
-	    	        			System.err.println( "The library-model can not be chosen as the reference" );
-	    	        			
-	    	        		}
-	        	    	}
-	        	    }
-	        	    composite.forceFocus();        	    
-	            }
-	           
-	        });
-		   
-		/**
-		 * If user clicks the delete-button, then the hyperlink of model is deleted.
-		 * */ 
-        final Button deleteButton = _toolkit.createButton(composite, "delete", SWT.PUSH);  
-		deleteButton.addSelectionListener(new SelectionAdapter() {
-			
-	            @Override
-	            public void widgetSelected(SelectionEvent e) {
-	            
-	            /**
-	             * If the reference is empty, then the delete-action doesn't work.*/	  
-	            	if(!hyperlink.getText().isEmpty()){
-	            	
-	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
-	            	        | SWT.APPLICATION_MODAL);
-	            	/**
-	            	 * Before this is deleted,the dialog is opened and it asks about the deletion.
-	            	 * */ 
-	            	MessageBox dialog = new MessageBox(shell, SWT.ICON_QUESTION | SWT.OK| SWT.CANCEL);
-	            		dialog.setText("Question");
-	            		dialog.setMessage("Do you really want to delete this?");
-	            		
-	            		if(dialog.open() == SWT.OK){
-	            			hyperlink.setText(EMPTY);
-	    	            	hyperlink.setEnabled(false);
-	    	            	featureObservable.setValue(EMPTY);
-	            		}
-	            		
-	            	}
-	            }
-	            
-	    });
-
-		return composite;
-		
-	 }
-
-	public Control control_Formula_outputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
-		
-		
-		FormToolkit _toolkit = this.getToolkit();
-	    Composite _parent = this.getParent();
-	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
-	    GridLayout _gridLayout = new GridLayout(1, false);
-	    composite.setLayout(_gridLayout);
-	       
-	    output_featureObservable = featureObservable;
-	    
-	    GridData gridData = new GridData();
-		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
-	    gridData.grabExcessHorizontalSpace = true;
-	    gridData.minimumWidth = 50;
-	    
-	    if(featureObservable.getValue() == null){
-	    	hyperlink_output = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);  	
-	    }
-	    else{
-	    	hyperlink_output = _toolkit.createHyperlink(composite, ((Quantity)featureObservable.getValue()).getName() , SWT.NONE);
-	    	
-	    }
-	    hyperlink_output.setLayoutData(gridData); 
-	    hyperlink_output.setUnderlined(false);
-	    hyperlink_output.setForeground(getColorBlack());
-	    composite.forceFocus();
-	    
-	
-	    if (featureObservable.getValue() == null){
-	    	hyperlink_output.setEnabled(false);
-	    }else{
-	    	hyperlink_output.setEnabled(true);
-	    }
-	    
-	    
-		/**The action for click of this hyperlink und let open and show the model of hyperlink.*/
-		hyperlink_output.addHyperlinkListener(new HyperlinkAdapter() {
-	    	
-			public void linkActivated(HyperlinkEvent e) {
-				
-				
-				Boolean partVisible = false;
-				EPartService partService = EPartServiceHelper.getEPartService();
-				Collection<MPart> parts = partService.getParts();
-				
-				
-				for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
-				{
-					MPart partSearch = i.next();
-					if (partSearch.isVisible()) {
-						if(partSearch.getElementId().equals(output_featureObservable.getValue().toString())){
-							partVisible = true;
-		                	partService.activate(partSearch);
-		                	break;
-							 
-		                 }
-		    
-		             }
-		        }
-				
-				if(!partVisible){
-					
-					part = MBasicFactory.INSTANCE.createPart();
-					part.setLabel(((Quantity)output_featureObservable.getValue()).eClass().getName() + " " + ((Quantity)output_featureObservable.getValue()).getName());
-				    part.setElementId(output_featureObservable.getValue().toString());
-					part.setObject(output_featureObservable.getValue());
-					part.setCloseable(true);
-					//part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
-					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTQuantityModelViewer");
-
-					
-					partService.showPart(part, PartState.CREATE);
-					partService.bringToTop(part);
-					
-				}
-				
-				
-		
-			}//end linkActivated-clause
-		});
-		
-		
-
-	    return composite;
 	}
 	private Color getColorBlack(){
 		
