@@ -324,9 +324,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 			}
 			
 		}
-		
-		
-		//if(input_featureObservable.getValue() != null){
 		updateInputParameter(currentFormula, input);
 		
 		for (int t = 0; t < listOfHyperlink.size(); t++) {
@@ -399,7 +396,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 			if(!input.contains(generated_quantity) && !isCommunalQuantity(generated_quantity, currentFormulas, currentFormula)){
 				
-				//removeOldQuantity(generatedQuantities, generated_quantity);
+				
 				deleting_InputQuantities_array.add(generated_quantity);
 				
 			}
@@ -407,45 +404,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		}
 		
 		removeOldQuantity(deleting_InputQuantities_array, currentFormula);
-		
-		
-		//System.out.println(deleting_InputQuantities_array.get(0).toString());
-		
-		/*if(input_featureObservable.getValue() != null){
 			
-			String [] oldQuantities_stringArray = input_featureObservable.getValue().toString().split(",");
-			ArrayList<String> oldQuantities_arrayList = new ArrayList<>(Arrays.asList(oldQuantities_stringArray));
-		
-			for(String old_quantity : oldQuantities_arrayList){
-				
-				if(!input.contains(old_quantity) && !isCommunalQuantity(old_quantity, currentformulas)){
-					
-					removeOldQuantity(generatedQuantities, old_quantity);
-					
-				}
-				
-			}
-		}*/
-		
-		/*EList<Formula> currentFormulas = currentFormula.getRepository().getFormulas();
-		ArrayList<String> deleting_InputQuantities_array = new ArrayList<String>();
-		
-		for(int i=0; i<currentFormulas.size(); i++){
-			
-			String [] inputParameter_stringArray = currentFormulas.get(i).getInputParameter().split(","); 
-			ArrayList<String> inputParameter_array = new ArrayList<>(Arrays.asList(inputParameter_stringArray));
-			
-			if(inputParameter_array.contains(old_quantity)){
-				
-				
-			}
-			
-		}*/
-		
-		
-		
-		
-		
 	}
 	private Boolean isCommunalQuantity(String generated_quantity, EList<Formula> formulas, Formula currentFormula){
 		
@@ -468,34 +427,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		return common;
 	}
-	private void removeOldQuantity(EList<Quantity> quantities, String old_quantity){
-		
-		int pivot = -1;
-		for(int i=0; i<quantities.size(); i++){
-			
-			if(quantities.get(i).getName().equals(old_quantity)){
-				
-				pivot = i;
-				
-			}
-			
-		}
-		
-		if(pivot != -1){
-
-			final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
-			ArrayList<Object> toBeDeleted = new ArrayList<Object>();
-			Quantity q = quantities.get(pivot);
-			EObject eObject = q;
-			toBeDeleted.add(q);
-			ECPHandlerHelper.deleteModelElement(
-					ecpProjectManager.getProject(eObject),
-					toBeDeleted);
-
-		}
-			
-	//ArrayList<String> deleting_InputQuantities_array
-	}
 	private void removeOldQuantity(ArrayList<String> deleting_InputQuantities_array, Formula currentFormula){
 		
 		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
@@ -512,33 +443,11 @@ public class CustomFormControlFactory extends FormControlFactory {
 				EObject eObject = q;
 				ECPHandlerHelper.deleteModelElement(
 						ecpProjectManager.getProject(eObject),
-						toBeDeleted);
-				
+						toBeDeleted);				
 			}
 			
-			/*if(quantities.get(i).getName().equals(old_quantity)){
-				
-				pivot = i;
-				
-			}*/
-			
 		}
-		
-		
-		/*if(pivot != -1){
 
-			final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
-			ArrayList<Object> toBeDeleted = new ArrayList<Object>();
-			Quantity q = quantities.get(pivot);
-			EObject eObject = q;
-			toBeDeleted.add(q);
-			ECPHandlerHelper.deleteModelElement(
-					ecpProjectManager.getProject(eObject),
-					toBeDeleted);
-
-		}*/
-			
-	//ArrayList<String> deleting_InputQuantities_array
 	}
 	private void showInputPart(Hyperlink hyperlink, Formula currentFormula){
 		
@@ -570,9 +479,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 			part = MBasicFactory.INSTANCE.createPart();
 			part.setLabel("Output  " + hyperlink.getText());
-		    part.setElementId(hyperlink.getText());
-			//part.setObject(featureObservable.getValue());
-		    
+		    part.setElementId(hyperlink.getText());		    
 		    for(Quantity q : quantities){
 				
 				if(q.getName().equals(hyperlink.getText())){
