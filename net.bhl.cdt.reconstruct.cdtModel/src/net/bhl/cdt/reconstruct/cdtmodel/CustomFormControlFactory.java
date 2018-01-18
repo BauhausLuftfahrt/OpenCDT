@@ -542,12 +542,21 @@ public class CustomFormControlFactory extends FormControlFactory {
 				EPartService partService = EPartServiceHelper.getEPartService();
 				Collection<MPart> parts = partService.getParts();
 				
+				String output = hyperlink_output.getText();
 				
 				for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
 				{
 					MPart partSearch = i.next();
 					if (partSearch.isVisible()) {
-						if(partSearch.getElementId().equals(output_featureObservable.getValue().toString())){
+						
+						/*if(partSearch.getElementId().equals(output_featureObservable.getValue().toString())){
+							partVisible = true;
+		                	partService.activate(partSearch);
+		                	break;
+							 
+		                 }*/
+						
+						if(partSearch.getElementId().equals(output)){
 							partVisible = true;
 		                	partService.activate(partSearch);
 		                	break;
@@ -559,19 +568,46 @@ public class CustomFormControlFactory extends FormControlFactory {
 				
 				if(!partVisible){
 					
-					part = MBasicFactory.INSTANCE.createPart();
-					part.setLabel(((Quantity)output_featureObservable.getValue()).eClass().getName() + " " + ((Quantity)output_featureObservable.getValue()).getName());
-				    part.setElementId(output_featureObservable.getValue().toString());
-					part.setObject(output_featureObservable.getValue());
-					part.setCloseable(true);
-					//part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
-					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTQuantityModelViewer");
-
+					if(output_featureObservable.getValue() != null){
+						
+						part = MBasicFactory.INSTANCE.createPart();
+						part.setLabel(((Quantity)output_featureObservable.getValue()).eClass().getName() + " " + ((Quantity)output_featureObservable.getValue()).getName());
+					    part.setElementId(output_featureObservable.getValue().toString());
+					    part.setObject(output_featureObservable.getValue());
+						part.setCloseable(true);
+						//part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+						part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTQuantityModelViewer");
+	
+						
+						partService.showPart(part, PartState.CREATE);
+						partService.bringToTop(part);
 					
-					partService.showPart(part, PartState.CREATE);
-					partService.bringToTop(part);
+				   }else{
+					   
+					   part = MBasicFactory.INSTANCE.createPart();
+					   part.setLabel("output " + output);
+					   part.setElementId(output);
+					   
+					   Formula currentFormula = (Formula)getOwner();
+					   EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
+					   //ArrayList<String> outQuantities_arrayList = new ArrayList<String>();
+					   for(Quantity qt : quantities){
+							
+							if(qt.getDescription().equals("output") && qt.getName().equals(output)){
+								
+								part.setObject(qt);
+								
+							}
+							
+					   }
+					   part.setCloseable(true);
+					   part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTQuantityModelViewer");
 					
-				}
+					   partService.showPart(part, PartState.CREATE);
+					   partService.bringToTop(part);
+				   }
+			  
+			   }
 				
 				
 		
@@ -695,8 +731,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		for(String generated_quantity : generatedInputQuantities_array){
 			
 			if(!input.contains(generated_quantity) && !isCommunalQuantity(generated_quantity, currentFormulas, currentFormula)){
-				
-				
+								
 				deleting_InputQuantities_array.add(generated_quantity);
 				
 			}
@@ -802,47 +837,69 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private void createOutputQuantity(String latexFormula){
 		
 		String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
-		hyperlink_output.setText(out);
-		hyperlink_output.setEnabled(true);
-		Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
-		quantity.setName(out);
-		quantity.setDescription("output");
+		System.out.println("out : " + out);
 		
-		if(output_featureObservable.getValue() == null){
+		Quantity q = (Quantity) output_featureObservable.getValue();
+		
+		if(!out.equals(EMPTY)){
 			
-			Formula currentFormula = (Formula)getOwner();
+			hyperlink_output.setText(out);
+			hyperlink_output.setEnabled(true);
 			
-			EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
-			ArrayList<String> outQuantities_arrayList = new ArrayList<String>();
+			Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+			quantity.setName(out);
+			quantity.setDescription("output");
 			
-			for(Quantity q : quantities){
+			if(output_featureObservable.getValue() == null){
 				
-				if(q.getDescription().equals("output")){
+				
+				Formula currentFormula = (Formula)getOwner();
+				EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
+				ArrayList<String> outQuantities_arrayList = new ArrayList<String>();
+				for(Quantity qt : quantities){
 					
-					outQuantities_arrayList.add(q.getName());
+					if(qt.getDescription().equals("output")){
+						
+						outQuantities_arrayList.add(qt.getName());
+					}
+					
 				}
 				
-				
-			}
-			
-			if(!outQuantities_arrayList.contains(out)){
-				
-				currentFormula.getRepository().getQuantities().add(quantity);
-				output_featureObservable.setValue(quantity);
-				
+				if(!outQuantities_arrayList.contains(out)){
+					
+					currentFormula.getRepository().getQuantities().add(quantity);
+					output_featureObservable.setValue(quantity);
+					
+				}else{
+					
+				}
+					
 			}else{
 				
-			}
+				//Quantity q = (Quantity) output_featureObservable.getValue();
 				
-		}else{
-			
-			Quantity q = (Quantity) output_featureObservable.getValue();
-			
-			if(!q.getName().equals(out)){
-				Formula currentFormula = (Formula)getOwner();
-				modifyPreviousOutput(currentFormula.getRepository(), out, q);
-												
+				if(!q.getName().equals(out)){
+					Formula currentFormula = (Formula)getOwner();
+					modifyPreviousOutput(currentFormula.getRepository(), out, q);
+													
+				}
 			}
+			
+		}
+		else{
+			
+			hyperlink_output.setText(out);
+			hyperlink_output.setEnabled(false);
+
+			final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
+			ArrayList<Object> toBeDeleted = new ArrayList<Object>();
+		
+			toBeDeleted.add(q);
+			EObject eObject = q;
+			ECPHandlerHelper.deleteModelElement(
+					ecpProjectManager.getProject(eObject),
+					toBeDeleted);		
+			
 		}
 	}
 	private void modifyPreviousOutput(FormulaRepository repository, String output, Quantity q ){
