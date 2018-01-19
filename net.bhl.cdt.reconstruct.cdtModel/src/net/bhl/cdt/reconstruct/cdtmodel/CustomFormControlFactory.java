@@ -628,7 +628,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 						
 						part = MBasicFactory.INSTANCE.createPart();
 						part.setLabel(((Quantity)output_featureObservable.getValue()).eClass().getName() + " " + ((Quantity)output_featureObservable.getValue()).getName());
-					    part.setElementId(output_featureObservable.getValue().toString());
+					    //part.setElementId(output_featureObservable.getValue().toString());
+						part.setElementId(output);
 					    part.setObject(output_featureObservable.getValue());
 						part.setCloseable(true);
 						//part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
