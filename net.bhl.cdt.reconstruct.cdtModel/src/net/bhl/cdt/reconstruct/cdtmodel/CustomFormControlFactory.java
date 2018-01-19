@@ -605,19 +605,19 @@ public class CustomFormControlFactory extends FormControlFactory {
 					MPart partSearch = i.next();
 					if (partSearch.isVisible()) {
 						
-						/*if(partSearch.getElementId().equals(output_featureObservable.getValue().toString())){
-							partVisible = true;
-		                	partService.activate(partSearch);
-		                	break;
-							 
-		                 }*/
-						
-						if(partSearch.getElementId().equals(output)){
+						if(partSearch.getElementId().equals(output_featureObservable.getValue().toString())){
 							partVisible = true;
 		                	partService.activate(partSearch);
 		                	break;
 							 
 		                 }
+						
+						/*if(partSearch.getElementId().equals(output)){
+							partVisible = true;
+		                	partService.activate(partSearch);
+		                	break;
+							 
+		                 }*/
 		    
 		             }
 		        }
@@ -628,8 +628,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 						
 						part = MBasicFactory.INSTANCE.createPart();
 						part.setLabel(((Quantity)output_featureObservable.getValue()).eClass().getName() + " " + ((Quantity)output_featureObservable.getValue()).getName());
-					    //part.setElementId(output_featureObservable.getValue().toString());
-						part.setElementId(output);
+					    part.setElementId(output_featureObservable.getValue().toString());
+						//part.setElementId(output);
 					    part.setObject(output_featureObservable.getValue());
 						part.setCloseable(true);
 						//part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
@@ -643,7 +643,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 					   
 					   part = MBasicFactory.INSTANCE.createPart();
 					   part.setLabel("output " + output);
-					   part.setElementId(output);
+					   //part.setElementId(output);
 					   
 					   Formula currentFormula = (Formula)getOwner();
 					   EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
@@ -653,7 +653,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 							if(qt.getDescription().equals("output") && qt.getName().equals(output)){
 								
 								part.setObject(qt);
-								
+								part.setElementId(qt.toString());
 							}
 							
 					   }
