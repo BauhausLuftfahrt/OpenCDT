@@ -474,12 +474,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	  for (int p = 0; p < 10; p++) {
 				   
 				   Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
-				   new_hyperlink_input.setLayoutData(rowData); 
+				  /* new_hyperlink_input.setLayoutData(rowData); 
 				   new_hyperlink_input.setEnabled(false);
 				   new_hyperlink_input.setUnderlined(true);
 				   new_hyperlink_input.setForeground(getColorBlack());
-				   
 				   listOfHyperlink.add(new_hyperlink_input);
+				   */
+				   controlHyperlink(new_hyperlink_input, false, true);
 			 	   
 			  }
 	    	  
@@ -492,10 +493,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    		if(p < stringArray.length){
 	    			
 		    		Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, stringArray[p], SWT.NONE);
-		    		hyperlink_input.setLayoutData(rowData); 
-		    		hyperlink_input.setEnabled(true);//new added
+		    		/*hyperlink_input.setLayoutData(rowData); 
+		    		hyperlink_input.setEnabled(true);
 		    	    hyperlink_input.setForeground(getColorBlack());
 		    	    hyperlink_input.setUnderlined(true);
+		    	    listOfHyperlink.add(hyperlink_input);*/
+		    		controlHyperlink(hyperlink_input, true, true);
+		    		
 		    	    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
 		    	    	
 		    	 			public void linkActivated(HyperlinkEvent e) {
@@ -503,16 +507,19 @@ public class CustomFormControlFactory extends FormControlFactory {
 		    	 				showInputPart(hyperlink_input, currentFormula);
 		    	 			}
 		    	 	});
-		    	    listOfHyperlink.add(hyperlink_input);
+		    	  
 	    		}
 	    		
 	    		else{
 	    			
 	    			 Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
-					 new_hyperlink_input.setLayoutData(rowData); 
+	    			 controlHyperlink(new_hyperlink_input, false, true);
+			    		
+					 /*new_hyperlink_input.setLayoutData(rowData); 
 					 new_hyperlink_input.setEnabled(false);
 					 new_hyperlink_input.setUnderlined(true);
 					 new_hyperlink_input.setForeground(getColorBlack());
+					 listOfHyperlink.add(new_hyperlink_input);*/
 					 /*new_hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
 			    	    	
 		    	 			public void linkActivated(HyperlinkEvent e) {
@@ -520,7 +527,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		    	 				showInputPart(new_hyperlink_input, currentFormula);
 		    	 			}
 		    	 		});*/
-					 listOfHyperlink.add(new_hyperlink_input);
+					 
 	    			
 	    			
 	    		}
@@ -660,6 +667,20 @@ public class CustomFormControlFactory extends FormControlFactory {
 
 	    return composite;
 	}
+	private void controlHyperlink(Hyperlink hyperlink, Boolean enable, Boolean underline){
+		
+		RowData rowData = new RowData();
+	    rowData.width = 50;
+		
+	    hyperlink.setLayoutData(rowData); 
+		hyperlink.setEnabled(enable);
+		hyperlink.setUnderlined(underline);
+		hyperlink.setForeground(getColorBlack());
+		   
+		listOfHyperlink.add(hyperlink);
+		
+		
+	}
 	private void showOutputPart(Hyperlink hyperlink, Formula currentFormula){
 		
 		System.out.println("show part for input");
@@ -771,10 +792,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 			for(int p = 0; p < rest; p++) {
 				
 				Hyperlink rest_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
-				rest_hyperlink_input.setLayoutData(rowData); 
+				controlHyperlink(rest_hyperlink_input, true, true);
+				/*rest_hyperlink_input.setLayoutData(rowData); 
 				rest_hyperlink_input.setEnabled(true);
 				rest_hyperlink_input.setUnderlined(true);
 				rest_hyperlink_input.setForeground(getColorBlack());
+				listOfHyperlink.add(rest_hyperlink_input);*/
 				/*rest_hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
 	    	    	
 		 			public void linkActivated(HyperlinkEvent e) {
@@ -782,7 +805,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		 				showInputPart(rest_hyperlink_input, currentFormula);
 		 			}
 		 	});*/
-			listOfHyperlink.add(rest_hyperlink_input);
+			
 				
 			}
 			
