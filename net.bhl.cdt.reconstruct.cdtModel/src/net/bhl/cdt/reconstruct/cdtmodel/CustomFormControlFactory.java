@@ -858,12 +858,25 @@ public class CustomFormControlFactory extends FormControlFactory {
 		EPartService partService = EPartServiceHelper.getEPartService();
 		Collection<MPart> parts = partService.getParts();
 		
+		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
+		Quantity show_quantity = null;
 		
+		for(Quantity q : quantities){
+				
+				if(q.getName().equals(hyperlink.getText())){
+					//part.setObject(q);
+					show_quantity = q;
+					
+				}	
+		 }
+		 
+		 
 		for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
 		{
 			MPart partSearch = i.next();
 			if (partSearch.isVisible()) {
-				if(partSearch.getElementId().equals(hyperlink.getText())){
+				//if(partSearch.getElementId().equals(hyperlink.getText())){
+				if(partSearch.getElementId().equals(show_quantity.toString())){
 					partVisible = true;
                 	partService.activate(partSearch);
                 	break;
@@ -874,20 +887,21 @@ public class CustomFormControlFactory extends FormControlFactory {
         }
 		
 		
-		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
 		
 		if(!partVisible){
 			
 			part = MBasicFactory.INSTANCE.createPart();
-			part.setLabel("Output  " + hyperlink.getText());
-		    part.setElementId(hyperlink.getText());		    
-		    for(Quantity q : quantities){
+			part.setLabel("input  " + hyperlink.getText());
+		   // part.setElementId(hyperlink.getText());
+			 part.setElementId(show_quantity.toString());
+		    /*for(Quantity q : quantities){
 				
 				if(q.getName().equals(hyperlink.getText())){
 					part.setObject(q);
 					
 				}	
-			}
+			}*/
+		    part.setObject(show_quantity);
 		    
 			part.setCloseable(true);
 			//part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
