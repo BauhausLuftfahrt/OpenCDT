@@ -156,7 +156,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private ArrayList<Quantity> listOfQunatity = new ArrayList<Quantity>(); 
 	private ReferenceDialog treeColumnDialog;
 	private static final String EMPTY = "";
-	private static final String NOTHINH_FORMULA = "$$ $$";
+	private static final String NOTHINH_GENERATE_QUANTITY = "=";
 	private static final int STANDARD_WIDTH = 300;
 
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
@@ -210,6 +210,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 							
 								generateQuantities(latexformula);
 								
+							}else{
+								
+								generateQuantities(NOTHINH_GENERATE_QUANTITY);
 							}
 							/**
 							 * remove the focus on showButton*/
@@ -289,15 +292,27 @@ public class CustomFormControlFactory extends FormControlFactory {
 	}
 	private Boolean admittanceOfgenerating(String latexformula){
 		
-		Boolean admit = true;
+		Boolean admit = false;
 		
 		//check =
-		
+		if(latexformula.contains("=") && isOneEqualSymbol(latexformula)){
+			admit = true;
+		}
 		//only $$$$
 		
 		
 		
 		return admit;
+	}
+	private Boolean isOneEqualSymbol(String latexformula){
+		
+		int equal = 0;
+		for(int i = 0; i < latexformula.length(); i++) {
+		    if(latexformula.charAt(i) == '=') equal++;
+		}
+
+		return equal == 1;
+		
 	}
 	public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
 		
