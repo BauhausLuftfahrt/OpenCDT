@@ -153,7 +153,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private IObservableValue input_featureObservable;
 	private Composite inputParameter_composite;
 	private ArrayList<Hyperlink> listOfHyperlink = new ArrayList<Hyperlink>();; 
-	private ArrayList<Quantity> listOfQunatity = new ArrayList<Quantity>(); 
+	//private ArrayList<Quantity> listOfQunatity = new ArrayList<Quantity>(); 
 	private ReferenceDialog treeColumnDialog;
 	private static final String EMPTY = "";
 	private static final String NOTHINH_GENERATE_QUANTITY = "=";
@@ -242,7 +242,9 @@ public class CustomFormControlFactory extends FormControlFactory {
         canvas = new Canvas(composite, SWT.FILL);
         gd = new GridData();
         gd.widthHint = STANDARD_WIDTH;
-        /**the initial size of formula-image is set in 60*/ 
+        /**
+         * the initial size of formula-image is set in 60
+         * */ 
         startHeight = 60;
         gd.heightHint = startHeight;
         
@@ -290,30 +292,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		return composite;
 		
 	}
-	private Boolean admittanceOfgenerating(String latexformula){
-		
-		Boolean admit = false;
-		
-		//check =
-		if(latexformula.contains("=") && isOneEqualSymbol(latexformula)){
-			admit = true;
-		}
-		//only $$$$
-		
-		
-		
-		return admit;
-	}
-	private Boolean isOneEqualSymbol(String latexformula){
-		
-		int equal = 0;
-		for(int i = 0; i < latexformula.length(); i++) {
-		    if(latexformula.charAt(i) == '=') equal++;
-		}
-
-		return equal == 1;
-		
-	}
+	
 	public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		
@@ -330,7 +309,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    hyperLinkStr = "";
 	    
 	    if (featureObservable.getValue() != null)
-	    	hyperLinkStr = (((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
+	    	hyperLinkStr = (((ALiteratureBase) featureObservable.getValue()).eClass().getName() +
+	    			" " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
 	    
 	    	
 	    hyperlink = _toolkit.createHyperlink(composite, hyperLinkStr, SWT.NONE);
@@ -368,7 +348,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 				if(!partVisible){
 					
 					part = MBasicFactory.INSTANCE.createPart();
-					part.setLabel(((ALiteratureBase) featureObservable.getValue()).eClass().getName() + " " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
+					part.setLabel(((ALiteratureBase) featureObservable.getValue()).eClass().getName() + 
+							" " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
 				    part.setElementId(featureObservable.getValue().toString());
 					part.setObject(featureObservable.getValue());
 					part.setCloseable(true);
@@ -512,6 +493,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    			
 		    		Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, stringArray[p], SWT.NONE);
 		    		hyperlink_input.setLayoutData(rowData); 
+		    		hyperlink_input.setEnabled(true);//new added
 		    	    hyperlink_input.setForeground(getColorBlack());
 		    	    hyperlink_input.setUnderlined(true);
 		    	    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
@@ -587,9 +569,17 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	hyperlink_output.setEnabled(true);
 	    }
 	    
+	    Formula currentFormula = (Formula)getOwner();
 	    
 		/**The action for click of this hyperlink und let open and show the model of hyperlink.*/
-		hyperlink_output.addHyperlinkListener(new HyperlinkAdapter() {
+	    hyperlink_output.addHyperlinkListener(new HyperlinkAdapter() {
+	    	
+	 			public void linkActivated(HyperlinkEvent e) {
+	 		
+	 				showOutputPart(hyperlink_output, currentFormula);
+	 			}
+	 	});
+		/*hyperlink_output.addHyperlinkListener(new HyperlinkAdapter() {
 	    	
 			public void linkActivated(HyperlinkEvent e) {
 				
@@ -605,20 +595,15 @@ public class CustomFormControlFactory extends FormControlFactory {
 					MPart partSearch = i.next();
 					if (partSearch.isVisible()) {
 						
+						
+						
 						if(partSearch.getElementId().equals(output_featureObservable.getValue().toString())){
 							partVisible = true;
 		                	partService.activate(partSearch);
 		                	break;
 							 
 		                 }
-						
-						/*if(partSearch.getElementId().equals(output)){
-							partVisible = true;
-		                	partService.activate(partSearch);
-		                	break;
-							 
-		                 }*/
-		    
+			
 		             }
 		        }
 				
@@ -669,11 +654,94 @@ public class CustomFormControlFactory extends FormControlFactory {
 				
 		
 			}//end linkActivated-clause
-		});
+		});*/
 		
 		
 
 	    return composite;
+	}
+	private void showOutputPart(Hyperlink hyperlink, Formula currentFormula){
+		
+		System.out.println("show part for input");
+		
+		Boolean partVisible = false;
+		EPartService partService = EPartServiceHelper.getEPartService();
+		Collection<MPart> parts = partService.getParts();
+		
+		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
+		Quantity show_quantity = null;
+		
+		for(Quantity q : quantities){
+				
+				if(q.getName().equals(hyperlink.getText())){
+					//part.setObject(q);
+					show_quantity = q;
+					
+				}	
+		 }
+		 
+		 
+		for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
+		{
+			MPart partSearch = i.next();
+			if (partSearch.isVisible()) {
+				//if(partSearch.getElementId().equals(hyperlink.getText())){
+				if(partSearch.getElementId().equals(show_quantity.toString())){
+					partVisible = true;
+                	partService.activate(partSearch);
+                	break;
+					 
+                 }
+    
+             }
+        }
+		
+		
+		
+		if(!partVisible){
+			
+			part = MBasicFactory.INSTANCE.createPart();
+			part.setLabel("output  " + hyperlink.getText());
+		   // part.setElementId(hyperlink.getText());
+			 part.setElementId(show_quantity.toString());
+		    /*for(Quantity q : quantities){
+				
+				if(q.getName().equals(hyperlink.getText())){
+					part.setObject(q);
+					
+				}	
+			}*/
+		    part.setObject(show_quantity);
+		    
+			part.setCloseable(true);
+			//part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+			part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTQuantityModelViewer");
+
+			partService.showPart(part, PartState.CREATE);
+			partService.bringToTop(part);
+			
+		}
+		
+	}
+	private Boolean admittanceOfgenerating(String latexformula){
+		
+		Boolean admit = false;
+		
+		if(latexformula.contains("=") && isOneEqualSymbol(latexformula)){
+			admit = true;
+		}
+
+		return admit;
+	}
+	private Boolean isOneEqualSymbol(String latexformula){
+		
+		int equal = 0;
+		for(int i = 0; i < latexformula.length(); i++) {
+		    if(latexformula.charAt(i) == '=') equal++;
+		}
+
+		return equal == 1;
+		
 	}
 	
 	private void generateQuantities(String latexFormula){
