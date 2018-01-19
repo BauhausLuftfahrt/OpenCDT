@@ -478,6 +478,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	for (int p = 0; p < 10; p++) {
 	    		
 	    		if(p < stringArray.length){
+	    			
 		    		Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, stringArray[p], SWT.NONE);
 		    		hyperlink_input.setLayoutData(rowData); 
 		    	    hyperlink_input.setForeground(getColorBlack());
@@ -497,8 +498,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    			 Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
 					 new_hyperlink_input.setLayoutData(rowData); 
 					 new_hyperlink_input.setEnabled(false);
-					 //new_hyperlink_input.setUnderlined(true);
-					 //new_hyperlink_input.setForeground(getColorBlack());
+					 new_hyperlink_input.setUnderlined(true);
+					 new_hyperlink_input.setForeground(getColorBlack());
 					 /*new_hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
 			    	    	
 		    	 			public void linkActivated(HyperlinkEvent e) {
@@ -703,6 +704,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		   	 	Hyperlink presentLink = listOfHyperlink.get(q);
 		   	 	listOfHyperlink.get(q).setEnabled(true);
 				listOfHyperlink.get(q).setText(input.get(q).toString());
+				listOfHyperlink.get(q).setForeground(getColorBlack());
 				listOfHyperlink.get(q).addHyperlinkListener(new HyperlinkAdapter() {
 	    	    	
 		 			public void linkActivated(HyperlinkEvent e) {
@@ -724,7 +726,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	}
 	private void updateInputParameter(Formula currentFormula, ArrayList<String> input){
 		
-		EList<Quantity> generatedQuantities = currentFormula.getRepository().getQuantities();
+		EList<Quantity> generatedQuantities = currentFormula.getRepository().getQuantities();// b, c, d
 		ArrayList<String> generatedInputQuantities_array = new ArrayList<String>();
 	
 		
@@ -732,7 +734,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 			if(gQ.getDescription().equals("input")){
 				
-				generatedInputQuantities_array.add(gQ.getName());
+				generatedInputQuantities_array.add(gQ.getName());// b, c, d
 			}
 			
 			
@@ -748,10 +750,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 				currentFormula.getRepository().getQuantities().add(quantity);
 				generatedInputQuantities_array.add(input_quantity);
 				
-				listOfQunatity.add(quantity);
+				//listOfQunatity.add(quantity);
 				
 			}
 		}
+		
+		
 		ArrayList<String> deleting_InputQuantities_array = new ArrayList<String>();
 		EList<Formula> currentFormulas = currentFormula.getRepository().getFormulas();
 		
@@ -802,13 +806,45 @@ public class CustomFormControlFactory extends FormControlFactory {
 				
 				Quantity q = quantities.get(i);
 				toBeDeleted.add(q);
+				/*EObject eObject = q;
+				ECPHandlerHelper.deleteModelElement(
+						ecpProjectManager.getProject(eObject),
+						toBeDeleted);	*/			
+			}
+			
+		}
+		for(Iterator i = toBeDeleted.iterator();i.hasNext();){
+			
+			EObject eObject = (EObject) i.next();
+			ECPHandlerHelper.deleteModelElement(
+					ecpProjectManager.getProject(eObject),
+					toBeDeleted);	
+		}	
+		
+		
+		/*final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
+		ArrayList<Object> toBeDeleted = new ArrayList<Object>();
+		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
+		
+		for(int i=0; i< deleting_InputQuantities_array.size(); i++){
+			
+			String deleting_quantity = deleting_InputQuantities_array.get(i);
+			
+			
+			for(int j=0; j< deleting_InputQuantities_array.size(); j++){
+			if(deleting_InputQuantities_array.contains(quantities.get(i).getName())){
+				
+				Quantity q = quantities.get(i);
+				toBeDeleted.add(q);
 				EObject eObject = q;
 				ECPHandlerHelper.deleteModelElement(
 						ecpProjectManager.getProject(eObject),
 						toBeDeleted);				
 			}
 			
-		}
+		}*/
+
+
 
 	}
 	private void showInputPart(Hyperlink hyperlink, Formula currentFormula){
