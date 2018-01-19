@@ -156,6 +156,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private ArrayList<Quantity> listOfQunatity = new ArrayList<Quantity>(); 
 	private ReferenceDialog treeColumnDialog;
 	private static final String EMPTY = "";
+	private static final String NOTHINH_FORMULA = "$$ $$";
 	private static final int STANDARD_WIDTH = 300;
 
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
@@ -204,9 +205,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 						try {
 							
 							createNewImage(latexformula, composite, latexString);
-													
-							generateQuantities(latexformula);
 							
+							if(admittanceOfgenerating(latexformula)){
+							
+								generateQuantities(latexformula);
+								
+							}
 							/**
 							 * remove the focus on showButton*/
 							_parent.getShell().setFocus();
@@ -282,6 +286,18 @@ public class CustomFormControlFactory extends FormControlFactory {
         
 		return composite;
 		
+	}
+	private Boolean admittanceOfgenerating(String latexformula){
+		
+		Boolean admit = true;
+		
+		//check =
+		
+		//only $$$$
+		
+		
+		
+		return admit;
 	}
 	public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
 		
