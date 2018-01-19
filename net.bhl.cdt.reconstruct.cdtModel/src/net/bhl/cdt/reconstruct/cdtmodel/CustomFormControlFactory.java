@@ -806,10 +806,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				
 				Quantity q = quantities.get(i);
 				toBeDeleted.add(q);
-				/*EObject eObject = q;
-				ECPHandlerHelper.deleteModelElement(
-						ecpProjectManager.getProject(eObject),
-						toBeDeleted);	*/			
+					
 			}
 			
 		}
@@ -819,33 +816,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			ECPHandlerHelper.deleteModelElement(
 					ecpProjectManager.getProject(eObject),
 					toBeDeleted);	
-		}	
-		
-		
-		/*final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
-		ArrayList<Object> toBeDeleted = new ArrayList<Object>();
-		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
-		
-		for(int i=0; i< deleting_InputQuantities_array.size(); i++){
-			
-			String deleting_quantity = deleting_InputQuantities_array.get(i);
-			
-			
-			for(int j=0; j< deleting_InputQuantities_array.size(); j++){
-			if(deleting_InputQuantities_array.contains(quantities.get(i).getName())){
-				
-				Quantity q = quantities.get(i);
-				toBeDeleted.add(q);
-				EObject eObject = q;
-				ECPHandlerHelper.deleteModelElement(
-						ecpProjectManager.getProject(eObject),
-						toBeDeleted);				
-			}
-			
-		}*/
-
-
-
+		}
 	}
 	private void showInputPart(Hyperlink hyperlink, Formula currentFormula){
 		
