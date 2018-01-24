@@ -156,7 +156,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	//private ArrayList<Quantity> listOfQunatity = new ArrayList<Quantity>(); 
 	private ReferenceDialog treeColumnDialog;
 	private static final String EMPTY = "";
-	private static final String NOTHINH_GENERATE_QUANTITY = "=";
+	private static final String NOTHING_GENERATE_QUANTITY = "=";
 	private static final int STANDARD_WIDTH = 300;
 
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
@@ -192,7 +192,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				System.out.println("latexformula : " + latexformula);
 				
 				/**
-				 * In case texbox of latexString is empty 
+				 * In case textbox of latexString is empty 
 				 * */
 				if(latexformula == EMPTY){
 					/**
@@ -212,7 +212,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 								
 							}else{
 								
-								generateQuantities(NOTHINH_GENERATE_QUANTITY);
+								generateQuantities(NOTHING_GENERATE_QUANTITY);
 							}
 							/**
 							 * remove the focus on showButton*/
@@ -456,20 +456,23 @@ public class CustomFormControlFactory extends FormControlFactory {
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
 	    inputParameter_composite = _toolkit.createComposite(_parent, SWT.NONE);
-	    Formula currentFormula = (Formula)getOwner();
-	    
+	 
 	    RowLayout rowLayout = new RowLayout();
 	    rowLayout.wrap = true;
 	    rowLayout.justify = false;
 	    rowLayout.marginLeft = 5;
 	    
-	    RowData rowData = new RowData();
-	    rowData.width = 50;
-	    
 	    inputParameter_composite.setLayout(rowLayout);
+	    
 	    input_featureObservable = featureObservable;
 	    
- 	    if(input_featureObservable.getValue() == null || input_featureObservable.getValue().equals("")){	
+	    /* RowData rowData = new RowData();
+	    rowData.width = 50;*/
+
+	    Formula currentFormula = (Formula)getOwner();
+	    
+	    
+	    if(input_featureObservable.getValue() == null || input_featureObservable.getValue().equals("")){	
 	    	
 	    	  for (int p = 0; p < 10; p++) {
 				   
@@ -480,7 +483,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				   new_hyperlink_input.setForeground(getColorBlack());
 				   listOfHyperlink.add(new_hyperlink_input);
 				   */
-				   controlHyperlink(new_hyperlink_input, false, true);
+				   controlHyperlinkInput(new_hyperlink_input, false, true);
 			 	   
 			  }
 	    	  
@@ -498,7 +501,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		    	    hyperlink_input.setForeground(getColorBlack());
 		    	    hyperlink_input.setUnderlined(true);
 		    	    listOfHyperlink.add(hyperlink_input);*/
-		    		controlHyperlink(hyperlink_input, true, true);
+		    		controlHyperlinkInput(hyperlink_input, true, true);
 		    		
 		    	    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
 		    	    	
@@ -513,7 +516,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    		else{
 	    			
 	    			 Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
-	    			 controlHyperlink(new_hyperlink_input, false, true);
+	    			 controlHyperlinkInput(new_hyperlink_input, false, true);
 			    		
 					 /*new_hyperlink_input.setLayoutData(rowData); 
 					 new_hyperlink_input.setEnabled(false);
@@ -542,8 +545,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    return inputParameter_composite;
 	}
 	public Control control_Formula_outputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
-		
-		
+			
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
 	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
@@ -552,29 +554,18 @@ public class CustomFormControlFactory extends FormControlFactory {
 	       
 	    output_featureObservable = featureObservable;
 	    
-	    GridData gridData = new GridData();
-		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
-	    gridData.grabExcessHorizontalSpace = true;
-	    gridData.minimumWidth = 50;
-	    
 	    if(featureObservable.getValue() == null){
-	    	hyperlink_output = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);  	
+	    	hyperlink_output = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);
+	    	controlHyperlinkOutput(hyperlink_output, false, false);
 	    }
 	    else{
 	    	hyperlink_output = _toolkit.createHyperlink(composite, ((Quantity)featureObservable.getValue()).getName() , SWT.NONE);
-	    	
+	    	controlHyperlinkOutput(hyperlink_output, true, false);
 	    }
-	    hyperlink_output.setLayoutData(gridData); 
-	    hyperlink_output.setUnderlined(false);
-	    hyperlink_output.setForeground(getColorBlack());
+	   
+	   
 	    composite.forceFocus();
-	    
-	
-	    if (featureObservable.getValue() == null){
-	    	hyperlink_output.setEnabled(false);
-	    }else{
-	    	hyperlink_output.setEnabled(true);
-	    }
+	   
 	    
 	    Formula currentFormula = (Formula)getOwner();
 	    
@@ -667,7 +658,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 
 	    return composite;
 	}
-	private void controlHyperlink(Hyperlink hyperlink, Boolean enable, Boolean underline){
+	private void controlHyperlinkInput(Hyperlink hyperlink, Boolean enable, Boolean underline){
 		
 		RowData rowData = new RowData();
 	    rowData.width = 50;
@@ -679,6 +670,21 @@ public class CustomFormControlFactory extends FormControlFactory {
 		   
 		listOfHyperlink.add(hyperlink);
 		
+		
+	}
+	private void controlHyperlinkOutput(Hyperlink hyperlink, Boolean enable, Boolean underline){
+		
+		GridData gridData = new GridData();
+		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
+	    gridData.grabExcessHorizontalSpace = true;
+	    gridData.minimumWidth = 50;
+	    
+	    hyperlink.setLayoutData(gridData); 
+	    hyperlink.setEnabled(enable);
+	    hyperlink.setUnderlined(underline);
+	    hyperlink.setForeground(getColorBlack());
+	       
+		listOfHyperlink.add(hyperlink);
 		
 	}
 	private void showOutputPart(Hyperlink hyperlink, Formula currentFormula){
@@ -786,13 +792,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 		if(input.size() > 10){
 			
 			int rest = input.size() - 10;
-			RowData rowData = new RowData();
-			rowData.width = 50;
+			/*RowData rowData = new RowData();
+			rowData.width = 50;*/
 			
 			for(int p = 0; p < rest; p++) {
 				
 				Hyperlink rest_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
-				controlHyperlink(rest_hyperlink_input, true, true);
+				controlHyperlinkInput(rest_hyperlink_input, true, true);
 				/*rest_hyperlink_input.setLayoutData(rowData); 
 				rest_hyperlink_input.setEnabled(true);
 				rest_hyperlink_input.setUnderlined(true);
