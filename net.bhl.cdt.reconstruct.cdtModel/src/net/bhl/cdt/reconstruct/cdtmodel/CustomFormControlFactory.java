@@ -465,10 +465,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    inputParameter_composite.setLayout(rowLayout);
 	    
 	    input_featureObservable = featureObservable;
-	    
-	    /* RowData rowData = new RowData();
-	    rowData.width = 50;*/
-
+	 
 	    Formula currentFormula = (Formula)getOwner();
 	    
 	    
@@ -477,12 +474,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	  for (int p = 0; p < 10; p++) {
 				   
 				   Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
-				  /* new_hyperlink_input.setLayoutData(rowData); 
-				   new_hyperlink_input.setEnabled(false);
-				   new_hyperlink_input.setUnderlined(true);
-				   new_hyperlink_input.setForeground(getColorBlack());
-				   listOfHyperlink.add(new_hyperlink_input);
-				   */
 				   controlHyperlinkInput(new_hyperlink_input, false, true);
 			 	   
 			  }
@@ -496,13 +487,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    		if(p < stringArray.length){
 	    			
 		    		Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, stringArray[p], SWT.NONE);
-		    		/*hyperlink_input.setLayoutData(rowData); 
-		    		hyperlink_input.setEnabled(true);
-		    	    hyperlink_input.setForeground(getColorBlack());
-		    	    hyperlink_input.setUnderlined(true);
-		    	    listOfHyperlink.add(hyperlink_input);*/
-		    		controlHyperlinkInput(hyperlink_input, true, true);
-		    		
+		    		controlHyperlinkInput(hyperlink_input, true, true);		
 		    	    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
 		    	    	
 		    	 			public void linkActivated(HyperlinkEvent e) {
@@ -517,31 +502,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    			
 	    			 Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
 	    			 controlHyperlinkInput(new_hyperlink_input, false, true);
-			    		
-					 /*new_hyperlink_input.setLayoutData(rowData); 
-					 new_hyperlink_input.setEnabled(false);
-					 new_hyperlink_input.setUnderlined(true);
-					 new_hyperlink_input.setForeground(getColorBlack());
-					 listOfHyperlink.add(new_hyperlink_input);*/
-					 /*new_hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
-			    	    	
-		    	 			public void linkActivated(HyperlinkEvent e) {
-		    	 		
-		    	 				showInputPart(new_hyperlink_input, currentFormula);
-		    	 			}
-		    	 		});*/
-					 
-	    			
-	    			
+			    	
 	    		}
-	    	    
-	    	    
+	    	    	    	    
 	        }
-	    	
-	    	
+	    		    	
 	    }
-	    
-	  
+	    	  
 	    return inputParameter_composite;
 	}
 	public Control control_Formula_outputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
