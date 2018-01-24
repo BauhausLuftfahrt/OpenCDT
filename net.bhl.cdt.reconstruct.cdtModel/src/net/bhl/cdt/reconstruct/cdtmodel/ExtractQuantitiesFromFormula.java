@@ -16,24 +16,34 @@ public class ExtractQuantitiesFromFormula {
 	public static final int TYPE_SUBSCRIPT = 11;
 	public static final int TYPE_OTHERS = 127;
 	
+	/**
+	 * The left side of formula is used to generate the output-parameter.
+	 * */
 	public static String filtering_OutputParameter(String latexFormula){
 		
+		 
 		 String[] leftSideFormula = latexFormula.split("=", 2);	 
 		 
 		 String leftSide = leftSideFormula[0];
 		 
 		 char[] leftSideCharacters = leftSide.toCharArray();
-		 
+		 /**
+		  * The $-symbols are removed.
+		  * */
 		 String outputParameter = "";
 		     for (int i = 0; i < leftSideCharacters.length; i++) {
 		         if (!(leftSideCharacters[i] == '$')) 
 		        	 outputParameter += leftSideCharacters[i];
 		     }
-
+		 /**
+		  * Emtpy spaces are removed and returned.
+		  * */
 		 return outputParameter.replaceAll("\\s+","");
 		
 	}
-	
+	/**
+	 * The right side of formula is used to generate the input-parameter.
+	 * */
 	public static ArrayList<String> filtering_inputParameter(String latexFormula){
 		
 		String[] rightSideFormula = latexFormula.split("=", 2);	 
@@ -43,10 +53,20 @@ public class ExtractQuantitiesFromFormula {
 		return extractInputQuantities(rightSide);
 		
 	}
+	/**
+	 * Only rational number, alphabet letter and specially the subscripted parameter, Greek alphabet letter, roots operator 
+	 * can be extracted from Latex-formula. For other formula and letter it should be extended.
+	 * */
 	public static ArrayList<String> extractInputQuantities(String formula){
 		
+		/**
+		 * This array will include the strings which are generated as input-parameter.
+		 * */ 
 		ArrayList<String> quantitiesArray = new ArrayList<String>();
 		
+		 /**
+		  * Every character of right side of formula is interpreted from left to right.
+		  * */ 
 		 for (int i = 0; i < formula.length(); i++){
 		        
 			 char current_character = formula.charAt(i);

@@ -87,51 +87,17 @@ module net.bhl.cdt.literature.model.parsley {
 					
 				}
 			}
-//	menuBuilder {
-////				val factory = CdtliteratureFactory.eINSTANCE
-////				menus{
-////					Library-> #[
-////					submenu("Edit",#[
-////						actionCopy,
-////						actionCut,
-////						separator,
-////						actionPaste,
-////						actionDelete
-////					])
-////				]
-////					
-////				}
-//				
-//	
-//				emfMenus {
-//				Library lib -> #[
-//					actionAdd("Add a new book", lib.book,
-//						CdtliteratureFactory.eINSTANCE.createBook)
-//				]
-//			}
-//					
-//
-//				
-//	}
+
 	viewerContentProvider {
 				elements{
 					
 
 				}
 				children {
-					//Library -> {
-						//article + book + inbook + conference + incollection + 
-							//inproceedings + proceedings + techreport +
-								//phdthesis + masterthesis + unpublished
-					//}
+					
 				}
 			}
-			//this mothod is implemented by CustomFormControlFactory in bidings.
-//			formControlFactory {
-//				control {
-//							
-//				}
-//			}
+
 	dialogControlFactory {
 				control {
 

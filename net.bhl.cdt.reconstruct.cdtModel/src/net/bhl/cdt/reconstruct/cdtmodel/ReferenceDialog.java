@@ -67,23 +67,22 @@ import cdtliterature.CdtliteratureFactory;
 import cdtliterature.Library;
 import net.bhl.cdt.literature.model.parsley.ParsleyInjectorProvider;
 import net.bhl.cdt.reconstruct.cdtliteraturetable.CdtliteraturetableInjectorProvider;
-import net.bhl.cdt.reconstruct.cdtmodel.CdtmodelInjectorProvider;
 
 public class ReferenceDialog extends Dialog {
 
 	
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");	
-	private EObject result;
-	private Library library;
-	private FormToolkit toolkit;
-	private ALiteratureBase literatureObj;
+	//private EObject result;
+	//private Library library;
+	//private FormToolkit toolkit;
+	//private ALiteratureBase literatureObj;
 	private Resource resourceLibrary;
 	private Object object;
 	private IStructuredSelection selection;
 	
 	public ReferenceDialog(Shell parent, FormToolkit _toolkit) {
 		super(parent);
-		toolkit = _toolkit;
+		//toolkit = _toolkit;
 	}
 	/**
 	 * the custom dialog is created*/
@@ -105,7 +104,7 @@ public class ReferenceDialog extends Dialog {
 		
 		ViewerContextMenuHelper contextMenuHelper = injector.getInstance(ViewerContextMenuHelper.class);
 		
-		library = (Library) resourceLibrary.getContents().get(0);
+		//library = (Library) resourceLibrary.getContents().get(0);
 		
 		Composite container = (Composite) super.createDialogArea(parent);
 		
@@ -136,7 +135,7 @@ public class ReferenceDialog extends Dialog {
 			           selection = (IStructuredSelection)event.getSelection();
 			           
 			           try{
-			       			literatureObj = (ALiteratureBase) selection.getFirstElement();
+			       			//literatureObj = (ALiteratureBase) selection.getFirstElement();
 			       			
 			        	    object = selection.getFirstElement();
 			        	       
@@ -157,10 +156,11 @@ public class ReferenceDialog extends Dialog {
 		        IStructuredSelection thisSelection = (IStructuredSelection) event.getSelection();
 		        object  = thisSelection.getFirstElement();
 		        
-		        result = (EObject) object;
+		        //result = (EObject) object;
 		        
 		        viewer.setExpandedState(object,
 		                !viewer.getExpandedState(object));
+		        
 		        handleShellCloseEvent();
 		        
 		    }
@@ -176,9 +176,9 @@ public class ReferenceDialog extends Dialog {
 	      return new Point(940, 300);
 	}
 	
-	public EObject getResult() {
+	/*public EObject getResult() {
 		return result;
-	}
+	}*/
 	public Object getObject(){
 		return object;
 	}
@@ -186,13 +186,13 @@ public class ReferenceDialog extends Dialog {
     protected void okPressed() {
         super.okPressed();
     }
-	public String getLiteratureObjName(){
+	/*public String getLiteratureObjName(){
 		return literatureObj.eClass().getName();
 	}
 	public  ALiteratureBase getLiterature(){
 		return literatureObj;
-	}
-	public String getLiteratureTitle(){
+	}*/
+	/*public String getLiteratureTitle(){
 		
 		if(literatureObj != null)
 		{
@@ -203,8 +203,8 @@ public class ReferenceDialog extends Dialog {
 		else{
 			return "";
 		}
-	}
-	public String getLiteratureAuthor(){
+	}*/
+	/*public String getLiteratureAuthor(){
 		
 		if(literatureObj != null)
 		{
@@ -215,11 +215,11 @@ public class ReferenceDialog extends Dialog {
 		else{
 			return "";
 		}
-	}
-	public Library getLibrary(){
+	}*/
+	/*public Library getLibrary(){
 		return library;
 		
-	}
+	}*/
 	
 	protected boolean isResizable() {
 	    return true;

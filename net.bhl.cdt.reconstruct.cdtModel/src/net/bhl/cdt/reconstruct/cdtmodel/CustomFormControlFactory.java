@@ -472,7 +472,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	  for (int p = 0; p < 10; p++) {
 				   
 				   Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
-				   controlHyperlinkInput(new_hyperlink_input, false, true);
+				   setPropertyHyperlinkInput(new_hyperlink_input, false, true);
 			 	   
 			  }
 	    	  
@@ -485,7 +485,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    		if(p < stringArray.length){
 	    			
 		    		Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, stringArray[p], SWT.NONE);
-		    		controlHyperlinkInput(hyperlink_input, true, true);		
+		    		setPropertyHyperlinkInput(hyperlink_input, true, true);		
 		    	    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
 		    	    	
 		    	 			public void linkActivated(HyperlinkEvent e) {
@@ -499,7 +499,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    		else{
 	    			
 	    			 Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
-	    			 controlHyperlinkInput(new_hyperlink_input, false, true);
+	    			 setPropertyHyperlinkInput(new_hyperlink_input, false, true);
 			    	
 	    		}
 	    	    	    	    
@@ -521,11 +521,11 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    
 	    if(featureObservable.getValue() == null){
 	    	hyperlink_output = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);
-	    	controlHyperlinkOutput(hyperlink_output, false, false);
+	    	setPropertyHyperlinkOutput(hyperlink_output, false, false);
 	    }
 	    else{
 	    	hyperlink_output = _toolkit.createHyperlink(composite, ((Quantity)featureObservable.getValue()).getName() , SWT.NONE);
-	    	controlHyperlinkOutput(hyperlink_output, true, false);
+	    	setPropertyHyperlinkOutput(hyperlink_output, true, false);
 	    }
 	   
 	    composite.forceFocus();
@@ -543,7 +543,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 	
 	    return composite;
 	}
-	private void controlHyperlinkInput(Hyperlink hyperlink, Boolean enable, Boolean underline){
+	/**
+	 * set the basis property of hyperlink for input-parameter
+	 * */
+	private void setPropertyHyperlinkInput(Hyperlink hyperlink, Boolean enable, Boolean underline){
 		
 		RowData rowData = new RowData();
 	    rowData.width = 50;
@@ -554,10 +557,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 		hyperlink.setForeground(getColorBlack());
 		   
 		listOfHyperlink.add(hyperlink);
-		
-		
+			
 	}
-	private void controlHyperlinkOutput(Hyperlink hyperlink, Boolean enable, Boolean underline){
+	/**
+	 * set the basis property of hyperlink for output-parameter
+	 * */
+	private void setPropertyHyperlinkOutput(Hyperlink hyperlink, Boolean enable, Boolean underline){
 		
 		GridData gridData = new GridData();
 		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
@@ -646,6 +651,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		createOutputQuantity(latexFormula);
 				
 		createInputQuantity(latexFormula);
+		
 	}
 	private void createInputQuantity(String latexFormula){
 		
@@ -662,7 +668,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			for(int p = 0; p < rest; p++) {
 				
 				Hyperlink rest_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
-				controlHyperlinkInput(rest_hyperlink_input, true, true);
+				setPropertyHyperlinkInput(rest_hyperlink_input, true, true);
 				
 			}
 			
@@ -672,7 +678,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		for (int t = 0; t < listOfHyperlink.size(); t++) {
 				
 	   	 	listOfHyperlink.get(t).setEnabled(false);
-			listOfHyperlink.get(t).setText("");
+			listOfHyperlink.get(t).setText(EMPTY);
 			
 	    }
 		
