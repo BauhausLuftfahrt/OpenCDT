@@ -66,24 +66,9 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 					
 
 				}
-				children {
-//					FormulaRepository -> {
-//						Formula
-//					}
-				}
+
     }
-//    formControlFactory{
-//    	control {
-//    			
-//    			Formula:inputParameter-> 
-//					createLabel(
-//						inputParameter.map[name].join(", "))
-//
-//    			Formula:outputParameter -> { }
-//    			Formula:name -> { }
-//    		}
-//    	
-//    }
+
 
 	
 	

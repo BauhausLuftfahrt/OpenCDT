@@ -38,8 +38,6 @@ public class CDTQuantityModelViewer {
 	private EObject eObject;
 	private MPartStack stack;
 	private MPart part;
-	//private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
-	//private Resource resourceLibrary;
 	private EPartService partService;
 	private String id;
 	
@@ -70,10 +68,6 @@ public class CDTQuantityModelViewer {
 	 @Inject
 	 public void initPart(MPart part, EModelService modelService, MApplication application, EPartService partService, Shell shell){		 	
 
-		/*Injector injectorLib = ParsleyInjectorProvider.getInjector();
-		ResourceLoader resourceLoader = injectorLib.getInstance(ResourceLoader.class);
-		EditingDomain editingDomain = injectorLib.getInstance(EditingDomain.class);
-		resourceLibrary = resourceLoader.getResource(editingDomain, uri).getResource();*/
 			
 		this.partService = partService;
 		this.part = part;

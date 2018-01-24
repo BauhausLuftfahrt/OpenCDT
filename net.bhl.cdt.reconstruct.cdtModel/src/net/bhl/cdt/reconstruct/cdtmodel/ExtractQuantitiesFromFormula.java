@@ -39,18 +39,7 @@ public class ExtractQuantitiesFromFormula {
 		String[] rightSideFormula = latexFormula.split("=", 2);	 
 		 
 		String rightSide = rightSideFormula[1];
-		
-		/*char[] rightSideCharacters = rightSide.toCharArray();
-		 
-		String inputParameter = "";
-		for (int i = 0; i < rightSideCharacters.length; i++) {
-	        if (!(rightSideCharacters[i] == '$')) 
-	       	 inputParameter += rightSideCharacters[i];
-	        }
-		
-		String filteredFormula = inputParameter.replaceAll("\\s+","");*/
-		
-	
+
 		return extractInputQuantities(rightSide);
 		
 	}
@@ -80,19 +69,9 @@ public class ExtractQuantitiesFromFormula {
 				 
 			 }
 	 
-			 /*Quantity q = FormulaFactory.eINSTANCE.createQuantity()
-					 q.setName()
-					 
-					 formula.getInputQuantities().add(q);*/
+			
 		 }
-		 
-		 /*for (int p = 0; p < quantitiesArray.size(); p++) {
-	         
-	    	 System.out.println("quantitiesArray:"+ quantitiesArray.get(p).toString());
-	     
-	     }	*/	
-		 
-		 //System.out.println("print array.....");
+		
 		 
 		 return quantitiesArray;
 		

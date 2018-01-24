@@ -49,9 +49,7 @@ public class CDTModelEditor {
 	private FormDetailComposite formComposite;
 	public static final java.lang.String INPUT = "ecpEditorInput";	
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");
-	private Composite parent;
-	//private String formulaID = "";
-	
+	private Composite parent;	
 	
 	@PostConstruct
 	public void postConstruct(Composite parent) {	
