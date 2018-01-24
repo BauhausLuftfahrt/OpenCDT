@@ -1,7 +1,5 @@
 package net.bhl.cdt.reconsruct.parsley.e4;
 
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -12,13 +10,9 @@ import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.parsley.composite.FormDetailComposite;
 import org.eclipse.emf.parsley.composite.FormFactory;
-import org.eclipse.emf.parsley.resource.ResourceLoader;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.DisposeEvent;
 import org.eclipse.swt.events.DisposeListener;
@@ -27,8 +21,6 @@ import org.eclipse.swt.widgets.Shell;
 
 import com.google.inject.Injector;
 
-import net.bhl.cdt.literature.model.parsley.ParsleyInjectorProvider;
-import net.bhl.cdt.reconstruct.cdtmodel.CdtmodelInjectorProvider;
 import net.bhl.cdt.reconstruct.cdtquantitymodel.CdtquantitymodelInjectorProvider;
 
 public class CDTQuantityModelViewer {
@@ -36,10 +28,10 @@ public class CDTQuantityModelViewer {
 	
 	private FormDetailComposite formComposite;
 	private EObject eObject;
-	private MPartStack stack;
 	private MPart part;
-	private EPartService partService;
-	private String id;
+	//private MPartStack stack;
+	//private EPartService partService;
+	//private String id;
 	
 	@PostConstruct
 	public void postConstruct(Composite parent) {	
@@ -66,33 +58,39 @@ public class CDTQuantityModelViewer {
 		
 	}
 	 @Inject
-	 public void initPart(MPart part, EModelService modelService, MApplication application, EPartService partService, Shell shell){		 	
+	 public void initPart(MPart thePart, EModelService modelService, MApplication application, EPartService partService, Shell shell){		 	
 
 			
-		this.partService = partService;
-		this.part = part;
-		Boolean partVisible = false;
-		
-		/**The formula-part and on this part added tab-parts are retrieved*/
-		stack = (MPartStack) modelService.find("org.eclipse.emf.ecp.e4.application.partstack.editor", application);
-		stack.getChildren().size();
-		
+		this.part = thePart;
 		eObject = (EObject) part.getObject();
 		
-		Collection<MPart> parts = partService.getParts();
+		/**
+		 * *All parts are retrieved
+		 */
+		List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
+		stacks.get(1).getChildren().add(part);
+		
+		
+		//Boolean partVisible = false;
+		//this.partService = partService;
+		
+		/**The formula-part and on this part added tab-parts are retrieved*/
+		/*stack = (MPartStack) modelService.find("org.eclipse.emf.ecp.e4.application.partstack.editor", application);
+		stack.getChildren().size();*/
+		
+		
+		
+		//Collection<MPart> parts = partService.getParts();
 	
-		 /**All parts are retrieved*/
-		 List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
-		 stacks.get(1).getChildren().add(part);
 		
 	 }
 	 
-	 public EObject getEObjectCDT(){
+	 /*public EObject getEObjectCDT(){
 		 
 		 return eObject;
-	 }
+	 }*/
 
-	 public void setUnvisible(){
+	/* public void setUnvisible(){
 		
 		 for (int i = 0; i < stack.getChildren().size(); i++) {
              
@@ -119,7 +117,7 @@ public class CDTQuantityModelViewer {
 						
 				}
 			}
-	 }
+	 }*/
 	
 	
 
