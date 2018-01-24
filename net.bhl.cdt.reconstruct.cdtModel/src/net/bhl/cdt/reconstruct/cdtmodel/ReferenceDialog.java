@@ -79,6 +79,8 @@ public class ReferenceDialog extends Dialog {
 	private Resource resourceLibrary;
 	private Object object;
 	private IStructuredSelection selection;
+	private static final int COLUMN  = 6;
+	
 	
 	public ReferenceDialog(Shell parent, FormToolkit _toolkit) {
 		super(parent);
@@ -108,7 +110,6 @@ public class ReferenceDialog extends Dialog {
 		
 		Composite container = (Composite) super.createDialogArea(parent);
 		
-
 		TreeViewer treeViewer = viewerFactory.createTreeViewerWithColumns(container,
 				CdtliteratureFactory.eINSTANCE.getCdtliteraturePackage().getALiteratureBase(), resourceLibrary);
 		
@@ -118,7 +119,7 @@ public class ReferenceDialog extends Dialog {
 		treeViewer.getTree().setHeaderVisible(true);
         treeViewer.getTree().setLinesVisible(true);
       
-        for(int i= 0; i<6; i++){
+        for(int i= 0; i< COLUMN; i++){
         	
         	treeViewer.getTree().getColumn(i).setWidth(150);	
         }
@@ -175,17 +176,19 @@ public class ReferenceDialog extends Dialog {
 	public Point getInitialSize() {
 	      return new Point(940, 300);
 	}
-	
-	/*public EObject getResult() {
-		return result;
-	}*/
 	public Object getObject(){
 		return object;
 	}
 	@Override
     protected void okPressed() {
         super.okPressed();
-    }
+    }	
+	protected boolean isResizable() {
+		return true;
+	}
+	/*public EObject getResult() {
+	return result;
+	}*/
 	/*public String getLiteratureObjName(){
 		return literatureObj.eClass().getName();
 	}
@@ -220,8 +223,4 @@ public class ReferenceDialog extends Dialog {
 		return library;
 		
 	}*/
-	
-	protected boolean isResizable() {
-	    return true;
-	}
 }
