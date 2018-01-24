@@ -352,8 +352,11 @@ public class CustomFormControlFactory extends FormControlFactory {
 				    part.setElementId(featureObservable.getValue().toString());
 					part.setObject(featureObservable.getValue());
 					part.setCloseable(true);
-					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+					//part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
+					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryRefernceModelViewer");
+
 					
+					//CDTLibraryRefernceModelViewer
 					partService.showPart(part, PartState.CREATE);
 					partService.bringToTop(part);
 					
