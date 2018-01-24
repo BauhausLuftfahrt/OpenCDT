@@ -72,14 +72,16 @@ public class ReferenceDialog extends Dialog {
 
 	
 	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");	
-	//private EObject result;
-	//private Library library;
-	//private FormToolkit toolkit;
-	//private ALiteratureBase literatureObj;
 	private Resource resourceLibrary;
 	private Object object;
 	private IStructuredSelection selection;
 	private static final int COLUMN  = 6;
+	private static final int WIDTH  = 940;
+	private static final int HEIGHT  = 300;
+	//private EObject result;
+	//private Library library;
+	//private FormToolkit toolkit;
+	//private ALiteratureBase literatureObj;
 	
 	
 	public ReferenceDialog(Shell parent, FormToolkit _toolkit) {
@@ -157,13 +159,13 @@ public class ReferenceDialog extends Dialog {
 		        IStructuredSelection thisSelection = (IStructuredSelection) event.getSelection();
 		        object  = thisSelection.getFirstElement();
 		        
-		        //result = (EObject) object;
 		        
 		        viewer.setExpandedState(object,
 		                !viewer.getExpandedState(object));
 		        
 		        handleShellCloseEvent();
 		        
+		        //result = (EObject) object;
 		    }
 		});
 
@@ -174,7 +176,7 @@ public class ReferenceDialog extends Dialog {
 		close();
 	}
 	public Point getInitialSize() {
-	      return new Point(940, 300);
+	      return new Point(WIDTH, HEIGHT);
 	}
 	public Object getObject(){
 		return object;

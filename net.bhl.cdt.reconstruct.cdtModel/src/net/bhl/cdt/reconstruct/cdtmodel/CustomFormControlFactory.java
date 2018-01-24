@@ -92,6 +92,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private static final String EMPTY = "";
 	private static final String NOTHING_GENERATE_QUANTITY = "=";
 	private static final int STANDARD_WIDTH = 300;
+	private static final int BASE_SIZE_HYPERLINK = 10;
 
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -112,8 +113,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 		dbc.bindValue(SWTObservables.observeText(latexString, SWT.Modify), featureObservable);
 		
 		final Button showButton = _toolkit.createButton(composite, "show", SWT.PUSH);
+		
 		/**
-		 * After click, it tries to open the file.*/
+		 * After click, it tries to open the file.
+		 * */
         showButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
@@ -129,30 +132,18 @@ public class CustomFormControlFactory extends FormControlFactory {
 				 * In case textbox of latexString is empty 
 				 * */
 				if(latexformula == EMPTY){
+					
 					/**
-					 * When the latexformula-string is empty, then the message-box pops up to warn.
+					 * When the Latex-formula-string is empty, then the message-box pops up to warn.
 					 */
 					openLatexMessageBox();
 					
 				}else{
 										
-						try {
+						try{
 							
 							createNewImage(latexformula, composite, latexString);
-							
-							if(admittanceOfgenerating(latexformula)){
-							
-								generateQuantities(latexformula);
-								
-							}else{
-								
-								generateQuantities(NOTHING_GENERATE_QUANTITY);
-							}
-							/**
-							 * remove the focus on showButton*/
-							_parent.getShell().setFocus();
-							
-							
+	
 						} catch (SAXException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -162,7 +153,23 @@ public class CustomFormControlFactory extends FormControlFactory {
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
-						}					
+						}
+					
+						if(hasFormulaOneEqualSymbol(latexformula)){
+						
+							generateQuantities(latexformula);
+						
+						}else{
+							
+							/**
+							 *Formula can be transformed to only image and showed.
+							 * */
+							generateQuantities(NOTHING_GENERATE_QUANTITY);
+						}
+						
+						/**
+						 * remove the focus on showButton*/
+						_parent.getShell().setFocus();
 				}
 	
 			}
@@ -176,6 +183,7 @@ public class CustomFormControlFactory extends FormControlFactory {
         canvas = new Canvas(composite, SWT.FILL);
         gd = new GridData();
         gd.widthHint = STANDARD_WIDTH;
+        
         /**
          * the initial size of formula-image is set in 60
          * */ 
@@ -184,7 +192,6 @@ public class CustomFormControlFactory extends FormControlFactory {
         
         canvas.setLayoutData(gd);
           
- 
         FocusListener listener = new FocusListener() {
         	
             public void focusGained(FocusEvent event) {
@@ -194,7 +201,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 			@Override
 			public void focusLost(FocusEvent e) {
 				
-				String latexformula = latexString.getText();		
+				String latexformula = latexString.getText();	
+				
 				/**
 				 * If the textbox of latex-formula is not empty, then it returns true value.
 				 */
@@ -214,6 +222,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 						e1.printStackTrace();
 					}
 				}else{
+					
 					/**
 					 * The image is removed, if the textbox is of latex-formula empty.
 					 */
@@ -230,14 +239,17 @@ public class CustomFormControlFactory extends FormControlFactory {
 	public Control control_Formula_reference(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		
-		/**The base elements are set for customized reference.*/
+		/**
+		 * The base elements are set for customized reference.
+		 * */
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
 	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
 	   
 	    
 	    /**
-	     * The gridlayout consist of hyperlink, set-button, delete-button.*/
+	     * The gridlayout consist of hyperlink, set-button, delete-button.
+	     * */
 	    GridLayout _gridLayout = new GridLayout(3, false);
 	    composite.setLayout(_gridLayout);
 	    hyperLinkStr = "";
@@ -254,7 +266,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    if (featureObservable.getValue() == null)
 	    	hyperlink.setEnabled(false);	
 	    
-	    /**The action for click of this hyperlink und let open and show the model of hyperlink.*/
+	    /**
+	     * The action for click of this hyperlink und let open and show the model of hyperlink.
+	     * */
 	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
 	    	
 			public void linkActivated(HyperlinkEvent e) {
@@ -264,11 +278,14 @@ public class CustomFormControlFactory extends FormControlFactory {
 				EPartService partService = EPartServiceHelper.getEPartService();
 				Collection<MPart> parts = partService.getParts();
 				
-				
+				/**
+				 * If the part of model is already opened, then this part becomes active.
+				 * */
 				for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
 				{
 					MPart partSearch = i.next();
 					if (partSearch.isVisible()) {
+						
 						if(partSearch.getElementId().equals(featureObservable.getValue().toString())){
 							partVisible = true;
 		                	partService.activate(partSearch);
@@ -279,6 +296,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 		             }
 		        }
 				
+				/**
+				 * The part is new created and showed using parsley.
+				 * */
 				if(!partVisible){
 					
 					part = MBasicFactory.INSTANCE.createPart();
@@ -296,10 +316,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 					partService.bringToTop(part);
 					
 				}
-				
-				
 		
-			}//end linkActivated-clause
+			}
 		});
 
 	    /**
@@ -367,6 +385,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	            	
 	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
 	            	        | SWT.APPLICATION_MODAL);
+	            	
 	            	/**
 	            	 * Before this is deleted,the dialog is opened and it asks about the deletion.
 	            	 * */ 
@@ -388,6 +407,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 		return composite;
 		
 	}
+	/**
+	 * This method generates the input-parameter automatically,if certain condition is satisfied.
+	 * */
 	public Control control_Formula_inputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		FormToolkit _toolkit = this.getToolkit();
@@ -407,18 +429,30 @@ public class CustomFormControlFactory extends FormControlFactory {
 	        
 	    if(input_featureObservable.getValue() == null || input_featureObservable.getValue().equals("")){	
 	    	
-	    	  for (int p = 0; p < 10; p++) {
+	    	  for (int p = 0; p < BASE_SIZE_HYPERLINK; p++) {
 				   
 				   Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
 				   setPropertyHyperlinkInput(new_hyperlink_input, false, true);
 			 	   
 			  }
 	    	  
-	    }else{
+	    }
+	    else{
 	    	
 	    	String [] stringArray = input_featureObservable.getValue().toString().split(",");
 	    	
-	    	for (int p = 0; p < 10; p++) {
+	    	int sizeOfArray = stringArray.length;
+	    	int number = 0;
+	    	
+	    	if(sizeOfArray < BASE_SIZE_HYPERLINK ){	
+	    		number = BASE_SIZE_HYPERLINK;
+	    	}else{	    		
+	    		number = sizeOfArray;
+	    	}
+	    	
+	    
+	    	//for (int p = 0; p < 10; p++) {
+	    	for (int p = 0; p < number ; p++) {
 	    		
 	    		if(p < stringArray.length){
 	    			
@@ -438,7 +472,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    			
 	    			 Hyperlink new_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
 	    			 setPropertyHyperlinkInput(new_hyperlink_input, false, true);
-			    	
+	    			
 	    		}
 	    	    	    	    
 	        }
@@ -470,7 +504,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    
 	    Formula currentFormula = (Formula)getOwner();
 	    
-		/**The action for click of this hyperlink und let open and show the model of hyperlink.*/
+		/**
+		 * If the hyperlink is clicked, then
+		 * let open and show the model of hyperlink.
+		 * */
 	    hyperlink_output.addHyperlinkListener(new HyperlinkAdapter() {
 	    	
 	 			public void linkActivated(HyperlinkEvent e) {
@@ -481,6 +518,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	
 	    return composite;
 	}
+	
 	/**
 	 * set the basis property of hyperlink for input-parameter
 	 * */
@@ -497,6 +535,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		listOfHyperlink.add(hyperlink);
 			
 	}
+	
 	/**
 	 * set the basis property of hyperlink for output-parameter
 	 * */
@@ -563,7 +602,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		}
 		
 	}
-	private Boolean admittanceOfgenerating(String latexformula){
+	private Boolean hasFormulaOneEqualSymbol(String latexformula){
 		
 		Boolean admit = false;
 		
@@ -600,9 +639,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 		FormToolkit _toolkit = this.getToolkit();
 				
 		
-		if(input.size() > 10){
+		if(input.size() > BASE_SIZE_HYPERLINK){
 			
-			int rest = input.size() - 10;
+			int rest = input.size() - BASE_SIZE_HYPERLINK;
 			for(int p = 0; p < rest; p++) {
 				
 				Hyperlink rest_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
@@ -896,10 +935,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 				 * check,whether the textbox of the latexformula is empty.
 				 */
 				String latexformula = latexString.getText();
+				
 				/**
 				 * In case texbox of latexString is empty 
 				 * */
 				if(latexformula == EMPTY){
+					
 					/**
 					 * when the latexformula-string is empty, then the message-box pops up to warn.
 					 */
@@ -930,6 +971,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		        
 				System.out.println("Error : " + session.getErrors().toString());
 			}
+		 
 		   	/**
 	 	   	 * the string of latex-formula is converted into xml-string.
 	 	   	 */
@@ -966,6 +1008,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		 		} catch (Exception e2) {
 		 		    // TODO: handle exception
 		 		}
+		 		
 		 		/**
 		 		 * the xml-string is converted into the image file.
 		 		 */
@@ -1008,6 +1051,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 
 			}
 	}
+	
 	/**
 	 * if the latex-formula is empty and the show-button is clicked, then dialog window is opened to warn.
 	  */
