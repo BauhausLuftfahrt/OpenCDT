@@ -126,7 +126,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				 */
 				String latexformula = latexString.getText();
 				
-				System.out.println("latexformula : " + latexformula);
+				//System.out.println("latexformula : " + latexformula);
 				
 				/**
 				 * In case textbox of latexString is empty 
@@ -142,6 +142,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 										
 						try{
 							
+							/**
+							 * The Latex-formula can be transformed to image.
+							 * */
 							createNewImage(latexformula, composite, latexString);
 	
 						} catch (SAXException e1) {
@@ -155,6 +158,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 							e1.printStackTrace();
 						}
 					
+						/**
+						 *Latex-formula can be transformed to image as well as to generate quantities automatically.
+						 * */
 						if(hasFormulaOneEqualSymbol(latexformula)){
 						
 							generateQuantities(latexformula);
@@ -162,13 +168,14 @@ public class CustomFormControlFactory extends FormControlFactory {
 						}else{
 							
 							/**
-							 *Formula can be transformed to only image and showed.
+							 *Latex-formula can be transformed to only image and showed without generating quantities automatically.
 							 * */
 							generateQuantities(NOTHING_GENERATE_QUANTITY);
 						}
 						
 						/**
-						 * remove the focus on showButton*/
+						 * remove the focus on showButton.
+						 * */
 						_parent.getShell().setFocus();
 				}
 	
@@ -204,7 +211,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				String latexformula = latexString.getText();	
 				
 				/**
-				 * If the textbox of latex-formula is not empty, then it returns true value.
+				 * If the textbox of Latex-formula is not empty, then it returns true value.
 				 */
 				
 				if(latexformula != EMPTY){
@@ -224,7 +231,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				}else{
 					
 					/**
-					 * The image is removed, if the textbox is of latex-formula empty.
+					 * The image is removed, if the textbox is of Latex-formula empty.
 					 */
 					
 				}
@@ -248,7 +255,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	   
 	    
 	    /**
-	     * The gridlayout consist of hyperlink, set-button, delete-button.
+	     * The grid-layout consist of hyperlink, set-button, delete-button.
 	     * */
 	    GridLayout _gridLayout = new GridLayout(3, false);
 	    composite.setLayout(_gridLayout);
@@ -267,7 +274,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	hyperlink.setEnabled(false);	
 	    
 	    /**
-	     * The action for click of this hyperlink und let open and show the model of hyperlink.
+	     * The action for click of this hyperlink and let open and show the model of hyperlink.
 	     * */
 	    hyperlink.addHyperlinkListener(new HyperlinkAdapter() {
 	    	
@@ -279,7 +286,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				Collection<MPart> parts = partService.getParts();
 				
 				/**
-				 * If the part of model is already opened, then this part becomes active.
+				 * If the part of model was already opened, then this part becomes active.
 				 * */
 				for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
 				{
@@ -295,9 +302,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 		    
 		             }
 		        }
-				
 				/**
-				 * The part is new created and showed using parsley.
+				 * If the part of literature-model was not opened fast, then new part is created and showed using parsley.
 				 * */
 				if(!partVisible){
 					
@@ -307,11 +313,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 				    part.setElementId(featureObservable.getValue().toString());
 					part.setObject(featureObservable.getValue());
 					part.setCloseable(true);
-					//part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryModelEditor");
 					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryRefernceModelViewer");
 
-					
-					//CDTLibraryRefernceModelViewer
 					partService.showPart(part, PartState.CREATE);
 					partService.bringToTop(part);
 					
@@ -321,7 +324,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		});
 
 	    /**
-	     * this griddata makes the hyperlink to locate on the left of composite of customized reference.
+	     * this grid-data makes the hyperlink to locate on the left of composite of customized reference.
 	     * */
 		GridData gridData = new GridData();
 		gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_BEGINNING;
@@ -380,7 +383,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	            public void widgetSelected(SelectionEvent e) {
 	            
 	            /**
-	             * If the reference is empty, then the delete-action doesn't work.*/	  
+	             * If the reference is empty, then the delete-action doesn't work.
+	             * */	  
 	            	if(!hyperlink.getText().isEmpty()){
 	            	
 	            	Shell shell = new Shell(_parent.getShell(), SWT.DIALOG_TRIM
@@ -408,25 +412,27 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 	}
 	/**
-	 * This method generates the input-parameter automatically,if certain condition is satisfied.
+	 * This method generates the input-parameters automatically and the right side of formula used to generate them,
+	 * if one equal symbol exists in formula.
 	 * */
 	public Control control_Formula_inputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
 		
 		FormToolkit _toolkit = this.getToolkit();
 	    Composite _parent = this.getParent();
-	    inputParameter_composite = _toolkit.createComposite(_parent, SWT.NONE);
-	 
+	    inputParameter_composite = _toolkit.createComposite(_parent, SWT.NONE);	 
 	    RowLayout rowLayout = new RowLayout();
 	    rowLayout.wrap = true;
 	    rowLayout.justify = false;
-	    rowLayout.marginLeft = 5;
-	    
+	    rowLayout.marginLeft = 5;	    
 	    inputParameter_composite.setLayout(rowLayout);
 	    
 	    input_featureObservable = featureObservable;
 	 
 	    Formula currentFormula = (Formula)getOwner();
 	        
+	    /**
+	     * There is no save of input-parameters or empty string was saved in featureObserable.
+	     * */
 	    if(input_featureObservable.getValue() == null || input_featureObservable.getValue().equals("")){	
 	    	
 	    	  for (int p = 0; p < BASE_SIZE_HYPERLINK; p++) {
@@ -445,19 +451,23 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	int number = 0;
 	    	
 	    	if(sizeOfArray < BASE_SIZE_HYPERLINK ){	
-	    		number = BASE_SIZE_HYPERLINK;
+	    		number = BASE_SIZE_HYPERLINK;//10
 	    	}else{	    		
 	    		number = sizeOfArray;
 	    	}
 	    	
 	    
-	    	//for (int p = 0; p < 10; p++) {
 	    	for (int p = 0; p < number ; p++) {
 	    		
 	    		if(p < stringArray.length){
 	    			
 		    		Hyperlink hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, stringArray[p], SWT.NONE);
-		    		setPropertyHyperlinkInput(hyperlink_input, true, true);		
+		    		setPropertyHyperlinkInput(hyperlink_input, true, true);	
+		    		
+		    		/**
+		    		 * If this hyperlink is clicked, then
+		    		 * let open and show the model of hyperlink.
+		    		 * */
 		    	    hyperlink_input.addHyperlinkListener(new HyperlinkAdapter() {
 		    	    	
 		    	 			public void linkActivated(HyperlinkEvent e) {
@@ -481,6 +491,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	  
 	    return inputParameter_composite;
 	}
+	/**
+	 * This method generates the output-parameter automatically and the left side of formula used to generate it,
+	 * if ONE equal symbol exists in formula.
+	 * */
 	public Control control_Formula_outputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
 			
 		FormToolkit _toolkit = this.getToolkit();
@@ -505,7 +519,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    Formula currentFormula = (Formula)getOwner();
 	    
 		/**
-		 * If the hyperlink is clicked, then
+		 * If this hyperlink is clicked, then
 		 * let open and show the model of hyperlink.
 		 * */
 	    hyperlink_output.addHyperlinkListener(new HyperlinkAdapter() {
@@ -552,10 +566,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    hyperlink.setForeground(getColorBlack());
 		
 	}
+	
+	/**
+	 * If the hyperlink is clicked, then the part of model is showed.
+	 * */
 	private void showOutputPart(Hyperlink hyperlink, Formula currentFormula){
-		
-		System.out.println("show part for input");
-		
+				
 		Boolean partVisible = false;
 		EPartService partService = EPartServiceHelper.getEPartService();
 		Collection<MPart> parts = partService.getParts();
@@ -650,6 +666,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 			}
 			
 		}
+		
+		/**
+		 * The whole input-parameter is arranged.
+		 * */
 		updateInputParameter(currentFormula, input);
 		
 		for (int t = 0; t < listOfHyperlink.size(); t++) {
@@ -663,7 +683,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 			for (int q = 0; q < input.size(); q++) {
 				
-		   	 	System.out.println("quantitiesArray of Input:"+ input.get(q).toString());
+		   	 	//System.out.println("quantitiesArray of Input:"+ input.get(q).toString());
 		   	 	Hyperlink presentLink = listOfHyperlink.get(q);
 		   	 	listOfHyperlink.get(q).setEnabled(true);
 				listOfHyperlink.get(q).setText(input.get(q).toString());
@@ -680,6 +700,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 		}
 		
+		/**
+		 * It makes to update the part per modifying the size of shell and let show directly the new generated hyperlink,
+		 * but it should be improved with other way.
+		 * */
 		int x = inputParameter_composite.getShell().getSize().x;
 		int y = inputParameter_composite.getShell().getSize().y;
 		inputParameter_composite.getShell().setSize(x+1 , y);
@@ -687,12 +711,18 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		
 	}
+	
+	/**
+	 * whole input-parameter is arranged to creating new quantity or remove unnecessary quantity or remain like before.
+	 * */
 	private void updateInputParameter(Formula currentFormula, ArrayList<String> input){
 		
 		EList<Quantity> generatedQuantities = currentFormula.getRepository().getQuantities();
 		ArrayList<String> generatedInputQuantities_array = new ArrayList<String>();
 	
-		
+		/**
+		 * Only input-parameter quantities are retrieved from generated whole quantities under current repository.
+		 * */
 		for(Quantity gQ : generatedQuantities){
 			
 			if(gQ.getDescription().equals("input")){
@@ -703,8 +733,14 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 		}
 		
+		/**
+		 * check, whether the quantity exists already under the current repository.
+		 * */
 		for(String input_quantity : input){
 			
+			/**
+			 * If there is no quantity under the current repository, then new quantity is generated and attached under that.
+			 * */
 			if(!generatedInputQuantities_array.contains(input_quantity)){
 				
 				Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
@@ -720,8 +756,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 		ArrayList<String> deleting_InputQuantities_array = new ArrayList<String>();
 		EList<Formula> currentFormulas = currentFormula.getRepository().getFormulas();
 		
+		
 		for(String generated_quantity : generatedInputQuantities_array){
 			
+			
+			/**
+			 * The entire input-quantities are investigated and unnecessary quantities are removed.
+			 * */
 			if(!input.contains(generated_quantity) && !isCommunalQuantity(generated_quantity, currentFormulas, currentFormula)){
 								
 				deleting_InputQuantities_array.add(generated_quantity);
@@ -730,9 +771,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 		}
 		
+		
 		removeOldQuantity(deleting_InputQuantities_array, currentFormula);
 			
 	}
+	/**
+	 * check, whether the generated_quantity is also used to hyperlink and input-parameter of other formula under current repository.
+	 * */ 
 	private Boolean isCommunalQuantity(String generated_quantity, EList<Formula> formulas, Formula currentFormula){
 		
 		Boolean common=false;
@@ -781,8 +826,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 	}
 	private void showInputPart(Hyperlink hyperlink, Formula currentFormula){
 		
-		System.out.println("show part for input");
-		
 		Boolean partVisible = false;
 		EPartService partService = EPartServiceHelper.getEPartService();
 		Collection<MPart> parts = partService.getParts();
@@ -790,6 +833,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
 		Quantity show_quantity = null;
 		
+		/**
+		 * The quantity-object can be found by name of hyperlink.
+		 * */ 
 		for(Quantity q : quantities){
 				
 				if(q.getName().equals(hyperlink.getText())){
@@ -798,7 +844,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 				}	
 		 }
 		 
-		 
+		/**
+		 * check, whether the part of found quantity already opened past and if so, then this part is being active.
+		 * */ 
 		for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
 		{
 			MPart partSearch = i.next();
@@ -814,7 +862,9 @@ public class CustomFormControlFactory extends FormControlFactory {
         }
 		
 		
-		
+		/**
+		 * If the part of quantity-model was not opened fast, then new part is created and showed using parsly.
+		 * */
 		if(!partVisible){
 			
 			part = MBasicFactory.INSTANCE.createPart();
@@ -834,7 +884,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private void createOutputQuantity(String latexFormula){
 		
 		String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
-		System.out.println("out : " + out);
 		
 		Quantity q = (Quantity) output_featureObservable.getValue();
 		
@@ -849,7 +898,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 			if(output_featureObservable.getValue() == null){
 				
-				
+				/**
+				 * Only output-parameter quantities are retrieved from generated whole quantities under current repository.
+				 * */
 				Formula currentFormula = (Formula)getOwner();
 				EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
 				ArrayList<String> outQuantities_arrayList = new ArrayList<String>();
@@ -862,6 +913,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 					
 				}
 				
+				/**
+				 * If there is no quantity under the current repository, then new quantity is generated and attached under that.
+				 * */
 				if(!outQuantities_arrayList.contains(out)){
 					
 					currentFormula.getRepository().getQuantities().add(quantity);
@@ -872,7 +926,11 @@ public class CustomFormControlFactory extends FormControlFactory {
 				}
 					
 			}else{
-								
+				
+				/**
+				 * There is already saved value of output-parameter under the current repository, 
+				 * but the name of that is different to actual quantity, so it changes only the name
+				 * */ 
 				if(!q.getName().equals(out)){
 					Formula currentFormula = (Formula)getOwner();
 					modifyPreviousOutput(currentFormula.getRepository(), out, q);
@@ -881,6 +939,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 			}
 			
 		}
+		
+		/**
+		 * The actual output-parameter is empty, so it removes the hyperlink and the quantity-model under the current formula.
+		 * */
 		else{
 			
 			hyperlink_output.setText(out);
@@ -973,7 +1035,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			}
 		 
 		   	/**
-	 	   	 * the string of latex-formula is converted into xml-string.
+	 	   	 * the string of Latex-formula is converted into xml-string.
 	 	   	 */
 			else{
 					
@@ -1053,7 +1115,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	}
 	
 	/**
-	 * if the latex-formula is empty and the show-button is clicked, then dialog window is opened to warn.
+	 * if the Latex-formula is empty and the show-button is clicked, then dialog window is opened to warn.
 	  */
 	private void openLatexMessageBox(){
 		
