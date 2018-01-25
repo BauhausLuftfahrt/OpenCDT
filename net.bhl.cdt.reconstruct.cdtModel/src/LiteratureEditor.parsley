@@ -1,28 +1,22 @@
-
+import cdtliterature.Article
+import cdtliterature.Book
+import cdtliterature.CdtliteratureFactory
+import cdtliterature.Conference
+import cdtliterature.Inbook
+import cdtliterature.Incollection
+import cdtliterature.Inproceedings
+import cdtliterature.Library
+import cdtliterature.Masterthesis
+import cdtliterature.Phdthesis
+import cdtliterature.Proceedings
+import cdtliterature.Techreport
+import cdtliterature.Unpublished
+import net.bhl.cdt.reconstruct.cdtmodel.CDTLiteratureEditor
+import net.bhl.cdt.reconstruct.cdtmodel.CustomPartControlFactory
+import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.parsley.composite.FormControlFactory
 import org.eclipse.emf.parsley.edit.IEditingStrategy
 import org.eclipse.emf.parsley.edit.UndoableEditingStrategy
-import org.eclipse.swt.SWT
-import net.bhl.cdt.reconstruct.cdtmodel.CdtmodelOnSelectionFormView
-import org.eclipse.emf.common.util.URI
-import cdtliterature.Library
-import net.bhl.cdt.reconstruct.cdtmodel.ReferenceDialog
-import cdtliterature.CdtliteratureFactory
-import java.util.List
-import cdtliterature.Article
-import cdtliterature.ALiteratureBase
-import cdtliterature.Book
-import net.bhl.cdt.reconstruct.cdtmodel.CDTLiteratureEditor
-import cdtliterature.Inbook
-import cdtliterature.Conference
-import cdtliterature.Incollection
-import cdtliterature.Inproceedings
-import cdtliterature.Proceedings
-import cdtliterature.Masterthesis
-import cdtliterature.Unpublished
-import cdtliterature.Phdthesis
-import cdtliterature.Techreport
-import net.bhl.cdt.reconstruct.cdtmodel.CustomPartControlFactory
 
 /* net.bhl.cdt.reconstruct.cdtmodel EMF Parsley Dsl Module file */
 module net.bhl.cdt.reconstruct.cdtliteratureeditor {

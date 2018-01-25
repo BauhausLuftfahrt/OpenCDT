@@ -7,40 +7,26 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
-import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
-import org.eclipse.emf.ecp.internal.ui.model.ModelContentProvider;
-import org.eclipse.emf.ecp.spi.ui.util.ECPHandlerHelper;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.parsley.composite.ProposalCreator;
 import org.eclipse.emf.parsley.composite.TreeFormComposite;
 import org.eclipse.emf.parsley.composite.TreeFormFactory;
 import org.eclipse.emf.parsley.edit.ui.dnd.ViewerDragAndDropHelper;
 import org.eclipse.emf.parsley.menus.ViewerContextMenuHelper;
 import org.eclipse.emf.parsley.resource.ResourceLoader;
-import org.eclipse.jface.viewers.ISelection;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
-import org.eclipse.jface.viewers.StructuredViewer;
-import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.ISelectionListener;
-import org.eclipse.ui.ISelectionService;
 
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 
-import cdtliterature.Book;
 import cdtliterature.CdtliteratureFactory;
 import cdtliterature.Library;
 import net.bhl.cdt.literature.model.parsley.ParsleyInjectorProvider;

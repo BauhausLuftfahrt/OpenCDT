@@ -1,23 +1,22 @@
-import net.bhl.cdt.literature.model.parsley.ParsleySaveableTreeFormView
-import org.eclipse.emf.parsley.edit.IEditingStrategy
-import org.eclipse.emf.parsley.edit.UndoableEditingStrategy
-import org.eclipse.emf.common.util.URI
-import cdtliterature.Library
 import cdtliterature.Article
 import cdtliterature.Book
-import cdtliterature.Inbook
+import cdtliterature.CdtliteratureFactory
 import cdtliterature.Conference
+import cdtliterature.Inbook
 import cdtliterature.Incollection
 import cdtliterature.Inproceedings
+import cdtliterature.Library
+import cdtliterature.Masterthesis
+import cdtliterature.Phdthesis
 import cdtliterature.Proceedings
 import cdtliterature.Techreport
-import cdtliterature.Phdthesis
-import cdtliterature.Masterthesis
 import cdtliterature.Unpublished
-import cdtliterature.CdtliteratureFactory
+import net.bhl.cdt.literature.model.parsley.ParsleySaveableTreeFormView
+import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.parsley.composite.FormControlFactory
-import cdtliterature.ALiteratureBase
-import org.eclipse.emf.parsley.edit.action.EditingMenuBuilder
+import org.eclipse.emf.parsley.edit.IEditingStrategy
+import org.eclipse.emf.parsley.edit.UndoableEditingStrategy
+import org.eclipse.swt.SWT
 
 /* net.bhl.cdt.literature.model.parsley EMF Parsley Dsl Module file */
 module net.bhl.cdt.literature.model.parsley {

@@ -2,7 +2,6 @@ package net.bhl.cdt.reconstruct.cdtmodel;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 public class ExtractQuantitiesFromFormula {
 	
@@ -28,19 +27,21 @@ public class ExtractQuantitiesFromFormula {
 		 
 		 char[] leftSideCharacters = leftSide.toCharArray();
 		 /**
-		  * The $-symbols are removed.
+		  * $-symbols are removed.
 		  * */
 		 String outputParameter = "";
-		     for (int i = 0; i < leftSideCharacters.length; i++) {
-		         if (!(leftSideCharacters[i] == '$')) 
-		        	 outputParameter += leftSideCharacters[i];
-		     }
+		 for (int i = 0; i < leftSideCharacters.length; i++) {
+			 
+		        if(!(leftSideCharacters[i] == '$')) 
+		           outputParameter += leftSideCharacters[i];
+		 }
 		 /**
-		  * Emtpy spaces are removed and returned.
+		  * Empty spaces are removed and returned.
 		  * */
 		 return outputParameter.replaceAll("\\s+","");
 		
 	}
+	
 	/**
 	 * The right side of formula is used to generate the input-parameter.
 	 * */
@@ -53,6 +54,7 @@ public class ExtractQuantitiesFromFormula {
 		return extractInputQuantities(rightSide);
 		
 	}
+	
 	/**
 	 * Only rational number, alphabet letter and specially the subscripted parameter, Greek alphabet letter, roots operator 
 	 * can be extracted from Latex-formula. For other formula and letter it should be extended.
@@ -67,25 +69,29 @@ public class ExtractQuantitiesFromFormula {
 		 /**
 		  * Every character of right side of formula is interpreted from left to right.
 		  * */ 
-		 for (int i = 0; i < formula.length(); i++){
+		 for (int pos = 0; pos < formula.length(); pos++){
 		        
-			 char current_character = formula.charAt(i);
+			 char current_character = formula.charAt(pos);
 			
 			 
 			 if(TYPE_CHARACTER == type_analyse(current_character)){
 
-				 if(isSubscript(current_character, i, formula)){
-				 	i = checkSubscript(current_character, i, formula, quantitiesArray);
+				 if(isNextSubscript(current_character, pos, formula)){
+					 
+					 pos = getLastPositionAndSaveSubscript(current_character, pos, formula, quantitiesArray);
 				 }
 				 else{
-					/**check the redundant quantity*/
-					 addQuantties(current_character, quantitiesArray);
+					 
+					/**
+					 * check the redundant quantity and save it.
+					 * */
+					 addQuantityWithoutRedundancy(current_character, quantitiesArray);
 				 }
 				 
 			 }
 			 else if(TYPE_BACKSLASH == type_analyse(current_character)){
 				 
-				 i = checkGreekLetters(current_character, i, formula, quantitiesArray);
+				 pos = getLastPositionAndSaveGreekLetters(current_character, pos, formula, quantitiesArray);
 				 
 			 }
 	 
@@ -96,7 +102,8 @@ public class ExtractQuantitiesFromFormula {
 		 return quantitiesArray;
 		
 	}
-	private static Boolean isSubscript(char current, int index, String formula){
+	
+	private static Boolean isNextSubscript(char current, int index, String formula){
 		
 		int get_next_index = index+1;
 		if(get_next_index <= formula.length()){
@@ -112,7 +119,8 @@ public class ExtractQuantitiesFromFormula {
 			return false;
 		}
 	}
-	private static int checkGreekLetters(char current, int index, String formula, List<String> quantitiesArray){
+	
+	private static int getLastPositionAndSaveGreekLetters(char current, int index, String formula, List<String> quantitiesArray){
 		
 		StringBuilder greek_letter = new StringBuilder();
 		int pivot=index+1;
@@ -129,7 +137,7 @@ public class ExtractQuantitiesFromFormula {
 			
 			if(isLetterGreek(letter)){
 				
-				addQuantties(letter, quantitiesArray);
+				addQuantityWithoutRedundancy(letter, quantitiesArray);
 				
 			}
 		}
@@ -138,7 +146,8 @@ public class ExtractQuantitiesFromFormula {
 		
 		
 	}
-private static int checkSubscript(char current, int index, String formula, List<String> quantitiesArray){
+	
+	private static int getLastPositionAndSaveSubscript(char current, int index, String formula, List<String> quantitiesArray){
 		
 		StringBuilder quantity = new StringBuilder();
 		int pivot=current;
@@ -147,14 +156,28 @@ private static int checkSubscript(char current, int index, String formula, List<
 		
 		if(get_next_index <= formula.length()){
 			
+			/**
+			 * The next character is checked whether it is the subscript like '_'. 
+			 * */
 			if(type_analyse(formula.charAt(get_next_index)) == TYPE_SUBSCRIPT){
 				
+				/**
+				 * A subscripted input-parameter is ready to be generated.
+				 * */
 				quantity.append(current);
 				quantity.append('_');
 				
+				
+				/**
+				 * The next character after subscript is checked whether it is the curly bracket like '{'. 
+				 * */
 				if(type_analyse(formula.charAt(get_next_next_index)) == TYPE_CURLY_BRACKET){
 				
 					pivot = get_next_next_index+1;
+					
+					/**
+					 * The characters are saved until the curly bracket like '}' appears.
+					 * */
 					while(type_analyse(formula.charAt(pivot)) != TYPE_CURLY_BRACKET){
 						
 						quantity.append(formula.charAt(pivot));
@@ -162,14 +185,18 @@ private static int checkSubscript(char current, int index, String formula, List<
 						
 					}
 					
-					addQuantties(quantity.toString(), quantitiesArray);
+					addQuantityWithoutRedundancy(quantity.toString(), quantitiesArray);
 					return pivot;
 					
 				}
 				else{
 					
+					
 					if(type_analyse(formula.charAt(get_next_next_index)) == TYPE_CONSTANT){
 						
+						/**
+						 * The next character of subscript is certain number.
+						 * */
 						pivot = get_next_next_index;
 						while(type_analyse(formula.charAt(pivot)) == TYPE_CONSTANT){
 							
@@ -178,7 +205,7 @@ private static int checkSubscript(char current, int index, String formula, List<
 							
 						}
 						
-						addQuantties(quantity.toString(), quantitiesArray);
+						addQuantityWithoutRedundancy(quantity.toString(), quantitiesArray);
 						return pivot;
 						
 						
@@ -186,16 +213,18 @@ private static int checkSubscript(char current, int index, String formula, List<
 						
 						pivot = get_next_next_index;
 						quantity.append(formula.charAt(pivot));
-						addQuantties(quantity.toString(), quantitiesArray);
+						addQuantityWithoutRedundancy(quantity.toString(), quantitiesArray);
 						return pivot;
 					}
 					
 					
 				}
 				
-			}else{
+			}
+			else{
 				
 				return pivot;
+				
 			}
 			
 			
@@ -204,7 +233,8 @@ private static int checkSubscript(char current, int index, String formula, List<
 		return get_next_index;
 	
 	}
-	private static void addQuantties(char current,List<String> quantitiesArray){
+	
+	private static void addQuantityWithoutRedundancy(char current,List<String> quantitiesArray){
 		
 		 if(!quantitiesArray.contains(Character.toString(current))){
 			 
@@ -213,7 +243,8 @@ private static int checkSubscript(char current, int index, String formula, List<
 		 
 		
 	}
-	private static void addQuantties(String quantity, List<String> quantitiesArray){
+	
+	private static void addQuantityWithoutRedundancy(String quantity, List<String> quantitiesArray){
 		
 		 if(!quantitiesArray.contains(quantity)){
 			 
@@ -261,7 +292,7 @@ private static int checkSubscript(char current, int index, String formula, List<
 		
 	}
 
-	private static boolean checkPairParentesis(String str)
+	/*private static boolean checkPairParentesis(String str)
 	{
 	    if (str.isEmpty())
 	        return true;
@@ -299,7 +330,7 @@ private static int checkSubscript(char current, int index, String formula, List<
 
 	    return stack.isEmpty();
         	
-	}
+	}*/
 
 	private static Boolean isLetterGreek(String letter){
 		

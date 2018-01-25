@@ -24,8 +24,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 
-import net.bhl.cdt.core.ui.UIHelper;
-
 public class CustomPartControlFactory extends FormControlFactory {
 	
 	

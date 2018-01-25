@@ -196,7 +196,6 @@ public class ControlRenderer extends TextControlSWTRenderer implements Component
 		 * the size of the background image can be modified.
 		 */	
 		imageLabelC = new CLabel(main, SWT.NONE);
-		//image = new Image(Display.getCurrent(), 900, 100);
 		image = new Image(Display.getCurrent(), 900, 200);
 		width = image.getBounds().width;
  		height = image.getBounds().height;
@@ -242,7 +241,6 @@ public class ControlRenderer extends TextControlSWTRenderer implements Component
 					/**
 					 * the image is removed, if the textbox is of latex-formel empty.
 					 */
-					//setImageRemove();
 					
 				}
 			}
@@ -259,7 +257,6 @@ public class ControlRenderer extends TextControlSWTRenderer implements Component
 		main.addListener(SWT.Resize,  new Listener () {
 			
 	        public void handleEvent (Event e) {
-	        //System.out.println("resize");
 	         
 	    }});
 		
@@ -293,7 +290,6 @@ public class ControlRenderer extends TextControlSWTRenderer implements Component
 	        messageBox.setMessage(session.getErrors().toString());
 	        messageBox.open();
 	        
-	        //setImageRemove();
 			
 			System.out.println("Error : " + session.getErrors().toString());
 		}

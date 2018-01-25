@@ -10,6 +10,7 @@ import net.bhl.cdt.literature.model.parsley.parts.MyParts.MyParts;
 /**
  * it is called by saving library button in the toolbar*/
 public class SaveReference {
+	
 	@Inject
 	private EPartService partService;
 	
@@ -18,5 +19,6 @@ public class SaveReference {
 	
 		MyParts parts =  (MyParts) partService.getActivePart().getObject();
 		parts.saveReference();
+		
 	}
 }

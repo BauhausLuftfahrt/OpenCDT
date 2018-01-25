@@ -1,20 +1,16 @@
+import cdtliterature.Article
+import cdtliterature.Book
+import cdtliterature.CdtliteratureFactory
+import cdtliterature.Library
 import formula.Formula
 import formula.FormulaRepository
 import net.bhl.cdt.reconstruct.cdtmodel.CDTLiteratureTable
 import net.bhl.cdt.reconstruct.cdtmodel.CustomFormControlFactory
+import net.bhl.cdt.reconstruct.cdtmodel.ReferenceDialog
+import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.parsley.composite.FormControlFactory
 import org.eclipse.emf.parsley.edit.IEditingStrategy
 import org.eclipse.emf.parsley.edit.UndoableEditingStrategy
-import org.eclipse.swt.SWT
-import net.bhl.cdt.reconstruct.cdtmodel.CdtmodelOnSelectionFormView
-import org.eclipse.emf.common.util.URI
-import cdtliterature.Library
-import net.bhl.cdt.reconstruct.cdtmodel.ReferenceDialog
-import cdtliterature.CdtliteratureFactory
-import java.util.List
-import cdtliterature.Article
-import cdtliterature.ALiteratureBase
-import cdtliterature.Book
 
 /* net.bhl.cdt.reconstruct.cdtmodel EMF Parsley Dsl Module file */
 module net.bhl.cdt.reconstruct.cdtliteraturetable {
@@ -85,7 +81,7 @@ module net.bhl.cdt.reconstruct.cdtliteraturetable {
 	
 	tableLabelProvider {
 			text {
-				Library:name -> 'Name' // constant
+				Library:name -> 'Name'
 
 			}
 	}

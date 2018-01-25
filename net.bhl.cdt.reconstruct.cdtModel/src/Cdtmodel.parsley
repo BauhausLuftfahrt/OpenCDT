@@ -1,15 +1,11 @@
-import net.bhl.cdt.reconstruct.cdtmodel.CdtmodelOnSelectionFormView
 import formula.Formula
+import formula.FormulaRepository
+import formula.Quantity
+import net.bhl.cdt.reconstruct.cdtmodel.CdtmodelOnSelectionFormView
+import org.eclipse.emf.parsley.composite.FormControlFactory
 import org.eclipse.emf.parsley.edit.IEditingStrategy
 import org.eclipse.emf.parsley.edit.UndoableEditingStrategy
-import formula.FormulaRepository
-import formula.FormulaFactory
-import org.eclipse.emf.parsley.composite.FormControlFactory
-import net.bhl.cdt.reconstruct.cdtmodel.CustomFormControlFactory
-import org.eclipse.emf.common.util.URI
-import cdtliterature.CdtliteratureFactory
-import formula.Quantity
-import net.bhl.cdt.reconsruct.parsley.e4.CDTModelEditor
+import org.eclipse.swt.SWT
 
 /* net.bhl.cdt.reconstruct.cdtmodel EMF Parsley Dsl Module file */
 module net.bhl.cdt.reconstruct.cdtmodel {

@@ -356,6 +356,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	        		hyperlink.setEnabled(true);
 	    	        		
 	    	        		try{
+	    	        			
 	    	        			ALiteratureBase literatureObj = (ALiteratureBase)treeColumnDialog.getObject();
 	    	        			EObject result = literatureObj;
 			        	    	hyperlink.setText(result.eClass().getName() + " " + literatureObj.getTitle());
@@ -368,6 +369,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	        		}
 	        	    	}
 	        	    }
+	        	    
 	        	    composite.forceFocus();        	    
 	            }
 	           
