@@ -97,6 +97,7 @@ public class ReferenceDialog extends Dialog {
 			        	    
 			        	    EObject eobj = (EObject) object; 
 					        uriFrag = resourceLibrary.getURIFragment(eobj);
+					        
 			   		   }catch(ClassCastException exc) {
 			   		   }
         
