@@ -23,20 +23,19 @@ import com.google.inject.Injector;
 
 import net.bhl.cdt.reconstruct.cdtquantitymodel.CdtquantitymodelInjectorProvider;
 
+
+/**
+ * This class is called for creating part by click to hyperlink of quantity.
+ * */
 public class CDTQuantityModelViewer {
-	
 	
 	private FormDetailComposite formComposite;
 	private EObject eObject;
 	private MPart part;
-	//private MPartStack stack;
-	//private EPartService partService;
-	//private String id;
 	
 	@PostConstruct
 	public void postConstruct(Composite parent) {	
-
-		
+	
 		Injector injector = CdtquantitymodelInjectorProvider.getInjector();
     	FormFactory formFactory = injector.getInstance(FormFactory.class);
 		formComposite = formFactory.createFormDetailComposite(parent, SWT.BORDER);	
@@ -57,6 +56,7 @@ public class CDTQuantityModelViewer {
 		});
 		
 	}
+	
 	 @Inject
 	 public void initPart(MPart thePart, EModelService modelService, MApplication application, EPartService partService, Shell shell){		 	
 
@@ -70,55 +70,7 @@ public class CDTQuantityModelViewer {
 		List<MPartStack> stacks = modelService.findElements(application, null, MPartStack.class, null);
 		stacks.get(1).getChildren().add(part);
 		
-		
-		//Boolean partVisible = false;
-		//this.partService = partService;
-		
-		/**The formula-part and on this part added tab-parts are retrieved*/
-		/*stack = (MPartStack) modelService.find("org.eclipse.emf.ecp.e4.application.partstack.editor", application);
-		stack.getChildren().size();*/
-		
-		
-		
-		//Collection<MPart> parts = partService.getParts();
-	
-		
 	 }
 	 
-	 /*public EObject getEObjectCDT(){
-		 
-		 return eObject;
-	 }*/
-
-	/* public void setUnvisible(){
-		
-		 for (int i = 0; i < stack.getChildren().size(); i++) {
-             
-			 if (stack.getChildren().get(i).isVisible()) {
- 
-                 if(id == ((MPart) stack.getChildren().get(i)).getElementId()){
-                	 
-                	 ((MPart) stack.getChildren().get(i)).setVisible(false);
-                 }
-    
-             }
-		 }
-			 
-		 Collection<MPart> collPart = partService.getParts();
-		 collPart.size();
-			
-			for( Iterator<MPart> iterator = collPart.iterator(); iterator.hasNext();){
-			
-				MPart part = iterator.next();
-				if(part.getLabel().equals(id)){
-			
-					part.setLabel("");
-					break;
-						
-				}
-			}
-	 }*/
-	
-	
 
 }
