@@ -148,7 +148,6 @@ public class CustomFormControlFactory extends FormControlFactory {
             		Color grey = new Color (device, 224, 224, 224);
             		pathText.setBackground(grey);
             		pathText.setEnabled(false);
-	
             		
             	}
 
