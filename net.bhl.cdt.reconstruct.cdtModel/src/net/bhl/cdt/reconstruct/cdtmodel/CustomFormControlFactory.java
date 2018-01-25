@@ -19,12 +19,16 @@ import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecp.core.ECPProjectManager;
 import org.eclipse.emf.ecp.core.util.ECPUtil;
 import org.eclipse.emf.ecp.spi.ui.util.ECPHandlerHelper;
 import org.eclipse.emf.ecp.ui.e4.util.EPartServiceHelper;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.parsley.composite.FormControlFactory;
+import org.eclipse.emf.parsley.resource.ResourceLoader;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
@@ -57,11 +61,14 @@ import org.eclipse.ui.forms.widgets.Hyperlink;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import com.google.inject.Injector;
+
 import cdtliterature.ALiteratureBase;
 import formula.Formula;
 import formula.FormulaFactory;
 import formula.FormulaRepository;
 import formula.Quantity;
+import net.bhl.cdt.literature.model.parsley.ParsleyInjectorProvider;
 import net.sourceforge.jeuclid.MathMLParserSupport;
 import net.sourceforge.jeuclid.MutableLayoutContext;
 import net.sourceforge.jeuclid.context.LayoutContextImpl;
@@ -93,6 +100,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private static final String NOTHING_GENERATE_QUANTITY = "=";
 	private static final int STANDARD_WIDTH = 300;
 	private static final int BASE_SIZE_HYPERLINK = 10;
+	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");	
+
 
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -261,11 +270,31 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    composite.setLayout(_gridLayout);
 	    hyperLinkStr = "";
 	    
-	    if (featureObservable.getValue() != null)
+	    Injector injectorLib = ParsleyInjectorProvider.getInjector();
+		ResourceLoader resourceLoader = injectorLib.getInstance(ResourceLoader.class);
+		EditingDomain editingDomain = injectorLib.getInstance(EditingDomain.class);
+		Resource resourceLibrary = resourceLoader.getResource(editingDomain, uri).getResource();
+		
+		
+	    /*if (featureObservable.getValue() != null)
 	    	hyperLinkStr = (((ALiteratureBase) featureObservable.getValue()).eClass().getName() +
-	    			" " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
-	    
+	    			" " + ((ALiteratureBase)featureObservable.getValue()).getTitle());*/
+		
+		
+	    if (featureObservable.getValue() != null)
+	    {
 	    	
+	    	EObject eobject = resourceLibrary.getEObject(featureObservable.getValue().toString());
+	    	hyperLinkStr = (eobject.eClass().getName() +
+	    			" " + ((ALiteratureBase)eobject).getTitle());
+	    	
+	    }
+	    
+	    //uriFrag = resourceLibrary.getURIFragment(eobj);
+	    //EObject lit = resourceLibrary.getEObject(uriFrag);
+	    //EObject result = literatureObj;
+    	//hyperlink.setText(result.eClass().getName() + " " + literatureObj.getTitle());
+	    
 	    hyperlink = _toolkit.createHyperlink(composite, hyperLinkStr, SWT.NONE);
 	    
 	    hyperlink.setUnderlined(false);
@@ -293,7 +322,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 					MPart partSearch = i.next();
 					if (partSearch.isVisible()) {
 						
-						if(partSearch.getElementId().equals(featureObservable.getValue().toString())){
+						if(partSearch.getElementId().equals(resourceLibrary.getEObject(featureObservable.getValue().toString()).toString())){
 							partVisible = true;
 		                	partService.activate(partSearch);
 		                	break;
@@ -307,11 +336,20 @@ public class CustomFormControlFactory extends FormControlFactory {
 				 * */
 				if(!partVisible){
 					
+					EObject eobject = resourceLibrary.getEObject(featureObservable.getValue().toString());
+
 					part = MBasicFactory.INSTANCE.createPart();
-					part.setLabel(((ALiteratureBase) featureObservable.getValue()).eClass().getName() + 
-							" " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
-				    part.setElementId(featureObservable.getValue().toString());
-					part.setObject(featureObservable.getValue());
+					
+					/*part.setLabel(((ALiteratureBase) featureObservable.getValue()).eClass().getName() + 
+							" " + ((ALiteratureBase)featureObservable.getValue()).getTitle());*/
+					
+					part.setLabel((eobject.eClass().getName() +
+			    			" " + ((ALiteratureBase)eobject).getTitle())) ;
+					
+					
+				    //part.setElementId(featureObservable.getValue().toString());
+					part.setElementId(eobject.toString());
+					part.setObject(eobject);
 					part.setCloseable(true);
 					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryRefernceModelViewer");
 
@@ -359,9 +397,16 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	        			
 	    	        			ALiteratureBase literatureObj = (ALiteratureBase)treeColumnDialog.getObject();
 	    	        			EObject result = literatureObj;
+	    	        			
+	    	        			//String uriEobj = treeColumnDialog.getUriEOB();
 			        	    	hyperlink.setText(result.eClass().getName() + " " + literatureObj.getTitle());
-			        	    	featureObservable.setValue(treeColumnDialog.getObject());
-		        	    		hyperlink.setEnabled(true);
+			        	    	
+			        	    	//featureObservable.setValue(treeColumnDialog.getObject());
+			        	    	featureObservable.setValue(treeColumnDialog.getUriEOB());
+			        	    
+			        	    	//treeColumnDialog.getUriEOB().toString()
+			        	    	
+			        	    	hyperlink.setEnabled(true);
 		        	    		
 	    	        		}catch(ClassCastException e1){
 	    	        			System.err.println( "The library-model can not be chosen as the reference" );
@@ -402,7 +447,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	            		if(dialog.open() == SWT.OK){
 	            			hyperlink.setText(EMPTY);
 	    	            	hyperlink.setEnabled(false);
-	    	            	featureObservable.setValue(EMPTY);
+	    	            	//featureObservable.setValue(EMPTY);
+	    	            	featureObservable.setValue(null);
 	            		}
 	            		
 	            	}

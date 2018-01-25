@@ -2,7 +2,6 @@
  */
 package formula;
 
-import cdtliterature.ALiteratureBase;
 import java.util.Map;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EObject;
@@ -162,30 +161,30 @@ public interface Formula extends EObject {
 	void setRepository(FormulaRepository value);
 
 	/**
-	 * Returns the value of the '<em><b>Reference</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Reference</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Reference</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Reference</em>' containment reference.
-	 * @see #setReference(ALiteratureBase)
+	 * @return the value of the '<em>Reference</em>' attribute.
+	 * @see #setReference(String)
 	 * @see formula.FormulaPackage#getFormula_Reference()
-	 * @model containment="true"
+	 * @model
 	 * @generated
 	 */
-	ALiteratureBase getReference();
+	String getReference();
 
 	/**
-	 * Sets the value of the '{@link formula.Formula#getReference <em>Reference</em>}' containment reference.
+	 * Sets the value of the '{@link formula.Formula#getReference <em>Reference</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Reference</em>' containment reference.
+	 * @param value the new value of the '<em>Reference</em>' attribute.
 	 * @see #getReference()
 	 * @generated
 	 */
-	void setReference(ALiteratureBase value);
+	void setReference(String value);
 
 	/**
 	 * <!-- begin-user-doc -->

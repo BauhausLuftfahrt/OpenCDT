@@ -2,7 +2,6 @@
  */
 package formula.impl;
 
-import cdtliterature.ALiteratureBase;
 import formula.Formula;
 import formula.FormulaPackage;
 import formula.FormulaRepository;
@@ -116,14 +115,24 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	protected Quantity outputParameter;
 
 	/**
-	 * The cached value of the '{@link #getReference() <em>Reference</em>}' containment reference.
+	 * The default value of the '{@link #getReference() <em>Reference</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected ALiteratureBase reference;
+	protected static final String REFERENCE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getReference() <em>Reference</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReference()
+	 * @generated
+	 * @ordered
+	 */
+	protected String reference = REFERENCE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -291,7 +300,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ALiteratureBase getReference() {
+	public String getReference() {
 		return reference;
 	}
 
@@ -300,33 +309,11 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetReference(ALiteratureBase newReference, NotificationChain msgs) {
-		ALiteratureBase oldReference = reference;
+	public void setReference(String newReference) {
+		String oldReference = reference;
 		reference = newReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FormulaPackage.FORMULA__REFERENCE, oldReference, newReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setReference(ALiteratureBase newReference) {
-		if (newReference != reference) {
-			NotificationChain msgs = null;
-			if (reference != null)
-				msgs = ((InternalEObject)reference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FormulaPackage.FORMULA__REFERENCE, null, msgs);
-			if (newReference != null)
-				msgs = ((InternalEObject)newReference).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FormulaPackage.FORMULA__REFERENCE, null, msgs);
-			msgs = basicSetReference(newReference, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, FormulaPackage.FORMULA__REFERENCE, newReference, newReference));
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormulaPackage.FORMULA__REFERENCE, oldReference, reference));
 	}
 
 	/**
@@ -380,8 +367,6 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 		switch (featureID) {
 			case FormulaPackage.FORMULA__REPOSITORY:
 				return basicSetRepository(null, msgs);
-			case FormulaPackage.FORMULA__REFERENCE:
-				return basicSetReference(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -450,7 +435,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				setRepository((FormulaRepository)newValue);
 				return;
 			case FormulaPackage.FORMULA__REFERENCE:
-				setReference((ALiteratureBase)newValue);
+				setReference((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -480,7 +465,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				setRepository((FormulaRepository)null);
 				return;
 			case FormulaPackage.FORMULA__REFERENCE:
-				setReference((ALiteratureBase)null);
+				setReference(REFERENCE_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -505,7 +490,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 			case FormulaPackage.FORMULA__REPOSITORY:
 				return getRepository() != null;
 			case FormulaPackage.FORMULA__REFERENCE:
-				return reference != null;
+				return REFERENCE_EDEFAULT == null ? reference != null : !REFERENCE_EDEFAULT.equals(reference);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -540,6 +525,8 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 		result.append(latexString);
 		result.append(", inputParameter: ");
 		result.append(inputParameter);
+		result.append(", reference: ");
+		result.append(reference);
 		result.append(')');
 		return result.toString();
 	}

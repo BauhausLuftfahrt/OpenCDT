@@ -25,8 +25,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="outputParameter" eType="#//Quantity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="repository" lowerBound="1"
         eType="#//FormulaRepository" eOpposite="#//FormulaRepository/formulas"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="reference" eType="ecore:EClass ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//ALiteratureBase"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reference" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Quantity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -3,7 +3,6 @@
 package formula.provider;
 
 
-import cdtliterature.CdtliteratureFactory;
 import formula.Formula;
 import formula.FormulaPackage;
 
@@ -14,7 +13,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -181,36 +179,6 @@ public class FormulaItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(FormulaPackage.Literals.FORMULA__REFERENCE);
-		}
-		return childrenFeatures;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
 	 * This returns Formula.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -250,10 +218,8 @@ public class FormulaItemProvider
 		switch (notification.getFeatureID(Formula.class)) {
 			case FormulaPackage.FORMULA__NAME:
 			case FormulaPackage.FORMULA__LATEX_STRING:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
 			case FormulaPackage.FORMULA__REFERENCE:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -269,61 +235,6 @@ public class FormulaItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormulaPackage.Literals.FORMULA__REFERENCE,
-				 CdtliteratureFactory.eINSTANCE.createArticle()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormulaPackage.Literals.FORMULA__REFERENCE,
-				 CdtliteratureFactory.eINSTANCE.createBook()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormulaPackage.Literals.FORMULA__REFERENCE,
-				 CdtliteratureFactory.eINSTANCE.createInbook()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormulaPackage.Literals.FORMULA__REFERENCE,
-				 CdtliteratureFactory.eINSTANCE.createConference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormulaPackage.Literals.FORMULA__REFERENCE,
-				 CdtliteratureFactory.eINSTANCE.createIncollection()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormulaPackage.Literals.FORMULA__REFERENCE,
-				 CdtliteratureFactory.eINSTANCE.createInproceedings()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormulaPackage.Literals.FORMULA__REFERENCE,
-				 CdtliteratureFactory.eINSTANCE.createProceedings()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormulaPackage.Literals.FORMULA__REFERENCE,
-				 CdtliteratureFactory.eINSTANCE.createTechreport()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormulaPackage.Literals.FORMULA__REFERENCE,
-				 CdtliteratureFactory.eINSTANCE.createPhdthesis()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormulaPackage.Literals.FORMULA__REFERENCE,
-				 CdtliteratureFactory.eINSTANCE.createMasterthesis()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(FormulaPackage.Literals.FORMULA__REFERENCE,
-				 CdtliteratureFactory.eINSTANCE.createUnpublished()));
 	}
 
 	/**
