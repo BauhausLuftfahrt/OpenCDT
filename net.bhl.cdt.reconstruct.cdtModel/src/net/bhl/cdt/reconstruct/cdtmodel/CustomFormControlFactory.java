@@ -276,11 +276,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		Resource resourceLibrary = resourceLoader.getResource(editingDomain, uri).getResource();
 		
 		
-	    /*if (featureObservable.getValue() != null)
-	    	hyperLinkStr = (((ALiteratureBase) featureObservable.getValue()).eClass().getName() +
-	    			" " + ((ALiteratureBase)featureObservable.getValue()).getTitle());*/
-		
-		
+	    
 	    if (featureObservable.getValue() != null)
 	    {
 	    	
@@ -289,11 +285,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    			" " + ((ALiteratureBase)eobject).getTitle());
 	    	
 	    }
-	    
-	    //uriFrag = resourceLibrary.getURIFragment(eobj);
-	    //EObject lit = resourceLibrary.getEObject(uriFrag);
-	    //EObject result = literatureObj;
-    	//hyperlink.setText(result.eClass().getName() + " " + literatureObj.getTitle());
 	    
 	    hyperlink = _toolkit.createHyperlink(composite, hyperLinkStr, SWT.NONE);
 	    
@@ -339,15 +330,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 					EObject eobject = resourceLibrary.getEObject(featureObservable.getValue().toString());
 
 					part = MBasicFactory.INSTANCE.createPart();
-					
-					/*part.setLabel(((ALiteratureBase) featureObservable.getValue()).eClass().getName() + 
-							" " + ((ALiteratureBase)featureObservable.getValue()).getTitle());*/
-					
 					part.setLabel((eobject.eClass().getName() +
 			    			" " + ((ALiteratureBase)eobject).getTitle())) ;
 					
-					
-				    //part.setElementId(featureObservable.getValue().toString());
 					part.setElementId(eobject.toString());
 					part.setObject(eobject);
 					part.setCloseable(true);
@@ -397,14 +382,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	        			
 	    	        			ALiteratureBase literatureObj = (ALiteratureBase)treeColumnDialog.getObject();
 	    	        			EObject result = literatureObj;
-	    	        			
-	    	        			//String uriEobj = treeColumnDialog.getUriEOB();
+
 			        	    	hyperlink.setText(result.eClass().getName() + " " + literatureObj.getTitle());
 			        	    	
-			        	    	//featureObservable.setValue(treeColumnDialog.getObject());
 			        	    	featureObservable.setValue(treeColumnDialog.getUriEOB());
-			        	    
-			        	    	//treeColumnDialog.getUriEOB().toString()
 			        	    	
 			        	    	hyperlink.setEnabled(true);
 		        	    		
@@ -447,7 +428,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 	            		if(dialog.open() == SWT.OK){
 	            			hyperlink.setText(EMPTY);
 	    	            	hyperlink.setEnabled(false);
-	    	            	//featureObservable.setValue(EMPTY);
 	    	            	featureObservable.setValue(null);
 	            		}
 	            		
