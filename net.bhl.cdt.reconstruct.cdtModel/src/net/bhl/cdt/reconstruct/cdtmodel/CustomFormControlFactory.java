@@ -322,6 +322,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		    
 		             }
 		        }
+				
 				/**
 				 * If the part of literature-model was not opened fast, then new part is created and showed using parsley.
 				 * */

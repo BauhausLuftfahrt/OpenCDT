@@ -94,7 +94,9 @@ public class ReferenceDialog extends Dialog {
 			           try{
 			       			
 			        	    object = selection.getFirstElement();
-			        	       
+			        	    
+			        	    EObject eobj = (EObject) object; 
+					        uriFrag = resourceLibrary.getURIFragment(eobj);
 			   		   }catch(ClassCastException exc) {
 			   		   }
         
@@ -113,7 +115,6 @@ public class ReferenceDialog extends Dialog {
 		        
 		        EObject eobj = (EObject) object; 
 		        uriFrag = resourceLibrary.getURIFragment(eobj);
-		        
 		        
 		        viewer.setExpandedState(object,
 		                !viewer.getExpandedState(object));
