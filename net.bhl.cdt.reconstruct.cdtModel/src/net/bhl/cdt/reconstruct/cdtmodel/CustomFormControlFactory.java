@@ -89,7 +89,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private GridData gd;
 	private Hyperlink hyperlink;
 	private MPart part; 
-	private String hyperLinkStr;
+	private String referenceStr;
 	private Hyperlink hyperlink_output;
 	private IObservableValue output_featureObservable;
 	private IObservableValue input_featureObservable;
@@ -268,30 +268,75 @@ public class CustomFormControlFactory extends FormControlFactory {
 	     * */
 	    GridLayout _gridLayout = new GridLayout(3, false);
 	    composite.setLayout(_gridLayout);
-	    hyperLinkStr = "";
 	    
+	    /**
+	     * A Preparation for calling the contents of literature-library.
+	     * */
 	    Injector injectorLib = ParsleyInjectorProvider.getInjector();
 		ResourceLoader resourceLoader = injectorLib.getInstance(ResourceLoader.class);
 		EditingDomain editingDomain = injectorLib.getInstance(EditingDomain.class);
 		Resource resourceLibrary = resourceLoader.getResource(editingDomain, uri).getResource();
 		
 		
-	    
+		Boolean hasReference = getFeatureObservableValue(featureObservable);
+		
+	    /**
+	     * retrieve the saved reference-string.
+	     * */
+		
+		
+		if(hasReference)
+	    {
+	    	
+	    	EObject eobject = resourceLibrary.getEObject(featureObservable.getValue().toString());
+	    	String referenceStr = (eobject.eClass().getName() +
+	    			" " + ((ALiteratureBase)eobject).getTitle());
+	    	hyperlink = _toolkit.createHyperlink(composite, referenceStr, SWT.NONE);	    
+		    hyperlink.setUnderlined(false);
+	    	
+	    }else{
+			 
+			 hyperlink = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);	    
+			 hyperlink.setUnderlined(false);
+			 hyperlink.setEnabled(false);
+		}
+		
+		/*if(featureObservable.getValue() == null){
+			 
+			 hyperlink = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);	    
+			 hyperlink.setUnderlined(false);
+			 hyperlink.setEnabled(false);
+		}
+		else if(featureObservable.getValue() != null)
+	    {
+	    	
+	    	EObject eobject = resourceLibrary.getEObject(featureObservable.getValue().toString());
+	    	String referenceStr = (eobject.eClass().getName() +
+	    			" " + ((ALiteratureBase)eobject).getTitle());
+	    	hyperlink = _toolkit.createHyperlink(composite, referenceStr, SWT.NONE);	    
+		    hyperlink.setUnderlined(false);
+	    	
+	    }*/
+		
+		
+		/*referenceStr = "";
 	    if (featureObservable.getValue() != null)
 	    {
 	    	
 	    	EObject eobject = resourceLibrary.getEObject(featureObservable.getValue().toString());
-	    	hyperLinkStr = (eobject.eClass().getName() +
+	    	referenceStr = (eobject.eClass().getName() +
 	    			" " + ((ALiteratureBase)eobject).getTitle());
 	    	
 	    }
 	    
-	    hyperlink = _toolkit.createHyperlink(composite, hyperLinkStr, SWT.NONE);
-	    
+	    hyperlink = _toolkit.createHyperlink(composite, referenceStr, SWT.NONE);	    
 	    hyperlink.setUnderlined(false);
 	    
 	    if (featureObservable.getValue() == null)
-	    	hyperlink.setEnabled(false);	
+	    	hyperlink.setEnabled(false);	*/
+		
+		
+		
 	    
 	    /**
 	     * The action for click of this hyperlink and let open and show the model of hyperlink.
@@ -531,17 +576,28 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
 	    GridLayout _gridLayout = new GridLayout(1, false);
 	    composite.setLayout(_gridLayout);
-	       
+	           
 	    output_featureObservable = featureObservable;
 	    
-	    if(featureObservable.getValue() == null){
+	    Boolean hasOutputParameter = getFeatureObservableValue(featureObservable);
+	    
+	    if(hasOutputParameter){
+	    	hyperlink_output = _toolkit.createHyperlink(composite, featureObservable.getValue().toString() , SWT.NONE);
+	    	setPropertyHyperlinkOutput(hyperlink_output, true, false);
+	    }
+	    else{
+	    	hyperlink_output = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);
+	    	setPropertyHyperlinkOutput(hyperlink_output, false, false);
+	    }
+	    
+	    /*if(featureObservable.getValue() == null){
 	    	hyperlink_output = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);
 	    	setPropertyHyperlinkOutput(hyperlink_output, false, false);
 	    }
 	    else{
 	    	hyperlink_output = _toolkit.createHyperlink(composite, ((Quantity)featureObservable.getValue()).getName() , SWT.NONE);
 	    	setPropertyHyperlinkOutput(hyperlink_output, true, false);
-	    }
+	    }*/
 	   
 	    composite.forceFocus();
 	    
@@ -561,6 +617,11 @@ public class CustomFormControlFactory extends FormControlFactory {
 	
 	    return composite;
 	}
+	
+	private Boolean getFeatureObservableValue(IObservableValue featureObservable){
+		
+		return (featureObservable.getValue() != null);
+	} 
 	
 	/**
 	 * set the basis property of hyperlink for input-parameter
@@ -813,7 +874,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		for(int i=0; i<formulas.size(); i++){
 			
 			 
-			if(!formulas.get(i).equals(currentFormula)){
+			if(!formulas.get(i).equals(currentFormula) && (formulas.get(i).getInputParameter() != null)){
 				
 				String [] inputParameter_stringArray = formulas.get(i).getInputParameter().split(","); 
 				ArrayList<String> inputParameter_arrayList = new ArrayList<>(Arrays.asList(inputParameter_stringArray));
@@ -913,24 +974,24 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private void createOutputQuantity(String latexFormula){
 		
 		String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
+		Formula currentFormula = (Formula)getOwner();
 		
-		Quantity q = (Quantity) output_featureObservable.getValue();
+		
+		//Quantity q = (Quantity) output_featureObservable.getValue();
+		
+		
 		
 		if(!out.equals(EMPTY)){
 			
 			hyperlink_output.setText(out);
 			hyperlink_output.setEnabled(true);
-			
-			Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
-			quantity.setName(out);
-			quantity.setDescription("output");
-			
+	
 			if(output_featureObservable.getValue() == null){
 				
 				/**
 				 * Only output-parameter quantities are retrieved from generated whole quantities under current repository.
 				 * */
-				Formula currentFormula = (Formula)getOwner();
+				//Formula currentFormula = (Formula)getOwner();
 				EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
 				ArrayList<String> outQuantities_arrayList = new ArrayList<String>();
 				for(Quantity qt : quantities){
@@ -947,6 +1008,109 @@ public class CustomFormControlFactory extends FormControlFactory {
 				 * */
 				if(!outQuantities_arrayList.contains(out)){
 					
+					Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+					quantity.setName(out);
+					quantity.setDescription("output");
+					currentFormula.getRepository().getQuantities().add(quantity);
+					output_featureObservable.setValue(out);
+					
+				}else{
+					
+					output_featureObservable.setValue(out);
+				}
+					
+			}else{
+				
+				/**
+				 * There is already saved value of output-parameter under the current repository, 
+				 * but the name of that is different to actual quantity, so it changes only the name
+				 * */ 
+				if(output_featureObservable.getValue() != null){
+					
+					String savedQuantityString = output_featureObservable.getValue().toString();
+					if(!savedQuantityString.equals(out)){
+						
+						//Formula currentFormula = (Formula)getOwner();
+						modifyPreviousOutput(currentFormula.getRepository(), out, savedQuantityString );
+														
+					}
+				}
+			}
+			
+		}
+		
+		/**
+		 * The actual output-parameter is empty, so it removes the hyperlink and the quantity-model under the current formula.
+		 * */
+		else{
+			
+			String savedQuantityString = output_featureObservable.getValue().toString();
+			hyperlink_output.setText(out);
+			hyperlink_output.setEnabled(false);
+			
+			EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
+			Quantity findQuantity = null;
+			for ( Iterator i = quantities.iterator(); i.hasNext();){
+						
+				Quantity quantity = (Quantity) i.next();
+							
+				if(quantity.getName().equals(savedQuantityString)){
+					
+					//quantity.setName(output);
+					findQuantity = quantity;
+					
+				}
+			}
+
+			final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
+			ArrayList<Object> toBeDeleted = new ArrayList<Object>();
+		
+			toBeDeleted.add(findQuantity);
+			EObject eObject = findQuantity;
+			ECPHandlerHelper.deleteModelElement(
+					ecpProjectManager.getProject(eObject),
+					toBeDeleted);		
+			
+		}
+	}
+	
+	/*private void createOutputQuantity(String latexFormula){
+		
+		String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
+		
+		Quantity q = (Quantity) output_featureObservable.getValue();
+		
+		if(!out.equals(EMPTY)){
+			
+			hyperlink_output.setText(out);
+			hyperlink_output.setEnabled(true);
+			
+			Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+			quantity.setName(out);
+			quantity.setDescription("output");
+			
+			if(output_featureObservable.getValue() == null){
+				
+				*//**
+				 * Only output-parameter quantities are retrieved from generated whole quantities under current repository.
+				 * *//*
+				Formula currentFormula = (Formula)getOwner();
+				EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
+				ArrayList<String> outQuantities_arrayList = new ArrayList<String>();
+				for(Quantity qt : quantities){
+					
+					if(qt.getDescription().equals("output")){
+						
+						outQuantities_arrayList.add(qt.getName());
+					}
+					
+				}
+				
+				*//**
+				 * If there is no quantity under the current repository, then new quantity is generated and attached under that.
+				 * *//*
+				if(!outQuantities_arrayList.contains(out)){
+					
 					currentFormula.getRepository().getQuantities().add(quantity);
 					output_featureObservable.setValue(quantity);
 					
@@ -956,10 +1120,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 					
 			}else{
 				
-				/**
+				*//**
 				 * There is already saved value of output-parameter under the current repository, 
 				 * but the name of that is different to actual quantity, so it changes only the name
-				 * */ 
+				 * *//* 
 				if(!q.getName().equals(out)){
 					Formula currentFormula = (Formula)getOwner();
 					modifyPreviousOutput(currentFormula.getRepository(), out, q);
@@ -969,9 +1133,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 		}
 		
-		/**
+		*//**
 		 * The actual output-parameter is empty, so it removes the hyperlink and the quantity-model under the current formula.
-		 * */
+		 * *//*
 		else{
 			
 			hyperlink_output.setText(out);
@@ -987,8 +1151,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 					toBeDeleted);		
 			
 		}
-	}
-	private void modifyPreviousOutput(FormulaRepository repository, String output, Quantity q ){
+	}*/
+	
+	//private void modifyPreviousOutput(FormulaRepository repository, String output, Quantity q ){
+	private void modifyPreviousOutput(FormulaRepository repository, String output, String savedString ){
 		
 		EList<Quantity> quantities = repository.getQuantities();
 		
@@ -996,7 +1162,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 					
 			Quantity quantity = (Quantity) i.next();
 						
-			if(quantity.getName().equals(q.getName())){
+			if(quantity.getName().equals(savedString)){
 				
 				quantity.setName(output);
 				

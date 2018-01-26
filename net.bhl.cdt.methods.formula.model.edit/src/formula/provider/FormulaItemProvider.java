@@ -62,8 +62,8 @@ public class FormulaItemProvider
 			addNamePropertyDescriptor(object);
 			addLatexStringPropertyDescriptor(object);
 			addInputParameterPropertyDescriptor(object);
-			addOutputParameterPropertyDescriptor(object);
 			addRepositoryPropertyDescriptor(object);
+			addOutputParameterPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -151,7 +151,7 @@ public class FormulaItemProvider
 				 true,
 				 false,
 				 true,
-				 null,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}

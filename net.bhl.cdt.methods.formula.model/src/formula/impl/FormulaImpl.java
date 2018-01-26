@@ -5,8 +5,6 @@ package formula.impl;
 import formula.Formula;
 import formula.FormulaPackage;
 import formula.FormulaRepository;
-import formula.Quantity;
-
 import formula.util.FormulaValidator;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
@@ -36,9 +34,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link formula.impl.FormulaImpl#getName <em>Name</em>}</li>
  *   <li>{@link formula.impl.FormulaImpl#getLatexString <em>Latex String</em>}</li>
  *   <li>{@link formula.impl.FormulaImpl#getInputParameter <em>Input Parameter</em>}</li>
- *   <li>{@link formula.impl.FormulaImpl#getOutputParameter <em>Output Parameter</em>}</li>
  *   <li>{@link formula.impl.FormulaImpl#getRepository <em>Repository</em>}</li>
  *   <li>{@link formula.impl.FormulaImpl#getReference <em>Reference</em>}</li>
+ *   <li>{@link formula.impl.FormulaImpl#getOutputParameter <em>Output Parameter</em>}</li>
  * </ul>
  *
  * @generated
@@ -105,16 +103,6 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	protected String inputParameter = INPUT_PARAMETER_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getOutputParameter() <em>Output Parameter</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOutputParameter()
-	 * @generated
-	 * @ordered
-	 */
-	protected Quantity outputParameter;
-
-	/**
 	 * The default value of the '{@link #getReference() <em>Reference</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -133,6 +121,26 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * @ordered
 	 */
 	protected String reference = REFERENCE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOutputParameter() <em>Output Parameter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputParameter()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String OUTPUT_PARAMETER_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getOutputParameter() <em>Output Parameter</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOutputParameter()
+	 * @generated
+	 * @ordered
+	 */
+	protected String outputParameter = OUTPUT_PARAMETER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -221,15 +229,7 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Quantity getOutputParameter() {
-		if (outputParameter != null && outputParameter.eIsProxy()) {
-			InternalEObject oldOutputParameter = (InternalEObject)outputParameter;
-			outputParameter = (Quantity)eResolveProxy(oldOutputParameter);
-			if (outputParameter != oldOutputParameter) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, FormulaPackage.FORMULA__OUTPUT_PARAMETER, oldOutputParameter, outputParameter));
-			}
-		}
+	public String getOutputParameter() {
 		return outputParameter;
 	}
 
@@ -238,17 +238,8 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Quantity basicGetOutputParameter() {
-		return outputParameter;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setOutputParameter(Quantity newOutputParameter) {
-		Quantity oldOutputParameter = outputParameter;
+	public void setOutputParameter(String newOutputParameter) {
+		String oldOutputParameter = outputParameter;
 		outputParameter = newOutputParameter;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, FormulaPackage.FORMULA__OUTPUT_PARAMETER, oldOutputParameter, outputParameter));
@@ -399,13 +390,12 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				return getLatexString();
 			case FormulaPackage.FORMULA__INPUT_PARAMETER:
 				return getInputParameter();
-			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
-				if (resolve) return getOutputParameter();
-				return basicGetOutputParameter();
 			case FormulaPackage.FORMULA__REPOSITORY:
 				return getRepository();
 			case FormulaPackage.FORMULA__REFERENCE:
 				return getReference();
+			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
+				return getOutputParameter();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -428,14 +418,14 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 			case FormulaPackage.FORMULA__INPUT_PARAMETER:
 				setInputParameter((String)newValue);
 				return;
-			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
-				setOutputParameter((Quantity)newValue);
-				return;
 			case FormulaPackage.FORMULA__REPOSITORY:
 				setRepository((FormulaRepository)newValue);
 				return;
 			case FormulaPackage.FORMULA__REFERENCE:
 				setReference((String)newValue);
+				return;
+			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
+				setOutputParameter((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -458,14 +448,14 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 			case FormulaPackage.FORMULA__INPUT_PARAMETER:
 				setInputParameter(INPUT_PARAMETER_EDEFAULT);
 				return;
-			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
-				setOutputParameter((Quantity)null);
-				return;
 			case FormulaPackage.FORMULA__REPOSITORY:
 				setRepository((FormulaRepository)null);
 				return;
 			case FormulaPackage.FORMULA__REFERENCE:
 				setReference(REFERENCE_EDEFAULT);
+				return;
+			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
+				setOutputParameter(OUTPUT_PARAMETER_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -485,12 +475,12 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 				return LATEX_STRING_EDEFAULT == null ? latexString != null : !LATEX_STRING_EDEFAULT.equals(latexString);
 			case FormulaPackage.FORMULA__INPUT_PARAMETER:
 				return INPUT_PARAMETER_EDEFAULT == null ? inputParameter != null : !INPUT_PARAMETER_EDEFAULT.equals(inputParameter);
-			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
-				return outputParameter != null;
 			case FormulaPackage.FORMULA__REPOSITORY:
 				return getRepository() != null;
 			case FormulaPackage.FORMULA__REFERENCE:
 				return REFERENCE_EDEFAULT == null ? reference != null : !REFERENCE_EDEFAULT.equals(reference);
+			case FormulaPackage.FORMULA__OUTPUT_PARAMETER:
+				return OUTPUT_PARAMETER_EDEFAULT == null ? outputParameter != null : !OUTPUT_PARAMETER_EDEFAULT.equals(outputParameter);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -527,6 +517,8 @@ public class FormulaImpl extends MinimalEObjectImpl.Container implements Formula
 		result.append(inputParameter);
 		result.append(", reference: ");
 		result.append(reference);
+		result.append(", outputParameter: ");
+		result.append(outputParameter);
 		result.append(')');
 		return result.toString();
 	}

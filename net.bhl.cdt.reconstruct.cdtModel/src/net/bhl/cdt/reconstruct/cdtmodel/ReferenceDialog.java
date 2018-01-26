@@ -36,7 +36,7 @@ public class ReferenceDialog extends Dialog {
 	private Resource resourceLibrary;
 	private Object object;
 	private IStructuredSelection selection;
-	private String uriFrag;
+	private String uriFragment;
 	private static final int COLUMN  = 6;
 	private static final int WIDTH  = 940;
 	private static final int HEIGHT  = 300;
@@ -93,10 +93,9 @@ public class ReferenceDialog extends Dialog {
 			           
 			           try{
 			       			
-			        	    object = selection.getFirstElement();
-			        	    
+			        	    object = selection.getFirstElement();			        	    
 			        	    EObject eobj = (EObject) object; 
-					        uriFrag = resourceLibrary.getURIFragment(eobj);
+					        uriFragment = resourceLibrary.getURIFragment(eobj);
 					        
 			   		   }
 			           catch(ClassCastException exc) {
@@ -114,10 +113,10 @@ public class ReferenceDialog extends Dialog {
 		    	
 		        TreeViewer viewer = (TreeViewer) event.getViewer();
 		        IStructuredSelection thisSelection = (IStructuredSelection) event.getSelection();
-		        object  = thisSelection.getFirstElement();
 		        
+		        object  = thisSelection.getFirstElement();
 		        EObject eobj = (EObject) object; 
-		        uriFrag = resourceLibrary.getURIFragment(eobj);
+		        uriFragment = resourceLibrary.getURIFragment(eobj);
 		        
 		        viewer.setExpandedState(object,
 		                !viewer.getExpandedState(object));
@@ -148,7 +147,7 @@ public class ReferenceDialog extends Dialog {
 	}
 	public String getUriEOB(){
 		
-		return uriFrag;
+		return uriFragment;
 	}
 	
 }

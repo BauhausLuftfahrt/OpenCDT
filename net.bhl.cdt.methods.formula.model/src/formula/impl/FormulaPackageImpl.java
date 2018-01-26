@@ -201,8 +201,8 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getFormula_OutputParameter() {
-		return (EReference)formulaEClass.getEStructuralFeatures().get(3);
+	public EAttribute getFormula_OutputParameter() {
+		return (EAttribute)formulaEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -211,7 +211,7 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 	 * @generated
 	 */
 	public EReference getFormula_Repository() {
-		return (EReference)formulaEClass.getEStructuralFeatures().get(4);
+		return (EReference)formulaEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -220,7 +220,7 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 	 * @generated
 	 */
 	public EAttribute getFormula_Reference() {
-		return (EAttribute)formulaEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)formulaEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -314,9 +314,9 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 		createEAttribute(formulaEClass, FORMULA__NAME);
 		createEAttribute(formulaEClass, FORMULA__LATEX_STRING);
 		createEAttribute(formulaEClass, FORMULA__INPUT_PARAMETER);
-		createEReference(formulaEClass, FORMULA__OUTPUT_PARAMETER);
 		createEReference(formulaEClass, FORMULA__REPOSITORY);
 		createEAttribute(formulaEClass, FORMULA__REFERENCE);
+		createEAttribute(formulaEClass, FORMULA__OUTPUT_PARAMETER);
 		createEOperation(formulaEClass, FORMULA___HAS_NAME__DIAGNOSTICCHAIN_MAP);
 
 		quantityEClass = createEClass(QUANTITY);
@@ -365,9 +365,9 @@ public class FormulaPackageImpl extends EPackageImpl implements FormulaPackage {
 		initEAttribute(getFormula_Name(), ecorePackage.getEString(), "name", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFormula_LatexString(), ecorePackage.getEString(), "latexString", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFormula_InputParameter(), ecorePackage.getEString(), "inputParameter", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFormula_OutputParameter(), this.getQuantity(), null, "outputParameter", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFormula_Repository(), this.getFormulaRepository(), this.getFormulaRepository_Formulas(), "repository", null, 1, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFormula_Reference(), ecorePackage.getEString(), "reference", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFormula_OutputParameter(), ecorePackage.getEString(), "outputParameter", null, 0, 1, Formula.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getFormula__HasName__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "hasName", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "chain", 0, 1, IS_UNIQUE, IS_ORDERED);

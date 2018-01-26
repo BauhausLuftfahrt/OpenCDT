@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link formula.Formula#getName <em>Name</em>}</li>
  *   <li>{@link formula.Formula#getLatexString <em>Latex String</em>}</li>
  *   <li>{@link formula.Formula#getInputParameter <em>Input Parameter</em>}</li>
- *   <li>{@link formula.Formula#getOutputParameter <em>Output Parameter</em>}</li>
  *   <li>{@link formula.Formula#getRepository <em>Repository</em>}</li>
  *   <li>{@link formula.Formula#getReference <em>Reference</em>}</li>
+ *   <li>{@link formula.Formula#getOutputParameter <em>Output Parameter</em>}</li>
  * </ul>
  *
  * @see formula.FormulaPackage#getFormula()
@@ -107,30 +107,30 @@ public interface Formula extends EObject {
 	void setInputParameter(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Output Parameter</b></em>' reference.
+	 * Returns the value of the '<em><b>Output Parameter</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Output Parameter</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Output Parameter</em>' reference.
-	 * @see #setOutputParameter(Quantity)
+	 * @return the value of the '<em>Output Parameter</em>' attribute.
+	 * @see #setOutputParameter(String)
 	 * @see formula.FormulaPackage#getFormula_OutputParameter()
 	 * @model
 	 * @generated
 	 */
-	Quantity getOutputParameter();
+	String getOutputParameter();
 
 	/**
-	 * Sets the value of the '{@link formula.Formula#getOutputParameter <em>Output Parameter</em>}' reference.
+	 * Sets the value of the '{@link formula.Formula#getOutputParameter <em>Output Parameter</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Output Parameter</em>' reference.
+	 * @param value the new value of the '<em>Output Parameter</em>' attribute.
 	 * @see #getOutputParameter()
 	 * @generated
 	 */
-	void setOutputParameter(Quantity value);
+	void setOutputParameter(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Repository</b></em>' container reference.

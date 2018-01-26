@@ -150,22 +150,13 @@ public interface FormulaPackage extends EPackage {
 	int FORMULA__INPUT_PARAMETER = 2;
 
 	/**
-	 * The feature id for the '<em><b>Output Parameter</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FORMULA__OUTPUT_PARAMETER = 3;
-
-	/**
 	 * The feature id for the '<em><b>Repository</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA__REPOSITORY = 4;
+	int FORMULA__REPOSITORY = 3;
 
 	/**
 	 * The feature id for the '<em><b>Reference</b></em>' attribute.
@@ -174,7 +165,16 @@ public interface FormulaPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FORMULA__REFERENCE = 5;
+	int FORMULA__REFERENCE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Output Parameter</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORMULA__OUTPUT_PARAMETER = 5;
 
 	/**
 	 * The number of structural features of the '<em>Formula</em>' class.
@@ -355,15 +355,15 @@ public interface FormulaPackage extends EPackage {
 	EAttribute getFormula_InputParameter();
 
 	/**
-	 * Returns the meta object for the reference '{@link formula.Formula#getOutputParameter <em>Output Parameter</em>}'.
+	 * Returns the meta object for the attribute '{@link formula.Formula#getOutputParameter <em>Output Parameter</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Output Parameter</em>'.
+	 * @return the meta object for the attribute '<em>Output Parameter</em>'.
 	 * @see formula.Formula#getOutputParameter()
 	 * @see #getFormula()
 	 * @generated
 	 */
-	EReference getFormula_OutputParameter();
+	EAttribute getFormula_OutputParameter();
 
 	/**
 	 * Returns the meta object for the container reference '{@link formula.Formula#getRepository <em>Repository</em>}'.
@@ -543,12 +543,12 @@ public interface FormulaPackage extends EPackage {
 		EAttribute FORMULA__INPUT_PARAMETER = eINSTANCE.getFormula_InputParameter();
 
 		/**
-		 * The meta object literal for the '<em><b>Output Parameter</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Output Parameter</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FORMULA__OUTPUT_PARAMETER = eINSTANCE.getFormula_OutputParameter();
+		EAttribute FORMULA__OUTPUT_PARAMETER = eINSTANCE.getFormula_OutputParameter();
 
 		/**
 		 * The meta object literal for the '<em><b>Repository</b></em>' container reference feature.
