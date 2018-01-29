@@ -990,93 +990,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 	}
 	
-	
-	/*private void createOutputQuantity(String latexFormula){
-		
-		String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
-		
-		Quantity q = (Quantity) output_featureObservable.getValue();
-		
-		if(!out.equals(EMPTY)){
-			
-			hyperlink_output.setText(out);
-			hyperlink_output.setEnabled(true);
-			
-			Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
-			quantity.setName(out);
-			quantity.setDescription("output");
-			
-			if(output_featureObservable.getValue() == null){
-				
-				*//**
-				 * Only output-parameter quantities are retrieved from generated whole quantities under current repository.
-				 * *//*
-				Formula currentFormula = (Formula)getOwner();
-				EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
-				ArrayList<String> outQuantities_arrayList = new ArrayList<String>();
-				for(Quantity qt : quantities){
-					
-					if(qt.getDescription().equals("output")){
-						
-						outQuantities_arrayList.add(qt.getName());
-					}
-					
-				}
-				
-				*//**
-				 * If there is no quantity under the current repository, then new quantity is generated and attached under that.
-				 * *//*
-				if(!outQuantities_arrayList.contains(out)){
-					
-					currentFormula.getRepository().getQuantities().add(quantity);
-					output_featureObservable.setValue(quantity);
-					
-				}else{
-					
-				}
-					
-			}else{
-				
-				*//**
-				 * There is already saved value of output-parameter under the current repository, 
-				 * but the name of that is different to actual quantity, so it changes only the name
-				 * *//* 
-				if(!q.getName().equals(out)){
-					Formula currentFormula = (Formula)getOwner();
-					modifyPreviousOutput(currentFormula.getRepository(), out, q);
-													
-				}
-			}
-			
-		}
-		
-		*//**
-		 * The actual output-parameter is empty, so it removes the hyperlink and the quantity-model under the current formula.
-		 * *//*
-		else{
-			
-			hyperlink_output.setText(out);
-			hyperlink_output.setEnabled(false);
-
-			final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
-			ArrayList<Object> toBeDeleted = new ArrayList<Object>();
-		
-			toBeDeleted.add(q);
-			EObject eObject = q;
-			ECPHandlerHelper.deleteModelElement(
-					ecpProjectManager.getProject(eObject),
-					toBeDeleted);		
-			
-		}
-	}*/
-
-	
-	//this method uses string value to search the quantity 
+	//retrieve the quantity using resource, not to string
 	private void createOutputQuantity(String latexFormula){
 		
 		String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
 		Formula currentFormula = (Formula)getOwner();
 		EList<Formula> currentFormulas = currentFormula.getRepository().getFormulas();
+		Resource resource = this.getResource();
 		
 		if(!out.equals(EMPTY)){
 			
@@ -1090,30 +1010,29 @@ public class CustomFormControlFactory extends FormControlFactory {
 				 * */
 				
 				EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
-				ArrayList<String> outQuantities_arrayList = new ArrayList<String>();
+				ArrayList<String> wholeQuantities_arrayList = new ArrayList<String>();
 				for(Quantity qt : quantities){
-					
-					if( qt.getDescription() != null && qt.getDescription().equals("output")){
-						
-						outQuantities_arrayList.add(qt.getName());
-					}
-					
+											
+						wholeQuantities_arrayList.add(qt.getName());
+		
 				}
 				
 				/**
 				 * If there is no quantity under the current repository, then new quantity is generated and attached under that.
 				 * */
-				if(!outQuantities_arrayList.contains(out)){
+				if(!wholeQuantities_arrayList.contains(out)){
 					
 					Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
 					quantity.setName(out);
-					quantity.setDescription("output");
 					currentFormula.getRepository().getQuantities().add(quantity);
 					
 					EObject eobject = quantity;
-					Resource resource = this.getResource();
-					resource.getURIFragment(eobject);
+					
+					String quantity_uri = resource.getURIFragment(eobject);
+					
 					System.out.println("URI Fragment" + resource.getURIFragment(eobject));
+					
+					output_featureObservable.setValue(quantity_uri);
 					
 				}else{
 					
@@ -1126,8 +1045,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 				
 				/**
 				 * There is already saved value of output-parameter under the current repository.
-				 * */	
+				 * */
 				String savedQuantityString = output_featureObservable.getValue().toString();
+				
+				/*EObject quantity_eob = resource.getEObject(output_featureObservable.getValue().toString());
+				Quantity quantity = (Quantity) quantity_eob;
+				String savedQuantityString = quantity.getName();*/
+				
 				Boolean isSavedCommunal = isCommunalOutputQuantity(savedQuantityString, currentFormulas, currentFormula);
 				Boolean isCurrentCommunal = isCommunalOutputQuantity(out, currentFormulas, currentFormula);
 				
@@ -1142,8 +1066,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 					 * */
 					if(!isCurrentCommunal){
 						
-						modifyPreviousOutput(currentFormula.getRepository(), out, savedQuantityString );
-						
+						modifyPreviousOutput(currentFormula.getRepository(), out, savedQuantityString );						
 						
 					}else{
 						
@@ -1261,9 +1184,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 			if(output_featureObservable.getValue() == null){
 				
-				*//**
-				 * Only output-parameter quantities are retrieved from generated whole quantities under current repository.
-				 * *//*
+				
 				Formula currentFormula = (Formula)getOwner();
 				EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
 				ArrayList<String> outQuantities_arrayList = new ArrayList<String>();
@@ -1276,9 +1197,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 					
 				}
 				
-				*//**
-				 * If there is no quantity under the current repository, then new quantity is generated and attached under that.
-				 * *//*
+				
 				if(!outQuantities_arrayList.contains(out)){
 					
 					currentFormula.getRepository().getQuantities().add(quantity);
@@ -1290,10 +1209,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 					
 			}else{
 				
-				*//**
-				 * There is already saved value of output-parameter under the current repository, 
-				 * but the name of that is different to actual quantity, so it changes only the name
-				 * *//*
+				
 				if(!q.getName().equals(out)){
 					Formula currentFormula = (Formula)getOwner();
 					modifyPreviousOutput(currentFormula.getRepository(), out, q);
@@ -1303,9 +1219,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			
 		}
 		
-		*//**
-		 * The actual output-parameter is empty, so it removes the hyperlink and the quantity-model under the current formula.
-		 * *//*
+	
 		else{
 			
 			hyperlink_output.setText(out);
