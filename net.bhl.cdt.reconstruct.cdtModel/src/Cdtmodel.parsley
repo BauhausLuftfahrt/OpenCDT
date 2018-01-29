@@ -34,7 +34,7 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 					// Optional: initialize an empty Resource
 					// 'it' is of type Resource
 					// e.g., it.getContents += myFactory.createMyClass
-					//it.getContents += CdtliteratureFactory.
+			
 				}
 				saveResource {
 				// it is of type org.eclipse.emf.ecore.resource.Resource
