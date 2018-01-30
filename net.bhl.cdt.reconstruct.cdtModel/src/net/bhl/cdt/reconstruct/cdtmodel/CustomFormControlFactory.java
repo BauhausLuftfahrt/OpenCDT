@@ -564,8 +564,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    return inputParameter_composite;
 	}
 	/**
-	 * This method generates the output-parameter automatically and the left side of formula used to generate it,
-	 * if ONE equal symbol exists in formula.
+	 * This method generates the output-parameter according to the Latex-formula and the left side of formula used to generate it,
+	 * if ONE equal symbol exists in Latex-formula.
 	 * */
 	public Control control_Formula_outputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
 			
@@ -586,11 +586,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 			Quantity stored_quantity = (Quantity) quantity_eob;
 			String savedQuantityString = stored_quantity.getName();*/
 			
-	    	hyperlink_output = _toolkit.createHyperlink(composite, featureObservable.getValue().toString() , SWT.NONE);
-	    	
+	    	hyperlink_output = _toolkit.createHyperlink(composite, featureObservable.getValue().toString() , SWT.NONE);    	
 	    	setPropertyHyperlinkOutput(hyperlink_output, true, false);
+	    	
 	    }
 	    else{
+	    	
 	    	hyperlink_output = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);
 	    	setPropertyHyperlinkOutput(hyperlink_output, false, false);
 	    }
@@ -599,8 +600,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    /*Injector injectorCDT = CdtmodelInjectorProvider.getInjector();
 		ResourceLoader resourceLoader = injectorCDT.getInstance(ResourceLoader.class);
 		EditingDomain editingDomain = injectorCDT.getInstance(EditingDomain.class);
-		Resource resourceCDT = resourceLoader.getResource(editingDomain, uri).getResource();*/
-	    Resource resource = this.getResource();
+		Resource resourceCDT = resourceLoader.getResource(editingDomain, uri).getResource();
+	    Resource resource = this.getResource();*/
 		
 	    /*if(featureObservable.getValue() == null){
 	    	hyperlink_output = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);
@@ -623,7 +624,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	
 	 			public void linkActivated(HyperlinkEvent e) {
 	 		
-	 				showOutputPart(hyperlink_output, currentFormula);
+	 				showOutputPart(hyperlink_output, currentFormula, featureObservable);
 	 			}
 	 	});
 	
@@ -670,9 +671,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 	}
 	
 	/**
-	 * If the hyperlink is clicked, then the part of model is showed.
+	 * If the hyperlink is clicked, then the part of model is showed on new part.
 	 * */
-	private void showOutputPart(Hyperlink hyperlink, Formula currentFormula){
+	private void showOutputPart(Hyperlink hyperlink, Formula currentFormula, IObservableValue featureObservable){
 				
 		Boolean partVisible = false;
 		EPartService partService = EPartServiceHelper.getEPartService();
@@ -683,7 +684,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		for(Quantity q : quantities){
 				
-				if(q.getName().equals(hyperlink.getText())){
+				if(q.getName() != null && q.getName().equals(hyperlink.getText())){
 					show_quantity = q;
 					
 				}	
@@ -827,7 +828,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		 * */
 		for(Quantity gQ : generatedQuantities){
 			
-			if((gQ.getDescription() != null) && gQ.getDescription().equals("input")){
+			if(gQ.getName() != null){
 				
 				generatedInputQuantities_array.add(gQ.getName());
 			}
@@ -847,7 +848,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				
 				Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
 			   	quantity.setName(input_quantity);
-			   	quantity.setDescription("input");
+			   	//quantity.setDescription("input");
 				currentFormula.getRepository().getQuantities().add(quantity);
 				generatedInputQuantities_array.add(input_quantity);
 								
@@ -865,7 +866,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 			/**
 			 * The entire input-quantities are investigated and unnecessary quantities are removed.
 			 * */
-			if(!input.contains(generated_quantity) && !isCommunalInputQuantity(generated_quantity, currentFormulas, currentFormula)){
+			if(!input.contains(generated_quantity) && !isCommunalQuantity(generated_quantity, currentFormulas, currentFormula) 
+					&& !currentFormula.getOutputParameter().equals(generated_quantity) ){
 								
 				deleting_InputQuantities_array.add(generated_quantity);
 				
@@ -900,22 +902,48 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		return common;
 	}
-	private Boolean isCommunalOutputQuantity(String generated_quantity, EList<Formula> formulas, Formula currentFormula, Resource resource){
+	private Boolean isCommunalQuantity(String generated_quantity, EList<Formula> formulas, Formula currentFormula){
 		
-		ArrayList<String> outputParameter_arrayList = new ArrayList<>();
+		ArrayList<String> generatedParameter_arrayList = new ArrayList<>();
 		for(int i=0; i<formulas.size(); i++){
 			 
-			if(!formulas.get(i).equals(currentFormula) && (formulas.get(i).getOutputParameter() != null)){
+			/*if(!formulas.get(i).equals(currentFormula) && (formulas.get(i).getOutputParameter() != null)){
+
+				EObject quantity_eob = resource.getEObject(formulas.get(i).getOutputParameter());
+				Quantity retrived_quantity = (Quantity) quantity_eob;
+				outputParameter_arrayList.add(formulas.get(i).getOutputParameter());
+				
+			}*/
+			
+			if(!formulas.get(i).equals(currentFormula)){
+				
+				if(formulas.get(i).getOutputParameter() != null){
+					
+					generatedParameter_arrayList.add(formulas.get(i).getOutputParameter());
+					
+				}
+				
+				if(formulas.get(i).getInputParameter() != null){
+					
+					String [] inputParameter_stringArray = formulas.get(i).getInputParameter().split(","); 
+					
+					for(String input_quantity : inputParameter_stringArray){
+					
+						generatedParameter_arrayList.add(input_quantity);
+						
+					}
+					
+				}
 
 				/*EObject quantity_eob = resource.getEObject(formulas.get(i).getOutputParameter());
 				Quantity retrived_quantity = (Quantity) quantity_eob;*/
-				outputParameter_arrayList.add(formulas.get(i).getOutputParameter());
 				
 			}
+			
+			
 		}
 		
-		
-		return outputParameter_arrayList.contains(generated_quantity);
+		return generatedParameter_arrayList.contains(generated_quantity);
 	}
 	private void removeOldQuantity(ArrayList<String> deleting_InputQuantities_array, Formula currentFormula){
 		
@@ -956,7 +984,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		 * */ 
 		for(Quantity q : quantities){
 				
-				if(q.getName().equals(hyperlink.getText())){
+				if(q.getName() != null && q.getName().equals(hyperlink.getText())){
 					show_quantity = q;
 					
 				}	
@@ -1069,8 +1097,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 				Quantity stored_quantity = (Quantity) quantity_eob;
 				String savedQuantityString = stored_quantity.getName();*/
 				
-				Boolean isSavedCommunal = isCommunalOutputQuantity(savedQuantityString, currentFormulas, currentFormula, resource);
-				Boolean isCurrentCommunal = isCommunalOutputQuantity(out, currentFormulas, currentFormula, resource);
+				Boolean isSavedCommunal = isCommunalQuantity(savedQuantityString, currentFormulas, currentFormula);
+				Boolean isCurrentCommunal = isCommunalQuantity(out, currentFormulas, currentFormula);
 				
 				/**
 				 * The saved quantity is unique under the current repository.
@@ -1158,7 +1186,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			hyperlink_output.setText(out);
 			hyperlink_output.setEnabled(false);
 			
-			Boolean isSavedCommunal = isCommunalOutputQuantity(savedQuantityString, currentFormulas, currentFormula, resource);
+			Boolean isSavedCommunal = isCommunalQuantity(savedQuantityString, currentFormulas, currentFormula);
 			
 			if(!isSavedCommunal){
 				
