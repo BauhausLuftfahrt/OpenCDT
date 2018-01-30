@@ -831,8 +831,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			if(gQ.getName() != null){
 				
 				generatedInputQuantities_array.add(gQ.getName());
-			}
-			
+			}			
 			
 		}
 		
@@ -911,8 +910,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 
 				EObject quantity_eob = resource.getEObject(formulas.get(i).getOutputParameter());
 				Quantity retrived_quantity = (Quantity) quantity_eob;
-				outputParameter_arrayList.add(formulas.get(i).getOutputParameter());
-				
+				outputParameter_arrayList.add(formulas.get(i).getOutputParameter());			
 			}*/
 			
 			if(!formulas.get(i).equals(currentFormula)){
@@ -1106,7 +1104,26 @@ public class CustomFormControlFactory extends FormControlFactory {
 					//if(!isCurrentCommunal){
 					if(!existOutput){
 						
-						modifyPreviousOutput(currentFormula.getRepository(), out, savedQuantityString );						
+						/*Boolean modified = modifyOutput(currentFormula.getRepository(), out, savedQuantityString );						
+						
+						if(!modified){
+							
+							Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+							quantity.setName(out);
+							currentFormula.getRepository().getQuantities().add(quantity);
+							EObject eobject = quantity;			
+							String quantityUri = resource.getURIFragment(eobject);
+									
+							output_featureObservable.setValue(quantityUri);
+						}*/
+						
+						Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+						quantity.setName(out);
+						currentFormula.getRepository().getQuantities().add(quantity);
+						EObject eobject = quantity;			
+						String quantityUri = resource.getURIFragment(eobject);
+								
+						output_featureObservable.setValue(quantityUri);
 						
 					}else{
 						
@@ -1116,33 +1133,36 @@ public class CustomFormControlFactory extends FormControlFactory {
 						 * exists already under the current repository, so a quantity isn't created,
 						 * moreover the saved quantity is not more necessary, so that is removed under the current repository.
 						 * */
-						EList<Quantity> current_quantities = currentFormula.getRepository().getQuantities();
-
-						Quantity findQuantity = null;
-						for ( Iterator i = current_quantities.iterator(); i.hasNext();){
-									
-							Quantity quantity = (Quantity) i.next();
+						if(!savedQuantityString.equals(out)){
+							
+							EList<Quantity> current_quantities = currentFormula.getRepository().getQuantities();
+	
+							Quantity findQuantity = null;
+							for ( Iterator i = current_quantities.iterator(); i.hasNext();){
 										
-							if( quantity.getName() != null && quantity.getName().equals(savedQuantityString)){
-								
-								findQuantity = quantity;
-								
+								Quantity quantity = (Quantity) i.next();
+											
+								if( quantity.getName() != null && quantity.getName().equals(savedQuantityString)){
+									
+									findQuantity = quantity;
+									
+								}
 							}
+							
+							/**
+							 * remove the found quantity.
+							 * */
+							final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
+							ArrayList<Object> toBeDeleted = new ArrayList<Object>();
+						
+							toBeDeleted.add(findQuantity);
+							EObject eObject = findQuantity;
+							ECPHandlerHelper.deleteModelElement(
+									ecpProjectManager.getProject(eObject),
+									toBeDeleted);	
 						}
 						
-						/**
-						 * remove the found quantity.
-						 * */
-						final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
-						ArrayList<Object> toBeDeleted = new ArrayList<Object>();
-					
-						toBeDeleted.add(findQuantity);
-						EObject eObject = findQuantity;
-						ECPHandlerHelper.deleteModelElement(
-								ecpProjectManager.getProject(eObject),
-								toBeDeleted);	
-						
-					}			
+					}		
 				}else{
 					
 					/**
@@ -1155,7 +1175,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 							
 							Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
 							quantity.setName(out);
-							//quantity.setDescription("output");
 							currentFormula.getRepository().getQuantities().add(quantity);
 							EObject eobject = quantity;			
 							String quantityUri = resource.getURIFragment(eobject);
@@ -1291,10 +1310,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 		}
 	}*/
 	
-	private void modifyPreviousOutput(FormulaRepository repository, String output, String savedString ){
+	private Boolean modifyOutput(FormulaRepository repository, String output, String savedString ){
 		
 		EList<Quantity> quantities = repository.getQuantities();
-		
+		Boolean modified= false;
 		for ( Iterator i = quantities.iterator(); i.hasNext();){
 					
 			Quantity quantity = (Quantity) i.next();
@@ -1302,10 +1321,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 			if( quantity.getName() != null && quantity.getName().equals(savedString)){
 				
 				quantity.setName(output);
+				modified = true;
 				
 			}
 		}
 		
+		return modified;
 	}
 	private Color getColorBlack(){
 		
