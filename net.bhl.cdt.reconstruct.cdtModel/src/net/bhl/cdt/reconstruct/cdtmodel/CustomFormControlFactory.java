@@ -709,7 +709,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		if(!partVisible){
 			
 			part = MBasicFactory.INSTANCE.createPart();
-			part.setLabel("output  " + hyperlink.getText());		   
+			part.setLabel("Quantity  " + hyperlink.getText());		   
 			part.setElementId(show_quantity.toString());		   
 		    part.setObject(show_quantity);	    
 			part.setCloseable(true);
@@ -1014,7 +1014,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		if(!partVisible){
 			
 			part = MBasicFactory.INSTANCE.createPart();
-			part.setLabel("input  " + hyperlink.getText());
+			part.setLabel("Quantity  " + hyperlink.getText());
 			part.setElementId(show_quantity.toString()); 
 		    part.setObject(show_quantity);    
 			part.setCloseable(true);
@@ -1040,26 +1040,23 @@ public class CustomFormControlFactory extends FormControlFactory {
 			hyperlink_output.setText(out);
 			hyperlink_output.setEnabled(true);
 	
+			Boolean existOutput = false;
+			EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
+			String quantity_uri = EMPTY;
+			
+			for(Quantity qt : quantities){
+										
+					if(qt.getName() != null && qt.getName().equals(out)){
+						
+						existOutput = true;
+						EObject eobject = qt;
+						quantity_uri = resource.getURIFragment(eobject);
+					}
+	
+			}
+			
 			if(output_featureObservable.getValue() == null || output_featureObservable.getValue().equals("")){
 				
-				/**
-				 * Only output-parameter quantities are retrieved from generated whole quantities under current repository.
-				 * */
-				
-				Boolean existOutput = false;
-				EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
-				String quantity_uri = EMPTY;
-				
-				for(Quantity qt : quantities){
-											
-						if(qt.getName() != null && qt.getName().equals(out)){
-							
-							existOutput = true;
-							EObject eobject = qt;
-							quantity_uri = resource.getURIFragment(eobject);
-						}
-		
-				}
 				
 				/**
 				 * If there is no quantity under the current repository, then new quantity is generated and attached under that.
@@ -1093,12 +1090,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 				 * */
 				String savedQuantityString = output_featureObservable.getValue().toString();
 				
-				/*EObject quantity_eob = resource.getEObject(output_featureObservable.getValue().toString());
-				Quantity stored_quantity = (Quantity) quantity_eob;
-				String savedQuantityString = stored_quantity.getName();*/
-				
 				Boolean isSavedCommunal = isCommunalQuantity(savedQuantityString, currentFormulas, currentFormula);
-				Boolean isCurrentCommunal = isCommunalQuantity(out, currentFormulas, currentFormula);
+				//Boolean isCurrentCommunal = isCommunalQuantity(out, currentFormulas, currentFormula);
 				
 				/**
 				 * The saved quantity is unique under the current repository.
@@ -1109,7 +1102,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 					 * The saved quantity is unique under the current repository, 
 					 * moreover new output-parameter which will be generated is also unique, so it changes only the name
 					 * */
-					if(!isCurrentCommunal){
+					//if(!isCurrentCommunal){
+					if(!existOutput){
 						
 						modifyPreviousOutput(currentFormula.getRepository(), out, savedQuantityString );						
 						
@@ -1121,10 +1115,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 						 * exists already under the current repository, so a quantity isn't created,
 						 * moreover the saved quantity is not more necessary, so that is removed under the current repository.
 						 * */
-						EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
+						EList<Quantity> current_quantities = currentFormula.getRepository().getQuantities();
 
 						Quantity findQuantity = null;
-						for ( Iterator i = quantities.iterator(); i.hasNext();){
+						for ( Iterator i = current_quantities.iterator(); i.hasNext();){
 									
 							Quantity quantity = (Quantity) i.next();
 										
@@ -1161,9 +1155,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 						//quantity.setDescription("output");
 						currentFormula.getRepository().getQuantities().add(quantity);
 						EObject eobject = quantity;			
-						String quantity_uri = resource.getURIFragment(eobject);
+						String quantityUri = resource.getURIFragment(eobject);
 								
-						output_featureObservable.setValue(quantity_uri);
+						output_featureObservable.setValue(quantityUri);
 						
 					}
 					
