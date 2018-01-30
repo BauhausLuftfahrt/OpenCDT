@@ -696,7 +696,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			MPart partSearch = i.next();
 			if (partSearch.isVisible()) {
 				
-				if(partSearch.getElementId().equals(show_quantity.toString())){
+				if(show_quantity != null && partSearch.getElementId().equals(show_quantity.toString())){
 					partVisible = true;
                 	partService.activate(partSearch);
                 	break;
@@ -706,7 +706,7 @@ public class CustomFormControlFactory extends FormControlFactory {
              }
         }
 			
-		if(!partVisible){
+		if(show_quantity != null && !partVisible){
 			
 			part = MBasicFactory.INSTANCE.createPart();
 			part.setLabel("Quantity  " + hyperlink.getText());		   
@@ -997,7 +997,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 		{
 			MPart partSearch = i.next();
 			if (partSearch.isVisible()) {
-				if(partSearch.getElementId().equals(show_quantity.toString())){
+				
+				if(show_quantity != null && partSearch.getElementId().equals(show_quantity.toString())){
 					partVisible = true;
                 	partService.activate(partSearch);
                 	break;
@@ -1011,7 +1012,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		/**
 		 * If the part of quantity-model was not opened fast, then new part is created and showed using parsly.
 		 * */
-		if(!partVisible){
+		if(show_quantity != null && !partVisible){
 			
 			part = MBasicFactory.INSTANCE.createPart();
 			part.setLabel("Quantity  " + hyperlink.getText());
@@ -1150,14 +1151,21 @@ public class CustomFormControlFactory extends FormControlFactory {
 					 * */
 					if(!savedQuantityString.equals(out)){
 						
-						Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
-						quantity.setName(out);
-						//quantity.setDescription("output");
-						currentFormula.getRepository().getQuantities().add(quantity);
-						EObject eobject = quantity;			
-						String quantityUri = resource.getURIFragment(eobject);
-								
-						output_featureObservable.setValue(quantityUri);
+						if(!existOutput){
+							
+							Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+							quantity.setName(out);
+							//quantity.setDescription("output");
+							currentFormula.getRepository().getQuantities().add(quantity);
+							EObject eobject = quantity;			
+							String quantityUri = resource.getURIFragment(eobject);
+									
+							output_featureObservable.setValue(quantityUri);
+							
+						}else{
+							
+							output_featureObservable.setValue(quantity_uri);
+						}
 						
 					}
 					
