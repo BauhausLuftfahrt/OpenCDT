@@ -576,11 +576,18 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    composite.setLayout(_gridLayout);
 	           
 	    output_featureObservable = featureObservable;
-	    
+	   
 	    Boolean hasOutputParameter = getFeatureObservableValue(featureObservable);
 	    
 	    if(hasOutputParameter){
+	    	
+	    /*	Resource resource = this.getResource(); 
+			EObject quantity_eob = resource.getEObject(featureObservable.getValue().toString());
+			Quantity stored_quantity = (Quantity) quantity_eob;
+			String savedQuantityString = stored_quantity.getName();*/
+			
 	    	hyperlink_output = _toolkit.createHyperlink(composite, featureObservable.getValue().toString() , SWT.NONE);
+	    	
 	    	setPropertyHyperlinkOutput(hyperlink_output, true, false);
 	    }
 	    else{
@@ -893,13 +900,15 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		return common;
 	}
-	private Boolean isCommunalOutputQuantity(String generated_quantity, EList<Formula> formulas, Formula currentFormula){
+	private Boolean isCommunalOutputQuantity(String generated_quantity, EList<Formula> formulas, Formula currentFormula, Resource resource){
 		
 		ArrayList<String> outputParameter_arrayList = new ArrayList<>();
 		for(int i=0; i<formulas.size(); i++){
 			 
 			if(!formulas.get(i).equals(currentFormula) && (formulas.get(i).getOutputParameter() != null)){
 
+				/*EObject quantity_eob = resource.getEObject(formulas.get(i).getOutputParameter());
+				Quantity retrived_quantity = (Quantity) quantity_eob;*/
 				outputParameter_arrayList.add(formulas.get(i).getOutputParameter());
 				
 			}
@@ -1009,18 +1018,25 @@ public class CustomFormControlFactory extends FormControlFactory {
 				 * Only output-parameter quantities are retrieved from generated whole quantities under current repository.
 				 * */
 				
+				Boolean existOutput = false;
 				EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
-				ArrayList<String> wholeQuantities_arrayList = new ArrayList<String>();
+				String quantity_uri = EMPTY;
+				
 				for(Quantity qt : quantities){
 											
-						wholeQuantities_arrayList.add(qt.getName());
+						if(qt.getName() != null && qt.getName().equals(out)){
+							
+							existOutput = true;
+							EObject eobject = qt;
+							quantity_uri = resource.getURIFragment(eobject);
+						}
 		
 				}
 				
 				/**
 				 * If there is no quantity under the current repository, then new quantity is generated and attached under that.
 				 * */
-				if(!wholeQuantities_arrayList.contains(out)){
+				if(!existOutput){
 					
 					Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
 					quantity.setName(out);
@@ -1028,7 +1044,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 					
 					EObject eobject = quantity;
 					
-					String quantity_uri = resource.getURIFragment(eobject);
+					quantity_uri = resource.getURIFragment(eobject);
 					
 					System.out.println("URI Fragment" + resource.getURIFragment(eobject));
 					
@@ -1037,6 +1053,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				}else{
 					
 					//The quantity exists already  under the current repository.
+					output_featureObservable.setValue(quantity_uri);
 				} 
 				
 				
@@ -1049,11 +1066,11 @@ public class CustomFormControlFactory extends FormControlFactory {
 				String savedQuantityString = output_featureObservable.getValue().toString();
 				
 				/*EObject quantity_eob = resource.getEObject(output_featureObservable.getValue().toString());
-				Quantity quantity = (Quantity) quantity_eob;
-				String savedQuantityString = quantity.getName();*/
+				Quantity stored_quantity = (Quantity) quantity_eob;
+				String savedQuantityString = stored_quantity.getName();*/
 				
-				Boolean isSavedCommunal = isCommunalOutputQuantity(savedQuantityString, currentFormulas, currentFormula);
-				Boolean isCurrentCommunal = isCommunalOutputQuantity(out, currentFormulas, currentFormula);
+				Boolean isSavedCommunal = isCommunalOutputQuantity(savedQuantityString, currentFormulas, currentFormula, resource);
+				Boolean isCurrentCommunal = isCommunalOutputQuantity(out, currentFormulas, currentFormula, resource);
 				
 				/**
 				 * The saved quantity is unique under the current repository.
@@ -1077,8 +1094,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 						 * moreover the saved quantity is not more necessary, so that is removed under the current repository.
 						 * */
 						EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
-						
-						
+
 						Quantity findQuantity = null;
 						for ( Iterator i = quantities.iterator(); i.hasNext();){
 									
@@ -1114,8 +1130,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 						
 						Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
 						quantity.setName(out);
-						quantity.setDescription("output");
+						//quantity.setDescription("output");
 						currentFormula.getRepository().getQuantities().add(quantity);
+						EObject eobject = quantity;			
+						String quantity_uri = resource.getURIFragment(eobject);
+								
+						output_featureObservable.setValue(quantity_uri);
+						
 					}
 					
 					//
@@ -1127,31 +1148,34 @@ public class CustomFormControlFactory extends FormControlFactory {
 		}
 		
 		/**
-		 * The actual output-parameter is empty, so the hyperlink is removed.
+		 * The new output-parameter is empty, so the hyperlink will be removed.
 		 * The quantity-model is also deleted under the current formula, if saved quantity is unique.
 		 * */
 		else{
 			
 			String savedQuantityString = output_featureObservable.getValue().toString();
+			//Quantity retrive_quantity = (Quantity) resource.getEObject(output_featureObservable.getValue().toString());
 			hyperlink_output.setText(out);
 			hyperlink_output.setEnabled(false);
 			
-			EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
-			Quantity findQuantity = null;
-			for ( Iterator i = quantities.iterator(); i.hasNext();){
-						
-				Quantity quantity = (Quantity) i.next();
-							
-				if( quantity.getName() != null && quantity.getName().equals(savedQuantityString)){
-					
-					findQuantity = quantity;
-					
-				}
-			}
-			
-			Boolean isSavedCommunal = isCommunalOutputQuantity(savedQuantityString, currentFormulas, currentFormula);
+			Boolean isSavedCommunal = isCommunalOutputQuantity(savedQuantityString, currentFormulas, currentFormula, resource);
 			
 			if(!isSavedCommunal){
+				
+				EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
+
+				Quantity findQuantity = null;
+				for ( Iterator i = quantities.iterator(); i.hasNext();){
+							
+					Quantity quantity = (Quantity) i.next();
+								
+					if( quantity.getName() != null && quantity.getName().equals(savedQuantityString)){
+						
+						findQuantity = quantity;
+						
+					}
+				}
+				
 				final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
 				ArrayList<Object> toBeDeleted = new ArrayList<Object>();
 			
