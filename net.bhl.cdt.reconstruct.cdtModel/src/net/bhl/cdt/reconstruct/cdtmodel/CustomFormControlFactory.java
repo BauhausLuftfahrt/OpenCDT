@@ -199,6 +199,7 @@ public class CustomFormControlFactory extends FormControlFactory {
         
         canvas.setLayoutData(gd);
           
+        
         FocusListener listener = new FocusListener() {
         	
             public void focusGained(FocusEvent event) {
