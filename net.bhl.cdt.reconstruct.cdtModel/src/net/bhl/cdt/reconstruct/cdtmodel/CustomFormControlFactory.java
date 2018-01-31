@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -22,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecp.core.ECPProject;
 import org.eclipse.emf.ecp.core.ECPProjectManager;
 import org.eclipse.emf.ecp.core.util.ECPUtil;
 import org.eclipse.emf.ecp.spi.ui.util.ECPHandlerHelper;
@@ -283,6 +285,15 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    /**
 	     * retrieve the saved reference-string.
 	     * */
+		
+		/*Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+		quantity.setName(output_string);
+		currentFormula.getRepository().getQuantities().add(quantity);	
+		EObject eobject = quantity;
+		
+		quantity_uri = resource.getURIFragment(eobject);
+		output_featureObservable.setValue(quantity_uri);*/
+		
 		if(hasReference)
 	    {
 	    	
@@ -544,7 +555,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 		    	    	
 		    	 			public void linkActivated(HyperlinkEvent e) {
 		    	 		
-		    	 				showInputPart(hyperlink_input, currentFormula);
+		    	 				//showInputPart(hyperlink_input, currentFormula);
+		    	 				showQuantityPart(hyperlink_input, currentFormula);
 		    	 			}
 		    	 	});
 		    	  
@@ -624,7 +636,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	
 	 			public void linkActivated(HyperlinkEvent e) {
 	 		
-	 				showOutputPart(hyperlink_output, currentFormula, featureObservable);
+	 				showQuantityPart(hyperlink_output, currentFormula);
 	 			}
 	 	});
 	
@@ -673,11 +685,11 @@ public class CustomFormControlFactory extends FormControlFactory {
 	/**
 	 * If the hyperlink is clicked, then the part of model is showed on new part.
 	 * */
-	private void showOutputPart(Hyperlink hyperlink, Formula currentFormula, IObservableValue featureObservable){
+	private void showQuantityPart(Hyperlink hyperlink, Formula currentFormula){
 				
-		Boolean partVisible = false;
+		/*Boolean partVisible = false;
 		EPartService partService = EPartServiceHelper.getEPartService();
-		Collection<MPart> parts = partService.getParts();
+		Collection<MPart> parts = partService.getParts();*/
 		
 		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
 		Quantity show_quantity = null;
@@ -690,8 +702,14 @@ public class CustomFormControlFactory extends FormControlFactory {
 				}	
 		 }
 		 
+		if(show_quantity != null){
+			EObject eObj = show_quantity;
+			final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
+			ECPHandlerHelper.openModelElement(show_quantity, ecpProjectManager.getProject(eObj));
+		}
+		
 		 
-		for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
+		/*for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
 		{
 			MPart partSearch = i.next();
 			if (partSearch.isVisible()) {
@@ -704,9 +722,22 @@ public class CustomFormControlFactory extends FormControlFactory {
                  }
     
              }
-        }
+        }*/
+		
+		
+		
+		/*public static void openModelElement(final Object modelElement, ECPProject ecpProject) {
+			openModelElement(modelElement, ecpProject, new LinkedHashMap<Object, Object>());
+		}
+		ECPHandlerHelper.openModelElement(firstElement, (ECPProject) context);
+		final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
+		ecpProjectManager.getProject(eObject)
+		
+		*
+		*/
+
 			
-		if(show_quantity != null && !partVisible){
+	/*	if(show_quantity != null && !partVisible){
 			
 			part = MBasicFactory.INSTANCE.createPart();
 			part.setLabel("Quantity  " + hyperlink.getText());		   
@@ -718,7 +749,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			partService.showPart(part, PartState.CREATE);
 			partService.bringToTop(part);
 			
-		}
+		}*/
 		
 	}
 	private Boolean hasFormulaOneEqualSymbol(String latexformula){
@@ -795,7 +826,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	    	
 		 			public void linkActivated(HyperlinkEvent e) {
 		 		
-		 				showInputPart(presentLink, currentFormula);
+		 				//showInputPart(presentLink, currentFormula);
+		 				showQuantityPart(presentLink, currentFormula);
 		 			}
 		 	});
 				
@@ -1127,14 +1159,14 @@ public class CustomFormControlFactory extends FormControlFactory {
 						if(!savedQuantityString.equals(output_string)){
 							
 							removeQuantityInRepository(savedQuantityString, currentFormula);
-							output_featureObservable.setValue(output_string);
+							//output_featureObservable.setValue(output_string);
 
 						}else{
 							
 							//saved-string and new output-string is same, so nothing to do.
-							output_featureObservable.setValue(output_string);
+							//output_featureObservable.setValue(output_string);
 						}
-						
+						output_featureObservable.setValue(output_string);
 					}		
 				}else{
 					
@@ -1149,16 +1181,17 @@ public class CustomFormControlFactory extends FormControlFactory {
 							Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
 							quantity.setName(output_string);
 							currentFormula.getRepository().getQuantities().add(quantity);
-							EObject eobject = quantity;			
-							String quantityUri = resource.getURIFragment(eobject);
+							//EObject eobject = quantity;			
+							//String quantityUri = resource.getURIFragment(eobject);
 									
-							output_featureObservable.setValue(quantityUri);
+							//output_featureObservable.setValue(quantityUri);
 							
 						}else{
 							
-							output_featureObservable.setValue(output_string);
+							//output_featureObservable.setValue(output_string);
 						}
-						
+						output_featureObservable.setValue(output_string);
+
 					}
 					
 					//
