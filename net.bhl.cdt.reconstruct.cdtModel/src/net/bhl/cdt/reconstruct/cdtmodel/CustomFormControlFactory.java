@@ -567,6 +567,142 @@ public class CustomFormControlFactory extends FormControlFactory {
 	
 	    return composite;
 	}
+	private void createInputQuantity(String latexFormula){
+		
+		ArrayList<String> input = ExtractQuantitiesFromFormula.filtering_inputParameter(latexFormula);
+		String new_input_string = String.join(",", input);
+		
+		Formula currentFormula = (Formula)getOwner();	
+		FormToolkit _toolkit = this.getToolkit();
+				
+		
+		if(input.size() > BASE_SIZE_HYPERLINK){
+			
+			int rest = input.size() - BASE_SIZE_HYPERLINK;
+			for(int p = 0; p < rest; p++) {
+				
+				Hyperlink rest_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
+				setPropertyHyperlinkInput(rest_hyperlink_input, true, true);
+				
+			}
+			
+		}
+		
+		/**
+		 * The whole input-parameter is arranged and updated.
+		 * */
+		updateInputParameter(currentFormula, input);
+		
+		
+		/**
+		 * The hyperlinks of inputs are reset as empty.
+		 * */
+		for (int t = 0; t < listOfHyperlink.size(); t++) {
+				
+	   	 	listOfHyperlink.get(t).setEnabled(false);
+			listOfHyperlink.get(t).setText(EMPTY);
+			
+	    }
+		
+		if(input.size() != 0){
+		
+			for (int q = 0; q < input.size(); q++) {
+				
+		   	 	Hyperlink presentLink = listOfHyperlink.get(q);
+		   	 	listOfHyperlink.get(q).setEnabled(true);
+				listOfHyperlink.get(q).setText(input.get(q).toString());
+				listOfHyperlink.get(q).setForeground(getColorBlack());
+				listOfHyperlink.get(q).addHyperlinkListener(new HyperlinkAdapter() {
+	    	    	
+		 			public void linkActivated(HyperlinkEvent e) {
+		 		
+		 				showQuantityPart(presentLink, currentFormula);
+		 			}
+		 	});
+				
+		    }
+			
+		}
+		
+		/**
+		 * It makes to update the part per modifying the size of shell and let show directly the new generated hyperlink,
+		 * but it should be improved with other way.
+		 * */
+		int x = inputParameter_composite.getShell().getSize().x;
+		int y = inputParameter_composite.getShell().getSize().y;
+		/**
+		 * setSize makes the part to update.
+		 * */
+		inputParameter_composite.getShell().setSize(x , y);
+		input_featureObservable.setValue(new_input_string);
+		
+		
+		
+	}
+	/**
+	 * whole input-parameter is arranged to creating new quantity or remove unnecessary quantity or remain like before.
+	 * */
+	private void updateInputParameter(Formula currentFormula, ArrayList<String> input){
+		
+		if(currentFormula.getRepository() == null){
+			return;
+		}
+		EList<Quantity> generatedQuantities = currentFormula.getRepository().getQuantities();
+		ArrayList<String> generatedInputQuantities_array = new ArrayList<String>();
+	
+		/**
+		 * Only input-parameter quantities are retrieved from generated whole quantities under current repository.
+		 * */
+		for(Quantity gQ : generatedQuantities){
+			
+			if(gQ.getName() != null){
+				
+				generatedInputQuantities_array.add(gQ.getName());
+			}			
+			
+		}
+		
+		/**
+		 * check, whether the quantity exists already under the current repository.
+		 * */
+		for(String input_quantity : input){
+			
+			/**
+			 * If there is no quantity under the current repository, then new quantity is generated and attached under that.
+			 * */
+			if(!generatedInputQuantities_array.contains(input_quantity)){
+				
+				Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+			   	quantity.setName(input_quantity);
+				currentFormula.getRepository().getQuantities().add(quantity);
+				generatedInputQuantities_array.add(input_quantity);
+								
+			}
+		}
+		
+		
+		ArrayList<String> deleting_InputQuantities_array = new ArrayList<String>();
+		EList<Formula> currentFormulas = currentFormula.getRepository().getFormulas();
+		
+		
+		for(String generated_quantity : generatedInputQuantities_array){
+			
+			
+			/**
+			 * The entire input-quantities are investigated and unnecessary quantities are removed.
+			 * */
+			if(!input.contains(generated_quantity) && isQuantityUnique(generated_quantity, currentFormulas, currentFormula) 
+					&& !currentFormula.getOutputParameter().equals(generated_quantity) ){
+								
+				deleting_InputQuantities_array.add(generated_quantity);
+				
+			}
+			
+		}
+		
+		removeOldQuantity(deleting_InputQuantities_array, currentFormula);
+			
+	}
 	
 	private Boolean getFeatureObservableValue(IObservableValue featureObservable){
 		
@@ -661,132 +797,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 		createInputQuantity(latexFormula);
 		
 	}
-	private void createInputQuantity(String latexFormula){
-		
-		ArrayList<String> input = ExtractQuantitiesFromFormula.filtering_inputParameter(latexFormula);
-		String new_input_string = String.join(",", input);
-		
-		Formula currentFormula = (Formula)getOwner();	
-		FormToolkit _toolkit = this.getToolkit();
-				
-		
-		if(input.size() > BASE_SIZE_HYPERLINK){
-			
-			int rest = input.size() - BASE_SIZE_HYPERLINK;
-			for(int p = 0; p < rest; p++) {
-				
-				Hyperlink rest_hyperlink_input = _toolkit.createHyperlink(inputParameter_composite, EMPTY ,SWT.NONE);
-				setPropertyHyperlinkInput(rest_hyperlink_input, true, true);
-				
-			}
-			
-		}
-		
-		/**
-		 * The whole input-parameter is arranged.
-		 * */
-		updateInputParameter(currentFormula, input);
-		
-		for (int t = 0; t < listOfHyperlink.size(); t++) {
-				
-	   	 	listOfHyperlink.get(t).setEnabled(false);
-			listOfHyperlink.get(t).setText(EMPTY);
-			
-	    }
-		
-		if(input.size() != 0){
-		
-			for (int q = 0; q < input.size(); q++) {
-				
-		   	 	Hyperlink presentLink = listOfHyperlink.get(q);
-		   	 	listOfHyperlink.get(q).setEnabled(true);
-				listOfHyperlink.get(q).setText(input.get(q).toString());
-				listOfHyperlink.get(q).setForeground(getColorBlack());
-				listOfHyperlink.get(q).addHyperlinkListener(new HyperlinkAdapter() {
-	    	    	
-		 			public void linkActivated(HyperlinkEvent e) {
-		 		
-		 				showQuantityPart(presentLink, currentFormula);
-		 			}
-		 	});
-				
-		    }
-			
-		}
-		
-		/**
-		 * It makes to update the part per modifying the size of shell and let show directly the new generated hyperlink,
-		 * but it should be improved with other way.
-		 * */
-		int x = inputParameter_composite.getShell().getSize().x;
-		int y = inputParameter_composite.getShell().getSize().y;
-		inputParameter_composite.getShell().setSize(x+1 , y);
-		input_featureObservable.setValue(new_input_string);
-		
-		
-	}
 	
-	/**
-	 * whole input-parameter is arranged to creating new quantity or remove unnecessary quantity or remain like before.
-	 * */
-	private void updateInputParameter(Formula currentFormula, ArrayList<String> input){
-		
-		EList<Quantity> generatedQuantities = currentFormula.getRepository().getQuantities();
-		ArrayList<String> generatedInputQuantities_array = new ArrayList<String>();
-	
-		/**
-		 * Only input-parameter quantities are retrieved from generated whole quantities under current repository.
-		 * */
-		for(Quantity gQ : generatedQuantities){
-			
-			if(gQ.getName() != null){
-				
-				generatedInputQuantities_array.add(gQ.getName());
-			}			
-			
-		}
-		
-		/**
-		 * check, whether the quantity exists already under the current repository.
-		 * */
-		for(String input_quantity : input){
-			
-			/**
-			 * If there is no quantity under the current repository, then new quantity is generated and attached under that.
-			 * */
-			if(!generatedInputQuantities_array.contains(input_quantity)){
-				
-				Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
-			   	quantity.setName(input_quantity);
-				currentFormula.getRepository().getQuantities().add(quantity);
-				generatedInputQuantities_array.add(input_quantity);
-								
-			}
-		}
-		
-		
-		ArrayList<String> deleting_InputQuantities_array = new ArrayList<String>();
-		EList<Formula> currentFormulas = currentFormula.getRepository().getFormulas();
-		
-		
-		for(String generated_quantity : generatedInputQuantities_array){
-			
-			
-			/**
-			 * The entire input-quantities are investigated and unnecessary quantities are removed.
-			 * */
-			if(!input.contains(generated_quantity) && isQuantityUnique(generated_quantity, currentFormulas, currentFormula) 
-					&& !currentFormula.getOutputParameter().equals(generated_quantity) ){
-								
-				deleting_InputQuantities_array.add(generated_quantity);
-				
-			}
-			
-		}
-		
-		removeOldQuantity(deleting_InputQuantities_array, currentFormula);
-			
-	}
+
 	/**
 	 * check, whether the generated_quantity is also used to hyperlink and input-parameter of other formula under current repository.
 	 * */ 
@@ -813,6 +825,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private Boolean isQuantityUnique(String generated_quantity, EList<Formula> formulas, Formula currentFormula){
 		
 		ArrayList<String> generatedParameter_arrayList = new ArrayList<>();
+		
 		for(int i=0; i<formulas.size(); i++){
 			 			
 			if(!formulas.get(i).equals(currentFormula)){
@@ -890,6 +903,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 		String output_string = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
 		
 		Formula currentFormula = (Formula)getOwner();
+		
+		if(currentFormula.getRepository() == null){
+			return;
+		}
 		EList<Formula> currentFormulas = currentFormula.getRepository().getFormulas();
 		Resource resource = this.getResource();
 		
@@ -943,12 +960,19 @@ public class CustomFormControlFactory extends FormControlFactory {
 					 * */
 					if(!existOutputInRepository){
 
+						/**
+						 * In case of same value between savedQuantityString and output_string, the order of command must be preserved.
+						 * remove -> create quantity
+						 * */
+						removeQuantityInRepository(savedQuantityString, currentFormula);
+						
 						Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
 						quantity.setName(output_string);
 						currentFormula.getRepository().getQuantities().add(quantity);
 						
-						removeQuantityInRepository(savedQuantityString, currentFormula);
 						output_featureObservable.setValue(output_string);
+						
+						
 						
 					}else{
 						
