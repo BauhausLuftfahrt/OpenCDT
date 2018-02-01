@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
-
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.eclipse.core.databinding.DataBindingContext;
@@ -23,7 +21,6 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecp.core.ECPProject;
 import org.eclipse.emf.ecp.core.ECPProjectManager;
 import org.eclipse.emf.ecp.core.util.ECPUtil;
 import org.eclipse.emf.ecp.spi.ui.util.ECPHandlerHelper;
