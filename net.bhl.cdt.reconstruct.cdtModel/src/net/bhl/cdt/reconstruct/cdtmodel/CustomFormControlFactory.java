@@ -222,7 +222,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 				 */
 				
 				if(latexformula != EMPTY){
-					try {				
+					try {		
+						
 						createNewImage(latexformula, composite, latexString);
 						
 					} catch (IOException e1) {
@@ -714,8 +715,11 @@ public class CustomFormControlFactory extends FormControlFactory {
 	 * */
 	private void setPropertyHyperlinkInput(Hyperlink hyperlink, Boolean enable, Boolean underline){
 		
+		/**
+		 * Set the distance among hyperlinks.
+		 * */
 		RowData rowData = new RowData();
-	    rowData.width = 50;
+	    rowData.width = 40;
 		
 	    hyperlink.setLayoutData(rowData); 
 		hyperlink.setEnabled(enable);
@@ -1011,9 +1015,21 @@ public class CustomFormControlFactory extends FormControlFactory {
 						}
 						output_featureObservable.setValue(output_string);
 
+					}else{
+						
+						if(!existOutputInRepository){
+							
+							Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+							quantity.setName(output_string);
+							currentFormula.getRepository().getQuantities().add(quantity);
+						
+						}else{
+							
+						}
+						
 					}
 					
-					//
+					
 					
 				}
 				
