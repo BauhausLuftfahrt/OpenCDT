@@ -635,48 +635,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 			ECPHandlerHelper.openModelElement(show_quantity, ecpProjectManager.getProject(eObj));
 		}
 		
-		 
-		/*for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
-		{
-			MPart partSearch = i.next();
-			if (partSearch.isVisible()) {
-				
-				if(show_quantity != null && partSearch.getElementId().equals(show_quantity.toString())){
-					partVisible = true;
-                	partService.activate(partSearch);
-                	break;
-					 
-                 }
-    
-             }
-        }*/
-		
-		
-		
-		/*public static void openModelElement(final Object modelElement, ECPProject ecpProject) {
-			openModelElement(modelElement, ecpProject, new LinkedHashMap<Object, Object>());
-		}
-		ECPHandlerHelper.openModelElement(firstElement, (ECPProject) context);
-		final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
-		ecpProjectManager.getProject(eObject)
-		
-		*
-		*/
-
-			
-	/*	if(show_quantity != null && !partVisible){
-			
-			part = MBasicFactory.INSTANCE.createPart();
-			part.setLabel("Quantity  " + hyperlink.getText());		   
-			part.setElementId(show_quantity.toString());		   
-		    part.setObject(show_quantity);	    
-			part.setCloseable(true);
-			part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTQuantityModelViewer");
-
-			partService.showPart(part, PartState.CREATE);
-			partService.bringToTop(part);
-			
-		}*/
 		
 	}
 	private Boolean hasFormulaOneEqualSymbol(String latexformula){
@@ -829,7 +787,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 			}
 			
 		}
-		
 		
 		removeOldQuantity(deleting_InputQuantities_array, currentFormula);
 			
