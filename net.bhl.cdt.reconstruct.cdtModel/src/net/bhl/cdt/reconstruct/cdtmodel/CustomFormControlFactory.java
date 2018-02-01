@@ -136,9 +136,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				 * Check,whether the textbox of the latexformula is empty.
 				 */
 				String latexformula = latexString.getText();
-				
-				//System.out.println("latexformula : " + latexformula);
-				
+								
 				/**
 				 * In case textbox of latexString is empty 
 				 * */
