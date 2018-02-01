@@ -306,6 +306,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			public void linkActivated(HyperlinkEvent e) {
 				
 				
+			
 				Boolean partVisible = false;
 				EPartService partService = EPartServiceHelper.getEPartService();
 				Collection<MPart> parts = partService.getParts();
@@ -506,7 +507,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 		    	    	
 		    	 			public void linkActivated(HyperlinkEvent e) {
 		    	 		
-		    	 				//showInputPart(hyperlink_input, currentFormula);
 		    	 				showQuantityPart(hyperlink_input, currentFormula);
 		    	 			}
 		    	 	});
@@ -752,7 +752,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	    	
 		 			public void linkActivated(HyperlinkEvent e) {
 		 		
-		 				//showInputPart(presentLink, currentFormula);
 		 				showQuantityPart(presentLink, currentFormula);
 		 			}
 		 	});
@@ -915,63 +914,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 					toBeDeleted);	
 		}
 	}
-	private void showInputPart(Hyperlink hyperlink, Formula currentFormula){
-		
-		Boolean partVisible = false;
-		EPartService partService = EPartServiceHelper.getEPartService();
-		Collection<MPart> parts = partService.getParts();
-		
-		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
-		Quantity show_quantity = null;
-		
-		/**
-		 * The quantity-object can be found by name of hyperlink.
-		 * */ 
-		for(Quantity q : quantities){
-				
-				if(q.getName() != null && q.getName().equals(hyperlink.getText())){
-					show_quantity = q;
-					
-				}	
-		 }
-		 
-		/**
-		 * check, whether the part of found quantity already opened past and if so, then this part is being active.
-		 * */ 
-		for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
-		{
-			MPart partSearch = i.next();
-			if (partSearch.isVisible()) {
-				
-				if(show_quantity != null && partSearch.getElementId().equals(show_quantity.toString())){
-					partVisible = true;
-                	partService.activate(partSearch);
-                	break;
-					 
-                 }
-    
-             }
-        }
-		
-		
-		/**
-		 * If the part of quantity-model was not opened fast, then new part is created and showed using parsly.
-		 * */
-		if(show_quantity != null && !partVisible){
-			
-			part = MBasicFactory.INSTANCE.createPart();
-			part.setLabel("Quantity  " + hyperlink.getText());
-			part.setElementId(show_quantity.toString()); 
-		    part.setObject(show_quantity);    
-			part.setCloseable(true);
-			part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTQuantityModelViewer");
 
-			partService.showPart(part, PartState.CREATE);
-			partService.bringToTop(part);
-			
-		}
-		
-	}
 	private String getUriQuantity(String output_string, Formula currentFormula, Resource resource){
 		
 		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
