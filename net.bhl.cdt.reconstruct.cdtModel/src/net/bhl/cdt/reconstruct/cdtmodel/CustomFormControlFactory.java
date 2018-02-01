@@ -302,8 +302,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	
 			public void linkActivated(HyperlinkEvent e) {
 				
-				
-			
 				Boolean partVisible = false;
 				EPartService partService = EPartServiceHelper.getEPartService();
 				Collection<MPart> parts = partService.getParts();
@@ -870,25 +868,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 		}
 	}
 
-	private String getUriQuantity(String output_string, Formula currentFormula, Resource resource){
-		
-		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
-		
-		String quantity_uri = EMPTY;
-		
-		for(Quantity qt : quantities){
-			
-			if(qt.getName() != null && qt.getName().equals(output_string)){
-				
-				EObject eobject = qt;
-				quantity_uri = resource.getURIFragment(eobject);
-			}
-			
-		}
-		
-		return quantity_uri;
-		
-	}
 	private Boolean existQuantityInReprository(String output_string, Formula currentFormula, Resource resource){
 		
 		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
@@ -1073,24 +1052,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 		}	
 	}
 	
-	private Boolean modifyOutput(FormulaRepository repository, String output, String savedString ){
-		
-		EList<Quantity> quantities = repository.getQuantities();
-		Boolean modified= false;
-		for ( Iterator i = quantities.iterator(); i.hasNext();){
-					
-			Quantity quantity = (Quantity) i.next();
-						
-			if( quantity.getName() != null && quantity.getName().equals(savedString)){
-				
-				quantity.setName(output);
-				modified = true;
-				
-			}
-		}
-		
-		return modified;
-	}
 	private Color getColorBlack(){
 		
 		 Device device = Display.getCurrent ();
