@@ -114,9 +114,7 @@ public class MyParts{
     	/**
     	 * Before this is deleted,the dialog is opened and it asks about the deletion.
     	 * */ 
-		
-		
-    	
+
 		if(treeFormComposite.getEmfSelectionHelper().getFirstSelectedEObject(treeFormComposite.getViewer().getSelection()) == null){
 			
 			MessageBox dialog = new MessageBox(shell, SWT.ICON_WARNING | SWT.OK);
@@ -127,8 +125,9 @@ public class MyParts{
     			
     		}
 		}
-		if(treeFormComposite.getEmfSelectionHelper().getFirstSelectedEObject(treeFormComposite.getViewer().getSelection()) != null){
-			
+		if(treeFormComposite.getEmfSelectionHelper().getFirstSelectedEObject(treeFormComposite.getViewer().getSelection()) != null
+			&& treeFormComposite.getEmfSelectionHelper().getFirstSelectedEObject(treeFormComposite.getViewer().getSelection()).eClass().getName().equals("Library")){
+	
 			MessageBox dialog = new MessageBox(shell, SWT.ICON_QUESTION | SWT.OK | SWT.CANCEL);
     		dialog.setText("Question");
     		dialog.setMessage("Do you want to delete this library?");

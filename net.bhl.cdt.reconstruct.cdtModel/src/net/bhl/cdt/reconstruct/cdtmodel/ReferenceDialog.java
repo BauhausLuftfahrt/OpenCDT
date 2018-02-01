@@ -1,6 +1,7 @@
 package net.bhl.cdt.reconstruct.cdtmodel;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.parsley.menus.ViewerContextMenuHelper;
@@ -35,6 +36,7 @@ public class ReferenceDialog extends Dialog {
 	private Resource resourceLibrary;
 	private Object object;
 	private IStructuredSelection selection;
+	private String uriFragment;
 	private static final int COLUMN  = 6;
 	private static final int WIDTH  = 940;
 	private static final int HEIGHT  = 300;
@@ -48,8 +50,7 @@ public class ReferenceDialog extends Dialog {
 		Shell shell = parent.getShell();
 		shell.setText("References");
 		
-		/**
-		 * dsl modul of parsley is called.
+		/**dsl modul of parsley is called.
 		 * */
 		Injector injector = CdtliteraturetableInjectorProvider.getInjector();
 		ViewerFactory viewerFactory = injector.getInstance(ViewerFactory.class);
@@ -59,6 +60,8 @@ public class ReferenceDialog extends Dialog {
 		EditingDomain editingDomain = injectorLib.getInstance(EditingDomain.class);
 		resourceLibrary = resourceLoader.getResource(editingDomain, uri).getResource();
 			
+		
+		
 		ViewerContextMenuHelper contextMenuHelper = injector.getInstance(ViewerContextMenuHelper.class);
 				
 		Composite container = (Composite) super.createDialogArea(parent);
@@ -90,10 +93,13 @@ public class ReferenceDialog extends Dialog {
 			           
 			           try{
 			       			
-			        	    object = selection.getFirstElement();
-			        	       
-			   		   }catch(ClassCastException exc) {
-			   			   
+			        	    object = selection.getFirstElement();			        	    
+			        	    EObject eobj = (EObject) object; 
+					        uriFragment = resourceLibrary.getURIFragment(eobj);
+					        
+			   		   }
+			           catch(ClassCastException exc) {
+			        	   
 			   		   }
         
 	
@@ -107,8 +113,11 @@ public class ReferenceDialog extends Dialog {
 		    	
 		        TreeViewer viewer = (TreeViewer) event.getViewer();
 		        IStructuredSelection thisSelection = (IStructuredSelection) event.getSelection();
+		        
 		        object  = thisSelection.getFirstElement();
-		             
+		        EObject eobj = (EObject) object; 
+		        uriFragment = resourceLibrary.getURIFragment(eobj);
+		        
 		        viewer.setExpandedState(object,
 		                !viewer.getExpandedState(object));
 		        
@@ -135,6 +144,10 @@ public class ReferenceDialog extends Dialog {
     }	
 	protected boolean isResizable() {
 		return true;
+	}
+	public String getUriEOB(){
+		
+		return uriFragment;
 	}
 	
 }

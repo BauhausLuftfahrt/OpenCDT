@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 
 import javax.xml.parsers.ParserConfigurationException;
 
@@ -19,12 +20,17 @@ import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecp.core.ECPProject;
 import org.eclipse.emf.ecp.core.ECPProjectManager;
 import org.eclipse.emf.ecp.core.util.ECPUtil;
 import org.eclipse.emf.ecp.spi.ui.util.ECPHandlerHelper;
 import org.eclipse.emf.ecp.ui.e4.util.EPartServiceHelper;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.parsley.composite.FormControlFactory;
+import org.eclipse.emf.parsley.resource.ResourceLoader;
 import org.eclipse.jface.databinding.swt.SWTObservables;
 import org.eclipse.jface.window.Window;
 import org.eclipse.swt.SWT;
@@ -57,11 +63,14 @@ import org.eclipse.ui.forms.widgets.Hyperlink;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import com.google.inject.Injector;
+
 import cdtliterature.ALiteratureBase;
 import formula.Formula;
 import formula.FormulaFactory;
 import formula.FormulaRepository;
 import formula.Quantity;
+import net.bhl.cdt.literature.model.parsley.ParsleyInjectorProvider;
 import net.sourceforge.jeuclid.MathMLParserSupport;
 import net.sourceforge.jeuclid.MutableLayoutContext;
 import net.sourceforge.jeuclid.context.LayoutContextImpl;
@@ -82,7 +91,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private GridData gd;
 	private Hyperlink hyperlink;
 	private MPart part; 
-	private String hyperLinkStr;
+	private String referenceStr;
 	private Hyperlink hyperlink_output;
 	private IObservableValue output_featureObservable;
 	private IObservableValue input_featureObservable;
@@ -93,6 +102,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	private static final String NOTHING_GENERATE_QUANTITY = "=";
 	private static final int STANDARD_WIDTH = 300;
 	private static final int BASE_SIZE_HYPERLINK = 10;
+	private URI uri = URI.createFileURI(System.getProperty("user.home") + "/runtime-net.bhl.cdt.client.e4.product/reference" + "/MyLibrary.library");	
+
 
 	public Control control_Formula_latexString(DataBindingContext dbc, IObservableValue featureObservable) {
 	
@@ -125,9 +136,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 				 * Check,whether the textbox of the latexformula is empty.
 				 */
 				String latexformula = latexString.getText();
-				
-				//System.out.println("latexformula : " + latexformula);
-				
+								
 				/**
 				 * In case textbox of latexString is empty 
 				 * */
@@ -184,6 +193,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		}); 
        
 
+        
 		/**
 		 * each function of button is implemented.
 		 * */
@@ -199,7 +209,6 @@ public class CustomFormControlFactory extends FormControlFactory {
         
         canvas.setLayoutData(gd);
           
-        
         FocusListener listener = new FocusListener() {
         	
             public void focusGained(FocusEvent event) {
@@ -256,24 +265,39 @@ public class CustomFormControlFactory extends FormControlFactory {
 	   
 	    
 	    /**
-	     * The grid-layout consist of hyperlink, set-button, delete-button.
+	     * The grid-layout consists of hyperlink, set-button, delete-button.
 	     * */
 	    GridLayout _gridLayout = new GridLayout(3, false);
 	    composite.setLayout(_gridLayout);
-	    hyperLinkStr = "";
 	    
-	    if (featureObservable.getValue() != null)
-	    	hyperLinkStr = (((ALiteratureBase) featureObservable.getValue()).eClass().getName() +
-	    			" " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
-	    
+	    /**
+	     * A Preparation for calling the contents of literature-library.
+	     * */
+	    Injector injectorLib = ParsleyInjectorProvider.getInjector();
+		ResourceLoader resourceLoader = injectorLib.getInstance(ResourceLoader.class);
+		EditingDomain editingDomain = injectorLib.getInstance(EditingDomain.class);
+		Resource resourceLibrary = resourceLoader.getResource(editingDomain, uri).getResource();
+		
+		
+		Boolean hasReference = getFeatureObservableValue(featureObservable);
+		
+		
+		if(hasReference)
+	    {
 	    	
-	    hyperlink = _toolkit.createHyperlink(composite, hyperLinkStr, SWT.NONE);
-	    
-	    hyperlink.setUnderlined(false);
-	    
-	    if (featureObservable.getValue() == null)
-	    	hyperlink.setEnabled(false);	
-	    
+	    	EObject eobject = resourceLibrary.getEObject(featureObservable.getValue().toString());
+	    	String referenceStr = (eobject.eClass().getName() +
+	    			" " + ((ALiteratureBase)eobject).getTitle());
+	    	hyperlink = _toolkit.createHyperlink(composite, referenceStr, SWT.NONE);	    
+		    hyperlink.setUnderlined(false);
+	    	
+	    }else{
+			 
+			 hyperlink = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);	    
+			 hyperlink.setUnderlined(false);
+			 hyperlink.setEnabled(false);
+		}
+		
 	    /**
 	     * The action for click of this hyperlink and let open and show the model of hyperlink.
 	     * */
@@ -282,6 +306,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 			public void linkActivated(HyperlinkEvent e) {
 				
 				
+			
 				Boolean partVisible = false;
 				EPartService partService = EPartServiceHelper.getEPartService();
 				Collection<MPart> parts = partService.getParts();
@@ -294,7 +319,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 					MPart partSearch = i.next();
 					if (partSearch.isVisible()) {
 						
-						if(partSearch.getElementId().equals(featureObservable.getValue().toString())){
+						if(partSearch.getElementId().equals(resourceLibrary.getEObject(featureObservable.getValue().toString()).toString())){
 							partVisible = true;
 		                	partService.activate(partSearch);
 		                	break;
@@ -303,16 +328,20 @@ public class CustomFormControlFactory extends FormControlFactory {
 		    
 		             }
 		        }
+				
 				/**
 				 * If the part of literature-model was not opened fast, then new part is created and showed using parsley.
 				 * */
 				if(!partVisible){
 					
+					EObject eobject = resourceLibrary.getEObject(featureObservable.getValue().toString());
+
 					part = MBasicFactory.INSTANCE.createPart();
-					part.setLabel(((ALiteratureBase) featureObservable.getValue()).eClass().getName() + 
-							" " + ((ALiteratureBase)featureObservable.getValue()).getTitle());
-				    part.setElementId(featureObservable.getValue().toString());
-					part.setObject(featureObservable.getValue());
+					part.setLabel((eobject.eClass().getName() +
+			    			" " + ((ALiteratureBase)eobject).getTitle())) ;
+					
+					part.setElementId(eobject.toString());
+					part.setObject(eobject);
 					part.setCloseable(true);
 					part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTLibraryRefernceModelViewer");
 
@@ -360,9 +389,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	        			
 	    	        			ALiteratureBase literatureObj = (ALiteratureBase)treeColumnDialog.getObject();
 	    	        			EObject result = literatureObj;
+
 			        	    	hyperlink.setText(result.eClass().getName() + " " + literatureObj.getTitle());
-			        	    	featureObservable.setValue(treeColumnDialog.getObject());
-		        	    		hyperlink.setEnabled(true);
+			        	    	
+			        	    	featureObservable.setValue(treeColumnDialog.getUriEOB());
+			        	    	
+			        	    	hyperlink.setEnabled(true);
 		        	    		
 	    	        		}catch(ClassCastException e1){
 	    	        			System.err.println( "The library-model can not be chosen as the reference" );
@@ -403,7 +435,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	            		if(dialog.open() == SWT.OK){
 	            			hyperlink.setText(EMPTY);
 	    	            	hyperlink.setEnabled(false);
-	    	            	featureObservable.setValue(EMPTY);
+	    	            	featureObservable.setValue(null);
 	            		}
 	            		
 	            	}
@@ -432,7 +464,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    input_featureObservable = featureObservable;
 	 
 	    Formula currentFormula = (Formula)getOwner();
-	        
+	    
 	    /**
 	     * There is no save of input-parameters or empty string was saved in featureObserable.
 	     * */
@@ -475,7 +507,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 		    	    	
 		    	 			public void linkActivated(HyperlinkEvent e) {
 		    	 		
-		    	 				showInputPart(hyperlink_input, currentFormula);
+		    	 				showQuantityPart(hyperlink_input, currentFormula);
 		    	 			}
 		    	 	});
 		    	  
@@ -495,8 +527,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    return inputParameter_composite;
 	}
 	/**
-	 * This method generates the output-parameter automatically and the left side of formula used to generate it,
-	 * if ONE equal symbol exists in formula.
+	 * This method generates the output-parameter according to the Latex-formula and the left side of formula used to generate it,
+	 * if ONE equal symbol exists in Latex-formula.
 	 * */
 	public Control control_Formula_outputParameter(DataBindingContext dbc, IObservableValue featureObservable) {
 			
@@ -505,16 +537,21 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
 	    GridLayout _gridLayout = new GridLayout(1, false);
 	    composite.setLayout(_gridLayout);
-	       
+	           
 	    output_featureObservable = featureObservable;
+	   
+	    Boolean hasOutputParameter = getFeatureObservableValue(featureObservable);
 	    
-	    if(featureObservable.getValue() == null){
-	    	hyperlink_output = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);
-	    	setPropertyHyperlinkOutput(hyperlink_output, false, false);
+	    if(hasOutputParameter){
+	   
+	    	hyperlink_output = _toolkit.createHyperlink(composite, featureObservable.getValue().toString() , SWT.NONE);    	
+	    	setPropertyHyperlinkOutput(hyperlink_output, true, false);
+	    	
 	    }
 	    else{
-	    	hyperlink_output = _toolkit.createHyperlink(composite, ((Quantity)featureObservable.getValue()).getName() , SWT.NONE);
-	    	setPropertyHyperlinkOutput(hyperlink_output, true, false);
+	    	
+	    	hyperlink_output = _toolkit.createHyperlink(composite, EMPTY, SWT.NONE);
+	    	setPropertyHyperlinkOutput(hyperlink_output, false, false);
 	    }
 	   
 	    composite.forceFocus();
@@ -529,12 +566,17 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	
 	 			public void linkActivated(HyperlinkEvent e) {
 	 		
-	 				showOutputPart(hyperlink_output, currentFormula);
+	 				showQuantityPart(hyperlink_output, currentFormula);
 	 			}
 	 	});
 	
 	    return composite;
 	}
+	
+	private Boolean getFeatureObservableValue(IObservableValue featureObservable){
+		
+		return (featureObservable.getValue() != null);
+	} 
 	
 	/**
 	 * set the basis property of hyperlink for input-parameter
@@ -571,32 +613,35 @@ public class CustomFormControlFactory extends FormControlFactory {
 	}
 	
 	/**
-	 * If the hyperlink is clicked, then the part of model is showed.
+	 * If the hyperlink is clicked, then the part of model is showed on new part.
 	 * */
-	private void showOutputPart(Hyperlink hyperlink, Formula currentFormula){
-				
-		Boolean partVisible = false;
-		EPartService partService = EPartServiceHelper.getEPartService();
-		Collection<MPart> parts = partService.getParts();
+	private void showQuantityPart(Hyperlink hyperlink, Formula currentFormula){
+		
 		
 		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
 		Quantity show_quantity = null;
 		
 		for(Quantity q : quantities){
 				
-				if(q.getName().equals(hyperlink.getText())){
+				if(q.getName() != null && q.getName().equals(hyperlink.getText())){
 					show_quantity = q;
 					
 				}	
 		 }
 		 
+		if(show_quantity != null){
+			EObject eObj = show_quantity;
+			final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
+			ECPHandlerHelper.openModelElement(show_quantity, ecpProjectManager.getProject(eObj));
+		}
+		
 		 
-		for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
+		/*for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
 		{
 			MPart partSearch = i.next();
 			if (partSearch.isVisible()) {
 				
-				if(partSearch.getElementId().equals(show_quantity.toString())){
+				if(show_quantity != null && partSearch.getElementId().equals(show_quantity.toString())){
 					partVisible = true;
                 	partService.activate(partSearch);
                 	break;
@@ -604,12 +649,25 @@ public class CustomFormControlFactory extends FormControlFactory {
                  }
     
              }
-        }
+        }*/
+		
+		
+		
+		/*public static void openModelElement(final Object modelElement, ECPProject ecpProject) {
+			openModelElement(modelElement, ecpProject, new LinkedHashMap<Object, Object>());
+		}
+		ECPHandlerHelper.openModelElement(firstElement, (ECPProject) context);
+		final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
+		ecpProjectManager.getProject(eObject)
+		
+		*
+		*/
+
 			
-		if(!partVisible){
+	/*	if(show_quantity != null && !partVisible){
 			
 			part = MBasicFactory.INSTANCE.createPart();
-			part.setLabel("output  " + hyperlink.getText());		   
+			part.setLabel("Quantity  " + hyperlink.getText());		   
 			part.setElementId(show_quantity.toString());		   
 		    part.setObject(show_quantity);	    
 			part.setCloseable(true);
@@ -618,7 +676,15 @@ public class CustomFormControlFactory extends FormControlFactory {
 			partService.showPart(part, PartState.CREATE);
 			partService.bringToTop(part);
 			
-		}
+		if(show_quantity != null){
+			EObject eObj = show_quantity;
+			final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
+			ECPHandlerHelper.openModelElement(show_quantity, ecpProjectManager.getProject(eObj));
+		if(show_quantity != null){
+			EObject eObj = show_quantity;
+			final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
+			ECPHandlerHelper.openModelElement(show_quantity, ecpProjectManager.getProject(eObj));
+		}*/
 		
 	}
 	private Boolean hasFormulaOneEqualSymbol(String latexformula){
@@ -686,7 +752,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 			for (int q = 0; q < input.size(); q++) {
 				
-		   	 	//System.out.println("quantitiesArray of Input:"+ input.get(q).toString());
 		   	 	Hyperlink presentLink = listOfHyperlink.get(q);
 		   	 	listOfHyperlink.get(q).setEnabled(true);
 				listOfHyperlink.get(q).setText(input.get(q).toString());
@@ -695,7 +760,7 @@ public class CustomFormControlFactory extends FormControlFactory {
 	    	    	
 		 			public void linkActivated(HyperlinkEvent e) {
 		 		
-		 				showInputPart(presentLink, currentFormula);
+		 				showQuantityPart(presentLink, currentFormula);
 		 			}
 		 	});
 				
@@ -728,12 +793,10 @@ public class CustomFormControlFactory extends FormControlFactory {
 		 * */
 		for(Quantity gQ : generatedQuantities){
 			
-			if(gQ.getDescription().equals("input")){
+			if(gQ.getName() != null){
 				
 				generatedInputQuantities_array.add(gQ.getName());
-			}
-			
-			
+			}			
 			
 		}
 		
@@ -749,7 +812,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 				
 				Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
 			   	quantity.setName(input_quantity);
-			   	quantity.setDescription("input");
 				currentFormula.getRepository().getQuantities().add(quantity);
 				generatedInputQuantities_array.add(input_quantity);
 								
@@ -767,7 +829,8 @@ public class CustomFormControlFactory extends FormControlFactory {
 			/**
 			 * The entire input-quantities are investigated and unnecessary quantities are removed.
 			 * */
-			if(!input.contains(generated_quantity) && !isCommunalQuantity(generated_quantity, currentFormulas, currentFormula)){
+			if(!input.contains(generated_quantity) && isQuantityUnique(generated_quantity, currentFormulas, currentFormula) 
+					&& !currentFormula.getOutputParameter().equals(generated_quantity) ){
 								
 				deleting_InputQuantities_array.add(generated_quantity);
 				
@@ -782,13 +845,12 @@ public class CustomFormControlFactory extends FormControlFactory {
 	/**
 	 * check, whether the generated_quantity is also used to hyperlink and input-parameter of other formula under current repository.
 	 * */ 
-	private Boolean isCommunalQuantity(String generated_quantity, EList<Formula> formulas, Formula currentFormula){
-		
+	private Boolean isCommunalInputQuantity(String generated_quantity, EList<Formula> formulas, Formula currentFormula){
 		Boolean common=false;
 		for(int i=0; i<formulas.size(); i++){
 			
 			 
-			if(!formulas.get(i).equals(currentFormula)){
+			if(!formulas.get(i).equals(currentFormula) && (formulas.get(i).getInputParameter() != null)){
 				
 				String [] inputParameter_stringArray = formulas.get(i).getInputParameter().split(","); 
 				ArrayList<String> inputParameter_arrayList = new ArrayList<>(Arrays.asList(inputParameter_stringArray));
@@ -802,6 +864,38 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		
 		return common;
+	}
+	private Boolean isQuantityUnique(String generated_quantity, EList<Formula> formulas, Formula currentFormula){
+		
+		ArrayList<String> generatedParameter_arrayList = new ArrayList<>();
+		for(int i=0; i<formulas.size(); i++){
+			 			
+			if(!formulas.get(i).equals(currentFormula)){
+				
+				if(formulas.get(i).getOutputParameter() != null){
+					
+					generatedParameter_arrayList.add(formulas.get(i).getOutputParameter());
+					
+				}
+				
+				if(formulas.get(i).getInputParameter() != null){
+					
+					String [] inputParameter_stringArray = formulas.get(i).getInputParameter().split(","); 
+					
+					for(String input_quantity : inputParameter_stringArray){
+					
+						generatedParameter_arrayList.add(input_quantity);
+						
+					}
+					
+				}
+
+			}
+			
+			
+		}
+		
+		return !generatedParameter_arrayList.contains(generated_quantity);
 	}
 	private void removeOldQuantity(ArrayList<String> deleting_InputQuantities_array, Formula currentFormula){
 		
@@ -828,157 +922,214 @@ public class CustomFormControlFactory extends FormControlFactory {
 					toBeDeleted);	
 		}
 	}
-	private void showInputPart(Hyperlink hyperlink, Formula currentFormula){
-		
-		Boolean partVisible = false;
-		EPartService partService = EPartServiceHelper.getEPartService();
-		Collection<MPart> parts = partService.getParts();
+
+	private String getUriQuantity(String output_string, Formula currentFormula, Resource resource){
 		
 		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
-		Quantity show_quantity = null;
 		
-		/**
-		 * The quantity-object can be found by name of hyperlink.
-		 * */ 
-		for(Quantity q : quantities){
-				
-				if(q.getName().equals(hyperlink.getText())){
-					show_quantity = q;
-					
-				}	
-		 }
-		 
-		/**
-		 * check, whether the part of found quantity already opened past and if so, then this part is being active.
-		 * */ 
-		for ( Iterator<MPart> i = parts.iterator(); i.hasNext(); )
-		{
-			MPart partSearch = i.next();
-			if (partSearch.isVisible()) {
-				if(partSearch.getElementId().equals(show_quantity.toString())){
-					partVisible = true;
-                	partService.activate(partSearch);
-                	break;
-					 
-                 }
-    
-             }
-        }
+		String quantity_uri = EMPTY;
 		
-		
-		/**
-		 * If the part of quantity-model was not opened fast, then new part is created and showed using parsly.
-		 * */
-		if(!partVisible){
+		for(Quantity qt : quantities){
 			
-			part = MBasicFactory.INSTANCE.createPart();
-			part.setLabel("input  " + hyperlink.getText());
-			part.setElementId(show_quantity.toString()); 
-		    part.setObject(show_quantity);    
-			part.setCloseable(true);
-			part.setContributionURI("bundleclass://net.bhl.cdt.reconstruct.cdtModel/net.bhl.cdt.reconsruct.parsley.e4.CDTQuantityModelViewer");
-
-			partService.showPart(part, PartState.CREATE);
-			partService.bringToTop(part);
+			if(qt.getName() != null && qt.getName().equals(output_string)){
+				
+				EObject eobject = qt;
+				quantity_uri = resource.getURIFragment(eobject);
+			}
 			
 		}
 		
+		return quantity_uri;
+		
 	}
-	
+	private Boolean existQuantityInReprository(String output_string, Formula currentFormula, Resource resource){
+		
+		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
+		Boolean existQuantity = false;
+		
+		for(Quantity qt : quantities){
+			
+			if(qt.getName() != null && qt.getName().equals(output_string)){
+				
+				existQuantity = true;
+				
+			}
+			
+		}
+		
+		return existQuantity;
+	}
 	private void createOutputQuantity(String latexFormula){
 		
-		String out = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
+		String output_string = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexFormula);
 		
-		Quantity q = (Quantity) output_featureObservable.getValue();
+		Formula currentFormula = (Formula)getOwner();
+		EList<Formula> currentFormulas = currentFormula.getRepository().getFormulas();
+		Resource resource = this.getResource();
 		
-		if(!out.equals(EMPTY)){
+		if(!output_string.equals(EMPTY)){
 			
-			hyperlink_output.setText(out);
+			hyperlink_output.setText(output_string);
 			hyperlink_output.setEnabled(true);
+
+			Boolean existOutputInRepository = existQuantityInReprository(output_string, currentFormula, resource);
 			
-			Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
-			quantity.setName(out);
-			quantity.setDescription("output");
 			
-			if(output_featureObservable.getValue() == null){
+			if(output_featureObservable.getValue() == null || output_featureObservable.getValue().equals("")){
 				
-				/**
-				 * Only output-parameter quantities are retrieved from generated whole quantities under current repository.
-				 * */
-				Formula currentFormula = (Formula)getOwner();
-				EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
-				ArrayList<String> outQuantities_arrayList = new ArrayList<String>();
-				for(Quantity qt : quantities){
-					
-					if(qt.getDescription().equals("output")){
-						
-						outQuantities_arrayList.add(qt.getName());
-					}
-					
-					
-				}
 				
 				/**
 				 * If there is no quantity under the current repository, then new quantity is generated and attached under that.
 				 * */
-				if(!outQuantities_arrayList.contains(out)){
+				if(!existOutputInRepository){
 					
-					currentFormula.getRepository().getQuantities().add(quantity);
-					output_featureObservable.setValue(quantity);
+					Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+					quantity.setName(output_string);
+					currentFormula.getRepository().getQuantities().add(quantity);	
+					
+					output_featureObservable.setValue(output_string);
 					
 				}else{
 					
 				}
-					
-			}else{
 				
 				/**
-				 * There is already saved value of output-parameter under the current repository, 
-				 * but the name of that is different to actual quantity, so it changes only the name
-				 * */ 
-				if(!q.getName().equals(out)){
-					Formula currentFormula = (Formula)getOwner();
-					modifyPreviousOutput(currentFormula.getRepository(), out, q);
-													
+				 * The saved quantity is unique under the current repository.
+				 * */
+				if(savedQuantityUnique){
+			
+					/**
+					 * The saved quantity is unique under the current repository, 
+					 * moreover new output-parameter which will be generated is also unique, so it changes only the name
+					 * */
+					if(!existOutputInRepository){
+
+						Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+						quantity.setName(output_string);
+						currentFormula.getRepository().getQuantities().add(quantity);
+						
+						removeQuantityInRepository(savedQuantityString, currentFormula);
+						output_featureObservable.setValue(output_string);
+						
+					}else{
+						
+						
+						/**
+						 * A new output-parameter exists already under the current repository, so a quantity isn't created,
+						 * moreover the saved quantity is not more necessary, so that is removed under the current repository.
+						 * */
+						if(!savedQuantityString.equals(output_string)){
+							
+							removeQuantityInRepository(savedQuantityString, currentFormula);
+
+						}else{
+							
+							//saved-string and new output-string is same, so nothing to do.
+							//output_featureObservable.setValue(output_string);
+						}
+						output_featureObservable.setValue(output_string);
+					}		
+				}else{
+					
+					/**
+					 * The saved quantity is communal one with other formula, but a new output-parameter which will be generated
+					 * is unique, so new one is created and is attached to the current repository. 
+					 * */
+					if(!savedQuantityString.equals(output_string)){
+						
+						if(!existOutputInRepository){
+							
+							Quantity quantity = FormulaFactory.eINSTANCE.createQuantity();	
+							quantity.setName(output_string);
+							currentFormula.getRepository().getQuantities().add(quantity);
+						
+						}else{
+							
+						}
+						output_featureObservable.setValue(output_string);
+
+					}
+					
+					//
+					
 				}
+				
 			}
 			
 		}
 		
 		/**
-		 * The actual output-parameter is empty, so it removes the hyperlink and the quantity-model under the current formula.
+		 * The new output-parameter is empty, so the hyperlink will be removed.
+		 * The quantity-model is also deleted under the current formula, if saved quantity is unique.
 		 * */
 		else{
 			
-			hyperlink_output.setText(out);
+			String savedQuantityString = output_featureObservable.getValue().toString();
+			hyperlink_output.setText(output_string);
 			hyperlink_output.setEnabled(false);
+			
+			Boolean isSavedUnique = isQuantityUnique(savedQuantityString, currentFormulas, currentFormula);
+			
+			if(isSavedUnique){
+				
+				removeQuantityInRepository(savedQuantityString, currentFormula);
 
+			}else{
+				
+				//saved-string is communal parameter, so it doesn't be deleted and actual output-parameter saves just empty value
+			}
+			output_featureObservable.setValue(output_string);
+		}
+		
+	}
+	private void removeQuantityInRepository(String savedQuantityString, Formula currentFormula){
+		
+		EList<Quantity> quantities = currentFormula.getRepository().getQuantities();
+		Resource resource = this.getResource();
+		Boolean existDeleteQuantity = existQuantityInReprository(savedQuantityString, currentFormula, resource);
+		
+		if(existDeleteQuantity){
+			
+			Quantity findQuantity = null;
+			for ( Iterator i = quantities.iterator(); i.hasNext();){
+						
+				Quantity quantity = (Quantity) i.next();
+							
+				if( quantity.getName() != null && quantity.getName().equals(savedQuantityString)){
+					
+					findQuantity = quantity;
+					
+				}
+			}
+			
 			final ECPProjectManager ecpProjectManager = ECPUtil.getECPProjectManager();
 			ArrayList<Object> toBeDeleted = new ArrayList<Object>();
 		
-			toBeDeleted.add(q);
-			EObject eObject = q;
+			toBeDeleted.add(findQuantity);
+			EObject eObject = findQuantity;
 			ECPHandlerHelper.deleteModelElement(
 					ecpProjectManager.getProject(eObject),
-					toBeDeleted);		
-			
-		}
+					toBeDeleted);	
+		}	
 	}
-	private void modifyPreviousOutput(FormulaRepository repository, String output, Quantity q ){
+	
+	private Boolean modifyOutput(FormulaRepository repository, String output, String savedString ){
 		
 		EList<Quantity> quantities = repository.getQuantities();
-		
+		Boolean modified= false;
 		for ( Iterator i = quantities.iterator(); i.hasNext();){
 					
 			Quantity quantity = (Quantity) i.next();
 						
-			if(quantity.getName().equals(q.getName())){
+			if( quantity.getName() != null && quantity.getName().equals(savedString)){
 				
 				quantity.setName(output);
+				modified = true;
 				
 			}
 		}
 		
+		return modified;
 	}
 	private Color getColorBlack(){
 		

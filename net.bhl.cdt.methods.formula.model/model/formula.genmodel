@@ -14,15 +14,79 @@
     <genClasses ecoreClass="formula.ecore#//Formula">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute formula.ecore#//Formula/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute formula.ecore#//Formula/latexString"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference formula.ecore#//Formula/inputParameter"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EAttribute formula.ecore#//Formula/inputParameter"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference formula.ecore#//Formula/outputParameter"/>
       <genFeatures notify="false" createChild="false" ecoreFeature="ecore:EReference formula.ecore#//Formula/repository"/>
+      <genFeatures property="None" createChild="false" ecoreFeature="ecore:EAttribute formula.ecore#//Formula/reference"/>
+      <genOperations ecoreOperation="formula.ecore#//Formula/hasName">
+        <genParameters ecoreParameter="formula.ecore#//Formula/hasName/chain"/>
+        <genParameters ecoreParameter="formula.ecore#//Formula/hasName/context"/>
+      </genOperations>
     </genClasses>
     <genClasses ecoreClass="formula.ecore#//Quantity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute formula.ecore#//Quantity/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute formula.ecore#//Quantity/description"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute formula.ecore#//Quantity/unit"/>
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference formula.ecore#//Quantity/repository"/>
+    </genClasses>
+  </genPackages>
+  <genPackages prefix="Cdtliterature" ecorePackage="../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#/">
+    <genClasses image="false" ecoreClass="../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//ALiteratureBase">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//ALiteratureBase/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//ALiteratureBase/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//ALiteratureBase/year"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//ALiteratureBase/references"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//ALiteratureBase/path"/>
+    </genClasses>
+    <genClasses ecoreClass="../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Article">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Article/journal"/>
+    </genClasses>
+    <genClasses ecoreClass="../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Book">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Book/publisher"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Book/isbn"/>
+    </genClasses>
+    <genClasses ecoreClass="../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Inbook">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Inbook/pages"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Inbook/publisher"/>
+    </genClasses>
+    <genClasses ecoreClass="../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Conference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Conference/booktitle"/>
+    </genClasses>
+    <genClasses ecoreClass="../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Incollection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Incollection/booktitle"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Incollection/publisher"/>
+    </genClasses>
+    <genClasses ecoreClass="../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Inproceedings">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Inproceedings/booktitle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Inproceedings/articles"/>
+    </genClasses>
+    <genClasses ecoreClass="../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Proceedings"/>
+    <genClasses ecoreClass="../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Techreport">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Techreport/institution"/>
+    </genClasses>
+    <genClasses ecoreClass="../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Phdthesis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Phdthesis/school"/>
+    </genClasses>
+    <genClasses ecoreClass="../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Masterthesis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Masterthesis/school"/>
+    </genClasses>
+    <genClasses ecoreClass="../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Unpublished">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Unpublished/note"/>
+    </genClasses>
+    <genClasses ecoreClass="../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Library">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Library/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Library/article"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Library/book"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Library/inbook"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Library/conference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Library/incollection"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Library/inproceedings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Library/proceedings"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Library/techreport"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Library/phdthesis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Library/masterthesis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Library/unpublished"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../../net.bhl.cdt.literature.model/model/cdtliterature.ecore#//Library/title"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

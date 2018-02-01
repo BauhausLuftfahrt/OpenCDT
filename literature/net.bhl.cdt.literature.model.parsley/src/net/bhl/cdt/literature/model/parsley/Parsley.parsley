@@ -43,7 +43,18 @@ module net.bhl.cdt.literature.model.parsley {
 					}
 				}
 			}
-
+	menuBuilder{
+			menus{
+				Library-> #[
+					submenu("Edit",#[
+						actionCopy,
+						actionCut,
+						separator,
+						actionPaste
+					])
+				]
+			}
+		}
 	resourceManager {
 				initializeResource {
 					
