@@ -102,6 +102,43 @@ public class ExtractQuantitiesFromFormula {
 		 return quantitiesArray;
 		
 	}
+	public static int type_analyse(char character){
+		
+		if (48 <= character && character <= 57) {
+			
+			return TYPE_CONSTANT;
+		}
+		else if((character > 64 && character < 91) || (character > 96 && character < 123)){
+			
+			return TYPE_CHARACTER;
+		}
+		else if(character == '(' || character == ')'){
+			
+			return TYPE_ROUND_BRACKET;
+		}
+		else if(character == '{' || character == '}'){
+			
+			return TYPE_CURLY_BRACKET;
+		}
+		else if(character == '\\'){
+			
+			return TYPE_BACKSLASH;
+		}
+		else if(character == '+' || character == '-'|| character == '*'){
+			
+			return TYPE_GLUE;
+		}
+		else if(character == '_'){
+			
+			return TYPE_SUBSCRIPT;
+		}
+		else{
+			return TYPE_OTHERS;
+			
+		}
+
+		
+	}
 	
 	private static Boolean isNextSubscript(char current, int index, String formula){
 		
@@ -142,7 +179,7 @@ public class ExtractQuantitiesFromFormula {
 			}
 		}
 		
-		return pivot;
+		return pivot-1;
 		
 		
 	}
@@ -254,43 +291,7 @@ public class ExtractQuantitiesFromFormula {
 		
 	}
 
-	private static int type_analyse(char character){
-		
-		if (48 <= character && character <= 57) {
-			
-			return TYPE_CONSTANT;
-		}
-		else if((character > 64 && character < 91) || (character > 96 && character < 123)){
-			
-			return TYPE_CHARACTER;
-		}
-		else if(character == '(' || character == ')'){
-			
-			return TYPE_ROUND_BRACKET;
-		}
-		else if(character == '{' || character == '}'){
-			
-			return TYPE_CURLY_BRACKET;
-		}
-		else if(character == '\\'){
-			
-			return TYPE_BACKSLASH;
-		}
-		else if(character == '+' || character == '-'|| character == '*'){
-			
-			return TYPE_GLUE;
-		}
-		else if(character == '_'){
-			
-			return TYPE_SUBSCRIPT;
-		}
-		else{
-			return TYPE_OTHERS;
-			
-		}
-
-		
-	}
+	
 
 	/*private static boolean checkPairParentesis(String str)
 	{
@@ -419,6 +420,9 @@ public class ExtractQuantitiesFromFormula {
 			isGreekLetter = true;
 			break;
 		case "omega" : 
+			isGreekLetter = true;
+			break;
+		case "Omega" : 
 			isGreekLetter = true;
 			break;
 					

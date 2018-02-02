@@ -165,9 +165,9 @@ public class CustomFormControlFactory extends FormControlFactory {
 						}
 					
 						/**
-						 *Latex-formula can be transformed to image as well as to generate quantities automatically.
+						 *Latex-formula can be transformed to image as well as to generate quantities automatically, if some conditions are satisfied.
 						 * */
-						if(hasFormulaOneEqualSymbol(latexformula)){
+						if(permitGeneratingQuantity(latexformula)){
 						
 							generateQuantities(latexformula);
 						
@@ -773,11 +773,26 @@ public class CustomFormControlFactory extends FormControlFactory {
 		
 		
 	}
-	private Boolean hasFormulaOneEqualSymbol(String latexformula){
+	/**
+	 * The output-parameter must be one parameter and be left side of formula.
+	 * */ 
+	private Boolean permitGeneratingQuantity(String latexformula){
 		
 		Boolean admit = false;
 		
-		if(latexformula.contains("=") && isOneEqualSymbol(latexformula)){
+		String output_string = ExtractQuantitiesFromFormula.filtering_OutputParameter(latexformula);
+
+		if(latexformula.contains("=") && output_string.length() == 1){
+			
+			char c = output_string.charAt(0); 
+			
+			if(  ExtractQuantitiesFromFormula.TYPE_CHARACTER == ExtractQuantitiesFromFormula.type_analyse(c)){
+				
+				admit = true;
+			}
+			
+		}
+		else if(latexformula.contains("=") && output_string.length() == 0){
 			admit = true;
 		}
 
@@ -1043,9 +1058,13 @@ public class CustomFormControlFactory extends FormControlFactory {
 		 * */
 		else{
 			
-			String savedQuantityString = output_featureObservable.getValue().toString();
 			hyperlink_output.setText(output_string);
 			hyperlink_output.setEnabled(false);
+			
+			if(output_featureObservable.getValue() == null){
+				return;
+			}
+			String savedQuantityString = output_featureObservable.getValue().toString();
 			
 			Boolean isSavedUnique = isQuantityUnique(savedQuantityString, currentFormulas, currentFormula);
 			
