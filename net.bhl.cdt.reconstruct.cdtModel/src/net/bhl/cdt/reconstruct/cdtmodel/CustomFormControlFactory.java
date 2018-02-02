@@ -965,7 +965,6 @@ public class CustomFormControlFactory extends FormControlFactory {
 				 * There is already saved value of output-parameter under the current repository.
 				 * */
 				String savedQuantityString = output_featureObservable.getValue().toString();
-				System.out.println("savedQuantityString : " + savedQuantityString);
 				Boolean savedQuantityUnique = isQuantityUnique(savedQuantityString, currentFormulas, currentFormula);
 				
 				/**
