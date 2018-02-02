@@ -64,9 +64,5 @@ module net.bhl.cdt.reconstruct.cdtmodel {
 				}
 
     }
-
-
-	
-	
 	
 }

@@ -9,7 +9,7 @@ import net.bhl.cdt.literature.model.parsley.parts.MyParts.MyParts;
 
 
 /**
- * it is called by adding library button in the toolbar*/
+ * it is called by adding library button on the toolbar*/
 public class AddLibrary {
 	@Inject
 	private EPartService partService;

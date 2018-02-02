@@ -50,7 +50,8 @@ public class ReferenceDialog extends Dialog {
 		Shell shell = parent.getShell();
 		shell.setText("References");
 		
-		/**dsl modul of parsley is called.
+		/**
+		 * dsl modul of parsley is called.
 		 * */
 		Injector injector = CdtliteraturetableInjectorProvider.getInjector();
 		ViewerFactory viewerFactory = injector.getInstance(ViewerFactory.class);
@@ -81,6 +82,9 @@ public class ReferenceDialog extends Dialog {
         }
 	
         
+        /**
+         * Works with OK-button.
+         * */
 		treeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
 			   public void selectionChanged(SelectionChangedEvent event) {
 				   
@@ -107,6 +111,9 @@ public class ReferenceDialog extends Dialog {
 			   }
 			});
 		
+		 /**
+         * Selection works with double-click on model.
+         * */
 		treeViewer.addDoubleClickListener(new IDoubleClickListener() {
 		    @Override
 		    public void doubleClick(DoubleClickEvent event) {

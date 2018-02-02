@@ -128,6 +128,26 @@ private void parsleyCustomButton(Button buttonOpen,Text pathText, Composite _par
    
 	
 }
+private Composite setReadOnlyText(DataBindingContext dbc, IObservableValue featureObservable){
+	
+	FormToolkit _toolkit = this.getToolkit();
+    Composite _parent = this.getParent();
+    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
+    
+    GridLayout _gridLayout = new GridLayout(1, false);
+    composite.setLayout(_gridLayout);
+    _gridLayout.marginLeft = -5;
+	Text pathText = getToolkit().createText(composite, " ", SWT.READ_ONLY);
+	
+	GridData gridData = new GridData();
+    gridData.horizontalAlignment = GridData.FILL;
+    gridData.grabExcessHorizontalSpace = true;
+    pathText.setLayoutData(gridData);
+    dbc.bindValue(SWTObservables.observeText(pathText, SWT.Modify), featureObservable);
+	
+	return composite;
+	
+}
 public Control control_ALiteratureBase_title(DataBindingContext dbc, IObservableValue featureObservable) {
 	return setReadOnlyText(dbc, featureObservable);
 }
@@ -158,29 +178,5 @@ public Control control_ALiteratureBase_institution(DataBindingContext dbc, IObse
 public Control control_ALiteratureBase_note(DataBindingContext dbc, IObservableValue featureObservable) {
 	return setReadOnlyText(dbc, featureObservable);
 }
-private Composite setReadOnlyText(DataBindingContext dbc, IObservableValue featureObservable){
-	
-	FormToolkit _toolkit = this.getToolkit();
-    Composite _parent = this.getParent();
-    final Composite composite = _toolkit.createComposite(_parent, SWT.NONE);
-    
-    GridLayout _gridLayout = new GridLayout(1, false);
-    composite.setLayout(_gridLayout);
-    _gridLayout.marginLeft = -5;
-	Text pathText = getToolkit().createText(composite, " ", SWT.READ_ONLY);
-	
-	GridData gridData = new GridData();
-    gridData.horizontalAlignment = GridData.FILL;
-    gridData.grabExcessHorizontalSpace = true;
-    pathText.setLayoutData(gridData);
-    dbc.bindValue(SWTObservables.observeText(pathText, SWT.Modify), featureObservable);
-	
-	return composite;
-	
-}
-
-
-
-
 
 }

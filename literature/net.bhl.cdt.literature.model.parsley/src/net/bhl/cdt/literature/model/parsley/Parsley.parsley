@@ -43,18 +43,6 @@ module net.bhl.cdt.literature.model.parsley {
 					}
 				}
 			}
-	menuBuilder{
-			menus{
-				Library-> #[
-					submenu("Edit",#[
-						actionCopy,
-						actionCut,
-						separator,
-						actionPaste
-					])
-				]
-			}
-		}
 	resourceManager {
 				initializeResource {
 					
@@ -84,34 +72,5 @@ module net.bhl.cdt.literature.model.parsley {
 					Unpublished -> title, author,  year, references, note
 				}
 	}
-	formFeatureCaptionProvider{
-				text{
-					
-				}
-				label{
-					
-				}
-			}
-	labelProvider {
-				text {
-					
-				}
-			}
-
-	viewerContentProvider {
-				elements{
-					
-
-				}
-				children {
-					
-				}
-			}
-
-	dialogControlFactory {
-				control {
-
-					
-				}
-			}
-		}
+	
+}
