@@ -2,6 +2,7 @@ package net.bhl.cdt.reconstruct.cdtmodel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class ExtractQuantitiesFromFormula {
 	
@@ -291,9 +292,10 @@ public class ExtractQuantitiesFromFormula {
 		
 	}
 
-	
-
-	/*private static boolean checkPairParentesis(String str)
+	/**
+	 * Checks whether the formula has always fair of parenthesis.
+	 * */
+	private static boolean checkPairParentesis(String str)
 	{
 	    if (str.isEmpty())
 	        return true;
@@ -331,9 +333,10 @@ public class ExtractQuantitiesFromFormula {
 
 	    return stack.isEmpty();
         	
-	}*/
+	}
 
 	private static Boolean isLetterGreek(String letter){
+		
 		
 		Boolean isGreekLetter = false;
 		switch(letter){
