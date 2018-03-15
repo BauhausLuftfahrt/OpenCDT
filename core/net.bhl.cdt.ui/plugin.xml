@@ -86,11 +86,6 @@
             id="net.bhl.cdt.ui.NewProjectHandler"
             name="New Project">
       </command>
-      <command
-            defaultHandler="net.bhl.cdt.ui.handlers.ExecuteProcessElementHandler"
-            id="net.bhl.cdt.ui.ExecuteProcessElement"
-            name="ExecuteProcess">
-      </command>
    </extension>
    <extension
          point="org.eclipse.ui.intro">

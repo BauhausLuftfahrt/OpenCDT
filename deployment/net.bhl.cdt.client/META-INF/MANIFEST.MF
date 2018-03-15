@@ -10,6 +10,7 @@ Require-Bundle: javax.inject;bundle-version="1.0.0",
  org.eclipse.emf.ecp.view.model.provider.xmi;bundle-version="1.1.0",
  org.eclipse.core.net;bundle-version="1.2.200",
  org.eclipse.ui.net;bundle-version="1.2.200",
- net.bhl.cdt.ui;bundle-version="0.1.0"
+ net.bhl.cdt.ui;bundle-version="0.1.0",
+ net.bhl.cdt.paxelerate.core.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

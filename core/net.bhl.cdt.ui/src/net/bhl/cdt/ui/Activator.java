@@ -55,7 +55,7 @@ public class Activator extends AbstractUIPlugin {
 			public void logging(IStatus status, String plugin) {
 				if (status.getPlugin().startsWith("net.bhl.cdt")) {
 
-					cabinMessageStream.println("[" + Calendar.getInstance().getTime() + "]" + status.getMessage());
+					cabinMessageStream.println("[" + Calendar.getInstance().getTime() + "] " + status.getMessage());
 
 				}
 

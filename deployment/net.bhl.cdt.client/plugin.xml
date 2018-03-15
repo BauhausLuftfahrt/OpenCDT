@@ -51,5 +51,17 @@
          </property>
       </product>
    </extension>
+   <extension
+         id="applicationHeadless"
+         point="org.eclipse.core.runtime.applications">
+      <application
+            cardinality="singleton-global"
+            thread="main"
+            visible="true">
+         <run
+               class="net.bhl.cdt.client.ApplicationHeadless">
+         </run>
+      </application>
+   </extension>
 
 </plugin>
