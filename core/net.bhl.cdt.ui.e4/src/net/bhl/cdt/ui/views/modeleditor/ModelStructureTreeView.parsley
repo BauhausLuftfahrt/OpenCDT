@@ -20,6 +20,12 @@ module net.bhl.cdt.ui.view.modelstructuretreeview {
 			Component -> name
 			IParameter -> name
 		}
+		
+		image {
+			ModelContainer -> "component_16x16.png"
+			System -> "component_16x16.png"
+			Component -> "component_16x16.png"
+		}
 	}
 
 	viewerContentProvider {

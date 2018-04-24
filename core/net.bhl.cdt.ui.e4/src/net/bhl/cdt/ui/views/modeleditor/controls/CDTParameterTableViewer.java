@@ -29,7 +29,8 @@ public class CDTParameterTableViewer extends TableViewer {
     private static final String COLHEADER_UNIT = "Unit";
 
     public CDTParameterTableViewer(Composite parent) {
-	super(parent, SWT.FULL_SELECTION | SWT.H_SCROLL | SWT.V_SCROLL | SWT.HIDE_SELECTION | SWT.BORDER);
+	super(parent, SWT.FULL_SELECTION
+		| SWT.H_SCROLL | SWT.V_SCROLL | SWT.HIDE_SELECTION | SWT.BORDER);
 	createColumns();
 
 	setContentProvider(ArrayContentProvider.getInstance());

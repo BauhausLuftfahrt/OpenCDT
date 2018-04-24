@@ -33,4 +33,16 @@ public class ModelstructuretreeviewLabelProvider extends ViewerLabelProvider {
     String _name = it.getName();
     return _name;
   }
+  
+  public Object image(final ModelContainer it) {
+    return "component_16x16.png";
+  }
+  
+  public Object image(final model.engineering.System it) {
+    return "component_16x16.png";
+  }
+  
+  public Object image(final Component it) {
+    return "component_16x16.png";
+  }
 }

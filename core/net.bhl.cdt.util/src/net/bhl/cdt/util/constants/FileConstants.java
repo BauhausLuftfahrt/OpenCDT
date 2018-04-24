@@ -17,4 +17,6 @@ public class FileConstants {
     public static final String CDT_DEFAULT_WORK_FOLDERNAME = "cdt";
     
     public static final String CDT_MODELFILE_EXTENSION = ".cdm";
+
+    public static final String STP_MODELFILE_EXTENSION = ".stp";
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="OpenCDT Target Platform" sequenceNumber="340">
+<?pde version="3.8"?><target name="OpenCDT Target Platform" sequenceNumber="341">
 <locations>
 <location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
 <unit id="org.eclipse.emf.all.feature.group" version="2.11.0.v20150601-0402"/>
@@ -97,6 +97,12 @@
 <unit id="com.google.inject.multibindings.source" version="3.0.0.v201605172100"/>
 <unit id="com.google.inject.source" version="3.0.0.v201605172100"/>
 <repository location="http://download.eclipse.org/tools/orbit/R-builds/R20170516192513/repository"/>
+</location>
+<location includeAllPlatforms="true" includeConfigurePhase="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="net.jsdai.express_compiler.feature.feature.group" version="4.3.2.v201112201320"/>
+<unit id="net.jsdai.express_g.feature.feature.group" version="4.3.2.v201112201320"/>
+<unit id="net.jsdai.xim.validation.feature.feature.group" version="4.3.2.v201112201321"/>
+<repository location="http://eclipse.jsdai.net"/>
 </location>
 </locations>
 <environment>

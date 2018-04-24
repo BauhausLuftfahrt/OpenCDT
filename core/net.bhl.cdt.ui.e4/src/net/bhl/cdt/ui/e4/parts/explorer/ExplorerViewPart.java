@@ -111,7 +111,7 @@ public class ExplorerViewPart implements ICDTPreferencesListener {
 		selectionService.setSelection(event.getSelection());
 
 		Object selectedElement = ((IStructuredSelection)event.getSelection()).getFirstElement();
-		if (selectedElement instanceof File && ((File)selectedElement).getName().endsWith(FileConstants.CDT_MODELFILE_EXTENSION)) {
+		if (selectedElement instanceof File) {
 		    Map<String, Object> params = new HashMap<String, Object>();
 		    params.put(E4ResourceIds.COMMAND_OPEN_MODEL_PARAM_FILEPATH_ID, ((File)selectedElement).getPath());
 		    
