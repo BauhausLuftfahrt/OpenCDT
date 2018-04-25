@@ -40,8 +40,10 @@ import org.eclipse.swt.widgets.Composite;
 import com.google.inject.Injector;
 
 import net.bhl.cdt.log.service.CDTLogService;
+import net.bhl.cdt.ui.e4.E4ResourceIds;
 import net.bhl.cdt.ui.view.modelstructuretreeview.ModelstructuretreeviewInjectorProvider;
-import oida.bridge.service.IOIDABridge;
+import net.bhl.cdt.util.constants.StringConstants;
+import oida.bridge.service.OIDABridge;
 import oida.bridge.service.OIDABridgeException;
 import oida.bridge.ui.e4.part.PrimaryRecommendationsViewPart;
 
@@ -75,7 +77,7 @@ public class ModelStructureEditorPart {
 
     @Inject
     @Optional
-    private IOIDABridge oidaBridge;
+    private OIDABridge oidaBridge;
 
     @PostConstruct
     public void postConstruct(Composite parent, MPart part, ESelectionService selectionService) {
@@ -83,7 +85,7 @@ public class ModelStructureEditorPart {
 	    File file = null;
 	    if (part.getTransientData().containsKey(FILE_RESOURCE_KEY))
 		file = (File)part.getTransientData().get(FILE_RESOURCE_KEY);
-	    
+
 	    Object modelObject = part.getTransientData().get(MODEL_RESOURCE_KEY);
 	    if (modelObject instanceof Resource) {
 		modelResource = (Resource)part.getTransientData().get(MODEL_RESOURCE_KEY);
@@ -128,16 +130,19 @@ public class ModelStructureEditorPart {
 
 		try {
 		    if (oidaBridge != null) {
-			oidaBridge.invokeModelObservation(modelResource.getContents().get(0), new File(file.getParent() + OIDA_SUBDIRECTORY), file.getName());
+			oidaBridge.invokeModelObservation(modelResource.getContents().get(0), new File(file.getParent() + OIDA_SUBDIRECTORY),
+				file.getName().replace(StringConstants.DOT, StringConstants.EMPTY).replace(StringConstants.SPACE, StringConstants.EMPTY));
 			MPart oidaPrimaryRecommendationPart = partService.createPart(PrimaryRecommendationsViewPart.PART_ID);
 			// MPart mappingPart =
 			// partService.createPart(ClassEqualsMappingsViewPart.PART_ID);
 
-			MPartStack bottomPartStack = (MPartStack)modelService.find("de.symo.application.partstack.bottomeditorstack", app);
-			MPartStack additionsPartStack = (MPartStack)modelService.find("de.symo.application.partstack.additionsstack", app);
+			MPartStack topPartStack = (MPartStack)modelService.find(E4ResourceIds.PARTSTACK_MODEL_ADDITIONS_TOP, app);
+			// MPartStack additionsPartStack =
+			// (MPartStack)modelService.find(E4ResourceIds.PARTSTACK_MODEL_ADDITIONS_BOTTOM,
+			// app);
 
-			if (bottomPartStack != null && oidaPrimaryRecommendationPart != null) {
-			    bottomPartStack.getChildren().add(oidaPrimaryRecommendationPart);
+			if (topPartStack != null && oidaPrimaryRecommendationPart != null) {
+			    topPartStack.getChildren().add(oidaPrimaryRecommendationPart);
 			    // additionsPartStack.getChildren().add(mappingPart);
 			    // partService.showPart(mappingPart,
 			    // PartState.ACTIVATE);

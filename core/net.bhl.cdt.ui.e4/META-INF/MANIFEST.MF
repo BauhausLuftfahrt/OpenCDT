@@ -27,6 +27,7 @@ Import-Package: javax.inject;version="1.0.0",
  net.bhl.cdt.util.constants,
  net.bhl.cdt.util.ui,
  oida.bridge.ui.e4.part,
+ oida.util,
  org.apache.commons.logging,
  org.apache.log4j,
  org.eclipse.jface.viewers
