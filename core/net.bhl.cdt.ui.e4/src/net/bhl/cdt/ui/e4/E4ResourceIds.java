@@ -34,4 +34,7 @@ public final class E4ResourceIds {
     public static final String PART_MODELELEMENTEDITOR_ID = 			"net.bhl.cdt.ui.e4.part.modelelementeditor";
     
     public static final String PARTDESCRIPTOR_MODELEDITOR_ID =			"net.bhl.cdt.ui.e4.partdescriptor.modeleditor";
+    
+    public static final String PARTSTACK_MODEL_ADDITIONS_TOP =			"net.bhl.cdt.ui.partstack.additions.top";
+    public static final String PARTSTACK_MODEL_ADDITIONS_BOTTOM =		"net.bhl.cdt.ui.partstack.additions.bottom";
 }
