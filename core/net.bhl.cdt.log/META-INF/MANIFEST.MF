@@ -18,3 +18,4 @@ Export-Package: net.bhl.cdt.log.service
 Bundle-ActivationPolicy: lazy
 Service-Component: OSGI-INF/CDTLogServiceContextFunction.xml,
  OSGI-INF/CDTLogReaderServiceContextFunction.xml
+Automatic-Module-Name: net.bhl.cdt.log

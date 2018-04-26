@@ -38,3 +38,4 @@ Export-Package: javax.measure,
  org.jscience.physics.amount
 Bundle-Activator: net.bhl.cdt.model.Activator
 Import-Package: org.eclipse.emf.edit.provider
+Automatic-Module-Name: net.bhl.cdt.model

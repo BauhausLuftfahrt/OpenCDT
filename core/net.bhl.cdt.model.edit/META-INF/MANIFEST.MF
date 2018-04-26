@@ -18,3 +18,4 @@ Require-Bundle: org.eclipse.core.runtime,
  net.bhl.cdt.model;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport
 Bundle-ActivationPolicy: lazy
+Automatic-Module-Name: net.bhl.cdt.model.edit
