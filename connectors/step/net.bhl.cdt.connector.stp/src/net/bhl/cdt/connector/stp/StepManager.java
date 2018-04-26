@@ -1,5 +1,10 @@
 package net.bhl.cdt.connector.stp;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -46,10 +51,43 @@ public class StepManager {
 	}
     }
 
-    public model.engineering.System ImportStepFile(final String stepFilePath) {
+    public model.engineering.System ImportStepFile(final String stepFilePath, boolean useDictionary) {
 	model.engineering.System c = EngineeringFactory.eINSTANCE.createSystem();
 	c.setName(stepFilePath.substring(stepFilePath.lastIndexOf(StringConstants.BACKSLASH) + 1));
 	c.setId(c.getName().replaceAll(StringConstants.DOT, StringConstants.EMPTY));
+
+	Map<String, String> dictionaryENG = new HashMap<String, String>();
+	Map<String, String> dictionaryGER = new HashMap<String, String>();
+	if (useDictionary) {
+	    File dictionaryFile = new File(stepFilePath.concat("_Dictionary.csv"));
+
+	    if (dictionaryFile.isFile()) {
+		BufferedReader br = null;
+		try {
+		    br = new BufferedReader(new FileReader(dictionaryFile));
+		    String line = StringConstants.EMPTY;
+		    while ((line = br.readLine()) != null) {
+			String[] dictionaryEntry = line.split(StringConstants.SEMICOLON);
+
+			dictionaryENG.put(dictionaryEntry[0], dictionaryEntry[1]);
+			dictionaryGER.put(dictionaryEntry[0], dictionaryEntry[2]);
+		    }
+
+		} catch (FileNotFoundException e) {
+		    e.printStackTrace();
+		} catch (IOException e) {
+		    e.printStackTrace();
+		} finally {
+		    if (br != null) {
+			try {
+			    br.close();
+			} catch (IOException e) {
+			    e.printStackTrace();
+			}
+		    }
+		}
+	    }
+	}
 
 	SdaiSession session = null;
 	try {
@@ -79,7 +117,21 @@ public class StepManager {
 
 			Component element = EngineeringFactory.eINSTANCE.createComponent();
 			element.setId(product.getPersistentLabel().replace(StringConstants.HASHTAG, StringConstants.EMPTY));
-			element.setName(product.getName(null));
+			
+			String partNr = product.getName(null);
+			element.setName(partNr);
+			if (useDictionary) {
+			    if (dictionaryENG.containsKey(partNr))
+				element.setName(dictionaryENG.get(partNr) + " (" + partNr + ")");
+			    else {
+				for(String key : dictionaryENG.keySet()) {
+				    if (partNr.contains(key)) {
+					element.setName(dictionaryENG.get(key) + " (" + partNr + ")");
+					break;
+				    }
+				}
+			    }
+			}
 
 			productMap.put(product.getPersistentLabel(), element);
 		    }
