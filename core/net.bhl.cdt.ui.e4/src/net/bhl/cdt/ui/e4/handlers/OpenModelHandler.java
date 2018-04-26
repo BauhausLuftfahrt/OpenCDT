@@ -51,7 +51,7 @@ public class OpenModelHandler {
 		ResourceSet modelResourceSet = new ResourceSetImpl();
 		Resource modelResource = modelResourceSet.createResource(URI.createFileURI(modelFile.getPath()));
 		
-		model.engineering.System s = StepManager.Instance().ImportStepFile(modelFile.getPath());
+		model.engineering.System s = StepManager.Instance().ImportStepFile(modelFile.getPath(), true);
 		
 		modelResource.getContents().add(s);
 		

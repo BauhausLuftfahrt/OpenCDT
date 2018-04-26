@@ -46,6 +46,7 @@ import net.bhl.cdt.util.constants.StringConstants;
 import oida.bridge.service.OIDABridge;
 import oida.bridge.service.OIDABridgeException;
 import oida.bridge.ui.e4.part.PrimaryRecommendationsViewPart;
+import oida.bridge.ui.e4.part.RecommendationDetailsPart;
 
 /**
  * 
@@ -132,21 +133,31 @@ public class ModelStructureEditorPart {
 		    if (oidaBridge != null) {
 			oidaBridge.invokeModelObservation(modelResource.getContents().get(0), new File(file.getParent() + OIDA_SUBDIRECTORY),
 				file.getName().replace(StringConstants.DOT, StringConstants.EMPTY).replace(StringConstants.SPACE, StringConstants.EMPTY));
-			MPart oidaPrimaryRecommendationPart = partService.createPart(PrimaryRecommendationsViewPart.PART_ID);
-			// MPart mappingPart =
-			// partService.createPart(ClassEqualsMappingsViewPart.PART_ID);
 
-			MPartStack topPartStack = (MPartStack)modelService.find(E4ResourceIds.PARTSTACK_MODEL_ADDITIONS_TOP, app);
-			// MPartStack additionsPartStack =
-			// (MPartStack)modelService.find(E4ResourceIds.PARTSTACK_MODEL_ADDITIONS_BOTTOM,
-			// app);
+			MPart oidaPrimaryRecommendationPart = partService.findPart(PrimaryRecommendationsViewPart.PART_ID);
+			if (oidaPrimaryRecommendationPart == null) {
+			    oidaPrimaryRecommendationPart = partService.createPart(PrimaryRecommendationsViewPart.PART_ID);
 
-			if (topPartStack != null && oidaPrimaryRecommendationPart != null) {
-			    topPartStack.getChildren().add(oidaPrimaryRecommendationPart);
-			    // additionsPartStack.getChildren().add(mappingPart);
-			    // partService.showPart(mappingPart,
-			    // PartState.ACTIVATE);
-			    partService.showPart(oidaPrimaryRecommendationPart, PartState.ACTIVATE);
+			    MPartStack topPartStack = (MPartStack)modelService.find(E4ResourceIds.PARTSTACK_MODEL_ADDITIONS_TOP, app);
+			    if (topPartStack != null && oidaPrimaryRecommendationPart != null) {
+				topPartStack.getChildren().add(oidaPrimaryRecommendationPart);
+				partService.showPart(oidaPrimaryRecommendationPart, PartState.ACTIVATE);
+			    }
+			} else {
+			    partService.bringToTop(oidaPrimaryRecommendationPart);
+			}
+			
+			MPart recommendationDetailsPart = partService.findPart(RecommendationDetailsPart.PART_ID);
+			if (recommendationDetailsPart == null) {
+			    recommendationDetailsPart = partService.createPart(RecommendationDetailsPart.PART_ID);
+			    
+			    MPartStack bottomPartStack = (MPartStack)modelService.find(E4ResourceIds.PARTSTACK_MODEL_ADDITIONS_BOTTOM, app);
+			    if (bottomPartStack != null && recommendationDetailsPart != null) {
+				bottomPartStack.getChildren().add(recommendationDetailsPart);
+				partService.showPart(recommendationDetailsPart, PartState.ACTIVATE);
+			    }
+			} else {
+			    partService.bringToTop(recommendationDetailsPart);
 			}
 		    }
 		} catch (OIDABridgeException e) {
