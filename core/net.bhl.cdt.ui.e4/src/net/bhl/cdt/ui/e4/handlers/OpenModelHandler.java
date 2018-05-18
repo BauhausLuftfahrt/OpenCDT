@@ -23,6 +23,7 @@ import net.bhl.cdt.log.service.CDTLogService;
 import net.bhl.cdt.ui.e4.E4ResourceIds;
 import net.bhl.cdt.ui.e4.parts.modeleditor.ModelStructureEditorPart;
 import net.bhl.cdt.util.constants.FileConstants;
+import oida.bridge.service.OIDABridge;
 
 /**
  * 
@@ -32,7 +33,7 @@ import net.bhl.cdt.util.constants.FileConstants;
  */
 public class OpenModelHandler {
     @Execute
-    public void execute(@Named(E4ResourceIds.COMMAND_OPEN_MODEL_PARAM_FILEPATH_ID) String modelFilePath, EPartService partService, CDTLogService logService) {
+    public void execute(@Named(E4ResourceIds.COMMAND_OPEN_MODEL_PARAM_FILEPATH_ID) String modelFilePath, EPartService partService, OIDABridge oidaBridge, CDTLogService logService) {
 	File modelFile = new File(modelFilePath);
 	if (modelFile.exists()) {
 	    if (modelFile.getName().endsWith(FileConstants.CDT_MODELFILE_EXTENSION)) {
@@ -51,7 +52,7 @@ public class OpenModelHandler {
 		ResourceSet modelResourceSet = new ResourceSetImpl();
 		Resource modelResource = modelResourceSet.createResource(URI.createFileURI(modelFile.getPath()));
 		
-		model.engineering.System s = StepManager.Instance().ImportStepFile(modelFile.getPath(), true);
+		model.engineering.System s = StepManager.INSTANCE.ImportStepFile(modelFile.getPath(), true, oidaBridge);
 		
 		modelResource.getContents().add(s);
 		

@@ -73,6 +73,7 @@
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_b4irkGC-EeeTeKHCZo5cZg" featurename="descriptors" parentElementId="net.bhl.cdt.application">
     <elements xsi:type="basic_1:PartDescriptor" xmi:id="_ebl3IGC-EeeTeKHCZo5cZg" elementId="net.bhl.cdt.ui.e4.partdescriptor.modeleditor" label="Model Structure Editor" allowMultiple="true" category="editorCategory" closeable="true" dirtyable="true" contributionURI="bundleclass://net.bhl.cdt.ui/net.bhl.cdt.ui.e4.parts.modeleditor.ModelStructureEditorPart">
+      <tags>NoRestore</tags>
       <toolbar xmi:id="_3cQfQGC-EeeTeKHCZo5cZg" elementId="net.bhl.cdt.ui.e4.partdescriptor.modeleditor.toolbar">
         <children xsi:type="menu:HandledToolItem" xmi:id="_5_wWwGC-EeeTeKHCZo5cZg" elementId="net.bhl.cdt.ui.e4.handledtoolitem.save" label="Save" iconURI="platform:/plugin/net.bhl.cdt.ui/icons/save_16x16.png" tooltip="Save" command="_FQSHcGDNEeeJLb6qqpigrw"/>
       </toolbar>

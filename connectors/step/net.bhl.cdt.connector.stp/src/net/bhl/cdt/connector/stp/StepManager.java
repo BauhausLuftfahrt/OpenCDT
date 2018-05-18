@@ -5,9 +5,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+
+import org.eclipse.emf.common.util.EList;
 
 import jsdai.SProduct_definition_schema.AProduct;
 import jsdai.SProduct_definition_schema.EProduct;
@@ -23,6 +26,10 @@ import jsdai.lang.SdaiTransaction;
 import model.engineering.Component;
 import model.engineering.EngineeringFactory;
 import net.bhl.cdt.util.constants.StringConstants;
+import oida.bridge.service.OIDABridge;
+import oida.bridge.service.OIDABridgeException;
+import oida.ontology.Ontology;
+import oida.ontology.OntologyClass;
 
 /**
  * 
@@ -31,14 +38,7 @@ import net.bhl.cdt.util.constants.StringConstants;
  *
  */
 public class StepManager {
-    private static StepManager instance;
-
-    public static StepManager Instance() {
-	if (instance == null)
-	    instance = new StepManager();
-
-	return instance;
-    }
+    public static StepManager INSTANCE = new StepManager();
 
     private StepManager() {
 	Properties prop = new Properties();
@@ -51,11 +51,16 @@ public class StepManager {
 	}
     }
 
-    public model.engineering.System ImportStepFile(final String stepFilePath, boolean useDictionary) {
+    public model.engineering.System ImportStepFile(final String stepFilePath, boolean useDictionary, OIDABridge oidaBridge) {
 	model.engineering.System c = EngineeringFactory.eINSTANCE.createSystem();
 	c.setName(stepFilePath.substring(stepFilePath.lastIndexOf(StringConstants.BACKSLASH) + 1));
 	c.setId(c.getName().replaceAll(StringConstants.DOT, StringConstants.EMPTY));
 
+	HashMap<Component, CSVEntry> csvEntries = new HashMap<Component, StepManager.CSVEntry>();
+	int mappedEntries = 0;
+	int unmappedEntries = 0;
+
+	// Read dictionary file, if available:
 	Map<String, String> dictionaryENG = new HashMap<String, String>();
 	Map<String, String> dictionaryGER = new HashMap<String, String>();
 	if (useDictionary) {
@@ -117,20 +122,39 @@ public class StepManager {
 
 			Component element = EngineeringFactory.eINSTANCE.createComponent();
 			element.setId(product.getPersistentLabel().replace(StringConstants.HASHTAG, StringConstants.EMPTY));
-			
+
 			String partNr = product.getName(null);
 			element.setName(partNr);
+
+			String dictionaryName = StringConstants.EMPTY;
 			if (useDictionary) {
-			    if (dictionaryENG.containsKey(partNr))
-				element.setName(dictionaryENG.get(partNr) + " (" + partNr + ")");
-			    else {
-				for(String key : dictionaryENG.keySet()) {
+			    if (dictionaryENG.containsKey(partNr)) {
+				dictionaryName = dictionaryENG.get(partNr);
+				element.setName(dictionaryName + " (" + partNr + ")");
+			    } else {
+				for (String key : dictionaryENG.keySet()) {
 				    if (partNr.contains(key)) {
-					element.setName(dictionaryENG.get(key) + " (" + partNr + ")");
+					dictionaryName = dictionaryENG.get(key);
+					element.setName(dictionaryName + " (" + partNr + ")");
 					break;
 				    }
 				}
 			    }
+			}
+
+			if (csvEntries.containsKey(partNr))
+			    csvEntries.get(partNr).termFrequency++;
+			else {
+			    CSVEntry entry = new CSVEntry();
+			    entry.componentName = partNr;
+
+			    if (!dictionaryName.equals(StringConstants.EMPTY)) {
+				entry.ontologyClass = dictionaryName;
+				entry.termFrequency = 1;
+				csvEntries.put(element, entry);
+				mappedEntries++;
+			    } else
+				unmappedEntries++;
 			}
 
 			productMap.put(product.getPersistentLabel(), element);
@@ -178,6 +202,94 @@ public class StepManager {
 	    }
 	}
 
+	try {
+	    int entriesFound = 0;
+
+	    Ontology o = oidaBridge.getReferenceOntology();
+
+	    for (CSVEntry entry : csvEntries.values()) {
+		entry.ontologyClass = entry.ontologyClass.replace(StringConstants.SPACE, StringConstants.UNDERSCORE).replace(StringConstants.COMMA, StringConstants.EMPTY);
+
+		boolean found = false;
+		for (OntologyClass clazz : o.getClasses()) {
+		    if (clazz.getName().toUpperCase().equals(entry.ontologyClass.toUpperCase())) {
+			entry.ontologyClass = clazz.getName();
+			entriesFound++;
+			found = true;
+			break;
+		    }
+		}
+
+		if (!found) {
+		    System.out.println(entry.ontologyClass + " not found.");
+		    entry.toRemove = true;
+		}
+	    }
+
+	    System.out.println(entriesFound + " of " + csvEntries.values().size() + " Ontology-Entries found!");
+	} catch (OIDABridgeException e1) {
+	    e1.printStackTrace();
+	}
+
+	try {
+	    setTermFrequencies(c.getComponents(), csvEntries, 0);
+	    exportCSV(csvEntries, stepFilePath.concat("_Mapping.csv"));
+	} catch (FileNotFoundException e) {
+	    e.printStackTrace();
+	}
+
+	System.out.println((double)mappedEntries / csvEntries.size() * 100 + "% of Parts successfully mapped.");
+	System.out.println((double)unmappedEntries / csvEntries.size() * 100 + "% of Parts not mapped.");
+
 	return c;
+    }
+
+    private void setTermFrequencies(EList<Component> components, HashMap<Component, CSVEntry> csvEntries, int i) {
+	for (Component c : components) {
+	    if (csvEntries.containsKey(c)) {
+		int termFrequency = 10 - i;
+
+		if (termFrequency < 1)
+		    termFrequency = 1;
+
+		csvEntries.get(c).termFrequency = termFrequency;
+
+		setTermFrequencies(c.getSubComponents(), csvEntries, i + 1);
+	    }
+	}
+    }
+
+    private void exportCSV(HashMap<Component, CSVEntry> csvEntries, String path) throws FileNotFoundException {
+	PrintWriter pw = new PrintWriter(new File(path));
+
+	pw.write("PARTNR;ONTOLOGYENTITYIRI;TERMFREQUENCY;" + StringConstants.NEWLINE);
+
+	for (CSVEntry entry : csvEntries.values()) {
+	    if (!entry.toRemove) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(entry.componentName);
+		sb.append(StringConstants.SEMICOLON);
+		sb.append("liebherr:");
+		sb.append(entry.ontologyClass);
+		sb.append(StringConstants.SEMICOLON);
+		sb.append(entry.termFrequency);
+		sb.append(StringConstants.SEMICOLON);
+		sb.append(StringConstants.NEWLINE);
+
+		pw.write(sb.toString());
+	    }
+	}
+
+	pw.close();
+    }
+
+    private class CSVEntry {
+	public String componentName;
+	public String ontologyClass;
+	public int termFrequency;
+	public boolean toRemove = false;
+
+	public CSVEntry() {
+	}
     }
 }

@@ -20,7 +20,8 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="3.13.0",
  net.bhl.cdt.model.edit,
  org.eclipse.e4.core.di,
  net.bhl.cdt.connector.stp;bundle-version="1.0.0",
- oida.bridge
+ oida.bridge,
+ oida.ontology
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.inject;version="1.0.0",
  net.bhl.cdt.util,

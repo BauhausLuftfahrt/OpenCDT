@@ -53,6 +53,7 @@
       <plugin id="oida.bridge.model"/>
       <plugin id="oida.bridge.model.edit"/>
       <plugin id="oida.bridge.recommender.classhierarchy"/>
+      <plugin id="oida.bridge.recommender.mereology"/>
       <plugin id="oida.bridge.recommender.name"/>
       <plugin id="oida.bridge.ui.e4"/>
       <plugin id="oida.cdt.strategy"/>
