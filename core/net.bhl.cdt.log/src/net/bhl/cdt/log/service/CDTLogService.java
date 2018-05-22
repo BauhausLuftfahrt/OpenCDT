@@ -19,55 +19,54 @@ import net.bhl.cdt.log.model.LogEntryImpl;
  *
  */
 public class CDTLogService implements LogService {
-	
-	private Bundle bundle;
-	
-	private CDTLog cdtLog;
+    private Bundle bundle;
 
-	public CDTLogService(CDTLog log, Bundle bundle) {
-		this.cdtLog = log;
-		this.bundle = bundle;
-	}
+    private CDTLog cdtLog;
 
-	@Override
-	public void log(int level, String message) {
-		log(null, level, message, null);
-	}
+    public CDTLogService(CDTLog log, Bundle bundle) {
+	this.cdtLog = log;
+	this.bundle = bundle;
+    }
 
-	@Override
-	public void log(int level, String message, Throwable exception) {
-		log(null, level, message, exception);
-	}
+    @Override
+    public void log(int level, String message) {
+	log(null, level, message, null);
+    }
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public void log(ServiceReference sr, int level, String message) {
-		log(sr, level, message, null);
-	}
+    @Override
+    public void log(int level, String message, Throwable exception) {
+	log(null, level, message, exception);
+    }
 
-	@SuppressWarnings("rawtypes")
-	@Override
-	public void log(ServiceReference sr, int level, String message, Throwable exception) {
-		cdtLog.addEntry(new LogEntryImpl((sr != null) ? sr.getBundle() : bundle, sr, level, message, exception));
-	}
+    @SuppressWarnings("rawtypes")
+    @Override
+    public void log(ServiceReference sr, int level, String message) {
+	log(sr, level, message, null);
+    }
 
-	public void info(String message) {
-		log(LogService.LOG_INFO, message);
-	}
+    @SuppressWarnings("rawtypes")
+    @Override
+    public void log(ServiceReference sr, int level, String message, Throwable exception) {
+	cdtLog.addEntry(new LogEntryImpl((sr != null) ? sr.getBundle() : bundle, sr, level, message, exception));
+    }
 
-	public void warning(String message) {
-		log(LogService.LOG_WARNING, message);
-	}
+    public void info(String message) {
+	log(LogService.LOG_INFO, message);
+    }
 
-	public void warning(String message, Throwable exception) {
-		log(null, LogService.LOG_WARNING, message, exception);
-	}
+    public void warning(String message) {
+	log(LogService.LOG_WARNING, message);
+    }
 
-	public void error(String message) {
-		log(LogService.LOG_ERROR, message);
-	}
+    public void warning(String message, Throwable exception) {
+	log(null, LogService.LOG_WARNING, message, exception);
+    }
 
-	public void error(String message, Throwable exception) {
-		log(null, LogService.LOG_ERROR, message, exception);
-	}
+    public void error(String message) {
+	log(LogService.LOG_ERROR, message);
+    }
+
+    public void error(String message, Throwable exception) {
+	log(null, LogService.LOG_ERROR, message, exception);
+    }
 }

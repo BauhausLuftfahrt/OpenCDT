@@ -21,29 +21,29 @@ import net.bhl.cdt.log.model.LogEntryEnumeration;
  *
  */
 public final class CDTLogReaderService implements LogReaderService {
-	private final CDTLog log;
-	private final List<LogListener> listenerList = new LinkedList<LogListener>();
+    private final CDTLog log;
+    private final List<LogListener> listenerList = new LinkedList<LogListener>();
 
-	public CDTLogReaderService(final CDTLog log) {
-		this.log = log;
-	}
+    public CDTLogReaderService(final CDTLog log) {
+	this.log = log;
+    }
 
-	public synchronized void addLogListener(final LogListener listener) {
-		listenerList.add(listener);
-		log.addListener(listener);
-	}
+    public synchronized void addLogListener(final LogListener listener) {
+	listenerList.add(listener);
+	log.addListener(listener);
+    }
 
-	public synchronized void removeLogListener(final LogListener listener) {
-		listenerList.remove(listener);
-		log.removeListener(listener);
-	}
-	
-	@Override
-	public Enumeration<?> getLog() {
-		return new LogEntryEnumeration(log.getEntryIterator());
-	}
+    public synchronized void removeLogListener(final LogListener listener) {
+	listenerList.remove(listener);
+	log.removeListener(listener);
+    }
 
-	public synchronized void removeAllLogListeners() {
-		listenerList.clear();
-	}
+    @Override
+    public Enumeration<?> getLog() {
+	return new LogEntryEnumeration(log.getEntryIterator());
+    }
+
+    public synchronized void removeAllLogListeners() {
+	listenerList.clear();
+    }
 }
