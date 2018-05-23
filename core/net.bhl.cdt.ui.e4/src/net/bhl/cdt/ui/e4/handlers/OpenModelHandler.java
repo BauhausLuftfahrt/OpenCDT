@@ -23,7 +23,7 @@ import net.bhl.cdt.log.service.CDTLogService;
 import net.bhl.cdt.ui.e4.E4ResourceIds;
 import net.bhl.cdt.ui.e4.parts.modeleditor.ModelStructureEditorPart;
 import net.bhl.cdt.util.constants.FileConstants;
-import oida.bridge.service.OIDABridge;
+import net.bhl.oida.bridge.service.OIDABridge;
 
 /**
  * 

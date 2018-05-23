@@ -42,11 +42,12 @@ import com.google.inject.Injector;
 import net.bhl.cdt.log.service.CDTLogService;
 import net.bhl.cdt.ui.e4.E4ResourceIds;
 import net.bhl.cdt.ui.view.modelstructuretreeview.ModelstructuretreeviewInjectorProvider;
+import net.bhl.cdt.ui.views.modeleditor.ModelStructureEditorLabelProvider;
 import net.bhl.cdt.util.constants.StringConstants;
-import oida.bridge.service.OIDABridge;
-import oida.bridge.service.OIDABridgeException;
-import oida.bridge.ui.e4.part.PrimaryRecommendationsViewPart;
-import oida.bridge.ui.e4.part.RecommendationDetailsPart;
+import net.bhl.oida.bridge.service.OIDABridge;
+import net.bhl.oida.bridge.service.OIDABridgeException;
+import net.bhl.oida.bridge.ui.e4.part.PrimaryRecommendationsViewPart;
+import net.bhl.oida.bridge.ui.e4.part.RecommendationDetailsPart;
 
 /**
  * 
@@ -117,6 +118,10 @@ public class ModelStructureEditorPart {
 		});
 
 		viewerFactory.initialize(treeViewer, modelResource);
+		
+		if (treeViewer.getLabelProvider() instanceof ModelStructureEditorLabelProvider) {
+		    ((ModelStructureEditorLabelProvider)treeViewer.getLabelProvider()).setOIDABridge(oidaBridge);
+		}
 
 		treeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
 		    @Override

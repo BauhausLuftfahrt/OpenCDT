@@ -9,14 +9,14 @@ Require-Bundle: org.eclipse.core.runtime,
  net.jsdai.xim.jlib;bundle-version="1.130.200",
  net.bhl.cdt.model,
  org.eclipse.e4.ui.model.workbench;bundle-version="2.0.0.v20170228-1842",
- oida.bridge
+ net.bhl.oida.bridge
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: net.bhl.cdt.connector.stp
 Import-Package: javax.annotation;version="1.0.0";resolution:=optional,
  javax.inject;version="1.0.0",
  net.bhl.cdt.util.constants,
- oida.ontology,
- oida.util.constants,
+ net.bhl.oida.ontology.model.owlontology,
+ net.bhl.oida.util.constants,
  org.eclipse.jface.viewers,
  org.eclipse.swt.widgets;version="3.2.0"
 Bundle-ActivationPolicy: lazy

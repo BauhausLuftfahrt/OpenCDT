@@ -2,8 +2,9 @@ import model.base.ModelContainer
 import model.engineering.Component
 import model.engineering.System
 import model.science.parameter.ParameterFactory
+import net.bhl.cdt.ui.views.modeleditor.ModelStructureEditorLabelProvider
 import net.bhl.cdt.ui.views.modeleditor.ModelStructureTreeView
-import model.science.IParameter
+import org.eclipse.jface.viewers.ILabelProvider
 
 module net.bhl.cdt.ui.view.modelstructuretreeview {
 	parts {
@@ -13,19 +14,8 @@ module net.bhl.cdt.ui.view.modelstructuretreeview {
 		}
 	}
 	
-	labelProvider {
-		text {
-			ModelContainer -> name
-			System -> name
-			Component -> name
-			IParameter -> name
-		}
-		
-		image {
-			ModelContainer -> "component_16x16.png"
-			System -> "component_16x16.png"
-			Component -> "component_16x16.png"
-		}
+	bindings {
+		type ILabelProvider -> ModelStructureEditorLabelProvider
 	}
 
 	viewerContentProvider {

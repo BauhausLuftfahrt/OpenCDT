@@ -20,15 +20,17 @@ Require-Bundle: org.eclipse.core.runtime;bundle-version="3.13.0",
  net.bhl.cdt.model.edit,
  org.eclipse.e4.core.di,
  net.bhl.cdt.connector.stp;bundle-version="1.0.0",
- oida.bridge,
- oida.ontology
+ net.bhl.oida.bridge,
+ net.bhl.oida.ontology,
+ net.bhl.oida.ontology.model;bundle-version="0.1.0",
+ net.bhl.oida.bridge.model;bundle-version="0.1.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.inject;version="1.0.0",
  net.bhl.cdt.util,
  net.bhl.cdt.util.constants,
  net.bhl.cdt.util.ui,
- oida.bridge.ui.e4.part,
- oida.util,
+ net.bhl.oida.bridge.ui.e4.part,
+ net.bhl.oida.util,
  org.apache.commons.logging,
  org.apache.log4j,
  org.eclipse.jface.viewers

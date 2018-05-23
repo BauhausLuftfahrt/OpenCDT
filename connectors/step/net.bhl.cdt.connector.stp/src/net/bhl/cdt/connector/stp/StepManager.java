@@ -26,10 +26,10 @@ import jsdai.lang.SdaiTransaction;
 import model.engineering.Component;
 import model.engineering.EngineeringFactory;
 import net.bhl.cdt.util.constants.StringConstants;
-import oida.bridge.service.OIDABridge;
-import oida.bridge.service.OIDABridgeException;
-import oida.ontology.Ontology;
-import oida.ontology.OntologyClass;
+import net.bhl.oida.bridge.service.OIDABridge;
+import net.bhl.oida.bridge.service.OIDABridgeException;
+import net.bhl.oida.ontology.model.owlontology.Ontology;
+import net.bhl.oida.ontology.model.owlontology.OntologyClass;
 
 /**
  * 
