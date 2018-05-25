@@ -1,5 +1,6 @@
 package net.bhl.cdt.ui.views.modeleditor;
 
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.emf.parsley.ui.provider.ViewerLabelProvider;
 
@@ -20,7 +21,6 @@ public class ModelStructureEditorLabelProvider extends ViewerLabelProvider {
     @Inject
     public ModelStructureEditorLabelProvider(AdapterFactoryLabelProvider delegate) {
 	super(delegate);
-	// TODO Auto-generated constructor stub
     }
 
     public String text(ModelContainer container) {
@@ -42,7 +42,7 @@ public class ModelStructureEditorLabelProvider extends ViewerLabelProvider {
     public String image(Component comp) {
 	if (oidaBridge != null) {
 	    try {
-	    if (oidaBridge.getMapping(oidaBridge.getModelChangeHandler(comp).getOntologyIndividualForModelElement(comp).get()).isPresent())
+	    if (oidaBridge.getMapping(oidaBridge.getModelChangeHandler(EcoreUtil.getRootContainer(comp)).getOntologyIndividualForModelElement(comp).get()).isPresent())
 		return "info_16x16.png";
 	    else
 		return "component_16x16.png";
@@ -54,11 +54,7 @@ public class ModelStructureEditorLabelProvider extends ViewerLabelProvider {
 	    return "component_16x16.png";
     }
     
-    public String system(ModelContainer container) {
-	return "component_16x16.png";
-    }
-    
-    public String image(ModelContainer container) {
+    public String image(model.engineering.System system) {
 	return "component_16x16.png";
     }
 }

@@ -130,6 +130,7 @@ public class ModelStructureEditorPart {
 
 			if (oidaBridge != null) {
 			    oidaBridge.reportModelSelectionChanged(modelResource.getContents().get(0), (EObject)((StructuredSelection)event.getSelection()).getFirstElement());
+			    treeViewer.refresh();
 			}
 		    }
 		});
