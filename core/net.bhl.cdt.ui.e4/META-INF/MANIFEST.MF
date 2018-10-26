@@ -35,5 +35,6 @@ Import-Package: javax.inject;version="1.0.0",
  org.apache.log4j,
  org.eclipse.jface.viewers
 Bundle-ActivationPolicy: lazy
-Export-Package: net.bhl.cdt.ui.view.modelstructuretreeview
+Export-Package: net.bhl.cdt.ui.e4,
+ net.bhl.cdt.ui.view.modelstructuretreeview
 Automatic-Module-Name: net.bhl.cdt.ui

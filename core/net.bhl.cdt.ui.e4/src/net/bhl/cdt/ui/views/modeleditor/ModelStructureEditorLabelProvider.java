@@ -43,7 +43,7 @@ public class ModelStructureEditorLabelProvider extends ViewerLabelProvider {
 	if (oidaBridge != null) {
 	    try {
 	    if (oidaBridge.getMapping(oidaBridge.getModelChangeHandler(EcoreUtil.getRootContainer(comp)).getOntologyIndividualForModelElement(comp).get()).isPresent())
-		return "info_16x16.png";
+		return "component_mapped_16x16.png";
 	    else
 		return "component_16x16.png";
 	    } catch(Exception e) {

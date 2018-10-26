@@ -142,15 +142,13 @@ public class StepManager {
 			    }
 			}
 
-			if (csvEntries.containsKey(partNr))
-			    csvEntries.get(partNr).termFrequency++;
-			else {
+			if (!csvEntries.containsKey(element)) {
 			    CSVEntry entry = new CSVEntry();
 			    entry.componentName = partNr;
 
 			    if (!dictionaryName.equals(StringConstants.EMPTY)) {
 				entry.ontologyClass = dictionaryName;
-				entry.termFrequency = 1;
+				entry.ontologyClassTermFrequency = 1;
 				csvEntries.put(element, entry);
 				mappedEntries++;
 			    } else
@@ -247,22 +245,27 @@ public class StepManager {
     private void setTermFrequencies(EList<Component> components, HashMap<Component, CSVEntry> csvEntries, int i) {
 	for (Component c : components) {
 	    if (csvEntries.containsKey(c)) {
-		int termFrequency = 10 - i;
+		int componentTermFrequency = 10 - i * 2;
+		int entityTermFrequency = 5 - i;
 
-		if (termFrequency < 1)
-		    termFrequency = 1;
+		if (componentTermFrequency < 1)
+		    componentTermFrequency = 1;
+		
+		if (entityTermFrequency < 1)
+		    entityTermFrequency = 1;
 
-		csvEntries.get(c).termFrequency = termFrequency;
-
-		setTermFrequencies(c.getSubComponents(), csvEntries, i + 1);
+		csvEntries.get(c).componentTermFrequency = componentTermFrequency;
+		csvEntries.get(c).ontologyClassTermFrequency = entityTermFrequency;
 	    }
+	    
+	    setTermFrequencies(c.getSubComponents(), csvEntries, i + 1);
 	}
     }
 
     private void exportCSV(HashMap<Component, CSVEntry> csvEntries, String path) throws FileNotFoundException {
 	PrintWriter pw = new PrintWriter(new File(path));
 
-	pw.write("PARTNR;ONTOLOGYENTITYIRI;TERMFREQUENCY;" + StringConstants.NEWLINE);
+	pw.write("PARTNR;ONTOLOGYENTITYIRI;PART_TERMFREQUENCY;ENTITY_TERMFREQUENCY" + StringConstants.NEWLINE);
 
 	for (CSVEntry entry : csvEntries.values()) {
 	    if (!entry.toRemove) {
@@ -272,7 +275,9 @@ public class StepManager {
 		sb.append("liebherr:");
 		sb.append(entry.ontologyClass);
 		sb.append(StringConstants.SEMICOLON);
-		sb.append(entry.termFrequency);
+		sb.append(entry.componentTermFrequency);
+		sb.append(StringConstants.SEMICOLON);
+		sb.append(entry.ontologyClassTermFrequency);
 		sb.append(StringConstants.SEMICOLON);
 		sb.append(StringConstants.NEWLINE);
 
@@ -286,7 +291,8 @@ public class StepManager {
     private class CSVEntry {
 	public String componentName;
 	public String ontologyClass;
-	public int termFrequency;
+	public int componentTermFrequency;
+	public int ontologyClassTermFrequency;
 	public boolean toRemove = false;
 
 	public CSVEntry() {

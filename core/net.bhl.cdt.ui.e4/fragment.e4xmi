@@ -11,11 +11,11 @@
         </children>
         <children xsi:type="basic:PartSashContainer" xmi:id="_e93GgF14EeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.partsashcontainer.1" containerData="75">
           <children xsi:type="basic:PartSashContainer" xmi:id="_NQbMkKNiEeeYzqqOa13GMA" elementId="net.bhl.cdt.ui.partsashcontainer.0" containerData="75" horizontal="true">
-            <children xsi:type="basic:PartStack" xmi:id="_glJ0cF14EeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.perspective.cdtmodelling.partstack.main" containerData="70">
+            <children xsi:type="basic:PartStack" xmi:id="_glJ0cF14EeeE8ZZG_XaDLg" elementId="net.bhl.cdt.ui.e4.perspective.cdtmodelling.partstack.main" containerData="50">
               <tags>editorCategory</tags>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_g1sLkEhsEeid-Z76b0mdkA" elementId="net.bhl.cdt.ui.partsashcontainer.1" containerData="30">
-              <children xsi:type="basic:PartStack" xmi:id="_Ztga4Pa9Eee7T61yjkCqPw" elementId="net.bhl.cdt.ui.partstack.additions.top" containerData="50">
+            <children xsi:type="basic:PartSashContainer" xmi:id="_g1sLkEhsEeid-Z76b0mdkA" elementId="net.bhl.cdt.ui.partsashcontainer.1" containerData="50">
+              <children xsi:type="basic:PartStack" xmi:id="_Ztga4Pa9Eee7T61yjkCqPw" elementId="net.bhl.cdt.ui.partstack.additions.top" toBeRendered="false" visible="false" containerData="50">
                 <children xsi:type="basic:Part" xmi:id="_OuTf0KNiEeeYzqqOa13GMA" elementId="net.bhl.cdt.ui.e4.part.modelelementeditor" toBeRendered="false" visible="false" containerData="" contributionURI="bundleclass://net.bhl.cdt.ui/net.bhl.cdt.ui.e4.parts.modeleditor.ModelElementEditorPart" label="Element Parameters"/>
               </children>
               <children xsi:type="basic:PartStack" xmi:id="_jBmpgEhsEeid-Z76b0mdkA" elementId="net.bhl.cdt.ui.partstack.additions.bottom" containerData="50"/>

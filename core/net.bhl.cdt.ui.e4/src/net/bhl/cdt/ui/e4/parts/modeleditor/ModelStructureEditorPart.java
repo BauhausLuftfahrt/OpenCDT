@@ -16,17 +16,14 @@ import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
-import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
-import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.emf.parsley.edit.ui.dnd.ViewerDragAndDropHelper;
 import org.eclipse.emf.parsley.menus.ViewerContextMenuHelper;
 import org.eclipse.emf.parsley.viewers.ViewerFactory;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -40,14 +37,11 @@ import org.eclipse.swt.widgets.Composite;
 import com.google.inject.Injector;
 
 import net.bhl.cdt.log.service.CDTLogService;
-import net.bhl.cdt.ui.e4.E4ResourceIds;
 import net.bhl.cdt.ui.view.modelstructuretreeview.ModelstructuretreeviewInjectorProvider;
 import net.bhl.cdt.ui.views.modeleditor.ModelStructureEditorLabelProvider;
 import net.bhl.cdt.util.constants.StringConstants;
 import net.bhl.oida.bridge.service.OIDABridge;
 import net.bhl.oida.bridge.service.OIDABridgeException;
-import net.bhl.oida.bridge.ui.e4.part.PrimaryRecommendationsViewPart;
-import net.bhl.oida.bridge.ui.e4.part.RecommendationDetailsPart;
 
 /**
  * 
@@ -105,10 +99,10 @@ public class ModelStructureEditorPart {
 
 		EditingDomain editingDomain = injector.getInstance(EditingDomain.class);
 		ViewerContextMenuHelper contextMenuHelper = injector.getInstance(ViewerContextMenuHelper.class);
-		ViewerDragAndDropHelper dragAndDropHelper = injector.getInstance(ViewerDragAndDropHelper.class);
+		//ViewerDragAndDropHelper dragAndDropHelper = injector.getInstance(ViewerDragAndDropHelper.class);
 
 		contextMenuHelper.addViewerContextMenu(treeViewer, editingDomain);
-		dragAndDropHelper.addDragAndDrop(treeViewer, editingDomain);
+		//dragAndDropHelper.addDragAndDrop(treeViewer, editingDomain);
 
 		treeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
 		    @Override
@@ -139,32 +133,6 @@ public class ModelStructureEditorPart {
 		    if (oidaBridge != null) {
 			oidaBridge.invokeModelObservation(modelResource.getContents().get(0), new File(file.getParent() + OIDA_SUBDIRECTORY),
 				file.getName().replace(StringConstants.DOT, StringConstants.EMPTY).replace(StringConstants.SPACE, StringConstants.EMPTY));
-
-			MPart oidaPrimaryRecommendationPart = partService.findPart(PrimaryRecommendationsViewPart.PART_ID);
-			if (oidaPrimaryRecommendationPart == null) {
-			    oidaPrimaryRecommendationPart = partService.createPart(PrimaryRecommendationsViewPart.PART_ID);
-
-			    MPartStack topPartStack = (MPartStack)modelService.find(E4ResourceIds.PARTSTACK_MODEL_ADDITIONS_TOP, app);
-			    if (topPartStack != null && oidaPrimaryRecommendationPart != null) {
-				topPartStack.getChildren().add(oidaPrimaryRecommendationPart);
-				partService.showPart(oidaPrimaryRecommendationPart, PartState.ACTIVATE);
-			    }
-			} else {
-			    partService.bringToTop(oidaPrimaryRecommendationPart);
-			}
-			
-			MPart recommendationDetailsPart = partService.findPart(RecommendationDetailsPart.PART_ID);
-			if (recommendationDetailsPart == null) {
-			    recommendationDetailsPart = partService.createPart(RecommendationDetailsPart.PART_ID);
-			    
-			    MPartStack bottomPartStack = (MPartStack)modelService.find(E4ResourceIds.PARTSTACK_MODEL_ADDITIONS_BOTTOM, app);
-			    if (bottomPartStack != null && recommendationDetailsPart != null) {
-				bottomPartStack.getChildren().add(recommendationDetailsPart);
-				partService.showPart(recommendationDetailsPart, PartState.ACTIVATE);
-			    }
-			} else {
-			    partService.bringToTop(recommendationDetailsPart);
-			}
 		    }
 		} catch (OIDABridgeException e) {
 		    e.printStackTrace();
