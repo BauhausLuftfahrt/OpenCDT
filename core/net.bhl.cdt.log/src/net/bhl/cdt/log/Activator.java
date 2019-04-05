@@ -16,34 +16,34 @@ import org.osgi.framework.BundleContext;
  */
 public class Activator implements BundleActivator {
 
-    private static CDTLog log;
+	private static CDTLog log;
 
-    public static CDTLog getLog() {
-	if (log == null)
-	    log = new CDTLog();
+	public static CDTLog getLog() {
+		if (log == null)
+			log = new CDTLog();
 
-	return log;
-    }
+		return log;
+	}
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.
-     * BundleContext)
-     */
-    public void start(BundleContext context) throws Exception {
-	context.addBundleListener(getLog());
-	context.addFrameworkListener(getLog());
-	context.addServiceListener(getLog());
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.
+	 * BundleContext)
+	 */
+	public void start(BundleContext context) throws Exception {
+		context.addBundleListener(getLog());
+		context.addFrameworkListener(getLog());
+		context.addServiceListener(getLog());
+	}
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see
-     * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
-     */
-    public void stop(BundleContext context) throws Exception {
-	log.close();
-    }
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
+	 */
+	public void stop(BundleContext context) throws Exception {
+		log.close();
+	}
 }

@@ -5,6 +5,6 @@ Bundle-SymbolicName: net.bhl.cdt.db.model; singleton:=true
 Bundle-Version: 0.1.0.qualifier
 Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.core.runtime,
- net.bhl.cdt.model;bundle-version="0.1.0"
+ net.bhl.cdt.model
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Automatic-Module-Name: net.bhl.cdt.db.model

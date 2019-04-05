@@ -2,7 +2,7 @@
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="CDTAuthServiceContextFunction">
    <property name="service.context.key" value="net.bhl.cdt.core.auth.CDTAuthService"/>
    <service>
-      <provide interface="IContextFunction"/>
+      <provide interface="org.eclipse.e4.core.contexts.IContextFunction"/>
    </service>
    <implementation class="net.bhl.cdt.core.auth.CDTAuthServiceContextFunction"/>
 </scr:component>

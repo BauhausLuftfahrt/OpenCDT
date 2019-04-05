@@ -14,8 +14,8 @@ import org.osgi.framework.FrameworkEvent;
 import org.osgi.framework.FrameworkListener;
 import org.osgi.framework.ServiceEvent;
 import org.osgi.framework.ServiceListener;
+import org.osgi.service.log.LogLevel;
 import org.osgi.service.log.LogListener;
-import org.osgi.service.log.LogService;
 
 import net.bhl.cdt.log.model.LogEntryImpl;
 
@@ -37,9 +37,9 @@ public final class CDTLog implements BundleListener, FrameworkListener, ServiceL
 	}
 
 	public synchronized void addEntry(final LogEntryImpl entry) {
-		if (!storeDebug && entry.getLevel() == LogService.LOG_DEBUG)
+		if (!storeDebug && entry.getLogLevel() == LogLevel.DEBUG)
 			return;
-		
+
 		logEntries.add(entry);
 
 		if (listenerThread != null)
@@ -56,12 +56,11 @@ public final class CDTLog implements BundleListener, FrameworkListener, ServiceL
 	public Iterator<LogEntryImpl> getEntryIterator() {
 		return logEntries.iterator();
 	}
-	
+
 	/**
 	 * Add a listener to the log.
 	 * 
-	 * @param listener
-	 *            the log listener to subscribe
+	 * @param listener the log listener to subscribe
 	 */
 	public synchronized void addListener(final LogListener listener) {
 		if (listenerThread == null) {
@@ -77,8 +76,7 @@ public final class CDTLog implements BundleListener, FrameworkListener, ServiceL
 	/**
 	 * Remove a listener from the log.
 	 * 
-	 * @param listener
-	 *            the log listener to unsubscribe
+	 * @param listener the log listener to unsubscribe
 	 */
 	public synchronized void removeListener(final LogListener listener) {
 		if (listenerThread != null) {
@@ -100,8 +98,7 @@ public final class CDTLog implements BundleListener, FrameworkListener, ServiceL
 	/**
 	 * Called when a framework event occurs.
 	 * 
-	 * @param event
-	 *            the event that occured
+	 * @param event the event that occured
 	 */
 	public void frameworkEvent(final FrameworkEvent event) {
 		int eventType = event.getType();
@@ -113,9 +110,8 @@ public final class CDTLog implements BundleListener, FrameworkListener, ServiceL
 			}
 		}
 
-		addEntry(new LogEntryImpl(event.getBundle(), null,
-				(eventType == FrameworkEvent.ERROR) ? LogService.LOG_ERROR : LogService.LOG_INFO, message,
-				event.getThrowable()));
+		addEntry(new LogEntryImpl(event.getBundle(), message,
+				(eventType == FrameworkEvent.ERROR) ? LogLevel.ERROR : LogLevel.INFO, null, event.getThrowable()));
 	}
 
 	/** The messages returned for the bundle events. */
@@ -126,8 +122,7 @@ public final class CDTLog implements BundleListener, FrameworkListener, ServiceL
 	/**
 	 * Called when a bundle event occurs.
 	 * 
-	 * @param event
-	 *            the event that occured
+	 * @param event the event that occured
 	 */
 	public void bundleChanged(final BundleEvent event) {
 		int eventType = event.getType();
@@ -140,7 +135,7 @@ public final class CDTLog implements BundleListener, FrameworkListener, ServiceL
 		}
 
 		if (message != null) {
-			addEntry(new LogEntryImpl(event.getBundle(), null, LogService.LOG_INFO, message, null));
+			addEntry(new LogEntryImpl(event.getBundle(), message, LogLevel.INFO, null, null));
 		}
 	}
 
@@ -151,8 +146,7 @@ public final class CDTLog implements BundleListener, FrameworkListener, ServiceL
 	/**
 	 * Called when a service event occurs.
 	 * 
-	 * @param event
-	 *            the event that occured
+	 * @param event the event that occured
 	 */
 	public void serviceChanged(final ServiceEvent event) {
 		int eventType = event.getType();
@@ -164,7 +158,8 @@ public final class CDTLog implements BundleListener, FrameworkListener, ServiceL
 			}
 		}
 
-		addEntry(new LogEntryImpl(event.getServiceReference().getBundle(), event.getServiceReference(),
-				(eventType == ServiceEvent.MODIFIED) ? LogService.LOG_DEBUG : LogService.LOG_INFO, message, null));
+		addEntry(new LogEntryImpl(event.getServiceReference().getBundle(), message,
+				(eventType == ServiceEvent.MODIFIED) ? LogLevel.ERROR : LogLevel.INFO, event.getServiceReference(),
+				null));
 	}
 }

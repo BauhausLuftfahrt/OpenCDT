@@ -10,7 +10,7 @@ Require-Bundle: javax.inject,
  org.eclipse.e4.ui.services,
  org.eclipse.e4.core.di.annotations
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Import-Package: javax.annotation;version="1.2.0"
+Import-Package: javax.annotation
 Bundle-ClassPath: lib/jmatio.jar,
  .
 Automatic-Module-Name: net.bhl.cdt.connector.mat

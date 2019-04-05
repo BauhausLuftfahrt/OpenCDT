@@ -30,12 +30,11 @@
    <plugins>
       <plugin id="com.google.guava"/>
       <plugin id="com.google.inject"/>
-      <plugin id="com.google.inject.assistedinject" fragment="true"/>
-      <plugin id="com.google.inject.multibindings" fragment="true"/>
       <plugin id="com.ibm.icu"/>
       <plugin id="javax.annotation"/>
       <plugin id="javax.inject"/>
       <plugin id="javax.servlet"/>
+      <plugin id="javax.transaction" fragment="true"/>
       <plugin id="javax.xml"/>
       <plugin id="net.bhl.cdt.client.e4"/>
       <plugin id="net.bhl.cdt.connector.stp"/>
@@ -64,7 +63,9 @@
       <plugin id="net.jsdai.apache"/>
       <plugin id="net.jsdai.runtime"/>
       <plugin id="net.jsdai.xim.jlib"/>
+      <plugin id="org.apache.batik.constants"/>
       <plugin id="org.apache.batik.css"/>
+      <plugin id="org.apache.batik.i18n"/>
       <plugin id="org.apache.batik.util"/>
       <plugin id="org.apache.commons.fileupload"/>
       <plugin id="org.apache.commons.io"/>
@@ -75,6 +76,7 @@
       <plugin id="org.apache.felix.gogo.runtime"/>
       <plugin id="org.apache.felix.scr"/>
       <plugin id="org.apache.log4j"/>
+      <plugin id="org.apache.xmlgraphics"/>
       <plugin id="org.eclipse.core.commands"/>
       <plugin id="org.eclipse.core.contenttype"/>
       <plugin id="org.eclipse.core.databinding"/>
@@ -158,15 +160,7 @@
       <plugin id="org.eclipse.osgi.compatibility.state" fragment="true"/>
       <plugin id="org.eclipse.osgi.services"/>
       <plugin id="org.eclipse.osgi.util"/>
-      <plugin id="org.eclipse.rap.filedialog"/>
-      <plugin id="org.eclipse.rap.fileupload"/>
-      <plugin id="org.eclipse.rap.jface"/>
-      <plugin id="org.eclipse.rap.jface.databinding"/>
-      <plugin id="org.eclipse.rap.rwt"/>
-      <plugin id="org.eclipse.rap.rwt.osgi"/>
-      <plugin id="org.eclipse.rap.ui"/>
-      <plugin id="org.eclipse.rap.ui.views"/>
-      <plugin id="org.eclipse.rap.ui.workbench"/>
+      <plugin id="org.eclipse.pde.ds.lib"/>
       <plugin id="org.eclipse.swt"/>
       <plugin id="org.eclipse.swt.cocoa.macosx.x86_64" fragment="true"/>
       <plugin id="org.eclipse.swt.gtk.linux.ppc64" fragment="true"/>
@@ -182,12 +176,15 @@
       <plugin id="org.eclipse.ui.workbench"/>
       <plugin id="org.eclipse.xtext.logging" fragment="true"/>
       <plugin id="org.eclipse.xtext.xbase.lib"/>
-      <plugin id="org.hamcrest.core"/>
-      <plugin id="org.junit"/>
       <plugin id="org.w3c.css.sac"/>
+      <plugin id="org.w3c.dom.events"/>
+      <plugin id="org.w3c.dom.smil"/>
+      <plugin id="org.w3c.dom.svg"/>
+      <plugin id="org.w3c.dom.svg.extension" fragment="true"/>
    </plugins>
 
    <configurations>
+      <plugin id="net.bhl.cdt.log" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />

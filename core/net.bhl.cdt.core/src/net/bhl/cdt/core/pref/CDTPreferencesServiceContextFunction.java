@@ -20,15 +20,15 @@ import org.osgi.service.component.annotations.Component;
  */
 @Component(name = "CDTPreferencesServiceContextFunction", service = IContextFunction.class, property = "service.context.key=net.bhl.cdt.core.pref.CDTPreferencesService")
 public class CDTPreferencesServiceContextFunction extends ContextFunction {
-    @Override
-    public Object compute(IEclipseContext context, String contextKey) {
-	CDTPreferencesService prevService = ContextInjectionFactory.make(CDTPreferencesService.class, context);
-	prevService.initialize();
+	@Override
+	public Object compute(IEclipseContext context, String contextKey) {
+		CDTPreferencesService prevService = ContextInjectionFactory.make(CDTPreferencesService.class, context);
+		prevService.initialize();
 
-	MApplication app = context.get(MApplication.class);
-	IEclipseContext appCtx = app.getContext();
-	appCtx.set(CDTPreferencesService.class, prevService);
+		MApplication app = context.get(MApplication.class);
+		IEclipseContext appCtx = app.getContext();
+		appCtx.set(CDTPreferencesService.class, prevService);
 
-	return prevService;
-    }
+		return prevService;
+	}
 }

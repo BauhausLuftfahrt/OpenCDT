@@ -9,6 +9,7 @@ import java.util.Enumeration;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.osgi.service.log.LogEntry;
 import org.osgi.service.log.LogListener;
 import org.osgi.service.log.LogReaderService;
 
@@ -39,7 +40,7 @@ public final class CDTLogReaderService implements LogReaderService {
     }
 
     @Override
-    public Enumeration<?> getLog() {
+    public Enumeration<LogEntry> getLog() {
 	return new LogEntryEnumeration(log.getEntryIterator());
     }
 

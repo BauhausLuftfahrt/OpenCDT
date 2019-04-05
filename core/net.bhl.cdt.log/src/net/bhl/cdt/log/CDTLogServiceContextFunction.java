@@ -24,18 +24,18 @@ import net.bhl.cdt.log.service.internal.CDTLogServiceFactory;
  */
 @Component(name = "CDTLogServiceContextFunction", service = IContextFunction.class, property = "service.context.key=net.bhl.cdt.log.service.CDTLogService")
 public class CDTLogServiceContextFunction extends ContextFunction {
-    @Override
-    public Object compute(IEclipseContext context, String contextKey) {
-	CDTLogService logService = new CDTLogService(Activator.getLog(), FrameworkUtil.getBundle(this.getClass()));
+	@Override
+	public Object compute(IEclipseContext context, String contextKey) {
+		CDTLogService logService = new CDTLogService(Activator.getLog(), FrameworkUtil.getBundle(this.getClass()));
 
-	// MApplication app = context.get(MApplication.class);
-	// IEclipseContext appCtx = app.getContext();
-	// appCtx.set(CDTLogService.class, logService);
+		// MApplication app = context.get(MApplication.class);
+		// IEclipseContext appCtx = app.getContext();
+		// appCtx.set(CDTLogService.class, logService);
 
-	Bundle bundle = FrameworkUtil.getBundle(this.getClass());
-	BundleContext bundleContext = bundle.getBundleContext();
-	bundleContext.registerService(CDTLogService.class.getName(), new CDTLogServiceFactory(Activator.getLog()), null);
+		Bundle bundle = FrameworkUtil.getBundle(this.getClass());
+		BundleContext bundleContext = bundle.getBundleContext();
+		bundleContext.registerService(CDTLogService.class.getName(), new CDTLogServiceFactory(Activator.getLog()), null);
 
-	return logService;
-    }
+		return logService;
+	}
 }

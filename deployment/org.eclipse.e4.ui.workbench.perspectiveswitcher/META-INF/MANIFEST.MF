@@ -14,15 +14,21 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.e4.ui.services,
  org.eclipse.e4.core.di.extensions,
  org.eclipse.osgi,
+ org.eclipse.swt,
+ org.eclipse.core.commands,
  org.eclipse.jface
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.annotation,
  javax.inject,
  org.eclipse.emf.common.util,
+ org.eclipse.jface.dialogs,
+ org.eclipse.jface.viewers,
+ org.eclipse.swt.graphics,
  org.osgi.service.event
 Export-Package: org.eclipse.e4.ui.workbench.perspectiveswitcher.commands,
  org.eclipse.e4.ui.workbench.perspectiveswitcher.handlers,
  org.eclipse.e4.ui.workbench.perspectiveswitcher.tools
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
+Automatic-Module-Name: org.eclipse.e4.ui.workbench.perspectiveswitcher
