@@ -7,7 +7,9 @@ package net.bhl.cdt.core.log.service;
 
 import org.osgi.framework.Bundle;
 import org.osgi.framework.ServiceReference;
+import org.osgi.service.log.LogLevel;
 import org.osgi.service.log.LogService;
+import org.osgi.service.log.Logger;
 
 import net.bhl.cdt.core.log.CDTLog;
 import net.bhl.cdt.core.log.model.LogEntryImpl;
@@ -39,35 +41,78 @@ public class CDTLogService implements LogService {
 		log(null, level, message, exception);
 	}
 
-	@SuppressWarnings("rawtypes")
 	@Override
-	public void log(ServiceReference sr, int level, String message) {
+	public void log(ServiceReference<?> sr, int level, String message) {
 		log(sr, level, message, null);
 	}
 
-	@SuppressWarnings("rawtypes")
 	@Override
-	public void log(ServiceReference sr, int level, String message, Throwable exception) {
-		cdtLog.addEntry(new LogEntryImpl((sr != null) ? sr.getBundle() : bundle, sr, level, message, exception));
+	public void log(ServiceReference<?> sr, int level, String message, Throwable exception) {
+		LogLevel logLevel;
+		
+		if (level == LogLevel.AUDIT.ordinal())
+			logLevel = LogLevel.AUDIT;
+		else if (level == LogLevel.DEBUG.ordinal())
+			logLevel = LogLevel.DEBUG;
+		else if (level == LogLevel.ERROR.ordinal())
+			logLevel = LogLevel.ERROR;
+		else if (level == LogLevel.INFO.ordinal())
+			logLevel = LogLevel.INFO;
+		else if (level == LogLevel.TRACE.ordinal())
+			logLevel = LogLevel.TRACE;
+		else
+			logLevel = LogLevel.WARN;
+
+		cdtLog.addEntry(new LogEntryImpl((sr != null) ? sr.getBundle() : bundle, message, logLevel, sr, exception));
 	}
 
 	public void info(String message) {
-		log(LogService.LOG_INFO, message);
+		log(LogLevel.INFO.ordinal(), message);
 	}
 
 	public void warning(String message) {
-		log(LogService.LOG_WARNING, message);
+		log(LogLevel.WARN.ordinal(), message);
 	}
 
 	public void warning(String message, Throwable exception) {
-		log(null, LogService.LOG_WARNING, message, exception);
+		log(null, LogLevel.WARN.ordinal(), message, exception);
 	}
 
 	public void error(String message) {
-		log(LogService.LOG_ERROR, message);
+		log(LogLevel.ERROR.ordinal(), message);
 	}
 
 	public void error(String message, Throwable exception) {
-		log(null, LogService.LOG_ERROR, message, exception);
+		log(null, LogLevel.ERROR.ordinal(), message, exception);
+	}
+
+	@Override
+	public Logger getLogger(String name) {
+	    // TODO Auto-generated method stub
+	    return null;
+	}
+
+	@Override
+	public Logger getLogger(Class<?> clazz) {
+	    // TODO Auto-generated method stub
+	    return null;
+	}
+
+	@Override
+	public <L extends Logger> L getLogger(String name, Class<L> loggerType) {
+	    // TODO Auto-generated method stub
+	    return null;
+	}
+
+	@Override
+	public <L extends Logger> L getLogger(Class<?> clazz, Class<L> loggerType) {
+	    // TODO Auto-generated method stub
+	    return null;
+	}
+
+	@Override
+	public <L extends Logger> L getLogger(Bundle bundle, String name, Class<L> loggerType) {
+	    // TODO Auto-generated method stub
+	    return null;
 	}
 }
